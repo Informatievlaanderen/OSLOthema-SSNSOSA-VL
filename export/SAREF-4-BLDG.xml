@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:31">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_2B43DE91_F53E_4dde_99F0_BE276FBA7141">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="SAREF-4-BLDG" xmi.id="EAPK_2B43DE91_F53E_4dde_99F0_BE276FBA7141" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="34"/>
+						<UML:TaggedValue tag="created" value="2025-09-15 10:03:49"/>
+						<UML:TaggedValue tag="modified" value="2025-09-15 10:03:49"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\SAREF-4-BLDG.xml"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:30"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="24"/>
+						<UML:TaggedValue tag="packageFlags" value="isModel=1;VICON=3;Recurse=1;CRC=0;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="vanassdy"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="24"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="Stopcontact" xmi.id="EAID_5B562859_ECE2_4372_AAB3_E7F7CEDA78ED" visibility="public" namespace="EAPK_2B43DE91_F53E_4dde_99F0_BE276FBA7141" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_2B43DE91_F53E_4dde_99F0_BE276FBA7141"/>
+								<UML:TaggedValue tag="date_created" value="2025-04-10 11:48:00"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-15 10:03:53"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="SAREF-4-BLDG"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="125"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Class>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="baseURI" xmi.id="EAID_04A38350_2F57_4daa_A89F_D7106CEA9EC5" value="https://saref.etsi.org/saref4bldg/" modelElement="MX_EAID_2B43DE91_F53E_4dde_99F0_BE276FBA7141"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_51E8F14E_FD30_4d9f_A928_C8AC1ACA1EBA" value="Stopcontact" modelElement="EAID_5B562859_ECE2_4372_AAB3_E7F7CEDA78ED"/>
+		<UML:TaggedValue tag="definition-nl" xmi.id="EAID_5123CAAF_D0DC_4f17_A2DC_02E4C090720E" value="Een stopcontact is apparaat waar één of meerdere stekkers ingeplugd kunnen worden voor elektrische stroom of communicatie." modelElement="EAID_5B562859_ECE2_4372_AAB3_E7F7CEDA78ED"/>
+		<UML:TaggedValue tag="label-nl" xmi.id="EAID_AC98BB76_3CF7_4c6b_A27B_A2CDA166C4DE" value="Stopcontact" modelElement="EAID_5B562859_ECE2_4372_AAB3_E7F7CEDA78ED"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_4DA3ABBC_1A56_4c42_93D4_9F96D44E7CAC" value="https://saref.etsi.org/saref4bldg/Outlet" modelElement="EAID_5B562859_ECE2_4372_AAB3_E7F7CEDA78ED"/>
+		<UML:DiagramElement geometry="Left=606;Top=334;Right=696;Bottom=404;" subject="EAID_5B562859_ECE2_4372_AAB3_E7F7CEDA78ED" seqno="7" style="DUID=15B3C527;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5"/>
+</XMI>

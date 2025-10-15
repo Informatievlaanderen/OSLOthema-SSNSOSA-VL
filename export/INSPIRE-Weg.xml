@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:29">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_A56C1137_46A2_4dd0_8A34_9A79178C71EA">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="INSPIRE-Weg" xmi.id="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="50"/>
+						<UML:TaggedValue tag="created" value="2025-05-12 17:23:33"/>
+						<UML:TaggedValue tag="modified" value="2025-05-12 17:23:33"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\INSPIRE-Weg.xml"/>
+						<UML:TaggedValue tag="lastloaddate" value="2025-05-12 17:23:33"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:29"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="27"/>
+						<UML:TaggedValue tag="packageFlags" value="CRC=0;VICON=6;Recurse=1;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="thijsge"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="27"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="Wegobject" xmi.id="EAID_06C6B14F_DAB1_437d_BFCA_01DD29C61429" visibility="public" namespace="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA" isRoot="false" isLeaf="false" isAbstract="true" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA"/>
+								<UML:TaggedValue tag="date_created" value="2025-05-12 17:23:33"/>
+								<UML:TaggedValue tag="date_modified" value="2025-05-12 17:23:33"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="INSPIRE-Weg"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="alias" value="RoadObject"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="product_name" value="Java"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="169"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Class>
+						<UML:Generalization subtype="EAID_9D351C2E_E72E_4e68_BD0C_1C57E3AE9359" supertype="EAID_06C6B14F_DAB1_437d_BFCA_01DD29C61429" xmi.id="EAID_8923303D_9AC2_49a2_8951_4CE6523B62F4" visibility="public">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Generalization"/>
+								<UML:TaggedValue tag="direction" value="Source -&gt; Destination"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="85"/>
+								<UML:TaggedValue tag="ea_sourceName" value="Weglinksequentie"/>
+								<UML:TaggedValue tag="ea_targetName" value="Wegobject"/>
+								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
+								<UML:TaggedValue tag="ea_targetType" value="Class"/>
+								<UML:TaggedValue tag="ea_sourceID" value="168"/>
+								<UML:TaggedValue tag="ea_targetID" value="169"/>
+								<UML:TaggedValue tag="src_visibility" value="Public"/>
+								<UML:TaggedValue tag="src_aggregation" value="0"/>
+								<UML:TaggedValue tag="src_isOrdered" value="false"/>
+								<UML:TaggedValue tag="src_targetScope" value="instance"/>
+								<UML:TaggedValue tag="src_changeable" value="none"/>
+								<UML:TaggedValue tag="src_isNavigable" value="false"/>
+								<UML:TaggedValue tag="src_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="src_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="dst_visibility" value="Public"/>
+								<UML:TaggedValue tag="dst_aggregation" value="0"/>
+								<UML:TaggedValue tag="dst_isOrdered" value="false"/>
+								<UML:TaggedValue tag="dst_targetScope" value="instance"/>
+								<UML:TaggedValue tag="dst_changeable" value="none"/>
+								<UML:TaggedValue tag="dst_isNavigable" value="true"/>
+								<UML:TaggedValue tag="dst_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="dst_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="privatedata5" value="SX=0;SY=0;EDGE=1;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Generalization>
+						<UML:Generalization subtype="EAID_D51969F5_A4E4_44e6_8474_6061BCE9745F" supertype="EAID_06C6B14F_DAB1_437d_BFCA_01DD29C61429" xmi.id="EAID_A86EC401_000E_4f5b_A2EA_5748FB792AAC" visibility="public">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Generalization"/>
+								<UML:TaggedValue tag="direction" value="Source -&gt; Destination"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="87"/>
+								<UML:TaggedValue tag="ea_sourceName" value="Wegknoop"/>
+								<UML:TaggedValue tag="ea_targetName" value="Wegobject"/>
+								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
+								<UML:TaggedValue tag="ea_targetType" value="Class"/>
+								<UML:TaggedValue tag="ea_sourceID" value="167"/>
+								<UML:TaggedValue tag="ea_targetID" value="169"/>
+								<UML:TaggedValue tag="src_visibility" value="Public"/>
+								<UML:TaggedValue tag="src_aggregation" value="0"/>
+								<UML:TaggedValue tag="src_isOrdered" value="false"/>
+								<UML:TaggedValue tag="src_targetScope" value="instance"/>
+								<UML:TaggedValue tag="src_changeable" value="none"/>
+								<UML:TaggedValue tag="src_isNavigable" value="false"/>
+								<UML:TaggedValue tag="src_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="src_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="dst_visibility" value="Public"/>
+								<UML:TaggedValue tag="dst_aggregation" value="0"/>
+								<UML:TaggedValue tag="dst_isOrdered" value="false"/>
+								<UML:TaggedValue tag="dst_targetScope" value="instance"/>
+								<UML:TaggedValue tag="dst_changeable" value="none"/>
+								<UML:TaggedValue tag="dst_isNavigable" value="true"/>
+								<UML:TaggedValue tag="dst_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="dst_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="privatedata5" value="EDGE=1;SX=1;SY=0;EX=1;EY=0;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Generalization>
+						<UML:Generalization subtype="EAID_34B42D79_C9DB_4a9e_BE8B_0BCAEAA60FA4" supertype="EAID_06C6B14F_DAB1_437d_BFCA_01DD29C61429" xmi.id="EAID_C7B26E28_A513_4ce5_B818_4083D27DF00A" visibility="public">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Generalization"/>
+								<UML:TaggedValue tag="direction" value="Source -&gt; Destination"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="84"/>
+								<UML:TaggedValue tag="ea_sourceName" value="Wegsegment"/>
+								<UML:TaggedValue tag="ea_targetName" value="Wegobject"/>
+								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
+								<UML:TaggedValue tag="ea_targetType" value="Class"/>
+								<UML:TaggedValue tag="ea_sourceID" value="170"/>
+								<UML:TaggedValue tag="ea_targetID" value="169"/>
+								<UML:TaggedValue tag="src_visibility" value="Public"/>
+								<UML:TaggedValue tag="src_aggregation" value="0"/>
+								<UML:TaggedValue tag="src_isOrdered" value="false"/>
+								<UML:TaggedValue tag="src_targetScope" value="instance"/>
+								<UML:TaggedValue tag="src_changeable" value="none"/>
+								<UML:TaggedValue tag="src_isNavigable" value="false"/>
+								<UML:TaggedValue tag="src_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="src_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="dst_visibility" value="Public"/>
+								<UML:TaggedValue tag="dst_aggregation" value="0"/>
+								<UML:TaggedValue tag="dst_isOrdered" value="false"/>
+								<UML:TaggedValue tag="dst_targetScope" value="instance"/>
+								<UML:TaggedValue tag="dst_changeable" value="none"/>
+								<UML:TaggedValue tag="dst_isNavigable" value="true"/>
+								<UML:TaggedValue tag="dst_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="dst_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="privatedata5" value="SX=0;SY=0;EDGE=1;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Generalization>
+						<UML:Class name="Lengte" xmi.id="EAID_1E4EB01C_7643_4dea_9A33_754B9CA6ACB5" visibility="public" namespace="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA"/>
+								<UML:TaggedValue tag="date_created" value="2025-09-16 09:22:24"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-16 09:22:24"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="INSPIRE-Weg"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="vanassdy"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="301"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{067854DD-1790-4732-933E-338ED415AFF3},{F527CC46-0B04-42de-B7E9-277804933912},{2CF915F6-F61D-4062-AC3F-E4AF9FB82AA4}"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Class>
+						<UML:Generalization subtype="EAID_1E4EB01C_7643_4dea_9A33_754B9CA6ACB5" supertype="EAID_4FCECAE2_D247_43dc_B52B_437D5F0C684C" xmi.id="EAID_98B6923E_247D_4d1f_BD3A_03D0593ABE4D" visibility="public">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Generalization"/>
+								<UML:TaggedValue tag="direction" value="Source -&gt; Destination"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="206"/>
+								<UML:TaggedValue tag="ea_sourceName" value="Lengte"/>
+								<UML:TaggedValue tag="ea_targetName" value="Meting"/>
+								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
+								<UML:TaggedValue tag="ea_targetType" value="Class"/>
+								<UML:TaggedValue tag="ea_sourceID" value="301"/>
+								<UML:TaggedValue tag="ea_targetID" value="302"/>
+								<UML:TaggedValue tag="src_visibility" value="Public"/>
+								<UML:TaggedValue tag="src_aggregation" value="0"/>
+								<UML:TaggedValue tag="src_isOrdered" value="false"/>
+								<UML:TaggedValue tag="src_targetScope" value="instance"/>
+								<UML:TaggedValue tag="src_changeable" value="none"/>
+								<UML:TaggedValue tag="src_isNavigable" value="false"/>
+								<UML:TaggedValue tag="src_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="src_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="dst_visibility" value="Public"/>
+								<UML:TaggedValue tag="dst_aggregation" value="0"/>
+								<UML:TaggedValue tag="dst_isOrdered" value="false"/>
+								<UML:TaggedValue tag="dst_targetScope" value="instance"/>
+								<UML:TaggedValue tag="dst_changeable" value="none"/>
+								<UML:TaggedValue tag="dst_isNavigable" value="true"/>
+								<UML:TaggedValue tag="dst_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="dst_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="privatedata5" value="SX=0;SY=0;EX=0;EY=0;EDGE=1;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Generalization>
+						<UML:Class name="Wegsegment" xmi.id="EAID_34B42D79_C9DB_4a9e_BE8B_0BCAEAA60FA4" visibility="public" namespace="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA"/>
+								<UML:TaggedValue tag="date_created" value="2025-05-12 17:23:33"/>
+								<UML:TaggedValue tag="date_modified" value="2025-05-12 17:23:33"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="INSPIRE-Weg"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="alias" value="RoadSegment"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="170"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="^geometriemiddenlijn" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="EAID_31829743_36A7_4bbe_9420_0CCF75EE63AD"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LijnString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{BE34EAE7-E175-4166-BEF3-0263AF3C3236}"/>
+										<UML:TaggedValue tag="ea_localid" value="130"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="style" value="geometryCenterline"/>
+										<UML:TaggedValue tag="ap-label-nl" value="geometriemiddenlijn" xmi.id="EAID_69CE64E1_3797_4849_B16C_C1E13ACDB080"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Geometrie van de midellijn van het Wegsegment." xmi.id="EAID_0714DA1B_FD6C_4386_ABC6_347332A74568"/>
+										<UML:TaggedValue tag="uri" value="https://data.vlaanderen.be/ns/netwerk#Link.geometriemiddellijn" xmi.id="EAID_3FED9601_DE83_4e5c_B76B_F73A7C76B3FD"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+						<UML:Association xmi.id="EAID_AD590396_AA8A_4e35_B424_611BC298383B" visibility="public" isRoot="false" isLeaf="false" isAbstract="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Association"/>
+								<UML:TaggedValue tag="direction" value="Unspecified"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="86"/>
+								<UML:TaggedValue tag="ea_sourceName" value="Wegsegment"/>
+								<UML:TaggedValue tag="ea_targetName" value="Wegknoop"/>
+								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
+								<UML:TaggedValue tag="ea_targetType" value="Class"/>
+								<UML:TaggedValue tag="ea_sourceID" value="170"/>
+								<UML:TaggedValue tag="ea_targetID" value="167"/>
+								<UML:TaggedValue tag="privatedata5" value="SX=2;SY=20;EX=2;EY=20;EDGE=2;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+								<UML:TaggedValue tag="rb" value="0..*"/>
+								<UML:TaggedValue tag="rt" value="+^eindknoop"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Association.connection>
+								<UML:AssociationEnd visibility="public" aggregation="none" isOrdered="false" targetScope="instance" changeable="none" isNavigable="true" type="EAID_34B42D79_C9DB_4a9e_BE8B_0BCAEAA60FA4">
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="containment" value="Unspecified"/>
+										<UML:TaggedValue tag="sourcestyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+										<UML:TaggedValue tag="ea_end" value="source"/>
+									</UML:ModelElement.taggedValue>
+								</UML:AssociationEnd>
+								<UML:AssociationEnd visibility="public" multiplicity="0..*" name="^eindknoop" aggregation="none" isOrdered="false" targetScope="instance" changeable="none" isNavigable="true" type="EAID_D51969F5_A4E4_44e6_8474_6061BCE9745F">
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="containment" value="Unspecified"/>
+										<UML:TaggedValue tag="deststyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;alias=endNode;"/>
+										<UML:TaggedValue tag="ea_end" value="target"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Knoop die het einde is van het Wegsegment." xmi.id="EAID_B8BC470C_FF9B_40e3_A8C2_5B7B73D90A46"/>
+										<UML:TaggedValue tag="label-nl" value="eindknoop" xmi.id="EAID_0CE74DFD_B9C3_4891_B5FD_3BBA3D6448F6"/>
+										<UML:TaggedValue tag="ap-label-nl" value="eindknoop" xmi.id="EAID_F5596987_75AB_4983_9A0A_992D35846C86"/>
+										<UML:TaggedValue tag="uri" value="https://data.vlaanderen.be/ns/netwerk#eindknoop" xmi.id="EAID_606CACDB_6D62_4284_9B4D_B2579114050D"/>
+										<UML:TaggedValue tag="ap-label-en" value="endNode" xmi.id="EAID_63E45938_3141_410f_A74F_24D55894A29F"/>
+										<UML:TaggedValue tag="ap-definition-en" value="Node that is the end of the RoadSegment." xmi.id="EAID_9874A3CC_9EB8_4b7b_9D13_D91AD0D7F017"/>
+										<UML:TaggedValue tag="definition-nl" value="Knoop die het einde is van het Wegsegment." xmi.id="EAID_09D71B74_8842_4896_AD17_77FE55387514"/>
+									</UML:ModelElement.taggedValue>
+								</UML:AssociationEnd>
+							</UML:Association.connection>
+						</UML:Association>
+						<UML:Association xmi.id="EAID_D36C701F_CB98_4f63_89F2_BB93C09ABDF6" visibility="public" isRoot="false" isLeaf="false" isAbstract="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Association"/>
+								<UML:TaggedValue tag="direction" value="Unspecified"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="88"/>
+								<UML:TaggedValue tag="ea_sourceName" value="Wegsegment"/>
+								<UML:TaggedValue tag="ea_targetName" value="Wegknoop"/>
+								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
+								<UML:TaggedValue tag="ea_targetType" value="Class"/>
+								<UML:TaggedValue tag="ea_sourceID" value="170"/>
+								<UML:TaggedValue tag="ea_targetID" value="167"/>
+								<UML:TaggedValue tag="privatedata5" value="SX=-8;SY=-18;EX=-8;EY=-18;EDGE=2;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+								<UML:TaggedValue tag="rb" value="0..*"/>
+								<UML:TaggedValue tag="rt" value="+^beginknoop"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Association.connection>
+								<UML:AssociationEnd visibility="public" aggregation="none" isOrdered="false" targetScope="instance" changeable="none" isNavigable="true" type="EAID_34B42D79_C9DB_4a9e_BE8B_0BCAEAA60FA4">
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="containment" value="Unspecified"/>
+										<UML:TaggedValue tag="sourcestyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+										<UML:TaggedValue tag="ea_end" value="source"/>
+									</UML:ModelElement.taggedValue>
+								</UML:AssociationEnd>
+								<UML:AssociationEnd visibility="public" multiplicity="0..*" name="^beginknoop" aggregation="none" isOrdered="false" targetScope="instance" changeable="none" isNavigable="true" type="EAID_D51969F5_A4E4_44e6_8474_6061BCE9745F">
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="containment" value="Unspecified"/>
+										<UML:TaggedValue tag="deststyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;alias=startNode;"/>
+										<UML:TaggedValue tag="ea_end" value="target"/>
+										<UML:TaggedValue tag="definition-nl" value="Knoop die het begin is van het Wegsegment." xmi.id="EAID_9E3FA502_B30C_4e5a_A67D_673F38A84109"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Knoop die het begin is van het Wegsegment." xmi.id="EAID_0599ABEB_0773_441c_972C_8009CF904BC5"/>
+										<UML:TaggedValue tag="label-nl" value="beginknoop" xmi.id="EAID_A2DB4790_8889_40a3_A752_B9C0F0C9CE8F"/>
+										<UML:TaggedValue tag="ap-label-nl" value="beginknoop" xmi.id="EAID_6BFE5CCD_74C5_4f13_BF4D_CB13B8F55137"/>
+										<UML:TaggedValue tag="uri" value="https://data.vlaanderen.be/ns/netwerk/#beginknoop" xmi.id="EAID_21D9DD02_F50B_4b0b_BA4A_A0A4700973CD"/>
+										<UML:TaggedValue tag="ap-label-en" value="startNode" xmi.id="EAID_1C6D8967_FE11_4297_8AE9_85733C15380E"/>
+										<UML:TaggedValue tag="ap-definition-en" value="Node that is the start of the RoadSegment." xmi.id="EAID_E55AFE4D_6DF9_4085_BA2E_C1CA4B6E5464"/>
+									</UML:ModelElement.taggedValue>
+								</UML:AssociationEnd>
+							</UML:Association.connection>
+						</UML:Association>
+						<UML:Class name="Meting" xmi.id="EAID_4FCECAE2_D247_43dc_B52B_437D5F0C684C" visibility="public" namespace="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA"/>
+								<UML:TaggedValue tag="date_created" value="2025-09-16 09:22:31"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-16 09:22:31"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="INSPIRE-Weg"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="vanassdy"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="302"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Class>
+						<UML:Class name="Weglinksequentie" xmi.id="EAID_9D351C2E_E72E_4e68_BD0C_1C57E3AE9359" visibility="public" namespace="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA"/>
+								<UML:TaggedValue tag="date_created" value="2025-05-12 17:23:33"/>
+								<UML:TaggedValue tag="date_modified" value="2025-05-12 17:23:33"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="INSPIRE-Weg"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="alias" value="RoadLinkSequence"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="product_name" value="Java"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="168"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="^link" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="GerichteLink"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="1"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="*"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{BD0040DE-8533-4c17-9727-E37FE21D5A82}"/>
+										<UML:TaggedValue tag="ea_localid" value="129"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="style" value="link"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="GerichteLink die deel uitmaakt van de Linksequentie." xmi.id="EAID_AFEFD036_EA4A_446d_835A_E7DF4751CE1E"/>
+										<UML:TaggedValue tag="ap-label-nl" value="link" xmi.id="EAID_3D0E69B5_F33D_45fc_9255_BB1DE876B473"/>
+										<UML:TaggedValue tag="uri" value="https://data.vlaanderen.be/ns/netwerk#Linksequentie.link" xmi.id="EAID_EBAF9329_1523_4cf8_8426_AE92A4DE68C4"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+						<UML:Class name="Wegknoop" xmi.id="EAID_D51969F5_A4E4_44e6_8474_6061BCE9745F" visibility="public" namespace="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_A56C1137_46A2_4dd0_8A34_9A79178C71EA"/>
+								<UML:TaggedValue tag="date_created" value="2025-05-12 17:23:33"/>
+								<UML:TaggedValue tag="date_modified" value="2025-05-12 17:23:33"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="INSPIRE-Weg"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="alias" value="RoadNode"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="167"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="^geometrie" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Punt"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{20AC7B44-0745-4b36-8572-DE82A272EEAB}"/>
+										<UML:TaggedValue tag="ea_localid" value="128"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="style" value="geometry"/>
+										<UML:TaggedValue tag="uri" value="https://data.vlaanderen.be/ns/netwerk#Knoop.geometrie" xmi.id="EAID_3B5AE09C_59D5_49c4_8F73_798E49B61EE3"/>
+										<UML:TaggedValue tag="ap-label-nl" value="geometrie" xmi.id="EAID_4B4354EE_7CA1_4556_9223_73F3D9A93570"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Locatie van de Knoop." xmi.id="EAID_42FF304C_9CCF_4df7_841D_D2192508E305"/>
+										<UML:TaggedValue tag="ap-usageNote-nl" value="Weergegeven door een Punt." xmi.id="EAID_9C1E08DC_B496_445f_93F5_E10D63EAD445"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+				<UML:DataType xmi.id="eaxmiid1" name="Punt" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid0" name="GerichteLink" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="baseURI" xmi.id="EAID_752AB8C1_D772_4303_969F_965E3D5C0432" value="https://data.vlaanderen.be/ns/weg#" modelElement="MX_EAID_A56C1137_46A2_4dd0_8A34_9A79178C71EA"/>
+		<UML:TaggedValue tag="definition-nl" xmi.id="EAID_21A7C1A4_2C82_425a_B48E_13FBB0006F1B" value="Object dat een onderdeel uit een Wegennetwerk vertegenwoordigt." modelElement="EAID_06C6B14F_DAB1_437d_BFCA_01DD29C61429"/>
+		<UML:TaggedValue tag="label-nl" xmi.id="EAID_B14B3161_11A7_4588_B411_B81EB05131A1" value="Wegobject" modelElement="EAID_06C6B14F_DAB1_437d_BFCA_01DD29C61429"/>
+		<UML:TaggedValue tag="usageNote-nl" xmi.id="EAID_32D4CE16_20F4_4b15_AD9F_A19411BD776A" value="Bijvoorbeeld: Wegsegmenten, Wegknopen, Weglinksequenties, etc… Deze klasse is abstract, enkel de subklassen gebruiken." modelElement="EAID_06C6B14F_DAB1_437d_BFCA_01DD29C61429"/>
+		<UML:TaggedValue tag="definition-nl" xmi.id="EAID_9472610B_4618_4b79_8A48_DAF4448FD631" value="De maat van de afstand als een integraal, d.w.z. de grens van een oneindige som van afstanden tussen punten op een kromme. Bijvoorbeeld de lengte van de curve, de omtrek van een polygoon als de lengte van de grens." modelElement="EAID_1E4EB01C_7643_4dea_9A33_754B9CA6ACB5"/>
+		<UML:TaggedValue tag="label-nl" xmi.id="EAID_6FB52CA0_2FBC_448d_A29F_EF783D1C4E8E" value="Lengte" modelElement="EAID_1E4EB01C_7643_4dea_9A33_754B9CA6ACB5"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_20009EAC_02B3_432f_8CB9_B6615F4759C6" value="https://data.vlaanderen.be/ns/weg#Lengte" modelElement="EAID_1E4EB01C_7643_4dea_9A33_754B9CA6ACB5"/>
+		<UML:TaggedValue tag="definition-nl" xmi.id="EAID_71BF3955_FD45_4fda_8592_91CA58AC0431" value="Lineair ruimtelijk object dat de geometrie en connectiviteit beschrijft tussen twee punten in een Wegennetwerk." modelElement="EAID_34B42D79_C9DB_4a9e_BE8B_0BCAEAA60FA4"/>
+		<UML:TaggedValue tag="label-nl" xmi.id="EAID_AE8D2A15_64FE_439f_B286_7DC9D1DFB077" value="Wegsegment" modelElement="EAID_34B42D79_C9DB_4a9e_BE8B_0BCAEAA60FA4"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_5210B59A_9000_47a8_AE6F_9D990EF601AF" value="https://data.vlaanderen.be/ns/weg#Wegsegment" modelElement="EAID_34B42D79_C9DB_4a9e_BE8B_0BCAEAA60FA4"/>
+		<UML:TaggedValue tag="definition-nl" xmi.id="EAID_6DB0DEC6_EF0B_46ea_9FBC_D236804260A7" value="Het resultaat van het uitvoeren van de handeling of het proces van het vaststellen van de omvang, afmetingen of hoeveelheid van een bepaalde entiteit. Een meetwaarde wordt altijd gekoppeld aan een maateenheid." modelElement="EAID_4FCECAE2_D247_43dc_B52B_437D5F0C684C"/>
+		<UML:TaggedValue tag="label-nl" xmi.id="EAID_752E04A4_F338_4b8b_8688_5FA4B07F7CED" value="Meting" modelElement="EAID_4FCECAE2_D247_43dc_B52B_437D5F0C684C"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_FEE5625A_7BA4_4798_B5AD_B8A367C4B7DF" value="https://data.vlaanderen.be/ns/weg#Meting" modelElement="EAID_4FCECAE2_D247_43dc_B52B_437D5F0C684C"/>
+		<UML:TaggedValue tag="definition-nl" xmi.id="EAID_032AD912_EF24_496f_871E_061134FE0C73" value="Lineair ruimtelijk object, bestaande uit een geordende verzameling van Wegsegmenten,dat een onvertakt doorlopend pad in een Transportnetwerk vertegenwoordigt." modelElement="EAID_9D351C2E_E72E_4e68_BD0C_1C57E3AE9359"/>
+		<UML:TaggedValue tag="label-nl" xmi.id="EAID_DFA5FFA8_BCF1_49f8_BE70_3CA7D35C23E7" value="Weglinksequentie" modelElement="EAID_9D351C2E_E72E_4e68_BD0C_1C57E3AE9359"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_5EEDB1DD_6B5C_4042_A720_31A2F48FA6C2" value="https://data.vlaanderen.be/ns/weg#Weglinksequentie" modelElement="EAID_9D351C2E_E72E_4e68_BD0C_1C57E3AE9359"/>
+		<UML:TaggedValue tag="usageNote-nl" xmi.id="EAID_5045C015_F9D4_4bf9_9EEE_24DF68772CF7" value="Typisch is een route in een Netwerk, bijvoorbeeld: een genummerde weg of een lijn van het openbaar vervoer in een bepaalde richting." modelElement="EAID_9D351C2E_E72E_4e68_BD0C_1C57E3AE9359"/>
+		<UML:TaggedValue tag="definition-nl" xmi.id="EAID_5A31ECA1_90B5_4f30_9B31_C27A73FC1583" value="Significante positie in het Transportnetwerk die steeds samenvalt met het begin of het einde van een Wegsegment." modelElement="EAID_D51969F5_A4E4_44e6_8474_6061BCE9745F"/>
+		<UML:TaggedValue tag="label-nl" xmi.id="EAID_D90797C3_B584_4afb_968E_7C703CA5A500" value="Wegknoop" modelElement="EAID_D51969F5_A4E4_44e6_8474_6061BCE9745F"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_48DAE364_9E0F_4590_ABF6_C8510EF8BE10" value="https://data.vlaanderen.be/ns/weg#Wegknoop" modelElement="EAID_D51969F5_A4E4_44e6_8474_6061BCE9745F"/>
+		<UML:TaggedValue tag="usageNote-nl" xmi.id="EAID_FA75B584_ABC3_487f_A6E6_DBA3E5E48B2F" value="Typisch een kruispunt van wegen of het begin of einde van een weg." modelElement="EAID_D51969F5_A4E4_44e6_8474_6061BCE9745F"/>
+		<UML:DiagramElement geometry="Left=330;Top=50;Right=420;Bottom=120;" subject="EAID_06C6B14F_DAB1_437d_BFCA_01DD29C61429" seqno="7" style="DUID=3B8AC020;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=621;Top=287;Right=711;Bottom=357;" subject="EAID_1E4EB01C_7643_4dea_9A33_754B9CA6ACB5" seqno="2" style="DUID=93D5DA12;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_D6660B41_7F38_4ac4_8020_2850AA83EFB6"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=48;Top=226;Right=202;Bottom=296;" subject="EAID_34B42D79_C9DB_4a9e_BE8B_0BCAEAA60FA4" seqno="6" style="DUID=B643F0F6;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=621;Top=150;Right=711;Bottom=220;" subject="EAID_4FCECAE2_D247_43dc_B52B_437D5F0C684C" seqno="1" style="DUID=62107931;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_D6660B41_7F38_4ac4_8020_2850AA83EFB6"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=514;Top=226;Right=677;Bottom=296;" subject="EAID_9D351C2E_E72E_4e68_BD0C_1C57E3AE9359" seqno="8" style="DUID=34DD2B75;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=326;Top=226;Right=422;Bottom=296;" subject="EAID_D51969F5_A4E4_44e6_8474_6061BCE9745F" seqno="9" style="DUID=24AB1D93;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_8923303D_9AC2_49a2_8951_4CE6523B62F4" style="Mode=3;EOID=3B8AC020;SOID=34DD2B75;Color=-1;LWidth=0;TREE=V;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="595:-170;375:-170;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;SX=1;SY=0;EX=1;EY=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_A86EC401_000E_4f5b_A2EA_5748FB792AAC" style="Mode=3;EOID=3B8AC020;SOID=24AB1D93;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_C7B26E28_A513_4ce5_B818_4083D27DF00A" style="Mode=3;EOID=3B8AC020;SOID=B643F0F6;Color=-1;LWidth=0;TREE=V;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="125:-170;375:-170;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_8923303D_9AC2_49a2_8951_4CE6523B62F4" style="Mode=3;EOID=3B8AC020;SOID=34DD2B75;Color=-1;LWidth=0;TREE=V;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="595:-170;375:-170;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;SX=1;SY=0;EX=1;EY=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_A86EC401_000E_4f5b_A2EA_5748FB792AAC" style="Mode=3;EOID=3B8AC020;SOID=24AB1D93;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_C7B26E28_A513_4ce5_B818_4083D27DF00A" style="Mode=3;EOID=3B8AC020;SOID=B643F0F6;Color=-1;LWidth=0;TREE=V;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="125:-170;375:-170;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_98B6923E_247D_4d1f_BD3A_03D0593ABE4D" style="Mode=3;EOID=62107931;SOID=93D5DA12;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_D6660B41_7F38_4ac4_8020_2850AA83EFB6"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_98B6923E_247D_4d1f_BD3A_03D0593ABE4D" style="Mode=3;EOID=62107931;SOID=93D5DA12;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_D6660B41_7F38_4ac4_8020_2850AA83EFB6"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=2;SY=20;EX=2;EY=20;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=CX=53:CY=14:OX=-22:OY=3:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=17:CY=14:OX=0:OY=-20:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;" subject="EAID_AD590396_AA8A_4e35_B424_611BC298383B" style="Mode=3;EOID=24AB1D93;SOID=B643F0F6;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_C7B26E28_A513_4ce5_B818_4083D27DF00A" style="Mode=3;EOID=3B8AC020;SOID=B643F0F6;Color=-1;LWidth=0;TREE=V;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="125:-170;375:-170;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=-8;SY=-18;EX=-8;EY=-18;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=CX=58:CY=14:OX=-21:OY=4:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=17:CY=14:OX=0:OY=-19:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;" subject="EAID_D36C701F_CB98_4f63_89F2_BB93C09ABDF6" style="Mode=3;EOID=24AB1D93;SOID=B643F0F6;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=2;SY=20;EX=2;EY=20;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=CX=53:CY=14:OX=-22:OY=3:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=17:CY=14:OX=0:OY=-20:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;" subject="EAID_AD590396_AA8A_4e35_B424_611BC298383B" style="Mode=3;EOID=24AB1D93;SOID=B643F0F6;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_C7B26E28_A513_4ce5_B818_4083D27DF00A" style="Mode=3;EOID=3B8AC020;SOID=B643F0F6;Color=-1;LWidth=0;TREE=V;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="125:-170;375:-170;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=-8;SY=-18;EX=-8;EY=-18;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=CX=58:CY=14:OX=-21:OY=4:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=17:CY=14:OX=0:OY=-19:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;" subject="EAID_D36C701F_CB98_4f63_89F2_BB93C09ABDF6" style="Mode=3;EOID=24AB1D93;SOID=B643F0F6;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_98B6923E_247D_4d1f_BD3A_03D0593ABE4D" style="Mode=3;EOID=62107931;SOID=93D5DA12;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_D6660B41_7F38_4ac4_8020_2850AA83EFB6"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_98B6923E_247D_4d1f_BD3A_03D0593ABE4D" style="Mode=3;EOID=62107931;SOID=93D5DA12;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_D6660B41_7F38_4ac4_8020_2850AA83EFB6"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_8923303D_9AC2_49a2_8951_4CE6523B62F4" style="Mode=3;EOID=3B8AC020;SOID=34DD2B75;Color=-1;LWidth=0;TREE=V;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="595:-170;375:-170;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_8923303D_9AC2_49a2_8951_4CE6523B62F4" style="Mode=3;EOID=3B8AC020;SOID=34DD2B75;Color=-1;LWidth=0;TREE=V;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="595:-170;375:-170;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;SX=1;SY=0;EX=1;EY=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_A86EC401_000E_4f5b_A2EA_5748FB792AAC" style="Mode=3;EOID=3B8AC020;SOID=24AB1D93;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=2;SY=20;EX=2;EY=20;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=CX=53:CY=14:OX=-22:OY=3:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=17:CY=14:OX=0:OY=-20:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;" subject="EAID_AD590396_AA8A_4e35_B424_611BC298383B" style="Mode=3;EOID=24AB1D93;SOID=B643F0F6;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=-8;SY=-18;EX=-8;EY=-18;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=CX=58:CY=14:OX=-21:OY=4:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=17:CY=14:OX=0:OY=-19:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;" subject="EAID_D36C701F_CB98_4f63_89F2_BB93C09ABDF6" style="Mode=3;EOID=24AB1D93;SOID=B643F0F6;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;SX=1;SY=0;EX=1;EY=0;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_A86EC401_000E_4f5b_A2EA_5748FB792AAC" style="Mode=3;EOID=3B8AC020;SOID=24AB1D93;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=2;SY=20;EX=2;EY=20;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=CX=53:CY=14:OX=-22:OY=3:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=17:CY=14:OX=0:OY=-20:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;" subject="EAID_AD590396_AA8A_4e35_B424_611BC298383B" style="Mode=3;EOID=24AB1D93;SOID=B643F0F6;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=-8;SY=-18;EX=-8;EY=-18;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=CX=58:CY=14:OX=-21:OY=4:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;LRB=CX=17:CY=14:OX=0:OY=-19:HDN=0:BLD=0:ITA=0:UND=0:CLR=-1:ALN=1:DIR=0:ROT=0;IRHS=;ILHS=;" subject="EAID_D36C701F_CB98_4f63_89F2_BB93C09ABDF6" style="Mode=3;EOID=24AB1D93;SOID=B643F0F6;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_688C0CA0_9843_4a19_BBA0_9A08C5195A26"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5">
+		<EAModel.paramSub/>
+		<EAStub xmi.id="EAID_31829743_36A7_4bbe_9420_0CCF75EE63AD" name="LijnString" UMLType="DataType"/>
+	</XMI.extensions>
+</XMI>

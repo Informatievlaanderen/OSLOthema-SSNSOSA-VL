@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:28">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_6B735019_278E_4a7f_AEB5_1A463D229D1B">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="EU-OP-AUTH" xmi.id="EAPK_6B735019_278E_4a7f_AEB5_1A463D229D1B" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="3"/>
+						<UML:TaggedValue tag="created" value="2025-09-11 15:10:31"/>
+						<UML:TaggedValue tag="modified" value="2025-09-12 11:17:00"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\EU-OP-AUTH.xml"/>
+						<UML:TaggedValue tag="lastloaddate" value="2025-09-15 08:22:23"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:28"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="34"/>
+						<UML:TaggedValue tag="packageFlags" value="VICON=6;Recurse=1;CRC=0;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="vanassdy"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="34"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="Taalcode" xmi.id="EAID_BE0C2602_E5E8_4d2d_BDFD_B16A03716D00" visibility="public" namespace="EAPK_6B735019_278E_4a7f_AEB5_1A463D229D1B" isRoot="false" isLeaf="false" isAbstract="false">
+							<UML:ModelElement.stereotype>
+								<UML:Stereotype name="enumeration"/>
+							</UML:ModelElement.stereotype>
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="Zie http://publications.europa.eu/mdr/authority/language/."/>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="isActive" value="false"/>
+								<UML:TaggedValue tag="package" value="EAPK_6B735019_278E_4a7f_AEB5_1A463D229D1B"/>
+								<UML:TaggedValue tag="date_created" value="2025-09-11 15:10:42"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-11 15:10:42"/>
+								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="EU-OP-AUTH"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="stereotype" value="enumeration"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="75"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{FB74339B-A328-4b22-9BC1-34F33A73F776}"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+								<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={84AC5C88-3885-49cd-BF40-0702405CA423}$XID;$NAM=Stereotypes$NAM;$TYP=element property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@STEREO;Name=enumeration;GUID={1A07A2F1-D579-4b2d-B505-9CF54E21D86D};@ENDSTEREO;$DES;$CLT={BE0C2602-E5E8-4d2d-BDFD-B16A03716D00}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Class>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="baseURI" xmi.id="EAID_345EAAB8_8CA6_4599_9FEC_6E041153EF35" value="https://publications.europa.eu/resource/authority/" modelElement="MX_EAID_6B735019_278E_4a7f_AEB5_1A463D229D1B"/>
+		<UML:TaggedValue tag="ap-codelist" xmi.id="EAID_8845E92F_C9CD_49e1_B57E_CDC14CC9860D" value="https://publications.europa.eu/resource/authority/language" modelElement="EAID_BE0C2602_E5E8_4d2d_BDFD_B16A03716D00"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_0B153B71_42F1_4f93_AEB9_80BEB6EA4F73" value="De taal waarin een document of andere resources zijn opgesteld.#NOTES# " modelElement="EAID_BE0C2602_E5E8_4d2d_BDFD_B16A03716D00"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_775B0B00_C199_4f1c_BDDF_8EEE060F5EAE" value="Taal" modelElement="EAID_BE0C2602_E5E8_4d2d_BDFD_B16A03716D00"/>
+		<UML:TaggedValue tag="ap-usageNote-nl" xmi.id="EAID_9F3343C4_951A_460d_B595_4E833E16F30A" value="Zie de &lt;a href=&quot;https://publications.europa.eu/resource/authority/language&quot;&gt;codelijst&lt;/a&gt; gepubliceerd door de Europese Unie voor mogelijke waarden." modelElement="EAID_BE0C2602_E5E8_4d2d_BDFD_B16A03716D00"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_C6E7760C_7404_4b12_B5B5_71744C8D74BE" value="http://www.w3.org/2004/02/skos/core#Concept" modelElement="EAID_BE0C2602_E5E8_4d2d_BDFD_B16A03716D00"/>
+		<UML:DiagramElement geometry="Left=883;Top=1475;Right=972;Bottom=1545;" subject="EAID_BE0C2602_E5E8_4d2d_BDFD_B16A03716D00" seqno="8" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;DUID=71A00ECC;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_6E97B28F_5F34_4fa5_BA79_5592FBE802B5"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=46;Top=737;Right=136;Bottom=797;" subject="EAID_BE0C2602_E5E8_4d2d_BDFD_B16A03716D00" seqno="2" style="DUID=023E6E73;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_1E84FD6C_96E1_4b62_9A5A_30E581A7D430"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=1588;Top=1661;Right=1678;Bottom=1721;" subject="EAID_BE0C2602_E5E8_4d2d_BDFD_B16A03716D00" seqno="1" style="DUID=6EFE0445;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0DD7797C_25EB_400c_BAC6_5596DBA58F25"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5"/>
+</XMI>

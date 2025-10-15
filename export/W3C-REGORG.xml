@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:33">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_593D079A_1885_42d6_91D7_BC76C12AF8D1">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="W3C-REGORG" xmi.id="EAPK_593D079A_1885_42d6_91D7_BC76C12AF8D1" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="88"/>
+						<UML:TaggedValue tag="created" value="2025-09-16 10:47:02"/>
+						<UML:TaggedValue tag="modified" value="2025-09-16 10:47:28"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\W3C-REGORG.xml"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:33"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="12"/>
+						<UML:TaggedValue tag="packageFlags" value="isModel=1;VICON=3;Recurse=1;CRC=0;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="vanassdy"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="12"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="GeregistreerdeOrganisatie" xmi.id="EAID_7840081F_0FF5_4953_9D70_D62B495C9B9E" visibility="public" namespace="EAPK_593D079A_1885_42d6_91D7_BC76C12AF8D1" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_593D079A_1885_42d6_91D7_BC76C12AF8D1"/>
+								<UML:TaggedValue tag="date_created" value="2017-01-26 15:01:55"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-16 10:47:08"/>
+								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="W3C-REGORG"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="product_name" value="&lt;none&gt;"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="26"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="rechtspersoonlijkheid" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="EAID_9DF7F1EA_C347_43c5_A8EA_C8A34192A49C"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="Attribuut uit OSLO1 (uit KBO?)."/>
+										<UML:TaggedValue tag="type" value="Rechtspersoonlijkheidtype"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="6"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{A4A314A2-764F-4bad-9D27-35F03B9341C5}"/>
+										<UML:TaggedValue tag="ea_localid" value="11"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="label-nl" value="rechtspersoonlijkheid" xmi.id="EAID_1098A4E8_154E_4eea_A6D7_65691427CCF0"/>
+										<UML:TaggedValue tag="parentURI" value="http://www.w3.org/ns/regorg#orgType" xmi.id="EAID_12AF45E5_C6C9_41d1_8D34_CE24CEA5E4A1"/>
+										<UML:TaggedValue tag="definition-nl" value="Geeft aan of de rechtspersoonlijkheid van de GeregistreerdeOrganisatie deze is van een natuurlijk persoon of van een rechtspersoon. " xmi.id="EAID_AB5C61A9_4D59_4a43_B4FC_71F62BA0D48D"/>
+										<UML:TaggedValue tag="usageNote-nl" value="NOTE" xmi.id="EAID_AFCE9ED6_A808_49a7_8312_795FF8D6C233">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name="Een rechtspersoon is een juridische constructie die een organisatie dezelfde rechtspersoonlijkheid geeft als een natuurlijk persoon (kan bijvoorbeeld ook schulden hebben, contracten afsluiten, aangeklaagd worden, etc.). Voorbeelden privaatrechterlijke rechtspersonen: vennootschappen, vzw's, etc.; Voorbeelden publiekrechterlijke rechtspersonen: steden, gemeenten etc. Een feitelijke vereniging is in principe geen rechtspersoon maar wordt als ze geregistreerd is in KBO toch als dusdanig geklasseerd."/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-definition-nl" value="Aard van de rechtspersoonlijkheid." xmi.id="EAID_B3EB1E80_08F1_4ec5_A771_AC1EF1732529">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-usageNote-nl" value="Rechtspersoonlijkheid betekent dat men een rechtssubject is, dit wil zeggen drager van rechten en plichten. Natuurlijke personen hebben vanzelf rechtspersoonlijkheid, rechtspersonen (bvb venootschappen) moeten die van rechtswege toegekend krijgen. " xmi.id="EAID_4B8C65C4_D3A2_476e_83D8_5293998C4C4A">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="rechtstoestand" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="EAID_41944AE7_4967_4112_856F_E9D12F7EA7E5"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Rechtstoestandtype"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="5"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{F3629F45-6DD2-4778-8D4F-58DFA79400C8}"/>
+										<UML:TaggedValue tag="ea_localid" value="12"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="definition-nl" value="Rechtstoestand waarin de GeregistreerdeOrganisatie zich bevindt." xmi.id="EAID_0D6E15C9_C070_4f78_AE70_953B1A6C3C57"/>
+										<UML:TaggedValue tag="usageNote-nl" value="Stemt in de KBO overeen met de rechtstoestand van de Organisatie, bijvoorbeeld normale toestand, gerechtelijk akkoord, opening faillissement etc." xmi.id="EAID_A55E51ED_C446_470e_A13A_F2105DB75F1A"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Status van een GeregistreerdeOrganisatie." xmi.id="EAID_0F9C0AA1_8974_4fb1_9BD7_89E20982C433">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="label-nl" value="rechtstoestand" xmi.id="EAID_4AA9B7F8_CEBD_4135_8A43_ED9E55FC2C60"/>
+										<UML:TaggedValue tag="parentURI" value="http://www.w3.org/ns/regorg#orgStatus" xmi.id="EAID_1BDE7A7E_6BDC_4a87_A6A3_C4CA1890379B"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="rechtsvorm" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="EAID_24EA6FF6_17BC_44b9_9216_77316D4C07C0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Rechtsvormtype"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="4"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{4044CFBE-5090-4f9c-BD20-BE301DC4160D}"/>
+										<UML:TaggedValue tag="ea_localid" value="13"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="parentURI" value="http://www.w3.org/ns/regorg#orgType" xmi.id="EAID_BC852871_58D0_4b42_9A3A_95DFDE1CC7F4"/>
+										<UML:TaggedValue tag="usageNote-nl" value="Stemt in de KBO overeen met rechtsvorm, bvb NV, VZW, Stad/Gemeente, OCMW etc." xmi.id="EAID_F0F68673_5969_41db_97FD_E4CD42D36DAC"/>
+										<UML:TaggedValue tag="label-nl" value="rechtsvorm" xmi.id="EAID_F9D886A3_7768_43f3_8DF7_A47790FE9F6F"/>
+										<UML:TaggedValue tag="definition-nl" value="Juridisch statuut van de geregistreerde organisatie." xmi.id="EAID_9E1DC047_C398_4d03_A6CB_B267AECF3CF6"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="registratie" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="EAID_504F93A5_DB79_4c7d_9191_AA2DEA9BC5EB"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Identificator"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="1"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{6455CBC0-73A7-4419-9D11-66977F57578D}"/>
+										<UML:TaggedValue tag="ea_localid" value="14"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Identificator dat de organisatie verkreeg bij registratie." xmi.id="EAID_314558AC_9EB2_4ab4_8916_5A49EFD6729E">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-usageNote-nl" value="In de KBO is dit het ondernemingsnummer." xmi.id="EAID_FA4B15A3_FC77_40c7_B932_F0531B2DFB6F">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/regorg#registration" xmi.id="EAID_00A6F468_D6B6_4856_8C1F_B237CF2D81B9"/>
+										<UML:TaggedValue tag="ap-label-nl" value="registratie" xmi.id="EAID_4B3A0D2D_8C2E_48b1_92DF_9B8C3DE4D469"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="wettelijkeNaam" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="2"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{3B52500B-0469-4ab1-BCBD-846E5D2AEECF}"/>
+										<UML:TaggedValue tag="ea_localid" value="15"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="label-nl" value="wettelijke naam" xmi.id="EAID_1BB347A6_3BFB_453a_854A_DF9A15ED4480"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Wettelijk geregistreerde naam vd organisatie." xmi.id="EAID_1BEA02BD_2842_49e5_97AE_05176A3B6249">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-usageNote-nl" value="Evt in verschillende talen." xmi.id="EAID_3C3F9E68_DCAD_4200_8257_8D8F386ED82A">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/regorg#legalName" xmi.id="EAID_320033D6_D2B8_42f9_8D34_23A3177B1EBE"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+						<UML:Generalization subtype="EAID_7840081F_0FF5_4953_9D70_D62B495C9B9E" supertype="EAID_0AF838F3_38F0_45a9_A795_F3C0A09C2623" xmi.id="EAID_55352A54_0C9D_401e_961B_E146EFAF31F1" visibility="public">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Generalization"/>
+								<UML:TaggedValue tag="direction" value="Source -&gt; Destination"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="1"/>
+								<UML:TaggedValue tag="ea_sourceName" value="GeregistreerdeOrganisatie"/>
+								<UML:TaggedValue tag="ea_targetName" value="FormeleOrganisatie"/>
+								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
+								<UML:TaggedValue tag="ea_targetType" value="Class"/>
+								<UML:TaggedValue tag="ea_sourceID" value="26"/>
+								<UML:TaggedValue tag="ea_targetID" value="4"/>
+								<UML:TaggedValue tag="src_visibility" value="Public"/>
+								<UML:TaggedValue tag="src_aggregation" value="0"/>
+								<UML:TaggedValue tag="src_isOrdered" value="false"/>
+								<UML:TaggedValue tag="src_targetScope" value="instance"/>
+								<UML:TaggedValue tag="src_changeable" value="none"/>
+								<UML:TaggedValue tag="src_isNavigable" value="false"/>
+								<UML:TaggedValue tag="src_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="src_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="dst_visibility" value="Public"/>
+								<UML:TaggedValue tag="dst_aggregation" value="0"/>
+								<UML:TaggedValue tag="dst_isOrdered" value="false"/>
+								<UML:TaggedValue tag="dst_targetScope" value="instance"/>
+								<UML:TaggedValue tag="dst_changeable" value="none"/>
+								<UML:TaggedValue tag="dst_isNavigable" value="true"/>
+								<UML:TaggedValue tag="dst_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="dst_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="privatedata5" value="SX=0;SY=0;EX=0;EY=0;EDGE=1;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Generalization>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+				<UML:DataType xmi.id="eaxmiid0" name="LangString" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="baseURI" xmi.id="EAID_FA9E378A_1B98_4e8a_8372_5DA8234E1348" value="http://www.w3.org/ns/regorg#" modelElement="MX_EAID_593D079A_1885_42d6_91D7_BC76C12AF8D1"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_95C33EF2_DA7C_47b8_9B7C_80859FBA8B06" value="Organisatie met een juridisch statuut vastgelegd door registratie. Vergelijk met een FormeleOrganisatie waarbij dit statuut ook op een andere manier verkregen kan zijn.#NOTES# " modelElement="EAID_7840081F_0FF5_4953_9D70_D62B495C9B9E"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_9995010A_0139_4831_B334_74983908D188" value="GeregistreerdeOrganisatie" modelElement="EAID_7840081F_0FF5_4953_9D70_D62B495C9B9E"/>
+		<UML:TaggedValue tag="ap-usageNote-nl" xmi.id="EAID_94076E41_E73D_4406_A69F_98D0539823E6" value="NOTE#NOTES#In België moeten onder andere volgende Organisaties zich registreren: vennootschap (NV, BV, etc), eenmanszaak, overheidsorgaan, stichting, … Bij registratie krijgt de Organisatie een ondernemingsnummer en worden zijn gegevens ingevoerd in de Kruispuntbank van Ondernemingen (KBO)." modelElement="EAID_7840081F_0FF5_4953_9D70_D62B495C9B9E"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_A7163D67_F2F2_4fa2_9AE2_036B19C7A8DA" value="http://www.w3.org/ns/regorg#RegisteredOrganization" modelElement="EAID_7840081F_0FF5_4953_9D70_D62B495C9B9E"/>
+		<UML:DiagramElement geometry="Left=570;Top=1120;Right=850;Bottom=1231;" subject="EAID_7840081F_0FF5_4953_9D70_D62B495C9B9E" seqno="36" style="DUID=CB16B4A5;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_6E97B28F_5F34_4fa5_BA79_5592FBE802B5"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=835;Top=175;Right=1079;Bottom=286;" subject="EAID_7840081F_0FF5_4953_9D70_D62B495C9B9E" seqno="10" style="DUID=44BD2309;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_94F3CEAE_D64E_46b6_997B_5A9389C86B7C"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_55352A54_0C9D_401e_961B_E146EFAF31F1" style="Mode=3;EOID=7EA1F8D4;SOID=CB16B4A5;Color=-1;LWidth=0;TREE=OS;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_6E97B28F_5F34_4fa5_BA79_5592FBE802B5"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_55352A54_0C9D_401e_961B_E146EFAF31F1" style="Mode=3;EOID=5508B9CD;SOID=44BD2309;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_94F3CEAE_D64E_46b6_997B_5A9389C86B7C"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_55352A54_0C9D_401e_961B_E146EFAF31F1" style="Mode=3;EOID=7EA1F8D4;SOID=CB16B4A5;Color=-1;LWidth=0;TREE=OS;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_6E97B28F_5F34_4fa5_BA79_5592FBE802B5"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=4;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_55352A54_0C9D_401e_961B_E146EFAF31F1" style="Mode=3;EOID=5508B9CD;SOID=44BD2309;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_94F3CEAE_D64E_46b6_997B_5A9389C86B7C"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5">
+		<EAStub xmi.id="EAID_0AF838F3_38F0_45a9_A795_F3C0A09C2623" name="FormeleOrganisatie" UMLType="Class"/>
+		<EAModel.paramSub/>
+		<EAStub xmi.id="EAID_9DF7F1EA_C347_43c5_A8EA_C8A34192A49C" name="Rechtspersoonlijkheidtype" UMLType="Enumeration"/>
+		<EAStub xmi.id="EAID_41944AE7_4967_4112_856F_E9D12F7EA7E5" name="Rechtstoestandtype" UMLType="Enumeration"/>
+		<EAStub xmi.id="EAID_24EA6FF6_17BC_44b9_9216_77316D4C07C0" name="Rechtsvormtype" UMLType="Enumeration"/>
+		<EAStub xmi.id="EAID_504F93A5_DB79_4c7d_9191_AA2DEA9BC5EB" name="Identificator" UMLType="DataType"/>
+	</XMI.extensions>
+</XMI>

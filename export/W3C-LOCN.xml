@@ -1,0 +1,804 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:32">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_DEB12D7F_3EDE_4d29_9711_02F7B5D42B5C">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="W3C-LOCN" xmi.id="EAPK_DEB12D7F_3EDE_4d29_9711_02F7B5D42B5C" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="5"/>
+						<UML:TaggedValue tag="created" value="2025-09-11 11:25:36"/>
+						<UML:TaggedValue tag="modified" value="2025-09-15 08:23:06"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\W3C-LOCN.xml"/>
+						<UML:TaggedValue tag="lastloaddate" value="2025-09-15 08:22:23"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:32"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="16"/>
+						<UML:TaggedValue tag="packageFlags" value="VICON=6;Recurse=1;CRC=0;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="vanassdy"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="16"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="Geometrie" xmi.id="EAID_AB318BB9_7AD5_46cf_81FD_341846492791" visibility="public" namespace="EAPK_DEB12D7F_3EDE_4d29_9711_02F7B5D42B5C" isRoot="false" isLeaf="false" isAbstract="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="-- Definitie --&#xA;A geometry representing a location. [ISA]&#xA;-- EOF --"/>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="DataType"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="isActive" value="false"/>
+								<UML:TaggedValue tag="package" value="EAPK_DEB12D7F_3EDE_4d29_9711_02F7B5D42B5C"/>
+								<UML:TaggedValue tag="date_created" value="2025-09-11 15:05:45"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-11 15:05:45"/>
+								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="W3C-LOCN"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="71"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{81A55188-7DEB-4d29-94B0-B9782E54A2C1}"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="gml" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Literal"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="1"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{624855C8-5C49-471c-AB97-375EC0999AB1}"/>
+										<UML:TaggedValue tag="ea_localid" value="66"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-label-nl" value="gml" xmi.id="EAID_4E938E95_DBC7_408d_A3A5_36C895AD2B63"/>
+										<UML:TaggedValue tag="uri" value="http://www.opengis.net/ont/geosparql#asGML" xmi.id="EAID_5DB375C5_926F_4541_8BE9_E7AE0A5C7434"/>
+										<UML:TaggedValue tag="ap-usageNote-nl" value="Gebruik http://www.opengis.net/ont/geosparql#gmlLiteral als datatype." xmi.id="EAID_F275EC1C_67E2_4d43_A438_38083AEB5BDC">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-definition-nl" value="Geometrie uitgedrukt in GML-formaat." xmi.id="EAID_974EC65B_22D4_48d8_82C4_576770887412">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="wkt" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Literal"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{B3F044AB-9E52-4567-B61E-1A7B522E456A}"/>
+										<UML:TaggedValue tag="ea_localid" value="67"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-label-nl" value="wkt" xmi.id="EAID_110C5147_B1A1_4a9e_AA19_43EE227BCE51"/>
+										<UML:TaggedValue tag="ap-usageNote-nl" value="Gebruik http://www.opengis.net/ont/geosparql#wktLiteral als datatype." xmi.id="EAID_2EE72681_2380_48a9_B941_2D5BB7DEBD1A">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="uri" value="http://www.opengis.net/ont/geosparql#asWKT" xmi.id="EAID_F01365E7_B007_4b1a_BC7D_368812687BFA"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Geometrie uitgedrukt in WKT-formaat." xmi.id="EAID_C42A9E67_3158_4acb_B498_C3442D531664">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+						<UML:Class name="Adresvoorstelling" xmi.id="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8" visibility="public" namespace="EAPK_DEB12D7F_3EDE_4d29_9711_02F7B5D42B5C" isRoot="false" isLeaf="false" isAbstract="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="DataType"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="isActive" value="false"/>
+								<UML:TaggedValue tag="package" value="EAPK_DEB12D7F_3EDE_4d29_9711_02F7B5D42B5C"/>
+								<UML:TaggedValue tag="date_created" value="2025-09-11 11:26:07"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-11 11:26:07"/>
+								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="W3C-LOCN"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="69"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{47B62BB8-9C84-4fe0-ADCD-246B129776CF},{69A77D9F-E219-4d1f-A829-8C0C89468512},{FECB0943-72BD-44b6-8D11-3AFB81A3E6EC}"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="administratieveEenheidNiveau1" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="11"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{2BB83AE2-0EB0-4bc3-B423-B9E92826C40D}"/>
+										<UML:TaggedValue tag="ea_localid" value="50"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/locn#adminUnitL1" xmi.id="EAID_F46A35CF_FF45_4d16_A150_3BD9E838BD03"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Hoogste Administratieve eenheid van het adres, doorgaans een land." xmi.id="EAID_A72F5A8E_99B8_4a97_B484_8326AC5D5550">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-label-nl" value="administratieve eenheid niveau 1" xmi.id="EAID_A8AEEE80_2862_4d3c_A9D8_604535B72CF2"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="administratieveEenheidNiveau2" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="10"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{83B0DDAF-F073-4f30-9DE5-047A3483DD7A}"/>
+										<UML:TaggedValue tag="ea_localid" value="51"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/locn#adminUnitL2" xmi.id="EAID_FC004382_2B80_4e62_A959_44288E36435A"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="De regio van het adres, doorgaans een provincie of deelstaat of gelijkaardig gebied dat typisch meerdere plaatsen omvat." xmi.id="EAID_00F9850C_87C7_45b4_B3CA_C7EA36C0D768">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-label-nl" value="administratieve eenheid niveau 2" xmi.id="EAID_6252E247_BD08_4cfb_85E5_8E853B5E27F8"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="adresgebied" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="7"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{C1BDB406-DE60-4150-B52A-3D2D7171FFEC}"/>
+										<UML:TaggedValue tag="ea_localid" value="52"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/locn#addressArea" xmi.id="EAID_00E0BB7E_7630_48d6_B811_440D3621406C"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Naam van een geografisch gebied of plaats die een aantal adresseerbare objecten groepeert om deze te adresseren zonder dat het gebied of de plaats een administratieve eenheid is." xmi.id="EAID_3E8CE05D_0671_4b14_9C91_29C2C48BBB90">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-usageNote-nl" value="Bvb de naam van het gehucht waarin het adres ligt." xmi.id="EAID_ACC6FAD3_1868_45d3_8D1A_C0B118D083A3">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-label-nl" value="adresgebied" xmi.id="EAID_D1CE8B01_95C2_4639_83A4_3BABED1B27DD"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="busnummer" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid2"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="String"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="5"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{EBA16F68-3117-4f89-B98E-F6F2C7E4008D}"/>
+										<UML:TaggedValue tag="ea_localid" value="53"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="label-nl" value="busnummer" xmi.id="EAID_FC4C3CF3_D775_442a_BA9C_82E8B6770D6E"/>
+										<UML:TaggedValue tag="usageNote-nl" value="Specialisatie van Adresvoorstelling:locatieaanduiding ten behoeve van Belgische adressen." xmi.id="EAID_639FA8AB_8C6C_4a44_A6EF_F271A8AE88E1"/>
+										<UML:TaggedValue tag="uri" value="https://data.vlaanderen.be/ns/adres#busnummer" xmi.id="EAID_07658BE6_66B0_4598_B85B_E499DDE831BC"/>
+										<UML:TaggedValue tag="parentURI" value="http://www.w3.org/ns/locn#locatorDesignator" xmi.id="EAID_908FCD9D_93CE_4c92_A4B5_B4DCEF1EDD41"/>
+										<UML:TaggedValue tag="definition-nl" value="Officieel toegekende alfanumerieke code die wordt toegevoegd aan het huisnummer om meerdere gebouweenheden, standplaatsen, ligplaatsen of percelen te onderscheiden die eenzelfde huisnummer hebben." xmi.id="EAID_07AA8600_EBBE_4990_BBF5_4FBEA37D888A"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="gemeentenaam" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="9"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{C5F17022-5521-47c4-A951-EDDECDBBB640}"/>
+										<UML:TaggedValue tag="ea_localid" value="54"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="https://data.vlaanderen.be/ns/adres#Gemeentenaam" xmi.id="EAID_926C88FA_2091_44f2_B88C_FF6F5950C610"/>
+										<UML:TaggedValue tag="parentURI" value="http://www.w3.org/ns/locn#postName" xmi.id="EAID_1CF759ED_E392_4396_9CE6_5C1E4C5376F1"/>
+										<UML:TaggedValue tag="label-nl" value="gemeentenaam" xmi.id="EAID_109DF247_842E_45ff_986A_647D6F78BFD3"/>
+										<UML:TaggedValue tag="definition-nl" value="Gemeentenaam van het adres." xmi.id="EAID_10203002_4C26_4faa_9BD8_9BEBDE7C85D0"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="huisnummer" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid2"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="description" value="huisnummer is gedefinieerd als subproperty van locatordesignator dmv opgeven parentURI ttp://www.w3.org/ns/locn#locatorDesignator"/>
+										<UML:TaggedValue tag="type" value="String"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="4"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{36FEA78F-54D4-4b2d-B32E-CD5B7A9F173D}"/>
+										<UML:TaggedValue tag="ea_localid" value="55"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={6EAE055F-9BBA-494c-B65C-40FA32103D93}$XID;$NAM=CustomProperties$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$PAR=0$PAR;$DES=@PROP=@NAME=isID@ENDNAME;@TYPE=Boolean@ENDTYPE;@VALU=0@ENDVALU;@PRMT=@ENDPRMT;@ENDPROP;$DES;$CLT={36FEA78F-54D4-4b2d-B32E-CD5B7A9F173D}$CLT;$ENDXREF;"/>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/2000/01/rdf-schema#label" xmi.id="EAID_7E0D15B9_F7E9_44ff_A3FD_CAD65FD81553"/>
+										<UML:TaggedValue tag="name" value="Adresvoorstelling.huisnummer" xmi.id="EAID_7F398DA0_7CC8_4ed8_8119_A3CA01C37647"/>
+										<UML:TaggedValue tag="parentURI" value="http://www.w3.org/ns/locn#locatorDesignator" xmi.id="EAID_A6F0C5A0_21B2_409f_8637_7E19CF227394"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Alfanumerieke code officieel toegekend aan gebouweenheden, ligplaatsen, standplaatsen of percelen." xmi.id="EAID_32160D03_C16F_45bd_B74D_5B657F68689A">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-usageNote-nl" value="Specialisatie van Adresvoorstelling:locatieaanduiding tbv Belgische adressen." xmi.id="EAID_0765E5F7_1CC4_4218_B9EC_409B30B64056">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-label-nl" value="huisnummer" xmi.id="EAID_B68139C3_C2A4_4af5_95BC_36A1AB086EE3"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="land" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="12"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{137EE330-B491-4048-B8B1-4EC7508D6AED}"/>
+										<UML:TaggedValue tag="ea_localid" value="56"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="https://data.vlaanderen.be/ns/adres#land" xmi.id="EAID_9299060A_5277_442d_B664_84A950C60B8F"/>
+										<UML:TaggedValue tag="parentURI" value="http://www.w3.org/ns/locn#adminUnitL1" xmi.id="EAID_AB844958_5F15_423a_A21E_56C1E9E5600F"/>
+										<UML:TaggedValue tag="label-nl" value="land" xmi.id="EAID_4FC230F4_41D6_42bf_B187_D26CA76E4E98"/>
+										<UML:TaggedValue tag="definition-nl" value="Land waarin het adres gelegen is." xmi.id="EAID_C95E4147_77F9_4efb_9BAA_613635EA0308"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="locatieaanduiding" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid2"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="String"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="1"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="3"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="*"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{D8F6EC95-48A7-4d87-9E68-FA49D55251E6}"/>
+										<UML:TaggedValue tag="ea_localid" value="57"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/locn#locatorDesignator" xmi.id="EAID_1EB6F8A6_11E7_442c_BA89_B073C2C2EA2B"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Alfanumerieke code die de adreslocator uniek identificeert binnen de straat, administratieve eenheid etc." xmi.id="EAID_436E74A3_2E4F_4588_8F09_39491D2D80B1">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-label-nl" value="locatieaanduiding" xmi.id="EAID_45303B1C_040C_4246_A79B_17BF15C6555B"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="locatienaam" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="1"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="6"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="*"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{8FD3160A-6608-48d6-BF2B-8E07744CBAF4}"/>
+										<UML:TaggedValue tag="ea_localid" value="58"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/locn#locatorName" xmi.id="EAID_EC1D4335_0E91_411d_8B43_3D0D9E84D8F4"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Naam of omschrijving van het het geografisch object dat de adreslocator aanduidt." xmi.id="EAID_E95659DF_1333_423e_9236_5E98776EBF48">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-label-nl" value="locatienaam" xmi.id="EAID_1858E6A5_B9B1_4fd5_A61A_7CB42962DF37"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="postbus" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid2"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="String"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="1"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{B60C6E35-7A34-49c5-B5AD-2EAF900D673E}"/>
+										<UML:TaggedValue tag="ea_localid" value="59"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/locn#poBox" xmi.id="EAID_C49B0076_7830_475e_9F42_30518E2B5A51"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Postbusnummer in een postkantoor." xmi.id="EAID_2C14BA83_03F3_4bb8_9F76_6EA75264F10B">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-label-nl" value="postbus" xmi.id="EAID_E8396B20_1091_4f0f_8A72_61C42D0B3469"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="postcode" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid2"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="String"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="13"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{B8D90F93-FF2A-4a5e-96BF-2052273CF04A}"/>
+										<UML:TaggedValue tag="ea_localid" value="60"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/locn#postCode" xmi.id="EAID_D3C3B1A2_2E6E_4a82_9195_B642B5A32ADE"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Code waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid." xmi.id="EAID_6DD0E0B6_8C7E_49b9_AAF2_5D867C1558EA">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-label-nl" value="postcode" xmi.id="EAID_32BDF373_55E6_4bad_AA06_056322132D50"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="postnaam" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="8"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{F27BB184-884E-4f0e-A4E9-9B2CA783126D}"/>
+										<UML:TaggedValue tag="ea_localid" value="61"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/locn#postName" xmi.id="EAID_010023E2_92FA_4ba6_AED0_BEEEB3D7C1F5"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Naam waarmee het geografisch gebied dat adressen voor postale doeleinden groepeert wordt aangeduid." xmi.id="EAID_D6AA0832_CB1A_4ae7_A562_B3E2AAB232B4">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-label-nl" value="postnaam" xmi.id="EAID_AA9627D5_DFC3_4d3f_ABF9_EA41C07E1B3B"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="straatnaam" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="2"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{3B0D5240-242C-4535-9259-743E528B3018}"/>
+										<UML:TaggedValue tag="ea_localid" value="62"/>
+										<UML:TaggedValue tag="styleex" value="IsLiteral=0;volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/locn#thoroughfare" xmi.id="EAID_87B0C309_23FF_4e8e_BBEE_17F7BF6C9E5C"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Straatnaam van het adres." xmi.id="EAID_0FE81E92_DDB6_4747_A86C_4FE5656154B5">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-label-nl" value="straatnaam" xmi.id="EAID_D9FAC12A_E09C_41c1_8A27_E61125D10629"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="volledigAdres" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{43FA19DE-D692-464d-8110-0ABEB305D01C}"/>
+										<UML:TaggedValue tag="ea_localid" value="63"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Het complete adres in één string, al dan niet geformatteerd." xmi.id="EAID_03DDB117_17AF_47c7_BE68_2EDF0BA46875">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="ap-usageNote-nl" value="Vermijdt fouten ten gevolge van het opsplitsen van een adres in zijn onderdelen. Geeft de voorgeschreven volgorde van de verschillende onderdelen weer." xmi.id="EAID_64EE5D44_9586_4d8c_8D48_F83FF93DF3F9">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+										<UML:TaggedValue tag="uri" value="http://www.w3.org/ns/locn#fullAddress" xmi.id="EAID_23968CF4_8222_4963_9A90_05AA687D7FE3"/>
+										<UML:TaggedValue tag="ap-label-nl" value="volledigAdres" xmi.id="EAID_A0A2A6AD_C49D_4dc6_8CEB_F6AAA7463982"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+						<UML:Generalization subtype="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8" supertype="EAID_D970827E_5066_43f6_B0BF_0F9142311075" xmi.id="EAID_E20E3874_4880_4e6f_89BD_AEC69389F765" visibility="public">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Generalization"/>
+								<UML:TaggedValue tag="direction" value="Source -&gt; Destination"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="47"/>
+								<UML:TaggedValue tag="ea_sourceName" value="Adresvoorstelling"/>
+								<UML:TaggedValue tag="ea_targetName" value="Locatie"/>
+								<UML:TaggedValue tag="ea_sourceType" value="DataType"/>
+								<UML:TaggedValue tag="ea_targetType" value="DataType"/>
+								<UML:TaggedValue tag="ea_sourceID" value="69"/>
+								<UML:TaggedValue tag="ea_targetID" value="66"/>
+								<UML:TaggedValue tag="src_visibility" value="Public"/>
+								<UML:TaggedValue tag="src_aggregation" value="0"/>
+								<UML:TaggedValue tag="src_isOrdered" value="false"/>
+								<UML:TaggedValue tag="src_targetScope" value="instance"/>
+								<UML:TaggedValue tag="src_changeable" value="none"/>
+								<UML:TaggedValue tag="src_isNavigable" value="false"/>
+								<UML:TaggedValue tag="src_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="src_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="dst_visibility" value="Public"/>
+								<UML:TaggedValue tag="dst_aggregation" value="0"/>
+								<UML:TaggedValue tag="dst_isOrdered" value="false"/>
+								<UML:TaggedValue tag="dst_targetScope" value="instance"/>
+								<UML:TaggedValue tag="dst_changeable" value="none"/>
+								<UML:TaggedValue tag="dst_isNavigable" value="true"/>
+								<UML:TaggedValue tag="dst_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="dst_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="privatedata5" value="SX=0;SY=0;EX=1;EY=0;EDGE=2;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Generalization>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+				<UML:DataType xmi.id="eaxmiid2" name="String" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid1" name="LangString" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid0" name="Literal" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="baseURI" xmi.id="EAID_9012C00B_9ECF_47b6_8C3B_8044E6BF13B4" value="http://www.w3.org/ns/locn#" modelElement="MX_EAID_DEB12D7F_3EDE_4d29_9711_02F7B5D42B5C"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_9466F3CE_BCCD_4bd1_ABFE_9769DFF0115D" value="Vorm- en positiekenmerken van een object.#NOTES# " modelElement="EAID_AB318BB9_7AD5_46cf_81FD_341846492791"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_6C446191_D94B_4f91_8D63_790ED0FEDB52" value="Geometrie" modelElement="EAID_AB318BB9_7AD5_46cf_81FD_341846492791"/>
+		<UML:TaggedValue tag="ap-usageNote-nl" xmi.id="EAID_A5B29398_6759_40e6_B8F2_2E5ABDA83287" value="Beschrijft deze kenmerken door middel van punten, lijnen, polygonen en coördinaten.#NOTES# " modelElement="EAID_AB318BB9_7AD5_46cf_81FD_341846492791"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_E5729184_B79E_44f3_9846_EAE9E9D658A5" value="http://www.w3.org/ns/locn#Geometry" modelElement="EAID_AB318BB9_7AD5_46cf_81FD_341846492791"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_56CA218E_EBAA_42a8_8BB4_3D88BF4296FF" value="Meer leesbare voorstelling met enkel de basisgegevens van het adres, bedoeld voor het gebruik van een adres als attribuut van een ander object.#NOTES# " modelElement="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_76BBD5C3_06BF_4880_B9FD_FC033A81FE49" value="Adresvoorstelling" modelElement="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8"/>
+		<UML:TaggedValue tag="ap-usageNote-nl" xmi.id="EAID_E7897E23_EBE2_4059_B6BF_F541FC283AE5" value="NOTE#NOTES#Bijvoorbeeld als attribuut van een persoon of gebouw, ... De adresvoorstelling heeft niet enkel betrekking op Belgische adressen, ze kan gebruikt worden om buitenlandse adressen weer te geven (waar mogelijk andere adresaanduidingen dan huisnummer of busnummer worden gebruikt of waar adrescomponenten zoals adresgebieden voorkomen)." modelElement="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_F06D4AC7_C439_4088_8A13_212DDA083935" value="http://www.w3.org/ns/locn#Address" modelElement="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8"/>
+		<UML:DiagramElement geometry="Left=1699;Top=626;Right=1789;Bottom=698;" subject="EAID_AB318BB9_7AD5_46cf_81FD_341846492791" seqno="9" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;DUID=C917A0B9;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_6E97B28F_5F34_4fa5_BA79_5592FBE802B5"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=549;Top=41;Right=639;Bottom=113;" subject="EAID_AB318BB9_7AD5_46cf_81FD_341846492791" seqno="5" style="DUID=F096370A;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_1E84FD6C_96E1_4b62_9A5A_30E581A7D430"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=1632;Top=911;Right=1857;Bottom=1139;" subject="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8" seqno="12" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;DUID=5BC25A9C;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_6E97B28F_5F34_4fa5_BA79_5592FBE802B5"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=46;Top=448;Right=271;Bottom=676;" subject="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8" seqno="4" style="DUID=4195D3F0;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_1E84FD6C_96E1_4b62_9A5A_30E581A7D430"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=804;Top=401;Right=1029;Bottom=629;" subject="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8" seqno="9" style="DUID=D5AEE9CF;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_9E629299_1895_464e_806D_F50BC0330C3E"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=948;Top=176;Right=1173;Bottom=404;" subject="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8" seqno="5" style="DUID=10FA638D;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=1829;Top=322;Right=2037;Bottom=550;" subject="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8" seqno="15" style="DUID=C4747341;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0DD7797C_25EB_400c_BAC6_5596DBA58F25"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=655;Top=345;Right=880;Bottom=573;" subject="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8" seqno="3" style="DUID=33110B1C;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_B0DE7E65_16E9_4cdf_85C1_4E50B41590CD"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=627;Top=54;Right=852;Bottom=282;" subject="EAID_C46FCEA0_3981_4baf_BECA_90B862BA99F8" seqno="1" style="DUID=04048DB4;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0634A3B8_D382_49b4_85A4_727D8A0EB200"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=1;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_E20E3874_4880_4e6f_89BD_AEC69389F765" style="Mode=3;EOID=877662F6;SOID=C4747341;Color=-1;LWidth=0;TREE=LV;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0DD7797C_25EB_400c_BAC6_5596DBA58F25"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="2132:-436;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_E20E3874_4880_4e6f_89BD_AEC69389F765" style="Mode=3;EOID=120F8940;SOID=4195D3F0;Color=-1;LWidth=0;TREE=LV;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_1E84FD6C_96E1_4b62_9A5A_30E581A7D430"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="398:-562;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_E20E3874_4880_4e6f_89BD_AEC69389F765" style="Mode=3;EOID=168A94E5;SOID=33110B1C;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_B0DE7E65_16E9_4cdf_85C1_4E50B41590CD"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=1;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_E20E3874_4880_4e6f_89BD_AEC69389F765" style="Mode=3;EOID=A5F8E77E;SOID=5BC25A9C;Color=-1;LWidth=0;TREE=LV;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_6E97B28F_5F34_4fa5_BA79_5592FBE802B5"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="2052:-1025;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=1;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_E20E3874_4880_4e6f_89BD_AEC69389F765" style="Mode=3;EOID=877662F6;SOID=C4747341;Color=-1;LWidth=0;TREE=LV;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0DD7797C_25EB_400c_BAC6_5596DBA58F25"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="2132:-436;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_E20E3874_4880_4e6f_89BD_AEC69389F765" style="Mode=3;EOID=120F8940;SOID=4195D3F0;Color=-1;LWidth=0;TREE=LV;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_1E84FD6C_96E1_4b62_9A5A_30E581A7D430"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="398:-562;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_E20E3874_4880_4e6f_89BD_AEC69389F765" style="Mode=3;EOID=168A94E5;SOID=33110B1C;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_B0DE7E65_16E9_4cdf_85C1_4E50B41590CD"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=1;EY=0;EDGE=2;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_E20E3874_4880_4e6f_89BD_AEC69389F765" style="Mode=3;EOID=A5F8E77E;SOID=5BC25A9C;Color=-1;LWidth=0;TREE=LV;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_6E97B28F_5F34_4fa5_BA79_5592FBE802B5"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+				<UML:TaggedValue tag="path" value="2052:-1025;"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5">
+		<EAStub xmi.id="EAID_D970827E_5066_43f6_B0BF_0F9142311075" name="Locatie" UMLType="DataType"/>
+		<EAModel.paramSub/>
+	</XMI.extensions>
+</XMI>

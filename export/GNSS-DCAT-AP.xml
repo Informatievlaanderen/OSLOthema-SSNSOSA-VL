@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:29">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_72686801_F28C_4193_984F_914E3AF6FEDB">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="GNSS-DCAT-AP" xmi.id="EAPK_72686801_F28C_4193_984F_914E3AF6FEDB" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="73"/>
+						<UML:TaggedValue tag="created" value="2025-09-15 14:27:24"/>
+						<UML:TaggedValue tag="modified" value="2025-09-15 14:27:24"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\GNSS-DCAT-AP.xml"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:29"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="29"/>
+						<UML:TaggedValue tag="packageFlags" value="isModel=1;VICON=3;Recurse=1;CRC=0;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="vanassdy"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="29"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="GNSS Ontvanger" xmi.id="EAID_5E7305F1_3E45_41df_B68D_A0AD1EBB21A4" visibility="public" namespace="EAPK_72686801_F28C_4193_984F_914E3AF6FEDB" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="documentation" value="GPS, GLONASS, BeiDou, Galileo ontvanger"/>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_72686801_F28C_4193_984F_914E3AF6FEDB"/>
+								<UML:TaggedValue tag="date_created" value="2025-09-15 14:27:36"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-15 14:27:36"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="GNSS-DCAT-AP"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="product_name" value="Java"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="230"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Class>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_7B8E5A5B_F7B3_4c9b_96B4_79BC42DB8BAC" value="Een elektronisch apparaat dat signalen van satellieten ontvangt om de geografische locatie (positie) van een object of persoon te bepalen en weer te geven." modelElement="EAID_5E7305F1_3E45_41df_B68D_A0AD1EBB21A4"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_ABFE6995_0617_4d1c_9B0E_921BEBC50793" value="GNSS Ontvanger" modelElement="EAID_5E7305F1_3E45_41df_B68D_A0AD1EBB21A4"/>
+		<UML:TaggedValue tag="definition-nl" xmi.id="EAID_3683BD2D_682F_4987_951E_638A5452917D" value="Een elektronisch apparaat dat signalen van satellieten ontvangt om de geografische locatie (positie) van een object of persoon te bepalen en weer te geven." modelElement="EAID_5E7305F1_3E45_41df_B68D_A0AD1EBB21A4"/>
+		<UML:TaggedValue tag="label-nl" xmi.id="EAID_24576AE1_D329_4ed1_BF0A_076A7EC6CB8F" value="GNSS Ontvanger" modelElement="EAID_5E7305F1_3E45_41df_B68D_A0AD1EBB21A4"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_CE27E1C4_13C3_4b15_91B3_B5BEC30DDDF5" value="https://www.fair-gnss.oma.be/gnss-dcat-ap/vocabulary/geo#GNSSReceiver" modelElement="EAID_5E7305F1_3E45_41df_B68D_A0AD1EBB21A4"/>
+		<UML:DiagramElement geometry="Left=62;Top=54;Right=152;Bottom=124;" subject="EAID_5E7305F1_3E45_41df_B68D_A0AD1EBB21A4" seqno="9" style="DUID=515510F6;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0634A3B8_D382_49b4_85A4_727D8A0EB200"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5"/>
+</XMI>

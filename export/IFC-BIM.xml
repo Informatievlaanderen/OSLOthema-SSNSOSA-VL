@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:29">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_CE097A64_F181_4035_AF18_1C4049A17A21">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="IFC-BIM" xmi.id="EAPK_CE097A64_F181_4035_AF18_1C4049A17A21" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="38"/>
+						<UML:TaggedValue tag="created" value="2025-09-15 10:28:52"/>
+						<UML:TaggedValue tag="modified" value="2025-09-15 10:28:52"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\IFC-BIM.xml"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:29"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="25"/>
+						<UML:TaggedValue tag="packageFlags" value="isModel=1;VICON=3;Recurse=1;CRC=0;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="vanassdy"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="25"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="BIM_Gebouw" xmi.id="EAID_6E922AAB_C23F_452a_A177_6EF89D92C1F6" visibility="public" namespace="EAPK_CE097A64_F181_4035_AF18_1C4049A17A21" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_CE097A64_F181_4035_AF18_1C4049A17A21"/>
+								<UML:TaggedValue tag="date_created" value="2025-05-05 11:11:32"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-15 10:29:17"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="IFC-BIM"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="136"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="type" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Gebouwtype"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="*"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{DC5C53AE-C87A-413d-A764-2E3A5B5DD5DC}"/>
+										<UML:TaggedValue tag="ea_localid" value="127"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={C13C939F-9C00-42e4-8C95-B678014F845E}$XID;$NAM=MOFProps$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$BEH=redefinedProperty$BEH;$PAR=0$PAR;$DES={74631035-B6AC-4654-A498-C49392F8ACE0}$DES;$CLT={DC5C53AE-C87A-413d-A764-2E3A5B5DD5DC}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+										<UML:TaggedValue tag="label-nl" value="type" xmi.id="EAID_EB8BD584_FE80_434d_B234_5484E4D3C7CC"/>
+										<UML:TaggedValue tag="uri" value="http://purl.org/dc/terms/type" xmi.id="EAID_DCBB76DA_585F_4f7b_A99D_F036314929EE"/>
+										<UML:TaggedValue tag="ap-label-nl" value="type" xmi.id="EAID_68052EB1_69BA_4c2c_8ADA_BDB9C761E520"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Aard van het Domeinobject." xmi.id="EAID_394AEC38_1095_4dca_B413_2EAA68C2472C"/>
+										<UML:TaggedValue tag="definition-nl" value="Aard van het Domeinobject." xmi.id="EAID_F5CE91A1_12D9_4826_8F93_71B820F76808"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+						<UML:Association xmi.id="EAID_C11F7A8B_C32D_4c1b_B25B_F563F7868306" visibility="public" isRoot="false" isLeaf="false" isAbstract="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Aggregation"/>
+								<UML:TaggedValue tag="direction" value="Source -&gt; Destination"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="60"/>
+								<UML:TaggedValue tag="ea_sourceName" value="BIM_Element"/>
+								<UML:TaggedValue tag="ea_targetName" value="BIM_Gebouw"/>
+								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
+								<UML:TaggedValue tag="ea_targetType" value="Class"/>
+								<UML:TaggedValue tag="ea_sourceID" value="137"/>
+								<UML:TaggedValue tag="ea_targetID" value="136"/>
+								<UML:TaggedValue tag="privatedata5" value="EDGE=1;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Association.connection>
+								<UML:AssociationEnd visibility="public" aggregation="none" isOrdered="false" targetScope="instance" changeable="none" isNavigable="false" type="EAID_EBE422BB_6422_4091_B58D_04E2DE29298A">
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="containment" value="Unspecified"/>
+										<UML:TaggedValue tag="sourcestyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Navigable;"/>
+										<UML:TaggedValue tag="ea_end" value="source"/>
+									</UML:ModelElement.taggedValue>
+								</UML:AssociationEnd>
+								<UML:AssociationEnd visibility="public" aggregation="shared" isOrdered="false" targetScope="instance" changeable="none" isNavigable="true" type="EAID_6E922AAB_C23F_452a_A177_6EF89D92C1F6">
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="containment" value="Unspecified"/>
+										<UML:TaggedValue tag="deststyle" value="Union=0;Derived=0;AllowDuplicates=0;Owned=0;Navigable=Unspecified;"/>
+										<UML:TaggedValue tag="ea_end" value="target"/>
+									</UML:ModelElement.taggedValue>
+								</UML:AssociationEnd>
+							</UML:Association.connection>
+						</UML:Association>
+						<UML:Class name="BIM_Element" xmi.id="EAID_EBE422BB_6422_4091_B58D_04E2DE29298A" visibility="public" namespace="EAPK_CE097A64_F181_4035_AF18_1C4049A17A21" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_CE097A64_F181_4035_AF18_1C4049A17A21"/>
+								<UML:TaggedValue tag="date_created" value="2025-05-05 11:14:35"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-15 10:29:17"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="IFC-BIM"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="137"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="type" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Elementtype"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="*"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{9EAC56A1-5981-4b48-B510-53945019AE7B}"/>
+										<UML:TaggedValue tag="ea_localid" value="126"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="$ea_xref_property" value="$XREFPROP=$XID={D115E459-CE38-4ece-9DBF-6C908CCEF2EB}$XID;$NAM=MOFProps$NAM;$TYP=attribute property$TYP;$VIS=Public$VIS;$BEH=redefinedProperty$BEH;$PAR=0$PAR;$DES={74631035-B6AC-4654-A498-C49392F8ACE0}$DES;$CLT={9EAC56A1-5981-4b48-B510-53945019AE7B}$CLT;$SUP=&lt;none&gt;$SUP;$ENDXREF;"/>
+										<UML:TaggedValue tag="label-nl" value="type" xmi.id="EAID_67FC0F8C_58F6_41ca_9FD7_E0CC46A7DB60"/>
+										<UML:TaggedValue tag="uri" value="http://purl.org/dc/terms/type" xmi.id="EAID_64527348_2D77_4b7f_A1C6_F623B06297BB"/>
+										<UML:TaggedValue tag="ap-label-nl" value="type" xmi.id="EAID_A5C3831E_53ED_4511_8A2F_3B8E71DC31FD"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Aard van het Domeinobject." xmi.id="EAID_43A28D1E_E24E_4650_A592_757A8C3A137F"/>
+										<UML:TaggedValue tag="definition-nl" value="Aard van het Domeinobject." xmi.id="EAID_E59C3F8D_DFB0_4a8f_83E8_9B53340359C6"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+				<UML:DataType xmi.id="eaxmiid1" name="Elementtype" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid0" name="Gebouwtype" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_3D70314A_62B0_40ce_9A98_A9813CF28BB7" value="Pand" modelElement="EAID_6E922AAB_C23F_452a_A177_6EF89D92C1F6"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_07C8E5BC_4C13_4440_868C_247EA288C779" value="IFCGebouw" modelElement="EAID_6E922AAB_C23F_452a_A177_6EF89D92C1F6"/>
+		<UML:TaggedValue tag="definition-nl" xmi.id="EAID_7B28BCFB_9433_4c08_A9FA_E33EFB3E74CA" value="Pand" modelElement="EAID_6E922AAB_C23F_452a_A177_6EF89D92C1F6"/>
+		<UML:TaggedValue tag="label-nl" xmi.id="EAID_B9DC828C_80D3_4e28_8DFE_56BD3431B190" value="IFCGebouw" modelElement="EAID_6E922AAB_C23F_452a_A177_6EF89D92C1F6"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_16A0ED4D_0FC7_4a37_9BA8_C4C9A52BF4DB" value="https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2_TC1/OWL#IfcBuilding" modelElement="EAID_6E922AAB_C23F_452a_A177_6EF89D92C1F6"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_E08400B6_9E9B_4e75_8149_6DF8A61388D2" value="Onderdeel van een groter geheel" modelElement="EAID_EBE422BB_6422_4091_B58D_04E2DE29298A"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_D56072B5_658B_49d5_99E2_BA272B7EFD05" value="Element" modelElement="EAID_EBE422BB_6422_4091_B58D_04E2DE29298A"/>
+		<UML:TaggedValue tag="definition-nl" xmi.id="EAID_35B346D0_9E76_48f9_B423_D4A891C7674F" value="Onderdeel van een groter geheel" modelElement="EAID_EBE422BB_6422_4091_B58D_04E2DE29298A"/>
+		<UML:TaggedValue tag="label-nl" xmi.id="EAID_8F37EA16_DF2E_4f44_8B51_7DB7AC6FD64E" value="Element" modelElement="EAID_EBE422BB_6422_4091_B58D_04E2DE29298A"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_B1563622_DB5B_472e_88A9_26C4F6963963" value="https://standards.buildingsmart.org/IFC/DEV/IFC4/ADD2_TC1/OWL#IfcElement" modelElement="EAID_EBE422BB_6422_4091_B58D_04E2DE29298A"/>
+		<UML:DiagramElement geometry="Left=59;Top=37;Right=231;Bottom=107;" subject="EAID_6E922AAB_C23F_452a_A177_6EF89D92C1F6" seqno="4" style="DUID=3FF88F9D;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_26731EA9_6728_4389_9FB0_710D33E82D6E"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=59;Top=224;Right=231;Bottom=294;" subject="EAID_EBE422BB_6422_4091_B58D_04E2DE29298A" seqno="3" style="DUID=20FD46B7;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_26731EA9_6728_4389_9FB0_710D33E82D6E"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_C11F7A8B_C32D_4c1b_B25B_F563F7868306" style="Mode=3;EOID=3FF88F9D;SOID=20FD46B7;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_26731EA9_6728_4389_9FB0_710D33E82D6E"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_C11F7A8B_C32D_4c1b_B25B_F563F7868306" style="Mode=3;EOID=3FF88F9D;SOID=20FD46B7;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_26731EA9_6728_4389_9FB0_710D33E82D6E"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_C11F7A8B_C32D_4c1b_B25B_F563F7868306" style="Mode=3;EOID=3FF88F9D;SOID=20FD46B7;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_26731EA9_6728_4389_9FB0_710D33E82D6E"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_C11F7A8B_C32D_4c1b_B25B_F563F7868306" style="Mode=3;EOID=3FF88F9D;SOID=20FD46B7;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_26731EA9_6728_4389_9FB0_710D33E82D6E"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5"/>
+</XMI>

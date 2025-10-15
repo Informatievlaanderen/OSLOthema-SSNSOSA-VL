@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:31">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_98BF115D_0CD3_458f_B84C_34C637910E2A">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="SAREF-CORE" xmi.id="EAPK_98BF115D_0CD3_458f_B84C_34C637910E2A" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="33"/>
+						<UML:TaggedValue tag="created" value="2021-10-04 21:00:02"/>
+						<UML:TaggedValue tag="modified" value="2025-09-15 10:02:47"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\SAREF-CORE.xml"/>
+						<UML:TaggedValue tag="lastloaddate" value="2022-03-03 17:31:50"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:31"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="22"/>
+						<UML:TaggedValue tag="packageFlags" value="VICON=6;Recurse=1;CRC=0;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="thijsge"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="22"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="Toestel" xmi.id="EAID_06B04AB0_5D36_4910_89AB_364831E6C209" visibility="public" namespace="EAPK_98BF115D_0CD3_458f_B84C_34C637910E2A" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_98BF115D_0CD3_458f_B84C_34C637910E2A"/>
+								<UML:TaggedValue tag="date_created" value="2021-10-05 14:32:02"/>
+								<UML:TaggedValue tag="date_modified" value="2022-03-03 17:35:38"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="SAREF-CORE"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="120"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="^type" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Systeemtype"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="*"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{7B692206-25CF-4360-8248-C85D30F36BB9}"/>
+										<UML:TaggedValue tag="ea_localid" value="105"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://purl.org/dc/terms/type" xmi.id="EAID_AE6F1C41_7294_40e5_AEDE_7CFCE96BB1F2"/>
+										<UML:TaggedValue tag="ap-label-nl" value="type" xmi.id="EAID_BEFB6351_E1AA_4e8a_B614_56B774AB54FA"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Aard van het Toestel." xmi.id="EAID_395C7FD4_1DDF_4357_92DB_CB53597DCB9A"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="fabrikant" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{4D0C982B-3531-47bd-92DE-C17D599ED748}"/>
+										<UML:TaggedValue tag="ea_localid" value="101"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-label-nl" value="fabrikant" xmi.id="EAID_C0379352_4729_4786_9B15_6EAEDB9C692C"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Naam van de fabrikant." xmi.id="EAID_2EC7C1D6_0D83_4b22_BA16_6EEE9E0A2F32"/>
+										<UML:TaggedValue tag="uri" value="https://saref.etsi.org/core/hasManufacturer" xmi.id="EAID_1C3825C8_A99F_404a_990F_4DF65F9CD7E6"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="functie" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="EAID_B367FC2F_3E9B_495e_B33E_33B8F58EF2E3"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Functie"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="3"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="*"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{1250E2E0-1AC6-44e5-ABF5-3E91EB1838EF}"/>
+										<UML:TaggedValue tag="ea_localid" value="103"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-label-nl" value="functie" xmi.id="EAID_F1C384CA_731F_4383_914C_BA33F6D589A8"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Functie die het Toestel kan uitvoeren met het oog op het uitvoeren van een Taak." xmi.id="EAID_A6FF069E_C09D_46b6_ADDB_2D69135F19BE"/>
+										<UML:TaggedValue tag="uri" value="https://saref.etsi.org/core/hasFunction" xmi.id="EAID_CCABF867_AB68_4c13_A6FD_FB68D19B789E"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="model" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="1"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{A8C58D27-9894-4439-8C0E-FDFF031D7DA6}"/>
+										<UML:TaggedValue tag="ea_localid" value="102"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-label-nl" value="model" xmi.id="EAID_D1E342FC_163A_45ca_B3F3_008553E8A6DD"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Naam van het model van het Toestel." xmi.id="EAID_469E8CF7_2078_4666_81F1_27400BCA0D27"/>
+										<UML:TaggedValue tag="uri" value="https://saref.etsi.org/core/hasModel" xmi.id="EAID_9EE75567_DAD0_4619_BE14_53AF9032DCA7"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="taak" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="EAID_1158016C_4F4E_4557_B931_52E77C006ADE"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Taak"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="4"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="*"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{12328E6B-4DD8-4466-AEED-A61ADC2A4E8B}"/>
+										<UML:TaggedValue tag="ea_localid" value="104"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-label-nl" value="taak" xmi.id="EAID_4CC5EE62_DC83_4f52_9732_F63537BE351A"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Taak die met het Toestel kan worden uitgevoerd waarvoor het Toestel ontworpen is." xmi.id="EAID_2A33FE96_0737_478c_99A8_670B4FBA67DC"/>
+										<UML:TaggedValue tag="uri" value="https://saref.etsi.org/core/accomplishes" xmi.id="EAID_289748EF_6484_4dc7_A3AB_AAF280D41BB9"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+						<UML:Generalization subtype="EAID_7ADBE56B_43BB_42ac_86B4_FE996759AFA2" supertype="EAID_06B04AB0_5D36_4910_89AB_364831E6C209" xmi.id="EAID_B7727490_C60F_4c47_A920_6580F7E1F15E" visibility="public">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Generalization"/>
+								<UML:TaggedValue tag="direction" value="Source -&gt; Destination"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="59"/>
+								<UML:TaggedValue tag="ea_sourceName" value="Meter"/>
+								<UML:TaggedValue tag="ea_targetName" value="Toestel"/>
+								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
+								<UML:TaggedValue tag="ea_targetType" value="Class"/>
+								<UML:TaggedValue tag="ea_sourceID" value="122"/>
+								<UML:TaggedValue tag="ea_targetID" value="120"/>
+								<UML:TaggedValue tag="src_visibility" value="Public"/>
+								<UML:TaggedValue tag="src_aggregation" value="0"/>
+								<UML:TaggedValue tag="src_isOrdered" value="false"/>
+								<UML:TaggedValue tag="src_targetScope" value="instance"/>
+								<UML:TaggedValue tag="src_changeable" value="none"/>
+								<UML:TaggedValue tag="src_isNavigable" value="false"/>
+								<UML:TaggedValue tag="src_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="src_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="dst_visibility" value="Public"/>
+								<UML:TaggedValue tag="dst_aggregation" value="0"/>
+								<UML:TaggedValue tag="dst_isOrdered" value="false"/>
+								<UML:TaggedValue tag="dst_targetScope" value="instance"/>
+								<UML:TaggedValue tag="dst_changeable" value="none"/>
+								<UML:TaggedValue tag="dst_isNavigable" value="true"/>
+								<UML:TaggedValue tag="dst_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="dst_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="privatedata5" value="EDGE=1;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Generalization>
+						<UML:Class name="Taak" xmi.id="EAID_1158016C_4F4E_4557_B931_52E77C006ADE" visibility="public" namespace="EAPK_98BF115D_0CD3_458f_B84C_34C637910E2A" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_98BF115D_0CD3_458f_B84C_34C637910E2A"/>
+								<UML:TaggedValue tag="date_created" value="2021-10-05 21:47:23"/>
+								<UML:TaggedValue tag="date_modified" value="2022-03-03 17:42:32"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="SAREF-CORE"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="121"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{12328E6B-4DD8-4466-AEED-A61ADC2A4E8B}"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Class>
+						<UML:Class name="Meter" xmi.id="EAID_7ADBE56B_43BB_42ac_86B4_FE996759AFA2" visibility="public" namespace="EAPK_98BF115D_0CD3_458f_B84C_34C637910E2A" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_98BF115D_0CD3_458f_B84C_34C637910E2A"/>
+								<UML:TaggedValue tag="date_created" value="2025-04-08 21:14:35"/>
+								<UML:TaggedValue tag="date_modified" value="2025-04-08 21:14:35"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="SAREF-CORE"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="product_name" value="Java"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="122"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="^fabrikant" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="2"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{63D4B70E-69D9-4e1e-93BB-5030B5A69B8A}"/>
+										<UML:TaggedValue tag="ea_localid" value="109"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-label-nl" value="fabrikant" xmi.id="EAID_118B11AF_A886_4b7e_BC59_00988173CFDE"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Fabrikant van de Toestel." xmi.id="EAID_2E54D7C6_86C4_414e_BD73_1CD41EECD08F"/>
+										<UML:TaggedValue tag="uri" value="https://saref.etsi.org/core/hasManufacturer" xmi.id="EAID_512C4555_49FE_4e7e_A84D_5DB81C2961F3"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="^functie" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid2"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Functietype"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="10"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="*"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{6D4BC243-7F5F-465c-9D9D-B4A647A7FC95}"/>
+										<UML:TaggedValue tag="ea_localid" value="116"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="https://saref.etsi.org/core/hasFunction" xmi.id="EAID_D5F2F61B_B275_4e51_A814_2B9E70A5FD69"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Functie die het Toestel kan uitvoeren met het oog op het uitvoeren van een Taak." xmi.id="EAID_A981C8FD_581A_48de_8487_17FB9BA3BC8B"/>
+										<UML:TaggedValue tag="ap-label-nl" value="functie" xmi.id="EAID_4E8F9858_6E11_4182_ADA1_7FBC9DA85DB3"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="^heeftFabrieksnummer" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid3"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Literal"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="1"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{00A267E2-3271-42a8-99BA-16DBE1CB5309}"/>
+										<UML:TaggedValue tag="ea_localid" value="107"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="https://w3id.org/def/S4WATR#hasFabricationNumber" xmi.id="EAID_A473EEB3_E660_498a_824A_E567B965EB33"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Het fabrieksnummer van een Toestel." xmi.id="EAID_B3E15921_B3B9_4fce_AA3D_A16DCA842C5E"/>
+										<UML:TaggedValue tag="ap-label-nl" value="heeftFabrieksnummer" xmi.id="EAID_4F297131_05C4_4acb_9459_19E7729D6769"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="^heeftFirmwareVersie" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid3"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Literal"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="2"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{78C7A51B-F573-4979-8025-6757E0CE4FA5}"/>
+										<UML:TaggedValue tag="ea_localid" value="110"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="https://w3id.org/def/S4WATR#hasFirmwareVersion" xmi.id="EAID_FBC20AF7_ECF3_454d_868E_37E07A880115"/>
+										<UML:TaggedValue tag="usageNote-nl" value="Firmware is software welke is ingebouwd in hardware." xmi.id="EAID_B36E62EA_7CC6_4e19_BA7F_29D82EEFED73"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="De firmware versie van een Toestel." xmi.id="EAID_AD6A26BC_3860_40c2_AB81_C6E0EB7C7FB1"/>
+										<UML:TaggedValue tag="ap-label-nl" value="heeftFirmwareVersie" xmi.id="EAID_A9A9E3B9_07C9_4a06_A57C_A44AAF665764"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="^heeftHardwareVersie" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid3"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Literal"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="2"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{32FBDE2E-9B92-4307-A725-79678F993ADF}"/>
+										<UML:TaggedValue tag="ea_localid" value="111"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="De hardware versie van een Toestel." xmi.id="EAID_715C79FA_0D59_4c5c_A908_F30EF2457066"/>
+										<UML:TaggedValue tag="label-nl" value="heeftHardwareVersie" xmi.id="EAID_DBB2CC43_FADB_4e51_824B_E3FDED805D5B"/>
+										<UML:TaggedValue tag="uri" value="https://w3id.org/def/S4WATR#hasHardwareVersion" xmi.id="EAID_9D2990E2_4E70_49ae_B105_258F27C39D41"/>
+										<UML:TaggedValue tag="ap-label-nl" value="heeftHardwareVersie" xmi.id="EAID_A8BDA627_7880_4a90_99FD_10FC4F2E0459"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="^heeftVersie" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid3"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Literal"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="3"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{C36D7E97-16E6-44a9-BF49-02E1FE7D6143}"/>
+										<UML:TaggedValue tag="ea_localid" value="112"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="De versie van een Toestel." xmi.id="EAID_9A773B5E_11BD_4798_ACD7_8929DE61F51E"/>
+										<UML:TaggedValue tag="uri" value="https://w3id.org/def/S4WATR#hasVersion" xmi.id="EAID_98DEF11D_CAD2_4be7_9013_D1EFD11BB5C2"/>
+										<UML:TaggedValue tag="ap-label-nl" value="heeftVersie" xmi.id="EAID_14D1B82E_A505_4bb1_BA7B_4F3A5D91F4D9"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="^model" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="LangString"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="3"/>
+										<UML:TaggedValue tag="lowerBound" value="0"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{FFFFAF89-52A5-4dc1-8F0F-7D28B38E8D87}"/>
+										<UML:TaggedValue tag="ea_localid" value="113"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-label-nl" value="model" xmi.id="EAID_330AE4C5_87DF_4149_99A5_639130034DDD"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Model van het Toestel." xmi.id="EAID_CE6E848A_38BE_4823_B621_6DE37A822124"/>
+										<UML:TaggedValue tag="uri" value="https://saref.etsi.org/core/hasModel" xmi.id="EAID_DA312660_258A_4959_8B50_27EB6798DD05"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="^vereistStroom" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid3"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Literal"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="5"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{251E1942-1F64-4e50-A975-AB807B37C383}"/>
+										<UML:TaggedValue tag="ea_localid" value="115"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Definitie voor de stroomvereiste voor een Toestel." xmi.id="EAID_B96F81DC_746F_417b_B235_647B54511111"/>
+										<UML:TaggedValue tag="uri" value="https://saref.etsi.org/saref4watr/requiresPower" xmi.id="EAID_78DD5399_6BA6_415f_91F7_B13EE5F3DAEB"/>
+										<UML:TaggedValue tag="ap-label-nl" value="vereistStroom" xmi.id="EAID_A0978842_07A5_4332_8BFA_E6C3E6949139"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="^werktopRadiofrequentie" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid3"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Literal"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="4"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{4DBB70B6-8D30-4be6-914A-B97BC6027B26}"/>
+										<UML:TaggedValue tag="ea_localid" value="114"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="De radiofrequentie waarop een Toestel communiceert." xmi.id="EAID_6F6E95EA_7DBD_4c13_936E_5BE3BA747F6A"/>
+										<UML:TaggedValue tag="uri" value="https://saref.etsi.org/saref4watr/operatesAtRadioFrequency" xmi.id="EAID_EBA8BDBA_6391_4a44_84F4_F0982DD6F2B1"/>
+										<UML:TaggedValue tag="ap-label-nl" value="werktopRadiofrequentie" xmi.id="EAID_8CAA010C_5615_4060_BCE0_0DB64D3EC907"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="identificator" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid4"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Identificator"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="*"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{87064272-2B40-4c7c-A70E-0A7AFEA9CFFD}"/>
+										<UML:TaggedValue tag="ea_localid" value="106"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="https://www.w3.org/ns/adms#identifier" xmi.id="EAID_F3055B63_81D3_4141_BE5B_AD42D2D494A7"/>
+										<UML:TaggedValue tag="ap-label-nl" value="identificator" xmi.id="EAID_59DC9F77_6B0D_4ffe_9726_345AF6F2D18A"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Identificator van het Toestel." xmi.id="EAID_45977076_5B10_4fc7_A355_94DDB4D30F7C"/>
+										<UML:TaggedValue tag="ap-usageNote-nl" value="Type van de string slaat op het identificatiesysteem (incl de versie ervan), de string zelf op de eigenlijke identificator, bv. uniek serienummer van de digitale watermeter. Bijvoorbeeld: uniek serienummer van de digitale watermeter" xmi.id="EAID_4BDB9D6F_58F5_497b_B01E_4E4B1913B536"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="verbruiksadres" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid5"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Adresvoorstelling"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="1"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{5718384D-8111-4fc2-8A40-70EBA0745850}"/>
+										<UML:TaggedValue tag="ea_localid" value="108"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="https://data.vlaanderen.be/ns/nutsvoorzieningen/meters#Meter.verbruiksadres" xmi.id="EAID_8A255E8D_78D7_49da_A4CC_DC8ED9DD5EFC"/>
+										<UML:TaggedValue tag="ap-label-nl" value="verbruiksadres" xmi.id="EAID_25CEA864_F16A_4355_AF31_684AEF2AAC50"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Adres van de locatie waarvan de Meter het verbruik meet." xmi.id="EAID_51028EB9_BB03_4a24_AC97_CE714B28BCB9"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+						<UML:Generalization subtype="EAID_A97FC568_6764_4f26_948B_2FA70A143284" supertype="EAID_7ADBE56B_43BB_42ac_86B4_FE996759AFA2" xmi.id="EAID_AD3E8D82_6B81_47a7_BE2D_E4D00A65C7A4" visibility="public">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Generalization"/>
+								<UML:TaggedValue tag="direction" value="Source -&gt; Destination"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="104"/>
+								<UML:TaggedValue tag="ea_sourceName" value="Watermeter"/>
+								<UML:TaggedValue tag="ea_targetName" value="Meter"/>
+								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
+								<UML:TaggedValue tag="ea_targetType" value="Class"/>
+								<UML:TaggedValue tag="ea_sourceID" value="124"/>
+								<UML:TaggedValue tag="ea_targetID" value="122"/>
+								<UML:TaggedValue tag="src_visibility" value="Public"/>
+								<UML:TaggedValue tag="src_aggregation" value="0"/>
+								<UML:TaggedValue tag="src_isOrdered" value="false"/>
+								<UML:TaggedValue tag="src_targetScope" value="instance"/>
+								<UML:TaggedValue tag="src_changeable" value="none"/>
+								<UML:TaggedValue tag="src_isNavigable" value="false"/>
+								<UML:TaggedValue tag="src_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="src_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="dst_visibility" value="Public"/>
+								<UML:TaggedValue tag="dst_aggregation" value="0"/>
+								<UML:TaggedValue tag="dst_isOrdered" value="false"/>
+								<UML:TaggedValue tag="dst_targetScope" value="instance"/>
+								<UML:TaggedValue tag="dst_changeable" value="none"/>
+								<UML:TaggedValue tag="dst_isNavigable" value="true"/>
+								<UML:TaggedValue tag="dst_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="dst_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="privatedata5" value="SX=0;SY=0;EX=0;EY=0;EDGE=1;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Generalization>
+						<UML:Class name="Functie" xmi.id="EAID_B367FC2F_3E9B_495e_B33E_33B8F58EF2E3" visibility="public" namespace="EAPK_98BF115D_0CD3_458f_B84C_34C637910E2A" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_98BF115D_0CD3_458f_B84C_34C637910E2A"/>
+								<UML:TaggedValue tag="date_created" value="2021-10-05 21:47:34"/>
+								<UML:TaggedValue tag="date_modified" value="2022-03-03 17:42:23"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="SAREF-CORE"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="119"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{1250E2E0-1AC6-44e5-ABF5-3E91EB1838EF}"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Class>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+				<UML:DataType xmi.id="eaxmiid1" name="LangString" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid2" name="Functietype" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid5" name="Adresvoorstelling" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid0" name="Systeemtype" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid3" name="Literal" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid4" name="Identificator" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="baseURI" xmi.id="EAID_2E224BE3_60A2_4efd_AB6D_DBE7A0421FBC" value="https://saref.etsi.org/core/" modelElement="MX_EAID_98BF115D_0CD3_458f_B84C_34C637910E2A"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_80529BC0_94A6_4ba7_8F7A_382C7BE03170" value="Tastbaar Object ontworpen om een specifieke Taak mee uit te voeren." modelElement="EAID_06B04AB0_5D36_4910_89AB_364831E6C209"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_F578C396_7DEA_418e_9586_D9B5E7259890" value="Toestel" modelElement="EAID_06B04AB0_5D36_4910_89AB_364831E6C209"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_E60AC20B_762B_487d_B344_912EBEC4FA11" value="https://saref.etsi.org/core/Device" modelElement="EAID_06B04AB0_5D36_4910_89AB_364831E6C209"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_0F52157E_0570_4f3c_B891_93B02A0DC1B7" value="Doel waarvoor het Toestel is ontworpen (vanuit gebruikersoogpunt)." modelElement="EAID_1158016C_4F4E_4557_B931_52E77C006ADE"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_1CEA7006_71A2_463d_A73B_DFF32CBF289B" value="Taak" modelElement="EAID_1158016C_4F4E_4557_B931_52E77C006ADE"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_369A94BD_219B_4df9_81EB_11F737C5BFC7" value="https://saref.etsi.org/core/Task" modelElement="EAID_1158016C_4F4E_4557_B931_52E77C006ADE"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_731A6E18_5BFA_4a13_AF7E_A11C3218F3D3" value="Instrument bedoeld om iets te meten." modelElement="EAID_7ADBE56B_43BB_42ac_86B4_FE996759AFA2"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_22E61C48_E977_43a4_82EA_F52CF2DCAA27" value="Meter" modelElement="EAID_7ADBE56B_43BB_42ac_86B4_FE996759AFA2"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_D828EA60_15BE_412c_9A21_1D1847F0F319" value="https://saref.etsi.org/core/Meter" modelElement="EAID_7ADBE56B_43BB_42ac_86B4_FE996759AFA2"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_AC5E5FF2_E809_4c6f_A62E_A57D8F81E2FA" value="De functionaliteit die nodig is zodat het Toestel de Taken waarvoor het ontworpen is kan uitvoeren." modelElement="EAID_B367FC2F_3E9B_495e_B33E_33B8F58EF2E3"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_F2387061_0833_4151_BC6B_A08111212639" value="Functie" modelElement="EAID_B367FC2F_3E9B_495e_B33E_33B8F58EF2E3"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_36A0B149_97E2_430e_97E4_FBB573B4ABE8" value="https://saref.etsi.org/core/Function" modelElement="EAID_B367FC2F_3E9B_495e_B33E_33B8F58EF2E3"/>
+		<UML:DiagramElement geometry="Left=39;Top=20;Right=171;Bottom=121;" subject="EAID_06B04AB0_5D36_4910_89AB_364831E6C209" seqno="8" style="DUID=2E8BACC3;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=235;Top=54;Right=367;Bottom=155;" subject="EAID_06B04AB0_5D36_4910_89AB_364831E6C209" seqno="6" style="DUID=BEB40DE4;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0634A3B8_D382_49b4_85A4_727D8A0EB200"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=606;Top=26;Right=696;Bottom=96;" subject="EAID_1158016C_4F4E_4557_B931_52E77C006ADE" seqno="10" style="DUID=03D5F4BF;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=447;Top=54;Right=537;Bottom=124;" subject="EAID_1158016C_4F4E_4557_B931_52E77C006ADE" seqno="5" style="DUID=124F9B77;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0634A3B8_D382_49b4_85A4_727D8A0EB200"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=26;Top=195;Right=183;Bottom=384;" subject="EAID_7ADBE56B_43BB_42ac_86B4_FE996759AFA2" seqno="11" style="DUID=EC72A5E2;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=222;Top=243;Right=379;Bottom=432;" subject="EAID_7ADBE56B_43BB_42ac_86B4_FE996759AFA2" seqno="7" style="DUID=8A288895;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0634A3B8_D382_49b4_85A4_727D8A0EB200"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=606;Top=176;Right=696;Bottom=246;" subject="EAID_B367FC2F_3E9B_495e_B33E_33B8F58EF2E3" seqno="9" style="DUID=9750C15A;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=447;Top=174;Right=537;Bottom=244;" subject="EAID_B367FC2F_3E9B_495e_B33E_33B8F58EF2E3" seqno="4" style="DUID=7155871E;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0634A3B8_D382_49b4_85A4_727D8A0EB200"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_B7727490_C60F_4c47_A920_6580F7E1F15E" style="Mode=3;EOID=2E8BACC3;SOID=EC72A5E2;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_B7727490_C60F_4c47_A920_6580F7E1F15E" style="Mode=3;EOID=BEB40DE4;SOID=8A288895;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0634A3B8_D382_49b4_85A4_727D8A0EB200"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_B7727490_C60F_4c47_A920_6580F7E1F15E" style="Mode=3;EOID=2E8BACC3;SOID=EC72A5E2;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_B7727490_C60F_4c47_A920_6580F7E1F15E" style="Mode=3;EOID=BEB40DE4;SOID=8A288895;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0634A3B8_D382_49b4_85A4_727D8A0EB200"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_AD3E8D82_6B81_47a7_BE2D_E4D00A65C7A4" style="Mode=3;EOID=EC72A5E2;SOID=45DE1185;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_B7727490_C60F_4c47_A920_6580F7E1F15E" style="Mode=3;EOID=2E8BACC3;SOID=EC72A5E2;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_B7727490_C60F_4c47_A920_6580F7E1F15E" style="Mode=3;EOID=BEB40DE4;SOID=8A288895;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0634A3B8_D382_49b4_85A4_727D8A0EB200"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_AD3E8D82_6B81_47a7_BE2D_E4D00A65C7A4" style="Mode=3;EOID=EC72A5E2;SOID=45DE1185;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_B7727490_C60F_4c47_A920_6580F7E1F15E" style="Mode=3;EOID=2E8BACC3;SOID=EC72A5E2;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_B7727490_C60F_4c47_A920_6580F7E1F15E" style="Mode=3;EOID=BEB40DE4;SOID=8A288895;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_0634A3B8_D382_49b4_85A4_727D8A0EB200"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5">
+		<EAModel.paramSub/>
+		<EAStub xmi.id="EAID_A97FC568_6764_4f26_948B_2FA70A143284" name="Watermeter" UMLType="Class"/>
+	</XMI.extensions>
+</XMI>

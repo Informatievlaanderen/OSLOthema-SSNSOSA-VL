@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:31">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_F4D87086_1FED_421a_9B83_CB2FE8B930E1">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="SAREF-4-WATR" xmi.id="EAPK_F4D87086_1FED_421a_9B83_CB2FE8B930E1" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="31"/>
+						<UML:TaggedValue tag="created" value="2025-06-06 09:39:53"/>
+						<UML:TaggedValue tag="modified" value="2025-09-15 10:02:56"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\SAREF-4-WATR.xml"/>
+						<UML:TaggedValue tag="lastloaddate" value="2025-09-15 10:02:36"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:31"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="23"/>
+						<UML:TaggedValue tag="packageFlags" value="isModel=1;VICON=6;Recurse=1;CRC=0;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="dylan"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="23"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="Watermeter" xmi.id="EAID_A97FC568_6764_4f26_948B_2FA70A143284" visibility="public" namespace="EAPK_F4D87086_1FED_421a_9B83_CB2FE8B930E1" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_F4D87086_1FED_421a_9B83_CB2FE8B930E1"/>
+								<UML:TaggedValue tag="date_created" value="2024-05-14 12:10:44"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-15 10:06:34"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="SAREF-4-WATR"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="124"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="diameter" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="KwantitatieveWaarde"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{23578A4A-5B42-44be-9F7C-9DCD6B73E8A2}"/>
+										<UML:TaggedValue tag="ea_localid" value="117"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="definition-nl" value="De interne diameter van de pijpaansluiting waar de watermeter wordt geïnstalleerd." xmi.id="EAID_2E72054F_A539_4e44_A3A5_16C3E696350C"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="De interne diameter van de pijpaansluiting waar de watermeter wordt geïnstalleerd." xmi.id="EAID_3D58247B_410A_4d2c_9EED_F71CFC29EEEF"/>
+										<UML:TaggedValue tag="label-nl" value="diameter" xmi.id="EAID_F762D369_5592_4c6f_9C3E_651FFB968E92"/>
+										<UML:TaggedValue tag="uri" value="https://data.vlaanderen.be/ns/nutsvoorzieningen/meters#diameter" xmi.id="EAID_6E4509DC_A5AC_4707_ABFE_AC36085C5F8B"/>
+										<UML:TaggedValue tag="ap-label-nl" value="diameter" xmi.id="EAID_A57299A7_149E_4fe3_8AF0_12D5E6032395"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+						<UML:Generalization subtype="EAID_A97FC568_6764_4f26_948B_2FA70A143284" supertype="EAID_7ADBE56B_43BB_42ac_86B4_FE996759AFA2" xmi.id="EAID_AD3E8D82_6B81_47a7_BE2D_E4D00A65C7A4" visibility="public">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="style" value="3"/>
+								<UML:TaggedValue tag="ea_type" value="Generalization"/>
+								<UML:TaggedValue tag="direction" value="Source -&gt; Destination"/>
+								<UML:TaggedValue tag="linemode" value="3"/>
+								<UML:TaggedValue tag="linecolor" value="-1"/>
+								<UML:TaggedValue tag="linewidth" value="0"/>
+								<UML:TaggedValue tag="seqno" value="0"/>
+								<UML:TaggedValue tag="headStyle" value="0"/>
+								<UML:TaggedValue tag="lineStyle" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="104"/>
+								<UML:TaggedValue tag="ea_sourceName" value="Watermeter"/>
+								<UML:TaggedValue tag="ea_targetName" value="Meter"/>
+								<UML:TaggedValue tag="ea_sourceType" value="Class"/>
+								<UML:TaggedValue tag="ea_targetType" value="Class"/>
+								<UML:TaggedValue tag="ea_sourceID" value="124"/>
+								<UML:TaggedValue tag="ea_targetID" value="122"/>
+								<UML:TaggedValue tag="src_visibility" value="Public"/>
+								<UML:TaggedValue tag="src_aggregation" value="0"/>
+								<UML:TaggedValue tag="src_isOrdered" value="false"/>
+								<UML:TaggedValue tag="src_targetScope" value="instance"/>
+								<UML:TaggedValue tag="src_changeable" value="none"/>
+								<UML:TaggedValue tag="src_isNavigable" value="false"/>
+								<UML:TaggedValue tag="src_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="src_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="dst_visibility" value="Public"/>
+								<UML:TaggedValue tag="dst_aggregation" value="0"/>
+								<UML:TaggedValue tag="dst_isOrdered" value="false"/>
+								<UML:TaggedValue tag="dst_targetScope" value="instance"/>
+								<UML:TaggedValue tag="dst_changeable" value="none"/>
+								<UML:TaggedValue tag="dst_isNavigable" value="true"/>
+								<UML:TaggedValue tag="dst_containment" value="Unspecified"/>
+								<UML:TaggedValue tag="dst_style" value="Union=0;Derived=0;AllowDuplicates=0;"/>
+								<UML:TaggedValue tag="privatedata5" value="SX=0;SY=0;EX=0;EY=0;EDGE=1;"/>
+								<UML:TaggedValue tag="virtualInheritance" value="0"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Generalization>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+				<UML:DataType xmi.id="eaxmiid0" name="KwantitatieveWaarde" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="baseURI" xmi.id="EAID_9A00D18B_359B_4306_8307_A1223AC0CD01" value="https://saref.etsi.org/saref4watr/" modelElement="MX_EAID_F4D87086_1FED_421a_9B83_CB2FE8B930E1"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_6945859C_00BD_405c_8923_29CDFA6F30DF" value="Meter dat het waterverbruik registreert en weergeeft." modelElement="EAID_A97FC568_6764_4f26_948B_2FA70A143284"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_CF74A7D7_5C27_4d2e_845D_CEFD060D2612" value="Watermeter" modelElement="EAID_A97FC568_6764_4f26_948B_2FA70A143284"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_16E1B15C_0D0C_4814_9EDF_BC37D659B1F2" value="https://saref.etsi.org/saref4watr/WaterMeter" modelElement="EAID_A97FC568_6764_4f26_948B_2FA70A143284"/>
+		<UML:DiagramElement geometry="Left=27;Top=464;Right=182;Bottom=534;" subject="EAID_A97FC568_6764_4f26_948B_2FA70A143284" seqno="12" style="DUID=45DE1185;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_AD3E8D82_6B81_47a7_BE2D_E4D00A65C7A4" style="Mode=3;EOID=EC72A5E2;SOID=45DE1185;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="SX=0;SY=0;EX=0;EY=0;EDGE=1;$LLB=;LLT=;LMT=;LMB=;LRT=;LRB=;IRHS=;ILHS=;" subject="EAID_AD3E8D82_6B81_47a7_BE2D_E4D00A65C7A4" style="Mode=3;EOID=EC72A5E2;SOID=45DE1185;Color=-1;LWidth=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_5847459F_BC02_46d6_BF52_FDE042788C15"/>
+				<UML:TaggedValue tag="hidden" value="0"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5">
+		<EAStub xmi.id="EAID_7ADBE56B_43BB_42ac_86B4_FE996759AFA2" name="Meter" UMLType="Class"/>
+		<EAModel.paramSub/>
+	</XMI.extensions>
+</XMI>

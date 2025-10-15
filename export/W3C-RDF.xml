@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:33">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_FA559092_F054_4238_9461_58F998ABD1B3">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="W3C-RDF" xmi.id="EAPK_FA559092_F054_4238_9461_58F998ABD1B3" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="4"/>
+						<UML:TaggedValue tag="created" value="2025-09-11 15:07:05"/>
+						<UML:TaggedValue tag="modified" value="2025-09-11 15:07:05"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\W3C-RDF.xml"/>
+						<UML:TaggedValue tag="lastloaddate" value="2025-09-15 08:22:23"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:32"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="9"/>
+						<UML:TaggedValue tag="packageFlags" value="VICON=6;Recurse=1;CRC=0;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="vanassdy"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="9"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="GeografischeNaam" xmi.id="EAID_98295EE5_1FDF_4a46_887E_A444685D1B16" visibility="public" namespace="EAPK_FA559092_F054_4238_9461_58F998ABD1B3" isRoot="false" isLeaf="false" isAbstract="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="DataType"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="isActive" value="false"/>
+								<UML:TaggedValue tag="package" value="EAPK_FA559092_F054_4238_9461_58F998ABD1B3"/>
+								<UML:TaggedValue tag="date_created" value="2025-09-11 15:07:10"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-11 15:07:10"/>
+								<UML:TaggedValue tag="gentype" value="&lt;none&gt;"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="W3C-RDF"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="73"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{9DE23CFC-D9F5-4e4a-9458-884619EF8FEE}"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="spelling" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="String"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{11C5D48E-4807-4330-8F5F-F6B02596E9E8}"/>
+										<UML:TaggedValue tag="ea_localid" value="68"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-label-nl" value="spelling" xmi.id="EAID_F08BDF84_B6BB_459a_B49D_61F8B9627F9B"/>
+										<UML:TaggedValue tag="ignore" value="true" xmi.id="EAID_B199D5E0_F035_4409_A834_288C23B9ADE7"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="De naam van het geografisch object." xmi.id="EAID_29D1F2C5_3043_4d46_83C5_59ADAC4C5222">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="taal" changeable="none" visibility="public" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Taalcode"/>
+										<UML:TaggedValue tag="derived" value="0"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="1"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{AB8363AE-0DE3-4331-8D17-97B52B32DA5F}"/>
+										<UML:TaggedValue tag="ea_localid" value="69"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="ap-label-nl" value="taal" xmi.id="EAID_4EAB2D97_FFB6_4329_97F9_80B3C1D13E52"/>
+										<UML:TaggedValue tag="ignore" value="true" xmi.id="EAID_319D83C0_B8B5_4706_8453_045CE19757F9"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="De taal waarin de naam is geschreven." xmi.id="EAID_C4C53196_A0F2_4928_8809_8B2BB76DF4EF">
+											<XMI.extension xmi.extender="Enterprise Architect 2.5">
+												<UML:Comment name=" "/>
+											</XMI.extension>
+										</UML:TaggedValue>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+						<UML:Class name="LangString" xmi.id="EAID_E705183A_34AC_4f34_824E_1D97A7DB7191" visibility="public" namespace="EAPK_FA559092_F054_4238_9461_58F998ABD1B3" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_FA559092_F054_4238_9461_58F998ABD1B3"/>
+								<UML:TaggedValue tag="date_created" value="2025-09-15 13:36:27"/>
+								<UML:TaggedValue tag="date_modified" value="2025-09-15 13:40:28"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="W3C-RDF"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="193"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Class>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+				<UML:DataType xmi.id="eaxmiid0" name="String" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid1" name="Taalcode" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="baseURI" xmi.id="EAID_22879CAE_056F_44ba_8A89_1B9D88BD7B0B" value="http://www.w3.org/1999/02/22-rdf-syntax-ns#" modelElement="MX_EAID_FA559092_F054_4238_9461_58F998ABD1B3"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_23CF428B_FBCF_4106_8991_B14848A1D4A8" value="Benaming toegekend aan of gebruikt voor een geografisch object.#NOTES# " modelElement="EAID_98295EE5_1FDF_4a46_887E_A444685D1B16"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_BC1DA620_F31D_4716_87F1_5B1310545E4F" value="GeografischeNaam" modelElement="EAID_98295EE5_1FDF_4a46_887E_A444685D1B16"/>
+		<UML:TaggedValue tag="literal" xmi.id="EAID_022DC27D_5D9B_4e37_8833_7E853E9E9DA1" value="true" modelElement="EAID_98295EE5_1FDF_4a46_887E_A444685D1B16"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_C1A7ED1F_00F7_4c1a_9739_1E8520366BC3" value="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" modelElement="EAID_98295EE5_1FDF_4a46_887E_A444685D1B16"/>
+		<UML:TaggedValue tag="ap-definitie-nl" xmi.id="EAID_2F720D86_8BF9_47ca_916E_1FBC5165807F" value="Een generieke string met bijhorende taal-tag." modelElement="EAID_E705183A_34AC_4f34_824E_1D97A7DB7191"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_FF591C92_D06E_4edf_BB2A_6993126EB3E0" value="LangString" modelElement="EAID_E705183A_34AC_4f34_824E_1D97A7DB7191"/>
+		<UML:TaggedValue tag="literal" xmi.id="EAID_AD342526_0307_4bd0_817D_7E7A1A4A59FB" value="true" modelElement="EAID_E705183A_34AC_4f34_824E_1D97A7DB7191"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_1BAC30E5_A5E0_48a9_891B_28E09C74A44F" value="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" modelElement="EAID_E705183A_34AC_4f34_824E_1D97A7DB7191"/>
+		<UML:DiagramElement geometry="Left=1699;Top=457;Right=1789;Bottom=529;" subject="EAID_98295EE5_1FDF_4a46_887E_A444685D1B16" seqno="10" style="NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;DUID=08F88B7B;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_6E97B28F_5F34_4fa5_BA79_5592FBE802B5"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=549;Top=177;Right=639;Bottom=249;" subject="EAID_98295EE5_1FDF_4a46_887E_A444685D1B16" seqno="3" style="DUID=E0500465;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_1E84FD6C_96E1_4b62_9A5A_30E581A7D430"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5"/>
+</XMI>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:28">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_928C48D3_C50A_421f_8B22_6CF4E1EE4BD6">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="EDTF" xmi.id="EAPK_928C48D3_C50A_421f_8B22_6CF4E1EE4BD6" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="14"/>
+						<UML:TaggedValue tag="created" value="2024-12-02 17:14:57"/>
+						<UML:TaggedValue tag="modified" value="2024-12-02 17:14:57"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\EDTF.xml"/>
+						<UML:TaggedValue tag="lastloaddate" value="2025-02-26 16:22:48"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:28"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="28"/>
+						<UML:TaggedValue tag="packageFlags" value="VICON=6;Recurse=1;CRC=0;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="thijsge"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="28"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="EDTF" xmi.id="EAID_3FEB2F5E_D134_405d_8113_FDCEEFBC2ECE" visibility="public" namespace="EAPK_928C48D3_C50A_421f_8B22_6CF4E1EE4BD6" isRoot="false" isLeaf="false" isAbstract="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="DataType"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="isActive" value="false"/>
+								<UML:TaggedValue tag="package" value="EAPK_928C48D3_C50A_421f_8B22_6CF4E1EE4BD6"/>
+								<UML:TaggedValue tag="date_created" value="2024-12-02 17:06:13"/>
+								<UML:TaggedValue tag="date_modified" value="2024-12-02 17:17:49"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="EDTF"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="82"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+						</UML:Class>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="baseURI" xmi.id="EAID_76C3CC96_4429_434e_B2E6_23EF9134A00C" value="http://id.loc.gov/datatypes/edtf/" modelElement="MX_EAID_928C48D3_C50A_421f_8B22_6CF4E1EE4BD6"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_31386E8C_9A81_4145_902A_461E8DDDB8EC" value="Een uitgebreide set van notaties voor het vastleggen van datums, tijden en tijdsintervallen, inclusief onzekere of benaderde datums, herhalende datums en open tijdsintervallen." modelElement="EAID_3FEB2F5E_D134_405d_8113_FDCEEFBC2ECE"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_08B88229_60BF_4d0a_BD3F_3770A87DFDE0" value="EDTF" modelElement="EAID_3FEB2F5E_D134_405d_8113_FDCEEFBC2ECE"/>
+		<UML:TaggedValue tag="ap-usageNote-nl" xmi.id="EAID_C88753A6_25D1_45bc_AADF_4572A031B2E9" value="Bijvoorbeeld: 1980/1984 (periode 1980-1984), 1984? (jaar onzeker), 1984~ (jaar bij benadering), 19XX (20ste eeuw), /1980 (periode met onbekend begin), 1984 (ergens in 1984). Zie &lt;a href=&quot;https://www.loc.gov/standards/datetime/&quot;&gt;EDTF&lt;/a&gt; voor meer info." modelElement="EAID_3FEB2F5E_D134_405d_8113_FDCEEFBC2ECE"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_2A349684_6153_4a27_B1A6_F8ED9898EA80" value="http://id.loc.gov/datatypes/edtf/EDTF" modelElement="EAID_3FEB2F5E_D134_405d_8113_FDCEEFBC2ECE"/>
+		<UML:DiagramElement geometry="Left=785;Top=25;Right=875;Bottom=85;" subject="EAID_3FEB2F5E_D134_405d_8113_FDCEEFBC2ECE" seqno="3" style="DUID=E0C24172;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_E60270C1_6258_4f49_A46A_EEABDF6D6DF1"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5"/>
+</XMI>

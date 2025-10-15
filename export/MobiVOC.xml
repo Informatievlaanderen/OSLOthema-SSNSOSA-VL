@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<XMI xmi.version="1.1" xmlns:UML="omg.org/UML1.3" timestamp="2025-10-07 11:41:29">
+	<XMI.header>
+		<XMI.documentation>
+			<XMI.exporter>Enterprise Architect</XMI.exporter>
+			<XMI.exporterVersion>2.5</XMI.exporterVersion>
+			<XMI.exporterID>1555</XMI.exporterID>
+		</XMI.documentation>
+	</XMI.header>
+	<XMI.content>
+		<UML:Model name="EA Model" xmi.id="MX_EAID_F11CCCCE_F963_41ef_875E_E572558680E8">
+			<UML:Namespace.ownedElement>
+				<UML:Class name="EARootClass" xmi.id="EAID_11111111_5487_4080_A7F4_41526CB0AA00" isRoot="true" isLeaf="false" isAbstract="false"/>
+				<UML:Package name="MobiVOC" xmi.id="EAPK_F11CCCCE_F963_41ef_875E_E572558680E8" isRoot="false" isLeaf="false" isAbstract="false" visibility="public">
+					<UML:ModelElement.taggedValue>
+						<UML:TaggedValue tag="parent" value="EAPK_45DBA412_2594_4154_B974_B529CB3C67F7"/>
+						<UML:TaggedValue tag="ea_package_id" value="76"/>
+						<UML:TaggedValue tag="created" value="2025-05-06 11:03:58"/>
+						<UML:TaggedValue tag="modified" value="2025-05-06 11:03:58"/>
+						<UML:TaggedValue tag="iscontrolled" value="TRUE"/>
+						<UML:TaggedValue tag="xmlpath" value="C:\Users\vanassdy\OneDrive - Vlaamse overheid - Office 365\Documenten\OSLO\Templates\OSLOthema-template\export\MobiVOC.xml"/>
+						<UML:TaggedValue tag="lastloaddate" value="2025-09-15 19:36:18"/>
+						<UML:TaggedValue tag="lastsavedate" value="2025-10-07 11:41:29"/>
+						<UML:TaggedValue tag="version" value="1.0"/>
+						<UML:TaggedValue tag="isprotected" value="FALSE"/>
+						<UML:TaggedValue tag="usedtd" value="FALSE"/>
+						<UML:TaggedValue tag="owner" value="vanassdy"/>
+						<UML:TaggedValue tag="xmiver" value="Enterprise Architect XMI/UML 1.3"/>
+						<UML:TaggedValue tag="logxml" value="FALSE"/>
+						<UML:TaggedValue tag="tpos" value="6"/>
+						<UML:TaggedValue tag="packageFlags" value="Recurse=1;CRC=0;"/>
+						<UML:TaggedValue tag="batchsave" value="1"/>
+						<UML:TaggedValue tag="batchload" value="0"/>
+						<UML:TaggedValue tag="phase" value="1.0"/>
+						<UML:TaggedValue tag="status" value="Proposed"/>
+						<UML:TaggedValue tag="author" value="thijsge"/>
+						<UML:TaggedValue tag="complexity" value="1"/>
+						<UML:TaggedValue tag="ea_stype" value="Public"/>
+						<UML:TaggedValue tag="tpos" value="6"/>
+						<UML:TaggedValue tag="gentype" value="Java"/>
+					</UML:ModelElement.taggedValue>
+					<UML:Namespace.ownedElement>
+						<UML:Class name="Parkeerfaciliteit" xmi.id="EAID_4662C25E_3720_4f6a_BD6D_494E77328112" visibility="public" namespace="EAPK_F11CCCCE_F963_41ef_875E_E572558680E8" isRoot="false" isLeaf="false" isAbstract="false" isActive="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="Class"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="package" value="EAPK_F11CCCCE_F963_41ef_875E_E572558680E8"/>
+								<UML:TaggedValue tag="date_created" value="2025-05-06 11:03:28"/>
+								<UML:TaggedValue tag="date_modified" value="2025-05-06 11:04:19"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="MobiVOC"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="234"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="capaciteit" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="EAID_7D3D56D6_49E5_4308_A9DD_27B406363C90"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Parkeercapaciteit"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{760D9D83-7806-4df7-B8E9-C92141B081AB}"/>
+										<UML:TaggedValue tag="ea_localid" value="170"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://schema.mobivoc.org/#capacity" xmi.id="EAID_48AA98F7_7630_4dd4_B809_9911751B3F82"/>
+										<UML:TaggedValue tag="ap-label-nl" value="capaciteit" xmi.id="EAID_E6B62A53_BC96_4d9b_A5A4_3E8EA1182694"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="De beschikbare parkeerplaatsen van de Parkeerfaciliteit." xmi.id="EAID_891C3123_0041_4015_B35C_C13B0786F20F"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+						<UML:Class name="Parkeercapaciteit" xmi.id="EAID_7D3D56D6_49E5_4308_A9DD_27B406363C90" visibility="public" namespace="EAPK_F11CCCCE_F963_41ef_875E_E572558680E8" isRoot="false" isLeaf="false" isAbstract="false">
+							<UML:ModelElement.taggedValue>
+								<UML:TaggedValue tag="isSpecification" value="false"/>
+								<UML:TaggedValue tag="ea_stype" value="DataType"/>
+								<UML:TaggedValue tag="ea_ntype" value="0"/>
+								<UML:TaggedValue tag="version" value="1.0"/>
+								<UML:TaggedValue tag="isActive" value="false"/>
+								<UML:TaggedValue tag="package" value="EAPK_F11CCCCE_F963_41ef_875E_E572558680E8"/>
+								<UML:TaggedValue tag="date_created" value="2025-05-06 11:04:57"/>
+								<UML:TaggedValue tag="date_modified" value="2025-05-06 11:11:28"/>
+								<UML:TaggedValue tag="gentype" value="Java"/>
+								<UML:TaggedValue tag="tagged" value="0"/>
+								<UML:TaggedValue tag="package_name" value="MobiVOC"/>
+								<UML:TaggedValue tag="phase" value="1.0"/>
+								<UML:TaggedValue tag="author" value="thijsge"/>
+								<UML:TaggedValue tag="complexity" value="1"/>
+								<UML:TaggedValue tag="status" value="Proposed"/>
+								<UML:TaggedValue tag="tpos" value="0"/>
+								<UML:TaggedValue tag="ea_localid" value="235"/>
+								<UML:TaggedValue tag="ea_eleType" value="element"/>
+								<UML:TaggedValue tag="$ea_attsclassified" value="{760D9D83-7806-4df7-B8E9-C92141B081AB}"/>
+								<UML:TaggedValue tag="style" value="BackColor=-1;BorderColor=-1;BorderWidth=-1;FontColor=-1;VSwimLanes=1;HSwimLanes=1;BorderStyle=0;"/>
+							</UML:ModelElement.taggedValue>
+							<UML:Classifier.feature>
+								<UML:Attribute name="geldigVoorVoertuig" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid0"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Voertuig"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="0"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{B37DD7E0-F58A-47ac-8DF4-4738441E869F}"/>
+										<UML:TaggedValue tag="ea_localid" value="171"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://schema.mobivoc.org/#validForVehicle" xmi.id="EAID_3485A9FB_D6B2_45bd_AF0C_DC3C99B6645A"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Soort voertuig waarvoor de parkeercapiciteit geldig is voor is." xmi.id="EAID_39087295_6272_46cc_B7AC_E119AB1FA9C5"/>
+										<UML:TaggedValue tag="ap-usageNote-nl" value="Kan een auto, fiets, step zijn… Capaciteit van een parkeerplaats kan voor het ene voertuig anders zijn dan een ander, bijvoorbeeld: er kunnen 6 fietsen gestald worden op dezelfde parkeerplaats als 1 auto." xmi.id="EAID_2D6DB64C_BC86_4929_A383_F0B141189CFB"/>
+										<UML:TaggedValue tag="ap-label-nl" value="geldigVoorVoertuig" xmi.id="EAID_1EB259DA_10D0_4750_B9FD_8E1A55C3DB39"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+								<UML:Attribute name="totaleCapaciteit" changeable="none" visibility="private" ownerScope="instance" targetScope="instance">
+									<UML:Attribute.initialValue>
+										<UML:Expression/>
+									</UML:Attribute.initialValue>
+									<UML:StructuralFeature.type>
+										<UML:Classifier xmi.idref="eaxmiid1"/>
+									</UML:StructuralFeature.type>
+									<UML:ModelElement.taggedValue>
+										<UML:TaggedValue tag="type" value="Integer"/>
+										<UML:TaggedValue tag="containment" value="Not Specified"/>
+										<UML:TaggedValue tag="length" value="0"/>
+										<UML:TaggedValue tag="ordered" value="0"/>
+										<UML:TaggedValue tag="precision" value="0"/>
+										<UML:TaggedValue tag="scale" value="0"/>
+										<UML:TaggedValue tag="static" value="0"/>
+										<UML:TaggedValue tag="collection" value="false"/>
+										<UML:TaggedValue tag="position" value="1"/>
+										<UML:TaggedValue tag="lowerBound" value="1"/>
+										<UML:TaggedValue tag="upperBound" value="1"/>
+										<UML:TaggedValue tag="duplicates" value="0"/>
+										<UML:TaggedValue tag="ea_guid" value="{704E7BA0-1B00-4e9f-83D0-4325C5F3719F}"/>
+										<UML:TaggedValue tag="ea_localid" value="172"/>
+										<UML:TaggedValue tag="styleex" value="volatile=0;"/>
+										<UML:TaggedValue tag="uri" value="http://schema.mobivoc.org/#totalCapacity" xmi.id="EAID_F64847D5_6044_41de_BF14_8F288CA9AFB6"/>
+										<UML:TaggedValue tag="ap-definition-nl" value="Geeft de capaciteit van een resource aan. Bijvoorbeeld: parkeervoorziening, auto, fiets etc." xmi.id="EAID_D8451350_F833_44bf_882D_086CE83E8D2B"/>
+										<UML:TaggedValue tag="ap-label-nl" value="totaleCapaciteit" xmi.id="EAID_D29A8190_D26A_4c10_B8C4_AD7730718757"/>
+									</UML:ModelElement.taggedValue>
+								</UML:Attribute>
+							</UML:Classifier.feature>
+						</UML:Class>
+					</UML:Namespace.ownedElement>
+				</UML:Package>
+				<UML:DataType xmi.id="eaxmiid0" name="Voertuig" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+				<UML:DataType xmi.id="eaxmiid1" name="Integer" visibility="private" isRoot="false" isLeaf="false" isAbstract="false"/>
+			</UML:Namespace.ownedElement>
+		</UML:Model>
+		<UML:TaggedValue tag="baseURI" xmi.id="EAID_DC37ACD9_72BD_4ee5_9259_ABB7FC6CC4D8" value="http://schema.mobivoc.org/#" modelElement="MX_EAID_F11CCCCE_F963_41ef_875E_E572558680E8"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_700EAD12_F108_4903_A0CC_A2463B9292AD" value="Elke faciliteit of ruimte die voorzien is om voertuigen te parkeren. Een Parkeerfaciliteit kan één of meerdere parkeerplaatsen voorzien." modelElement="EAID_4662C25E_3720_4f6a_BD6D_494E77328112"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_6081C587_3E99_4480_BC1F_5F654222DF97" value="Parkeerfaciliteit" modelElement="EAID_4662C25E_3720_4f6a_BD6D_494E77328112"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_16458DDF_966C_46ed_86A1_717540E805FD" value="http://schema.mobivoc.org/#ParkingFacility" modelElement="EAID_4662C25E_3720_4f6a_BD6D_494E77328112"/>
+		<UML:TaggedValue tag="ap-definition-nl" xmi.id="EAID_54368943_3958_46f8_91A8_D62470E5BE90" value="Capaciteit van een civiele structuur." modelElement="EAID_7D3D56D6_49E5_4308_A9DD_27B406363C90"/>
+		<UML:TaggedValue tag="ap-label-nl" xmi.id="EAID_8B7AB46B_0B8C_4f95_941C_F897C3366885" value="Parkeercapaciteit" modelElement="EAID_7D3D56D6_49E5_4308_A9DD_27B406363C90"/>
+		<UML:TaggedValue tag="uri" xmi.id="EAID_06DEB6CF_42D4_4d53_BD6D_99D271042019" value="http://schema.mobivoc.org/#Capacity" modelElement="EAID_7D3D56D6_49E5_4308_A9DD_27B406363C90"/>
+		<UML:DiagramElement geometry="Left=59;Top=48;Right=198;Bottom=118;" subject="EAID_4662C25E_3720_4f6a_BD6D_494E77328112" seqno="2" style="DUID=9754E1C6;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_2CE131CD_9F0A_4737_92BC_F6E9A64EF537"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+		<UML:DiagramElement geometry="Left=709;Top=158;Right=852;Bottom=230;" subject="EAID_7D3D56D6_49E5_4308_A9DD_27B406363C90" seqno="1" style="DUID=ED388A76;NSL=0;BCol=-1;BFol=-1;LCol=-1;LWth=-1;fontsz=0;bold=0;black=0;italic=0;ul=0;charset=0;pitch=0;">
+			<UML:ModelElement.taggedValue>
+				<UML:TaggedValue tag="diagram_guid" value="EAID_2CE131CD_9F0A_4737_92BC_F6E9A64EF537"/>
+			</UML:ModelElement.taggedValue>
+		</UML:DiagramElement>
+	</XMI.content>
+	<XMI.difference/>
+	<XMI.extensions xmi.extender="Enterprise Architect 2.5"/>
+</XMI>
