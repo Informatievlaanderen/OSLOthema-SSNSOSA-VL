@@ -1,0 +1,289 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/Configuration",
+  "definitions": {
+    "Configuration": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "description": "Titel van de specificatie",
+          "type": "string"
+        },
+        "category": {
+          "description": "Categorie van de specificatie als URI",
+          "type": "string",
+          "format": "uri"
+        },
+        "usage": {
+          "description": "Gebruik van de specificatie als URI",
+          "type": "string",
+          "format": "uri"
+        },
+        "status": {
+          "description": "Status van de specificatie als URI",
+          "type": "string",
+          "format": "uri"
+        },
+        "domain": {
+          "description": "Domein waartoe een standaard behoort",
+          "type": "string",
+          "format": "uri"
+        },
+        "responsibleOrganisation": {
+          "type": "array",
+          "description": "Organisatie verantwoordelijk voor de specificatie",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Naam van de organisatie",
+                "type": "string"
+              },
+              "resourceReference": {
+                "description": "URI van de organisatie",
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "publicationDate": {
+          "description": "Publicatiedatum van de laatste versie",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "maxLength": 0
+            }
+          ]
+        },
+        "descriptionFileName": {
+          "description": "Bestandsnaam naar het Markdown bestand met de samenvatting",
+          "type": "string",
+          "pattern": ".*\\.md"
+        },
+        "specificationDocuments": {
+          "description": "Specificatiedocumenten lijst",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Naam document",
+                "type": "string"
+              },
+              "resourceReference": {
+                "description": "Link naar document",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "documentation": {
+          "description": "Lijst van documentatie, niet-normatief",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Naam document",
+                "type": "string"
+              },
+              "resourceReference": {
+                "description": "Link naar document",
+                "type": "string",
+                "format": "uri"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "charter": {
+          "type": "object",
+          "description": "Charter van de Werkgroep",
+          "properties": {
+            "name": {
+              "description": "Naam charterdocument van de Werkgroep",
+              "type": "string"
+            },
+            "resourceReference": {
+              "description": "Link naar charterdocument van de Werkgroep",
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "https:\\/\\/raw\\.githubusercontent\\.com.*\\.docx"
+                },
+                {
+                  "type": "string",
+                  "format": "uri",
+                  "pattern": "https:\\/\\/raw\\.githubusercontent\\.com.*\\.pdf"
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "reports": {
+          "type": "array",
+          "description": "Lijst met verslagen van de Werkgroep",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Naam verslag",
+                "type": "string"
+              },
+              "resourceReference": {
+                "description": "Link naar verslag",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "pattern": "https:\\/\\/raw\\.githubusercontent\\.com.*\\.docx"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "pattern": "https:\\/\\/raw\\.githubusercontent\\.com.*\\.pdf"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "presentations": {
+          "description": "Lijst met presentaties van de Werkgroep",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "description": "Naam presentatie",
+                "type": "string"
+              },
+              "resourceReference": {
+                "description": "Link naar presentatie",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "pattern": "https:\\/\\/raw\\.githubusercontent\\.com.*\\.docx"
+                  },
+                  {
+                    "type": "string",
+                    "format": "uri",
+                    "pattern": "https:\\/\\/raw\\.githubusercontent\\.com.*\\.pdf"
+                  }
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "dateOfRegistration": {
+          "description": "Datum registratie specificatie",
+          "type": "string",
+          "format": "date"
+        },
+        "dateOfAcknowledgementByWorkingGroup": {
+          "description": "Datum herkenning specificatie door Werkgroep",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "maxLength": 0
+            }
+          ]
+        },
+        "dateOfAcknowledgementBySteeringCommittee": {
+          "description": "Datum herkenning specificatie door Stuurgroep",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "maxLength": 0
+            }
+          ]
+        },
+        "datePublicReviewStart": {
+          "description": "Begindatum publieke review",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "maxLength": 0
+            }
+          ]
+        },
+        "datePublicReviewEnd": {
+          "description": "Einddatum publieke review",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "maxLength": 0
+            }
+          ]
+        },
+        "endOfPublicationDate": {
+          "description": "Einddatum publicatie",
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "string",
+              "maxLength": 0
+            }
+          ]
+        },
+        "funcionalScope": {
+          "description": "Functioneel toepassingsgebied van de specificatie",
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "category",
+        "usage",
+        "status",
+        "responsibleOrganisation",
+        "publicationDate",
+        "descriptionFileName",
+        "specificationDocuments",
+        "documentation",
+        "charter",
+        "reports",
+        "presentations",
+        "dateOfRegistration",
+        "dateOfAcknowledgementByWorkingGroup",
+        "dateOfAcknowledgementBySteeringCommittee",
+        "datePublicReviewStart",
+        "datePublicReviewEnd",
+        "endOfPublicationDate",
+        "domain"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
