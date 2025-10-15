@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/ap-voc-imp.schema.json",
+  "title": "OSLO AP-VOC-IMP JSONSchema",
+  "description": "JSONSchema voor het valideren van OSLO AP, VOC, IMP configuratiebestanden",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "description": "Naam van de standaard",
+        "type": "string"
+      },
+      "type": {
+        "description": "CSS rendering type",
+        "type": "string",
+        "enum": ["voc", "ap"]
+      },
+      "eap": {
+        "description": "Enterprise Architect EAP bestandsnaam",
+        "type": "string",
+        "pattern": ".*\\.eap"
+      },
+      "diagram": {
+        "description": "Het EAP diagram dat bij de standaard hoort",
+        "type": "string"
+      },
+      "template": {
+        "description": "Template te gebruiken voor de beschrijvende tekst",
+        "type": "string"
+      },
+      "title": {
+        "description": "Titel van de standaard",
+        "type": "string"
+      },
+      "publication-state": {
+        "description": "IRI van de StandaardStatus",
+        "type": "string",
+        "format": "uri"
+      },
+      "publication-date": {
+        "description": "Publicatie datum",
+        "type": "string",
+        "format": "date"
+      },
+      "license": {
+        "description": "IRI licentie",
+        "type": "string",
+        "format": "uri"
+      },
+      "contributors-file": {
+        "description": "Contributors' lijst als CSV",
+        "type": "string",
+        "pattern": ".*\\.csv"
+      },
+      "contributors-column": {
+        "description": "Kolom in CSV die de contributors aangeven",
+        "type": "string"
+      },
+      "site": {
+        "description": "Pad naar static files zoals het model in JPG etc.",
+        "type": "string"
+      },
+      "feedbackurl": {
+        "description": "GitHub repository URL naar issues tab",
+        "type": "string",
+        "format": "uri"
+      },
+      "standaardregisterurl": {
+        "description": "URL naar standaard register voor deze standaard",
+        "type": "string",
+        "format": "uri"
+      }
+    },
+    "required": [
+      "name",
+      "type",
+      "eap",
+      "diagram",
+      "template",
+      "title",
+      "publication-state",
+      "publication-date",
+      "license",
+      "contributors-file",
+      "contributors-column",
+      "feedbackurl",
+      "standaardregisterurl"
+    ]
+  }
+}
