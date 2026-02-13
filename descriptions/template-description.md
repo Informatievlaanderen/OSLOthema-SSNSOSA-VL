@@ -29,6 +29,3 @@ This text will be shown on the OSLO standards registry.</p>
 
 
 <p>This shows how to add a <a href="https://data.vlaanderen.be/standaarden">link</a> to the standards registry</p>
-
-``
-
