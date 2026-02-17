@@ -1,5 +1,5 @@
 {
-  "title": "Applicatieprofiel SSN SOSA VL",
+  "title": "Traject SSN SOSA VL",
   "category": "https://data.vlaanderen.be/id/concept/StandaardType/Applicatieprofiel",
   "usage": "https://data.vlaanderen.be/id/concept/StandaardGebruik/Aanbevolen",
   "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
@@ -13,14 +13,14 @@
   "descriptionFileName": "SSNSOSA-description.md",
   "specificationDocuments": [
     {
-      "name": "Applicatieprofiel SSN SOSA VL",
-      "resourceReference": "https://data.vlaanderen.be/doc/applicatieprofiel/SSNSOSAVL/"
+      "name": "Receptenboek SSN SOSA VL",
+      "resourceReference": "https://data.vlaanderen.be/"
     }
   ],
   "documentation": [
     {
-      "name": "Vocabularium SSN SOSA VL",
-      "resourceReference": "https://data.vlaanderen.be/ns/SSNSOSAVL/"
+      "name": "Datavoorbeelden SSN SOSA VL",
+      "resourceReference": "https://data.vlaanderen.be/"
     }
   ],
   "charter": {
@@ -47,11 +47,11 @@
       "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/standaardenregister/presentations/Presentatie%20SSN%20SOSA%20VL%20Thematische%20werkgroep%201.pdf"
     },
       ],
-  "dateOfRegistration": "2025-01-09",
+  "dateOfRegistration": "2025-11-13",
   "dateOfAcknowledgementByWorkingGroup": "TBD",
   "dateOfAcknowledgementBySteeringCommittee": "TBD",
-  "datePublicReviewStart": "2025-07-20",
-  "datePublicReviewEnd": "2025-11-20",
+  "datePublicReviewStart": "TBD",
+  "datePublicReviewEnd": "TBD",
   "endOfPublicationDate": "TBD",
   "domain": "TBD",
   "functionalScope": "TBD"
