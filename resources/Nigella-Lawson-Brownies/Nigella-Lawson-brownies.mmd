@@ -1,0 +1,189 @@
+flowchart LR
+
+%% =====================================================
+%% TOP-LEVEL PLAN
+%% =====================================================
+    subgraph PLAN0["PLAN — Nigella Brownies (p-plan:Plan)"]
+        STEP_smelt["Step: Smelten"]
+        STEP_hak["Step: Hakken"]
+        STEP_meng["Step: Mengen"]
+        STEP_bak["Step: Bakken"]
+
+        STEP_smelt --> STEP_hak --> STEP_meng --> STEP_bak
+    end
+    style PLAN0 color:white,fill:#7F59AE,stroke:#2E5C8A,color:#fff
+
+%% =====================================================
+%% DECOMPOSED PLAN: SMELTEN
+%% =====================================================
+    subgraph PLAN_SMELT["SUBPLAN — Smelten (p-plan:Plan)"]
+        S1["Boter & chocolade in pan"]
+        S2["Pan verwarmen"]
+        S3["Roeren tot homogeen"]
+
+        S1 --> S2 --> S3
+    end
+    style PLAN_SMELT color:white,fill:#7F59AE,stroke:#2E5C8A,color:#fff
+
+    STEP_smelt -.isDecomposedAsPlan.-> PLAN_SMELT
+
+%% =====================================================
+%% DECOMPOSED PLAN: BAKKEN
+%% =====================================================
+    subgraph PLAN_BAK["SUBPLAN — Bakken (p-plan:Plan)"]
+        B1["Oven voorverwarmen"]
+        B2["Beslag in bakvorm"]
+        B3["Bakvorm in oven"]
+        B4["Bakken tot lichtbruin"]
+        B5["Uit oven & afkoelen"]
+
+        B1 --> B2 --> B3 --> B4 --> B5
+    end
+    style PLAN_BAK color:white,fill:#7F59AE,stroke:#2E5C8A,color:#fff
+
+    STEP_bak -.isDecomposedAsPlan.-> PLAN_BAK
+
+%% =====================================================
+%% EXECUTION LANE
+%% =====================================================
+    subgraph EXEC["EXECUTION — 10 Feb 2026"]
+        E_smelt["Actuation: Smelten"]
+        E_hak["Actuation: Hakken"]
+        E_meng["Actuation: Mengen"]
+        E_bak["Actuation: Bakken"]
+        E_obs["Observation: Kleur"]
+
+        E_smelt --> E_hak --> E_meng --> E_bak --> E_obs
+
+        E_smelt -.correspondsToStep.-> STEP_smelt
+        E_hak   -.correspondsToStep.-> STEP_hak
+        E_meng  -.correspondsToStep.-> STEP_meng
+        E_bak   -.correspondsToStep.-> STEP_bak
+        E_obs   -.correspondsToStep.-> B4
+    end
+    style EXEC color:white,fill:#7F7F7F,stroke:#2E5C8A,color:#fff
+
+%% =====================================================
+%% SYSTEMS / AGENTS
+%% =====================================================
+    subgraph SYSTEMS["SYSTEMS & AGENTS"]
+        SYS_smelt["Smeltsysteem<br/>(pan+gas+garde)"]
+        SYS_hak["Haksysteem"]
+        SYS_robot["Keukenrobot"]
+        SYS_oven["Oven"]
+        AG_geert["Geert (sensor)"]
+
+        SYS_smelt -.implements.-> STEP_smelt
+        SYS_hak -.implements.-> STEP_hak
+        SYS_robot -.implements.-> STEP_meng
+        SYS_oven -.implements.-> STEP_bak
+        AG_geert -.implements.-> B4
+    end
+    style SYSTEMS color:white,fill:#4CAF50,stroke:#2E5C8A,color:#fff
+
+    E_smelt -.madeByActuator.-> SYS_smelt
+    E_hak   -.madeByActuator.-> SYS_hak
+    E_meng  -.madeByActuator.-> SYS_robot
+    E_bak   -.madeByActuator.-> SYS_oven
+    E_obs   -.madeBySensor.-> AG_geert
+
+%% =====================================================
+%% PROV ENTITIES & DERIVATION
+%% =====================================================
+    subgraph DATA["PROV ENTITIES (Ingrediënten → Resultaat)"]
+        I_boter["Boter"]
+        I_choc["Chocolade"]
+        I_wal["Walnoten"]
+        I_suiker["Suiker"]
+        I_eieren["Eieren"]
+        I_bloem["Bloem"]
+
+        T_smelt["Gesmolten mengsel"]
+        T_hak["Gehakte walnoten"]
+        T_beslag["Beslag"]
+        R_brownies["Brownies"]
+        O_kleur["Kleur: lichtbruin"]
+    end
+    style DATA color:black,fill:#ADD8E6,stroke:#2E5C8A,color:#000
+
+%% =====================================================
+%% CORRESPONDS TO VARIABLE RELATIONSHIPS
+%% =====================================================
+
+    I_boter -.correspondsToVariable.-> V_boter
+    I_choc -.correspondsToVariable.-> V_choc
+    I_wal -.correspondsToVariable.-> V_walnoten
+    I_suiker -.correspondsToVariable.-> V_suiker
+    I_eieren -.correspondsToVariable.-> V_eieren
+    I_bloem -.correspondsToVariable.-> V_bloem
+    T_smelt -.correspondsToVariable.-> V_smelt
+    T_hak -.correspondsToVariable.-> V_hak
+    T_beslag -.correspondsToVariable.-> V_beslag
+    R_brownies -.correspondsToVariable.-> V_brownies
+    O_kleur -.correspondsToVariable.-> V_kleur
+
+%% used
+    E_smelt -->|prov:used| I_boter
+    E_smelt -->|prov:used| I_choc
+    E_hak -->|prov:used| I_wal
+    E_meng -->|prov:used| T_smelt
+    E_meng -->|prov:used| T_hak
+    E_meng -->|prov:used| I_suiker
+    E_meng -->|prov:used| I_eieren
+    E_meng -->|prov:used| I_bloem
+    E_bak -->|prov:used| T_beslag
+
+%% results
+    E_smelt -->|hasResult| T_smelt
+    E_hak -->|hasResult| T_hak
+    E_meng -->|hasResult| T_beslag
+    E_bak -->|hasResult| R_brownies
+    E_obs -->|hasResult| O_kleur
+
+%% derivation
+    T_smelt -.wasDerivedFrom.-> I_boter
+    T_smelt -.wasDerivedFrom.-> I_choc
+    T_hak -.wasDerivedFrom.-> I_wal
+    T_beslag -.wasDerivedFrom.-> T_smelt
+    T_beslag -.wasDerivedFrom.-> T_hak
+    T_beslag -.wasDerivedFrom.-> I_suiker
+    T_beslag -.wasDerivedFrom.-> I_eieren
+    T_beslag -.wasDerivedFrom.-> I_bloem
+    R_brownies -.wasDerivedFrom.-> T_beslag
+
+%% =====================================================
+%% VARIABLES (Blauw)
+%% =====================================================
+    subgraph VAR["VARIABLES"]
+        V_boter["var:boter"]
+        V_choc["var:donkere-chocolade"]
+        V_smelt["var:gesmolten-mengsel"]
+        V_hak["var:gehakte-walnoten"]
+        V_beslag["var:beslag"]
+        V_brownies["var:brownies"]
+        V_kleur["var:kleur"]
+        V_suiker["var:suiker"]
+        V_eieren["var:eieren"]
+        V_bloem["var:bloem"]
+        V_walnoten["var:walnoten"]
+    end
+    style VAR color:white,fill:#2E5C8A,stroke:#7F59AE,color:#fff
+
+%% INPUT RELATIONSHIPS
+    V_boter -.isInputVarOf.-> STEP_smelt
+    V_choc -.isInputVarOf.-> STEP_smelt
+    V_suiker -.isInputVarOf.-> STEP_meng
+    V_eieren -.isInputVarOf.-> STEP_meng
+    V_bloem -.isInputVarOf.-> STEP_meng
+    V_walnoten -.isInputVarOf.-> STEP_hak
+    V_smelt -.isInputVarOf.-> STEP_meng
+    V_hak -.isInputVarOf.-> STEP_meng
+    V_beslag -.isInputVarOf.-> STEP_bak
+    V_kleur -.isInputVarOf.-> B5
+
+%% OUTPUT RELATIONSHIPS
+    V_kleur -.isOutputVarOf.-> B4
+    V_smelt -.isOutputVarOf.-> STEP_smelt
+    V_hak -.isOutputVarOf.-> STEP_hak
+    V_beslag -.isOutputVarOf.-> STEP_meng
+    V_brownies -.isOutputVarOf.-> STEP_bak
