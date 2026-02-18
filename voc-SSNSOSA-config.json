@@ -35,8 +35,8 @@
     {
       "name": "Verslag Thematische Werkgroep 1 - 14 januari 2026",
       "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/standaardenregister/reports/Verslag%20Thematische%20werkgroep%201%20-%20SSN%20SOSA%20%202026-02-02.pdf"
-    },
-      ],
+    }
+  ],
   "presentations": [
     {
       "name": "Presentatie Business Werkgroep -  3 december 2025",
@@ -45,8 +45,8 @@
     {
       "name": "Presentatie Thematische Werkgroep 1 - 14 januari 2026",
       "resourceReference": "https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/standaardenregister/presentations/Presentatie%20SSN%20SOSA%20VL%20Thematische%20werkgroep%201.pdf"
-    },
-      ],
+    }
+  ],
   "dateOfRegistration": "2025-01-09",
   "dateOfAcknowledgementByWorkingGroup": "TBD",
   "dateOfAcknowledgementBySteeringCommittee": "TBD",
