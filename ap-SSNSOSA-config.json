@@ -1,26 +1,23 @@
 {
-  "title": "Traject SSN SOSA VL",
-  "category": "https://data.vlaanderen.be/id/concept/StandaardType/Applicatieprofiel",
+  "title": "OSLO SSN SOSA VL",
+  "category": "https://data.vlaanderen.be/id/concept/StandaardType/Interoperabiliteit",
   "usage": "https://data.vlaanderen.be/id/concept/StandaardGebruik/Aanbevolen",
-  "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/KandidaatStandaard",
+  "status": "https://data.vlaanderen.be/id/concept/StandaardStatus/ZonderStatus",
   "responsibleOrganisation": [
     {
       "name": "Agentschap Digitaal Vlaanderen",
       "resourceReference": "https://data.vlaanderen.be/id/organisatie/OVO002949"
     }
   ],
-  "publicationDate": "TBD",
+  "publicationDate": "2026-02-19",
   "descriptionFileName": "SSNSOSA-description.md",
   "specificationDocuments": [
-    {
-      "name": "Receptenboek SSN SOSA VL",
-      "resourceReference": "https://data.vlaanderen.be/"
-    }
+    
   ],
   "documentation": [
     {
       "name": "Datavoorbeelden SSN SOSA VL",
-      "resourceReference": "https://data.vlaanderen.be/"
+      "resourceReference": "https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/tree/main/resources"
     }
   ],
   "charter": {
@@ -48,11 +45,11 @@
     }
   ],
   "dateOfRegistration": "2025-11-13",
-  "dateOfAcknowledgementByWorkingGroup": "TBD",
-  "dateOfAcknowledgementBySteeringCommittee": "TBD",
-  "datePublicReviewStart": "TBD",
-  "datePublicReviewEnd": "TBD",
-  "endOfPublicationDate": "TBD",
-  "domain": "TBD",
-  "functionalScope": "TBD"
+  "dateOfAcknowledgementByWorkingGroup": "",
+  "dateOfAcknowledgementBySteeringCommittee": "",
+  "datePublicReviewStart": "",
+  "datePublicReviewEnd": "",
+  "endOfPublicationDate": "",
+  "domain": "https://data.vlaanderen.be/doc/concept/Domein/Omgeving",
+  "functionalScope": "Inspiratiebundel met betrekking tot SSN SOSA VL"
 }
