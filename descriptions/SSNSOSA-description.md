@@ -25,12 +25,12 @@
 <p>
     Het kader vormt het centrale referentiepunt voor de beschrijving en structurering van:
     <ul>
-        <li><strong>observaties</strong></li>
-        <li><strong>metingen</strong></li>
-        <li><strong>staalnames</strong></li>
-        <li><strong>systemen</strong></li>
-        <li><strong>procedures</strong></li>
-        <li><strong>actuatoren</strong></li>
+        <li>observaties</li>
+        <li>metingen</li>
+        <li>staalnames</li>
+        <li>systemen</li>
+        <li>procedures</li>
+        <li>actuatoren</li>
     </ul>
     Het ondersteunt verschillende types gegevensbronnen, zoals:
     <ul>
