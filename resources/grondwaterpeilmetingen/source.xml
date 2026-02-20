@@ -1,0 +1,3426 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns4:dov-schema xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns4="http://kern.schemas.dov.vlaanderen.be" xsi:schemaLocation="http://kern.schemas.dov.vlaanderen.be https://www.dov.vlaanderen.be/xdov/schema/latest/xsd/kern/dov.xsd">
+    <grondwaterlocatie>
+        <identificatie>4-0273b</identificatie>
+        <dataidentifier>
+            <permkey>2017-003450</permkey>
+            <uri>https://www.dov.vlaanderen.be/data/put/2017-003450</uri>
+        </dataidentifier>
+        <grondwaterlocatieType>PUT</grondwaterlocatieType>
+        <ligging>
+            <gml:Point srsName="urn:ogc:def:crs:EPSG::6190" srsDimension="3">
+                <gml:pos>98811.0 192768.0 9.36</gml:pos>
+            </gml:Point>
+            <metadata_locatiebepaling>
+                <methode>gedigitaliseerd op topokaart</methode>
+                <uitvoerder>
+                    <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+                </uitvoerder>
+                <betrouwbaarheid>goed</betrouwbaarheid>
+            </metadata_locatiebepaling>
+            <metadata_hoogtebepaling>
+                <methode>DHM_v1 5m*5m</methode>
+                <uitvoerder>
+                    <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+                </uitvoerder>
+                <betrouwbaarheid>goed</betrouwbaarheid>
+                <referentiepunt_type>Maaiveld</referentiepunt_type>
+            </metadata_hoogtebepaling>
+            <alternatieve_crs>
+                <gml:Point srsName="urn:ogc:def:crs:EPSG::6190" srsDimension="3">
+                    <gml:pos>98811.0 192768.0 9.36</gml:pos>
+                </gml:Point>
+                <gml:Point srsName="urn:ogc:def:crs:EPSG::8370" srsDimension="3">
+                    <gml:pos>598808.4147525479 692762.1900756286 9.36</gml:pos>
+                </gml:Point>
+            </alternatieve_crs>
+        </ligging>
+        <diepte>161.00</diepte>
+        <datum_ingebruikname>2005-10-05</datum_ingebruikname>
+        <putsoort>verbuisde boorput</putsoort>
+        <beheer>
+            <vanaf>2005-10-05</vanaf>
+            <beheerder>
+                <naam>VMM - AFDELING WATER</naam>
+            </beheerder>
+        </beheer>
+        <afwerking>
+            <materiaal>inox, zonder verdere precisering</materiaal>
+            <diameter>265.0</diameter>
+            <annulaireruimte>
+                <van>0.00</van>
+                <tot>2.00</tot>
+                <materiaal>klei</materiaal>
+            </annulaireruimte>
+            <annulaireruimte>
+                <van>22.00</van>
+                <tot>23.00</tot>
+                <materiaal>klei</materiaal>
+            </annulaireruimte>
+            <annulaireruimte>
+                <van>30.50</van>
+                <tot>35.00</tot>
+                <materiaal>klei</materiaal>
+            </annulaireruimte>
+            <annulaireruimte>
+                <van>49.20</van>
+                <tot>53.80</tot>
+                <materiaal>klei</materiaal>
+            </annulaireruimte>
+            <annulaireruimte>
+                <van>95.00</van>
+                <tot>99.50</tot>
+                <materiaal>klei</materiaal>
+            </annulaireruimte>
+            <annulaireruimte>
+                <van>143.00</van>
+                <tot>151.00</tot>
+                <materiaal>klei</materiaal>
+            </annulaireruimte>
+        </afwerking>
+        <status>publiek</status>
+    </grondwaterlocatie>
+    <filter>
+        <identificatie>1</identificatie>
+        <dataidentifier>
+            <permkey>2005-007247</permkey>
+            <uri>https://www.dov.vlaanderen.be/data/filter/2005-007247</uri>
+        </dataidentifier>
+        <filtertype>peilfilter</filtertype>
+        <grondwaterlocatie>4-0273b</grondwaterlocatie>
+        <meetnet>1</meetnet>
+        <datum_ingebruikname>2005-10-05</datum_ingebruikname>
+        <monsternameMogelijk>true</monsternameMogelijk>
+        <oxidatie_reductie>Onbekend</oxidatie_reductie>
+        <ligging>
+            <aquifer>0800</aquifer>
+            <aquifer_hcovv2>A0800</aquifer_hcovv2>
+            <grondwaterlichaam>CVS_0800_GWL_1</grondwaterlichaam>
+            <grondwatersysteem>Centraal Vlaams Systeem</grondwatersysteem>
+            <afgesloten_volgens_gwdecreet>niet-afgesloten_delen_0800</afgesloten_volgens_gwdecreet>
+            <controle/>
+            <actie_waakgebieden_22_27>geen actie/waakgebieden</actie_waakgebieden_22_27>
+            <regime>freatisch</regime>
+        </ligging>
+        <meetfrequentie>
+            <aantal_peilmetingen>12</aantal_peilmetingen>
+            <aantal_kwaliteitsmetingen>1</aantal_kwaliteitsmetingen>
+            <opmeter>
+                <naam>De Wit</naam>
+                <voornaam>Kris</voornaam>
+            </opmeter>
+        </meetfrequentie>
+        <opbouw>
+            <onderdeel>
+                <van>0.0</van>
+                <tot>24.0</tot>
+                <filterelement>stijgbuis</filterelement>
+                <materiaal>pvc</materiaal>
+                <binnendiameter>57.0</binnendiameter>
+            </onderdeel>
+            <onderdeel>
+                <van>24.0</van>
+                <tot>26.0</tot>
+                <filterelement>filter</filterelement>
+                <materiaal>pvc</materiaal>
+                <binnendiameter>57.0</binnendiameter>
+            </onderdeel>
+            <onderdeel>
+                <van>26.0</van>
+                <tot>27.0</tot>
+                <filterelement>zandvang</filterelement>
+                <binnendiameter>57.0</binnendiameter>
+            </onderdeel>
+        </opbouw>
+        <opmerking>
+            <tekst>HCOVv2 toekenning: HCOVv1 0800 wordt naar HCOVv2 A0800 omgezet en ligt binnen het voorkomen van deze laag.</tekst>
+            <auteur>
+                <naam>Lermytte</naam>
+                <voornaam>Johan</voornaam>
+            </auteur>
+            <datum>2025-04-10</datum>
+        </opmerking>
+        <status>publiek</status>
+    </filter>
+    <filterdebietmeter>
+        <grondwaterlocatie>4-0273b</grondwaterlocatie>
+        <filter>
+            <identificatie>1</identificatie>
+            <filtertype>peilfilter</filtertype>
+        </filter>
+    </filterdebietmeter>
+    <filtermeting>
+        <grondwaterlocatie>4-0273b</grondwaterlocatie>
+        <filter>
+            <identificatie>1</identificatie>
+            <filtertype>peilfilter</filtertype>
+        </filter>
+        <referentiepunt>
+            <datum>2005-10-05</datum>
+            <meetpunt>9.78</meetpunt>
+            <referentie>Bovenkant van de peilbuis</referentie>
+        </referentiepunt>
+        <peilmeting>
+            <datum>2006-10-20</datum>
+            <diepte_tov_referentiepunt>2.25</diepte_tov_referentiepunt>
+            <peil_mtaw>7.53</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2006-11-27</datum>
+            <diepte_tov_referentiepunt>1.25</diepte_tov_referentiepunt>
+            <peil_mtaw>8.53</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2006-12-18</datum>
+            <diepte_tov_referentiepunt>0.86</diepte_tov_referentiepunt>
+            <peil_mtaw>8.92</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-01-23</datum>
+            <diepte_tov_referentiepunt>1.1</diepte_tov_referentiepunt>
+            <peil_mtaw>8.68</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-02-14</datum>
+            <diepte_tov_referentiepunt>1.03</diepte_tov_referentiepunt>
+            <peil_mtaw>8.75</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-03-20</datum>
+            <diepte_tov_referentiepunt>1.24</diepte_tov_referentiepunt>
+            <peil_mtaw>8.54</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-04-19</datum>
+            <diepte_tov_referentiepunt>1.6</diepte_tov_referentiepunt>
+            <peil_mtaw>8.18</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-05-15</datum>
+            <diepte_tov_referentiepunt>2.02</diepte_tov_referentiepunt>
+            <peil_mtaw>7.76</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-06-28</datum>
+            <diepte_tov_referentiepunt>2.21</diepte_tov_referentiepunt>
+            <peil_mtaw>7.57</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-07-19</datum>
+            <diepte_tov_referentiepunt>1.88</diepte_tov_referentiepunt>
+            <peil_mtaw>7.90</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-08-13</datum>
+            <diepte_tov_referentiepunt>1.52</diepte_tov_referentiepunt>
+            <peil_mtaw>8.26</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-09-21</datum>
+            <diepte_tov_referentiepunt>2.18</diepte_tov_referentiepunt>
+            <peil_mtaw>7.60</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-10-24</datum>
+            <diepte_tov_referentiepunt>1.68</diepte_tov_referentiepunt>
+            <peil_mtaw>8.10</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-11-21</datum>
+            <diepte_tov_referentiepunt>1.36</diepte_tov_referentiepunt>
+            <peil_mtaw>8.42</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-12-12</datum>
+            <diepte_tov_referentiepunt>0.78</diepte_tov_referentiepunt>
+            <peil_mtaw>9.00</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2007-12-18</datum>
+            <diepte_tov_referentiepunt>0.86</diepte_tov_referentiepunt>
+            <peil_mtaw>8.92</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-01-22</datum>
+            <diepte_tov_referentiepunt>1.08</diepte_tov_referentiepunt>
+            <peil_mtaw>8.70</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Beheerder</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-02-18</datum>
+            <diepte_tov_referentiepunt>1.17</diepte_tov_referentiepunt>
+            <peil_mtaw>8.61</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-03-14</datum>
+            <diepte_tov_referentiepunt>1.2</diepte_tov_referentiepunt>
+            <peil_mtaw>8.58</peil_mtaw>
+            <methode>Onbekend</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Onbekend</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-04-23</datum>
+            <diepte_tov_referentiepunt>1.15</diepte_tov_referentiepunt>
+            <peil_mtaw>8.63</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Onbekend</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-05-13</datum>
+            <diepte_tov_referentiepunt>1.45</diepte_tov_referentiepunt>
+            <peil_mtaw>8.33</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Onbekend</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-06-26</datum>
+            <diepte_tov_referentiepunt>1.6</diepte_tov_referentiepunt>
+            <peil_mtaw>8.18</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Onbekend</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-07-31</datum>
+            <diepte_tov_referentiepunt>2.13</diepte_tov_referentiepunt>
+            <peil_mtaw>7.65</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-08-14</datum>
+            <diepte_tov_referentiepunt>1.96</diepte_tov_referentiepunt>
+            <peil_mtaw>7.82</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-09-29</datum>
+            <diepte_tov_referentiepunt>2.08</diepte_tov_referentiepunt>
+            <peil_mtaw>7.70</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-10-22</datum>
+            <diepte_tov_referentiepunt>1.78</diepte_tov_referentiepunt>
+            <peil_mtaw>8.00</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-11-25</datum>
+            <diepte_tov_referentiepunt>1.01</diepte_tov_referentiepunt>
+            <peil_mtaw>8.77</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2008-12-23</datum>
+            <diepte_tov_referentiepunt>0.92</diepte_tov_referentiepunt>
+            <peil_mtaw>8.86</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-01-27</datum>
+            <diepte_tov_referentiepunt>0.95</diepte_tov_referentiepunt>
+            <peil_mtaw>8.83</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-02-11</datum>
+            <diepte_tov_referentiepunt>0.7</diepte_tov_referentiepunt>
+            <peil_mtaw>9.08</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-03-20</datum>
+            <diepte_tov_referentiepunt>1.25</diepte_tov_referentiepunt>
+            <peil_mtaw>8.53</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-04-28</datum>
+            <diepte_tov_referentiepunt>1.51</diepte_tov_referentiepunt>
+            <peil_mtaw>8.27</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-05-20</datum>
+            <diepte_tov_referentiepunt>1.87</diepte_tov_referentiepunt>
+            <peil_mtaw>7.91</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-06-25</datum>
+            <diepte_tov_referentiepunt>2.07</diepte_tov_referentiepunt>
+            <peil_mtaw>7.71</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-07-29</datum>
+            <diepte_tov_referentiepunt>2.9</diepte_tov_referentiepunt>
+            <peil_mtaw>6.88</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-08-18</datum>
+            <diepte_tov_referentiepunt>2.51</diepte_tov_referentiepunt>
+            <peil_mtaw>7.27</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-09-16</datum>
+            <diepte_tov_referentiepunt>2.69</diepte_tov_referentiepunt>
+            <peil_mtaw>7.09</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-10-22</datum>
+            <diepte_tov_referentiepunt>2.72</diepte_tov_referentiepunt>
+            <peil_mtaw>7.06</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-11-26</datum>
+            <diepte_tov_referentiepunt>2.34</diepte_tov_referentiepunt>
+            <peil_mtaw>7.44</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2009-12-18</datum>
+            <diepte_tov_referentiepunt>1.25</diepte_tov_referentiepunt>
+            <peil_mtaw>8.53</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-01-20</datum>
+            <diepte_tov_referentiepunt>1.02</diepte_tov_referentiepunt>
+            <peil_mtaw>8.76</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-02-18</datum>
+            <diepte_tov_referentiepunt>1.08</diepte_tov_referentiepunt>
+            <peil_mtaw>8.70</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-03-29</datum>
+            <diepte_tov_referentiepunt>1.11</diepte_tov_referentiepunt>
+            <peil_mtaw>8.67</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-04-22</datum>
+            <diepte_tov_referentiepunt>1.41</diepte_tov_referentiepunt>
+            <peil_mtaw>8.37</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-05-19</datum>
+            <diepte_tov_referentiepunt>1.91</diepte_tov_referentiepunt>
+            <peil_mtaw>7.87</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-06-30</datum>
+            <diepte_tov_referentiepunt>2.39</diepte_tov_referentiepunt>
+            <peil_mtaw>7.39</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-07-27</datum>
+            <diepte_tov_referentiepunt>2.59</diepte_tov_referentiepunt>
+            <peil_mtaw>7.19</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-08-11</datum>
+            <diepte_tov_referentiepunt>2.67</diepte_tov_referentiepunt>
+            <peil_mtaw>7.11</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-09-17</datum>
+            <diepte_tov_referentiepunt>1.74</diepte_tov_referentiepunt>
+            <peil_mtaw>8.04</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-10-20</datum>
+            <diepte_tov_referentiepunt>1.66</diepte_tov_referentiepunt>
+            <peil_mtaw>8.12</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-12-02</datum>
+            <diepte_tov_referentiepunt>0.87</diepte_tov_referentiepunt>
+            <peil_mtaw>8.91</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2010-12-16</datum>
+            <diepte_tov_referentiepunt>0.87</diepte_tov_referentiepunt>
+            <peil_mtaw>8.91</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-01-14</datum>
+            <diepte_tov_referentiepunt>0.48</diepte_tov_referentiepunt>
+            <peil_mtaw>9.30</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-02-04</datum>
+            <diepte_tov_referentiepunt>0.9</diepte_tov_referentiepunt>
+            <peil_mtaw>8.88</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Labo</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-03-01</datum>
+            <diepte_tov_referentiepunt>0.91</diepte_tov_referentiepunt>
+            <peil_mtaw>8.87</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-04-06</datum>
+            <diepte_tov_referentiepunt>1.46</diepte_tov_referentiepunt>
+            <peil_mtaw>8.32</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-04-27</datum>
+            <diepte_tov_referentiepunt>1.85</diepte_tov_referentiepunt>
+            <peil_mtaw>7.93</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-05-17</datum>
+            <diepte_tov_referentiepunt>2.22</diepte_tov_referentiepunt>
+            <peil_mtaw>7.56</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-06-23</datum>
+            <diepte_tov_referentiepunt>2.48</diepte_tov_referentiepunt>
+            <peil_mtaw>7.30</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-07-26</datum>
+            <diepte_tov_referentiepunt>2.41</diepte_tov_referentiepunt>
+            <peil_mtaw>7.37</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-08-08</datum>
+            <diepte_tov_referentiepunt>2.55</diepte_tov_referentiepunt>
+            <peil_mtaw>7.23</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-08-30</datum>
+            <diepte_tov_referentiepunt>2.47</diepte_tov_referentiepunt>
+            <peil_mtaw>7.31</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-09-16</datum>
+            <diepte_tov_referentiepunt>2.58</diepte_tov_referentiepunt>
+            <peil_mtaw>7.20</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-10-24</datum>
+            <diepte_tov_referentiepunt>2.64</diepte_tov_referentiepunt>
+            <peil_mtaw>7.14</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-11-28</datum>
+            <diepte_tov_referentiepunt>2.73</diepte_tov_referentiepunt>
+            <peil_mtaw>7.05</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2011-12-12</datum>
+            <diepte_tov_referentiepunt>2.75</diepte_tov_referentiepunt>
+            <peil_mtaw>7.03</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-01-19</datum>
+            <diepte_tov_referentiepunt>1.21</diepte_tov_referentiepunt>
+            <peil_mtaw>8.57</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-02-27</datum>
+            <diepte_tov_referentiepunt>1.45</diepte_tov_referentiepunt>
+            <peil_mtaw>8.33</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-03-20</datum>
+            <diepte_tov_referentiepunt>1.33</diepte_tov_referentiepunt>
+            <peil_mtaw>8.45</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-04-24</datum>
+            <diepte_tov_referentiepunt>1.67</diepte_tov_referentiepunt>
+            <peil_mtaw>8.11</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-05-15</datum>
+            <diepte_tov_referentiepunt>1.13</diepte_tov_referentiepunt>
+            <peil_mtaw>8.65</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-06-29</datum>
+            <diepte_tov_referentiepunt>1.9</diepte_tov_referentiepunt>
+            <peil_mtaw>7.88</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-07-18</datum>
+            <diepte_tov_referentiepunt>1.41</diepte_tov_referentiepunt>
+            <peil_mtaw>8.37</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-08-14</datum>
+            <diepte_tov_referentiepunt>1.88</diepte_tov_referentiepunt>
+            <peil_mtaw>7.90</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-09-17</datum>
+            <diepte_tov_referentiepunt>2.34</diepte_tov_referentiepunt>
+            <peil_mtaw>7.44</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-10-25</datum>
+            <diepte_tov_referentiepunt>2.09</diepte_tov_referentiepunt>
+            <peil_mtaw>7.69</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-11-12</datum>
+            <diepte_tov_referentiepunt>1.72</diepte_tov_referentiepunt>
+            <peil_mtaw>8.06</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Labo</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-11-21</datum>
+            <diepte_tov_referentiepunt>1.72</diepte_tov_referentiepunt>
+            <peil_mtaw>8.06</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>J</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2012-12-11</datum>
+            <diepte_tov_referentiepunt>1.06</diepte_tov_referentiepunt>
+            <peil_mtaw>8.72</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2013-02-21</datum>
+            <diepte_tov_referentiepunt>0.85</diepte_tov_referentiepunt>
+            <peil_mtaw>8.93</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2013-03-21</datum>
+            <diepte_tov_referentiepunt>0.86</diepte_tov_referentiepunt>
+            <peil_mtaw>8.92</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2013-03-25</datum>
+            <diepte_tov_referentiepunt>0.91</diepte_tov_referentiepunt>
+            <peil_mtaw>8.87</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2013-04-22</datum>
+            <diepte_tov_referentiepunt>1.36</diepte_tov_referentiepunt>
+            <peil_mtaw>8.42</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2013-05-30</datum>
+            <diepte_tov_referentiepunt>1.58</diepte_tov_referentiepunt>
+            <peil_mtaw>8.20</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2013-06-21</datum>
+            <diepte_tov_referentiepunt>1.96</diepte_tov_referentiepunt>
+            <peil_mtaw>7.82</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2013-07-31</datum>
+            <diepte_tov_referentiepunt>2.03</diepte_tov_referentiepunt>
+            <peil_mtaw>7.75</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2013-08-27</datum>
+            <diepte_tov_referentiepunt>2.42</diepte_tov_referentiepunt>
+            <peil_mtaw>7.36</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2013-09-30</datum>
+            <diepte_tov_referentiepunt>2.33</diepte_tov_referentiepunt>
+            <peil_mtaw>7.45</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2013-10-30</datum>
+            <diepte_tov_referentiepunt>1.89</diepte_tov_referentiepunt>
+            <peil_mtaw>7.89</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2013-11-26</datum>
+            <diepte_tov_referentiepunt>0.98</diepte_tov_referentiepunt>
+            <peil_mtaw>8.80</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-01-03</datum>
+            <diepte_tov_referentiepunt>0.91</diepte_tov_referentiepunt>
+            <peil_mtaw>8.87</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-01-22</datum>
+            <diepte_tov_referentiepunt>0.84</diepte_tov_referentiepunt>
+            <peil_mtaw>8.94</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-02-14</datum>
+            <diepte_tov_referentiepunt>0.71</diepte_tov_referentiepunt>
+            <peil_mtaw>9.07</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Labo</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>primair 2013</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-02-21</datum>
+            <diepte_tov_referentiepunt>0.8</diepte_tov_referentiepunt>
+            <peil_mtaw>8.98</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-03-13</datum>
+            <diepte_tov_referentiepunt>1.03</diepte_tov_referentiepunt>
+            <peil_mtaw>8.75</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-03-14</datum>
+            <diepte_tov_referentiepunt>1.05</diepte_tov_referentiepunt>
+            <peil_mtaw>8.73</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Labo</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-04-28</datum>
+            <diepte_tov_referentiepunt>1.8</diepte_tov_referentiepunt>
+            <peil_mtaw>7.98</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-05-27</datum>
+            <diepte_tov_referentiepunt>2.03</diepte_tov_referentiepunt>
+            <peil_mtaw>7.75</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-06-24</datum>
+            <diepte_tov_referentiepunt>2.23</diepte_tov_referentiepunt>
+            <peil_mtaw>7.55</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-07-31</datum>
+            <diepte_tov_referentiepunt>2.12</diepte_tov_referentiepunt>
+            <peil_mtaw>7.66</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-08-28</datum>
+            <diepte_tov_referentiepunt>1.18</diepte_tov_referentiepunt>
+            <peil_mtaw>8.60</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-09-16</datum>
+            <diepte_tov_referentiepunt>1.8</diepte_tov_referentiepunt>
+            <peil_mtaw>7.98</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Labo</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>primair 2014</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-09-29</datum>
+            <diepte_tov_referentiepunt>2.05</diepte_tov_referentiepunt>
+            <peil_mtaw>7.73</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-10-31</datum>
+            <diepte_tov_referentiepunt>1.97</diepte_tov_referentiepunt>
+            <peil_mtaw>7.81</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-11-27</datum>
+            <diepte_tov_referentiepunt>1.63</diepte_tov_referentiepunt>
+            <peil_mtaw>8.15</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2014-12-23</datum>
+            <diepte_tov_referentiepunt>1.34</diepte_tov_referentiepunt>
+            <peil_mtaw>8.44</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-01-30</datum>
+            <diepte_tov_referentiepunt>0.65</diepte_tov_referentiepunt>
+            <peil_mtaw>9.13</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-02-27</datum>
+            <diepte_tov_referentiepunt>0.92</diepte_tov_referentiepunt>
+            <peil_mtaw>8.86</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-03-30</datum>
+            <diepte_tov_referentiepunt>1.19</diepte_tov_referentiepunt>
+            <peil_mtaw>8.59</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-04-30</datum>
+            <diepte_tov_referentiepunt>1.64</diepte_tov_referentiepunt>
+            <peil_mtaw>8.14</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-05-26</datum>
+            <diepte_tov_referentiepunt>1.97</diepte_tov_referentiepunt>
+            <peil_mtaw>7.81</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-06-30</datum>
+            <diepte_tov_referentiepunt>2.35</diepte_tov_referentiepunt>
+            <peil_mtaw>7.43</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-07-27</datum>
+            <diepte_tov_referentiepunt>2.53</diepte_tov_referentiepunt>
+            <peil_mtaw>7.25</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-08-27</datum>
+            <diepte_tov_referentiepunt>2.72</diepte_tov_referentiepunt>
+            <peil_mtaw>7.06</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-09-22</datum>
+            <diepte_tov_referentiepunt>2.74</diepte_tov_referentiepunt>
+            <peil_mtaw>7.04</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-10-16</datum>
+            <diepte_tov_referentiepunt>2.8</diepte_tov_referentiepunt>
+            <peil_mtaw>6.98</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Labo</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>primair 2015</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-10-30</datum>
+            <diepte_tov_referentiepunt>2.83</diepte_tov_referentiepunt>
+            <peil_mtaw>6.95</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-11-26</datum>
+            <diepte_tov_referentiepunt>2.47</diepte_tov_referentiepunt>
+            <peil_mtaw>7.31</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2015-12-23</datum>
+            <diepte_tov_referentiepunt>1.96</diepte_tov_referentiepunt>
+            <peil_mtaw>7.82</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-01-25</datum>
+            <diepte_tov_referentiepunt>1.08</diepte_tov_referentiepunt>
+            <peil_mtaw>8.70</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-02-24</datum>
+            <diepte_tov_referentiepunt>0.74</diepte_tov_referentiepunt>
+            <peil_mtaw>9.04</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-03-29</datum>
+            <diepte_tov_referentiepunt>1.05</diepte_tov_referentiepunt>
+            <peil_mtaw>8.73</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-04-26</datum>
+            <diepte_tov_referentiepunt>1.33</diepte_tov_referentiepunt>
+            <peil_mtaw>8.45</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-05-30</datum>
+            <diepte_tov_referentiepunt>1.78</diepte_tov_referentiepunt>
+            <peil_mtaw>8.00</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-06-28</datum>
+            <diepte_tov_referentiepunt>1.19</diepte_tov_referentiepunt>
+            <peil_mtaw>8.59</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-07-26</datum>
+            <diepte_tov_referentiepunt>1.98</diepte_tov_referentiepunt>
+            <peil_mtaw>7.80</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-07-28</datum>
+            <diepte_tov_referentiepunt>2.01</diepte_tov_referentiepunt>
+            <peil_mtaw>7.77</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Labo</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>primair 2016</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-08-25</datum>
+            <diepte_tov_referentiepunt>2.3</diepte_tov_referentiepunt>
+            <peil_mtaw>7.48</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-09-29</datum>
+            <diepte_tov_referentiepunt>2.6</diepte_tov_referentiepunt>
+            <peil_mtaw>7.18</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-10-26</datum>
+            <diepte_tov_referentiepunt>2.68</diepte_tov_referentiepunt>
+            <peil_mtaw>7.10</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-11-28</datum>
+            <diepte_tov_referentiepunt>2.14</diepte_tov_referentiepunt>
+            <peil_mtaw>7.64</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2016-12-23</datum>
+            <diepte_tov_referentiepunt>2.22</diepte_tov_referentiepunt>
+            <peil_mtaw>7.56</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-01-25</datum>
+            <diepte_tov_referentiepunt>1.44</diepte_tov_referentiepunt>
+            <peil_mtaw>8.34</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-02-23</datum>
+            <diepte_tov_referentiepunt>1.38</diepte_tov_referentiepunt>
+            <peil_mtaw>8.40</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-02-24</datum>
+            <diepte_tov_referentiepunt>1.38</diepte_tov_referentiepunt>
+            <peil_mtaw>8.40</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Labo</naam>
+            </opmeter>
+            <zoet>O</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>primair 2017</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-03-28</datum>
+            <diepte_tov_referentiepunt>1.31</diepte_tov_referentiepunt>
+            <peil_mtaw>8.47</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-04-25</datum>
+            <diepte_tov_referentiepunt>1.82</diepte_tov_referentiepunt>
+            <peil_mtaw>7.96</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-05-24</datum>
+            <diepte_tov_referentiepunt>2.23</diepte_tov_referentiepunt>
+            <peil_mtaw>7.55</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-06-26</datum>
+            <diepte_tov_referentiepunt>2.72</diepte_tov_referentiepunt>
+            <peil_mtaw>7.06</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-07-25</datum>
+            <diepte_tov_referentiepunt>2.73</diepte_tov_referentiepunt>
+            <peil_mtaw>7.05</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-08-28</datum>
+            <diepte_tov_referentiepunt>2.91</diepte_tov_referentiepunt>
+            <peil_mtaw>6.87</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-09-26</datum>
+            <diepte_tov_referentiepunt>2.95</diepte_tov_referentiepunt>
+            <peil_mtaw>6.83</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-10-26</datum>
+            <diepte_tov_referentiepunt>3.0</diepte_tov_referentiepunt>
+            <peil_mtaw>6.78</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-11-28</datum>
+            <diepte_tov_referentiepunt>2.85</diepte_tov_referentiepunt>
+            <peil_mtaw>6.93</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2017-12-21</datum>
+            <diepte_tov_referentiepunt>1.28</diepte_tov_referentiepunt>
+            <peil_mtaw>8.50</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-01-25</datum>
+            <diepte_tov_referentiepunt>0.68</diepte_tov_referentiepunt>
+            <peil_mtaw>9.10</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-02-26</datum>
+            <diepte_tov_referentiepunt>0.97</diepte_tov_referentiepunt>
+            <peil_mtaw>8.81</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-03-26</datum>
+            <diepte_tov_referentiepunt>0.86</diepte_tov_referentiepunt>
+            <peil_mtaw>8.92</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-04-26</datum>
+            <diepte_tov_referentiepunt>1.27</diepte_tov_referentiepunt>
+            <peil_mtaw>8.51</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-05-28</datum>
+            <diepte_tov_referentiepunt>1.88</diepte_tov_referentiepunt>
+            <peil_mtaw>7.90</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-06-26</datum>
+            <diepte_tov_referentiepunt>2.33</diepte_tov_referentiepunt>
+            <peil_mtaw>7.45</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-07-25</datum>
+            <diepte_tov_referentiepunt>2.67</diepte_tov_referentiepunt>
+            <peil_mtaw>7.11</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-08-27</datum>
+            <diepte_tov_referentiepunt>2.86</diepte_tov_referentiepunt>
+            <peil_mtaw>6.92</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-09-19</datum>
+            <diepte_tov_referentiepunt>2.97</diepte_tov_referentiepunt>
+            <peil_mtaw>6.81</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Labo</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-09-26</datum>
+            <diepte_tov_referentiepunt>2.99</diepte_tov_referentiepunt>
+            <peil_mtaw>6.79</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-10-24</datum>
+            <diepte_tov_referentiepunt>3.08</diepte_tov_referentiepunt>
+            <peil_mtaw>6.70</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-11-27</datum>
+            <diepte_tov_referentiepunt>3.06</diepte_tov_referentiepunt>
+            <peil_mtaw>6.72</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2018-12-21</datum>
+            <diepte_tov_referentiepunt>2.88</diepte_tov_referentiepunt>
+            <peil_mtaw>6.90</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-01-28</datum>
+            <diepte_tov_referentiepunt>2.63</diepte_tov_referentiepunt>
+            <peil_mtaw>7.15</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-02-26</datum>
+            <diepte_tov_referentiepunt>1.97</diepte_tov_referentiepunt>
+            <peil_mtaw>7.81</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-03-25</datum>
+            <diepte_tov_referentiepunt>1.31</diepte_tov_referentiepunt>
+            <peil_mtaw>8.47</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-04-24</datum>
+            <diepte_tov_referentiepunt>1.91</diepte_tov_referentiepunt>
+            <peil_mtaw>7.87</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-05-24</datum>
+            <diepte_tov_referentiepunt>2.23</diepte_tov_referentiepunt>
+            <peil_mtaw>7.55</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-06-24</datum>
+            <diepte_tov_referentiepunt>2.08</diepte_tov_referentiepunt>
+            <peil_mtaw>7.70</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-07-30</datum>
+            <diepte_tov_referentiepunt>2.62</diepte_tov_referentiepunt>
+            <peil_mtaw>7.16</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-08-26</datum>
+            <diepte_tov_referentiepunt>2.78</diepte_tov_referentiepunt>
+            <peil_mtaw>7.00</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-09-19</datum>
+            <diepte_tov_referentiepunt>2.91</diepte_tov_referentiepunt>
+            <peil_mtaw>6.87</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Labo</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>primair 2019</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-09-24</datum>
+            <diepte_tov_referentiepunt>2.93</diepte_tov_referentiepunt>
+            <peil_mtaw>6.85</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-10-29</datum>
+            <diepte_tov_referentiepunt>2.69</diepte_tov_referentiepunt>
+            <peil_mtaw>7.09</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-11-25</datum>
+            <diepte_tov_referentiepunt>2.59</diepte_tov_referentiepunt>
+            <peil_mtaw>7.19</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2019-12-19</datum>
+            <diepte_tov_referentiepunt>2.14</diepte_tov_referentiepunt>
+            <peil_mtaw>7.64</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-01-24</datum>
+            <diepte_tov_referentiepunt>1.7</diepte_tov_referentiepunt>
+            <peil_mtaw>8.08</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-02-24</datum>
+            <diepte_tov_referentiepunt>1.03</diepte_tov_referentiepunt>
+            <peil_mtaw>8.75</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-03-23</datum>
+            <diepte_tov_referentiepunt>0.9</diepte_tov_referentiepunt>
+            <peil_mtaw>8.88</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-04-24</datum>
+            <diepte_tov_referentiepunt>1.73</diepte_tov_referentiepunt>
+            <peil_mtaw>8.05</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-05-25</datum>
+            <diepte_tov_referentiepunt>2.24</diepte_tov_referentiepunt>
+            <peil_mtaw>7.54</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-06-26</datum>
+            <diepte_tov_referentiepunt>2.52</diepte_tov_referentiepunt>
+            <peil_mtaw>7.26</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-07-27</datum>
+            <diepte_tov_referentiepunt>2.67</diepte_tov_referentiepunt>
+            <peil_mtaw>7.11</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-08-24</datum>
+            <diepte_tov_referentiepunt>2.74</diepte_tov_referentiepunt>
+            <peil_mtaw>7.04</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-09-24</datum>
+            <diepte_tov_referentiepunt>2.94</diepte_tov_referentiepunt>
+            <peil_mtaw>6.84</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-10-27</datum>
+            <diepte_tov_referentiepunt>2.58</diepte_tov_referentiepunt>
+            <peil_mtaw>7.20</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-11-24</datum>
+            <diepte_tov_referentiepunt>2.45</diepte_tov_referentiepunt>
+            <peil_mtaw>7.33</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2020-12-24</datum>
+            <diepte_tov_referentiepunt>2.22</diepte_tov_referentiepunt>
+            <peil_mtaw>7.56</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-01-25</datum>
+            <diepte_tov_referentiepunt>0.88</diepte_tov_referentiepunt>
+            <peil_mtaw>8.90</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-02-23</datum>
+            <diepte_tov_referentiepunt>0.97</diepte_tov_referentiepunt>
+            <peil_mtaw>8.81</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-03-24</datum>
+            <diepte_tov_referentiepunt>1.26</diepte_tov_referentiepunt>
+            <peil_mtaw>8.52</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-04-26</datum>
+            <diepte_tov_referentiepunt>1.7</diepte_tov_referentiepunt>
+            <peil_mtaw>8.08</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-05-25</datum>
+            <diepte_tov_referentiepunt>1.63</diepte_tov_referentiepunt>
+            <peil_mtaw>8.15</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-06-28</datum>
+            <diepte_tov_referentiepunt>1.84</diepte_tov_referentiepunt>
+            <peil_mtaw>7.94</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-07-23</datum>
+            <diepte_tov_referentiepunt>2.05</diepte_tov_referentiepunt>
+            <peil_mtaw>7.73</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-08-27</datum>
+            <diepte_tov_referentiepunt>2.2</diepte_tov_referentiepunt>
+            <peil_mtaw>7.58</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-09-27</datum>
+            <diepte_tov_referentiepunt>2.46</diepte_tov_referentiepunt>
+            <peil_mtaw>7.32</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-10-25</datum>
+            <diepte_tov_referentiepunt>2.28</diepte_tov_referentiepunt>
+            <peil_mtaw>7.50</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-11-26</datum>
+            <diepte_tov_referentiepunt>1.96</diepte_tov_referentiepunt>
+            <peil_mtaw>7.82</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2021-12-21</datum>
+            <diepte_tov_referentiepunt>0.97</diepte_tov_referentiepunt>
+            <peil_mtaw>8.81</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-01-21</datum>
+            <diepte_tov_referentiepunt>0.99</diepte_tov_referentiepunt>
+            <peil_mtaw>8.79</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-02-28</datum>
+            <diepte_tov_referentiepunt>1.08</diepte_tov_referentiepunt>
+            <peil_mtaw>8.70</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-03-24</datum>
+            <diepte_tov_referentiepunt>1.54</diepte_tov_referentiepunt>
+            <peil_mtaw>8.24</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-04-14</datum>
+            <diepte_tov_referentiepunt>1.8</diepte_tov_referentiepunt>
+            <peil_mtaw>7.98</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-05-23</datum>
+            <diepte_tov_referentiepunt>2.26</diepte_tov_referentiepunt>
+            <peil_mtaw>7.52</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-06-16</datum>
+            <diepte_tov_referentiepunt>2.35</diepte_tov_referentiepunt>
+            <peil_mtaw>7.43</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-07-27</datum>
+            <diepte_tov_referentiepunt>2.7</diepte_tov_referentiepunt>
+            <peil_mtaw>7.08</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-08-26</datum>
+            <diepte_tov_referentiepunt>2.9</diepte_tov_referentiepunt>
+            <peil_mtaw>6.88</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-09-30</datum>
+            <diepte_tov_referentiepunt>2.79</diepte_tov_referentiepunt>
+            <peil_mtaw>6.99</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-10-24</datum>
+            <diepte_tov_referentiepunt>2.87</diepte_tov_referentiepunt>
+            <peil_mtaw>6.91</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-11-25</datum>
+            <diepte_tov_referentiepunt>2.7</diepte_tov_referentiepunt>
+            <peil_mtaw>7.08</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2022-12-20</datum>
+            <diepte_tov_referentiepunt>2.52</diepte_tov_referentiepunt>
+            <peil_mtaw>7.26</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-01-24</datum>
+            <diepte_tov_referentiepunt>0.93</diepte_tov_referentiepunt>
+            <peil_mtaw>8.85</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-02-24</datum>
+            <diepte_tov_referentiepunt>1.45</diepte_tov_referentiepunt>
+            <peil_mtaw>8.33</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-03-29</datum>
+            <diepte_tov_referentiepunt>1.18</diepte_tov_referentiepunt>
+            <peil_mtaw>8.60</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-04-27</datum>
+            <diepte_tov_referentiepunt>1.28</diepte_tov_referentiepunt>
+            <peil_mtaw>8.50</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-05-31</datum>
+            <diepte_tov_referentiepunt>1.84</diepte_tov_referentiepunt>
+            <peil_mtaw>7.94</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-06-26</datum>
+            <diepte_tov_referentiepunt>2.38</diepte_tov_referentiepunt>
+            <peil_mtaw>7.40</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-07-28</datum>
+            <tijdstip>11:56:00</tijdstip>
+            <diepte_tov_referentiepunt>2.58</diepte_tov_referentiepunt>
+            <peil_mtaw>7.20</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-08-24</datum>
+            <tijdstip>11:38:00</tijdstip>
+            <diepte_tov_referentiepunt>2.54</diepte_tov_referentiepunt>
+            <peil_mtaw>7.24</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-09-21</datum>
+            <tijdstip>11:52:00</tijdstip>
+            <diepte_tov_referentiepunt>2.59</diepte_tov_referentiepunt>
+            <peil_mtaw>7.19</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-10-23</datum>
+            <tijdstip>12:31:00</tijdstip>
+            <diepte_tov_referentiepunt>2.44</diepte_tov_referentiepunt>
+            <peil_mtaw>7.34</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-11-29</datum>
+            <tijdstip>11:50:00</tijdstip>
+            <diepte_tov_referentiepunt>0.57</diepte_tov_referentiepunt>
+            <peil_mtaw>9.21</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2023-12-19</datum>
+            <tijdstip>12:08:00</tijdstip>
+            <diepte_tov_referentiepunt>0.83</diepte_tov_referentiepunt>
+            <peil_mtaw>8.95</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-01-30</datum>
+            <tijdstip>10:45:00</tijdstip>
+            <diepte_tov_referentiepunt>0.95</diepte_tov_referentiepunt>
+            <peil_mtaw>8.83</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-02-23</datum>
+            <tijdstip>12:10:00</tijdstip>
+            <diepte_tov_referentiepunt>0.74</diepte_tov_referentiepunt>
+            <peil_mtaw>9.04</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-03-27</datum>
+            <tijdstip>11:44:00</tijdstip>
+            <diepte_tov_referentiepunt>0.83</diepte_tov_referentiepunt>
+            <peil_mtaw>8.95</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-04-26</datum>
+            <tijdstip>12:03:00</tijdstip>
+            <diepte_tov_referentiepunt>0.94</diepte_tov_referentiepunt>
+            <peil_mtaw>8.84</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-05-24</datum>
+            <tijdstip>12:22:00</tijdstip>
+            <diepte_tov_referentiepunt>1.29</diepte_tov_referentiepunt>
+            <peil_mtaw>8.49</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-06-24</datum>
+            <tijdstip>11:47:00</tijdstip>
+            <diepte_tov_referentiepunt>1.33</diepte_tov_referentiepunt>
+            <peil_mtaw>8.45</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-07-07</datum>
+            <tijdstip>13:00:00</tijdstip>
+            <diepte_tov_referentiepunt>1.68</diepte_tov_referentiepunt>
+            <peil_mtaw>8.10</peil_mtaw>
+            <methode>automatische sonde</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-08-15</datum>
+            <tijdstip>13:00:00</tijdstip>
+            <diepte_tov_referentiepunt>2.26</diepte_tov_referentiepunt>
+            <peil_mtaw>7.52</peil_mtaw>
+            <methode>automatische sonde</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-09-15</datum>
+            <tijdstip>13:00:00</tijdstip>
+            <diepte_tov_referentiepunt>2.18</diepte_tov_referentiepunt>
+            <peil_mtaw>7.60</peil_mtaw>
+            <methode>automatische sonde</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-10-24</datum>
+            <tijdstip>12:34:00</tijdstip>
+            <diepte_tov_referentiepunt>2.27</diepte_tov_referentiepunt>
+            <peil_mtaw>7.51</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-11-15</datum>
+            <tijdstip>12:00:00</tijdstip>
+            <diepte_tov_referentiepunt>2.3</diepte_tov_referentiepunt>
+            <peil_mtaw>7.48</peil_mtaw>
+            <methode>automatische sonde</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-11-20</datum>
+            <diepte_tov_referentiepunt>2.35</diepte_tov_referentiepunt>
+            <peil_mtaw>7.43</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>Labo</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>PHARMA_freatisch_VMM_2024_voorjaar</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2024-12-15</datum>
+            <tijdstip>12:00:00</tijdstip>
+            <diepte_tov_referentiepunt>1.27</diepte_tov_referentiepunt>
+            <peil_mtaw>8.51</peil_mtaw>
+            <methode>automatische sonde</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-01-23</datum>
+            <tijdstip>11:46:00</tijdstip>
+            <diepte_tov_referentiepunt>1.0</diepte_tov_referentiepunt>
+            <peil_mtaw>8.78</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-02-15</datum>
+            <tijdstip>12:00:00</tijdstip>
+            <diepte_tov_referentiepunt>0.8</diepte_tov_referentiepunt>
+            <peil_mtaw>8.98</peil_mtaw>
+            <methode>automatische sonde</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-03-15</datum>
+            <tijdstip>12:00:00</tijdstip>
+            <diepte_tov_referentiepunt>1.21</diepte_tov_referentiepunt>
+            <peil_mtaw>8.57</peil_mtaw>
+            <methode>automatische sonde</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-04-28</datum>
+            <tijdstip>12:43:00</tijdstip>
+            <diepte_tov_referentiepunt>1.98</diepte_tov_referentiepunt>
+            <peil_mtaw>7.80</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-05-26</datum>
+            <tijdstip>13:00:00</tijdstip>
+            <diepte_tov_referentiepunt>2.32</diepte_tov_referentiepunt>
+            <peil_mtaw>7.46</peil_mtaw>
+            <methode>automatische sonde</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-06-19</datum>
+            <tijdstip>12:42:00</tijdstip>
+            <diepte_tov_referentiepunt>2.49</diepte_tov_referentiepunt>
+            <peil_mtaw>7.29</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-07-30</datum>
+            <tijdstip>11:17:00</tijdstip>
+            <diepte_tov_referentiepunt>2.74</diepte_tov_referentiepunt>
+            <peil_mtaw>7.04</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-08-28</datum>
+            <tijdstip>10:51:00</tijdstip>
+            <diepte_tov_referentiepunt>2.87</diepte_tov_referentiepunt>
+            <peil_mtaw>6.91</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-09-25</datum>
+            <tijdstip>13:00:00</tijdstip>
+            <diepte_tov_referentiepunt>2.98</diepte_tov_referentiepunt>
+            <peil_mtaw>6.80</peil_mtaw>
+            <methode>automatische sonde</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-09-30</datum>
+            <tijdstip>12:53:00</tijdstip>
+            <diepte_tov_referentiepunt>3.0</diepte_tov_referentiepunt>
+            <peil_mtaw>6.78</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-10-27</datum>
+            <tijdstip>12:42:00</tijdstip>
+            <diepte_tov_referentiepunt>2.94</diepte_tov_referentiepunt>
+            <peil_mtaw>6.84</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-11-25</datum>
+            <tijdstip>12:22:00</tijdstip>
+            <diepte_tov_referentiepunt>2.84</diepte_tov_referentiepunt>
+            <peil_mtaw>6.94</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2025-12-17</datum>
+            <tijdstip>12:15:00</tijdstip>
+            <diepte_tov_referentiepunt>2.71</diepte_tov_referentiepunt>
+            <peil_mtaw>7.07</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+        <peilmeting>
+            <datum>2026-01-27</datum>
+            <tijdstip>12:26:00</tijdstip>
+            <diepte_tov_referentiepunt>2.32</diepte_tov_referentiepunt>
+            <peil_mtaw>7.46</peil_mtaw>
+            <methode>peillint</methode>
+            <filtertoestand>1</filtertoestand>
+            <filterstatus>in rust</filterstatus>
+            <opmeter>
+                <naam>VMM - Afdeling Operationeel Waterbeheer</naam>
+            </opmeter>
+            <zoet>N</zoet>
+            <betrouwbaarheid>goed</betrouwbaarheid>
+            <bron>Onbekend</bron>
+        </peilmeting>
+    </filtermeting>
+</ns4:dov-schema>

@@ -1,0 +1,32 @@
+
+Ik gaf ook graag nog een voorbeeld door dat zou kunnen uitgewerkt worden: de grondwaterpeilmetingen
+
+ 
+
+In DOV kan je grondwaterpeilen doorgeven als manuele meting aan een grondwaterfilter.
+
+of je kan automatische peilen doorgeven via een logger/instrument.
+
+ 
+
+In deze grondwaterfilter-fiche zitten beide voorbeelden:
+
+    https://www.dov.vlaanderen.be/data/filter/2005-007247
+    In de tab “metingen” zie je bij ‘peilmetingen’ de manueel opgemeten peilmetingen. Daar ging vroeger maandelijks een collega langs.
+    in de toekomst gaan er nog regelmatig ‘controle-metingen’ gedaan worden om de loggerdata te kunnen controleren en kalibreren.
+
+    In de tab ‘metingen’ zie je bij ‘meetreeksen’ de data die door de loggers wordt opgemeten en automatisch doorgestuurd wordt naar DOV.
+    Je ziet dat er voor dit voorbeeld data beschikbaar is tot deze ochtend 03/02/2026.
+    Helemaal rechts kan je de data downloaden in csv-formaat
+
+    dit is de fiche van het instrument/logger: https://www.dov.vlaanderen.be/data/instrument/2023-004565
+
+    In bulk:
+    In bijlage zit ook een zip-file met de data van manuele peilmetingen, grondwaterlocatie, grondwaterfilter, ... in xml-formaat
+    De instrument/logger-data hebben we (nog) niet via xml.
+    maar we hebben wel API services om de data te bevragen: https://www.dov.vlaanderen.be/portaal/api/instrument/api-guide.html
+
+Als er nog vragen of onduidelijkheden zijn,
+geven jullie maar een seintje.
+
+ 

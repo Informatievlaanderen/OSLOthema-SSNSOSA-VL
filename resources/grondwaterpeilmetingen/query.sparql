@@ -1,0 +1,34 @@
+
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ex: <http://example.org/>
+PREFIX qudt: <http://qudt.org/vocab/unit#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?observatie ?datum ?property ?waarde ?eenheid ?simpleResult ?locatie
+WHERE {
+    {
+        ?obs rdf:type sosa:ObservationCollection ;
+            sosa:resultTime ?datum ;
+            sosa:madeBySensor ?sensor ;
+            sosa:hasMember ?observatie ;
+            sosa:hasFeatureOfInterest ?locatie .
+        ?observatie sosa:observedProperty ?property ;
+            sosa:hasResult ?result .
+        ?result rdf:value ?waarde ;
+            qudt:unit ?eenheid .
+    }
+    UNION
+    {
+        ?obs rdf:type sosa:ObservationCollection ;
+            sosa:resultTime ?datum ;
+            sosa:madeBySensor ?sensor ;
+            sosa:hasFeatureOfInterest ?locatie .
+        ?obs sosa:hasMember ?observatie .
+        ?observatie sosa:observedProperty ?property ;
+            sosa:hasSimpleResult ?simpleResult .
+    }
+}
+
+
+
