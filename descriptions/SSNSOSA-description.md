@@ -5,7 +5,7 @@
     De focus ligt op de effectieve representatie en toepassing van internationale standaarden binnen 
     de thematiek van <strong>metingen, monitoring, bemonstering en automatisering</strong>.
     Het model sluit nauw aan bij het <strong>W3C/OGC‑model SSN SOSA</strong> en is afgestemd op 
-    complementaire modellen zoals <strong>PROV‑O</strong>, <strong>QUDT</strong>, en – waar relevant – 
+    complementaire modellen zoals <strong>PROV‑O</strong>, <strong>QUDT</strong>, en waar relevant 
     <strong>p-plan</strong> en <strong>GeoSPARQL</strong>.
 </p>
 
