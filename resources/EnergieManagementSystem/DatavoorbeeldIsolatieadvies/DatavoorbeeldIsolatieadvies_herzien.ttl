@@ -1,4 +1,5 @@
 @prefix plan:        <https://example.org/plan/> .
+@prefix step:        <https://example.org/step/> .
 @prefix var:         <https://example.org/variable/> .
 @prefix deploy:      <https://example.org/deployment/> .
 @prefix platform:    <https://example.org/platform/> .
@@ -33,6 +34,13 @@ plan:warmteverlies-classificatie
   sosa:hasInput var:drempelwaarde, var:meting ;
   sosa:hasOutput var:klasse .
 
+# Abstracte stap voor warmteverlies classificatie
+step:warmteverlies-classificatie
+  a p-plan:Step ;
+  rdfs:label "Warmteverlies classificatie stap"@nl ;
+  p-plan:isStepOfPlan plan:warmteverlies-classificatie ;
+  p-plan:correspondsToProcedure plan:warmteverlies-classificatie .
+
 # Variabelen op plan niveau
 var:drempelwaarde
   a p-plan:Variable ;
@@ -56,19 +64,20 @@ var:klasse
 # Platform waar de meting plaatsvindt
 platform:gebouw-monitoring-systeem
   a sosa:Platform ;
+  sosa:hosts sensor:temperatuur-sensor-001 ;
   rdfs:label "Gebouw monitoring systeem"@nl .
 
 # Sensor die gebruikt wordt
 sensor:temperatuur-sensor-001
   a sosa:Sensor ;
   rdfs:label "Temperatuur sensor 001"@nl ;
-  sosa:observes concept:kenmerktype/gemiddeld_nachtelijk_warmteverlies .
+  sosa:implements step:warmteverlies-classificatie ;
+  sosa:observes concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies .
 
 # Deployment van de procedure
 deploy:warmteverlies-classificatie-2025
   a sosa:Deployment ;
   rdfs:label "Warmteverlies classificatie implementatie 2025"@nl ;
-  sosa:implements plan:warmteverlies-classificatie ;
   sosa:deployedOnPlatform platform:gebouw-monitoring-systeem ;
   sosa:deployedAsset sensor:temperatuur-sensor-001 ;
   sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
@@ -82,9 +91,10 @@ exec:classificatie-uitvoering-20250315
   a sosa:Observation ;
   rdfs:label "Warmteverlies classificatie uitvoering 15 maart 2025"@nl ;
   sosa:usedProcedure plan:warmteverlies-classificatie ;
+  p-plan:correspondsToStep step:warmteverlies-classificatie ;
   sosa:hasFeatureOfInterest gebouw:stadskantoor ;
-  sosa:observedProperty concept:kenmerktype/warmteverliesklasse ;
-  sosa:hasInput ent:drempelwaarde-001, ent:meting-001 ;
+  sosa:observedProperty concept:kenmerktype_warmteverliesklasse ;
+  prov:used ent:drempelwaarde-001, ent:meting-001 ;
   sosa:hasResult ent:klasse-001 ;
   sosa:madeBySensor sensor:temperatuur-sensor-001 ;
   sosa:startTime "2025-03-15T00:00:00Z"^^xsd:dateTime ;
@@ -103,7 +113,7 @@ ent:meting-001
   a sosa:Observation ;
   rdfs:label "Gemeten warmteverlies 0.415 °C/hr"@nl ;
   sosa:hasFeatureOfInterest gebouw:stadskantoor ;
-  sosa:observedProperty concept:kenmerktype/gemiddeld_nachtelijk_warmteverlies ;
+  sosa:observedProperty concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies ;
   sosa:hasResult [ a qudt:QuantityValue ;
                    qudt:value "4.15E-1"^^xsd:decimal ;
                    qudt:unit unit:DEG_C-PER-HR ] ;
@@ -116,22 +126,22 @@ ent:meting-001
 ent:klasse-001
   a sosa:Result ;
   rdfs:label "Matige warmteverlies klasse"@nl ;
-  skos:closeMatch concept:warmteverliesklasse/matig ;
+  skos:closeMatch concept:warmteverliesklasse_matig ;
   p-plan:correspondsToVariable var:klasse .
 
 # *********************************************
 # CONCEPTEN
 # *********************************************
 
-concept:kenmerktype/warmteverliesklasse
+concept:kenmerktype_warmteverliesklasse
   a skos:Concept ;
   skos:prefLabel "Warmteverlies klasse"@nl .
 
-concept:kenmerktype/gemiddeld_nachtelijk_warmteverlies
+concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies
   a skos:Concept ;
   skos:prefLabel "Gemiddeld nachtelijk warmteverlies"@nl .
 
-concept:warmteverliesklasse/matig
+concept:warmteverliesklasse_matig
   a skos:Concept ;
   skos:prefLabel "Matig"@nl ;
-  skos:inScheme concept:kenmerktype/warmteverliesklasse .
+  skos:inScheme concept:kenmerktype_warmteverliesklasse .

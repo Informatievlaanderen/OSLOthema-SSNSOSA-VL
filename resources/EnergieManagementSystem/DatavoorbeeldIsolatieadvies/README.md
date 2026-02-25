@@ -72,7 +72,7 @@ Input observatie van gemiddeld nachtelijk warmteverlies:
 :concrete-observatie
   a sosa:Observation ;
   sosa:usedProcedure :classificatie-procedure ;
-  sosa:hasInput :concrete-drempelwaarde, :concrete-meting ;
+  prov:used :concrete-drempelwaarde, :concrete-meting ;
   sosa:hasResult :concrete-klasse .
 
 :concrete-drempelwaarde
@@ -84,9 +84,78 @@ Input observatie van gemiddeld nachtelijk warmteverlies:
   p-plan:correspondsToVariable :meting-variabele .
 ```
 
+## Semantische Keuzes en Alignment
+
+### Gebruik van `prov:used` in plaats van `sosa:hasInput`
+
+In de herschreven versie gebruiken we `prov:used` voor het koppelen van concrete entiteiten aan observaties, in plaats van `sosa:hasInput`. Deze keuze is gebaseerd op:
+
+1. **SOSA Specificatie**:
+   - `sosa:hasInput` is specifiek bedoeld voor `sosa:Procedure` (domainIncludes)
+   - Het beschrijft "inputs required for its execution" op procedure niveau
+   - Bedoeld voor type-beschrijving van inputs, niet concrete instanties
+
+2. **Correcte Semantiek**:
+   - `sosa:Observation` is een subclass van `prov:Activity`
+   - `prov:used` is de juiste property voor wat een activiteit gebruikt
+   - Concrete entiteiten horen thuis op execution niveau, niet procedure niveau
+
+3. **Alignment Principes**:
+   - Op plan niveau: `sosa:hasInput` voor abstracte variabelen
+   - Op execution niveau: `prov:used` voor concrete entiteiten
+   - Dit volgt het p-plan/SSN-SOSA-PROV-O alignment patroon
+
+### Stappen en Traceerbaarheid
+
+De herschreven versie voegt expliciete stappen toe en verbetert de traceerbaarheid:
+
+1. **Stap definitie op plan niveau**:
+   ```turtle
+   step:warmteverlies-classificatie
+     a p-plan:Step ;
+     p-plan:isStepOfPlan plan:warmteverlies-classificatie ;
+     p-plan:correspondsToProcedure plan:warmteverlies-classificatie .
+   ```
+
+2. **Sensor implementeert stap**:
+   ```turtle
+   sensor:temperatuur-sensor-001
+     sosa:implements step:warmteverlies-classificatie .
+   ```
+
+3. **Complete traceerbaarheid in execution**:
+   ```turtle
+   exec:classificatie-uitvoering-20250315
+     sosa:usedProcedure plan:warmteverlies-classificatie ;
+     p-plan:correspondsToStep step:warmteverlies-classificatie .
+   ```
+
+### Voorbeeld van correct gebruik:
+
+```turtle
+# Plan niveau - abstracte procedure met variabelen
+plan:warmteverlies-classificatie
+  sosa:hasInput var:drempelwaarde, var:meting .
+
+# Stap niveau - concrete stap in het plan
+step:warmteverlies-classificatie
+  p-plan:isStepOfPlan plan:warmteverlies-classificatie .
+
+# Execution niveau - concrete observatie met entiteiten
+exec:classificatie-uitvoering-20250315
+  prov:used ent:drempelwaarde-001, ent:meting-001 ;
+  p-plan:correspondsToStep step:warmteverlies-classificatie .
+```
+
+Deze benadering zorgt voor:
+- Duidelijke scheiding tussen abstracte planning en concrete uitvoering
+- Correcte toepassing van SOSA en PROV-O semantiek
+- Betere alignment met het p-plan framework
+- Complete traceerbaarheid van execution naar stap naar procedure
+
 ## Conclusie
 
-Het huidige model werkt functioneel maar kan verbeterd worden door:
+Het bestaande model werkt functioneel maar kan verbeterd worden door:
 1. Duidelijkere architectonische scheiding
 2. Betere lifecycle modellering
 3. Explicietere traceerbaarheid tussen niveaus
