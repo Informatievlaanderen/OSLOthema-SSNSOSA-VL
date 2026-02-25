@@ -1,0 +1,116 @@
+@prefix ex: <https://example.org/data/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/>.
+@prefix rdf:  <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix unit: <http://qudt.org/vocab/unit/>.
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix p-plan:  <http://purl.org/net/p-plan#> .
+
+## Voorbeeld 2: paleo atmosfeer
+## De concentratie van CO₂ kan worden gemeten in luchtbellen in ijskernen, waarvan wordt aangenomen dat ze een steekproef vormen van de atmosfeer op een bepaald moment in het verleden.
+## In dit geval zijn de concentratie en de leeftijd het resultaat van twee oorspronkelijke waarnemingen.
+## Deze leveren de invoerwaarden voor de uiteindelijke waarneming.
+## In dit alternatief voorbeeld worden de resultaten van de oorspronkelijke observaties gelinkt met de uiteindelijke observatie.
+## Deze 2 resultaten komen overeen met de input variabelen gedefinieerd in de procedure.
+## Opmerking:
+## De 2 input variabelen zijn in dit voorbeeld apart gedefinieerd. Dit is niet noodzakelijk. We zouden als input variabelen de overeenkomende observedProperties kunnen specifieren.
+## - ex:VariabeleCO2Observatie -> ex:CO2Concentratie
+## - ex:VariabeleC14Observatie -> ex:C14Leeftijd
+
+ex:AardAtmosfeer a sosa:FeatureOfInterest .
+
+ex:AardKorst a sosa:FeatureOfInterest .
+
+ex:IjsKern a sosa:Sample, sosa:FeatureOfInterest ;
+   sosa:isSampleOf ex:AardKorst ;
+.
+
+ex:IjsBel a sosa:Sample, sosa:FeatureOfInterest ;
+   sosa:isSampleOf ex:IjsKern, ex:AardAtmosfeer ;
+.
+
+ex:C14Observatie a sosa:Observation ;
+   sosa:observedProperty ex:C14Leeftijd ;
+   sosa:hasFeatureOfInterest ex:IjsBel ;
+   sosa:hasUltimateFeatureOfInterest ex:AardAtmosfeer ;
+   sosa:hasResult ex:ResultaatC14Observatie ;
+   sosa:resultTime "2026-02-01T14:15:00+00:00"^^xsd:dateTime ;
+.
+
+ex:CO2Observatie a sosa:Observation ;
+   sosa:observedProperty ex:CO2Concentratie ;
+   sosa:hasFeatureOfInterest ex:IjsBel ;
+   sosa:hasUltimateFeatureOfInterest ex:AardAtmosfeer ;
+   sosa:hasResult ex:ResultaatCO2Observatie ;
+   sosa:resultTime "2026-02-01T14:16:00+00:00"^^xsd:dateTime ;
+.
+
+ex:PaleoCO2Observatie a sosa:Observation ;
+  sosa:observedProperty ex:CO2Concentratie ;
+  sosa:hasFeatureOfInterest ex:AardAtmosfeer ;
+  sosa:hasResult [
+      a qudt:QuantityValue ;
+      qudt:hasUnit unit:PPM ; ## Parts per million (aantal deeltjes per miljoen deeltjes lucht
+      qudt:value 240.0 ;
+  ] ;
+  sosa:phenomenonTime [
+    time:inTimePosition [
+    time:hasTRS ex:BP ;
+    time:numericPosition 7530 ;
+    ] ;
+  ] ;
+  sosa:resultTime "2026-02-01T14:16:00+00:00"^^xsd:dateTime ;
+  sosa:usedProcedure ex:ProcedurePaleoCO2Contentratie ;
+  prov:used ex:ResultaatC14Observatie, ex:ResultaatCO2Observatie ;
+  sosa:hasInputValue ex:ResultaatC14Observatie, ex:ResultaatCO2Observatie ;
+.
+
+ex:ResultaatC14Observatie a sosa:Result ;
+  a qudt:QuantityValue ;
+  qudt:hasUnit unit:YR ;
+  qudt:value 7530.0 ;
+  p-plan:correspondsToVariable ex:VariabeleC14Observatie ;
+.
+
+ex:ResultaatCO2Observatie a sosa:Result ;
+   a qudt:QuantityValue ;
+   qudt:hasUnit unit:PPM ;
+   qudt:value 240.0 ;
+   p-plan:correspondsToVariable ex:VariabeleCO2Observatie ;
+.
+
+## Optioneel de procedure zelf en zijn input variabelen
+ex:ProcedurePaleoCO2Contentratie a sosa:Procedure ;
+   sosa:hasInput ex:VariabeleCO2Observatie, ex:VariabeleC14Observatie ; ## p-plan:IsVariableOfPlan
+   dcterms:description "Het resultaat van de CO2Concentratie-observatie is de concentratie CO2 in de atmosfeer in het verleden (phenomenonTime) op tijdstip gegeven door C14Leeftijd-observatie"@nl ;
+.
+
+ex:VariabeleCO2Observatie a p-plan:Variable ;
+   rdfs:label "Gemeten CO2 concentratie" ;
+.
+
+ex:VariabeleC14Observatie a p-plan:Variable ;
+   rdfs:label "C14 ouderdomsbepaling" ;
+.
+
+ex:C14Leeftijd a sosa:Property ; ## p-plan:Variable?
+  skos:definition "De ouderdom van een object, bepaald door middel van koolstofdatering, uitgedrukt ten opzichte van het jaar 1950" ;
+  skos:prefLabel "C14 leeftijd" ;
+  skos:exactMatch <http://vocab.nerc.ac.uk/collection/S06/current/S0600001/> ;
+.
+
+ex:CO2Concentratie a sosa:Property ; ## p-plan:Variable?
+  skos:prefLabel "Koolstofdioxide in lucht" ;
+  skos:exactMatch <http://purl.obolibrary.org/obo/ENVO_04000004> ;
+.
+
+ex:BP
+  a time:TRS ;
+  skos:prefLabel "Before Present" ;
+  skos:definition "Aantal kalenderjaren voor 1950" ;
+.
