@@ -3,7 +3,7 @@
 De concentratie van CO₂ kan worden gemeten in luchtbellen in ijskernen, waarvan wordt aangenomen dat ze een steekproef vormen van de atmosfeer op een bepaald moment in het verleden. In dit geval zijn de concentratie en de leeftijd het resultaat van twee oorspronkelijke waarnemingen. Deze leveren de invoerwaarden voor de uiteindelijke waarneming.
 
 ## Alternatief 1
-In dit voorbeeld zijn de 2 oorspronkelijke observaties (i.e de executions, de activiteiten) direct gelinkt met de uiteindelijke observatie.
+In het voorbeeld zijn de 2 oorspronkelijke observaties (i.e de executions, de activiteiten) direct gelinkt met de uiteindelijke observatie.
 
 ```mermaid
 %%flowchart TD
@@ -134,7 +134,9 @@ PR["`**ProcedurePaleoCO2Contentratie**
 P -->|usedProcedure| PR
 
 PR -->|hasInput| P1
+P1 -->|isVariableOfPlan| PR
 PR -->|hasInput| P2
+P2 -->|isVariableOfPlan| PR
 
 ```
 
