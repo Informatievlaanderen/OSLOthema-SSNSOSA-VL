@@ -10,30 +10,28 @@ In dit voorbeeld zijn de 2 oorspronkelijke observaties (i.e de executions, de ac
 graph TD
 
 %% Features of Interest & Samples
-A["`AardKorst
-(sosa:FeatureOfInterest)`"]
-B["`IjsKern
-(sosa:Sample+FeatureOfInterest)`"]
-C["`IjsBel
-(sosa:Sample+FeatureOfInterest)`"]
-D["`AardAtmosfeer
-(sosa:FeatureOfInterest)`"]
+A["`**AardKorst**
+*(sosa:FeatureOfInterest)*`"]
+B["`**IjsKern**
+*(sosa:Sample+FeatureOfInterest)*`"]
+C["`**IjsBel**
+*(sosa:Sample+FeatureOfInterest)*`"]
+D["`**AardAtmosfeer**
+*(sosa:FeatureOfInterest)*`"]
 
 B -->|isSampleOf| A
 C -->|isSampleOf| B
 C -->|isSampleOf| D
 
 %% Original Observations
-O1["`(sosa:Observation)
-C14Observatie
--observedProperty: C14Leeftijd
--result: 7530 YR   
-  
-   `"]
-O2["`(sosa:Observation)
-CO2Observatie
+O1["`**C14Observatie**
+-observedProperty = C14Leeftijd
+-result = 7530 YR
+*(sosa:Observation)*`"]
+O2["`**CO2Observatie**
 -observedProperty = CO2Concentratie
--result = 240 PPM`"]
+-result = 240 PPM
+*(sosa:Observation)*`"]
 
 O1 -->|hasFeatureOfInterest| C
 O2 -->|hasFeatureOfInterest| C
@@ -41,11 +39,11 @@ O1 -->|hasUltimateFeatureOfInterest| D
 O2 -->|hasUltimateFeatureOfInterest| D
 
 %% Derived Paleo Observation
-P["`(sosa:Observation)
-PaleoCO2Observatie
+P["`**PaleoCO2Observatie**
 -observedProperty = CO2Concentratie
 -result = 240 PPM
--phenomenonTime = 7530 BP`"]
+-phenomenonTime = 7530 BP
+*(sosa:Observation)*`"]
 
 P -->|hasFeatureOfInterest| D
 
@@ -54,8 +52,8 @@ P -->|hasInputValue| O1
 P -->|hasInputValue| O2
 
 %% Procedure
-PR["`(sosa:Procedure)
-ProcedurePaleoCO2Contentratie`"]
+PR["`**ProcedurePaleoCO2Contentratie**
+*(sosa:Procedure)*`"]
 
 P -->|usedProcedure| PR
 ```
@@ -74,38 +72,38 @@ De 2 input variabelen zijn in dit voorbeeld apart gedefinieerd. Dit is niet nood
 graph TD
 
 %% Features of Interest & Samples
-A["`AardKorst
-(sosa:FeatureOfInterest)`"]
-B["`IjsKern
-(sosa:Sample+FeatureOfInterest)`"]
-C["`IjsBel
-(sosa:Sample+FeatureOfInterest)`"]
-D["`AardAtmosfeer
-(sosa:FeatureOfInterest)`"]
+A["`**AardKorst**
+*(sosa:FeatureOfInterest)*`"]
+B["`**IjsKern**
+*(sosa:Sample+FeatureOfInterest)*`"]
+C["`**IjsBel**
+*(sosa:Sample+FeatureOfInterest)*`"]
+D["`**AardAtmosfeer**
+*(sosa:FeatureOfInterest)*`"]
 
 B -->|isSampleOf| A
 C -->|isSampleOf| B
 C -->|isSampleOf| D
 
 %% Observed properties
-P1["`(sosa:Property)
-C14Leeftijd`"]
-P2["`(sosa:Property)
-CO2Concentratie`"]
+P1["`**C14Leeftijd**
+*(sosa:Property)*`"]
+P2["`**CO2Concentratie**
+*(sosa:Property)*`"]
 
 %% Original Observations
-O1["`(sosa:Observation)
-C14Observatie
--observedProperty = C14Leeftijd`"]
-R1["`(sosa:Result)
--value = 7530
--unit = YR`"]
-O2["`(sosa:Observation)
-CO2Observatie
--observedProperty = CO2Concentratie`"]
-R2["`(sosa:Result)
--value = 240
--unit = PPM`"]
+O1["`**C14Observatie**
+-observedProperty = C14Leeftijd
+*(sosa:Observation)*`"]
+R1["`-value = 7530
+-unit = YR
+*(sosa:Result)*`"]
+O2["`**CO2Observatie**
+-observedProperty = CO2Concentratie
+*(sosa:Observation)*`"]
+R2["`-value = 240
+-unit = PPM
+*(sosa:Result)*`"]
 
 O1 -->|hasFeatureOfInterest| C
 O2 -->|hasFeatureOfInterest| C
@@ -117,11 +115,11 @@ R1 -->|correspondsToVariable| P1
 R2 -->|correspondsToVariable| P2
 
 %% Derived Paleo Observation
-P["`(sosa:Observation)
-PaleoCO2Observatie
+P["`**PaleoCO2Observatie**
 -observedProperty = CO2Concentratie
 -result = 240 PPM
--phenomenonTime = 7530 BP`"]
+-phenomenonTime = 7530 BP
+*(sosa:Observation)*`"]
 
 P -->|hasFeatureOfInterest| D
 
@@ -130,8 +128,8 @@ P -->|hasInputValue| R1
 P -->|hasInputValue| R2
 
 %% Procedure
-PR["`(sosa:Procedure)
-ProcedurePaleoCO2Contentratie`"]
+PR["`**ProcedurePaleoCO2Contentratie**
+*(sosa:Procedure)*`"]
 
 P -->|usedProcedure| PR
 
