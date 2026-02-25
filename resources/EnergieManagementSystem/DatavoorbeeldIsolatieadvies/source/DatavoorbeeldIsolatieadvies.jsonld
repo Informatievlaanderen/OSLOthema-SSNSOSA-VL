@@ -1,0 +1,123 @@
+{
+  "@context": [
+    "https://data.vlaanderen.be/doc/applicatieprofiel/energiemanagementsysteem/ontwerpstandaard/2025-05-14/context/energiemanagementsysteem.jsonld",
+    {
+      "Classificatie": "http://def.isotc211.org/iso19156/2011/CategoryObservation#OM_CategoryObservation",
+      "Tijdreeksobservatie": "http://def.isotc211.org/iso19156/2011/TimeSeriesObservation#OM_TimeSeriesObservation",
+      "Gebouw": "https://data.vlaanderen.be/ns/gebouw#Gebouw",
+      "Gebouw.gebouwnaam": "https://data.vlaanderen.be/ns/gebouw#gebouwnaam"
+    }
+  ],
+  "@graph": [
+    {
+      "@id": "_:OV001",
+      "@type": "https://example.com/concept/observatieverzamelingtype/warmtevermlies_gebouwen",
+      "Observatieverzameling.heeftlid": [
+        "_:OB001",
+        ""
+      ]
+    },
+    {
+      "@id": "_:OB001",
+      "@type": "Observatie",
+      "Observatie.type": "https://example.com/concept/observatietype/classificatie",
+      "Observatie.geobserveerdKenmerk": "https://example.com/concept/kenmerktype/warmteverliesklasse",
+      "Observatie.geobserveerdObject": "_:GB001",
+      "Observatie.resultaat": "https://example.com/concept/warmteverliesklasse/matig",
+      "Observatie.gebruikteProcedure": {
+        "Observatieprocedure.input": [
+          "_:OB002",
+          {
+            "@type": "Input",
+            "Input.type": "https://example.com/concept/inputtype/warmteverlies_drempelwaarde",
+            "Input.referentie": {
+              "@type": "KwantitatieveWaarde",
+              "KwantitatieveWaarde.waarde": 0.4,
+              "KwantitatieveWaarde.eenheid": {
+                "@id": "http://qudt.org/vocab/unit/DEG_C-PER-HR",
+                "@type": "Eenheid"
+              }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@id": "_:OB002",
+      "@type": "Observatie",
+      "Observatie.type": "https://example.com/concept/observatietype/meting",
+      "Observatie.geobserveerdKenmerk": "https://example.com/concept/kenmerktype/gemiddeld_nachtelijk_warmteverlies",
+      "Observatie.geobserveerdObject": "_:GB001",
+      "Observatie.resultaat": {
+        "@type": "KwantitatieveWaarde",
+        "KwantitatieveWaarde.waarde": 0.415,
+        "KwantitatieveWaarde.eenheid": {
+          "@id": "http://qudt.org/vocab/unit/DEG_C-PER-HR",
+          "@type": "Eenheid"
+        }
+      },
+      "Observatie.gebruikteProcedure": {
+        "Observatieprocedure.input": [
+          "_:OB003",
+          ""
+        ]
+      }
+    },
+    {
+      "@id": "_:OB003",
+      "@type": "Observatie",
+      "Observatie.type": "https://example.com/concept/observatietype/meting",
+      "Observatie.geobserveerdKenmerk": "https://example.com/concept/kenmerktype/gemiddeld_nachtelijk_warmteverlies",
+      "Observatie.geobserveerdObject": {
+        "@type": "Domeinobject",
+        "Domeinobject.type": "https://example.com/concept/domeinobjecttype/kamer",
+        "Domeinobject.identificator": {
+          "@type": "Identificator",
+          "Identificator.identificator": {
+            "@value": "2.15",
+            "@type": "https://example.com/concept/identificatortype/kamernummer"
+          }
+        }
+      },
+      "Observatie.fenomeentijd": {
+        "@type": "Periode",
+        "Periode.van": {
+          "@type": "Moment",
+          "Moment.inXSDDateTime": "20250315T00:00:00.000"
+        },
+        "Periode.tot": {
+          "@type": "Moment",
+          "Moment.inXSDDateTime": "20250321T23:59:59.000"
+        }
+      },
+      "Observatie.resultaat": {
+        "@type": "KwantitatieveWaarde",
+        "KwantitatieveWaarde.waarde": 0.44,
+        "KwantitatieveWaarde.eenheid": {
+          "@id": "http://qudt.org/vocab/unit/DEG_C-PER-HR",
+          "@type": "Eenheid"
+        }
+      },
+      "Observatie.gebruikteProcedure": {
+        "Observatieprocedure.input": [
+          "_:OB004"
+        ]
+      }
+    },
+    {
+      "@id": "_:OB004",
+      "@type": "Observatie",
+      "Observatie.type": "https://example.com/concept/observatietype/tijdreeksobservatie"
+    },
+    {},
+    {
+      "@id": "_:GB001",
+      "@type": "Gebouw",
+      "Gebouw.gebouwnaam": {
+        "@value": "Stadskantoor",
+        "@language": "nl"
+      }
+    },
+    {}
+  ]
+}
