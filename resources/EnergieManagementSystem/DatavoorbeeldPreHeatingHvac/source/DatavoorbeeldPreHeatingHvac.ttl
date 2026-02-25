@@ -1,0 +1,149 @@
+PREFIX aansturingsproceduretype:   <https://example.com/concept/aansturingsproceduretype/>
+PREFIX aansturingssysteemtype:     <https://example.com/concept/aansturingssysteemtype/>
+PREFIX aanstuurbaar_kenmerk:       <https://example.com/concept/aanstuurbaar_kenmerk/>
+PREFIX adms:                       <http://www.w3.org/ns/adms#>
+PREFIX dbo:                        <https://dbpedia.org/ontology/>
+PREFIX dc:                         <http://purl.org/dc/elements/1.1/>
+PREFIX dct:                        <http://purl.org/dc/terms/>
+PREFIX domeinobjecttype:           <https://example.com/concept/domeinobjecttype/>
+PREFIX energiebrontype:            <https://example.com/concept/energiebrontype/>
+PREFIX gebouw:                     <https://data.vlaanderen.be/ns/gebouw#>
+PREFIX inputtype:                  <https://example.com/concept/inputtype/>
+PREFIX it6:                        <http://data.europa.eu/it6/>
+PREFIX kenmerktype:                <https://example.com/concept/kenmerktype/>
+PREFIX locn:                       <http://www.w3.org/ns/locn#>
+PREFIX network:                    <https://vocab.belgif.be/ns/network#>
+PREFIX nutsvoorzieningnetwerktype: <https://example.com/concept/nutsvoorzieningnetwerktype/>
+PREFIX observatieproceduretype:    <https://example.com/concept/observatieproceduretype/>
+PREFIX observatietype:             <https://example.com/concept/observatietype/>
+PREFIX observatieverzamelingtype:  <https://example.com/concept/observatieverzamelingtype/>
+PREFIX observeerbaar_kenmerk:      <https://example.com/concept/observeerbaar_kenmerk/>
+PREFIX org:                        <http://www.w3.org/ns/org#>
+PREFIX productieverlies:           <https://example.com/concept/productieimpacttype/productieverlies/>
+PREFIX qudt:                       <https://qudt.org/schema/qudt/>
+PREFIX rdf:                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:                       <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX saref:                      <https://saref.etsi.org/core/>
+PREFIX schema:                     <https://schema.org/>
+PREFIX seb:                        <https://data.vlaanderen.be/ns/sensoren-en-bemonstering#>
+PREFIX skos:                       <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa:                       <http://www.w3.org/ns/sosa/>
+PREFIX sosas:                      <https://www.w3.org/ns/sosa/>
+PREFIX ssn:                        <http://www.w3.org/ns/ssn/>
+PREFIX time:                       <http://www.w3.org/2006/time#>
+PREFIX toestelstatus:              <https://example.com/concept/toestelstatus/>
+PREFIX toesteltype:                <https://example.com/concept/toesteltype/>
+PREFIX unit:                       <http://qudt.org/vocab/unit/>
+PREFIX utility-services:           <https://vocab.belgif.be/ns/utility-services#>
+PREFIX warmteverliesklasse:        <https://example.com/concept/warmteverliesklasse/>
+PREFIX xs:                         <http://www.w3.org/2001/XMLSchema#>
+
+unit:PERCENT  rdf:type  qudt:Unit .
+
+unit:DEG_C  rdf:type  qudt:Unit .
+
+[ rdf:type                   sosa:Observation;
+  dct:type                   observatietype:temporele_observatie;
+  sosa:hasFeatureOfInterest  _:b0;
+  sosa:hasResult             [ rdf:type            time:Instant;
+                               time:inXSDDateTime  "20250401T05:30:00.000"^^xs:dateTime
+                             ];
+  sosa:madeBySensor          [ rdf:type       it6:MachineLearningModel , sosas:Sensor;
+                               it6:trainedOn  [ rdf:type              ssn:Input;
+                                                dct:type              inputtype:observatieverzameling;
+                                                seb:Input.referentie  "_:OV001"^^xs:anyURI
+                                              ];
+                               dct:type       "https://example.com/concept/sensortype/random_forest_regressiemodel"
+                             ];
+  sosa:observedProperty      observeerbaar_kenmerk:tijdstip_start_HVAC;
+  sosa:usedProcedure         [ rdf:type       <http://www.w3.org/ns/sosa/oms/ObservingProcedure>;
+                               dct:type       observatieproceduretype:voorspelling_op_basis_van_observaties;
+                               sosa:hasInput  [ rdf:type              ssn:Input;
+                                                dct:type              inputtype:doeltijdstip;
+                                                seb:Input.referentie  [ rdf:type            time:Instant;
+                                                                        time:inXSDDateTime  "20250401T08:00:00.000"^^xs:dateTime
+                                                                      ]
+                                              ];
+                               sosa:hasInput  [ rdf:type              ssn:Input;
+                                                dct:type              inputtype:doeltemperatuur;
+                                                seb:Input.referentie  [ rdf:type         schema:QuantitativeValue;
+                                                                        schema:unitCode  unit:DEG_C;
+                                                                        schema:value     "20"^^rdfs:Literal
+                                                                      ]
+                                              ];
+                               sosa:hasInput  [ rdf:type              ssn:Input;
+                                                dct:type              inputtype:observatie;
+                                                seb:Input.referentie  "_:OB005"^^xs:anyURI
+                                              ];
+                               sosa:hasInput  [] ;
+                               sosa:hasInput  [] ;
+                               sosa:hasInput  [ rdf:type              ssn:Input;
+                                                dct:type              inputtype:observatie;
+                                                seb:Input.referentie  "_:OB002"^^xs:anyURI
+                                              ]
+                             ]
+] .
+
+[ rdf:type             sosa:ObservationCollection;
+  sosa:phenomenonTime  [ rdf:type           time:ProperInterval;
+                         time:hasBeginning  [ rdf:type            time:Instant;
+                                              time:inXSDDateTime  "20250101T00:00:00.000"^^xs:dateTime
+                                            ];
+                         time:hasEnd        [ rdf:type            time:Instant;
+                                              time:inXSDDateTime  "20250331T00:00:00.000"^^xs:dateTime
+                                            ]
+                       ]
+] .
+
+[ rdf:type                   sosa:Observation;
+  dct:type                   observatietype:meting;
+  sosa:hasFeatureOfInterest  _:b0;
+  sosa:hasResult             [ rdf:type         schema:QuantitativeValue;
+                               schema:unitCode  unit:PERCENT;
+                               schema:value     "80"^^rdfs:Literal
+                             ];
+  sosa:observedProperty      observeerbaar_kenmerk:verwachte_betzetting;
+  sosa:phenomenonTime        [ rdf:type            time:Instant;
+                               time:inXSDDateTime  "20250401T08:00:00.000"^^xs:dateTime
+                             ];
+  sosa:usedProcedure         [ rdf:type  <http://www.w3.org/ns/sosa/oms/ObservingProcedure>;
+                               dct:type  observatieproceduretype:voorspelling_volgens_badgelogs
+                             ]
+] .
+
+[ rdf:type                   sosa:Observation;
+  dct:type                   observatietype:meting;
+  sosa:hasFeatureOfInterest  _:b0;
+  sosa:hasResult             [ rdf:type         schema:QuantitativeValue;
+                               schema:unitCode  unit:DEG_C;
+                               schema:value     "1"^^rdfs:Literal
+                             ];
+  sosa:observedProperty      observeerbaar_kenmerk:buitentemperatuur;
+  sosa:phenomenonTime        [ rdf:type            time:Instant;
+                               time:inXSDDateTime  "20250401T06:00:00.000"^^xs:dateTime
+                             ];
+  sosa:usedProcedure         [ rdf:type  <http://www.w3.org/ns/sosa/oms/ObservingProcedure>;
+                               dct:type  observatieproceduretype:online_opvraging
+                             ]
+] .
+
+_:b0    rdf:type                   utility-services:Connection , sosa:Actuation;
+        sosa:actsOnProperty        observeerbaar_kenmerk:toestelstatus;
+        sosa:hasFeatureOfInterest  [ rdf:type  saref:Device;
+                                     dct:type  energiebrontype:warmtepomp_elektriciteit , toesteltype:HVAC_verwarming
+                                   ];
+        sosa:hasResult             toestelstatus:aan;
+        sosa:resultTime            [ rdf:type            time:Instant;
+                                     time:inXSDDateTime  "20250401T05:30:00.000"^^xs:dateTime
+                                   ];
+        sosa:usedProcedure         [ rdf:type       sosa:Procedure;
+                                     dct:type       aansturingsproceduretype:aansturing_op_basis_van_waarnemingen;
+                                     sosa:hasInput  [ rdf:type              ssn:Input;
+                                                      dct:type              inputtype:observatie;
+                                                      seb:Input.referentie  "_:OB001"^^xs:anyURI
+                                                    ]
+                                   ];
+        utility-services:address   [ rdf:type          locn:Address;
+                                     locn:fullAddress  "Simon Bolivarlaan 17, 1030 Schaarbeek"@nl;
+                                     locn:locatorName  "Vlaamse Overheid - Belpaire Gebouw"@nl
+                                   ] .

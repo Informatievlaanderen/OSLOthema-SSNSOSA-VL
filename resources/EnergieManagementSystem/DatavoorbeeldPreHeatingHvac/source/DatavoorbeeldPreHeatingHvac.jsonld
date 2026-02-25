@@ -1,0 +1,206 @@
+{
+    "@context": [
+        "https://data.vlaanderen.be/doc/applicatieprofiel/energiemanagementsysteem/ontwerpstandaard/2025-05-14/context/energiemanagementsysteem.jsonld",
+        {
+            "MachineLearningModel.getraindOp": "http://data.europa.eu/it6/trainedOn",
+            "MachineLearningModel.type":"http://purl.org/dc/terms/type"
+        }
+    ],
+    "@graph": [
+        {
+            "@id": "_:AS001",
+            "@type": "Aansturing",
+            "Aansturing.aangestuurdKenmerk": "https://example.com/concept/observeerbaar_kenmerk/toestelstatus",
+            "Aansturing.aangestuurdObject": "_:TS001",
+            "Aansturing.resultaat": "https://example.com/concept/toestelstatus/aan",
+            "Aansturing.resultaattijd": {
+                "@type": "Moment",
+                "Moment.inXSDDateTime": "20250401T05:30:00.000"
+            },
+            "Aansturing.gebruikteProcedure": {
+                "@type": "Aansturingsprocedure",
+                "Aansturingsprocedure.type": "https://example.com/concept/aansturingsproceduretype/aansturing_op_basis_van_waarnemingen",
+                "Aansturingsprocedure.input": [
+                    {
+                        "@type": "Input",
+                        "Input.type": "https://example.com/concept/inputtype/observatie",
+                        "Input.referentie": "_:OB001"
+                    }
+                ]
+            },
+            "Aansturing.uitgevoerdMet": {
+                "@type": "Aansturingssysteem",
+                "Aansturingssysteem.type": "https://example.com/concept/aansturingssysteemtype/centrale_regelunit_met_Modbus_IP_interface"
+            }
+        },
+        {
+            "@id": "_:TS001",
+            "@type": "Toestel",
+            "Toestel.type": [
+                "https://example.com/concept/toesteltype/HVAC_verwarming",
+                "https://example.com/concept/energiebrontype/warmtepomp_elektriciteit"
+            ]
+        },
+        {
+            "@id": "_:OB001",
+            "@type": "Observatie",
+            "Observatie.type": "https://example.com/concept/observatietype/temporele_observatie",
+            "Observatie.geobserveerdKenmerk": "https://example.com/concept/observeerbaar_kenmerk/tijdstip_start_HVAC",
+            "Observatie.geobserveerdObject": "_:AS001",
+            "Observatie.resultaat": {
+                "@type": "Moment",
+                "Moment.inXSDDateTime": "20250401T05:30:00.000"
+            },
+            "Observatie.resultaattijd": {
+                "@type": "Moment",
+                "Moment.inXSDDateTime": "20250401T04:00:00.000"
+            },
+            "Observatie.gebruikteProcedure": {
+                "@type": "Observatieprocedure",
+                "Observatieprocedure.type": "https://example.com/concept/observatieproceduretype/voorspelling_op_basis_van_observaties",
+                "Observatieprocedure.input": [
+                    {
+                        "@type": "Input",
+                        "Input.type": "https://example.com/concept/inputtype/observatie",
+                        "Input.referentie": "_:OB002"
+                    },
+                    {},
+                    {},
+                    {
+                        "@type": "Input",
+                        "Input.type": "https://example.com/concept/inputtype/observatie",
+                        "Input.referentie": "_:OB005"
+                    },
+                    "_:IP001",
+                    "_:IP002"
+                ]
+            },
+            "Observatie.uitgevoerdMetSensor": {
+                "@type": [
+                    "Sensor",
+                    "MachineLearningModel"
+                ],
+                "MachineLearningModel.type": "https://example.com/concept/sensortype/random_forest_regressiemodel",
+                "MachineLearningModel.getraindOp": {
+                    "@type": "Input",
+                    "Input.type": "https://example.com/concept/inputtype/observatieverzameling",
+                    "Input.referentie": "_:OV001"
+                }
+            }
+        },
+        {
+            "@id": "_:OB002",
+            "@type": "Observatie",
+            "Observatie.type": "https://example.com/concept/observatietype/meting",
+            "Observatie.geobserveerdKenmerk": "https://example.com/concept/observeerbaar_kenmerk/buitentemperatuur",
+            "Observatie.geobserveerdObject": "_:AS001",
+            "Observatie.resultaat": {
+                "@type": "KwantitatieveWaarde",
+                "KwantitatieveWaarde.waarde": 1,
+                "KwantitatieveWaarde.eenheid": {
+                    "@id": "http://qudt.org/vocab/unit/DEG_C",
+                    "@type": "Eenheid"
+                }
+            },
+            "Observatie.fenomeentijd": {
+                "@type": "Moment",
+                "Moment.inXSDDateTime": "20250401T06:00:00.000"
+            },
+            "Observatie.resultaattijd": {
+                "@type": "Moment",
+                "Moment.inXSDDateTime": "20250401T04:00:00.000"
+            },
+            "Observatie.gebruikteProcedure": {
+                "@type": "Observatieprocedure",
+                "Observatieprocedure.type": "https://example.com/concept/observatieproceduretype/online_opvraging"
+            },
+            "Observatie.uitgevoerdMet": {
+                "@type": "Sensor",
+                "Sensor.type": "https://example.com/concept/sensortype/kmi_api"
+            }
+        },
+        {
+            "@id": "_:OB005",
+            "@type": "Observatie",
+            "Observatie.type": "https://example.com/concept/observatietype/meting",
+            "Observatie.geobserveerdKenmerk": "https://example.com/concept/observeerbaar_kenmerk/verwachte_betzetting",
+            "Observatie.geobserveerdObject": "_:AS001",
+            "Observatie.resultaat": {
+                "@type": "KwantitatieveWaarde",
+                "KwantitatieveWaarde.waarde": 80,
+                "KwantitatieveWaarde.eenheid": {
+                    "@id": "http://qudt.org/vocab/unit/PERCENT",
+                    "@type": "Eenheid"
+                }
+            },
+            "Observatie.fenomeentijd": {
+                "@type": "Moment",
+                "Moment.inXSDDateTime": "20250401T08:00:00.000"
+            },
+            "Observatie.resultaattijd": {
+                "@type": "Moment",
+                "Moment.inXSDDateTime": "20250401T04:00:00.000"
+            },
+            "Observatie.gebruikteProcedure": {
+                "@type": "Observatieprocedure",
+                "Observatieprocedure.type": "https://example.com/concept/observatieproceduretype/voorspelling_volgens_badgelogs"
+            },
+            "Observatie.uitgevoerdMet": {
+                "@type": "Sensor",
+                "Systeem.type": "https://example.com/concept/sensortype/voorspeller_volgens_badgelogs"
+            }
+        },
+        {
+            "@id": "_:IP001",
+            "@type": "Input",
+            "Input.type": "https://example.com/concept/inputtype/doeltemperatuur",
+            "Input.referentie": {
+                "@type": "KwantitatieveWaarde",
+                "KwantitatieveWaarde.waarde": 20,
+                "KwantitatieveWaarde.eenheid": {
+                    "@id": "http://qudt.org/vocab/unit/DEG_C",
+                    "@type": "Eenheid"
+                }
+            }
+        },
+        {
+            "@id": "_:IP002",
+            "@type": "Input",
+            "Input.type": "https://example.com/concept/inputtype/doeltijdstip",
+            "Input.referentie": {
+                "@type": "Moment",
+                "Moment.inXSDDateTime": "20250401T08:00:00.000"
+            }
+        },
+        {
+            "@id": "_:OV001",
+            "@type": "Observatieverzameling",
+            "Observatieverzameling.fenomeentijd": {
+                "@type": "Periode",
+                "Periode.van": {
+                    "@type": "Moment",
+                    "Moment.inXSDDateTime": "20250101T00:00:00.000"
+                },
+                "Periode.tot": {
+                    "@type": "Moment",
+                    "Moment.inXSDDateTime": "20250331T00:00:00.000"
+                }
+            }
+        },
+        {
+            "@id": "_:AS001",
+            "@type": "Aansluiting",
+            "Aansluiting.adres": {
+                "@type": "Adresvoorstelling",
+                "Adresvoorstelling.locatienaam": {
+                    "@value": "Vlaamse Overheid - Belpaire Gebouw",
+                    "@language": "nl"
+                },
+                "Adresvoorstelling.volledigAdres": {
+                    "@value": "Simon Bolivarlaan 17, 1030 Schaarbeek",
+                    "@language": "nl"
+                }
+            }
+        }
+    ]
+}

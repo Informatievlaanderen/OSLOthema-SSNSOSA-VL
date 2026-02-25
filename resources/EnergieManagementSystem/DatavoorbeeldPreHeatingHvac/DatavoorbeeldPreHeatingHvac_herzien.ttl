@@ -1,0 +1,278 @@
+@prefix plan:        <https://example.org/plan/> .
+@prefix step:        <https://example.org/step/> .
+@prefix var:         <https://example.org/variable/> .
+@prefix deploy:      <https://example.org/deployment/> .
+@prefix platform:    <https://example.org/platform/> .
+@prefix sensor:      <https://example.org/sensor/> .
+@prefix actuator:    <https://example.org/actuator/> .
+@prefix device:        <https://example.org/device/> .
+@prefix exec:        <https://example.org/execution/> .
+@prefix ent:         <https://example.org/entity/> .
+@prefix gebouw:      <https://data.vlaanderen.be/ns/gebouw#> .
+@prefix observeerbaar_kenmerk: <https://example.com/concept/observeerbaar_kenmerk/> .
+PREFIX dct:          <http://purl.org/dc/terms/>
+@prefix observatieproceduretype: <https://example.com/concept/observatieproceduretype/> .
+@prefix aansturingsproceduretype: <https://example.com/concept/aansturingsproceduretype/> .
+@prefix inputtype:     <https://example.com/concept/inputtype/> .
+@prefix toestelstatus: <https://example.com/concept/toestelstatus/> .
+@prefix energiebrontype: <https://example.com/concept/energiebrontype/> .
+@prefix toesteltype:   <https://example.com/concept/toesteltype/> .
+@prefix sosa:        <http://www.w3.org/ns/sosa/> .
+@prefix p-plan:      <http://p-plan.org/> .
+@prefix prov:        <http://www.w3.org/ns/prov#> .
+@prefix qudt:        <http://qudt.org/schema/qudt/> .
+@prefix unit:        <http://qudt.org/vocab/unit/> .
+@prefix time:        <http://www.w3.org/2006/time#> .
+@prefix schema:      <https://schema.org/> .
+@prefix rdfs:        <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:         <http://www.w3.org/2001/XMLSchema#> .
+@prefix it6:         <http://data.europa.eu/it6/> .
+@prefix ssn:         <http://www.w3.org/ns/ssn/> .
+@prefix seb:         <https://data.vlaanderen.be/ns/sensoren-en-bemonstering#> .
+@prefix saref:       <https://saref.etsi.org/core/> .
+@prefix locn:        <http://www.w3.org/ns/locn#> .
+@prefix skos:        <http://www.w3.org/2004/02/skos/core#> .
+
+# *********************************************
+# PLANNING NIVEAU - Abstracte procedure definitie
+# *********************************************
+
+# Het gebouw en HVAC systeem
+gebouw:belpaire
+  a gebouw:Gebouw;
+  gebouw:gebouwnaam "Belpaire Gebouw"@nl;
+  locn:address [ a locn:Address;
+                 locn:fullAddress "Simon Bolivarlaan 17, 1030 Schaarbeek"@nl ] .
+
+# HVAC warmtepomp als feature of interest
+device:warmtepomp_belpaire
+  a saref:Device;
+  dct:type energiebrontype:warmtepomp_elektriciteit, toesteltype:HVAC_verwarming;
+  saref:isLocatedIn gebouw:belpaire .
+
+# Abstracte procedure voor HVAC pre-heating
+plan:hvac_preheating
+  a p-plan:Plan, sosa:Procedure;
+  rdfs:label "HVAC pre-heating procedure"@nl;
+  p-plan:hasStep step:voorspel_tijdstip, step:meet_omstandigheden, step:activeer_hvac;
+  sosa:hasInput var:historische_data, var:doeltemperatuur, var:doeltijdstip;
+  sosa:hasOutput var:voorspeld_tijdstip, var:activeringsresultaat .
+
+# Stappen in het plan
+step:voorspel_tijdstip
+  a p-plan:Step;
+  rdfs:label "Voorspel optimaal starttijdstip"@nl;
+  p-plan:isStepOfPlan plan:hvac_preheating;
+  sosa:hasInput var:historische_data, var:doeltemperatuur, var:doeltijdstip;
+  sosa:hasOutput var:voorspeld_tijdstip .
+
+step:meet_omstandigheden
+  a p-plan:Step;
+  rdfs:label "Meet huidige omstandigheden"@nl;
+  p-plan:isStepOfPlan plan:hvac_preheating;
+  sosa:hasOutput var:buitentemperatuur, var:verwachte_bezetting .
+
+step:activeer_hvac
+  a p-plan:Step;
+  rdfs:label "Activeer HVAC systeem"@nl;
+  p-plan:isStepOfPlan plan:hvac_preheating;
+  sosa:hasInput var:voorspeld_tijdstip, var:buitentemperatuur, var:verwachte_bezetting;
+  sosa:hasOutput var:activeringsresultaat .
+
+# Variabelen op plan niveau
+var:historische_data
+  a p-plan:Variable;
+  rdfs:label "Historische observatie data"@nl;
+  p-plan:isInputVarOf step:voorspel_tijdstip;
+  sosa:inputFor plan:hvac_preheating .
+
+var:doeltemperatuur
+  a p-plan:Variable;
+  rdfs:label "Doel temperatuur"@nl;
+  p-plan:isInputVarOf step:voorspel_tijdstip;
+  sosa:inputFor plan:hvac_preheating .
+
+var:doeltijdstip
+  a p-plan:Variable;
+  rdfs:label "Doel tijdstip"@nl;
+  p-plan:isInputVarOf step:voorspel_tijdstip;
+  sosa:inputFor plan:hvac_preheating .
+
+var:voorspeld_tijdstip
+  a p-plan:Variable;
+  rdfs:label "Voorspeld starttijdstip"@nl;
+  p-plan:isOutputVarOf step:voorspel_tijdstip;
+  sosa:outputFor plan:hvac_preheating .
+
+var:buitentemperatuur
+  a p-plan:Variable;
+  rdfs:label "Buitentemperatuur"@nl;
+  p-plan:isOutputVarOf step:meet_omstandigheden;
+  sosa:outputFor plan:hvac_preheating .
+
+var:verwachte_bezetting
+  a p-plan:Variable;
+  rdfs:label "Verwachte bezetting"@nl;
+  p-plan:isOutputVarOf step:meet_omstandigheden;
+  sosa:outputFor plan:hvac_preheating .
+
+var:activeringsresultaat
+  a p-plan:Variable;
+  rdfs:label "Activeringsresultaat"@nl;
+  p-plan:isOutputVarOf step:activeer_hvac;
+  sosa:outputFor plan:hvac_preheating .
+
+# *********************************************
+# DEPLOYMENT NIVEAU - Concrete implementatie
+# *********************************************
+
+# Platform (gebouw automatiseringssysteem)
+platform:belpaire_automatisering
+  a sosa:Platform;
+  rdfs:label "Belpaire Gebouw Automatiseringssysteem"@nl;
+  sosa:hosts sensor:ml_model_preheating, sensor:buitentemperatuur_sensor, actuator:hvac_controller .
+
+# Sensoren
+sensor:ml_model_preheating
+  a sosa:Sensor, it6:MachineLearningModel;
+  rdfs:label "Pre-heating voorspellingsmodel"@nl;
+  sosa:implements step:voorspel_tijdstip;
+  sosa:observes observeerbaar_kenmerk:tijdstip_start_HVAC;
+  it6:trainedOn [ a ssn:Input;
+                 dct:type inputtype:observatieverzameling;
+                 seb:Input.referentie "_:OV001"^^xsd:anyURI ] .
+
+sensor:buitentemperatuur_sensor
+  a sosa:Sensor;
+  rdfs:label "Buitentemperatuur sensor"@nl;
+  sosa:implements step:meet_omstandigheden;
+  sosa:observes observeerbaar_kenmerk:buitentemperatuur .
+
+# Actuator
+actuator:hvac_controller
+  a sosa:Actuator;
+  rdfs:label "HVAC controller"@nl;
+  sosa:implements step:activeer_hvac;
+  sosa:actsOnProperty observeerbaar_kenmerk:toestelstatus .
+
+# Deployment
+deploy:hvac_preheating_2025
+  a sosa:Deployment;
+  rdfs:label "HVAC pre-heating implementatie 2025"@nl;
+  sosa:implements plan:hvac_preheating;
+  sosa:deployedOnPlatform platform:belpaire_automatisering;
+  sosa:deployedAsset sensor:ml_model_preheating, sensor:buitentemperatuur_sensor, actuator:hvac_controller;
+  sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
+
+# *********************************************
+# EXECUTION NIVEAU - Concrete uitvoering
+# *********************************************
+
+# Concrete entiteiten (instantiaties van plan variabelen)
+ent:historische_data_2025Q1
+  a prov:Entity;
+  rdfs:label "Historische data Q1 2025"@nl;
+  p-plan:correspondsToVariable var:historische_data;
+  seb:Input.referentie "_:OV001"^^xsd:anyURI .
+
+ent:doeltemperatuur_20c
+  a prov:Entity;
+  rdfs:label "Doel temperatuur 20°C"@nl;
+  p-plan:correspondsToVariable var:doeltemperatuur;
+  schema:value "20"^^rdfs:Literal;
+  schema:unitCode unit:DEG_C .
+
+ent:doeltijdstip_0800
+  a prov:Entity;
+  rdfs:label "Doel tijdstip 08:00"@nl;
+  p-plan:correspondsToVariable var:doeltijdstip;
+  time:inXSDDateTime "2025-04-01T08:00:00.000"^^xsd:dateTime .
+
+# Concrete observaties en actuatie
+exec:tijdstip_voorspelling_001
+  a sosa:Observation;
+  rdfs:label "Tijdstip voorspelling 1 april 2025"@nl;
+  p-plan:correspondsToStep step:voorspel_tijdstip;
+  sosa:usedProcedure plan:hvac_preheating;
+  sosa:hasFeatureOfInterest device:warmtepomp_belpaire;
+  sosa:observedProperty observeerbaar_kenmerk:tijdstip_start_HVAC;
+  prov:used ent:historische_data_2025Q1, ent:doeltemperatuur_20c, ent:doeltijdstip_0800;
+  sosa:hasResult ent:voorspeld_tijdstip_0530;
+  sosa:madeBySensor sensor:ml_model_preheating;
+  sosa:phenomenonTime [ a time:Instant;
+                        time:inXSDDateTime "2025-04-01T05:00:00.000"^^xsd:dateTime ] .
+
+ent:voorspeld_tijdstip_0530
+  a sosa:Result;
+  rdfs:label "Voorspeld starttijdstip 05:30"@nl;
+  p-plan:correspondsToVariable var:voorspeld_tijdstip;
+  time:inXSDDateTime "2025-04-01T05:30:00.000"^^xsd:dateTime .
+
+exec:buitentemperatuur_meting_001
+  a sosa:Observation;
+  rdfs:label "Buitentemperatuur meting 1 april 2025"@nl;
+  p-plan:correspondsToStep step:meet_omstandigheden;
+  sosa:usedProcedure plan:hvac_preheating;
+  sosa:hasFeatureOfInterest device:warmtepomp_belpaire;
+  sosa:observedProperty observeerbaar_kenmerk:buitentemperatuur;
+  sosa:hasResult ent:buitentemperatuur_1c;
+  sosa:madeBySensor sensor:buitentemperatuur_sensor;
+  sosa:phenomenonTime [ a time:Instant;
+                        time:inXSDDateTime "2025-04-01T06:00:00.000"^^xsd:dateTime ] .
+
+ent:buitentemperatuur_1c
+  a sosa:Result;
+  rdfs:label "Buitentemperatuur 1°C"@nl;
+  p-plan:correspondsToVariable var:buitentemperatuur;
+  schema:value "1"^^rdfs:Literal;
+  schema:unitCode unit:DEG_C .
+
+exec:bezettingsvoorspelling_001
+  a sosa:Observation;
+  rdfs:label "Bezettingsvoorspelling 1 april 2025"@nl;
+  p-plan:correspondsToStep step:meet_omstandigheden;
+  sosa:usedProcedure plan:hvac_preheating;
+  sosa:hasFeatureOfInterest device:warmtepomp_belpaire;
+  sosa:observedProperty observeerbaar_kenmerk:verwachte_betzetting;
+  sosa:hasResult ent:bezetting_80pct;
+  sosa:phenomenonTime [ a time:Instant;
+                        time:inXSDDateTime "2025-04-01T08:00:00.000"^^xsd:dateTime ] .
+
+ent:bezetting_80pct
+  a sosa:Result;
+  rdfs:label "Verwachte bezetting 80%"@nl;
+  p-plan:correspondsToVariable var:verwachte_bezetting;
+  schema:value "80"^^rdfs:Literal;
+  schema:unitCode unit:PERCENT .
+
+# HVAC actuatie
+exec:hvac_actuatie_001
+  a sosa:Actuation;
+  rdfs:label "HVAC activatie 1 april 2025"@nl;
+  p-plan:correspondsToStep step:activeer_hvac;
+  sosa:usedProcedure plan:hvac_preheating;
+  sosa:hasFeatureOfInterest device:warmtepomp_belpaire;
+  sosa:actsOnProperty observeerbaar_kenmerk:toestelstatus;
+  prov:used ent:voorspeld_tijdstip_0530, ent:buitentemperatuur_1c, ent:bezetting_80pct;
+  sosa:hasResult ent:hvac_status_aan;
+  sosa:madeByActuator actuator:hvac_controller;
+  sosa:resultTime [ a time:Instant;
+                     time:inXSDDateTime "2025-04-01T05:30:00.000"^^xsd:dateTime ] .
+
+ent:hvac_status_aan
+  a sosa:Result;
+  rdfs:label "HVAC status: AAN"@nl;
+  p-plan:correspondsToVariable var:activeringsresultaat;
+  skos:closeMatch toestelstatus:aan .
+
+# Observatieverzameling voor historische data
+exec:historische_data_verzameling
+  a sosa:ObservationCollection;
+  rdfs:label "Historische data Q1 2025"@nl;
+  sosa:phenomenonTime [ a time:ProperInterval;
+                        time:hasBeginning [ a time:Instant;
+                                            time:inXSDDateTime "2025-01-01T00:00:00.000"^^xsd:dateTime ];
+                        time:hasEnd [ a time:Instant;
+                                      time:inXSDDateTime "2025-03-31T00:00:00.000"^^xsd:dateTime ] ];
+  sosa:hasMember exec:tijdstip_voorspelling_001, exec:buitentemperatuur_meting_001, exec:bezettingsvoorspelling_001 .
