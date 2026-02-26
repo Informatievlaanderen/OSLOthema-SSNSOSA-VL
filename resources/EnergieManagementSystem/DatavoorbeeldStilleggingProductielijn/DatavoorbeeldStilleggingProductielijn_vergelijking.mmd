@@ -1,0 +1,203 @@
+flowchart TB
+
+%% =====================================================
+%% PRODUCTION SHUTDOWN - Original vs Improved Comparison
+%% =====================================================
+
+    subgraph Original_Structure["ORIGINAL STRUCTURE (with violations)"]
+        direction TB
+        
+        %% Main Observation - mixes observation and actuation
+        OBS_main(["Observation: Elektriciteitsprijs"])
+        
+        %% Nested Actuation - violates separation
+        ACT_nested(["Actuation: Productielijn Uitschakelen"])
+        
+        %% Mixed Procedure - contains concrete data
+        PROC_mixed(["Procedure: Mixed Planning & Execution"])
+        
+        %% Concrete inputs in procedure - semantic violation
+        INPUT_drempel(["Input: Drempel 100 EUR/MWh"])
+        INPUT_max(["Input: Max 8hr"])
+        INPUT_min(["Input: Min 4hr"])
+        INPUT_obs(["Input: Observatie"])
+        
+        %% Results
+        RESULT_prijs(["Result: 105 EUR/MWh"])
+        RESULT_status(["Result: Status UIT"])
+        
+        %% Complex relationships showing violations
+        OBS_main -->|usedProcedure| PROC_mixed
+        PROC_mixed -->|hasInput| INPUT_drempel
+        PROC_mixed -->|hasInput| INPUT_max
+        PROC_mixed -->|hasInput| INPUT_min
+        PROC_mixed -->|hasInput| INPUT_obs
+        OBS_main -->|hasResult| RESULT_prijs
+        ACT_nested -->|hasResult| RESULT_status
+        
+        style Original_Structure fill:#ffdddd,stroke:#ff0000,color:#000
+        style OBS_main fill:#ffaaaa,stroke:#ff0000,color:#000
+        style ACT_nested fill:#ffaaaa,stroke:#ff0000,color:#000
+        style PROC_mixed fill:#ffaaaa,stroke:#ff0000,color:#000
+        style INPUT_drempel fill:#ffcccc,stroke:#ff0000,color:#000
+        style INPUT_max fill:#ffcccc,stroke:#ff0000,color:#000
+        style INPUT_min fill:#ffcccc,stroke:#ff0000,color:#000
+        style INPUT_obs fill:#ffcccc,stroke:#ff0000,color:#000
+        style RESULT_prijs fill:#ffcccc,stroke:#ff0000,color:#000
+        style RESULT_status fill:#ffcccc,stroke:#ff0000,color:#000
+        
+        %% Violation labels
+        V1["❌ Violation 1: Mixes observation & actuation"]
+        V2["❌ Violation 2: No lifecycle separation"]
+        V3["❌ Violation 3: Concrete data in procedure"]
+        V4["❌ Violation 4: Nested complex structure"]
+        V5["❌ Violation 5: Poor semantic alignment"]
+        
+        V1 --> OBS_main
+        V2 --> PROC_mixed
+        V3 --> INPUT_drempel
+        V4 --> ACT_nested
+        V5 --> PROC_mixed
+    end
+
+    subgraph Improved_Structure["IMPROVED STRUCTURE (following principles)"]
+        direction TB
+        
+        %% PLANNING Level
+        subgraph PLANNING["PLANNING Level"]
+            PLAN_control(["Plan: Productielijn Aansturing"])
+            STEP_decide(["Step: Beslis Stillegging"])
+            
+            VAR_drempel(["Variable: Prijs Drempel"])
+            VAR_max(["Variable: Max Duur"])
+            VAR_min(["Variable: Min Duur"])
+            VAR_status(["Variable: Toestel Status"])
+            
+            PLAN_control -->|hasStep| STEP_decide
+            VAR_drempel -->|isInputVarOf| STEP_decide
+            VAR_max -->|isInputVarOf| STEP_decide
+            VAR_min -->|isInputVarOf| STEP_decide
+            VAR_status -->|isOutputVarOf| STEP_decide
+            
+            style PLANNING fill:#ddffdd,stroke:#00aa00,color:#000
+            style PLAN_control fill:#aaffaa,stroke:#00aa00,color:#000
+            style STEP_decide fill:#aaffaa,stroke:#00aa00,color:#000
+            style VAR_drempel fill:#ccffcc,stroke:#00aa00,color:#000
+            style VAR_max fill:#ccffcc,stroke:#00aa00,color:#000
+            style VAR_min fill:#ccffcc,stroke:#00aa00,color:#000
+            style VAR_status fill:#ccffcc,stroke:#00aa00,color:#000
+        end
+        
+        %% DEPLOYMENT Level
+        subgraph DEPLOYMENT["DEPLOYMENT Level"]
+            PLATFORM(["Platform: Fabriek Automatisering"])
+            DEPLOY(["Deployment: Productielijn 2025"])
+            
+            ACTUATOR(["Actuator: Productielijn Controller"])
+            SENSOR(["Sensor: Elektriciteitsprijs Sensor"])
+            
+            DEPLOY -->|deployedOnPlatform| PLATFORM
+            DEPLOY -->|deployedAsset| ACTUATOR
+            DEPLOY -->|deployedAsset| SENSOR
+            
+            ACTUATOR -->|implements| STEP_decide
+            
+            style DEPLOYMENT fill:#ddddff,stroke:#0000aa,color:#000
+            style PLATFORM fill:#aaddff,stroke:#0000aa,color:#000
+            style DEPLOY fill:#aaddff,stroke:#0000aa,color:#000
+            style ACTUATOR fill:#aaddff,stroke:#0000aa,color:#000
+            style SENSOR fill:#aaddff,stroke:#0000aa,color:#000
+        end
+        
+        %% EXECUTION Level - Observation
+        subgraph EXECUTION_OBS["EXECUTION Level - Observation"]
+            ACT_observe(["Activity: Prijs Observatie"])
+            ENT_prijs(["Entity: 105 EUR/MWh"])
+            
+            ACT_observe -->|madeBySensor| SENSOR
+            ACT_observe -->|hasResult| ENT_prijs
+            
+            style EXECUTION_OBS fill:#ffddff,stroke:#aa00aa,color:#000
+            style ACT_observe fill:#ffaaff,stroke:#aa00aa,color:#000
+            style ENT_prijs fill:#ffccff,stroke:#aa00aa,color:#000
+        end
+        
+        %% EXECUTION Level - Actuation
+        subgraph EXECUTION_ACT["EXECUTION Level - Actuation"]
+            ACT_control(["Activity: Stillegging 14-02-2025"])
+            
+            ENT_drempel(["Entity: Drempel 100 EUR"])
+            ENT_max(["Entity: Max 8hr"])
+            ENT_min(["Entity: Min 4hr"])
+            ENT_status(["Entity: Status UIT"])
+            
+            ACT_control -->|correspondsToStep| STEP_decide
+            ACT_control -->|madeByActuator| ACTUATOR
+            ACT_control -->|used| ENT_drempel
+            ACT_control -->|used| ENT_max
+            ACT_control -->|used| ENT_min
+            ACT_control -->|used| ENT_prijs
+            ACT_control -->|hasResult| ENT_status
+            
+            %% Traceability to planning variables
+            ENT_drempel -->|correspondsToVariable| VAR_drempel
+            ENT_max -->|correspondsToVariable| VAR_max
+            ENT_min -->|correspondsToVariable| VAR_min
+            ENT_status -->|correspondsToVariable| VAR_status
+            
+            style EXECUTION_ACT fill:#ffddff,stroke:#aa00aa,color:#000
+            style ACT_control fill:#ffaaff,stroke:#aa00aa,color:#000
+            style ENT_drempel fill:#ffccff,stroke:#aa00aa,color:#000
+            style ENT_max fill:#ffccff,stroke:#aa00aa,color:#000
+            style ENT_min fill:#ffccff,stroke:#aa00aa,color:#000
+            style ENT_status fill:#ffccff,stroke:#aa00aa,color:#000
+        end
+        
+        %% Principle labels
+        P1["✅ Principle 1: Clear separation observation/actuation"]
+        P2["✅ Principle 2: Three-level lifecycle architecture"]
+        P3["✅ Principle 3: Variables vs runtime data separated"]
+        P4["✅ Principle 4: Complete traceability chain"]
+        P5["✅ Principle 5: Correct SOSA/PROV-O semantics"]
+        
+        P1 --> PLANNING
+        P2 --> DEPLOYMENT
+        P3 --> VAR_drempel
+        P4 --> ENT_drempel
+        P5 --> ACT_control
+    end
+
+%% Comparison connections
+    Original_Structure -->|"Original (violations)"| Improved_Structure
+
+%% Key differences highlighted
+    subgraph Key_Differences["KEY IMPROVEMENTS"]
+        direction TB
+        
+        diff1["1. Original mixes observation & actuation in nested structure\n   Improved separates them completely"]
+        diff2["2. Original has no architectural levels\n   Improved has clear Plan/Deploy/Execute separation"]
+        diff3["3. Original uses sosa:hasInput for concrete data\n   Improved uses prov:used for execution entities"]
+        diff4["4. Original has poor traceability\n   Improved has complete p-plan:correspondsTo* chain"]
+        diff5["5. Original violates SOSA semantics\n   Improved follows SOSA/PROV-O correctly"]
+        diff6["6. Original has complex nested blank nodes\n   Improved has clean, separate entities"]
+        
+        style Key_Differences fill:#ffffcc,stroke:#cccc00,color:#000
+    end
+
+%% Legend
+    subgraph Legend["LEGEND"]
+        red_box(["Red = Architectural Violations"])
+        green_box(["Green = Planning Level"])
+        blue_box(["Blue = Deployment Level"])
+        purple_box(["Purple = Execution Level"])
+        
+        style red_box fill:#ffaaaa,stroke:#ff0000,color:#000
+        style green_box fill:#aaffaa,stroke:#00aa00,color:#000
+        style blue_box fill:#aaddff,stroke:#0000aa,color:#000
+        style purple_box fill:#ffaaff,stroke:#aa00aa,color:#000
+    end
+
+%% Layout adjustments
+    Original_Structure --> Key_Differences
+    Improved_Structure --> Key_Differences
+    Key_Differences --> Legend

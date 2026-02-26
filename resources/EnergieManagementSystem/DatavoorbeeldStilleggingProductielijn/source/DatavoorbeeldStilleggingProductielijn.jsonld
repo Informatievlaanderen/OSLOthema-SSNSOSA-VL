@@ -1,0 +1,132 @@
+{
+    "@context": [
+        "https://data.vlaanderen.be/doc/applicatieprofiel/energiemanagementsysteem/ontwerpstandaard/2025-05-14/context/energiemanagementsysteem.jsonld"
+    ],
+    "@graph": [
+        {
+            "@id": "_:AS001",
+            "@type": "Aansturing",
+            "Aansturing.aangestuurdKenmerk": "https://example.com/concept/aanstuurbaar_kenmerk/toestelstatus",
+            "Aansturing.aangestuurdObject": "_:TS001",
+            "Aansturing.resultaat": "https://example.com/concept/toestelstatus/uit",
+            "Aansturing.resultaattijd": {
+                "@type": "Periode",
+                "Periode.van": {
+                    "@type": "Moment",
+                    "Moment.inXSDDateTime": "20250214T14:00:00.000"
+                },
+                "Periode.tot": {
+                    "@type": "Moment",
+                    "Moment.inXSDDateTime": "20250214T18:00:00.000"
+                }
+            },
+            "Aansturing.gebruikteProcedure": {
+                "@type": "Aansturingsprocedure",
+                "Aansturingsprocedure.type": "https://example.com/concept/aansturingsproceduretype/statusaanpassing_volgens_elektriciteitsprijs",
+                "Aansturingsprocedure.input": [
+                    "_:IP001",
+                    "_:IP002",
+                    "_:IP003",
+                    {
+                        "@type": "Input",
+                        "Input.type": "https://example.com/concept/inputtype/observatie",
+                        "Input.referentie": "_:OB001"
+                    }
+                ]
+            },
+            "Aansturing.uitgevoerdMetAansturingssysteem": {
+                "@type": "Aansturingssysteem",
+                "Systeem.type": "https://example.com/concept/aansturingssysteemtype/controller"
+            }
+        },
+        {
+            "@id": "_:TS001",
+            "@type": "Toestel",
+            "Toestel.type": "https://example.com/concept/domeinobjecttype/productielijn_houtbewerking"
+        },
+        {
+            "@id": "_:IP001",
+            "@type": "Input",
+            "Input.type": "https://example.com/concept/inputtype/elektriciteitsprijs_drempelwaarde",
+            "Input.referentie": {
+                "@type": "KwantitatieveWaarde",
+                "KwantitatieveWaarde.waarde": 100,
+                "KwantitatieveWaarde.eenheid": {
+                    "@id": "http://qudt.org/vocab/unit/EUR-PER-MegaW-HR",
+                    "@type": "Eenheid"
+                }
+            }
+        },
+        {
+            "@id": "_:IP002",
+            "@type": "Input",
+            "Input.type": "https://example.com/concept/inputtype/minimale_duur_stillegging",
+            "Input.referentie": {
+                "@type": "KwantitatieveWaarde",
+                "KwantitatieveWaarde.waarde": 4,
+                "KwantitatieveWaarde.eenheid": {
+                    "@id": "http://qudt.org/vocab/unit/HR",
+                    "@type": "Eenheid"
+                }
+            }
+        },
+        {
+            "@id": "_:IP003",
+            "@type": "Input",
+            "Input.type": "https://example.com/concept/inputtype/maximale_duur_stillegging",
+            "Input.referentie": {
+                "@type": "KwantitatieveWaarde",
+                "KwantitatieveWaarde.waarde": 8,
+                "KwantitatieveWaarde.eenheid": {
+                    "@id": "http://qudt.org/vocab/unit/HR",
+                    "@type": "Eenheid"
+                }
+            }
+        },
+        {
+            "@id": "_:OB001",
+            "@type": "Observatie",
+            "Observatie.type": "https://example.com/concept/observatietype/meting",
+            "Observatie.geobserveerdKenmerk": "https://example.com/concept/observeerbaar_kenmerk/day_ahead_elektriciteitsprijs",
+            "Observatie.geobserveerdObject": "_:AS001",
+            "Observatie.resultaat": {
+                "@type": "KwantitatieveWaarde",
+                "KwantitatieveWaarde.waarde": 105,
+                "KwantitatieveWaarde.eenheid": {
+                    "@id": "http://qudt.org/vocab/unit/EUR-PER-MegaW-HR",
+                    "@type": "Eenheid"
+                }
+            },
+            "Observatie.fenomeentijd": {
+                "@type": "Periode",
+                "Periode.van": {
+                    "@type": "Moment",
+                    "Moment.inXSDDateTime": "20250214T14:00:00.000"
+                },
+                "Periode.tot": {
+                    "@type": "Moment",
+                    "Moment.inXSDDateTime": "20250214T20:00:00.000"
+                }
+            },
+            "Observatie.gebruikteProcedure": {
+                "@type": "Observatieprocedure",
+                "Observatieprocedure.type": "https://example.com/concept/observatieproceduretype/online_opvraging"
+            },
+            "Observatie.uitgevoerdMet": {
+                "@type": "Sensor",
+                "Sensor.type": "https://example.com/concept/sensortype/rest_api"
+            }
+        },
+        {
+            "@id": "_:AS001",
+            "@type": "Aansluiting",
+            "Aansluiting.adres": {
+                "@type": "Adresvoorstelling",
+                "Adresvoorstelling.volledigAdres": {
+                    "@value": "Voorbeeldstraat 123, 8500 Kortrijk",
+                    "@language": "nl"
+                }
+            }
+        }
+    ]
+}

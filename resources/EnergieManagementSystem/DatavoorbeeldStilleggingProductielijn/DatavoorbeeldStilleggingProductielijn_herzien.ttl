@@ -1,0 +1,182 @@
+@prefix plan:        <https://example.org/plan/> .
+@prefix step:        <https://example.org/step/> .
+@prefix var:         <https://example.org/variable/> .
+@prefix deploy:      <https://example.org/deployment/> .
+@prefix platform:    <https://example.org/platform/> .
+@prefix sensor:      <https://example.org/sensor/> .
+@prefix actuator:    <https://example.org/actuator/> .
+@prefix exec:        <https://example.org/execution/> .
+@prefix ent:         <https://example.org/entity/> .
+@prefix gebouw:      <https://data.vlaanderen.be/ns/gebouw#> .
+@prefix observeerbaar_kenmerk: <https://example.com/concept/observeerbaar_kenmerk/> .
+@prefix dct:          <http://purl.org/dc/terms/> .
+@prefix inputtype:     <https://example.com/concept/inputtype/> .
+@prefix toestelstatus: <https://example.com/concept/toestelstatus/> .
+@prefix sosa:        <http://www.w3.org/ns/sosa/> .
+@prefix p-plan:      <http://p-plan.org/> .
+@prefix prov:        <http://www.w3.org/ns/prov#> .
+@prefix qudt:        <http://qudt.org/schema/qudt/> .
+@prefix unit:        <http://qudt.org/vocab/unit/> .
+@prefix time:        <http://www.w3.org/2006/time#> .
+@prefix schema:      <https://schema.org/> .
+@prefix rdfs:        <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf:         <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd:         <http://www.w3.org/2001/XMLSchema#> .
+@prefix saref:       <https://saref.etsi.org/core/> .
+@prefix locn:        <http://www.w3.org/ns/locn#> .
+@prefix utility-services: <https://vocab.belgif.be/ns/utility-services#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# *******************************************
+# PLANNING NIVEAU - Abstracte procedure definitie
+# *******************************************
+
+# Het gebouw en productielijn
+gebouw:fabriek_kortrijk
+  a gebouw:Gebouw;
+  gebouw:gebouwnaam "Fabriek Kortrijk"@nl;
+  locn:address [ a locn:Address;
+                 locn:fullAddress "Voorbeeldstraat 123, 8500 Kortrijk"@nl ] .
+
+# Productielijn als feature of interest
+saref:productielijn_houtbewerking
+  a saref:Device;
+  dct:type <https://example.com/concept/domeinobjecttype/productielijn_houtbewerking>;
+  saref:isLocatedIn gebouw:fabriek_kortrijk .
+
+# Abstracte procedure voor productielijn aansturing
+plan:productielijn_aansturing
+  a p-plan:Plan, sosa:Procedure;
+  rdfs:label "Productielijn aansturing procedure"@nl;
+  p-plan:hasStep step:beslis_stillegging;
+  sosa:hasInput var:elektriciteitsprijs_drempel, var:max_stillegging_duur, var:min_stillegging_duur;
+  sosa:hasOutput var:toestel_status .
+
+# Stap in het plan
+step:beslis_stillegging
+  a p-plan:Step;
+  rdfs:label "Beslis over stillegging"@nl;
+  p-plan:isStepOfPlan plan:productielijn_aansturing;
+  sosa:hasInput var:elektriciteitsprijs_drempel, var:max_stillegging_duur, var:min_stillegging_duur;
+  sosa:hasOutput var:toestel_status .
+
+# Variabelen op plan niveau
+var:elektriciteitsprijs_drempel
+  a p-plan:Variable;
+  rdfs:label "Elektriciteitsprijs drempelwaarde"@nl;
+  p-plan:isInputVarOf step:beslis_stillegging;
+  sosa:inputFor plan:productielijn_aansturing .
+
+var:max_stillegging_duur
+  a p-plan:Variable;
+  rdfs:label "Maximale stillegging duur"@nl;
+  p-plan:isInputVarOf step:beslis_stillegging;
+  sosa:inputFor plan:productielijn_aansturing .
+
+var:min_stillegging_duur
+  a p-plan:Variable;
+  rdfs:label "Minimale stillegging duur"@nl;
+  p-plan:isInputVarOf step:beslis_stillegging;
+  sosa:inputFor plan:productielijn_aansturing .
+
+var:toestel_status
+  a p-plan:Variable;
+  rdfs:label "Toestel status"@nl;
+  p-plan:isOutputVarOf step:beslis_stillegging;
+  sosa:outputFor plan:productielijn_aansturing .
+
+# *******************************************
+# DEPLOYMENT NIVEAU - Concrete implementatie
+# *******************************************
+
+# Platform (fabriek automatiseringssysteem)
+platform:fabriek_automatisering
+  a sosa:Platform;
+  rdfs:label "Fabriek Automatiseringssysteem"@nl;
+  sosa:hosts sensor:elektriciteitsprijs_sensor, actuator:productielijn_controller .
+
+# Sensor voor elektriciteitsprijs
+sensor:elektriciteitsprijs_sensor
+  a sosa:Sensor;
+  rdfs:label "Elektriciteitsprijs sensor"@nl;
+  sosa:observes observeerbaar_kenmerk:day_ahead_elektriciteitsprijs .
+
+# Actuator voor productielijn
+actuator:productielijn_controller
+  a sosa:Actuator;
+  rdfs:label "Productielijn controller"@nl;
+  sosa:implements step:beslis_stillegging;
+  sosa:actsOnProperty observeerbaar_kenmerk:toestelstatus .
+
+# Deployment
+deploy:productielijn_2025
+  a sosa:Deployment;
+  rdfs:label "Productielijn aansturing implementatie 2025"@nl;
+  sosa:implements plan:productielijn_aansturing;
+  sosa:deployedOnPlatform platform:fabriek_automatisering;
+  sosa:deployedAsset sensor:elektriciteitsprijs_sensor, actuator:productielijn_controller;
+  sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
+
+# *******************************************
+# EXECUTION NIVEAU - Concrete uitvoering
+# *******************************************
+
+# Observatie van elektriciteitsprijs
+exec:prijs_observatie_20250214
+  a sosa:Observation;
+  rdfs:label "Elektriciteitsprijs observatie 14 feb 2025"@nl;
+  sosa:hasFeatureOfInterest saref:productielijn_houtbewerking;
+  sosa:observedProperty observeerbaar_kenmerk:day_ahead_elektriciteitsprijs;
+  sosa:hasResult ent:prijs_105eur;
+  sosa:madeBySensor sensor:elektriciteitsprijs_sensor;
+  sosa:phenomenonTime [ a time:ProperInterval;
+                        time:hasBeginning [ a time:Instant;
+                                            time:inXSDDateTime "2025-02-14T14:00:00.000"^^xsd:dateTime ];
+                        time:hasEnd [ a time:Instant;
+                                      time:inXSDDateTime "2025-02-14T20:00:00.000"^^xsd:dateTime ] ] .
+
+# Actuatie van productielijn
+exec:stillegging_20250214
+  a sosa:Actuation;
+  rdfs:label "Productielijn stillegging 14 feb 2025"@nl;
+  p-plan:correspondsToStep step:beslis_stillegging;
+  sosa:hasFeatureOfInterest saref:productielijn_houtbewerking;
+  sosa:actsOnProperty observeerbaar_kenmerk:toestelstatus;
+  prov:used ent:drempel_100eur, ent:max_8hr, ent:min_4hr, ent:prijs_105eur;
+  sosa:hasResult ent:status_uit;
+  sosa:madeByActuator actuator:productielijn_controller;
+  sosa:resultTime "2025-02-14T14:00:00.000"^^xsd:dateTime .
+
+# Concrete entiteiten (instantiaties van plan variabelen)
+ent:drempel_100eur
+  a prov:Entity;
+  rdfs:label "Elektriciteitsprijs drempel 100 EUR/MWh"@nl;
+  p-plan:correspondsToVariable var:elektriciteitsprijs_drempel;
+  qudt:value "100"^^rdfs:Literal;
+  qudt:unit  unit:EUR-PER-MegaW-HR .
+
+ent:max_8hr
+  a prov:Entity;
+  rdfs:label "Maximale stillegging duur 8 uur"@nl;
+  p-plan:correspondsToVariable var:max_stillegging_duur;
+  qudt:value "8"^^rdfs:Literal;
+  qudt:unit  unit:HR .
+
+ent:min_4hr
+  a prov:Entity;
+  rdfs:label "Minimale stillegging duur 4 uur"@nl;
+  p-plan:correspondsToVariable var:min_stillegging_duur;
+  qudt:value "4"^^rdfs:Literal;
+  qudt:unit  unit:HR .
+
+ent:prijs_105eur
+  a sosa:Result;
+  rdfs:label "Elektriciteitsprijs 105 EUR/MWh"@nl;
+  qudt:value "105"^^rdfs:Literal;
+  qudt:unit  unit:EUR-PER-MegaW-HR .
+
+ent:status_uit
+  a sosa:Result;
+  rdfs:label "Productielijn status: UIT"@nl;
+  p-plan:correspondsToVariable var:toestel_status;
+  skos:closeMatch toestelstatus:uit .
