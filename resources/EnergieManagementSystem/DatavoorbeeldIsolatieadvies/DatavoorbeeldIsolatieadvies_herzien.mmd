@@ -1,0 +1,87 @@
+flowchart RL
+
+%% =====================================================
+%% PLANNING
+%% =====================================================
+    subgraph PLANNING["PLANNING"]
+        PLAN0([Plan: Warmteverlies Classificatie])
+
+        STEP_classificatie([Step: Warmteverlies classificatie])
+
+        V_drempel([var:drempelwaarde])
+        V_meting([var:gemeten-warmteverlies])
+        V_klasse([var:warmteverlies-klasse])
+    end
+
+    style PLANNING fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style PLAN0 fill:#7f59ae,stroke:#2E5C8A,color:#000
+    style STEP_classificatie fill:#7f59ae,stroke:#2E5C8A,color:#000
+
+    style V_drempel fill:#fe7130,stroke:#2E5C8A,color:#000
+    style V_meting fill:#fe7130,stroke:#2E5C8A,color:#000
+    style V_klasse fill:#fe7130,stroke:#2E5C8A,color:#000
+
+%% Plan structuur
+    PLAN0 -->|hasStep| STEP_classificatie
+
+    V_drempel -->|isInputVarOf| STEP_classificatie
+    V_meting -->|isInputVarOf| STEP_classificatie
+    V_klasse -->|isOutputVarOf| STEP_classificatie
+
+%% =====================================================
+%% DEPLOYMENT
+%% =====================================================
+    subgraph DEPLOYMENT["DEPLOYMENT"]
+        Platform([Platform: Gebouw Monitoring])
+        Deployment([Deployment: Warmteverlies 2025])
+
+        SYS_sensor([System: Temperatuur sensor 001])
+    end
+
+    style DEPLOYMENT fill:#b0d9e7,stroke:#2E5C8A,color:#000
+    style Platform fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style Deployment fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style SYS_sensor fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+    Deployment -->|deployedOnPlatform| Platform
+    Deployment -->|deployedAsset| SYS_sensor
+
+    SYS_sensor -->|implements| STEP_classificatie
+
+%% =====================================================
+%% EXECUTION
+%% =====================================================
+    subgraph EXECUTION["EXECUTION — 15 Maart 2025"]
+        Activity_classificatie([Activity: Warmteverlies classificatie])
+
+        subgraph DERIVATION["DERIVATION — 15 Maart 2025"]
+            I_drempel([Entity: Drempel 0.4°C/hr])
+            I_meting([Entity: Meting 0.415°C/hr])
+            R_klasse([Entity: Matige klasse])
+        end
+    end
+
+    style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+    style EXECUTION fill:#e7a3be,stroke:#2E5C8A,color:#000
+    style Activity_classificatie fill:#e54b89,stroke:#2E5C8A,color:#000
+
+    style I_drempel fill:#f8b622,stroke:#2E5C8A,color:#000
+    style I_meting fill:#f8b622,stroke:#2E5C8A,color:#000
+    style R_klasse fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% Activity relaties
+    Activity_classificatie -->|correspondsToStep| STEP_classificatie
+    Activity_classificatie -->|madeBySystem| SYS_sensor
+
+    Activity_classificatie -->|used| I_drempel
+    Activity_classificatie -->|used| I_meting
+    Activity_classificatie -->|hasResult| R_klasse
+
+%% Derivatie
+    R_klasse -->|wasDerivedFrom| I_drempel
+    R_klasse -->|wasDerivedFrom| I_meting
+
+%% Entity ↔ Variable
+    I_drempel -->|correspondsToVariable| V_drempel
+    I_meting -->|correspondsToVariable| V_meting
+    R_klasse -->|correspondsToVariable| V_klasse
