@@ -71,6 +71,8 @@ De 2 input variabelen zijn in dit voorbeeld apart gedefinieerd. Dit is niet nood
 %%flowchart TD
 graph TD
 
+subgraph UITVOERING["UITVOERING"]
+        
 %% Features of Interest & Samples
 A["`**AardKorst**
 *(sosa:FeatureOfInterest)*`"]
@@ -84,12 +86,6 @@ D["`**AardAtmosfeer**
 B -->|isSampleOf| A
 C -->|isSampleOf| B
 C -->|isSampleOf| D
-
-%% Observed properties
-P1["`**C14Leeftijd**
-*(sosa:Property)*`"]
-P2["`**CO2Concentratie**
-*(sosa:Property)*`"]
 
 %% Original Observations
 O1["`**C14Observatie**
@@ -105,6 +101,30 @@ R2["`-value = 240
 -unit = PPM
 *(sosa:Result)*`"]
 
+%% Derived Paleo Observation
+P["`**PaleoCO2Observatie**
+-observedProperty = CO2Concentratie
+-result = 240 PPM
+-phenomenonTime = 7530 BP
+*(sosa:Observation)*`"]
+
+
+end
+
+subgraph PROCEDURE["PROCEDURE"]
+
+%% Observed properties
+P1["`**C14Leeftijd**
+*(sosa:Property)*`"]
+P2["`**CO2Concentratie**
+*(sosa:Property)*`"]
+
+%% Procedure
+PR["`**ProcedurePaleoCO2Contentratie**
+*(sosa:Procedure)*`"]
+
+end
+
 O1 -->|hasFeatureOfInterest| C
 O2 -->|hasFeatureOfInterest| C
 O1 -->|hasUltimateFeatureOfInterest| D
@@ -114,23 +134,11 @@ O2 -->|hasResult| R2
 R1 -->|correspondsToVariable| P1
 R2 -->|correspondsToVariable| P2
 
-%% Derived Paleo Observation
-P["`**PaleoCO2Observatie**
--observedProperty = CO2Concentratie
--result = 240 PPM
--phenomenonTime = 7530 BP
-*(sosa:Observation)*`"]
-
 P -->|hasFeatureOfInterest| D
 
 %% Input relations
 P -->|hasInputValue| R1
 P -->|hasInputValue| R2
-
-%% Procedure
-PR["`**ProcedurePaleoCO2Contentratie**
-*(sosa:Procedure)*`"]
-
 P -->|usedProcedure| PR
 
 PR -->|hasInput| P1
