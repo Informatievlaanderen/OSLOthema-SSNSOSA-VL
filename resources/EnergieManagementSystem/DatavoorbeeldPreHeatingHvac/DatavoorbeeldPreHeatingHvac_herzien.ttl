@@ -147,7 +147,7 @@ sensor:temperatuur_voorspeller
   rdfs:label "Temperatuur voorspeller"@nl;
   sosa:implements step:voorspel_tijdstip;
   sosa:observes observeerbaar_kenmerk:tijdstip_start_HVAC;
-  prov:used model:preheating_ml_model .
+  .
 
 sensor:buitentemperatuur_sensor
   a sosa:Sensor;
@@ -203,7 +203,7 @@ exec:tijdstip_voorspelling_001
   sosa:usedProcedure plan:hvac_preheating;
   sosa:hasFeatureOfInterest device:warmtepomp_belpaire;
   sosa:observedProperty observeerbaar_kenmerk:tijdstip_start_HVAC;
-  prov:used ent:historische_data_2025Q1, ent:doeltemperatuur_20c, ent:doeltijdstip_0800, model:preheating_ml_model;
+  prov:used ent:historische_data_2025Q1, ent:doeltemperatuur_20c, ent:doeltijdstip_0800, model:preheating_ml_model, model:preheating_ml_model;
   sosa:hasResult ent:voorspeld_tijdstip_0530;
   sosa:madeBySensor sensor:temperatuur_voorspeller;
   sosa:phenomenonTime [ a time:Instant;
