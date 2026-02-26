@@ -1,0 +1,156 @@
+flowchart RL
+
+%% =====================================================
+%% PLANNING
+%% =====================================================
+    subgraph PLANNING["PLANNING"]
+        PLAN0([Plan: HVAC Pre-heating])
+
+        STEP_voorspel([Step: Voorspel tijdstip])
+        STEP_meet([Step: Meet omstandigheden])
+        STEP_activeer([Step: Activeer HVAC])
+
+        V_historisch([var:historische-data])
+        V_doeltemp([var:doel-temperatuur])
+        V_doeltijd([var:doel-tijdstip])
+        V_voorspeld([var:voorspeld-tijdstip])
+        V_buitentemp([var:buitentemperatuur])
+        V_bezetting([var:verwachte-bezetting])
+        V_resultaat([var:activeringsresultaat])
+    end
+
+    style PLANNING fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style PLAN0 fill:#7f59ae,stroke:#2E5C8A,color:#000
+    style STEP_voorspel fill:#7f59ae,stroke:#2E5C8A,color:#000
+    style STEP_meet fill:#7f59ae,stroke:#2E5C8A,color:#000
+    style STEP_activeer fill:#7f59ae,stroke:#2E5C8A,color:#000
+
+    style V_historisch fill:#fe7130,stroke:#2E5C8A,color:#000
+    style V_doeltemp fill:#fe7130,stroke:#2E5C8A,color:#000
+    style V_doeltijd fill:#fe7130,stroke:#2E5C8A,color:#000
+    style V_voorspeld fill:#fe7130,stroke:#2E5C8A,color:#000
+    style V_buitentemp fill:#fe7130,stroke:#2E5C8A,color:#000
+    style V_bezetting fill:#fe7130,stroke:#2E5C8A,color:#000
+    style V_resultaat fill:#fe7130,stroke:#2E5C8A,color:#000
+
+%% Plan structuur
+    PLAN0 -->|hasStep| STEP_voorspel
+    PLAN0 -->|hasStep| STEP_meet
+    PLAN0 -->|hasStep| STEP_activeer
+
+    V_historisch -->|isInputVarOf| STEP_voorspel
+    V_doeltemp -->|isInputVarOf| STEP_voorspel
+    V_doeltijd -->|isInputVarOf| STEP_voorspel
+    V_voorspeld -->|isOutputVarOf| STEP_voorspel
+
+    V_buitentemp -->|isOutputVarOf| STEP_meet
+    V_bezetting -->|isOutputVarOf| STEP_meet
+
+    V_voorspeld -->|isInputVarOf| STEP_activeer
+    V_buitentemp -->|isInputVarOf| STEP_activeer
+    V_bezetting -->|isInputVarOf| STEP_activeer
+    V_resultaat -->|isOutputVarOf| STEP_activeer
+
+    STEP_activeer -.->|isPrecededBy| STEP_meet -.->|isPrecededBy| STEP_voorspel
+
+%% =====================================================
+%% DEPLOYMENT
+%% =====================================================
+    subgraph DEPLOYMENT["DEPLOYMENT"]
+        Platform([Platform: Gebouw Automatisering])
+        Deployment([Deployment: HVAC 2025])
+
+        SYS_voorspeller([System: Temperatuur voorspeller])
+        SYS_temp_sensor([System: Buitentemperatuur sensor])
+        SYS_hvac([System: HVAC controller])
+        MODEL_ml([Model: ML Model])
+    end
+
+    style DEPLOYMENT fill:#b0d9e7,stroke:#2E5C8A,color:#000
+    style Platform fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style Deployment fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style SYS_voorspeller fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style SYS_temp_sensor fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style SYS_hvac fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style MODEL_ml fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+    Deployment -->|deployedOnPlatform| Platform
+    Deployment -->|deployedAsset| SYS_voorspeller
+    Deployment -->|deployedAsset| SYS_temp_sensor
+    Deployment -->|deployedAsset| SYS_hvac
+
+    SYS_voorspeller -->|implements| STEP_voorspel
+    SYS_temp_sensor -->|implements| STEP_meet
+    SYS_hvac -->|implements| STEP_activeer
+    SYS_voorspeller -->|uses| MODEL_ml
+
+%% =====================================================
+%% EXECUTION
+%% =====================================================
+    subgraph EXECUTION["EXECUTION — 1 April 2025"]
+        Activity_voorspel([Activity: Tijdstip voorspelling])
+        Activity_meet([Activity: Omstandigheden meting])
+        Activity_activeer([Activity: HVAC activatie])
+
+        subgraph DERIVATION["DERIVATION — 1 April 2025"]
+            I_historisch([Entity: Historische data Q1])
+            I_doeltemp([Entity: Doel 20°C])
+            I_doeltijd([Entity: Doel 08:00])
+            T_voorspeld([Entity: Voorspeld 05:30])
+            T_buitentemp([Entity: Buitentemp 1°C])
+            T_bezetting([Entity: Bezetting 80%])
+            R_status([Entity: HVAC AAN])
+        end
+    end
+
+    style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+    style EXECUTION fill:#e7a3be,stroke:#2E5C8A,color:#000
+    style Activity_voorspel fill:#e54b89,stroke:#2E5C8A,color:#000
+    style Activity_meet fill:#e54b89,stroke:#2E5C8A,color:#000
+    style Activity_activeer fill:#e54b89,stroke:#2E5C8A,color:#000
+
+    style I_historisch fill:#f8b622,stroke:#2E5C8A,color:#000
+    style I_doeltemp fill:#f8b622,stroke:#2E5C8A,color:#000
+    style I_doeltijd fill:#f8b622,stroke:#2E5C8A,color:#000
+    style T_voorspeld fill:#f8b622,stroke:#2E5C8A,color:#000
+    style T_buitentemp fill:#f8b622,stroke:#2E5C8A,color:#000
+    style T_bezetting fill:#f8b622,stroke:#2E5C8A,color:#000
+    style R_status fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% Activity relaties
+    Activity_voorspel -->|correspondsToStep| STEP_voorspel
+    Activity_meet -->|correspondsToStep| STEP_meet
+    Activity_activeer -->|correspondsToStep| STEP_activeer
+
+    Activity_voorspel -->|madeBySystem| SYS_voorspeller
+    Activity_meet -->|madeBySystem| SYS_temp_sensor
+    Activity_activeer -->|madeBySystem| SYS_hvac
+
+    Activity_voorspel -->|used| I_historisch
+    Activity_voorspel -->|used| I_doeltemp
+    Activity_voorspel -->|used| I_doeltijd
+    Activity_voorspel -->|used| MODEL_ml
+    Activity_voorspel -->|hasResult| T_voorspeld
+
+    Activity_meet -->|hasResult| T_buitentemp
+    Activity_meet -->|hasResult| T_bezetting
+
+    Activity_activeer -->|used| T_voorspeld
+    Activity_activeer -->|used| T_buitentemp
+    Activity_activeer -->|used| T_bezetting
+    Activity_activeer -->|hasResult| R_status
+
+%% Derivatie
+    T_voorspeld -->|wasDerivedFrom| I_historisch
+    T_voorspeld -->|wasDerivedFrom| I_doeltemp
+    T_voorspeld -->|wasDerivedFrom| I_doeltijd
+    T_voorspeld -->|wasDerivedFrom| MODEL_ml
+
+%% Entity ↔ Variable
+    I_historisch -->|correspondsToVariable| V_historisch
+    I_doeltemp -->|correspondsToVariable| V_doeltemp
+    I_doeltijd -->|correspondsToVariable| V_doeltijd
+    T_voorspeld -->|correspondsToVariable| V_voorspeld
+    T_buitentemp -->|correspondsToVariable| V_buitentemp
+    T_bezetting -->|correspondsToVariable| V_bezetting
+    R_status -->|correspondsToVariable| V_resultaat

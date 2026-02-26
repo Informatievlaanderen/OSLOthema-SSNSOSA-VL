@@ -170,3 +170,81 @@ exec:hvac_actuatie_001
 - **Herschreven**: `DatavoorbeeldPreHeatingHvac_herzien.ttl` (11 KB)
 
 De herschreven versie is significant groter vanwege de toegevoegde architectonische structuur, variabelen definitie, en complete traceerbaarheid.
+
+## Tijdsmodellering van Voorspellingen
+
+Een belangrijk aspect van dit voorbeeld is de correcte modellering van tijdsaspecten bij voorspellingen:
+
+1. **Observatie tijd** (`sosa:phenomenonTime`):
+   - Wanneer de voorspelling gemaakt werd
+   - Altijd in het verleden ten opzichte van de voorspelling zelf
+   - Bijv: "2025-04-01T05:00:00" (wanneer het model draaide)
+
+2. **Voorspeld tijdstip** (`sosa:hasResult`):
+   - Wat er voorspeld wordt
+   - Kan in de toekomst liggen
+   - Bijv: "2025-04-01T05:30:00" (wanneer HVAC aan moet)
+
+3. **Resultaat tijd** (`sosa:resultTime`):
+   - Wanneer het resultaat beschikbaar was
+   - Meestal gelijk aan observatie tijd
+
+### Voorbeeld:
+
+```turtle
+exec:tijdstip_voorspelling_001
+  sosa:phenomenonTime [ time:inXSDDateTime "2025-04-01T05:00:00"^^xsd:dateTime ];  # Wanneer voorspeld
+  sosa:hasResult [ time:inXSDDateTime "2025-04-01T05:30:00"^^xsd:dateTime ];       # Wat voorspeld
+  sosa:resultTime "2025-04-01T05:00:00"^^xsd:dateTime .      # Wanneer resultaat bekend
+```
+
+Deze benadering houdt rekening met:
+- **Temporale logica**: Verleden (observatie) vs toekomst (voorspelling)
+- **SOSA semantiek**: Correct gebruik van phenomenonTime
+- **Traceerbaarheid**: Duidelijk wanneer wat gebeurde
+
+## Machine Learning Model Modellering
+
+Een belangrijk correctie in de herschreven versie betreft de modellering van het machine learning model:
+
+### Origineel (conceptueel incorrect):
+```turtle
+sensor:ml_model_preheating
+  a sosa:Sensor, it6:MachineLearningModel .
+```
+
+Probleem: Een ML model is een **artefact** (getraind bestand), geen **sensor** (agent die observeert).
+
+### Herschreven (conceptueel correct):
+```turtle
+# Model als artefact
+model:preheating_ml_model
+  a it6:MachineLearningModel, prov:Entity;
+  prov:wasGeneratedBy [ a prov:Activity;
+                        prov:used [ a prov:Entity;
+                                    dct:type inputtype:observatieverzameling;
+                                    seb:Input.referentie "_:OV001"^^xsd:anyURI ] ] .
+
+# Sensor die het model gebruikt
+sensor:temperatuur_voorspeller
+  a sosa:Sensor;
+  sosa:implements step:voorspel_tijdstip;
+  sosa:observes observeerbaar_kenmerk:tijdstip_start_HVAC;
+  sosa:uses model:preheating_ml_model .
+```
+
+### Voordelen:
+1. **Conceptuele correctheid**: Model is een artefact, sensor is de gebruiker
+2. **Betere semantiek**: Duidelijke scheiding tussen model en agent
+3. **Traceerbaarheid**: Expliciete keten van training → model → gebruik
+4. **Alignment**: Past beter bij SOSA/SSN/PROV-O specificaties
+
+### Gebruik in observatie:
+```turtle
+exec:tijdstip_voorspelling_001
+  a sosa:Observation;
+  prov:used model:preheating_ml_model;  # Model als input
+  sosa:madeBySensor sensor:temperatuur_voorspeller .  # Sensor maakt de observatie
+```
+
+Deze correctie verbetert de semantische nauwkeurigheid zonder de architectuur te verstoren.

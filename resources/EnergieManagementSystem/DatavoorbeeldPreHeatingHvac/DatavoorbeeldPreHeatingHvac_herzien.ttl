@@ -6,13 +6,12 @@
 @prefix sensor:      <https://example.org/sensor/> .
 @prefix actuator:    <https://example.org/actuator/> .
 @prefix device:        <https://example.org/device/> .
+@prefix model:        <https://example.org/model/> .
 @prefix exec:        <https://example.org/execution/> .
 @prefix ent:         <https://example.org/entity/> .
 @prefix gebouw:      <https://data.vlaanderen.be/ns/gebouw#> .
 @prefix observeerbaar_kenmerk: <https://example.com/concept/observeerbaar_kenmerk/> .
 PREFIX dct:          <http://purl.org/dc/terms/>
-@prefix observatieproceduretype: <https://example.com/concept/observatieproceduretype/> .
-@prefix aansturingsproceduretype: <https://example.com/concept/aansturingsproceduretype/> .
 @prefix inputtype:     <https://example.com/concept/inputtype/> .
 @prefix toestelstatus: <https://example.com/concept/toestelstatus/> .
 @prefix energiebrontype: <https://example.com/concept/energiebrontype/> .
@@ -131,20 +130,25 @@ var:activeringsresultaat
 platform:belpaire_automatisering
   a sosa:Platform;
   rdfs:label "Belpaire Gebouw Automatiseringssysteem"@nl;
-  sosa:hosts sensor:ml_model_preheating, sensor:buitentemperatuur_sensor, actuator:hvac_controller .
+  sosa:hosts sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, actuator:hvac_controller .
 
-# Sensoren
-sensor:ml_model_preheating
-  a sosa:Sensor, it6:MachineLearningModel; ### Ik heb bedenkingen bij it6:MachineLearningModel gelijk te stellen met sosa:Sensor. Machine Learning Model:  A file that has been trained to recognize certain types of patterns. Een sensor is een agent die een activiteit uitvoert waar die file gebruikt wordt.
-rdfs:label "Pre-heating voorspellingsmodel"@nl;
+# ML model als artefact
+model:preheating_ml_model
+  a it6:MachineLearningModel, prov:Entity;
+  rdfs:label "Pre-heating ML Model"@nl;
+  prov:wasGeneratedBy [ a prov:Activity;
+                        prov:used [ a prov:Collection;
+                                    dct:type inputtype:observatieverzameling;
+                                    seb:Input.referentie "_:OV001"^^xsd:anyURI ] ] .
+
+# Sensor die het model gebruikt
+sensor:temperatuur_voorspeller
+  a sosa:Sensor;
+  rdfs:label "Temperatuur voorspeller"@nl;
   sosa:implements step:voorspel_tijdstip;
   sosa:observes observeerbaar_kenmerk:tijdstip_start_HVAC;
-  ##### Ik vind geen definitie van it6:trainedOn, enkel gebruik in voorbeeld #########
+  prov:used model:preheating_ml_model .
 
-  it6:trainedOn [ a ssn:Input; ### Input - Any information that is provided to a Procedure for its use. Dit is niet getrained op een variabele, maar op een werkelijke collectie
-                 dct:type inputtype:observatieverzameling;
-                 seb:Input.referentie "_:OV001"^^xsd:anyURI ] .
-  ####################################################################################
 sensor:buitentemperatuur_sensor
   a sosa:Sensor;
   rdfs:label "Buitentemperatuur sensor"@nl;
@@ -164,7 +168,7 @@ deploy:hvac_preheating_2025
   rdfs:label "HVAC pre-heating implementatie 2025"@nl;
   sosa:implements plan:hvac_preheating;
   sosa:deployedOnPlatform platform:belpaire_automatisering;
-  sosa:deployedAsset sensor:ml_model_preheating, sensor:buitentemperatuur_sensor, actuator:hvac_controller;
+  sosa:deployedAsset sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, actuator:hvac_controller;
   sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
 
 # *********************************************
@@ -199,9 +203,9 @@ exec:tijdstip_voorspelling_001
   sosa:usedProcedure plan:hvac_preheating;
   sosa:hasFeatureOfInterest device:warmtepomp_belpaire;
   sosa:observedProperty observeerbaar_kenmerk:tijdstip_start_HVAC;
-  prov:used ent:historische_data_2025Q1, ent:doeltemperatuur_20c, ent:doeltijdstip_0800;
+  prov:used ent:historische_data_2025Q1, ent:doeltemperatuur_20c, ent:doeltijdstip_0800, model:preheating_ml_model;
   sosa:hasResult ent:voorspeld_tijdstip_0530;
-  sosa:madeBySensor sensor:ml_model_preheating;
+  sosa:madeBySensor sensor:temperatuur_voorspeller;
   sosa:phenomenonTime [ a time:Instant;
                         time:inXSDDateTime "2025-04-01T05:00:00.000"^^xsd:dateTime ] .
 
@@ -256,11 +260,10 @@ exec:hvac_actuatie_001
   sosa:usedProcedure plan:hvac_preheating;
   sosa:hasFeatureOfInterest device:warmtepomp_belpaire;
   sosa:actsOnProperty observeerbaar_kenmerk:toestelstatus;
-  prov:used ent:voorspeld_tijdstip_0530, ent:buitentemperatuur_1c, ent:bezetting_80pct;
+  prov:used ent:voorspeld_tijdstip_0530, ent:buitentemperatuur_1c, ent:bezetting_80pct, exec:tijdstip_voorspelling_001;
   sosa:hasResult ent:hvac_status_aan;
   sosa:madeByActuator actuator:hvac_controller;
-  sosa:resultTime [ a time:Instant;
-                     time:inXSDDateTime "2025-04-01T05:30:00.000"^^xsd:dateTime ] .
+  sosa:resultTime "2025-04-01T05:30:00.000"^^xsd:dateTime  .
 
 ent:hvac_status_aan
   a sosa:Result;
