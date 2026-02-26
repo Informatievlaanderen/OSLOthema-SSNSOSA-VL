@@ -1,0 +1,161 @@
+flowchart TB
+
+%% =====================================================
+%% COMPARISON: Original vs Improved Structure
+%% =====================================================
+
+    subgraph Original_Structure["ORIGINAL STRUCTURE (with violations)"]
+        direction TB
+        
+        %% Main Observation - mixes everything together
+        OBS_main(["Observation: Warmteverlies Classificatie"])
+        
+        %% Nested structure - violates separation of concerns
+        OBS_nested(["Observation: Gemeten Warmteverlies"])
+        
+        %% Inputs directly in procedure - violates variable vs runtime data
+        INPUT_drempel(["Input: Drempelwaarde 0.4°C/hr"])
+        INPUT_meting(["Input: Meting 0.415°C/hr"])
+        
+        %% Procedure with mixed concerns
+        PROC_mixed(["Procedure: Mixed Planning & Execution"])
+        
+        %% Results
+        RESULT_klasse(["Result: Matige Klasse"])
+        
+        %% Relationships showing violations
+        OBS_main -->|usedProcedure| PROC_mixed
+        PROC_mixed -->|hasInput| INPUT_drempel
+        PROC_mixed -->|hasInput| INPUT_meting
+        PROC_mixed -->|hasInput| OBS_nested
+        OBS_main -->|hasResult| RESULT_klasse
+        
+        style Original_Structure fill:#ffdddd,stroke:#ff0000,color:#000
+        style OBS_main fill:#ffaaaa,stroke:#ff0000,color:#000
+        style OBS_nested fill:#ffaaaa,stroke:#ff0000,color:#000
+        style PROC_mixed fill:#ffaaaa,stroke:#ff0000,color:#000
+        style INPUT_drempel fill:#ffcccc,stroke:#ff0000,color:#000
+        style INPUT_meting fill:#ffcccc,stroke:#ff0000,color:#000
+        style RESULT_klasse fill:#ffcccc,stroke:#ff0000,color:#000
+        
+        %% Violation labels
+        V1["❌ Violation 1: No separation of concerns"]
+        V2["❌ Violation 2: No lifecycle separation"]
+        V3["❌ Violation 3: Variables vs runtime data mixed"]
+        V4["❌ Violation 4: Poor traceability"]
+        
+        V1 --> OBS_main
+        V2 --> PROC_mixed
+        V3 --> INPUT_drempel
+        V4 --> OBS_nested
+    end
+
+    subgraph Improved_Structure["IMPROVED STRUCTURE (following principles)"]
+        direction TB
+        
+        %% PLANNING Level
+        subgraph PLANNING["PLANNING Level"]
+            PLAN_class(["Plan: Warmteverlies Classificatie"])
+            STEP_class(["Step: Classificatie"])
+            VAR_drempel(["Variable: Drempelwaarde"])
+            VAR_meting(["Variable: Meting"])
+            VAR_klasse(["Variable: Klasse"])
+            
+            PLAN_class -->|hasStep| STEP_class
+            VAR_drempel -->|isInputVarOf| STEP_class
+            VAR_meting -->|isInputVarOf| STEP_class
+            VAR_klasse -->|isOutputVarOf| STEP_class
+            
+            style PLANNING fill:#ddffdd,stroke:#00aa00,color:#000
+            style PLAN_class fill:#aaffaa,stroke:#00aa00,color:#000
+            style STEP_class fill:#aaffaa,stroke:#00aa00,color:#000
+            style VAR_drempel fill:#ccffcc,stroke:#00aa00,color:#000
+            style VAR_meting fill:#ccffcc,stroke:#00aa00,color:#000
+            style VAR_klasse fill:#ccffcc,stroke:#00aa00,color:#000
+        end
+        
+        %% DEPLOYMENT Level
+        subgraph DEPLOYMENT["DEPLOYMENT Level"]
+            PLATFORM(["Platform: Gebouw Monitoring"])
+            DEPLOY(["Deployment: 2025"])
+            SENSOR(["Sensor: Temperatuur Sensor"])
+            
+            DEPLOY -->|deployedOnPlatform| PLATFORM
+            DEPLOY -->|deployedAsset| SENSOR
+            SENSOR -->|implements| STEP_class
+            
+            style DEPLOYMENT fill:#ddddff,stroke:#0000aa,color:#000
+            style PLATFORM fill:#aaddff,stroke:#0000aa,color:#000
+            style DEPLOY fill:#aaddff,stroke:#0000aa,color:#000
+            style SENSOR fill:#aaddff,stroke:#0000aa,color:#000
+        end
+        
+        %% EXECUTION Level
+        subgraph EXECUTION["EXECUTION Level"]
+            ACT_class(["Activity: Classificatie 15-03-2025"])
+            ENT_drempel(["Entity: Drempel 0.4°C/hr"])
+            ENT_meting(["Entity: Meting 0.415°C/hr"])
+            ENT_klasse(["Entity: Matige Klasse"])
+            
+            ACT_class -->|correspondsToStep| STEP_class
+            ACT_class -->|madeBySensor| SENSOR
+            ACT_class -->|used| ENT_drempel
+            ACT_class -->|used| ENT_meting
+            ACT_class -->|hasResult| ENT_klasse
+            
+            ENT_drempel -->|correspondsToVariable| VAR_drempel
+            ENT_meting -->|correspondsToVariable| VAR_meting
+            ENT_klasse -->|correspondsToVariable| VAR_klasse
+            
+            style EXECUTION fill:#ffddff,stroke:#aa00aa,color:#000
+            style ACT_class fill:#ffaaff,stroke:#aa00aa,color:#000
+            style ENT_drempel fill:#ffccff,stroke:#aa00aa,color:#000
+            style ENT_meting fill:#ffccff,stroke:#aa00aa,color:#000
+            style ENT_klasse fill:#ffccff,stroke:#aa00aa,color:#000
+        end
+        
+        %% Principle labels
+        P1["✅ Principle 1: Clear separation of concerns"]
+        P2["✅ Principle 2: Three-level lifecycle"]
+        P3["✅ Principle 3: Variables vs runtime data separated"]
+        P4["✅ Principle 4: Complete traceability"]
+        
+        P1 --> PLANNING
+        P2 --> DEPLOYMENT
+        P3 --> VAR_drempel
+        P4 --> ENT_drempel
+    end
+
+%% Comparison connections
+    Original_Structure -->|"Original (violations)"| Improved_Structure
+
+%% Key differences highlighted
+    subgraph Key_Differences["KEY DIFFERENCES"]
+        direction TB
+        
+        diff1["1. Original mixes planning & execution\n   Improved separates into 3 clear levels"]
+        diff2["2. Original has nested observations\n   Improved uses correspondsToVariable"]
+        diff3["3. Original uses sosa:hasInput for concrete data\n   Improved uses prov:used for execution entities"]
+        diff4["4. Original has poor traceability\n   Improved has complete p-plan:correspondsTo* chain"]
+        diff5["5. Original violates SOSA semantics\n   Improved follows SOSA/PROV-O correctly"]
+        
+        style Key_Differences fill:#ffffcc,stroke:#cccc00,color:#000
+    end
+
+%% Legend
+    subgraph Legend["LEGEND"]
+        red_box(["Red = Violations"])
+        green_box(["Green = Planning Level"])
+        blue_box(["Blue = Deployment Level"])
+        purple_box(["Purple = Execution Level"])
+        
+        style red_box fill:#ffaaaa,stroke:#ff0000,color:#000
+        style green_box fill:#aaffaa,stroke:#00aa00,color:#000
+        style blue_box fill:#aaddff,stroke:#0000aa,color:#000
+        style purple_box fill:#ffaaff,stroke:#aa00aa,color:#000
+    end
+
+%% Layout adjustments
+    Original_Structure --> Key_Differences
+    Improved_Structure --> Key_Differences
+    Key_Differences --> Legend
