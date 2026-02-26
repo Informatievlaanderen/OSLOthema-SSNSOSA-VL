@@ -135,14 +135,16 @@ platform:belpaire_automatisering
 
 # Sensoren
 sensor:ml_model_preheating
-  a sosa:Sensor, it6:MachineLearningModel;
-  rdfs:label "Pre-heating voorspellingsmodel"@nl;
+  a sosa:Sensor, it6:MachineLearningModel; ### Ik heb bedenkingen bij it6:MachineLearningModel gelijk te stellen met sosa:Sensor. Machine Learning Model:  A file that has been trained to recognize certain types of patterns. Een sensor is een agent die een activiteit uitvoert waar die file gebruikt wordt.
+rdfs:label "Pre-heating voorspellingsmodel"@nl;
   sosa:implements step:voorspel_tijdstip;
   sosa:observes observeerbaar_kenmerk:tijdstip_start_HVAC;
-  it6:trainedOn [ a ssn:Input;
+  ##### Ik vind geen definitie van it6:trainedOn, enkel gebruik in voorbeeld #########
+
+  it6:trainedOn [ a ssn:Input; ### Input - Any information that is provided to a Procedure for its use. Dit is niet getrained op een variabele, maar op een werkelijke collectie
                  dct:type inputtype:observatieverzameling;
                  seb:Input.referentie "_:OV001"^^xsd:anyURI ] .
-
+  ####################################################################################
 sensor:buitentemperatuur_sensor
   a sosa:Sensor;
   rdfs:label "Buitentemperatuur sensor"@nl;
