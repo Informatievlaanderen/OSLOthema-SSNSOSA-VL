@@ -1,0 +1,78 @@
+PREFIX aansturingsproceduretype:   <https://example.com/concept/aansturingsproceduretype/>
+PREFIX aansturingssysteemtype:     <https://example.com/concept/aansturingssysteemtype/>
+PREFIX aanstuurbaar_kenmerk:       <https://example.com/concept/aanstuurbaar_kenmerk/>
+PREFIX adms:                       <http://www.w3.org/ns/adms#>
+PREFIX dbo:                        <https://dbpedia.org/ontology/>
+PREFIX dc:                         <http://purl.org/dc/elements/1.1/>
+
+
+PREFIX domeinobjecttype:           <https://example.com/concept/domeinobjecttype/>
+PREFIX energiebrontype:            <https://example.com/concept/energiebrontype/>
+PREFIX gebouw:                     <https://data.vlaanderen.be/ns/gebouw#>
+PREFIX inputtype:                  <https://example.com/concept/inputtype/>
+PREFIX it6:                        <http://data.europa.eu/it6/>
+PREFIX kenmerktype:                <https://example.com/concept/kenmerktype/>
+PREFIX locn:                       <http://www.w3.org/ns/locn#>
+PREFIX network:                    <https://vocab.belgif.be/ns/network#>
+PREFIX nutsvoorzieningnetwerktype: <https://example.com/concept/nutsvoorzieningnetwerktype/>
+PREFIX observatieproceduretype:    <https://example.com/concept/observatieproceduretype/>
+PREFIX observatietype:             <https://example.com/concept/observatietype/>
+PREFIX observatieverzamelingtype:  <https://example.com/concept/observatieverzamelingtype/>
+PREFIX observeerbaar_kenmerk:      <https://example.com/concept/observeerbaar_kenmerk/>
+PREFIX org:                        <http://www.w3.org/ns/org#>
+PREFIX productieverlies:           <https://example.com/concept/productieimpacttype/productieverlies/>
+PREFIX qudt:                       <https://qudt.org/schema/qudt/>
+PREFIX rdf:                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:                       <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX saref:                      <https://saref.etsi.org/core/>
+PREFIX schema:                     <https://schema.org/>
+PREFIX seb:                        <https://data.vlaanderen.be/ns/sensoren-en-bemonstering#>
+PREFIX skos:                       <http://www.w3.org/2004/02/skos/core#>
+PREFIX sosa:                       <http://www.w3.org/ns/sosa/>
+PREFIX sosas:                      <https://www.w3.org/ns/sosa/>
+PREFIX ssn:                        <http://www.w3.org/ns/ssn/>
+PREFIX time:                       <http://www.w3.org/2006/time#>
+PREFIX toestelstatus:              <https://example.com/concept/toestelstatus/>
+PREFIX toesteltype:                <https://example.com/concept/toesteltype/>
+PREFIX unit:                       <http://qudt.org/vocab/unit/>
+PREFIX utility-services:           <https://vocab.belgif.be/ns/utility-services#>
+PREFIX warmteverliesklasse:        <https://example.com/concept/warmteverliesklasse/>
+PREFIX xs:                         <http://www.w3.org/2001/XMLSchema#>
+
+[ rdf:type                     utility-services:Connection;
+  utility-services:identifier  [ rdf:type       adms:Identifier;
+                                 skos:notation  "SUBB001"^^<https://example.com/concept/identificatortype/intern_aansluitingsnummer>
+                               ];
+  utility-services:inNetwork   _:b0
+] .
+
+_:b0    rdf:type                        utility-services:UtilityNetwork;
+        dc:type                         nutsvoorzieningnetwerktype:elektriciteit;
+        utility-services:authorityRole  [ rdf:type        org:Organization;
+                                          skos:prefLabel  "Rijksarchief te Brussel"@nl
+                                        ] .
+
+[ rdf:type                     utility-services:Connection;
+  utility-services:identifier  [ rdf:type                     adms:Identifier;
+                                 utility-services:identifier  "SUBA001"^^<https://example.com/concept/identificatortype/intern_aansluitingsnummer>
+                               ];
+  utility-services:inNetwork   _:b0
+] .
+
+[ rdf:type                     utility-services:Connection;
+  network:beginLink            [ rdf:type         utility-services:UtilityLink;
+                                 network:endNode  "_:AS003"
+                               ];
+  network:beginLink            [ rdf:type         utility-services:UtilityLink;
+                                 network:endNode  "_:AS002"
+                               ];
+  utility-services:identifier  [ rdf:type       adms:Identifier;
+                                 skos:notation  "541234567890123456"^^<https://example.com/concept/identificatortype/ean_nummer>
+                               ];
+  utility-services:inNetwork   [ rdf:type                        utility-services:UtilityNetwork;
+                                 dc:type                         nutsvoorzieningnetwerktype:elektriciteit;
+                                 utility-services:authorityRole  [ rdf:type        org:Organization;
+                                                                   skos:prefLabel  "Fluvius"@nl
+                                                                 ]
+                               ]
+] .

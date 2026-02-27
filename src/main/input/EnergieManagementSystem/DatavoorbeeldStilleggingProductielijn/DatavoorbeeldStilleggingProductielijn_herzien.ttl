@@ -26,17 +26,12 @@
 @prefix locn:        <http://www.w3.org/ns/locn#> .
 @prefix utility-services: <https://vocab.belgif.be/ns/utility-services#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
 # *******************************************
 # PLANNING NIVEAU - Abstracte procedure definitie
 # *******************************************
 
-# Het gebouw en productielijn
-gebouw:fabriek_kortrijk
-  a gebouw:Gebouw;
-  gebouw:gebouwnaam "Fabriek Kortrijk"@nl;
-  locn:address [ a locn:Address;
-                 locn:fullAddress "Voorbeeldstraat 123, 8500 Kortrijk"@nl ] .
 
 # Productielijn als feature of interest
 saref:productielijn_houtbewerking
@@ -90,6 +85,13 @@ var:toestel_status
 # *******************************************
 
 # Platform (fabriek automatiseringssysteem)
+# Het gebouw en productielijn
+gebouw:fabriek_kortrijk
+  a gebouw:Gebouw;
+  gebouw:gebouwnaam "Fabriek Kortrijk"@nl;
+  locn:address [ a locn:Address;
+                   locn:fullAddress "Voorbeeldstraat 123, 8500 Kortrijk"@nl ] .
+
 platform:fabriek_automatisering
   a sosa:Platform;
   rdfs:label "Fabriek Automatiseringssysteem"@nl;
@@ -137,7 +139,7 @@ exec:prijs_observatie_20250214
 
 # Actuatie van productielijn
 exec:stillegging_20250214
-  a sosa:Actuation;
+  a sosa:Actuation ;
   rdfs:label "Productielijn stillegging 14 feb 2025"@nl;
   p-plan:correspondsToStep step:beslis_stillegging;
   sosa:hasFeatureOfInterest saref:productielijn_houtbewerking;

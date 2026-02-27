@@ -1,0 +1,92 @@
+{
+    "@context": [
+        "https://data.vlaanderen.be/doc/applicatieprofiel/energiemanagementsysteem/ontwerpstandaard/2025-05-14/context/energiemanagementsysteem.jsonld"
+    ],
+    "@graph": [
+        {
+            "@id": "_:OB002",
+            "@type": "Observatie",
+            "Observatie.type": "https://example.com/concept/observatietype/meting",
+            "Observatie.geobserveerdKenmerk": "https://example.com/concept/observeerbaar_kenmerk/besparing_op_electriciteitsverbruik",
+            "Observatie.geobserveerdObject": "_:TS001",
+            "Observatie.resultaat": {
+                "@type": "KwantitatieveWaarde",
+                "KwantitatieveWaarde.waarde": 478.80,
+                "KwantitatieveWaarde.eenheid": {
+                    "@id": "http://qudt.org/vocab/unit/EUR",
+                    "@type": "Eenheid"
+                }
+            },
+            "Observatie.fenomeentijd": {
+                "@type": "Periode",
+                "Periode.van": {
+                    "@type": "Moment",
+                    "Moment.inXSDDateTime": "20250214T00:00:00.000"
+                },
+                "Periode.tot": {
+                    "@type": "Moment",
+                    "Moment.inXSDDateTime": "20250214T23:59:59.000"
+                }
+            },
+            "Observatie.gebruikteProcedure": {
+                "@type": "Observatieprocedure",
+                "Observatie.type": "https://example.com/concept/observatieproceduretype/berekening",
+                "Observatieprocedure.input": [
+                    "_:AS001",
+                    "_:OB001",
+                    {
+                        "@type": "Input",
+                        "Input.type": "https://example.com/concept/inputtype/observatie",
+                        "Input.referentie": "_:OB003"
+                    }
+                ]
+            },
+            "Observatie.uitgevoerdMet": {
+                "@type": "Sensor",
+                "Aansturingssysteem.type": "https://example.com/concept/sensortype/energiemanagementsysteem"
+            },
+            "Observatie.parameter": {
+                "@type": "BenoemdeWaarde",
+                "BenoemdeWaarde.naam": {
+                    "@value": "https://example.com/concept/parametertype/productieverlies",
+                    "@type": "Concept"
+                },
+                "BenoemdeWaarde.waarde": "https://example.com/concept/productieimpacttype/productieverlies/gecompenseerd"
+            }
+        },
+        {
+            "@id": "_:OB003",
+            "@type": "Observatie",
+            "Observatie.type": "https://example.com/concept/observatietype/meting",
+            "Observatie.geobserveerdKenmerk": "https://example.com/concept/observeerbaar_kenmerk/gemiddeld_dagelijks_verbruik",
+            "Observatie.geobserveerdObject": "_:TS001",
+            "Observatie.resultaat": {
+                "@type": "KwantitatieveWaarde",
+                "KwantitatieveWaarde.waarde": 27.4,
+                "KwantitatieveWaarde.eenheid": {
+                    "@id": "http://qudt.org/vocab/unit/MegaW-HR",
+                    "@type": "Eenheid"
+                }
+            },
+            "Observatie.fenomeentijd": {
+                "@type": "Periode",
+                "Periode.van": {
+                    "@type": "Moment",
+                    "Moment.inXSDDateTime": "20240101T00:00:00.000"
+                },
+                "Periode.tot": {
+                    "@type": "Moment",
+                    "Moment.inXSDDateTime": "20241231T23:59:59.000"
+                }
+            },
+            "Observatie.gebruikteProcedure": {
+                "@type": "Observatieprocedure",
+                "Observatieprocedure.type": "https://example.com/concept/observatieproceduretype/berekening"
+            },
+            "Observatie.uitgevoerdMet": {
+                "@type": "Sensor",
+                "Sensor.type": "https://example.com/concept/sensortype/energiemanagementsysteem"
+            }
+        }
+    ]
+}
