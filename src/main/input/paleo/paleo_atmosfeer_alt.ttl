@@ -10,6 +10,7 @@
 @prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
 @prefix prov:  <http://www.w3.org/ns/prov#> .
 @prefix p-plan:  <http://purl.org/net/p-plan#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
 ## Voorbeeld 2: paleo atmosfeer
 ## De concentratie van CO₂ kan worden gemeten in luchtbellen in ijskernen, waarvan wordt aangenomen dat ze een steekproef vormen van de atmosfeer op een bepaald moment in het verleden.
