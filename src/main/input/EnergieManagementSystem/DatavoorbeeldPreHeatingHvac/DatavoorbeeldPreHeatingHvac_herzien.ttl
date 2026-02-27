@@ -42,7 +42,7 @@ gebouw:belpaire
   a gebouw:Gebouw;
   gebouw:gebouwnaam "Belpaire Gebouw"@nl;
   locn:address [ a locn:Address;
-                 locn:fullAddress "Simon Bolivarlaan 17, 1030 Schaarbeek"@nl ] .
+                   locn:fullAddress "Simon Bolivarlaan 17, 1030 Schaarbeek"@nl ] .
 
 # HVAC warmtepomp als feature of interest
 device:warmtepomp_belpaire
@@ -137,9 +137,9 @@ model:preheating_ml_model
   a it6:MachineLearningModel, prov:Entity;
   rdfs:label "Pre-heating ML Model"@nl;
   prov:wasGeneratedBy [ a prov:Activity;
-                        prov:used [ a prov:Collection;
-                                    dct:type inputtype:observatieverzameling;
-                                    seb:Input.referentie "_:OV001"^^xsd:anyURI ] ] .
+                          prov:used [ a prov:Collection;
+                                        dct:type inputtype:observatieverzameling;
+                                        seb:Input.referentie "_:OV001"^^xsd:anyURI ] ] .
 
 # Sensor die het model gebruikt
 sensor:temperatuur_voorspeller
@@ -147,7 +147,7 @@ sensor:temperatuur_voorspeller
   rdfs:label "Temperatuur voorspeller"@nl;
   sosa:implements step:voorspel_tijdstip;
   sosa:observes observeerbaar_kenmerk:tijdstip_start_HVAC;
-  .
+.
 
 sensor:buitentemperatuur_sensor
   a sosa:Sensor;
@@ -207,7 +207,7 @@ exec:tijdstip_voorspelling_001
   sosa:hasResult ent:voorspeld_tijdstip_0530;
   sosa:madeBySensor sensor:temperatuur_voorspeller;
   sosa:phenomenonTime [ a time:Instant;
-                        time:inXSDDateTime "2025-04-01T05:00:00.000"^^xsd:dateTime ] .
+                          time:inXSDDateTime "2025-04-01T05:00:00.000"^^xsd:dateTime ] .
 
 ent:voorspeld_tijdstip_0530
   a sosa:Result;
@@ -225,7 +225,7 @@ exec:buitentemperatuur_meting_001
   sosa:hasResult ent:buitentemperatuur_1c;
   sosa:madeBySensor sensor:buitentemperatuur_sensor;
   sosa:phenomenonTime [ a time:Instant;
-                        time:inXSDDateTime "2025-04-01T06:00:00.000"^^xsd:dateTime ] .
+                          time:inXSDDateTime "2025-04-01T06:00:00.000"^^xsd:dateTime ] .
 
 ent:buitentemperatuur_1c
   a sosa:Result;
@@ -243,7 +243,7 @@ exec:bezettingsvoorspelling_001
   sosa:observedProperty observeerbaar_kenmerk:verwachte_betzetting;
   sosa:hasResult ent:bezetting_80pct;
   sosa:phenomenonTime [ a time:Instant;
-                        time:inXSDDateTime "2025-04-01T08:00:00.000"^^xsd:dateTime ] .
+                          time:inXSDDateTime "2025-04-01T08:00:00.000"^^xsd:dateTime ] .
 
 ent:bezetting_80pct
   a sosa:Result;
@@ -260,7 +260,7 @@ exec:hvac_actuatie_001
   sosa:usedProcedure plan:hvac_preheating;
   sosa:hasFeatureOfInterest device:warmtepomp_belpaire;
   sosa:actsOnProperty observeerbaar_kenmerk:toestelstatus;
-  prov:used ent:voorspeld_tijdstip_0530, ent:buitentemperatuur_1c, ent:bezetting_80pct, exec:tijdstip_voorspelling_001;
+  prov:used ent:voorspeld_tijdstip_0530, ent:buitentemperatuur_1c, ent:bezetting_80pct;
   sosa:hasResult ent:hvac_status_aan;
   sosa:madeByActuator actuator:hvac_controller;
   sosa:resultTime "2025-04-01T05:30:00.000"^^xsd:dateTime  .
@@ -276,8 +276,8 @@ exec:historische_data_verzameling
   a sosa:ObservationCollection;
   rdfs:label "Historische data Q1 2025"@nl;
   sosa:phenomenonTime [ a time:ProperInterval;
-                        time:hasBeginning [ a time:Instant;
-                                            time:inXSDDateTime "2025-01-01T00:00:00.000"^^xsd:dateTime ];
-                        time:hasEnd [ a time:Instant;
-                                      time:inXSDDateTime "2025-03-31T00:00:00.000"^^xsd:dateTime ] ];
+                          time:hasBeginning [ a time:Instant;
+                                                time:inXSDDateTime "2025-01-01T00:00:00.000"^^xsd:dateTime ];
+                          time:hasEnd [ a time:Instant;
+                                          time:inXSDDateTime "2025-03-31T00:00:00.000"^^xsd:dateTime ] ];
   sosa:hasMember exec:tijdstip_voorspelling_001, exec:buitentemperatuur_meting_001, exec:bezettingsvoorspelling_001 .

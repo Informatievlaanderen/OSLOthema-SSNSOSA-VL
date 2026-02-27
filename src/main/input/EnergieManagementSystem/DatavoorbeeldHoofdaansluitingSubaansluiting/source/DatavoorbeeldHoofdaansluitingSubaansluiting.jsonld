@@ -1,0 +1,87 @@
+{
+    "@context": [
+        "https://data.vlaanderen.be/doc/applicatieprofiel/energiemanagementsysteem/ontwerpstandaard/2025-05-14/context/energiemanagementsysteem.jsonld",
+        {
+            "Nutsvoorzieningknoop.beginlink": "https://vocab.belgif.be/ns/network#beginLink",
+            "Nutsvoorzieninglink":"https://vocab.belgif.be/ns/utility-services#UtilityLink",
+            "Nutsvoorzieninglink.eindlink": "https://vocab.belgif.be/ns/network#endLink",
+            "Nutsvoorzieninglink.eindknoop": "https://vocab.belgif.be/ns/network#endNode"
+        }
+    ],
+    "@graph": [
+        {
+            "@id": "_:AS001",
+            "@type": "Aansluiting",
+            "Aansluiting.identificator": {
+                "@type": "Identificator",
+                "Identificator.identificator": {
+                    "@value": "541234567890123456",
+                    "@type": "https://example.com/concept/identificatortype/ean_nummer"
+                }
+            },
+            "Aansluiting.inNetwerk": "_:NW001",
+            "Nutsvoorzieningknoop.beginlink": [
+                {
+                    "@type": "Nutsvoorzieninglink",
+                    "Nutsvoorzieninglink.eindknoop": "_:AS002"
+                },
+                {
+                    "@type": "Nutsvoorzieninglink",
+                    "Nutsvoorzieninglink.eindknoop": "_:AS003"
+                }
+            ]
+        },
+        {
+            "@id": "_:AS002",
+            "@type": "Aansluiting",
+            "Aansluiting.identificator": {
+                "@type": "Identificator",
+                "Aansluiting.identificator": {
+                    "@value": "SUBA001",
+                    "@type": "https://example.com/concept/identificatortype/intern_aansluitingsnummer"
+                }
+            },
+            "Aansluiting.inNetwerk": "_:NW002"
+        },
+        {
+            "@id": "_:AS003",
+            "@type": "Aansluiting",
+            "Aansluiting.identificator": {
+                "@type": "Identificator",
+                "Identificator.identificator": {
+                    "@value": "SUBB001",
+                    "@type": "https://example.com/concept/identificatortype/intern_aansluitingsnummer"
+                }
+            },
+            "Aansluiting.inNetwerk": "_:NW002"
+        },
+        {
+            "@id": "_:NW001",
+            "@type": "Nutsvoorzieningnetwerk",
+            "Nutsvoorzieningnetwerk.bevoegdePartij": "_:OG001",
+            "Nutsvoorzieningnetwerk.nutsvoorzieningnetwerktype": "https://example.com/concept/nutsvoorzieningnetwerktype/elektriciteit"
+        },
+        {
+            "@id": "_:NW002",
+            "@type": "Nutsvoorzieningnetwerk",
+            "Nutsvoorzieningnetwerk.bevoegdePartij": "_:OG002",
+            "Nutsvoorzieningnetwerk.nutsvoorzieningnetwerktype": "https://example.com/concept/nutsvoorzieningnetwerktype/elektriciteit"
+        },
+        {
+            "@id": "_:OG001",
+            "@type": "Organisatie",
+            "Organisatie.voorkeursnaam": {
+                "@value": "Fluvius",
+                "@language": "nl"
+            }
+        },
+        {
+            "@id": "_:OG002",
+            "@type": "Organisatie",
+            "Organisatie.voorkeursnaam": {
+                "@value": "Rijksarchief te Brussel",
+                "@language": "nl"
+            }
+        }
+    ]
+}
