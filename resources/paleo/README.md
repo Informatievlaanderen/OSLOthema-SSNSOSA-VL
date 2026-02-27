@@ -131,6 +131,7 @@ O1 -->|hasUltimateFeatureOfInterest| D
 O2 -->|hasUltimateFeatureOfInterest| D
 O1 -->|hasResult| R1
 O2 -->|hasResult| R2
+O2 -->|observedProperty| P2
 R1 -->|correspondsToVariable| P1
 R2 -->|correspondsToVariable| P2
 
