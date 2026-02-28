@@ -7,7 +7,8 @@
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:ex="http://example.org/"
                 xmlns:geo="http://www.opengis.net/ont/geosparql#"
-                xmlns:qudt="http://qudt.org/vocab/unit#"
+                xmlns:unit="http://qudt.org/vocab/unit#"
+                xmlns:qudt="http://qudt.org/schema/qudt/"
                 xmlns:ns4="http://kern.schemas.dov.vlaanderen.be"
                 xmlns:put="https://www.dov.vlaanderen.be/data/put/"
                 xmlns:filter="https://www.dov.vlaanderen.be/data/filter/"
@@ -42,9 +43,9 @@
                     </xsl:attribute>
                 </rdf:Description>
             </sosa:isHostedBy>
-            <dct:author>
+            <dct:creator>
                 <xsl:value-of select="concat(opmerking/auteur/voornaam, ' ', opmerking/auteur/naam)"/>
-            </dct:author>
+            </dct:creator>
             <rdfs:comment>
                 <xsl:value-of select="opmerking/tekst"/>
             </rdfs:comment>
@@ -110,7 +111,7 @@
                             <rdf:value  rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
                                 <xsl:value-of select="diepte_tov_referentiepunt"/>
                             </rdf:value>
-                            <qudt:unit  rdf:resource="http://qudt.org/vocab/unit#Meter"/>
+                            <qudt:hasUnit  rdf:resource="http://qudt.org/vocab/unit#Meter"/>
                         </rdf:Description>
                     </sosa:hasResult>
                     <sosa:observedProperty rdf:resource="http://example.org/diepte_tov_referentiepunt"/>
@@ -126,14 +127,14 @@
                     <xsl:attribute name="rdf:about">
                         <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'peil_mtaw')"/>
                     </xsl:attribute>
-                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/sosa:Observation"/>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
                     <sosa:hasResult>
                         <rdf:Description>
                             <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
                             <rdf:value  rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
                                 <xsl:value-of select="peil_mtaw"/>
                             </rdf:value>
-                            <qudt:unit  rdf:resource="http://qudt.org/vocab/unit#Meter"/>
+                            <qudt:hasUnit  rdf:resource="http://qudt.org/vocab/unit#Meter"/>
                         </rdf:Description>
                     </sosa:hasResult>
                     <sosa:observedProperty rdf:resource="http://example.org/peil_mtaw"/>
@@ -149,7 +150,7 @@
                     <xsl:attribute name="rdf:about">
                         <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'filtertoestand')"/>
                     </xsl:attribute>
-                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/sosa:Observation"/>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
                     <sosa:hasSimpleResult rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">
                         <xsl:value-of select="filtertoestand"/>
                     </sosa:hasSimpleResult>
@@ -162,7 +163,7 @@
                     <xsl:attribute name="rdf:about">
                         <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'filterstatus')"/>
                     </xsl:attribute>
-                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/sosa:Observation"/>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
                     <sosa:hasSimpleResult rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
                         <xsl:value-of select="filterstatus"/>
                     </sosa:hasSimpleResult>
@@ -175,7 +176,7 @@
                     <xsl:attribute name="rdf:about">
                         <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'zoet')"/>
                     </xsl:attribute>
-                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/sosa:Observation"/>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
                     <sosa:hasSimpleResult rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
                         <xsl:value-of select="zoet"/>
                     </sosa:hasSimpleResult>

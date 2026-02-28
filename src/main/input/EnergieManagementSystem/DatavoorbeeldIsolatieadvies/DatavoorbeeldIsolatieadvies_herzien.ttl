@@ -6,10 +6,10 @@
 @prefix sensor:      <https://example.org/sensor/> .
 @prefix exec:        <https://example.org/execution/> .
 @prefix ent:         <https://example.org/entity/> .
-@prefix gebouw:      <https://example.com/gebouw/> .
 @prefix concept:     <https://example.com/concept/> .
 @prefix sosa:        <http://www.w3.org/ns/sosa/> .
-@prefix p-plan:      <http://p-plan.org/> .
+@prefix p-plan:      <http://purl.org/net/p-plan#> .
+@prefix gebouw:      <https://data.vlaanderen.be/ns/gebouw#> .
 @prefix prov:        <http://www.w3.org/ns/prov#> .
 @prefix qudt:        <http://qudt.org/schema/qudt/> .
 @prefix unit:        <http://qudt.org/vocab/unit/> .
@@ -21,11 +21,6 @@
 # *********************************************
 # PLANNING NIVEAU - Abstracte procedure definitie
 # *********************************************
-
-# Het gebouw dat geobserveerd wordt
-gebouw:stadskantoor
-  a gebouw:Gebouw ;
-  gebouw:gebouwnaam "Stadskantoor"@nl .
 
 # Abstracte procedure voor warmteverlies classificatie
 plan:warmteverlies-classificatie
@@ -39,7 +34,7 @@ step:warmteverlies-classificatie
   a p-plan:Step ;
   rdfs:label "Warmteverlies classificatie stap"@nl ;
   p-plan:isStepOfPlan plan:warmteverlies-classificatie ;
-  p-plan:correspondsToProcedure plan:warmteverlies-classificatie .
+  p-plan:isDecomposedAsPlan plan:warmteverlies-classificatie .
 
 # Variabelen op plan niveau
 var:drempelwaarde
@@ -61,10 +56,12 @@ var:klasse
 # DEPLOYMENT NIVEAU - Concrete implementatie
 # *********************************************
 
+# Het gebouw dat geobserveerd wordt
 # Platform waar de meting plaatsvindt
-platform:gebouw-monitoring-systeem
-  a sosa:Platform ;
+gebouw:stadskantoor
+  a sosa:Platform , gebouw:Gebouw;
   sosa:hosts sensor:temperatuur-sensor-001 ;
+  gebouw:gebouwnaam "Stadskantoor"@nl ;
   rdfs:label "Gebouw monitoring systeem"@nl .
 
 # Sensor die gebruikt wordt
@@ -78,7 +75,7 @@ sensor:temperatuur-sensor-001
 deploy:warmteverlies-classificatie-2025
   a sosa:Deployment ;
   rdfs:label "Warmteverlies classificatie implementatie 2025"@nl ;
-  sosa:deployedOnPlatform platform:gebouw-monitoring-systeem ;
+  sosa:deployedOnPlatform gebouw:stadskantoor ;
   sosa:deployedAsset sensor:temperatuur-sensor-001 ;
   sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
 
@@ -100,26 +97,31 @@ exec:classificatie-uitvoering-20250315
   sosa:startTime "2025-03-15T00:00:00Z"^^xsd:dateTime ;
   sosa:endTime "2025-03-15T23:59:59Z"^^xsd:dateTime .
 
-# Concrete entiteiten (instantiaties van plan variabelen)
-ent:drempelwaarde-001
-  a prov:Entity ;
-  rdfs:label "Drempelwaarde 0.4 °C/hr"@nl ;
-  qudt:value "4.0E-1"^^xsd:decimal ;
-  qudt:unit unit:DEG_C-PER-HR ;
-  p-plan:correspondsToVariable var:drempelwaarde .
-
 # Concrete meting van warmteverlies
-ent:meting-001
+exec:meting-001
   a sosa:Observation ;
   rdfs:label "Gemeten warmteverlies 0.415 °C/hr"@nl ;
   sosa:hasFeatureOfInterest gebouw:stadskantoor ;
   sosa:observedProperty concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies ;
-  sosa:hasResult [ a qudt:QuantityValue ;
-                   qudt:value "4.15E-1"^^xsd:decimal ;
-                   qudt:unit unit:DEG_C-PER-HR ] ;
+  sosa:hasResult ent:meting-001;
   sosa:phenomenonTime [ a time:ProperInterval ;
-                        time:hasBeginning [ time:inXSDDateTime "2025-03-15T00:00:00Z"^^xsd:dateTime ] ;
-                        time:hasEnd [ time:inXSDDateTime "2025-03-21T23:59:59Z"^^xsd:dateTime ] ] ;
+                          time:hasBeginning [ time:inXSDDateTime "2025-03-15T00:00:00Z"^^xsd:dateTime ] ;
+                          time:hasEnd [ time:inXSDDateTime "2025-03-21T23:59:59Z"^^xsd:dateTime ] ] ;
+  .
+
+# Concrete entiteiten (instantiaties van plan variabelen)
+ent:drempelwaarde-001
+  a prov:Entity ;
+  rdfs:label "Drempelwaarde 0.4 °C/hr"@nl ;
+  qudt:value "0.4"^^xsd:decimal ;
+  qudt:hasUnit unit:DEG_C-PER-HR ;
+  p-plan:correspondsToVariable var:drempelwaarde .
+
+# Concrete meting van warmteverlies
+ent:meting-001
+   a qudt:QuantityValue ;
+   qudt:value "0.415"^^xsd:decimal ;
+   qudt:hasUnit unit:DEG_C-PER-HR ;
   p-plan:correspondsToVariable var:meting .
 
 # Resultaat van de classificatie
@@ -143,5 +145,4 @@ concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies
 
 concept:warmteverliesklasse_matig
   a skos:Concept ;
-  skos:prefLabel "Matig"@nl ;
-  skos:inScheme concept:kenmerktype_warmteverliesklasse .
+  skos:prefLabel "Matig"@nl .

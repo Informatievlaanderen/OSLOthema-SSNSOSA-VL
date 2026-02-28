@@ -1,0 +1,786 @@
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX cpsv:    <http://purl.org/vocab/cpsv#>
+PREFIX dcat:    <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX eu:      <http://data.europa.eu/m8g/>
+PREFIX foaf:    <http://xmlns.com/foaf/0.1/>
+PREFIX it6:     <http://data.europa.eu/it6/>
+PREFIX locn:    <http://www.w3.org/ns/locn#>
+PREFIX mls:     <http://www.w3.org/ns/mls#>
+PREFIX mlso:    <http://w3id.org/mlso/>
+PREFIX owl:     <http://www.w3.org/2002/07/owl#>
+PREFIX person:  <http://www.w3.org/ns/person#>
+PREFIX prov:    <http://www.w3.org/ns/prov#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX rov:     <http://www.w3.org/ns/regorg#>
+PREFIX schema:  <http://schema.org/>
+PREFIX skos:    <http://www.w3.org/2004/02/skos/core#>
+PREFIX vann:    <http://purl.org/vocab/vann/>
+PREFIX xml:     <http://www.w3.org/XML/1998/namespace>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+
+foaf:name  rdf:type     rdf:Property;
+        rdfs:comment    "A name of the agent.";
+        skos:scopeNote  "This property can be repeated for different versions of the name (e.g. the name in different languages)." .
+
+mlso:hasAlgorithmType
+        rdf:type        rdf:Property;
+        rdfs:comment    "A relation between an algorithm the category of algorithms that belongs to.";
+        skos:scopeNote  "" .
+
+mlso:hasLearningMethodType
+        rdf:type        rdf:Property;
+        rdfs:comment    "A relation between an algorithm learning method and the category of algorithm learning methods that it belongs to.";
+        skos:scopeNote  "" .
+
+dcterms:creator  rdf:type  rdf:Property;
+        rdfs:comment    "An entity responsible for the creation of the Catalogue." , "An entity responsible for producing the Dataset." , "An entity responsible for making the resource.";
+        skos:scopeNote  "" .
+
+dcat:dataset  rdf:type  rdf:Property;
+        rdfs:comment    "A Dataset that is part of the Catalogue.";
+        skos:scopeNote  "As empty Catalogues are usually indications of problems, this property should be combined with the property service to implement an empty Catalogue check." .
+
+dcterms:description  rdf:type  rdf:Property;
+        rdfs:comment    "A free-text account of the Catalogue." , "A free-text account of the Dataset." , "An account of the resource." , "Description of the resource." , "A free-text account of the record." , "An explanation of the quality type." , "" , "An explanation of the attribute.";
+        skos:scopeNote  "This property can be repeated for parallel language versions of the description." , "" .
+
+foaf:homepage  rdf:type  rdf:Property;
+        rdfs:comment    "A web page that acts as the main page for the Catalogue.";
+        skos:scopeNote  "" .
+
+dcterms:identifier  rdf:type  rdf:Property;
+        rdfs:comment    "A unique identifier of the resource being described or cataloged." , "The main identifier for the Dataset, e.g. the URI or other unique identifier in the context of the Catalogue." , "An unambiguous identifier for the resource.";
+        skos:scopeNote  "" .
+
+dcat:keyword  rdf:type  rdf:Property;
+        rdfs:comment    "A keyword or tag describing the resource." , "A keyword or tag describing the Dataset." , "A tag describing the resource." , "";
+        skos:scopeNote  "" .
+
+dcterms:license  rdf:type  rdf:Property;
+        rdfs:comment    "A licence under which the Catalogue can be used or reused." , "A licence under which the Distribution is made available." , "The licence under which the resource is made available." , "A licence under which the Library is made available.";
+        skos:scopeNote  "" .
+
+dcterms:modified  rdf:type  rdf:Property;
+        rdfs:comment    "The most recent date on which the Catalogue was modified." , "The date the machine learning model was last modified." , "The most recent date on which the Catalogue entry was changed or modified.";
+        skos:scopeNote  "" .
+
+dcterms:publisher  rdf:type  rdf:Property;
+        rdfs:comment    "An entity (organisation) responsible for making the Catalogue available." , "An entity (organisation) responsible for making the resource available.";
+        skos:scopeNote  "In case multiple organisations are considered the publishers of the catalogue, it is recommended to use foaf:Group to bundle them into one entity." , "" .
+
+dcat:record  rdf:type   rdf:Property;
+        rdfs:comment    "A Catalogue Record that is part of the Catalogue.";
+        skos:scopeNote  "" .
+
+dcterms:issued  rdf:type  rdf:Property;
+        rdfs:comment    "\tThe date of formal issuance (e.g., publication) of the Catalogue." , "The date of formal issuance (e.g., publication) of the Dataset.";
+        skos:scopeNote  "" .
+
+dcat:service  rdf:type  rdf:Property;
+        rdfs:comment    "A site or end-point (Data Service) that is listed in the Catalogue.";
+        skos:scopeNote  "As empty Catalogues are usually indications of problems, this property should be combined with the property dataset to implement an empty Catalogue check" .
+
+dcterms:title  rdf:type  rdf:Property;
+        rdfs:comment    "A name given to the Catalogue." , "A name given to the Dataset." , "A name given to the Distribution." , "The name assigned to the resource." , "A name associated to the risk." , "A name given to the resource." , "A name assigned to the resource." , "A name given to the Data Service.";
+        skos:scopeNote  "This property can be repeated for parallel language versions of the name." , "" .
+
+dcterms:accessRights  rdf:type  rdf:Property;
+        rdfs:comment    "Information that indicates whether the Dataset is publicly accessible, has access restrictions or is not public.";
+        skos:scopeNote  "The recommended controlled vocabulary is the Access Rights Named Authority List." .
+
+it6:biasMethod  rdf:type  rdf:Property;
+        rdfs:comment    "A description of any methods implemented in data acquisition or processing, if any, to address the prevalence of identifiable biases in the training data.";
+        skos:scopeNote  "" .
+
+it6:collectionDate  rdf:type  rdf:Property;
+        rdfs:comment    "The date the data was originally collected, given by the uploader.";
+        skos:scopeNote  "" .
+
+it6:collectionMethod  rdf:type  rdf:Property;
+        rdfs:comment    "Method used to collect the data, provided by the uploader.";
+        skos:scopeNote  "" .
+
+dcterms:contributor  rdf:type  rdf:Property;
+        rdfs:comment    "\tAn entity responsible for making contributions to the dataset." , "An entity responsible for making contributions to the resource.";
+        skos:scopeNote  "" .
+
+it6:curationMethod  rdf:type  rdf:Property;
+        rdfs:comment    "General description of the data processing involved in transforming the acquired data into training, testing, and validation data for the model, such as cleaning (e.g. filtering out irrelevant content such as advertisements), normalisation (e.g. tokenizing), augmentation (e.g. back-translation).";
+        skos:scopeNote  "" .
+
+it6:dataProvenance  rdf:type  rdf:Property;
+        rdfs:comment    "A documented trail that accounts for the origin of the data.";
+        skos:scopeNote  "" .
+
+dcat:distribution  rdf:type  rdf:Property;
+        rdfs:comment    "An available Distribution for the Dataset.";
+        skos:scopeNote  "" .
+
+dcterms:spatial  rdf:type  rdf:Property;
+        rdfs:comment    "A geographic region that is covered by the Dataset.";
+        skos:scopeNote  "" .
+
+dcat:hasVersion  rdf:type  rdf:Property;
+        rdfs:comment    "A related Dataset that is a version, edition, or adaptation of the described Dataset.";
+        skos:scopeNote  "" .
+
+dcterms:isReferencedBy
+        rdf:type        rdf:Property;
+        rdfs:comment    "A related resource that references, cites, or otherwise points to the dataset.";
+        skos:scopeNote  "" .
+
+dcterms:isVersionOf  rdf:type  rdf:Property;
+        rdfs:comment    "A related Dataset of which the described Dataset is a version, edition, or adaptation.";
+        skos:scopeNote  "" .
+
+dcat:landingPage  rdf:type  rdf:Property;
+        rdfs:comment    "A web page that provides access to the Dataset, its Distributions and/or additional information.";
+        skos:scopeNote  "It is intended to point to a landing page at the original data provider, not to a page on a site of a third party, such as an aggregator." .
+
+dcterms:language  rdf:type  rdf:Property;
+        rdfs:comment    "A language of the Dataset." , "A language used in the Distribution." , "A language of the resource.";
+        skos:scopeNote  "" , "This property can be repeated if the metadata is provided in multiple languages. The recommended controlled vocabulary is the EU Vocabularies Languages Named Authority List." , "The language that the model is able to understand." .
+
+<http://www.w3.org/ns/adms#status>
+        rdf:type        rdf:Property;
+        rdfs:comment    "The stage of the dataset in the context of the publication process." , "";
+        skos:scopeNote  "The recommended controlled vocabulary is the Dataset status code list." , "The recommended controlled vocabulary is the Flow status code list." .
+
+dcat:theme  rdf:type    rdf:Property;
+        rdfs:comment    "A category of the Dataset.";
+        skos:scopeNote  "" .
+
+dcterms:type  rdf:type  rdf:Property;
+        rdfs:comment    "A type of the Dataset." , "The nature or genre of the resource." , "A classification for a quality." , "A classification of the resource.";
+        skos:scopeNote  "A recommended controlled vocabulary data-type is foreseen." , "" , "The recommended controlled vocabulary is the Estimation Procedure type code list." , "The recommended controlled vocabulary is the Feature type code list." , "The recommended controlled vocabulary is the Flow Parameter type code list." , "The recommended controlled vocabulary is the Prediction Feature type code list." .
+
+it6:unsuitabilityMethod
+        rdf:type        rdf:Property;
+        rdfs:comment    "A description of any methods implemented in data acquisition or processing, if any, to detect the presence of unsuitable data sources considering the models intended uses, including but not limited to illegal content, child sexual abuse material (CSAM), non-consensual intimate imagery (NCII), and personal data leading to its unlawful processing.";
+        skos:scopeNote  "" .
+
+dcat:version  rdf:type  rdf:Property;
+        rdfs:comment    "The version indicator (name or identifier) of a resource.";
+        skos:scopeNote  "" .
+
+it6:versionLabel  rdf:type  rdf:Property;
+        rdfs:comment    "User-provided version label, which can be a date, hash, or other identifier relevant to the user.";
+        skos:scopeNote  "" .
+
+it6:visibility  rdf:type  rdf:Property;
+        rdfs:comment    "Settings for a dataset that determine who can access or view it. Options typically include 'Everyone', 'All my friends', 'Only me', or specific user-defined circles.";
+        skos:scopeNote  "The recommended controlled vocabulary is the Dataset visibility code list." , "The recommended controlled vocabulary is the Collection visibility code list." .
+
+dcat:accessService  rdf:type  rdf:Property;
+        rdfs:comment    "A data service that gives access to the distribution of the dataset.";
+        skos:scopeNote  "" .
+
+dcat:accessURL  rdf:type  rdf:Property;
+        rdfs:comment    "\tA URL that gives access to a Distribution of the Dataset.";
+        skos:scopeNote  "The resource at the access URL may contain information about how to get the Dataset." .
+
+dcat:byteSize  rdf:type  rdf:Property;
+        rdfs:comment    "The size of a Distribution in bytes.";
+        skos:scopeNote  "" .
+
+<http://spdx.org/rdf/terms#checksum>
+        rdf:type        rdf:Property;
+        rdfs:comment    "A mechanism that can be used to verify that the contents of a distribution have not changed.";
+        skos:scopeNote  "The checksum is related to the downloadURL." , "" .
+
+it6:defaultTargetAttribute
+        rdf:type        rdf:Property;
+        rdfs:comment    "The primary attribute intended for analysis or processing, if applicable.";
+        skos:scopeNote  "Tasks can also be defined that use another attribute as target." .
+
+dcat:downloadURL  rdf:type  rdf:Property;
+        rdfs:comment    "A URL that is a direct link to a downloadable file in a given format.";
+        skos:scopeNote  "" .
+
+dcterms:format  rdf:type  rdf:Property;
+        rdfs:comment    "The file format of the Distribution." , "The file format, physical medium, or dimensions of the resource." , "";
+        skos:scopeNote  "The recommended controlled vocabulary is the EU Vocabularies File Type Named Authority List." , "" .
+
+<https://w3id.org/dpv#hasData>
+        rdf:type        rdf:Property;
+        rdfs:comment    "Indicates association with Data (may or may not be personal).";
+        skos:scopeNote  "The suggested code list is the Data Categories." .
+
+it6:hasFeature  rdf:type  rdf:Property;
+        rdfs:comment    "The attribute or column being part of a distribution.";
+        skos:scopeNote  "" .
+
+<http://www.w3.org/ns/odrl/2/hasPolicy>
+        rdf:type        rdf:Property;
+        rdfs:comment    "The policy expressing the rights associated with the distribution if using the [[ODRL]] vocabulary.";
+        skos:scopeNote  "" .
+
+<http://www.w3.org/ns/dqv#hasQualityMeasurement>
+        rdf:type        rdf:Property;
+        rdfs:comment    "Metrics that can be performed to assess the quality of any kind of resource (e.g., a dataset, a linkset, a graph, a set of triples). However, in the DQV context, it is generally expected to be used in statements in which subjects are instances of dcat:Dataset or dcat:Distribution.";
+        skos:scopeNote  "" .
+
+it6:ignoreAttribute  rdf:type  rdf:Property;
+        rdfs:comment    "Attributes that should be excluded in modelling, such as identifiers and indexes.";
+        skos:scopeNote  "" .
+
+dcat:mediaType  rdf:type  rdf:Property;
+        rdfs:comment    "The media type of the Distribution as defined in the official register of media types managed by IANA.";
+        skos:scopeNote  "" .
+
+it6:numberOfDatapoints
+        rdf:type        rdf:Property;
+        rdfs:comment    "The total count of individual data entries or observations contained.";
+        skos:scopeNote  "" .
+
+it6:processingDate  rdf:type  rdf:Property;
+        rdfs:comment    "Date of processing.";
+        skos:scopeNote  "" .
+
+it6:processingError  rdf:type  rdf:Property;
+        rdfs:comment    "Errors discovered while processing the dataset.";
+        skos:scopeNote  "" .
+
+it6:processingWarning
+        rdf:type        rdf:Property;
+        rdfs:comment    "Warnings while processing the dataset.";
+        skos:scopeNote  "" .
+
+it6:rowIDAttribute  rdf:type  rdf:Property;
+        rdfs:comment    "The attribute that represents the row-id column, if present in the dataset.";
+        skos:scopeNote  "" .
+
+it6:url  rdf:type       rdf:Property;
+        rdfs:comment    "The url of the file to be downloaded." , "";
+        skos:scopeNote  "" .
+
+it6:mitigation  rdf:type  rdf:Property;
+        rdfs:comment    "The action of reducing the likelihood or severity of the risk.";
+        skos:scopeNote  "" .
+
+it6:nature  rdf:type    rdf:Property;
+        rdfs:comment    "The inherent characteristics of the risk.";
+        skos:scopeNote  "" .
+
+it6:probability  rdf:type  rdf:Property;
+        rdfs:comment    "The likelihood that a given event will occur.";
+        skos:scopeNote  "" .
+
+it6:severity  rdf:type  rdf:Property;
+        rdfs:comment    "The extent of the damage resulting from an event occurring.";
+        skos:scopeNote  "" .
+
+it6:source  rdf:type    rdf:Property;
+        rdfs:comment    "The origin or cause of the risk.";
+        skos:scopeNote  "" .
+
+it6:bias  rdf:type      rdf:Property;
+        rdfs:comment    "A description of the possible biases affecting the overall output of the model.";
+        skos:scopeNote  "" .
+
+dcterms:created  rdf:type  rdf:Property;
+        rdfs:comment    "Date of creation of the resource.";
+        skos:scopeNote  "" .
+
+it6:designSpecifications
+        rdf:type        rdf:Property;
+        rdfs:comment    "A general description of the main steps or stages involved in the training process, including training methodologies and techniques, the key design choices, assumptions made and what the model is designed to optimise for, and the relevance of different parameters, as applicable.";
+        skos:scopeNote  "" .
+
+it6:evaluationResults
+        rdf:type        rdf:Property;
+        rdfs:comment    "A description of the evaluation against the validation dataset.";
+        skos:scopeNote  "" .
+
+it6:evaluationStrategies
+        rdf:type        rdf:Property;
+        rdfs:comment    "A description of the evaluation strategy used.";
+        skos:scopeNote  "" .
+
+it6:fineTunedFrom  rdf:type  rdf:Property;
+        rdfs:comment    "The model from on which this model has been fine tuned.";
+        skos:scopeNote  "" .
+
+it6:hasBenchmark  rdf:type  rdf:Property;
+        rdfs:comment    "The benchmarks used to evaluate this model.";
+        skos:scopeNote  "" .
+
+it6:hasBibliographicReference
+        rdf:type        rdf:Property;
+        rdfs:comment    "The reference to a paper.";
+        skos:scopeNote  "" .
+
+it6:hasEngagement  rdf:type  rdf:Property;
+        rdfs:comment    "Statistics resulting of user engagement.";
+        skos:scopeNote  "" .
+
+it6:hasFile  rdf:type   rdf:Property;
+        rdfs:comment    "The file in which the model is expressed." , "";
+        skos:scopeNote  "" .
+
+it6:hasInputModality  rdf:type  rdf:Property;
+        rdfs:comment    "The modality of the input of the model.";
+        skos:scopeNote  "" .
+
+it6:hasOutputModality
+        rdf:type        rdf:Property;
+        rdfs:comment    "The modality of the output of the model.";
+        skos:scopeNote  "" .
+
+it6:hasPrediction  rdf:type  rdf:Property;
+        rdfs:comment    "The predicted dataset generated as output of a machine learning model.";
+        skos:scopeNote  "" .
+
+it6:hasProvider  rdf:type  rdf:Property;
+        rdfs:comment    "A natural or legal person, public authority, agency or other body that develops a Machine Learning Model or places it on the market or puts the it into service under its own name or trademark, whether for payment or free of charge.";
+        skos:scopeNote  "" .
+
+it6:hasRegisteredUser
+        rdf:type        rdf:Property;
+        rdfs:comment    "The registered user associated to the model.";
+        skos:scopeNote  "" .
+
+it6:hasRepository  rdf:type  rdf:Property;
+        rdfs:comment    "The repository associated.";
+        skos:scopeNote  "" .
+
+it6:hasRisk  rdf:type   rdf:Property;
+        rdfs:comment    "A possible risk that can occur.";
+        skos:scopeNote  "" .
+
+it6:hasUploader  rdf:type  rdf:Property;
+        rdfs:comment    "An entity responsible for uploading the resource.";
+        skos:scopeNote  "" .
+
+it6:hasVariation  rdf:type  rdf:Property;
+        rdfs:comment    "The model that is variant of this model.";
+        skos:scopeNote  "" .
+
+it6:howToUse  rdf:type  rdf:Property;
+        rdfs:comment    "An explanation of how to use or deploy the model.";
+        skos:scopeNote  "" .
+
+it6:intendedUse  rdf:type  rdf:Property;
+        rdfs:comment    "The prescribed application of the model.";
+        skos:scopeNote  "" .
+
+<http://purl.org/cerif/frapo/isFundedBy>
+        rdf:type        rdf:Property;
+        rdfs:comment    "An object property linking something to the funding that funds it (i.e. that finances or pays for it), or to the funding agency providing that funding.  This flexibility is given because of alternative usages of the English word 'funds'.";
+        skos:scopeNote  "" .
+
+it6:limitations  rdf:type  rdf:Property;
+        rdfs:comment    "The limited capabilities of the model.";
+        skos:scopeNote  "" .
+
+eu:logo  rdf:type       rdf:Property;
+        rdfs:comment    "An image or logo of the model.";
+        skos:scopeNote  "" .
+
+it6:methodOfDistribution
+        rdf:type        rdf:Property;
+        rdfs:comment    "A method of distribution through which the model has been made or can be made available to downstream providers.";
+        skos:scopeNote  "" .
+
+it6:modelArchitecture
+        rdf:type        rdf:Property;
+        rdfs:comment    "A general description of the model architecture, e.g. a transformer architecture.";
+        skos:scopeNote  "" .
+
+it6:placedOnMarketDate
+        rdf:type        rdf:Property;
+        rdfs:comment    "Date when the model was placed on the Union market.";
+        skos:scopeNote  "" .
+
+it6:releaseDate  rdf:type  rdf:Property;
+        rdfs:comment    "The date a model is released.";
+        skos:scopeNote  "" .
+
+it6:runnedOn  rdf:type  rdf:Property;
+        rdfs:comment    "The dataset on which a machine learning model is executed.";
+        skos:scopeNote  "" .
+
+it6:shortDescription  rdf:type  rdf:Property;
+        rdfs:comment    "A short description of a machine learning model.";
+        skos:scopeNote  "" .
+
+it6:testedOn  rdf:type  rdf:Property;
+        rdfs:comment    "The testing dataset used to evaluate the machine learning model.";
+        skos:scopeNote  "" .
+
+it6:testingDescription
+        rdf:type        rdf:Property;
+        rdfs:comment    "A detailed description of the measures put in place for the purpose of conducting internal and/or external adversarial testing (e.g. red teaming), model adaptations, including alignment and fine-tuning.";
+        skos:scopeNote  "" .
+
+it6:totalNumberOfParameters
+        rdf:type        rdf:Property;
+        rdfs:comment    "The total number of parameters of the model.";
+        skos:scopeNote  "" .
+
+it6:trainedOn  rdf:type  rdf:Property;
+        rdfs:comment    "The training dataset used to train the machine learning model.";
+        skos:scopeNote  "" .
+
+it6:trainingMethodologies
+        rdf:type        rdf:Property;
+        rdfs:comment    "A description of the methodologies used.";
+        skos:scopeNote  "" .
+
+it6:trainingProcess  rdf:type  rdf:Property;
+        rdfs:comment    "A description of the training process.";
+        skos:scopeNote  "" .
+
+it6:validatedOn  rdf:type  rdf:Property;
+        rdfs:comment    "The validation dataset used to fine-tune the machine learning model.";
+        skos:scopeNote  "" .
+
+it6:version  rdf:type   rdf:Property;
+        rdfs:comment    "The current version of the model." , "" , "Version of the resource.";
+        skos:scopeNote  "" .
+
+dcterms:abstract  rdf:type  rdf:Property;
+        rdfs:comment    "A summary of the resource.";
+        skos:scopeNote  "" .
+
+dcterms:date  rdf:type  rdf:Property;
+        rdfs:comment    "A point or period of time associated with an event in the lifecycle of the resource.";
+        skos:scopeNote  "" .
+
+it6:hasDocument  rdf:type  rdf:Property;
+        rdfs:comment    "The url or location of the document itself.";
+        skos:scopeNote  "" .
+
+<https://linkedpaperswithcode.com/property/hasModel>
+        rdf:type        rdf:Property;
+        rdfs:comment    "The model that is used by a paper or an evaluation.";
+        skos:scopeNote  "" .
+
+<https://linkedpaperswithcode.com/property/hasRepository>
+        rdf:type        rdf:Property;
+        rdfs:comment    "The repository of a paper.";
+        skos:scopeNote  "" .
+
+dcterms:references  rdf:type  rdf:Property;
+        rdfs:comment    "A related resource that is referenced, cited, or otherwise pointed to by the described resource.";
+        skos:scopeNote  "" .
+
+dcterms:subject  rdf:type  rdf:Property;
+        rdfs:comment    "A topic of the resource.";
+        skos:scopeNote  "" .
+
+
+<http://purl.org/linked-data/cube#dataSet>
+        rdf:type        rdf:Property;
+        rdfs:comment    "The data set of which this observation is a part.";
+        skos:scopeNote  "" .
+
+it6:MachineLearningModel a owl:Class ;
+        rdfs:isDefinedBy <http://data.europa.eu/it6/> .
+
+it6:featureIndex  rdf:type  rdf:Property;
+        rdfs:comment    "The feature on which the quality is measure on.";
+        skos:scopeNote  "" .
+
+it6:intervalEnd  rdf:type  rdf:Property;
+        rdfs:comment    "The maximum value of the Quality Measure." , "";
+        skos:scopeNote  "" .
+
+it6:intervalStart  rdf:type  rdf:Property;
+        rdfs:comment    "The minimum value of the Quality Measure." , "";
+        skos:scopeNote  "" .
+
+<http://www.w3.org/ns/dqv#value>
+        rdf:type        rdf:Property;
+        rdfs:comment    "Values computed by metric.";
+        skos:scopeNote  "" .
+
+dcterms:bibliographicCitation
+        rdf:type        rdf:Property;
+        rdfs:comment    "A bibliographic reference for the resource.";
+        skos:scopeNote  "" .
+
+it6:descriptionVersion
+        rdf:type        rdf:Property;
+        rdfs:comment    "Version number of the description. '1' for original version.";
+        skos:scopeNote  "" .
+
+foaf:primaryTopic  rdf:type  rdf:Property;
+        rdfs:comment    "A link to the Dataset, Data service or Catalog described in the record.";
+        skos:scopeNote  "A catalogue record will refer to one entity in a catalogue. This can be either a Dataset or a Data Service. To ensure an unambiguous reading of the cardinality the range is set to Catalogued Resource. However it is not the intend with this range to require the explicit use of the class Catalogued Record. As abstract class, an subclass should be used." .
+
+<http://spdx.org/rdf/terms#algorithm>
+        rdf:type        rdf:Property;
+        rdfs:comment    "The algorithm used to produce the subject Checksum.";
+        skos:scopeNote  "The members of this property are the supported checksum algorithms." .
+
+<http://spdx.org/rdf/terms#checksumValue>
+        rdf:type        rdf:Property;
+        rdfs:comment    "A lower case hexadecimal encoded digest value produced using a specific algorithm.";
+        skos:scopeNote  "" .
+
+it6:creationDate  rdf:type  rdf:Property;
+        rdfs:comment    "Date of creation of the resource.";
+        skos:scopeNote  "" .
+
+it6:hasHardware  rdf:type  rdf:Property;
+        rdfs:comment    "The hardware associated with the computer infrastructure.";
+        skos:scopeNote  "" .
+
+it6:hasLibrary  rdf:type  rdf:Property;
+        rdfs:comment    "The library associated with the computer infrastructure.";
+        skos:scopeNote  "" .
+
+dcat:endpointURL  rdf:type  rdf:Property;
+        rdfs:comment    "The root location or primary endpoint of the service (an IRI).";
+        skos:scopeNote  "" .
+
+dcat:servesDataset  rdf:type  rdf:Property;
+        rdfs:comment    "A collection of data that this data service can distribute.";
+        skos:scopeNote  "" .
+
+it6:servesModel  rdf:type  rdf:Property;
+        rdfs:comment    "A model that this data service can distribute.";
+        skos:scopeNote  "" .
+
+it6:download  rdf:type  rdf:Property;
+        rdfs:comment    "The number of downloads of the machine learning model.";
+        skos:scopeNote  "" .
+
+it6:like  rdf:type      rdf:Property;
+        rdfs:comment    "The number of likes the machine learning model received.";
+        skos:scopeNote  "" .
+
+it6:carbonEmitted  rdf:type  rdf:Property;
+        rdfs:comment    "The emitted carbon.";
+        skos:scopeNote  "" .
+
+it6:measurementMethodology
+        rdf:type        rdf:Property;
+        rdfs:comment    "The methodology with which the resource was measured.";
+        skos:scopeNote  "" .
+
+it6:powerConsumption  rdf:type  rdf:Property;
+        rdfs:comment    "The consumed power.";
+        skos:scopeNote  "" .
+
+it6:hasParameter  rdf:type  rdf:Property;
+        rdfs:comment    "The configured setting.";
+        skos:scopeNote  "" .
+
+it6:hasSplit  rdf:type  rdf:Property;
+        rdfs:comment    "The split that is used for the estimation procedure.";
+        skos:scopeNote  "" .
+
+it6:arrayData  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:fold  rdf:type      rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasFlow  rdf:type   rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+rdfs:label  rdf:type    rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:repeat  rdf:type    rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:sample  rdf:type    rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:sampleSize  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:stdev  rdf:type     rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:value  rdf:type     rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:implementation  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:valueBad  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:valueGood  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:className  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:customName  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:externalVersion  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasDependency  rdf:type  rdf:Property;
+        rdfs:comment    "The libraries that a flow depends on.";
+        skos:scopeNote  "" .
+
+it6:hasFlowParameter  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:uploaded  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:defaultValue  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:recommendedRange  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:isExecutedBy  rdf:type  rdf:Property;
+        rdfs:comment    "The library that is executed by this file.";
+        skos:scopeNote  "" .
+
+it6:classification  rdf:type  rdf:Property;
+        rdfs:comment    "The classification of the modality.";
+        skos:scopeNote  "" .
+
+it6:size  rdf:type      rdf:Property;
+        rdfs:comment    "The maximum size of the modality.";
+        skos:scopeNote  "" .
+
+it6:component  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasPredictionFeature
+        rdf:type        rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:evaluationEngine  rdf:type  rdf:Property;
+        rdfs:comment    "The engine responsible for extracting the features.";
+        skos:scopeNote  "" .
+
+it6:errorMessage  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+mls:realizes  rdf:type  rdf:Property;
+        rdfs:comment    "The Algorithm executed by the run.";
+        skos:scopeNote  "" .
+
+it6:hasEvaluation  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasInferencingImpact
+        rdf:type        rdf:Property;
+        rdfs:comment    "The impact of inferencing the model.";
+        skos:scopeNote  "" .
+
+it6:hasOutputFileDescription
+        rdf:type        rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasOutputFilePrediction
+        rdf:type        rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasTask  rdf:type   rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasTrainingImpact
+        rdf:type        rdf:Property;
+        rdfs:comment    "Measured or estimated amount of energy used for training.";
+        skos:scopeNote  "" .
+
+it6:runDetails  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:setupId  rdf:type   rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:setupString  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:trainingTime  rdf:type  rdf:Property;
+        rdfs:comment    "A description of the training time.";
+        skos:scopeNote  "" .
+
+it6:hasRun  rdf:type    rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:isAppliedTo  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasCostMatrix  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasEstimationProcedure
+        rdf:type        rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasEvaluationMeasure
+        rdf:type        rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasOutput  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:hasTaskType  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "The recommended controlled vocabulary is the Task type code list." .
+
+it6:sourceData  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+it6:targetFeature  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+skos:definition  rdf:type  rdf:Property;
+        rdfs:comment    "";
+        skos:scopeNote  "" .
+
+skos:notation  rdf:type  rdf:Property;
+        rdfs:comment    "An unambiguous identifier for the resource.";
+        skos:scopeNote  "" .
+
+skos:prefLabel  rdf:type  rdf:Property;
+        rdfs:comment    "The name assigned to the resource.";
+        skos:scopeNote  "" .
+
+<https://semiceu.github.io/MLDCAT-AP/releases/3.0.0/#h2_sotd>
+        <http://www.w3.org/1999/xhtml/vocab#role>
+                <http://www.w3.org/1999/xhtml/vocab#heading> .

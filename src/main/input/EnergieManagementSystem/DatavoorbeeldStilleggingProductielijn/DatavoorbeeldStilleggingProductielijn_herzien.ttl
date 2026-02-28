@@ -13,7 +13,7 @@
 @prefix inputtype:     <https://example.com/concept/inputtype/> .
 @prefix toestelstatus: <https://example.com/concept/toestelstatus/> .
 @prefix sosa:        <http://www.w3.org/ns/sosa/> .
-@prefix p-plan:      <http://p-plan.org/> .
+@prefix p-plan:      <http://purl.org/net/p-plan#> .
 @prefix prov:        <http://www.w3.org/ns/prov#> .
 @prefix qudt:        <http://qudt.org/schema/qudt/> .
 @prefix unit:        <http://qudt.org/vocab/unit/> .
@@ -33,17 +33,11 @@
 # *******************************************
 
 
-# Productielijn als feature of interest
-saref:productielijn_houtbewerking
-  a saref:Device;
-  dct:type <https://example.com/concept/domeinobjecttype/productielijn_houtbewerking>;
-  saref:isLocatedIn gebouw:fabriek_kortrijk .
 
 # Abstracte procedure voor productielijn aansturing
 plan:productielijn_aansturing
   a p-plan:Plan, sosa:Procedure;
   rdfs:label "Productielijn aansturing procedure"@nl;
-  p-plan:hasStep step:beslis_stillegging;
   sosa:hasInput var:elektriciteitsprijs_drempel, var:max_stillegging_duur, var:min_stillegging_duur;
   sosa:hasOutput var:toestel_status .
 
@@ -84,18 +78,17 @@ var:toestel_status
 # DEPLOYMENT NIVEAU - Concrete implementatie
 # *******************************************
 
+
 # Platform (fabriek automatiseringssysteem)
 # Het gebouw en productielijn
-gebouw:fabriek_kortrijk
-  a gebouw:Gebouw;
-  gebouw:gebouwnaam "Fabriek Kortrijk"@nl;
-  locn:address [ a locn:Address;
-                   locn:fullAddress "Voorbeeldstraat 123, 8500 Kortrijk"@nl ] .
 
-platform:fabriek_automatisering
-  a sosa:Platform;
+gebouw:fabriek_kortrijk
+  a sosa:Platform, gebouw:Gebouw;
   rdfs:label "Fabriek Automatiseringssysteem"@nl;
-  sosa:hosts sensor:elektriciteitsprijs_sensor, actuator:productielijn_controller .
+  dct:type <https://example.com/concept/domeinobjecttype/productielijn_houtbewerking>;
+  sosa:hosts sensor:elektriciteitsprijs_sensor, actuator:productielijn_controller ;
+  gebouw:gebouwnaam "Fabriek Kortrijk"@nl;
+  locn:address [ a locn:Address;  locn:fullAddress "Voorbeeldstraat 123, 8500 Kortrijk"@nl ] .
 
 # Sensor voor elektriciteitsprijs
 sensor:elektriciteitsprijs_sensor
@@ -115,7 +108,7 @@ deploy:productielijn_2025
   a sosa:Deployment;
   rdfs:label "Productielijn aansturing implementatie 2025"@nl;
   sosa:implements plan:productielijn_aansturing;
-  sosa:deployedOnPlatform platform:fabriek_automatisering;
+  sosa:deployedOnPlatform gebouw:fabriek_kortrijk;
   sosa:deployedAsset sensor:elektriciteitsprijs_sensor, actuator:productielijn_controller;
   sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
 
@@ -127,7 +120,7 @@ deploy:productielijn_2025
 exec:prijs_observatie_20250214
   a sosa:Observation;
   rdfs:label "Elektriciteitsprijs observatie 14 feb 2025"@nl;
-  sosa:hasFeatureOfInterest saref:productielijn_houtbewerking;
+  sosa:hasFeatureOfInterest gebouw:fabriek_kortrijk;
   sosa:observedProperty observeerbaar_kenmerk:day_ahead_elektriciteitsprijs;
   sosa:hasResult ent:prijs_105eur;
   sosa:madeBySensor sensor:elektriciteitsprijs_sensor;
@@ -142,7 +135,7 @@ exec:stillegging_20250214
   a sosa:Actuation ;
   rdfs:label "Productielijn stillegging 14 feb 2025"@nl;
   p-plan:correspondsToStep step:beslis_stillegging;
-  sosa:hasFeatureOfInterest saref:productielijn_houtbewerking;
+  sosa:hasFeatureOfInterest gebouw:fabriek_kortrijk;
   sosa:actsOnProperty observeerbaar_kenmerk:toestelstatus;
   prov:used ent:drempel_100eur, ent:max_8hr, ent:min_4hr, ent:prijs_105eur;
   sosa:hasResult ent:status_uit;
@@ -155,27 +148,27 @@ ent:drempel_100eur
   rdfs:label "Elektriciteitsprijs drempel 100 EUR/MWh"@nl;
   p-plan:correspondsToVariable var:elektriciteitsprijs_drempel;
   qudt:value "100"^^rdfs:Literal;
-  qudt:unit  unit:EUR-PER-MegaW-HR .
+  qudt:hasUnit unit:EUR-PER-MegaW-HR .
 
 ent:max_8hr
   a prov:Entity;
   rdfs:label "Maximale stillegging duur 8 uur"@nl;
   p-plan:correspondsToVariable var:max_stillegging_duur;
   qudt:value "8"^^rdfs:Literal;
-  qudt:unit  unit:HR .
+  qudt:hasUnit unit:HR .
 
 ent:min_4hr
   a prov:Entity;
   rdfs:label "Minimale stillegging duur 4 uur"@nl;
   p-plan:correspondsToVariable var:min_stillegging_duur;
   qudt:value "4"^^rdfs:Literal;
-  qudt:unit  unit:HR .
+  qudt:hasUnit unit:HR .
 
 ent:prijs_105eur
   a sosa:Result;
   rdfs:label "Elektriciteitsprijs 105 EUR/MWh"@nl;
   qudt:value "105"^^rdfs:Literal;
-  qudt:unit  unit:EUR-PER-MegaW-HR .
+  qudt:hasUnit unit:EUR-PER-MegaW-HR .
 
 ent:status_uit
   a sosa:Result;

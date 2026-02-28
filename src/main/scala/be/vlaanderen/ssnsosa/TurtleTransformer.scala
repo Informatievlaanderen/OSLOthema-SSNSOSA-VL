@@ -9,8 +9,9 @@ import org.apache.jena.reasoner.rulesys.{GenericRuleReasoner, Rule}
 import org.apache.jena.reasoner.{Reasoner, ReasonerRegistry}
 import org.apache.jena.riot.{Lang, RDFParser}
 import org.apache.jena.shacl.Shapes
-import org.apache.spark.sql.SparkSession
 import org.slf4j.LoggerFactory
+import org.apache.jena.vocabulary.RDF
+import org.apache.jena.rdf.model.Resource
 
 import java.io._
 import scala.collection.JavaConverters._
@@ -170,56 +171,9 @@ object TurtleTransformer {
      *
      * @param graph the JSON-LD `@graph` array
      * @param inputPath original input file path (used for output resolution)
-     * @param spark active Spark session
      */
 
-    def writeGraphToParquet(graph: JsonNode, inputPath: String, spark: SparkSession): Unit = {
-    import spark.implicits._
-    import org.apache.spark.sql.functions._
 
-    val outputPath = inputPath
-      .replace("/input/", "/output/parquet/")
-      .replace(".ttl", "")
-
-    ensureParentDir(new File(outputPath))
-
-    val records = graph.elements().asScala
-      .map(n => mapper.writeValueAsString(n))
-      .toSeq
-
-    if (records.nonEmpty) {
-      val df = spark.read.json(spark.createDataset(records))
-
-      // Sanitize column names: replace any non-alphanumeric character with underscore
-      def sanitize(name: String): String = name.replaceAll("[^A-Za-z0-9_]", "_")
-
-      val preferredCols = Seq("uri", "type", "label")
-      val orderedCols =
-        preferredCols.filter(df.columns.contains) ++
-          df.columns.filterNot(preferredCols.contains)
-
-      // Rename all columns to sanitized names to avoid Spark unresolved-column errors
-      val renamedDf = df.columns.foldLeft(df) { (acc, c) =>
-        acc.withColumnRenamed(c, sanitize(c))
-      }
-
-      // Reorder columns: prefered columns (sanitized) first, then the rest
-      val sanitizedPreferred = preferredCols.filter(df.columns.contains).map(sanitize)
-      val remaining = renamedDf.columns.filterNot(sanitizedPreferred.contains)
-      val outDf = renamedDf.select((sanitizedPreferred ++ remaining).map(col): _*)
-
-      outDf.coalesce(1)
-        .write.mode("overwrite")
-        .parquet(outputPath)
-
-      val schemaJson = outDf.schema.json
-      val writer = new FileWriter(outputPath + "/_schema.json")
-      try writer.write(schemaJson)
-      finally writer.close()
-
-      //Files.write(Paths.get(outputPath + "/_schema.json"), schemaJson.getBytes("UTF-8"))
-    }
-  }
 
   /** JSON → bestand */
   def writeJson(json: JsonNode, inputPath: String, typ: String): Unit = {
@@ -245,15 +199,43 @@ object TurtleTransformer {
     model
   }
 
-  /** Ontologie laden */
-  def loadOntology(path: String): Model = {
-    val model = ModelFactory.createDefaultModel()
-    RDFParser.create()
-      .source(new FileInputStream(path))
-      .lang(Lang.TURTLE)
-      .parse(model)
-    model
-  }
+
+
+
+    def checkVocabularyUsage(model: Model, ontology: Model): ValidationResult = {
+
+      val errors = scala.collection.mutable.ListBuffer[String]()
+
+      // 1️⃣ Check properties
+      model.listStatements().asScala.foreach { stmt =>
+        val predicate = stmt.getPredicate
+        if (predicate.isURIResource) {
+          val uri = predicate.getURI
+          val exists =
+            ontology.containsResource(ontology.getProperty(uri))
+
+          if (!exists) {
+            errors += s"Onbekende property: $uri"
+          }
+        }
+      }
+
+      // 2️⃣ Check classes via rdf:type
+      model.listStatements(null, RDF.`type`, null).asScala.foreach { stmt =>
+        val obj = stmt.getObject
+        if (obj.isURIResource) {
+          val uri = obj.asResource().getURI
+          val exists =
+            ontology.containsResource(ontology.getResource(uri))
+
+          if (!exists) {
+            errors += s"Onbekende class: $uri"
+          }
+        }
+      }
+
+      ValidationResult(errors.isEmpty, errors.distinct.toSeq)
+    }
 
   /** Inferentie uitvoeren */
   def inferTriples(dataModel: Model, ontologyModel: Model, reasoner: GenericRuleReasoner): Model = {
@@ -268,9 +250,6 @@ object TurtleTransformer {
 
   /** Validatie t.o.v. ontologie */
   def validateModel(model: Model, owlReasonerWithSchema: Reasoner): ValidationResult = {
-    //val owlReasoner = ReasonerRegistry.getOWLReasoner
-    //val owlReasoner = ReasonerRegistry.getOWLMiniReasoner
-    //val owlReasonerWithSchema = owlReasoner.bindSchema(ontology) // Voeg ontology toe aan reasoner
     val infModel = ModelFactory.createInfModel(owlReasonerWithSchema, model) // gebruik inferredModel
 
     val report = infModel.validate()
@@ -327,7 +306,6 @@ object TurtleTransformer {
      * @param owlReasonerWithSchema OWL reasoner with bound schema
      * @param shaclShapes           SHACL shapes for validation
      * @param frame                 JSON-LD frame definition
-     * @param spark                 Spark session for Parquet output
      * @param file                  original input file (used for output paths)
      * @example
      * {{{
@@ -339,13 +317,12 @@ object TurtleTransformer {
      *   owlReasonerWithSchema,
      *   shaclShapes,
      *   frame,
-     *   spark,
      *   new File("example.ttl")
      * )
      * }}}
      */
 
-    def processModel(model: Model, inferenceOntology: Model, reasoner: GenericRuleReasoner, owlReasonerWithSchema: Reasoner, shaclShapes: Shapes, frame: JsonNode, spark: SparkSession, file: File): Unit = {
+    def processModel(model: Model, inferenceOntology: Model, reasoner: GenericRuleReasoner, owlReasonerWithSchema: Reasoner, shaclShapes: Shapes, frame: JsonNode, file: File): Unit = {
       val inferredModel = inferTriples(model, inferenceOntology, reasoner)
 
       // Schrijf Turtle
@@ -362,7 +339,7 @@ object TurtleTransformer {
 
       // Shacl validation
       val report = ShaclValidator.validate(inferredModel, shaclShapes) // gebruik inferredModel
-      ShaclValidator.printReport(report)
+      //ShaclValidator.printReport(report)
 
       // JSON-LD verwerking
       for {
@@ -373,7 +350,6 @@ object TurtleTransformer {
       } {
         //writeJson(graph, file.getPath, "json") // alleen @graph
         //writeJson(framed, file.getPath, "jsonld") // volledig framed document
-        //writeGraphToParquet(graph, file.getPath, spark)
       }
     }
 
@@ -423,10 +399,7 @@ object TurtleTransformer {
         .getOWLMiniReasoner
         .bindSchema(reasoningOntology)
 
-    val spark = SparkSession.builder()
-      .appName("TurtleTransformerExample")
-      .master("local[*]")
-      .getOrCreate()
+
 
     val completeDataModel = ModelFactory.createDefaultModel()
 
@@ -438,12 +411,21 @@ object TurtleTransformer {
 
       val model = parseTurtle(file)
       completeDataModel.add(model)
-      processModel(model, inferenceOntology, reasoner, owlReasonerWithSchema, shaclShapes, frame, spark, file)
+
+      val vocabValidation = checkVocabularyUsage(model, completeOntology)
+
+      if (!vocabValidation.valid) {
+        vocabValidation.messages.foreach(m =>
+          logger.warn(s"❌ [VOCAB ERROR] ${file.getName}: $m")
+        )
+      }
+
+      processModel(model, inferenceOntology, reasoner, owlReasonerWithSchema, shaclShapes, frame, file)
 
     }
 
-    processModel(completeDataModel, inferenceOntology, reasoner, owlReasonerWithSchema, shaclShapes, frame, spark, new File("src/main/input/consolidated/consolidated.ttl"))
+    //processModel(completeDataModel, inferenceOntology, reasoner, owlReasonerWithSchema, shaclShapes, frame,  new File("src/main/input/consolidated/consolidated.ttl"))
 
-    spark.stop()
+
   }
 }
