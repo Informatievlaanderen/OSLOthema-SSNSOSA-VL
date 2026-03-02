@@ -445,28 +445,24 @@ exec:smelten-2026-02-10 a sosa:Actuation ;
     rdfs:label "Verhitten"@nl ;
     p-plan:correspondsToStep step:smelten ;
     sosa:usedProcedure plan:smelten ;
-    sosa:hasFeatureOfInterest ent:boter_001 ;
+    sosa:hasFeatureOfInterest ent:mengsel_001 ;   # sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used . Message: maxCount[1]: Invalid cardinality: expected max 1:
     sosa:actsOnProperty prop:toestand-boter-chocolade ;
     sosa:resultTime "2026-02-10T20:30:00Z"^^xsd:dateTime ;
     prov:wasInformedBy exec:als-recipient-functioneren-2026-02-10, exec:verhitten-2026-02-10 , exec:homogeniseren-2026-02-10 ;
-    prov:used
-        ent:boter_001,
-        ent:chocolade_001 ;
+    prov:used ent:boter_001,  ent:chocolade_001 ; # sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
     sosa:hasResult ent:gesmolten-mengsel_001 ;
     sosa:madeByActuator inst:smeltsysteem-geert  ;
 .
+
 
 exec:mengen-2026-02-10 a sosa:Actuation ;
     rdfs:label "Mengen"@nl ;
     p-plan:correspondsToStep  step:mengen ;
     sosa:usedProcedure plan:mengen ;
-    sosa:hasFeatureOfInterest ent:gesmolten-mengsel_001 ;
+    sosa:hasFeatureOfInterest ent:mengsel_002 ;   # sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used . Message: maxCount[1]: Invalid cardinality: expected max 1:
     sosa:actsOnProperty prop:toestand-bestanddelen ;
     sosa:resultTime "2026-02-10T20:45:00Z"^^xsd:dateTime ;
-    prov:used ent:gesmolten-mengsel_001 ,
-                  ent:suiker_001 ,
-                  ent:eieren_001 ,
-                  ent:bloem_001 ;
+    prov:used ent:gesmolten-mengsel_001, ent:suiker_001, ent:eieren_001, ent:bloem_001 ;  # sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used . Message: maxCount[1]: Invalid cardinality: expected max 1:
     sosa:hasResult ent:beslag_001  ;
     sosa:madeByActuator inst:keukenrobot-geert ;
 .
@@ -475,10 +471,10 @@ exec:hakken-2026-02-10 a sosa:Actuation ;
     rdfs:label "Hakken van walnoten."@nl ;
     p-plan:correspondsToStep  step:hakken ;
     sosa:usedProcedure plan:hakken ;
-    sosa:hasFeatureOfInterest ent:walnoten_001 ;
+    sosa:hasFeatureOfInterest ent:walnoten_001 ; # sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
     sosa:actsOnProperty prop:toestand-walnoten ;
     sosa:resultTime "2026-02-10T20:50:00Z"^^xsd:dateTime ;
-    prov:used ent:walnoten_001;
+    prov:used ent:walnoten_001; # sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
     sosa:hasResult ent:gehakte-walnoten_001  ;
     sosa:madeByActuator inst:haksysteem-geert ;
 .
@@ -487,10 +483,10 @@ exec:bakken-2026-02-10 a sosa:Actuation ;
     rdfs:label "Bakken"@nl ;
     p-plan:correspondsToStep step:bakken ;
     sosa:usedProcedure plan:bakken ;
-    sosa:hasFeatureOfInterest ent:beslag_001 ;
+    sosa:hasFeatureOfInterest ent:beslag_001 ;# sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
     sosa:actsOnProperty prop:toestand-beslag ;
     sosa:resultTime "2026-02-10T21:25:00Z"^^xsd:dateTime ;
-    prov:used ent:beslag_001 ;
+    prov:used ent:beslag_001 ; # sosa:hasFeatureOfInterest rdfs:subPropertyOf prov:used .
     sosa:hasResult ent:brownies_001 ;
     sosa:madeByActuator inst:oven-geert ;
 .
@@ -522,9 +518,21 @@ exec:fenomeen-kleur-2026-02-10
 #  Concrete ingrediënten die gebruikt worden in Activiteiten/Actuaties  (instantiaties van plan-variabelen)
 # ----------------------------------------------------------
 
-ent:boter_001
-    a prov:Entity, sosa:FeatureOfInterest ;
+ent:mengsel_001
+    a prov:Collection, sosa:FeatureOfInterest ;
+    rdfs:label "boter + chocolade"@nl ;
     ssn:hasProperty prop:toestand-boter-chocolade ;
+    sosa:isFeatureOfInterestOf exec:smelten-2026-02-10 ;
+    prov:hadMember ent:boter_001, ent:chocolade_001 .
+
+ent:mengsel_002
+    a prov:Collection, sosa:FeatureOfInterest ;
+    ssn:hasProperty  prop:toestand-bestanddelen ;
+    sosa:isFeatureOfInterestOf exec:mengen-2026-02-10  ;
+    prov:hadMember ent:gesmolten-mengsel_001, ent:suiker_001, ent:eieren_001, ent:bloem_001 .
+
+ent:boter_001
+    a prov:Entity;
     dct:type ingredient:boter ;
     rdf:value 375 ;
     qudt:hasUnit unit:GM ;
@@ -538,21 +546,21 @@ ent:chocolade_001
     p-plan:correspondsToVariable var:donkere-chocolade .
 
 ent:suiker_001
-    a prov:Entity ;
+    a prov:Entity;
     rdf:value 500 ;
     qudt:hasUnit unit:GM ;
     dct:type ingredient:suiker ;
     p-plan:correspondsToVariable var:suiker  .
 
 ent:bloem_001
-    a prov:Entity ;
+    a prov:Entity  ;
     dct:type ingredient:bloem ;
     rdf:value 225 ;
     qudt:hasUnit unit:GM ;
     p-plan:correspondsToVariable var:bloem .
 
 ent:eieren_001
-    a prov:Entity ;
+    a prov:Entity  ;
     dct:type ingredient:eieren ;
     rdf:value 6 ;
     qudt:hasUnit unit:UNITLESS  ;
@@ -571,8 +579,7 @@ ent:walnoten_001
 # ------------------------------------------------------------------------------------------------------------
 
 ent:gesmolten-mengsel_001
-    a prov:Entity, sosa:Result, sosa:FeatureOfInterest ;
-    ssn:hasProperty prop:toestand-bestanddelen ;
+    a prov:Entity, sosa:Result;
     rdfs:label "Gesmolten boter-chocolade"@nl ;
     dct:type tussenproduct:gesmolten-mengsel ;
     prov:wasDerivedFrom ent:boter_001, ent:chocolade_001;
