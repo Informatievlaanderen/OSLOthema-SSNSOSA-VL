@@ -328,7 +328,7 @@ object TurtleTransformer {
       val inferredModel = inferTriples(model, inferenceOntology, reasoner)
 
       // Schrijf Turtle
-      //writeModelToTurtle(inferredModel, file.getPath)
+      writeModelToTurtle(inferredModel, file.getPath)
 
       // OWL reasoning
       val validation = validateModel(inferredModel, owlReasonerWithSchema) // gebruik inferredModel
@@ -340,7 +340,8 @@ object TurtleTransformer {
       }
 
       // Shacl validation
-      val report = ShaclValidator.validate(inferenceOntology, shaclShapes) // gebruik inferredModel
+      //val report = ShaclValidator.validate(inferredModel, shaclShapes) // gebruik inferredModel
+      val report = ShaclValidator.validate(model, shaclShapes) // gebruik model
       ShaclValidator.printReport(report)
 
       // JSON-LD verwerking
