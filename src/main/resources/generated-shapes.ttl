@@ -9,31 +9,43 @@
 <http://qudt.org/schema/qudt/DatatypeShape>
         a               sh:NodeShape;
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/oleDBName>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/javaName>
+                          sh:path      <http://qudt.org/schema/qudt/pythonName>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/basis>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/vbName>
+                          sh:path      <http://qudt.org/schema/qudt/jsName>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/pythonName>
+                          sh:path      <http://qudt.org/schema/qudt/matlabName>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/CardinalityType>;
+                          sh:path   <http://qudt.org/schema/qudt/cardinality>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/protocolBuffersName>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/bounded>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/ansiSQLName>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/cName>
+                          sh:path      <http://qudt.org/schema/qudt/javaName>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/OrderedType>;
+                          sh:path   <http://qudt.org/schema/qudt/orderedType>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/mySQLName>
+                          sh:path      <http://qudt.org/schema/qudt/vbName>
                         ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/CardinalityType>;
-                          sh:path   <http://qudt.org/schema/qudt/cardinality>
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/oleDBName>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/oracleSQLName>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/odbcName>
@@ -41,35 +53,23 @@
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/cardinality>
                         ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/OrderedType>;
-                          sh:path   <http://qudt.org/schema/qudt/orderedType>
-                        ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/id>
+                          sh:path      <http://qudt.org/schema/qudt/cName>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/orderedType>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/protocolBuffersName>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/microsoftSQLServerName>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/oracleSQLName>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/bounded>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/matlabName>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/Datatype>;
                           sh:path   <http://qudt.org/schema/qudt/basis>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/jsName>
+                          sh:path      <http://qudt.org/schema/qudt/microsoftSQLServerName>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/mySQLName>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/id>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/Datatype> .
 
@@ -103,17 +103,17 @@
 
 <http://qudt.org/schema/qudt/AbstractQuantityKindShape>
         a               sh:NodeShape;
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/symbol>
+                        ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/altSymbol>
+                        ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
                           sh:path   <http://www.w3.org/2004/02/skos/core#broader>
                         ];
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/latexSymbol>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/altSymbol>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/symbol>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/AbstractQuantityKind> .
 
@@ -124,7 +124,16 @@
 <http://qudt.org/schema/qudt/ScalarDatatypeShape>
         a               sh:NodeShape;
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/maxExclusive>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/minInclusive>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/rdfsDatatype>
+                        ];
+        sh:property     [ sh:class  rdfs:Datatype;
+                          sh:path   <http://qudt.org/schema/qudt/rdfsDatatype>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/bits>
@@ -135,17 +144,8 @@
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/maxInclusive>
                         ];
-        sh:property     [ sh:class  rdfs:Datatype;
-                          sh:path   <http://qudt.org/schema/qudt/rdfsDatatype>
-                        ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/minExclusive>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/minInclusive>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/maxExclusive>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/length>
@@ -201,26 +201,26 @@
 <http://qudt.org/schema/qudt/FigureShape>
         a               sh:NodeShape;
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/figureLabel>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/height>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/image>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/figureCaption>
+                          sh:path      <http://qudt.org/schema/qudt/width>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/width>
+                          sh:path      <http://qudt.org/schema/qudt/figureLabel>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/landscape>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/imageLocation>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/landscape>
+                          sh:path      <http://qudt.org/schema/qudt/height>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/figureCaption>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/Figure> .
 
@@ -255,12 +255,6 @@
 
 <http://qudt.org/schema/qudt/ScaleShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/TransformType>;
-                          sh:path   <http://qudt.org/schema/qudt/permissibleTransformation>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/MathsFunctionType>;
-                          sh:path   <http://qudt.org/schema/qudt/permissibleMaths>
-                        ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/ScaleType>;
                           sh:path   <http://qudt.org/schema/qudt/scaleType>
                         ];
@@ -269,6 +263,12 @@
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/scaleType>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/TransformType>;
+                          sh:path   <http://qudt.org/schema/qudt/permissibleTransformation>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/MathsFunctionType>;
+                          sh:path   <http://qudt.org/schema/qudt/permissibleMaths>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/Scale> .
 
@@ -288,28 +288,28 @@
 
 <http://www.w3.org/ns/sosa/SampleShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sampler>;
-                          sh:path   <http://www.w3.org/ns/sosa/isResultOfMadeBySampler>
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/SamplingProcedure>;
+                          sh:path   <http://www.w3.org/ns/sosa/isResultOfUsedProcedure>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sample>;
                           sh:path   <http://www.w3.org/ns/sosa/hasOriginalSample>
                         ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/SamplingProcedure>;
-                          sh:path   <http://www.w3.org/ns/sosa/isResultOfUsedProcedure>
+        sh:property     [ sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://www.w3.org/ns/sosa/isSampleOf>
                         ];
         sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Sampling> ]
                                      [ sh:class  <http://www.w3.org/ns/sosa/SamplingCollection> ]
                                    );
                           sh:path  <http://www.w3.org/ns/sosa/isResultOf>
                         ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
-                          sh:path   <http://www.w3.org/ns/sosa/isSampleOfUltimateFOI>
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sampler>;
+                          sh:path   <http://www.w3.org/ns/sosa/isResultOfMadeBySampler>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
                           sh:path   <http://www.w3.org/ns/sosa/isSampleOf>
                         ];
-        sh:property     [ sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/ns/sosa/isSampleOf>
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
+                          sh:path   <http://www.w3.org/ns/sosa/isSampleOfUltimateFOI>
                         ];
         sh:targetClass  <http://www.w3.org/ns/sosa/Sample> .
 
@@ -329,17 +329,17 @@
 
 <http://qudt.org/schema/qudt/QuantityShape>
         a               sh:NodeShape;
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/hasQuantityKind>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
+                          sh:path   <http://qudt.org/schema/qudt/hasQuantityKind>
+                        ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityValue>;
                           sh:path   <http://qudt.org/schema/qudt/quantityValue>
                         ];
         sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#boolean>;
                           sh:path      <http://qudt.org/schema/qudt/isDeltaQuantity>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
-                          sh:path   <http://qudt.org/schema/qudt/hasQuantityKind>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/hasQuantityKind>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/Quantity> .
 
@@ -352,20 +352,20 @@
 
 <http://qudt.org/schema/qudt/EnumerationShape>
         a               sh:NodeShape;
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/abbreviation>
-                        ];
         sh:property     [ sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/element>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/EnumeratedValue>;
                           sh:path   <http://qudt.org/schema/qudt/default>
                         ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/default>
+                        ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/EnumeratedValue>;
                           sh:path   <http://qudt.org/schema/qudt/element>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/default>
+                          sh:path      <http://qudt.org/schema/qudt/abbreviation>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/Enumeration> .
 
@@ -393,13 +393,13 @@
 <https://saref.etsi.org/core/FeatureKindShape>
         a               sh:NodeShape;
         sh:property     [ sh:class  <https://saref.etsi.org/core/FeatureKind>;
+                          sh:path   <http://www.w3.org/2004/02/skos/core#broader>
+                        ];
+        sh:property     [ sh:class  <https://saref.etsi.org/core/FeatureKind>;
                           sh:path   <http://www.w3.org/2004/02/skos/core#narrower>
                         ];
         sh:property     [ sh:class  <https://saref.etsi.org/core/FeatureKind>;
                           sh:path   <https://saref.etsi.org/core/consistsOf>
-                        ];
-        sh:property     [ sh:class  <https://saref.etsi.org/core/FeatureKind>;
-                          sh:path   <http://www.w3.org/2004/02/skos/core#broader>
                         ];
         sh:targetClass  <https://saref.etsi.org/core/FeatureKind> .
 
@@ -407,6 +407,9 @@
         a               sh:NodeShape;
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Property>;
                           sh:path   <http://www.w3.org/ns/sosa/forProperty>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Platform>;
+                          sh:path   <http://www.w3.org/ns/sosa/isHostedBy>
                         ];
         sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Execution> ]
                                      [ sh:class  <http://www.w3.org/ns/sosa/ExecutionCollection> ]
@@ -416,17 +419,14 @@
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Deployment>;
                           sh:path   <http://www.w3.org/ns/sosa/hasDeployment>
                         ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/System>;
-                          sh:path   <http://www.w3.org/ns/sosa/hasSubSystem>
-                        ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Procedure>;
                           sh:path   <http://www.w3.org/ns/sosa/implements>
                         ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Platform>;
-                          sh:path   <http://www.w3.org/ns/sosa/isHostedBy>
-                        ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/System>;
                           sh:path   <http://www.w3.org/ns/sosa/isSubSystemOf>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/System>;
+                          sh:path   <http://www.w3.org/ns/sosa/hasSubSystem>
                         ];
         sh:targetClass  <http://www.w3.org/ns/sosa/System> .
 
@@ -468,25 +468,25 @@
 <http://qudt.org/schema/qudt/ConceptShape>
         a               sh:NodeShape;
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/deprecated>
+                          sh:path      <http://purl.org/dc/terms/isReplacedBy>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/id>
+                          sh:path      <http://qudt.org/schema/qudt/plainTextDescription>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/Rule>;
                           sh:path   <http://qudt.org/schema/qudt/hasRule>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://purl.org/dc/terms/description>
+                          sh:path      <http://qudt.org/schema/qudt/id>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://purl.org/dc/terms/isReplacedBy>
+                          sh:path      <http://purl.org/dc/terms/description>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/abbreviation>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/plainTextDescription>
+                          sh:path      <http://qudt.org/schema/qudt/deprecated>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/Concept> .
 
@@ -533,19 +533,19 @@
         a               sh:NodeShape;
         sh:targetClass  <https://saref.etsi.org/core/Profile> .
 
-<https://saref.etsi.org/core/CommodityShape>
-        a               sh:NodeShape;
-        sh:property     [ sh:class  <https://saref.etsi.org/core/Commodity>;
-                          sh:path   <http://www.w3.org/2004/02/skos/core#narrower>
-                        ];
-        sh:property     [ sh:class  <https://saref.etsi.org/core/Commodity>;
-                          sh:path   <http://www.w3.org/2004/02/skos/core#broader>
-                        ];
-        sh:targetClass  <https://saref.etsi.org/core/Commodity> .
-
 <http://www.w3.org/ns/prov#PublishShape>
         a               sh:NodeShape;
         sh:targetClass  <http://www.w3.org/ns/prov#Publish> .
+
+<https://saref.etsi.org/core/CommodityShape>
+        a               sh:NodeShape;
+        sh:property     [ sh:class  <https://saref.etsi.org/core/Commodity>;
+                          sh:path   <http://www.w3.org/2004/02/skos/core#broader>
+                        ];
+        sh:property     [ sh:class  <https://saref.etsi.org/core/Commodity>;
+                          sh:path   <http://www.w3.org/2004/02/skos/core#narrower>
+                        ];
+        sh:targetClass  <https://saref.etsi.org/core/Commodity> .
 
 <http://www.w3.org/ns/prov#EndShape>
         a               sh:NodeShape;
@@ -553,55 +553,55 @@
 
 <http://qudt.org/schema/qudt/PrefixShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Prefix>;
-                          sh:path   <http://qudt.org/schema/qudt/exactMatch>
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/symbol>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/prefixMultiplier>
                         ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/UCUMcs-term>;
+                          sh:path   <http://qudt.org/schema/qudt/ucumCode>
+                        ];
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/altSymbol>
                         ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Prefix>;
+                          sh:path   <http://qudt.org/schema/qudt/exactMatch>
+                        ];
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/latexSymbol>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/symbol>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/UCUMcs-term>;
-                          sh:path   <http://qudt.org/schema/qudt/ucumCode>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/Prefix> .
 
 <http://www.w3.org/ns/sosa/ObservationShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/ObservingProcedure>;
-                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
-                        ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Stimulus>;
-                          sh:path   <http://www.w3.org/ns/sosa/wasOriginatedBy>
-                        ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Property>;
                           sh:path   <http://www.w3.org/ns/sosa/observedProperty>
                         ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/ObservingProcedure>;
+                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
+                        ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
-                          sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
+                          sh:path   <http://www.w3.org/ns/sosa/hasUltimateFeatureOfInterest>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Stimulus>;
+                          sh:path   <http://www.w3.org/ns/sosa/wasOriginatedBy>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sensor>;
                           sh:path   <http://www.w3.org/ns/sosa/madeBySensor>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
-                          sh:path   <http://www.w3.org/ns/sosa/hasUltimateFeatureOfInterest>
+                          sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
                         ];
         sh:targetClass  <http://www.w3.org/ns/sosa/Observation> .
 
 <http://www.w3.org/ns/sosa/ProcedureShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/System>;
-                          sh:path   <http://www.w3.org/ns/sosa/implementedBy>
-                        ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Property>;
                           sh:path   <http://www.w3.org/ns/sosa/forProperty>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/System>;
+                          sh:path   <http://www.w3.org/ns/sosa/implementedBy>
                         ];
         sh:targetClass  <http://www.w3.org/ns/sosa/Procedure> .
 
@@ -673,14 +673,14 @@
 
 <http://qudt.org/schema/qudt/ScaleTypeShape>
         a               sh:NodeShape;
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/dataStructure>
+                        ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/MathsFunctionType>;
                           sh:path   <http://qudt.org/schema/qudt/permissibleMaths>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/TransformType>;
                           sh:path   <http://qudt.org/schema/qudt/permissibleTransformation>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/dataStructure>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/ScaleType> .
 
@@ -690,6 +690,15 @@
 
 <http://www.w3.org/ns/sosa/ObservationCollectionShape>
         a               sh:NodeShape;
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/ObservingProcedure>;
+                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Property>;
+                          sh:path   <http://www.w3.org/ns/sosa/observedProperty>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
+                          sh:path   <http://www.w3.org/ns/sosa/hasUltimateFeatureOfInterest>
+                        ];
         sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Observation> ]
                                      [ sh:class  <http://www.w3.org/ns/sosa/ObservationCollection> ]
                                    );
@@ -698,24 +707,36 @@
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sensor>;
                           sh:path   <http://www.w3.org/ns/sosa/madeBySensor>
                         ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
-                          sh:path   <http://www.w3.org/ns/sosa/hasUltimateFeatureOfInterest>
-                        ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Property>;
-                          sh:path   <http://www.w3.org/ns/sosa/observedProperty>
-                        ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/ObservingProcedure>;
-                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
-                        ];
         sh:targetClass  <http://www.w3.org/ns/sosa/ObservationCollection> .
 
 <http://qudt.org/schema/qudt/QuantifiableShape>
         a               sh:NodeShape;
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/dataEncoding>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/datatype>
+                        ];
+        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#double>;
+                          sh:path      <http://qudt.org/schema/qudt/relativeStandardUncertainty>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/relativeStandardUncertainty>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/value>
+                        ];
+        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#double>;
+                          sh:path      <http://qudt.org/schema/qudt/standardUncertaintySN>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/valueSN>
+                        ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/Datatype>;
                           sh:path   <http://qudt.org/schema/qudt/datatype>
                         ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/dataEncoding>
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
+                          sh:path   <http://qudt.org/schema/qudt/hasUnit>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/DataEncoding>;
                           sh:path   <http://qudt.org/schema/qudt/dataEncoding>
@@ -723,31 +744,10 @@
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/hasUnit>
                         ];
-        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#double>;
-                          sh:path      <http://qudt.org/schema/qudt/relativeStandardUncertainty>
-                        ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/value>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/relativeStandardUncertainty>
-                        ];
-        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#double>;
-                          sh:path      <http://qudt.org/schema/qudt/standardUncertaintySN>
-                        ];
-        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#decimal>;
                           sh:path      <http://qudt.org/schema/qudt/standardUncertainty>
                         ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/valueSN>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/datatype>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
-                          sh:path   <http://qudt.org/schema/qudt/hasUnit>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#decimal>;
                           sh:path      <http://qudt.org/schema/qudt/standardUncertainty>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/Quantifiable> .
@@ -774,21 +774,21 @@
 
 <http://www.w3.org/ns/sosa/ExecutionShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Procedure>;
-                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
-                        ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/System>;
-                          sh:path   <http://www.w3.org/ns/sosa/madeBySystem>
-                        ];
         sh:property     [ sh:class     <http://www.w3.org/ns/sosa/FeatureOfInterest>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
-                          sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
+                          sh:path   <http://www.w3.org/ns/sosa/hasUltimateFeatureOfInterest>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
-                          sh:path   <http://www.w3.org/ns/sosa/hasUltimateFeatureOfInterest>
+                          sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Procedure>;
+                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/System>;
+                          sh:path   <http://www.w3.org/ns/sosa/madeBySystem>
                         ];
         sh:targetClass  <http://www.w3.org/ns/sosa/Execution> .
 
@@ -806,10 +806,7 @@
 <http://www.w3.org/2006/time#GeneralDurationDescriptionShape>
         a               sh:NodeShape;
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#minutes>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#hours>
+                          sh:path      <http://www.w3.org/2006/time#weeks>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/2006/time#days>
@@ -818,32 +815,35 @@
                           sh:path      <http://www.w3.org/2006/time#years>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://www.w3.org/2006/time#hours>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/2006/time#months>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#weeks>
+                          sh:path      <http://www.w3.org/2006/time#seconds>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://www.w3.org/2006/time#minutes>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/2006/time#hasTRS>
                         ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#seconds>
-                        ];
         sh:targetClass  <http://www.w3.org/2006/time#GeneralDurationDescription> .
 
 <http://www.w3.org/ns/sosa/SensorShape>
         a               sh:NodeShape;
+        sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Observation> ]
+                                     [ sh:class  <http://www.w3.org/ns/sosa/ObservationCollection> ]
+                                   );
+                          sh:path  <http://www.w3.org/ns/sosa/madeObservation>
+                        ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/ObservingProcedure>;
                           sh:path   <http://www.w3.org/ns/sosa/implements>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Stimulus>;
                           sh:path   <http://www.w3.org/ns/sosa/detects>
-                        ];
-        sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Observation> ]
-                                     [ sh:class  <http://www.w3.org/ns/sosa/ObservationCollection> ]
-                                   );
-                          sh:path  <http://www.w3.org/ns/sosa/madeObservation>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Property>;
                           sh:path   <http://www.w3.org/ns/sosa/observes>
@@ -859,21 +859,9 @@ owl:ThingShape  a       sh:NodeShape;
 
 <http://www.w3.org/2006/time#YearShape>
         a               sh:NodeShape;
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#years>
-                        ];
-        sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#minutes>
-                        ];
         sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/2006/time#months>
-                        ];
-        sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#hours>
                         ];
         sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
@@ -881,11 +869,23 @@ owl:ThingShape  a       sh:NodeShape;
                         ];
         sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#days>
+                          sh:path      <http://www.w3.org/2006/time#hours>
                         ];
         sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/2006/time#weeks>
+                        ];
+        sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://www.w3.org/2006/time#minutes>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://www.w3.org/2006/time#years>
+                        ];
+        sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://www.w3.org/2006/time#days>
                         ];
         sh:targetClass  <http://www.w3.org/2006/time#Year> .
 
@@ -894,23 +894,19 @@ owl:ThingShape  a       sh:NodeShape;
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/ActuatingProcedure>;
                           sh:path   <http://www.w3.org/ns/sosa/implements>
                         ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Property>;
+                          sh:path   <http://www.w3.org/ns/sosa/actsOn>
+                        ];
         sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Actuation> ]
                                      [ sh:class  <http://www.w3.org/ns/sosa/ActuationCollection> ]
                                    );
                           sh:path  <http://www.w3.org/ns/sosa/madeActuation>
-                        ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Property>;
-                          sh:path   <http://www.w3.org/ns/sosa/actsOn>
                         ];
         sh:targetClass  <http://www.w3.org/ns/sosa/Actuator> .
 
 <http://dbpedia.org/ontology/CaseShape>
         a               sh:NodeShape;
         sh:targetClass  <http://dbpedia.org/ontology/Case> .
-
-<http://www.w3.org/ns/prov#UsageShape>
-        a               sh:NodeShape;
-        sh:targetClass  <http://www.w3.org/ns/prov#Usage> .
 
 <http://qudt.org/schema/qudt/QuantityKindDimensionVector_SIShape>
         a               sh:NodeShape;
@@ -920,32 +916,36 @@ owl:ThingShape  a       sh:NodeShape;
         a               sh:NodeShape;
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#numericDuration>
+                          sh:path      <http://www.w3.org/2006/time#unitType>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#unitType>
+                          sh:path      <http://www.w3.org/2006/time#numericDuration>
                         ];
         sh:targetClass  <http://www.w3.org/2006/time#Duration> .
 
+<http://www.w3.org/ns/prov#UsageShape>
+        a               sh:NodeShape;
+        sh:targetClass  <http://www.w3.org/ns/prov#Usage> .
+
 <http://www.w3.org/ns/sosa/PropertyShape>
         a               sh:NodeShape;
-        sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Observation> ]
-                                     [ sh:class  <http://www.w3.org/ns/sosa/ObservationCollection> ]
-                                   );
-                          sh:path  <http://www.w3.org/ns/sosa/wasObservedBy>
-                        ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sensor>;
-                          sh:path   <http://www.w3.org/ns/sosa/isObservedBy>
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Actuator>;
+                          sh:path   <http://www.w3.org/ns/sosa/isActedOnBy>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Procedure>;
                           sh:path   <http://www.w3.org/ns/sosa/hasProcedure>
                         ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Actuator>;
-                          sh:path   <http://www.w3.org/ns/sosa/isActedOnBy>
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sensor>;
+                          sh:path   <http://www.w3.org/ns/sosa/isObservedBy>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
                           sh:path   <http://www.w3.org/ns/sosa/isPropertyOf>
+                        ];
+        sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Observation> ]
+                                     [ sh:class  <http://www.w3.org/ns/sosa/ObservationCollection> ]
+                                   );
+                          sh:path  <http://www.w3.org/ns/sosa/wasObservedBy>
                         ];
         sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Actuation> ]
                                      [ sh:class  <http://www.w3.org/ns/sosa/ActuationCollection> ]
@@ -1002,13 +1002,10 @@ owl:ThingShape  a       sh:NodeShape;
 <http://www.w3.org/2006/time#DurationDescriptionShape>
         a               sh:NodeShape;
         sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#decimal>;
+                          sh:path      <http://www.w3.org/2006/time#days>
+                        ];
+        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#decimal>;
                           sh:path      <http://www.w3.org/2006/time#seconds>
-                        ];
-        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#decimal>;
-                          sh:path      <http://www.w3.org/2006/time#years>
-                        ];
-        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#decimal>;
-                          sh:path      <http://www.w3.org/2006/time#weeks>
                         ];
         sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#decimal>;
                           sh:path      <http://www.w3.org/2006/time#minutes>
@@ -1016,13 +1013,16 @@ owl:ThingShape  a       sh:NodeShape;
         sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#decimal>;
                           sh:path      <http://www.w3.org/2006/time#months>
                         ];
+        sh:property     [ sh:path  <http://www.w3.org/2006/time#hasTRS> ];
         sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#decimal>;
                           sh:path      <http://www.w3.org/2006/time#hours>
                         ];
         sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#decimal>;
-                          sh:path      <http://www.w3.org/2006/time#days>
+                          sh:path      <http://www.w3.org/2006/time#weeks>
                         ];
-        sh:property     [ sh:path  <http://www.w3.org/2006/time#hasTRS> ];
+        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#decimal>;
+                          sh:path      <http://www.w3.org/2006/time#years>
+                        ];
         sh:targetClass  <http://www.w3.org/2006/time#DurationDescription> .
 
 <http://www.w3.org/ns/prov#EmptyDictionaryShape>
@@ -1031,17 +1031,17 @@ owl:ThingShape  a       sh:NodeShape;
 
 <http://www.w3.org/ns/sosa/SamplingCollectionShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/SamplingProcedure>;
-                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
-                        ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sampler>;
-                          sh:path   <http://www.w3.org/ns/sosa/madeBySampler>
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
+                          sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sample>;
                           sh:path   <http://www.w3.org/ns/sosa/hasResult>
                         ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
-                          sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sampler>;
+                          sh:path   <http://www.w3.org/ns/sosa/madeBySampler>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/SamplingProcedure>;
+                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
                         ];
         sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Sampling> ]
                                      [ sh:class  <http://www.w3.org/ns/sosa/SamplingCollection> ]
@@ -1129,13 +1129,7 @@ owl:ThingShape  a       sh:NodeShape;
 <http://qudt.org/schema/qudt/UnitShape>
         a               sh:NodeShape;
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/altSymbol>
-                        ];
-        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#string>;
-                          sh:path      <http://qudt.org/schema/qudt/uneceCommonCode>
-                        ];
-        sh:property     [ sh:class  owl:Class;
-                          sh:path   <http://qudt.org/schema/qudt/hasFactorUnit>
+                          sh:path      <http://qudt.org/schema/qudt/latexSymbol>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
                           sh:path   <http://qudt.org/schema/qudt/exactMatch>
@@ -1143,11 +1137,68 @@ owl:ThingShape  a       sh:NodeShape;
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/siUnitsExpression>
                         ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/conversionMultiplierSN>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
+                          sh:path   <http://qudt.org/schema/qudt/hasQuantityKind>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/qkdvNumerator>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/mathMLdefinition>
+                        ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKindDimensionVector>;
                           sh:path   <http://qudt.org/schema/qudt/hasDimensionVector>
                         ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKindDimensionVector>;
+                          sh:path   <http://qudt.org/schema/qudt/qkdvDenominator>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/conversionMultiplier>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/SystemOfUnits>;
+                          sh:path   <http://qudt.org/schema/qudt/derivedUnitOfSystem>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/conversionOffsetSN>
+                        ];
+        sh:property     [ sh:class  owl:Class;
+                          sh:path   <http://qudt.org/schema/qudt/hasFactorUnit>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/qkdvDenominator>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
+                          sh:path   <http://qudt.org/schema/qudt/scalingOf>
+                        ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/symbol>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/UCUMcs>;
+                          sh:path   <http://qudt.org/schema/qudt/ucumCode>
+                        ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/altSymbol>
+                        ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/factorUnitScalar>
+                        ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/latexDefinition>
+                        ];
+        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#string>;
+                          sh:path      <http://qudt.org/schema/qudt/iec61360Code>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/hasDimensionVector>
+                        ];
+        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#string>;
+                          sh:path      <http://qudt.org/schema/qudt/udunitsCode>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/SystemOfUnits>;
+                          sh:path   <http://qudt.org/schema/qudt/derivedCoherentUnitOfSystem>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKindDimensionVector>;
                           sh:path   <http://qudt.org/schema/qudt/qkdvNumerator>
@@ -1155,74 +1206,22 @@ owl:ThingShape  a       sh:NodeShape;
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/SystemOfUnits>;
                           sh:path   <http://qudt.org/schema/qudt/applicableSystem>
                         ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
-                          sh:path   <http://qudt.org/schema/qudt/hasQuantityKind>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
-                          sh:path   <http://qudt.org/schema/qudt/scalingOf>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/SystemOfUnits>;
-                          sh:path   <http://qudt.org/schema/qudt/derivedCoherentUnitOfSystem>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/qkdvDenominator>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Prefix>;
-                          sh:path   <http://qudt.org/schema/qudt/prefix>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/SystemOfUnits>;
-                          sh:path   <http://qudt.org/schema/qudt/derivedUnitOfSystem>
-                        ];
-        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#string>;
-                          sh:path      <http://qudt.org/schema/qudt/udunitsCode>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/mathMLdefinition>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/symbol>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKindDimensionVector>;
-                          sh:path   <http://qudt.org/schema/qudt/qkdvDenominator>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/UCUMcs>;
-                          sh:path   <http://qudt.org/schema/qudt/ucumCode>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/qkdvNumerator>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/conversionMultiplierSN>
-                        ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/conversionOffset>
                         ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/latexSymbol>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/latexDefinition>
+        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#string>;
+                          sh:path      <http://qudt.org/schema/qudt/uneceCommonCode>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/SystemOfUnits>;
                           sh:path   <http://qudt.org/schema/qudt/definedUnitOfSystem>
                         ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/conversionMultiplier>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/hasDimensionVector>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/conversionOffsetSN>
-                        ];
-        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#string>;
-                          sh:path      <http://qudt.org/schema/qudt/iec61360Code>
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Prefix>;
+                          sh:path   <http://qudt.org/schema/qudt/prefix>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/Unit> .
 
 <https://saref.etsi.org/core/ServiceShape>
         a               sh:NodeShape;
-        sh:property     [ sh:path  <https://saref.etsi.org/core/represents> ];
         sh:property     [ sh:or    ( [ sh:class  <https://saref.etsi.org/core/Function> ]
                                      [ sh:class  <https://saref.etsi.org/core/FunctionOfInterest> ]
                                    );
@@ -1232,6 +1231,7 @@ owl:ThingShape  a       sh:NodeShape;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <https://saref.etsi.org/core/isOfferedBy>
                         ];
+        sh:property     [ sh:path  <https://saref.etsi.org/core/represents> ];
         sh:targetClass  <https://saref.etsi.org/core/Service> .
 
 <http://www.w3.org/ns/sosa/SamplerShape>
@@ -1263,46 +1263,46 @@ owl:ThingShape  a       sh:NodeShape;
 
 <http://qudt.org/schema/qudt/QuantityKindShape>
         a               sh:NodeShape;
-        sh:property     [ sh:path  <http://qudt.org/schema/qudt/qkdvDenominator> ];
-        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#string>;
-                          sh:path      <http://qudt.org/schema/qudt/iec61360Code>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/applicableCGSUnit>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKindDimensionVector>;
-                          sh:path   <http://qudt.org/schema/qudt/hasDimensionVector>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
-                          sh:path   <http://qudt.org/schema/qudt/exactMatch>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/applicableISOUnit>
-                        ];
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/applicableSIUnit>
                         ];
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/applicableUnit>
+                          sh:path      <http://qudt.org/schema/qudt/applicableISOUnit>
                         ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKindDimensionVector_SI>;
-                          sh:path   <http://qudt.org/schema/qudt/dimensionVectorForSI>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/applicableImperialUnit>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/applicableUSCustomaryUnit>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/mathMLdefinition>
-                        ];
-        sh:property     [ sh:path  <http://qudt.org/schema/qudt/qkdvNumerator> ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/dimensionVectorForSI>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/mathMLdefinition>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKindDimensionVector_SI>;
+                          sh:path   <http://qudt.org/schema/qudt/dimensionVectorForSI>
+                        ];
+        sh:property     [ sh:path  <http://qudt.org/schema/qudt/qkdvDenominator> ];
+        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#string>;
+                          sh:path      <http://qudt.org/schema/qudt/iec61360Code>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/latexDefinition>
+                        ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/applicableImperialUnit>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
+                          sh:path   <http://qudt.org/schema/qudt/exactMatch>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKindDimensionVector>;
+                          sh:path   <http://qudt.org/schema/qudt/hasDimensionVector>
+                        ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/applicableUnit>
+                        ];
+        sh:property     [ sh:path  <http://qudt.org/schema/qudt/qkdvNumerator> ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/applicableCGSUnit>
+                        ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/applicableUSCustomaryUnit>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/QuantityKind> .
 
@@ -1311,20 +1311,8 @@ owl:ThingShape  a       sh:NodeShape;
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
                           sh:path   <http://qudt.org/schema/qudt/hasUnit>
                         ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
-                          sh:path   <http://qudt.org/schema/qudt/hasAllowedUnit>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
-                          sh:path   <http://qudt.org/schema/qudt/hasCoherentUnit>
-                        ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/Prefix>;
                           sh:path   <http://qudt.org/schema/qudt/prefix>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
-                          sh:path   <http://qudt.org/schema/qudt/hasDerivedUnit>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/PhysicalConstant>;
-                          sh:path   <http://qudt.org/schema/qudt/applicablePhysicalConstant>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
                           sh:path   <http://qudt.org/schema/qudt/hasBaseUnit>
@@ -1334,6 +1322,18 @@ owl:ThingShape  a       sh:NodeShape;
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
                           sh:path   <http://qudt.org/schema/qudt/hasDerivedCoherentUnit>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
+                          sh:path   <http://qudt.org/schema/qudt/hasAllowedUnit>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
+                          sh:path   <http://qudt.org/schema/qudt/hasDerivedUnit>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/PhysicalConstant>;
+                          sh:path   <http://qudt.org/schema/qudt/applicablePhysicalConstant>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
+                          sh:path   <http://qudt.org/schema/qudt/hasCoherentUnit>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/SystemOfUnits> .
 
@@ -1355,12 +1355,12 @@ owl:ThingShape  a       sh:NodeShape;
 
 <http://www.w3.org/ns/prov#RemovalShape>
         a               sh:NodeShape;
+        sh:property     [ sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://www.w3.org/ns/prov#removedKey>
+                        ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/ns/prov#dictionary>
-                        ];
-        sh:property     [ sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/ns/prov#removedKey>
                         ];
         sh:targetClass  <http://www.w3.org/ns/prov#Removal> .
 
@@ -1381,15 +1381,15 @@ owl:ThingShape  a       sh:NodeShape;
 
 <http://qudt.org/schema/qudt/BaseDimensionMagnitudeShape>
         a               sh:NodeShape;
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
+                          sh:path   <http://qudt.org/schema/qudt/hasBaseQuantityKind>
+                        ];
         sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#float>;
                           sh:path      <http://qudt.org/schema/qudt/vectorMagnitude>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/hasBaseQuantityKind>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
-                          sh:path   <http://qudt.org/schema/qudt/hasBaseQuantityKind>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
@@ -1419,10 +1419,10 @@ owl:ThingShape  a       sh:NodeShape;
 <https://saref.etsi.org/core/StateShape>
         a               sh:NodeShape;
         sh:property     [ sh:class  <https://saref.etsi.org/core/State>;
-                          sh:path   <http://www.w3.org/2004/02/skos/core#narrower>
+                          sh:path   <http://www.w3.org/2004/02/skos/core#broader>
                         ];
         sh:property     [ sh:class  <https://saref.etsi.org/core/State>;
-                          sh:path   <http://www.w3.org/2004/02/skos/core#broader>
+                          sh:path   <http://www.w3.org/2004/02/skos/core#narrower>
                         ];
         sh:targetClass  <https://saref.etsi.org/core/State> .
 
@@ -1445,11 +1445,11 @@ owl:ThingShape  a       sh:NodeShape;
         a               sh:NodeShape;
         sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#day>
+                          sh:path      <http://www.w3.org/2006/time#hour>
                         ];
         sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#hour>
+                          sh:path      <http://www.w3.org/2006/time#day>
                         ];
         sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
@@ -1464,13 +1464,13 @@ owl:ThingShape  a       sh:NodeShape;
                           sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/2006/time#second>
                         ];
-        sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#year>
-                        ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/2006/time#month>
+                        ];
+        sh:property     [ sh:maxCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://www.w3.org/2006/time#year>
                         ];
         sh:targetClass  <http://www.w3.org/2006/time#MonthOfYear> .
 
@@ -1533,19 +1533,19 @@ owl:ThingShape  a       sh:NodeShape;
 
 <http://www.w3.org/ns/sosa/ExecutionCollectionShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
-                          sh:path   <http://www.w3.org/ns/sosa/hasUltimateFeatureOfInterest>
-                        ];
         sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Execution> ]
                                      [ sh:class  <http://www.w3.org/ns/sosa/ExecutionCollection> ]
                                    );
                           sh:path  <http://www.w3.org/ns/sosa/hasMember>
                         ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Procedure>;
-                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
+                          sh:path   <http://www.w3.org/ns/sosa/hasUltimateFeatureOfInterest>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/System>;
                           sh:path   <http://www.w3.org/ns/sosa/madeBySystem>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Procedure>;
+                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
                           sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
@@ -1627,6 +1627,9 @@ owl:ThingShape  a       sh:NodeShape;
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Actuator>;
                           sh:path   <http://www.w3.org/ns/sosa/madeByActuator>
                         ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Property>;
+                          sh:path   <http://www.w3.org/ns/sosa/actsOnProperty>
+                        ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/ActuatingProcedure>;
                           sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
                         ];
@@ -1637,9 +1640,6 @@ owl:ThingShape  a       sh:NodeShape;
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
                           sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
-                        ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Property>;
-                          sh:path   <http://www.w3.org/ns/sosa/actsOnProperty>
                         ];
         sh:targetClass  <http://www.w3.org/ns/sosa/ActuationCollection> .
 
@@ -1708,14 +1708,38 @@ owl:ThingShape  a       sh:NodeShape;
 
 <http://qudt.org/schema/qudt/PhysicalConstantShape>
         a               sh:NodeShape;
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/ucumCode>
+        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#boolean>;
+                          sh:path      <http://qudt.org/schema/qudt/exactConstant>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/SystemOfUnits>;
                           sh:path   <http://qudt.org/schema/qudt/applicableSystem>
                         ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
+                          sh:path   <http://qudt.org/schema/qudt/applicableUnit>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/PhysicalConstant>;
+                          sh:path   <http://qudt.org/schema/qudt/exactMatch>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/mathMLdefinition>
+                        ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/dbpediaMatch>
+                        ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/symbol>
+                        ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/normativeReference>
+                        ];
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/isoNormativeReference>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKindDimensionVector>;
+                          sh:path   <http://qudt.org/schema/qudt/hasDimensionVector>
+                        ];
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/ucumCode>
                         ];
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/altSymbol>
@@ -1724,68 +1748,36 @@ owl:ThingShape  a       sh:NodeShape;
                           sh:path      <http://qudt.org/schema/qudt/latexDefinition>
                         ];
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/dbpediaMatch>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKindDimensionVector>;
-                          sh:path   <http://qudt.org/schema/qudt/hasDimensionVector>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/mathMLdefinition>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/latexSymbol>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/normativeReference>
-                        ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/symbol>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/Unit>;
-                          sh:path   <http://qudt.org/schema/qudt/applicableUnit>
-                        ];
-        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#boolean>;
-                          sh:path      <http://qudt.org/schema/qudt/exactConstant>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/PhysicalConstant>;
-                          sh:path   <http://qudt.org/schema/qudt/exactMatch>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/PhysicalConstant> .
 
 <http://qudt.org/schema/qudt/QuantityKindDimensionVectorShape>
         a               sh:NodeShape;
+        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/latexSymbol>
+                        ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/dimensionExponentForLength>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/dimensionExponentForLuminousIntensity>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/latexDefinition>
+                          sh:path      <http://qudt.org/schema/qudt/dimensionExponentForThermodynamicTemperature>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/dimensionlessExponent>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/dimensionExponentForElectricCurrent>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/dimensionExponentForAmountOfSubstance>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
                           sh:path   <http://qudt.org/schema/qudt/hasReferenceQuantityKind>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/dimensionExponentForTime>
+                          sh:path      <http://qudt.org/schema/qudt/dimensionExponentForAmountOfSubstance>
                         ];
-        sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/latexSymbol>
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/latexDefinition>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
@@ -1793,7 +1785,15 @@ owl:ThingShape  a       sh:NodeShape;
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/dimensionExponentForThermodynamicTemperature>
+                          sh:path      <http://qudt.org/schema/qudt/dimensionExponentForTime>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/dimensionExponentForLuminousIntensity>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/dimensionExponentForElectricCurrent>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/QuantityKindDimensionVector> .
 
@@ -1837,17 +1837,17 @@ owl:ThingShape  a       sh:NodeShape;
 
 <http://www.w3.org/ns/sosa/SamplingShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/SamplingProcedure>;
-                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
-                        ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sample>;
                           sh:path   <http://www.w3.org/ns/sosa/hasResult>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
+                          sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sampler>;
                           sh:path   <http://www.w3.org/ns/sosa/madeBySampler>
                         ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
-                          sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/SamplingProcedure>;
+                          sh:path   <http://www.w3.org/ns/sosa/usedProcedure>
                         ];
         sh:targetClass  <http://www.w3.org/ns/sosa/Sampling> .
 
@@ -1906,28 +1906,23 @@ owl:ThingShape  a       sh:NodeShape;
 <http://www.w3.org/2006/time#GeneralDateTimeDescriptionShape>
         a               sh:NodeShape;
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#timeZone>
+                          sh:path      <http://www.w3.org/2006/time#day>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/2006/time#week>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#second>
+                          sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://www.w3.org/2006/time#unitType>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#minute>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#day>
+                          sh:path      <http://www.w3.org/2006/time#month>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/2006/time#hour>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#year>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#dayOfWeek>
+                          sh:path      <http://www.w3.org/2006/time#timeZone>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://www.w3.org/2006/time#dayOfYear>
@@ -1936,11 +1931,16 @@ owl:ThingShape  a       sh:NodeShape;
                           sh:path      <http://www.w3.org/2006/time#monthOfYear>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:minCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#unitType>
+                          sh:path      <http://www.w3.org/2006/time#minute>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://www.w3.org/2006/time#month>
+                          sh:path      <http://www.w3.org/2006/time#second>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://www.w3.org/2006/time#dayOfWeek>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://www.w3.org/2006/time#year>
                         ];
         sh:targetClass  <http://www.w3.org/2006/time#GeneralDateTimeDescription> .
 
@@ -1986,12 +1986,6 @@ owl:ThingShape  a       sh:NodeShape;
 
 <http://www.w3.org/ns/sosa/DeploymentShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
-                          sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
-                        ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/System>;
-                          sh:path   <http://www.w3.org/ns/sosa/deployedSystem>
-                        ];
         sh:property     [ sh:or    ( [ sh:class  <http://www.w3.org/ns/sosa/Platform> ]
                                      [ sh:class  <http://www.w3.org/ns/sosa/System> ]
                                    );
@@ -2000,20 +1994,26 @@ owl:ThingShape  a       sh:NodeShape;
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Platform>;
                           sh:path   <http://www.w3.org/ns/sosa/deployedOnPlatform>
                         ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/System>;
+                          sh:path   <http://www.w3.org/ns/sosa/deployedSystem>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
+                          sh:path   <http://www.w3.org/ns/sosa/hasFeatureOfInterest>
+                        ];
         sh:targetClass  <http://www.w3.org/ns/sosa/Deployment> .
 
 <http://www.w3.org/2006/time#DateTimeDescriptionShape>
         a               sh:NodeShape;
-        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#gDay>;
-                          sh:path      <http://www.w3.org/2006/time#day>
-                        ];
         sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#gMonth>;
                           sh:path      <http://www.w3.org/2006/time#month>
                         ];
+        sh:property     [ sh:path  <http://www.w3.org/2006/time#hasTRS> ];
         sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#gYear>;
                           sh:path      <http://www.w3.org/2006/time#year>
                         ];
-        sh:property     [ sh:path  <http://www.w3.org/2006/time#hasTRS> ];
+        sh:property     [ sh:datatype  <http://www.w3.org/2001/XMLSchema#gDay>;
+                          sh:path      <http://www.w3.org/2006/time#day>
+                        ];
         sh:targetClass  <http://www.w3.org/2006/time#DateTimeDescription> .
 
 <http://www.w3.org/ns/prov#CommunicationShape>
@@ -2050,13 +2050,13 @@ owl:ThingShape  a       sh:NodeShape;
 <http://qudt.org/schema/qudt/EnumeratedValueShape>
         a               sh:NodeShape;
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/symbol>
+                        ];
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/abbreviation>
                         ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://purl.org/dc/terms/description>
-                        ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/symbol>
                         ];
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/altSymbol>
@@ -2083,17 +2083,11 @@ owl:ThingShape  a       sh:NodeShape;
 
 <http://www.w3.org/ns/sosa/SampleCollectionShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sampler>;
-                          sh:path   <http://www.w3.org/ns/sosa/isResultOfMadeBySampler>
-                        ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sample>;
-                          sh:path   <http://www.w3.org/ns/sosa/hasOriginalSample>
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
+                          sh:path   <http://www.w3.org/ns/sosa/isSampleOfUltimateFOI>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/SamplingProcedure>;
                           sh:path   <http://www.w3.org/ns/sosa/isResultOfUsedProcedure>
-                        ];
-        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
-                          sh:path   <http://www.w3.org/ns/sosa/isSampleOfUltimateFOI>
                         ];
         sh:property     [ sh:class  <http://www.w3.org/ns/sosa/FeatureOfInterest>;
                           sh:path   <http://www.w3.org/ns/sosa/isSampleOf>
@@ -2107,6 +2101,12 @@ owl:ThingShape  a       sh:NodeShape;
                                      [ sh:class  <http://www.w3.org/ns/sosa/SamplingCollection> ]
                                    );
                           sh:path  <http://www.w3.org/ns/sosa/isResultOf>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sample>;
+                          sh:path   <http://www.w3.org/ns/sosa/hasOriginalSample>
+                        ];
+        sh:property     [ sh:class  <http://www.w3.org/ns/sosa/Sampler>;
+                          sh:path   <http://www.w3.org/ns/sosa/isResultOfMadeBySampler>
                         ];
         sh:targetClass  <http://www.w3.org/ns/sosa/SampleCollection> .
 
@@ -2122,14 +2122,14 @@ owl:ThingShape  a       sh:NodeShape;
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/encoding>
                         ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/EndianType>;
-                          sh:path   <http://qudt.org/schema/qudt/bitOrder>
+        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
+                          sh:path      <http://qudt.org/schema/qudt/byteOrder>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/Encoding>;
                           sh:path   <http://qudt.org/schema/qudt/encoding>
                         ];
-        sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
-                          sh:path      <http://qudt.org/schema/qudt/byteOrder>
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/EndianType>;
+                          sh:path   <http://qudt.org/schema/qudt/bitOrder>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/DataEncoding> .
 
@@ -2143,17 +2143,8 @@ owl:ThingShape  a       sh:NodeShape;
 
 <http://qudt.org/schema/qudt/SystemOfQuantityKindsShape>
         a               sh:NodeShape;
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
-                          sh:path   <http://qudt.org/schema/qudt/hasBaseQuantityKind>
-                        ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/Enumeration>;
                           sh:path   <http://qudt.org/schema/qudt/baseDimensionEnumeration>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/SystemOfUnits>;
-                          sh:path   <http://qudt.org/schema/qudt/hasUnitSystem>
-                        ];
-        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
-                          sh:path   <http://qudt.org/schema/qudt/systemDerivedQuantityKind>
                         ];
         sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
                           sh:path   <http://qudt.org/schema/qudt/hasQuantityKind>
@@ -2161,8 +2152,17 @@ owl:ThingShape  a       sh:NodeShape;
         sh:property     [ sh:minCount  "0"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/hasQuantityKind>
                         ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/SystemOfUnits>;
+                          sh:path   <http://qudt.org/schema/qudt/hasUnitSystem>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
+                          sh:path   <http://qudt.org/schema/qudt/systemDerivedQuantityKind>
+                        ];
         sh:property     [ sh:maxCount  "1"^^<http://www.w3.org/2001/XMLSchema#long>;
                           sh:path      <http://qudt.org/schema/qudt/baseDimensionEnumeration>
+                        ];
+        sh:property     [ sh:class  <http://qudt.org/schema/qudt/QuantityKind>;
+                          sh:path   <http://qudt.org/schema/qudt/hasBaseQuantityKind>
                         ];
         sh:targetClass  <http://qudt.org/schema/qudt/SystemOfQuantityKinds> .
 
