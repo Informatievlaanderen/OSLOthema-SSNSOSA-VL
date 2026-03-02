@@ -303,6 +303,7 @@
             <zoet>N</zoet>
             <betrouwbaarheid>goed</betrouwbaarheid>
         </peilmeting>
+  <!--
         <peilmeting>
             <datum>2007-09-21</datum>
             <diepte_tov_referentiepunt>2.18</diepte_tov_referentiepunt>
@@ -3144,6 +3145,7 @@
            <betrouwbaarheid>goed</betrouwbaarheid>
            <bron>Onbekend</bron>
        </peilmeting>
+       -->
        <peilmeting>
            <datum>2024-08-15</datum>
            <tijdstip>13:00:00</tijdstip>
