@@ -45,6 +45,8 @@ case class ValidationResult(
    * }}}
    */
    */
+
+
 object TurtleTransformer {
 
   // ------------------------
@@ -339,7 +341,7 @@ object TurtleTransformer {
 
       // Shacl validation
       val report = ShaclValidator.validate(inferredModel, shaclShapes) // gebruik inferredModel
-      //ShaclValidator.printReport(report)
+      ShaclValidator.printReport(report)
 
       // JSON-LD verwerking
       for {
