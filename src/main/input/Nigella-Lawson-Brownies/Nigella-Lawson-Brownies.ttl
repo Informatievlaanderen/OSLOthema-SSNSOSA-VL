@@ -639,7 +639,7 @@ parameter:de_kleur_van_de_bovenzijde_van_de_brownie
     sosa:hasProcedure plan:laat_bakken_tot_lichtbruine_bovenkant .
 
 prop:toestand-boter-chocolade
-    a sosa:ActuatableProperty ;
+    a sosa:ActuatableProperty, sosa:Property  ;
     rdfs:label "Toestand van boter en chocolade (vast → vloeibaar)"@nl .
 
 prop:toestand-walnoten
