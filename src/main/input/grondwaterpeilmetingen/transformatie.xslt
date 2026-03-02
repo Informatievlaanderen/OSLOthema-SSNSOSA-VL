@@ -8,6 +8,7 @@
                 xmlns:ex="http://example.org/"
                 xmlns:geo="http://www.opengis.net/ont/geosparql#"
                 xmlns:unit="http://qudt.org/vocab/unit#"
+                xmlns:agent="http://example.org/agent/"
                 xmlns:qudt="http://qudt.org/schema/qudt/"
                 xmlns:ns4="http://kern.schemas.dov.vlaanderen.be"
                 xmlns:put="https://www.dov.vlaanderen.be/data/put/"
@@ -57,6 +58,9 @@
 
     <xsl:template match="onderdeel">
         <rdf:Description>
+            <xsl:attribute name="rdf:about">
+                <xsl:value-of select="concat(/ns4:dov-schema/filter/dataidentifier/uri, '/' , filterelement)"/>
+            </xsl:attribute>
             <xsl:attribute name="rdf:type">
                 <xsl:value-of select="'http://www.w3.org/ns/sosa/System'"/>
             </xsl:attribute>
@@ -116,9 +120,12 @@
                     </sosa:hasResult>
                     <sosa:observedProperty rdf:resource="http://example.org/diepte_tov_referentiepunt"/>
                     <sosa:usedProcedure>
-                        <xsl:attribute name="rdf:resource">
-                            <xsl:value-of select="translate(concat('http://example.org/', methode, '_methode'), ' ', '')"/>
-                        </xsl:attribute>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="translate(concat('http://example.org/', methode, '_methode'), ' ', '')"/>
+                            </xsl:attribute>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                        </rdf:Description>
                     </sosa:usedProcedure>
                 </rdf:Description>
             </sosa:hasMember>
@@ -139,9 +146,13 @@
                     </sosa:hasResult>
                     <sosa:observedProperty rdf:resource="http://example.org/peil_mtaw"/>
                     <sosa:usedProcedure>
-                        <xsl:attribute name="rdf:resource">
-                            <xsl:value-of select="translate(concat('http://example.org/', methode, '_methode'), ' ', '')"/>
-                        </xsl:attribute>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="translate(concat('http://example.org/', methode, '_methode'), ' ', '')"/>
+                            </xsl:attribute>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                        </rdf:Description>
+
                     </sosa:usedProcedure>
                 </rdf:Description>
             </sosa:hasMember>
@@ -186,6 +197,9 @@
             </sosa:hasMember>
             <sosa:madeBySensor >
                 <rdf:Description>
+                    <xsl:attribute name="rdf:about">
+                        <xsl:value-of select="concat('http://example.org/agent/', translate(opmeter/naam, ' ', ''))"/>
+                    </xsl:attribute>
                     <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
                     <rdfs:label>
                         <xsl:value-of select="opmeter/naam"/>

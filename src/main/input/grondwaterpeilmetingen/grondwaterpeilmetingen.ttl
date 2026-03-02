@@ -1,3 +1,4 @@
+PREFIX agent:  <http://example.org/agent/>
 PREFIX dct:    <http://purl.org/dc/terms/>
 PREFIX ex:     <http://example.org/>
 PREFIX filter: <https://www.dov.vlaanderen.be/data/filter/>
@@ -52,9 +53,7 @@ ex:peilmeting_2026-01-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2026-01-27zoet , ex:peilmeting_2026-01-27filterstatus , ex:peilmeting_2026-01-27filtertoestand , ex:peilmeting_2026-01-27peil_mtaw , ex:peilmeting_2026-01-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2026-01-27"^^xsd:date .
 
 ex:peilmeting_2025-12-17zoet
@@ -97,9 +96,7 @@ ex:peilmeting_2025-12-17
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-12-17zoet , ex:peilmeting_2025-12-17filterstatus , ex:peilmeting_2025-12-17filtertoestand , ex:peilmeting_2025-12-17peil_mtaw , ex:peilmeting_2025-12-17diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2025-12-17"^^xsd:date .
 
 ex:peilmeting_2025-11-25zoet
@@ -142,9 +139,7 @@ ex:peilmeting_2025-11-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-11-25zoet , ex:peilmeting_2025-11-25filterstatus , ex:peilmeting_2025-11-25filtertoestand , ex:peilmeting_2025-11-25peil_mtaw , ex:peilmeting_2025-11-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2025-11-25"^^xsd:date .
 
 ex:peilmeting_2025-10-27zoet
@@ -187,9 +182,7 @@ ex:peilmeting_2025-10-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-10-27zoet , ex:peilmeting_2025-10-27filterstatus , ex:peilmeting_2025-10-27filtertoestand , ex:peilmeting_2025-10-27peil_mtaw , ex:peilmeting_2025-10-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2025-10-27"^^xsd:date .
 
 ex:peilmeting_2025-09-30zoet
@@ -232,9 +225,7 @@ ex:peilmeting_2025-09-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-09-30zoet , ex:peilmeting_2025-09-30filterstatus , ex:peilmeting_2025-09-30filtertoestand , ex:peilmeting_2025-09-30peil_mtaw , ex:peilmeting_2025-09-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2025-09-30"^^xsd:date .
 
 ex:peilmeting_2025-09-25zoet
@@ -277,9 +268,7 @@ ex:peilmeting_2025-09-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-09-25zoet , ex:peilmeting_2025-09-25filterstatus , ex:peilmeting_2025-09-25filtertoestand , ex:peilmeting_2025-09-25peil_mtaw , ex:peilmeting_2025-09-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  ""
-                                   ];
+        sosa:madeBySensor          agent:;
         sosa:resultTime            "2025-09-25"^^xsd:date .
 
 ex:peilmeting_2025-08-28zoet
@@ -322,9 +311,7 @@ ex:peilmeting_2025-08-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-08-28zoet , ex:peilmeting_2025-08-28filterstatus , ex:peilmeting_2025-08-28filtertoestand , ex:peilmeting_2025-08-28peil_mtaw , ex:peilmeting_2025-08-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  ""
-                                   ];
+        sosa:madeBySensor          agent:;
         sosa:resultTime            "2025-08-28"^^xsd:date .
 
 ex:peilmeting_2025-07-30zoet
@@ -367,10 +354,11 @@ ex:peilmeting_2025-07-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-07-30zoet , ex:peilmeting_2025-07-30filterstatus , ex:peilmeting_2025-07-30filtertoestand , ex:peilmeting_2025-07-30peil_mtaw , ex:peilmeting_2025-07-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  ""
-                                   ];
+        sosa:madeBySensor          agent:;
         sosa:resultTime            "2025-07-30"^^xsd:date .
+
+agent:  rdf:type    sosa:Sensor;
+        rdfs:label  "" .
 
 ex:peilmeting_2025-06-19zoet
         rdf:type               sosa:Observation;
@@ -412,9 +400,7 @@ ex:peilmeting_2025-06-19
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-06-19zoet , ex:peilmeting_2025-06-19filterstatus , ex:peilmeting_2025-06-19filtertoestand , ex:peilmeting_2025-06-19peil_mtaw , ex:peilmeting_2025-06-19diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  ""
-                                   ];
+        sosa:madeBySensor          agent:;
         sosa:resultTime            "2025-06-19"^^xsd:date .
 
 ex:peilmeting_2025-05-26zoet
@@ -457,9 +443,7 @@ ex:peilmeting_2025-05-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-05-26zoet , ex:peilmeting_2025-05-26filterstatus , ex:peilmeting_2025-05-26filtertoestand , ex:peilmeting_2025-05-26peil_mtaw , ex:peilmeting_2025-05-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2025-05-26"^^xsd:date .
 
 ex:peilmeting_2025-04-28zoet
@@ -502,9 +486,7 @@ ex:peilmeting_2025-04-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-04-28zoet , ex:peilmeting_2025-04-28filterstatus , ex:peilmeting_2025-04-28filtertoestand , ex:peilmeting_2025-04-28peil_mtaw , ex:peilmeting_2025-04-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2025-04-28"^^xsd:date .
 
 ex:peilmeting_2025-03-15zoet
@@ -547,9 +529,7 @@ ex:peilmeting_2025-03-15
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-03-15zoet , ex:peilmeting_2025-03-15filterstatus , ex:peilmeting_2025-03-15filtertoestand , ex:peilmeting_2025-03-15peil_mtaw , ex:peilmeting_2025-03-15diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2025-03-15"^^xsd:date .
 
 ex:peilmeting_2025-02-15zoet
@@ -592,9 +572,7 @@ ex:peilmeting_2025-02-15
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-02-15zoet , ex:peilmeting_2025-02-15filterstatus , ex:peilmeting_2025-02-15filtertoestand , ex:peilmeting_2025-02-15peil_mtaw , ex:peilmeting_2025-02-15diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2025-02-15"^^xsd:date .
 
 ex:peilmeting_2025-01-23zoet
@@ -637,9 +615,7 @@ ex:peilmeting_2025-01-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2025-01-23zoet , ex:peilmeting_2025-01-23filterstatus , ex:peilmeting_2025-01-23filtertoestand , ex:peilmeting_2025-01-23peil_mtaw , ex:peilmeting_2025-01-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2025-01-23"^^xsd:date .
 
 ex:peilmeting_2024-12-15zoet
@@ -682,9 +658,7 @@ ex:peilmeting_2024-12-15
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-12-15zoet , ex:peilmeting_2024-12-15filterstatus , ex:peilmeting_2024-12-15filtertoestand , ex:peilmeting_2024-12-15peil_mtaw , ex:peilmeting_2024-12-15diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-12-15"^^xsd:date .
 
 ex:peilmeting_2024-11-20zoet
@@ -727,9 +701,7 @@ ex:peilmeting_2024-11-20
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-11-20zoet , ex:peilmeting_2024-11-20filterstatus , ex:peilmeting_2024-11-20filtertoestand , ex:peilmeting_2024-11-20peil_mtaw , ex:peilmeting_2024-11-20diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Labo"
-                                   ];
+        sosa:madeBySensor          agent:Labo;
         sosa:resultTime            "2024-11-20"^^xsd:date .
 
 ex:peilmeting_2024-11-15zoet
@@ -772,9 +744,7 @@ ex:peilmeting_2024-11-15
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-11-15zoet , ex:peilmeting_2024-11-15filterstatus , ex:peilmeting_2024-11-15filtertoestand , ex:peilmeting_2024-11-15peil_mtaw , ex:peilmeting_2024-11-15diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-11-15"^^xsd:date .
 
 ex:peilmeting_2024-10-24zoet
@@ -817,9 +787,7 @@ ex:peilmeting_2024-10-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-10-24zoet , ex:peilmeting_2024-10-24filterstatus , ex:peilmeting_2024-10-24filtertoestand , ex:peilmeting_2024-10-24peil_mtaw , ex:peilmeting_2024-10-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-10-24"^^xsd:date .
 
 ex:peilmeting_2024-09-15zoet
@@ -862,9 +830,7 @@ ex:peilmeting_2024-09-15
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-09-15zoet , ex:peilmeting_2024-09-15filterstatus , ex:peilmeting_2024-09-15filtertoestand , ex:peilmeting_2024-09-15peil_mtaw , ex:peilmeting_2024-09-15diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-09-15"^^xsd:date .
 
 ex:peilmeting_2024-08-15zoet
@@ -907,9 +873,7 @@ ex:peilmeting_2024-08-15
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-08-15zoet , ex:peilmeting_2024-08-15filterstatus , ex:peilmeting_2024-08-15filtertoestand , ex:peilmeting_2024-08-15peil_mtaw , ex:peilmeting_2024-08-15diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-08-15"^^xsd:date .
 
 ex:peilmeting_2024-07-07zoet
@@ -939,6 +903,9 @@ ex:peilmeting_2024-07-07peil_mtaw
         sosa:observedProperty  ex:peil_mtaw;
         sosa:usedProcedure     ex:automatischesonde_methode .
 
+ex:automatischesonde_methode
+        rdf:type  sosa:Procedure .
+
 ex:peilmeting_2024-07-07diepte_tov_referentiepunt
         rdf:type               sosa:Observation;
         sosa:hasResult         [ rdf:type      sosa:Result;
@@ -952,9 +919,7 @@ ex:peilmeting_2024-07-07
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-07-07zoet , ex:peilmeting_2024-07-07filterstatus , ex:peilmeting_2024-07-07filtertoestand , ex:peilmeting_2024-07-07peil_mtaw , ex:peilmeting_2024-07-07diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-07-07"^^xsd:date .
 
 ex:peilmeting_2024-06-24zoet
@@ -997,9 +962,7 @@ ex:peilmeting_2024-06-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-06-24zoet , ex:peilmeting_2024-06-24filterstatus , ex:peilmeting_2024-06-24filtertoestand , ex:peilmeting_2024-06-24peil_mtaw , ex:peilmeting_2024-06-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-06-24"^^xsd:date .
 
 ex:peilmeting_2024-05-24zoet
@@ -1042,9 +1005,7 @@ ex:peilmeting_2024-05-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-05-24zoet , ex:peilmeting_2024-05-24filterstatus , ex:peilmeting_2024-05-24filtertoestand , ex:peilmeting_2024-05-24peil_mtaw , ex:peilmeting_2024-05-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-05-24"^^xsd:date .
 
 ex:peilmeting_2024-04-26zoet
@@ -1087,9 +1048,7 @@ ex:peilmeting_2024-04-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-04-26zoet , ex:peilmeting_2024-04-26filterstatus , ex:peilmeting_2024-04-26filtertoestand , ex:peilmeting_2024-04-26peil_mtaw , ex:peilmeting_2024-04-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-04-26"^^xsd:date .
 
 ex:peilmeting_2024-03-27zoet
@@ -1132,9 +1091,7 @@ ex:peilmeting_2024-03-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-03-27zoet , ex:peilmeting_2024-03-27filterstatus , ex:peilmeting_2024-03-27filtertoestand , ex:peilmeting_2024-03-27peil_mtaw , ex:peilmeting_2024-03-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-03-27"^^xsd:date .
 
 ex:peilmeting_2024-02-23zoet
@@ -1177,9 +1134,7 @@ ex:peilmeting_2024-02-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-02-23zoet , ex:peilmeting_2024-02-23filterstatus , ex:peilmeting_2024-02-23filtertoestand , ex:peilmeting_2024-02-23peil_mtaw , ex:peilmeting_2024-02-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-02-23"^^xsd:date .
 
 ex:peilmeting_2024-01-30zoet
@@ -1222,9 +1177,7 @@ ex:peilmeting_2024-01-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2024-01-30zoet , ex:peilmeting_2024-01-30filterstatus , ex:peilmeting_2024-01-30filtertoestand , ex:peilmeting_2024-01-30peil_mtaw , ex:peilmeting_2024-01-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2024-01-30"^^xsd:date .
 
 ex:peilmeting_2023-12-19zoet
@@ -1267,9 +1220,7 @@ ex:peilmeting_2023-12-19
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-12-19zoet , ex:peilmeting_2023-12-19filterstatus , ex:peilmeting_2023-12-19filtertoestand , ex:peilmeting_2023-12-19peil_mtaw , ex:peilmeting_2023-12-19diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-12-19"^^xsd:date .
 
 ex:peilmeting_2023-11-29zoet
@@ -1312,9 +1263,7 @@ ex:peilmeting_2023-11-29
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-11-29zoet , ex:peilmeting_2023-11-29filterstatus , ex:peilmeting_2023-11-29filtertoestand , ex:peilmeting_2023-11-29peil_mtaw , ex:peilmeting_2023-11-29diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-11-29"^^xsd:date .
 
 ex:peilmeting_2023-10-23zoet
@@ -1357,9 +1306,7 @@ ex:peilmeting_2023-10-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-10-23zoet , ex:peilmeting_2023-10-23filterstatus , ex:peilmeting_2023-10-23filtertoestand , ex:peilmeting_2023-10-23peil_mtaw , ex:peilmeting_2023-10-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-10-23"^^xsd:date .
 
 ex:peilmeting_2023-09-21zoet
@@ -1402,9 +1349,7 @@ ex:peilmeting_2023-09-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-09-21zoet , ex:peilmeting_2023-09-21filterstatus , ex:peilmeting_2023-09-21filtertoestand , ex:peilmeting_2023-09-21peil_mtaw , ex:peilmeting_2023-09-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-09-21"^^xsd:date .
 
 ex:peilmeting_2023-08-24zoet
@@ -1447,9 +1392,7 @@ ex:peilmeting_2023-08-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-08-24zoet , ex:peilmeting_2023-08-24filterstatus , ex:peilmeting_2023-08-24filtertoestand , ex:peilmeting_2023-08-24peil_mtaw , ex:peilmeting_2023-08-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-08-24"^^xsd:date .
 
 ex:peilmeting_2023-07-28zoet
@@ -1492,9 +1435,7 @@ ex:peilmeting_2023-07-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-07-28zoet , ex:peilmeting_2023-07-28filterstatus , ex:peilmeting_2023-07-28filtertoestand , ex:peilmeting_2023-07-28peil_mtaw , ex:peilmeting_2023-07-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-07-28"^^xsd:date .
 
 ex:peilmeting_2023-06-26zoet
@@ -1537,9 +1478,7 @@ ex:peilmeting_2023-06-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-06-26zoet , ex:peilmeting_2023-06-26filterstatus , ex:peilmeting_2023-06-26filtertoestand , ex:peilmeting_2023-06-26peil_mtaw , ex:peilmeting_2023-06-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-06-26"^^xsd:date .
 
 ex:peilmeting_2023-05-31zoet
@@ -1582,9 +1521,7 @@ ex:peilmeting_2023-05-31
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-05-31zoet , ex:peilmeting_2023-05-31filterstatus , ex:peilmeting_2023-05-31filtertoestand , ex:peilmeting_2023-05-31peil_mtaw , ex:peilmeting_2023-05-31diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-05-31"^^xsd:date .
 
 ex:peilmeting_2023-04-27zoet
@@ -1627,9 +1564,7 @@ ex:peilmeting_2023-04-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-04-27zoet , ex:peilmeting_2023-04-27filterstatus , ex:peilmeting_2023-04-27filtertoestand , ex:peilmeting_2023-04-27peil_mtaw , ex:peilmeting_2023-04-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-04-27"^^xsd:date .
 
 ex:peilmeting_2023-03-29zoet
@@ -1672,9 +1607,7 @@ ex:peilmeting_2023-03-29
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-03-29zoet , ex:peilmeting_2023-03-29filterstatus , ex:peilmeting_2023-03-29filtertoestand , ex:peilmeting_2023-03-29peil_mtaw , ex:peilmeting_2023-03-29diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-03-29"^^xsd:date .
 
 ex:peilmeting_2023-02-24zoet
@@ -1717,9 +1650,7 @@ ex:peilmeting_2023-02-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-02-24zoet , ex:peilmeting_2023-02-24filterstatus , ex:peilmeting_2023-02-24filtertoestand , ex:peilmeting_2023-02-24peil_mtaw , ex:peilmeting_2023-02-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-02-24"^^xsd:date .
 
 ex:peilmeting_2023-01-24zoet
@@ -1762,9 +1693,7 @@ ex:peilmeting_2023-01-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2023-01-24zoet , ex:peilmeting_2023-01-24filterstatus , ex:peilmeting_2023-01-24filtertoestand , ex:peilmeting_2023-01-24peil_mtaw , ex:peilmeting_2023-01-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2023-01-24"^^xsd:date .
 
 ex:peilmeting_2022-12-20zoet
@@ -1807,9 +1736,7 @@ ex:peilmeting_2022-12-20
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-12-20zoet , ex:peilmeting_2022-12-20filterstatus , ex:peilmeting_2022-12-20filtertoestand , ex:peilmeting_2022-12-20peil_mtaw , ex:peilmeting_2022-12-20diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-12-20"^^xsd:date .
 
 ex:peilmeting_2022-11-25zoet
@@ -1852,9 +1779,7 @@ ex:peilmeting_2022-11-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-11-25zoet , ex:peilmeting_2022-11-25filterstatus , ex:peilmeting_2022-11-25filtertoestand , ex:peilmeting_2022-11-25peil_mtaw , ex:peilmeting_2022-11-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-11-25"^^xsd:date .
 
 ex:peilmeting_2022-10-24zoet
@@ -1897,9 +1822,7 @@ ex:peilmeting_2022-10-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-10-24zoet , ex:peilmeting_2022-10-24filterstatus , ex:peilmeting_2022-10-24filtertoestand , ex:peilmeting_2022-10-24peil_mtaw , ex:peilmeting_2022-10-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-10-24"^^xsd:date .
 
 ex:peilmeting_2022-09-30zoet
@@ -1942,9 +1865,7 @@ ex:peilmeting_2022-09-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-09-30zoet , ex:peilmeting_2022-09-30filterstatus , ex:peilmeting_2022-09-30filtertoestand , ex:peilmeting_2022-09-30peil_mtaw , ex:peilmeting_2022-09-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-09-30"^^xsd:date .
 
 ex:peilmeting_2022-08-26zoet
@@ -1987,9 +1908,7 @@ ex:peilmeting_2022-08-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-08-26zoet , ex:peilmeting_2022-08-26filterstatus , ex:peilmeting_2022-08-26filtertoestand , ex:peilmeting_2022-08-26peil_mtaw , ex:peilmeting_2022-08-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-08-26"^^xsd:date .
 
 ex:peilmeting_2022-07-27zoet
@@ -2032,9 +1951,7 @@ ex:peilmeting_2022-07-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-07-27zoet , ex:peilmeting_2022-07-27filterstatus , ex:peilmeting_2022-07-27filtertoestand , ex:peilmeting_2022-07-27peil_mtaw , ex:peilmeting_2022-07-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-07-27"^^xsd:date .
 
 ex:peilmeting_2022-06-16zoet
@@ -2077,9 +1994,7 @@ ex:peilmeting_2022-06-16
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-06-16zoet , ex:peilmeting_2022-06-16filterstatus , ex:peilmeting_2022-06-16filtertoestand , ex:peilmeting_2022-06-16peil_mtaw , ex:peilmeting_2022-06-16diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-06-16"^^xsd:date .
 
 ex:peilmeting_2022-05-23zoet
@@ -2122,9 +2037,7 @@ ex:peilmeting_2022-05-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-05-23zoet , ex:peilmeting_2022-05-23filterstatus , ex:peilmeting_2022-05-23filtertoestand , ex:peilmeting_2022-05-23peil_mtaw , ex:peilmeting_2022-05-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-05-23"^^xsd:date .
 
 ex:peilmeting_2022-04-14zoet
@@ -2167,9 +2080,7 @@ ex:peilmeting_2022-04-14
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-04-14zoet , ex:peilmeting_2022-04-14filterstatus , ex:peilmeting_2022-04-14filtertoestand , ex:peilmeting_2022-04-14peil_mtaw , ex:peilmeting_2022-04-14diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-04-14"^^xsd:date .
 
 ex:peilmeting_2022-03-24zoet
@@ -2212,9 +2123,7 @@ ex:peilmeting_2022-03-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-03-24zoet , ex:peilmeting_2022-03-24filterstatus , ex:peilmeting_2022-03-24filtertoestand , ex:peilmeting_2022-03-24peil_mtaw , ex:peilmeting_2022-03-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-03-24"^^xsd:date .
 
 ex:peilmeting_2022-02-28zoet
@@ -2257,9 +2166,7 @@ ex:peilmeting_2022-02-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-02-28zoet , ex:peilmeting_2022-02-28filterstatus , ex:peilmeting_2022-02-28filtertoestand , ex:peilmeting_2022-02-28peil_mtaw , ex:peilmeting_2022-02-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-02-28"^^xsd:date .
 
 ex:peilmeting_2022-01-21zoet
@@ -2302,9 +2209,7 @@ ex:peilmeting_2022-01-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2022-01-21zoet , ex:peilmeting_2022-01-21filterstatus , ex:peilmeting_2022-01-21filtertoestand , ex:peilmeting_2022-01-21peil_mtaw , ex:peilmeting_2022-01-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2022-01-21"^^xsd:date .
 
 ex:peilmeting_2021-12-21zoet
@@ -2347,9 +2252,7 @@ ex:peilmeting_2021-12-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-12-21zoet , ex:peilmeting_2021-12-21filterstatus , ex:peilmeting_2021-12-21filtertoestand , ex:peilmeting_2021-12-21peil_mtaw , ex:peilmeting_2021-12-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-12-21"^^xsd:date .
 
 ex:peilmeting_2021-11-26zoet
@@ -2392,9 +2295,7 @@ ex:peilmeting_2021-11-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-11-26zoet , ex:peilmeting_2021-11-26filterstatus , ex:peilmeting_2021-11-26filtertoestand , ex:peilmeting_2021-11-26peil_mtaw , ex:peilmeting_2021-11-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-11-26"^^xsd:date .
 
 ex:peilmeting_2021-10-25zoet
@@ -2437,9 +2338,7 @@ ex:peilmeting_2021-10-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-10-25zoet , ex:peilmeting_2021-10-25filterstatus , ex:peilmeting_2021-10-25filtertoestand , ex:peilmeting_2021-10-25peil_mtaw , ex:peilmeting_2021-10-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-10-25"^^xsd:date .
 
 ex:peilmeting_2021-09-27zoet
@@ -2482,9 +2381,7 @@ ex:peilmeting_2021-09-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-09-27zoet , ex:peilmeting_2021-09-27filterstatus , ex:peilmeting_2021-09-27filtertoestand , ex:peilmeting_2021-09-27peil_mtaw , ex:peilmeting_2021-09-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-09-27"^^xsd:date .
 
 ex:peilmeting_2021-08-27zoet
@@ -2527,9 +2424,7 @@ ex:peilmeting_2021-08-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-08-27zoet , ex:peilmeting_2021-08-27filterstatus , ex:peilmeting_2021-08-27filtertoestand , ex:peilmeting_2021-08-27peil_mtaw , ex:peilmeting_2021-08-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-08-27"^^xsd:date .
 
 ex:peilmeting_2021-07-23zoet
@@ -2572,9 +2467,7 @@ ex:peilmeting_2021-07-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-07-23zoet , ex:peilmeting_2021-07-23filterstatus , ex:peilmeting_2021-07-23filtertoestand , ex:peilmeting_2021-07-23peil_mtaw , ex:peilmeting_2021-07-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-07-23"^^xsd:date .
 
 ex:peilmeting_2021-06-28zoet
@@ -2617,9 +2510,7 @@ ex:peilmeting_2021-06-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-06-28zoet , ex:peilmeting_2021-06-28filterstatus , ex:peilmeting_2021-06-28filtertoestand , ex:peilmeting_2021-06-28peil_mtaw , ex:peilmeting_2021-06-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-06-28"^^xsd:date .
 
 ex:peilmeting_2021-05-25zoet
@@ -2662,9 +2553,7 @@ ex:peilmeting_2021-05-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-05-25zoet , ex:peilmeting_2021-05-25filterstatus , ex:peilmeting_2021-05-25filtertoestand , ex:peilmeting_2021-05-25peil_mtaw , ex:peilmeting_2021-05-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-05-25"^^xsd:date .
 
 ex:peilmeting_2021-04-26zoet
@@ -2707,9 +2596,7 @@ ex:peilmeting_2021-04-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-04-26zoet , ex:peilmeting_2021-04-26filterstatus , ex:peilmeting_2021-04-26filtertoestand , ex:peilmeting_2021-04-26peil_mtaw , ex:peilmeting_2021-04-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-04-26"^^xsd:date .
 
 ex:peilmeting_2021-03-24zoet
@@ -2752,9 +2639,7 @@ ex:peilmeting_2021-03-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-03-24zoet , ex:peilmeting_2021-03-24filterstatus , ex:peilmeting_2021-03-24filtertoestand , ex:peilmeting_2021-03-24peil_mtaw , ex:peilmeting_2021-03-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-03-24"^^xsd:date .
 
 ex:peilmeting_2021-02-23zoet
@@ -2797,9 +2682,7 @@ ex:peilmeting_2021-02-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-02-23zoet , ex:peilmeting_2021-02-23filterstatus , ex:peilmeting_2021-02-23filtertoestand , ex:peilmeting_2021-02-23peil_mtaw , ex:peilmeting_2021-02-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-02-23"^^xsd:date .
 
 ex:peilmeting_2021-01-25zoet
@@ -2842,9 +2725,7 @@ ex:peilmeting_2021-01-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2021-01-25zoet , ex:peilmeting_2021-01-25filterstatus , ex:peilmeting_2021-01-25filtertoestand , ex:peilmeting_2021-01-25peil_mtaw , ex:peilmeting_2021-01-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2021-01-25"^^xsd:date .
 
 ex:peilmeting_2020-12-24zoet
@@ -2887,9 +2768,7 @@ ex:peilmeting_2020-12-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-12-24zoet , ex:peilmeting_2020-12-24filterstatus , ex:peilmeting_2020-12-24filtertoestand , ex:peilmeting_2020-12-24peil_mtaw , ex:peilmeting_2020-12-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-12-24"^^xsd:date .
 
 ex:peilmeting_2020-11-24zoet
@@ -2932,9 +2811,7 @@ ex:peilmeting_2020-11-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-11-24zoet , ex:peilmeting_2020-11-24filterstatus , ex:peilmeting_2020-11-24filtertoestand , ex:peilmeting_2020-11-24peil_mtaw , ex:peilmeting_2020-11-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-11-24"^^xsd:date .
 
 ex:peilmeting_2020-10-27zoet
@@ -2977,9 +2854,7 @@ ex:peilmeting_2020-10-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-10-27zoet , ex:peilmeting_2020-10-27filterstatus , ex:peilmeting_2020-10-27filtertoestand , ex:peilmeting_2020-10-27peil_mtaw , ex:peilmeting_2020-10-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-10-27"^^xsd:date .
 
 ex:peilmeting_2020-09-24zoet
@@ -3022,9 +2897,7 @@ ex:peilmeting_2020-09-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-09-24zoet , ex:peilmeting_2020-09-24filterstatus , ex:peilmeting_2020-09-24filtertoestand , ex:peilmeting_2020-09-24peil_mtaw , ex:peilmeting_2020-09-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-09-24"^^xsd:date .
 
 ex:peilmeting_2020-08-24zoet
@@ -3067,9 +2940,7 @@ ex:peilmeting_2020-08-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-08-24zoet , ex:peilmeting_2020-08-24filterstatus , ex:peilmeting_2020-08-24filtertoestand , ex:peilmeting_2020-08-24peil_mtaw , ex:peilmeting_2020-08-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-08-24"^^xsd:date .
 
 ex:peilmeting_2020-07-27zoet
@@ -3112,9 +2983,7 @@ ex:peilmeting_2020-07-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-07-27zoet , ex:peilmeting_2020-07-27filterstatus , ex:peilmeting_2020-07-27filtertoestand , ex:peilmeting_2020-07-27peil_mtaw , ex:peilmeting_2020-07-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-07-27"^^xsd:date .
 
 ex:peilmeting_2020-06-26zoet
@@ -3157,9 +3026,7 @@ ex:peilmeting_2020-06-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-06-26zoet , ex:peilmeting_2020-06-26filterstatus , ex:peilmeting_2020-06-26filtertoestand , ex:peilmeting_2020-06-26peil_mtaw , ex:peilmeting_2020-06-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-06-26"^^xsd:date .
 
 ex:peilmeting_2020-05-25zoet
@@ -3202,9 +3069,7 @@ ex:peilmeting_2020-05-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-05-25zoet , ex:peilmeting_2020-05-25filterstatus , ex:peilmeting_2020-05-25filtertoestand , ex:peilmeting_2020-05-25peil_mtaw , ex:peilmeting_2020-05-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-05-25"^^xsd:date .
 
 ex:peilmeting_2020-04-24zoet
@@ -3247,9 +3112,7 @@ ex:peilmeting_2020-04-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-04-24zoet , ex:peilmeting_2020-04-24filterstatus , ex:peilmeting_2020-04-24filtertoestand , ex:peilmeting_2020-04-24peil_mtaw , ex:peilmeting_2020-04-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-04-24"^^xsd:date .
 
 ex:peilmeting_2020-03-23zoet
@@ -3292,9 +3155,7 @@ ex:peilmeting_2020-03-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-03-23zoet , ex:peilmeting_2020-03-23filterstatus , ex:peilmeting_2020-03-23filtertoestand , ex:peilmeting_2020-03-23peil_mtaw , ex:peilmeting_2020-03-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-03-23"^^xsd:date .
 
 ex:peilmeting_2020-02-24zoet
@@ -3337,9 +3198,7 @@ ex:peilmeting_2020-02-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-02-24zoet , ex:peilmeting_2020-02-24filterstatus , ex:peilmeting_2020-02-24filtertoestand , ex:peilmeting_2020-02-24peil_mtaw , ex:peilmeting_2020-02-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-02-24"^^xsd:date .
 
 ex:peilmeting_2020-01-24zoet
@@ -3382,9 +3241,7 @@ ex:peilmeting_2020-01-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2020-01-24zoet , ex:peilmeting_2020-01-24filterstatus , ex:peilmeting_2020-01-24filtertoestand , ex:peilmeting_2020-01-24peil_mtaw , ex:peilmeting_2020-01-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2020-01-24"^^xsd:date .
 
 ex:peilmeting_2019-12-19zoet
@@ -3427,9 +3284,7 @@ ex:peilmeting_2019-12-19
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-12-19zoet , ex:peilmeting_2019-12-19filterstatus , ex:peilmeting_2019-12-19filtertoestand , ex:peilmeting_2019-12-19peil_mtaw , ex:peilmeting_2019-12-19diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-12-19"^^xsd:date .
 
 ex:peilmeting_2019-11-25zoet
@@ -3472,9 +3327,7 @@ ex:peilmeting_2019-11-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-11-25zoet , ex:peilmeting_2019-11-25filterstatus , ex:peilmeting_2019-11-25filtertoestand , ex:peilmeting_2019-11-25peil_mtaw , ex:peilmeting_2019-11-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-11-25"^^xsd:date .
 
 ex:peilmeting_2019-10-29zoet
@@ -3517,9 +3370,7 @@ ex:peilmeting_2019-10-29
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-10-29zoet , ex:peilmeting_2019-10-29filterstatus , ex:peilmeting_2019-10-29filtertoestand , ex:peilmeting_2019-10-29peil_mtaw , ex:peilmeting_2019-10-29diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-10-29"^^xsd:date .
 
 ex:peilmeting_2019-09-24zoet
@@ -3562,9 +3413,7 @@ ex:peilmeting_2019-09-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-09-24zoet , ex:peilmeting_2019-09-24filterstatus , ex:peilmeting_2019-09-24filtertoestand , ex:peilmeting_2019-09-24peil_mtaw , ex:peilmeting_2019-09-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-09-24"^^xsd:date .
 
 ex:peilmeting_2019-09-19zoet
@@ -3607,9 +3456,7 @@ ex:peilmeting_2019-09-19
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-09-19zoet , ex:peilmeting_2019-09-19filterstatus , ex:peilmeting_2019-09-19filtertoestand , ex:peilmeting_2019-09-19peil_mtaw , ex:peilmeting_2019-09-19diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Labo"
-                                   ];
+        sosa:madeBySensor          agent:Labo;
         sosa:resultTime            "2019-09-19"^^xsd:date .
 
 ex:peilmeting_2019-08-26zoet
@@ -3652,9 +3499,7 @@ ex:peilmeting_2019-08-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-08-26zoet , ex:peilmeting_2019-08-26filterstatus , ex:peilmeting_2019-08-26filtertoestand , ex:peilmeting_2019-08-26peil_mtaw , ex:peilmeting_2019-08-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-08-26"^^xsd:date .
 
 ex:peilmeting_2019-07-30zoet
@@ -3697,9 +3542,7 @@ ex:peilmeting_2019-07-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-07-30zoet , ex:peilmeting_2019-07-30filterstatus , ex:peilmeting_2019-07-30filtertoestand , ex:peilmeting_2019-07-30peil_mtaw , ex:peilmeting_2019-07-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-07-30"^^xsd:date .
 
 ex:peilmeting_2019-06-24zoet
@@ -3742,9 +3585,7 @@ ex:peilmeting_2019-06-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-06-24zoet , ex:peilmeting_2019-06-24filterstatus , ex:peilmeting_2019-06-24filtertoestand , ex:peilmeting_2019-06-24peil_mtaw , ex:peilmeting_2019-06-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-06-24"^^xsd:date .
 
 ex:peilmeting_2019-05-24zoet
@@ -3787,9 +3628,7 @@ ex:peilmeting_2019-05-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-05-24zoet , ex:peilmeting_2019-05-24filterstatus , ex:peilmeting_2019-05-24filtertoestand , ex:peilmeting_2019-05-24peil_mtaw , ex:peilmeting_2019-05-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-05-24"^^xsd:date .
 
 ex:peilmeting_2019-04-24zoet
@@ -3832,9 +3671,7 @@ ex:peilmeting_2019-04-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-04-24zoet , ex:peilmeting_2019-04-24filterstatus , ex:peilmeting_2019-04-24filtertoestand , ex:peilmeting_2019-04-24peil_mtaw , ex:peilmeting_2019-04-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-04-24"^^xsd:date .
 
 ex:peilmeting_2019-03-25zoet
@@ -3877,9 +3714,7 @@ ex:peilmeting_2019-03-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-03-25zoet , ex:peilmeting_2019-03-25filterstatus , ex:peilmeting_2019-03-25filtertoestand , ex:peilmeting_2019-03-25peil_mtaw , ex:peilmeting_2019-03-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-03-25"^^xsd:date .
 
 ex:peilmeting_2019-02-26zoet
@@ -3922,9 +3757,7 @@ ex:peilmeting_2019-02-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-02-26zoet , ex:peilmeting_2019-02-26filterstatus , ex:peilmeting_2019-02-26filtertoestand , ex:peilmeting_2019-02-26peil_mtaw , ex:peilmeting_2019-02-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-02-26"^^xsd:date .
 
 ex:peilmeting_2019-01-28zoet
@@ -3967,9 +3800,7 @@ ex:peilmeting_2019-01-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2019-01-28zoet , ex:peilmeting_2019-01-28filterstatus , ex:peilmeting_2019-01-28filtertoestand , ex:peilmeting_2019-01-28peil_mtaw , ex:peilmeting_2019-01-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2019-01-28"^^xsd:date .
 
 ex:peilmeting_2018-12-21zoet
@@ -4012,9 +3843,7 @@ ex:peilmeting_2018-12-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-12-21zoet , ex:peilmeting_2018-12-21filterstatus , ex:peilmeting_2018-12-21filtertoestand , ex:peilmeting_2018-12-21peil_mtaw , ex:peilmeting_2018-12-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-12-21"^^xsd:date .
 
 ex:peilmeting_2018-11-27zoet
@@ -4057,9 +3886,7 @@ ex:peilmeting_2018-11-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-11-27zoet , ex:peilmeting_2018-11-27filterstatus , ex:peilmeting_2018-11-27filtertoestand , ex:peilmeting_2018-11-27peil_mtaw , ex:peilmeting_2018-11-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-11-27"^^xsd:date .
 
 ex:peilmeting_2018-10-24zoet
@@ -4102,9 +3929,7 @@ ex:peilmeting_2018-10-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-10-24zoet , ex:peilmeting_2018-10-24filterstatus , ex:peilmeting_2018-10-24filtertoestand , ex:peilmeting_2018-10-24peil_mtaw , ex:peilmeting_2018-10-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-10-24"^^xsd:date .
 
 ex:peilmeting_2018-09-26zoet
@@ -4147,9 +3972,7 @@ ex:peilmeting_2018-09-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-09-26zoet , ex:peilmeting_2018-09-26filterstatus , ex:peilmeting_2018-09-26filtertoestand , ex:peilmeting_2018-09-26peil_mtaw , ex:peilmeting_2018-09-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-09-26"^^xsd:date .
 
 ex:peilmeting_2018-09-19zoet
@@ -4192,9 +4015,7 @@ ex:peilmeting_2018-09-19
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-09-19zoet , ex:peilmeting_2018-09-19filterstatus , ex:peilmeting_2018-09-19filtertoestand , ex:peilmeting_2018-09-19peil_mtaw , ex:peilmeting_2018-09-19diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Labo"
-                                   ];
+        sosa:madeBySensor          agent:Labo;
         sosa:resultTime            "2018-09-19"^^xsd:date .
 
 ex:peilmeting_2018-08-27zoet
@@ -4237,9 +4058,7 @@ ex:peilmeting_2018-08-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-08-27zoet , ex:peilmeting_2018-08-27filterstatus , ex:peilmeting_2018-08-27filtertoestand , ex:peilmeting_2018-08-27peil_mtaw , ex:peilmeting_2018-08-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-08-27"^^xsd:date .
 
 ex:peilmeting_2018-07-25zoet
@@ -4282,9 +4101,7 @@ ex:peilmeting_2018-07-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-07-25zoet , ex:peilmeting_2018-07-25filterstatus , ex:peilmeting_2018-07-25filtertoestand , ex:peilmeting_2018-07-25peil_mtaw , ex:peilmeting_2018-07-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-07-25"^^xsd:date .
 
 ex:peilmeting_2018-06-26zoet
@@ -4327,9 +4144,7 @@ ex:peilmeting_2018-06-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-06-26zoet , ex:peilmeting_2018-06-26filterstatus , ex:peilmeting_2018-06-26filtertoestand , ex:peilmeting_2018-06-26peil_mtaw , ex:peilmeting_2018-06-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-06-26"^^xsd:date .
 
 ex:peilmeting_2018-05-28zoet
@@ -4372,9 +4187,7 @@ ex:peilmeting_2018-05-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-05-28zoet , ex:peilmeting_2018-05-28filterstatus , ex:peilmeting_2018-05-28filtertoestand , ex:peilmeting_2018-05-28peil_mtaw , ex:peilmeting_2018-05-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-05-28"^^xsd:date .
 
 ex:peilmeting_2018-04-26zoet
@@ -4417,9 +4230,7 @@ ex:peilmeting_2018-04-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-04-26zoet , ex:peilmeting_2018-04-26filterstatus , ex:peilmeting_2018-04-26filtertoestand , ex:peilmeting_2018-04-26peil_mtaw , ex:peilmeting_2018-04-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-04-26"^^xsd:date .
 
 ex:peilmeting_2018-03-26zoet
@@ -4462,9 +4273,7 @@ ex:peilmeting_2018-03-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-03-26zoet , ex:peilmeting_2018-03-26filterstatus , ex:peilmeting_2018-03-26filtertoestand , ex:peilmeting_2018-03-26peil_mtaw , ex:peilmeting_2018-03-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-03-26"^^xsd:date .
 
 ex:peilmeting_2018-02-26zoet
@@ -4507,9 +4316,7 @@ ex:peilmeting_2018-02-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-02-26zoet , ex:peilmeting_2018-02-26filterstatus , ex:peilmeting_2018-02-26filtertoestand , ex:peilmeting_2018-02-26peil_mtaw , ex:peilmeting_2018-02-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-02-26"^^xsd:date .
 
 ex:peilmeting_2018-01-25zoet
@@ -4552,9 +4359,7 @@ ex:peilmeting_2018-01-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2018-01-25zoet , ex:peilmeting_2018-01-25filterstatus , ex:peilmeting_2018-01-25filtertoestand , ex:peilmeting_2018-01-25peil_mtaw , ex:peilmeting_2018-01-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2018-01-25"^^xsd:date .
 
 ex:peilmeting_2017-12-21zoet
@@ -4597,9 +4402,7 @@ ex:peilmeting_2017-12-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-12-21zoet , ex:peilmeting_2017-12-21filterstatus , ex:peilmeting_2017-12-21filtertoestand , ex:peilmeting_2017-12-21peil_mtaw , ex:peilmeting_2017-12-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-12-21"^^xsd:date .
 
 ex:peilmeting_2017-11-28zoet
@@ -4642,9 +4445,7 @@ ex:peilmeting_2017-11-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-11-28zoet , ex:peilmeting_2017-11-28filterstatus , ex:peilmeting_2017-11-28filtertoestand , ex:peilmeting_2017-11-28peil_mtaw , ex:peilmeting_2017-11-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-11-28"^^xsd:date .
 
 ex:peilmeting_2017-10-26zoet
@@ -4687,9 +4488,7 @@ ex:peilmeting_2017-10-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-10-26zoet , ex:peilmeting_2017-10-26filterstatus , ex:peilmeting_2017-10-26filtertoestand , ex:peilmeting_2017-10-26peil_mtaw , ex:peilmeting_2017-10-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-10-26"^^xsd:date .
 
 ex:peilmeting_2017-09-26zoet
@@ -4732,9 +4531,7 @@ ex:peilmeting_2017-09-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-09-26zoet , ex:peilmeting_2017-09-26filterstatus , ex:peilmeting_2017-09-26filtertoestand , ex:peilmeting_2017-09-26peil_mtaw , ex:peilmeting_2017-09-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-09-26"^^xsd:date .
 
 ex:peilmeting_2017-08-28zoet
@@ -4777,9 +4574,7 @@ ex:peilmeting_2017-08-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-08-28zoet , ex:peilmeting_2017-08-28filterstatus , ex:peilmeting_2017-08-28filtertoestand , ex:peilmeting_2017-08-28peil_mtaw , ex:peilmeting_2017-08-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-08-28"^^xsd:date .
 
 ex:peilmeting_2017-07-25zoet
@@ -4822,9 +4617,7 @@ ex:peilmeting_2017-07-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-07-25zoet , ex:peilmeting_2017-07-25filterstatus , ex:peilmeting_2017-07-25filtertoestand , ex:peilmeting_2017-07-25peil_mtaw , ex:peilmeting_2017-07-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-07-25"^^xsd:date .
 
 ex:peilmeting_2017-06-26zoet
@@ -4867,9 +4660,7 @@ ex:peilmeting_2017-06-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-06-26zoet , ex:peilmeting_2017-06-26filterstatus , ex:peilmeting_2017-06-26filtertoestand , ex:peilmeting_2017-06-26peil_mtaw , ex:peilmeting_2017-06-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-06-26"^^xsd:date .
 
 ex:peilmeting_2017-05-24zoet
@@ -4912,9 +4703,7 @@ ex:peilmeting_2017-05-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-05-24zoet , ex:peilmeting_2017-05-24filterstatus , ex:peilmeting_2017-05-24filtertoestand , ex:peilmeting_2017-05-24peil_mtaw , ex:peilmeting_2017-05-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-05-24"^^xsd:date .
 
 ex:peilmeting_2017-04-25zoet
@@ -4957,9 +4746,7 @@ ex:peilmeting_2017-04-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-04-25zoet , ex:peilmeting_2017-04-25filterstatus , ex:peilmeting_2017-04-25filtertoestand , ex:peilmeting_2017-04-25peil_mtaw , ex:peilmeting_2017-04-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-04-25"^^xsd:date .
 
 ex:peilmeting_2017-03-28zoet
@@ -5002,9 +4789,7 @@ ex:peilmeting_2017-03-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-03-28zoet , ex:peilmeting_2017-03-28filterstatus , ex:peilmeting_2017-03-28filtertoestand , ex:peilmeting_2017-03-28peil_mtaw , ex:peilmeting_2017-03-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-03-28"^^xsd:date .
 
 ex:peilmeting_2017-02-24zoet
@@ -5047,9 +4832,7 @@ ex:peilmeting_2017-02-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-02-24zoet , ex:peilmeting_2017-02-24filterstatus , ex:peilmeting_2017-02-24filtertoestand , ex:peilmeting_2017-02-24peil_mtaw , ex:peilmeting_2017-02-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Labo"
-                                   ];
+        sosa:madeBySensor          agent:Labo;
         sosa:resultTime            "2017-02-24"^^xsd:date .
 
 ex:peilmeting_2017-02-23zoet
@@ -5092,9 +4875,7 @@ ex:peilmeting_2017-02-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-02-23zoet , ex:peilmeting_2017-02-23filterstatus , ex:peilmeting_2017-02-23filtertoestand , ex:peilmeting_2017-02-23peil_mtaw , ex:peilmeting_2017-02-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-02-23"^^xsd:date .
 
 ex:peilmeting_2017-01-25zoet
@@ -5137,9 +4918,7 @@ ex:peilmeting_2017-01-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2017-01-25zoet , ex:peilmeting_2017-01-25filterstatus , ex:peilmeting_2017-01-25filtertoestand , ex:peilmeting_2017-01-25peil_mtaw , ex:peilmeting_2017-01-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2017-01-25"^^xsd:date .
 
 ex:peilmeting_2016-12-23zoet
@@ -5182,9 +4961,7 @@ ex:peilmeting_2016-12-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-12-23zoet , ex:peilmeting_2016-12-23filterstatus , ex:peilmeting_2016-12-23filtertoestand , ex:peilmeting_2016-12-23peil_mtaw , ex:peilmeting_2016-12-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-12-23"^^xsd:date .
 
 ex:peilmeting_2016-11-28zoet
@@ -5227,9 +5004,7 @@ ex:peilmeting_2016-11-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-11-28zoet , ex:peilmeting_2016-11-28filterstatus , ex:peilmeting_2016-11-28filtertoestand , ex:peilmeting_2016-11-28peil_mtaw , ex:peilmeting_2016-11-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-11-28"^^xsd:date .
 
 ex:peilmeting_2016-10-26zoet
@@ -5272,9 +5047,7 @@ ex:peilmeting_2016-10-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-10-26zoet , ex:peilmeting_2016-10-26filterstatus , ex:peilmeting_2016-10-26filtertoestand , ex:peilmeting_2016-10-26peil_mtaw , ex:peilmeting_2016-10-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-10-26"^^xsd:date .
 
 ex:peilmeting_2016-09-29zoet
@@ -5317,9 +5090,7 @@ ex:peilmeting_2016-09-29
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-09-29zoet , ex:peilmeting_2016-09-29filterstatus , ex:peilmeting_2016-09-29filtertoestand , ex:peilmeting_2016-09-29peil_mtaw , ex:peilmeting_2016-09-29diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-09-29"^^xsd:date .
 
 ex:peilmeting_2016-08-25zoet
@@ -5362,9 +5133,7 @@ ex:peilmeting_2016-08-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-08-25zoet , ex:peilmeting_2016-08-25filterstatus , ex:peilmeting_2016-08-25filtertoestand , ex:peilmeting_2016-08-25peil_mtaw , ex:peilmeting_2016-08-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-08-25"^^xsd:date .
 
 ex:peilmeting_2016-07-28zoet
@@ -5407,9 +5176,7 @@ ex:peilmeting_2016-07-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-07-28zoet , ex:peilmeting_2016-07-28filterstatus , ex:peilmeting_2016-07-28filtertoestand , ex:peilmeting_2016-07-28peil_mtaw , ex:peilmeting_2016-07-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Labo"
-                                   ];
+        sosa:madeBySensor          agent:Labo;
         sosa:resultTime            "2016-07-28"^^xsd:date .
 
 ex:peilmeting_2016-07-26zoet
@@ -5452,9 +5219,7 @@ ex:peilmeting_2016-07-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-07-26zoet , ex:peilmeting_2016-07-26filterstatus , ex:peilmeting_2016-07-26filtertoestand , ex:peilmeting_2016-07-26peil_mtaw , ex:peilmeting_2016-07-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-07-26"^^xsd:date .
 
 ex:peilmeting_2016-06-28zoet
@@ -5497,9 +5262,7 @@ ex:peilmeting_2016-06-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-06-28zoet , ex:peilmeting_2016-06-28filterstatus , ex:peilmeting_2016-06-28filtertoestand , ex:peilmeting_2016-06-28peil_mtaw , ex:peilmeting_2016-06-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-06-28"^^xsd:date .
 
 ex:peilmeting_2016-05-30zoet
@@ -5542,9 +5305,7 @@ ex:peilmeting_2016-05-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-05-30zoet , ex:peilmeting_2016-05-30filterstatus , ex:peilmeting_2016-05-30filtertoestand , ex:peilmeting_2016-05-30peil_mtaw , ex:peilmeting_2016-05-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-05-30"^^xsd:date .
 
 ex:peilmeting_2016-04-26zoet
@@ -5587,9 +5348,7 @@ ex:peilmeting_2016-04-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-04-26zoet , ex:peilmeting_2016-04-26filterstatus , ex:peilmeting_2016-04-26filtertoestand , ex:peilmeting_2016-04-26peil_mtaw , ex:peilmeting_2016-04-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-04-26"^^xsd:date .
 
 ex:peilmeting_2016-03-29zoet
@@ -5632,9 +5391,7 @@ ex:peilmeting_2016-03-29
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-03-29zoet , ex:peilmeting_2016-03-29filterstatus , ex:peilmeting_2016-03-29filtertoestand , ex:peilmeting_2016-03-29peil_mtaw , ex:peilmeting_2016-03-29diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-03-29"^^xsd:date .
 
 ex:peilmeting_2016-02-24zoet
@@ -5677,9 +5434,7 @@ ex:peilmeting_2016-02-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-02-24zoet , ex:peilmeting_2016-02-24filterstatus , ex:peilmeting_2016-02-24filtertoestand , ex:peilmeting_2016-02-24peil_mtaw , ex:peilmeting_2016-02-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-02-24"^^xsd:date .
 
 ex:peilmeting_2016-01-25zoet
@@ -5722,9 +5477,7 @@ ex:peilmeting_2016-01-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2016-01-25zoet , ex:peilmeting_2016-01-25filterstatus , ex:peilmeting_2016-01-25filtertoestand , ex:peilmeting_2016-01-25peil_mtaw , ex:peilmeting_2016-01-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2016-01-25"^^xsd:date .
 
 ex:peilmeting_2015-12-23zoet
@@ -5767,9 +5520,7 @@ ex:peilmeting_2015-12-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-12-23zoet , ex:peilmeting_2015-12-23filterstatus , ex:peilmeting_2015-12-23filtertoestand , ex:peilmeting_2015-12-23peil_mtaw , ex:peilmeting_2015-12-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-12-23"^^xsd:date .
 
 ex:peilmeting_2015-11-26zoet
@@ -5812,9 +5563,7 @@ ex:peilmeting_2015-11-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-11-26zoet , ex:peilmeting_2015-11-26filterstatus , ex:peilmeting_2015-11-26filtertoestand , ex:peilmeting_2015-11-26peil_mtaw , ex:peilmeting_2015-11-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-11-26"^^xsd:date .
 
 ex:peilmeting_2015-10-30zoet
@@ -5857,9 +5606,7 @@ ex:peilmeting_2015-10-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-10-30zoet , ex:peilmeting_2015-10-30filterstatus , ex:peilmeting_2015-10-30filtertoestand , ex:peilmeting_2015-10-30peil_mtaw , ex:peilmeting_2015-10-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-10-30"^^xsd:date .
 
 ex:peilmeting_2015-10-16zoet
@@ -5902,9 +5649,7 @@ ex:peilmeting_2015-10-16
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-10-16zoet , ex:peilmeting_2015-10-16filterstatus , ex:peilmeting_2015-10-16filtertoestand , ex:peilmeting_2015-10-16peil_mtaw , ex:peilmeting_2015-10-16diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Labo"
-                                   ];
+        sosa:madeBySensor          agent:Labo;
         sosa:resultTime            "2015-10-16"^^xsd:date .
 
 ex:peilmeting_2015-09-22zoet
@@ -5947,9 +5692,7 @@ ex:peilmeting_2015-09-22
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-09-22zoet , ex:peilmeting_2015-09-22filterstatus , ex:peilmeting_2015-09-22filtertoestand , ex:peilmeting_2015-09-22peil_mtaw , ex:peilmeting_2015-09-22diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-09-22"^^xsd:date .
 
 ex:peilmeting_2015-08-27zoet
@@ -5992,9 +5735,7 @@ ex:peilmeting_2015-08-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-08-27zoet , ex:peilmeting_2015-08-27filterstatus , ex:peilmeting_2015-08-27filtertoestand , ex:peilmeting_2015-08-27peil_mtaw , ex:peilmeting_2015-08-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-08-27"^^xsd:date .
 
 ex:peilmeting_2015-07-27zoet
@@ -6037,9 +5778,7 @@ ex:peilmeting_2015-07-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-07-27zoet , ex:peilmeting_2015-07-27filterstatus , ex:peilmeting_2015-07-27filtertoestand , ex:peilmeting_2015-07-27peil_mtaw , ex:peilmeting_2015-07-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-07-27"^^xsd:date .
 
 ex:peilmeting_2015-06-30zoet
@@ -6082,9 +5821,7 @@ ex:peilmeting_2015-06-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-06-30zoet , ex:peilmeting_2015-06-30filterstatus , ex:peilmeting_2015-06-30filtertoestand , ex:peilmeting_2015-06-30peil_mtaw , ex:peilmeting_2015-06-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-06-30"^^xsd:date .
 
 ex:peilmeting_2015-05-26zoet
@@ -6127,9 +5864,7 @@ ex:peilmeting_2015-05-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-05-26zoet , ex:peilmeting_2015-05-26filterstatus , ex:peilmeting_2015-05-26filtertoestand , ex:peilmeting_2015-05-26peil_mtaw , ex:peilmeting_2015-05-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-05-26"^^xsd:date .
 
 ex:peilmeting_2015-04-30zoet
@@ -6172,9 +5907,7 @@ ex:peilmeting_2015-04-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-04-30zoet , ex:peilmeting_2015-04-30filterstatus , ex:peilmeting_2015-04-30filtertoestand , ex:peilmeting_2015-04-30peil_mtaw , ex:peilmeting_2015-04-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-04-30"^^xsd:date .
 
 ex:peilmeting_2015-03-30zoet
@@ -6217,9 +5950,7 @@ ex:peilmeting_2015-03-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-03-30zoet , ex:peilmeting_2015-03-30filterstatus , ex:peilmeting_2015-03-30filtertoestand , ex:peilmeting_2015-03-30peil_mtaw , ex:peilmeting_2015-03-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-03-30"^^xsd:date .
 
 ex:peilmeting_2015-02-27zoet
@@ -6262,9 +5993,7 @@ ex:peilmeting_2015-02-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-02-27zoet , ex:peilmeting_2015-02-27filterstatus , ex:peilmeting_2015-02-27filtertoestand , ex:peilmeting_2015-02-27peil_mtaw , ex:peilmeting_2015-02-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-02-27"^^xsd:date .
 
 ex:peilmeting_2015-01-30zoet
@@ -6307,9 +6036,7 @@ ex:peilmeting_2015-01-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2015-01-30zoet , ex:peilmeting_2015-01-30filterstatus , ex:peilmeting_2015-01-30filtertoestand , ex:peilmeting_2015-01-30peil_mtaw , ex:peilmeting_2015-01-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2015-01-30"^^xsd:date .
 
 ex:peilmeting_2014-12-23zoet
@@ -6352,9 +6079,7 @@ ex:peilmeting_2014-12-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-12-23zoet , ex:peilmeting_2014-12-23filterstatus , ex:peilmeting_2014-12-23filtertoestand , ex:peilmeting_2014-12-23peil_mtaw , ex:peilmeting_2014-12-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-12-23"^^xsd:date .
 
 ex:peilmeting_2014-11-27zoet
@@ -6397,9 +6122,7 @@ ex:peilmeting_2014-11-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-11-27zoet , ex:peilmeting_2014-11-27filterstatus , ex:peilmeting_2014-11-27filtertoestand , ex:peilmeting_2014-11-27peil_mtaw , ex:peilmeting_2014-11-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-11-27"^^xsd:date .
 
 ex:peilmeting_2014-10-31zoet
@@ -6442,9 +6165,7 @@ ex:peilmeting_2014-10-31
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-10-31zoet , ex:peilmeting_2014-10-31filterstatus , ex:peilmeting_2014-10-31filtertoestand , ex:peilmeting_2014-10-31peil_mtaw , ex:peilmeting_2014-10-31diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-10-31"^^xsd:date .
 
 ex:peilmeting_2014-09-29zoet
@@ -6487,9 +6208,7 @@ ex:peilmeting_2014-09-29
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-09-29zoet , ex:peilmeting_2014-09-29filterstatus , ex:peilmeting_2014-09-29filtertoestand , ex:peilmeting_2014-09-29peil_mtaw , ex:peilmeting_2014-09-29diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-09-29"^^xsd:date .
 
 ex:peilmeting_2014-09-16zoet
@@ -6532,9 +6251,7 @@ ex:peilmeting_2014-09-16
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-09-16zoet , ex:peilmeting_2014-09-16filterstatus , ex:peilmeting_2014-09-16filtertoestand , ex:peilmeting_2014-09-16peil_mtaw , ex:peilmeting_2014-09-16diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Labo"
-                                   ];
+        sosa:madeBySensor          agent:Labo;
         sosa:resultTime            "2014-09-16"^^xsd:date .
 
 ex:peilmeting_2014-08-28zoet
@@ -6577,9 +6294,7 @@ ex:peilmeting_2014-08-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-08-28zoet , ex:peilmeting_2014-08-28filterstatus , ex:peilmeting_2014-08-28filtertoestand , ex:peilmeting_2014-08-28peil_mtaw , ex:peilmeting_2014-08-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-08-28"^^xsd:date .
 
 ex:peilmeting_2014-07-31zoet
@@ -6622,9 +6337,7 @@ ex:peilmeting_2014-07-31
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-07-31zoet , ex:peilmeting_2014-07-31filterstatus , ex:peilmeting_2014-07-31filtertoestand , ex:peilmeting_2014-07-31peil_mtaw , ex:peilmeting_2014-07-31diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-07-31"^^xsd:date .
 
 ex:peilmeting_2014-06-24zoet
@@ -6667,9 +6380,7 @@ ex:peilmeting_2014-06-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-06-24zoet , ex:peilmeting_2014-06-24filterstatus , ex:peilmeting_2014-06-24filtertoestand , ex:peilmeting_2014-06-24peil_mtaw , ex:peilmeting_2014-06-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-06-24"^^xsd:date .
 
 ex:peilmeting_2014-05-27zoet
@@ -6712,9 +6423,7 @@ ex:peilmeting_2014-05-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-05-27zoet , ex:peilmeting_2014-05-27filterstatus , ex:peilmeting_2014-05-27filtertoestand , ex:peilmeting_2014-05-27peil_mtaw , ex:peilmeting_2014-05-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-05-27"^^xsd:date .
 
 ex:peilmeting_2014-04-28zoet
@@ -6757,9 +6466,7 @@ ex:peilmeting_2014-04-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-04-28zoet , ex:peilmeting_2014-04-28filterstatus , ex:peilmeting_2014-04-28filtertoestand , ex:peilmeting_2014-04-28peil_mtaw , ex:peilmeting_2014-04-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-04-28"^^xsd:date .
 
 ex:peilmeting_2014-03-14zoet
@@ -6802,9 +6509,7 @@ ex:peilmeting_2014-03-14
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-03-14zoet , ex:peilmeting_2014-03-14filterstatus , ex:peilmeting_2014-03-14filtertoestand , ex:peilmeting_2014-03-14peil_mtaw , ex:peilmeting_2014-03-14diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Labo"
-                                   ];
+        sosa:madeBySensor          agent:Labo;
         sosa:resultTime            "2014-03-14"^^xsd:date .
 
 ex:peilmeting_2014-03-13zoet
@@ -6847,9 +6552,7 @@ ex:peilmeting_2014-03-13
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-03-13zoet , ex:peilmeting_2014-03-13filterstatus , ex:peilmeting_2014-03-13filtertoestand , ex:peilmeting_2014-03-13peil_mtaw , ex:peilmeting_2014-03-13diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-03-13"^^xsd:date .
 
 ex:peilmeting_2014-02-21zoet
@@ -6892,9 +6595,7 @@ ex:peilmeting_2014-02-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-02-21zoet , ex:peilmeting_2014-02-21filterstatus , ex:peilmeting_2014-02-21filtertoestand , ex:peilmeting_2014-02-21peil_mtaw , ex:peilmeting_2014-02-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-02-21"^^xsd:date .
 
 ex:peilmeting_2014-02-14zoet
@@ -6937,9 +6638,7 @@ ex:peilmeting_2014-02-14
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-02-14zoet , ex:peilmeting_2014-02-14filterstatus , ex:peilmeting_2014-02-14filtertoestand , ex:peilmeting_2014-02-14peil_mtaw , ex:peilmeting_2014-02-14diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Labo"
-                                   ];
+        sosa:madeBySensor          agent:Labo;
         sosa:resultTime            "2014-02-14"^^xsd:date .
 
 ex:peilmeting_2014-01-22zoet
@@ -6982,9 +6681,7 @@ ex:peilmeting_2014-01-22
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-01-22zoet , ex:peilmeting_2014-01-22filterstatus , ex:peilmeting_2014-01-22filtertoestand , ex:peilmeting_2014-01-22peil_mtaw , ex:peilmeting_2014-01-22diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-01-22"^^xsd:date .
 
 ex:peilmeting_2014-01-03zoet
@@ -7027,9 +6724,7 @@ ex:peilmeting_2014-01-03
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2014-01-03zoet , ex:peilmeting_2014-01-03filterstatus , ex:peilmeting_2014-01-03filtertoestand , ex:peilmeting_2014-01-03peil_mtaw , ex:peilmeting_2014-01-03diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2014-01-03"^^xsd:date .
 
 ex:peilmeting_2013-11-26zoet
@@ -7072,9 +6767,7 @@ ex:peilmeting_2013-11-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2013-11-26zoet , ex:peilmeting_2013-11-26filterstatus , ex:peilmeting_2013-11-26filtertoestand , ex:peilmeting_2013-11-26peil_mtaw , ex:peilmeting_2013-11-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2013-11-26"^^xsd:date .
 
 ex:peilmeting_2013-10-30zoet
@@ -7117,9 +6810,7 @@ ex:peilmeting_2013-10-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2013-10-30zoet , ex:peilmeting_2013-10-30filterstatus , ex:peilmeting_2013-10-30filtertoestand , ex:peilmeting_2013-10-30peil_mtaw , ex:peilmeting_2013-10-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2013-10-30"^^xsd:date .
 
 ex:peilmeting_2013-09-30zoet
@@ -7162,9 +6853,7 @@ ex:peilmeting_2013-09-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2013-09-30zoet , ex:peilmeting_2013-09-30filterstatus , ex:peilmeting_2013-09-30filtertoestand , ex:peilmeting_2013-09-30peil_mtaw , ex:peilmeting_2013-09-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2013-09-30"^^xsd:date .
 
 ex:peilmeting_2013-08-27zoet
@@ -7207,9 +6896,7 @@ ex:peilmeting_2013-08-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2013-08-27zoet , ex:peilmeting_2013-08-27filterstatus , ex:peilmeting_2013-08-27filtertoestand , ex:peilmeting_2013-08-27peil_mtaw , ex:peilmeting_2013-08-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2013-08-27"^^xsd:date .
 
 ex:peilmeting_2013-07-31zoet
@@ -7252,9 +6939,7 @@ ex:peilmeting_2013-07-31
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2013-07-31zoet , ex:peilmeting_2013-07-31filterstatus , ex:peilmeting_2013-07-31filtertoestand , ex:peilmeting_2013-07-31peil_mtaw , ex:peilmeting_2013-07-31diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2013-07-31"^^xsd:date .
 
 ex:peilmeting_2013-06-21zoet
@@ -7297,9 +6982,7 @@ ex:peilmeting_2013-06-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2013-06-21zoet , ex:peilmeting_2013-06-21filterstatus , ex:peilmeting_2013-06-21filtertoestand , ex:peilmeting_2013-06-21peil_mtaw , ex:peilmeting_2013-06-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2013-06-21"^^xsd:date .
 
 ex:peilmeting_2013-05-30zoet
@@ -7342,9 +7025,7 @@ ex:peilmeting_2013-05-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2013-05-30zoet , ex:peilmeting_2013-05-30filterstatus , ex:peilmeting_2013-05-30filtertoestand , ex:peilmeting_2013-05-30peil_mtaw , ex:peilmeting_2013-05-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2013-05-30"^^xsd:date .
 
 ex:peilmeting_2013-04-22zoet
@@ -7387,9 +7068,7 @@ ex:peilmeting_2013-04-22
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2013-04-22zoet , ex:peilmeting_2013-04-22filterstatus , ex:peilmeting_2013-04-22filtertoestand , ex:peilmeting_2013-04-22peil_mtaw , ex:peilmeting_2013-04-22diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2013-04-22"^^xsd:date .
 
 ex:peilmeting_2013-03-25zoet
@@ -7432,9 +7111,7 @@ ex:peilmeting_2013-03-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2013-03-25zoet , ex:peilmeting_2013-03-25filterstatus , ex:peilmeting_2013-03-25filtertoestand , ex:peilmeting_2013-03-25peil_mtaw , ex:peilmeting_2013-03-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2013-03-25"^^xsd:date .
 
 ex:peilmeting_2013-03-21zoet
@@ -7477,9 +7154,7 @@ ex:peilmeting_2013-03-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2013-03-21zoet , ex:peilmeting_2013-03-21filterstatus , ex:peilmeting_2013-03-21filtertoestand , ex:peilmeting_2013-03-21peil_mtaw , ex:peilmeting_2013-03-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2013-03-21"^^xsd:date .
 
 ex:peilmeting_2013-02-21zoet
@@ -7522,9 +7197,7 @@ ex:peilmeting_2013-02-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2013-02-21zoet , ex:peilmeting_2013-02-21filterstatus , ex:peilmeting_2013-02-21filtertoestand , ex:peilmeting_2013-02-21peil_mtaw , ex:peilmeting_2013-02-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2013-02-21"^^xsd:date .
 
 ex:peilmeting_2012-12-11zoet
@@ -7567,9 +7240,7 @@ ex:peilmeting_2012-12-11
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-12-11zoet , ex:peilmeting_2012-12-11filterstatus , ex:peilmeting_2012-12-11filtertoestand , ex:peilmeting_2012-12-11peil_mtaw , ex:peilmeting_2012-12-11diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-12-11"^^xsd:date .
 
 ex:peilmeting_2012-11-21zoet
@@ -7612,9 +7283,7 @@ ex:peilmeting_2012-11-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-11-21zoet , ex:peilmeting_2012-11-21filterstatus , ex:peilmeting_2012-11-21filtertoestand , ex:peilmeting_2012-11-21peil_mtaw , ex:peilmeting_2012-11-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-11-21"^^xsd:date .
 
 ex:peilmeting_2012-11-12zoet
@@ -7657,9 +7326,7 @@ ex:peilmeting_2012-11-12
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-11-12zoet , ex:peilmeting_2012-11-12filterstatus , ex:peilmeting_2012-11-12filtertoestand , ex:peilmeting_2012-11-12peil_mtaw , ex:peilmeting_2012-11-12diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Labo"
-                                   ];
+        sosa:madeBySensor          agent:Labo;
         sosa:resultTime            "2012-11-12"^^xsd:date .
 
 ex:peilmeting_2012-10-25zoet
@@ -7702,9 +7369,7 @@ ex:peilmeting_2012-10-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-10-25zoet , ex:peilmeting_2012-10-25filterstatus , ex:peilmeting_2012-10-25filtertoestand , ex:peilmeting_2012-10-25peil_mtaw , ex:peilmeting_2012-10-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-10-25"^^xsd:date .
 
 ex:peilmeting_2012-09-17zoet
@@ -7747,9 +7412,7 @@ ex:peilmeting_2012-09-17
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-09-17zoet , ex:peilmeting_2012-09-17filterstatus , ex:peilmeting_2012-09-17filtertoestand , ex:peilmeting_2012-09-17peil_mtaw , ex:peilmeting_2012-09-17diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-09-17"^^xsd:date .
 
 ex:peilmeting_2012-08-14zoet
@@ -7792,9 +7455,7 @@ ex:peilmeting_2012-08-14
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-08-14zoet , ex:peilmeting_2012-08-14filterstatus , ex:peilmeting_2012-08-14filtertoestand , ex:peilmeting_2012-08-14peil_mtaw , ex:peilmeting_2012-08-14diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-08-14"^^xsd:date .
 
 ex:peilmeting_2012-07-18zoet
@@ -7837,9 +7498,7 @@ ex:peilmeting_2012-07-18
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-07-18zoet , ex:peilmeting_2012-07-18filterstatus , ex:peilmeting_2012-07-18filtertoestand , ex:peilmeting_2012-07-18peil_mtaw , ex:peilmeting_2012-07-18diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-07-18"^^xsd:date .
 
 ex:peilmeting_2012-06-29zoet
@@ -7882,9 +7541,7 @@ ex:peilmeting_2012-06-29
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-06-29zoet , ex:peilmeting_2012-06-29filterstatus , ex:peilmeting_2012-06-29filtertoestand , ex:peilmeting_2012-06-29peil_mtaw , ex:peilmeting_2012-06-29diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-06-29"^^xsd:date .
 
 ex:peilmeting_2012-05-15zoet
@@ -7927,9 +7584,7 @@ ex:peilmeting_2012-05-15
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-05-15zoet , ex:peilmeting_2012-05-15filterstatus , ex:peilmeting_2012-05-15filtertoestand , ex:peilmeting_2012-05-15peil_mtaw , ex:peilmeting_2012-05-15diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-05-15"^^xsd:date .
 
 ex:peilmeting_2012-04-24zoet
@@ -7972,9 +7627,7 @@ ex:peilmeting_2012-04-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-04-24zoet , ex:peilmeting_2012-04-24filterstatus , ex:peilmeting_2012-04-24filtertoestand , ex:peilmeting_2012-04-24peil_mtaw , ex:peilmeting_2012-04-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-04-24"^^xsd:date .
 
 ex:peilmeting_2012-03-20zoet
@@ -8017,9 +7670,7 @@ ex:peilmeting_2012-03-20
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-03-20zoet , ex:peilmeting_2012-03-20filterstatus , ex:peilmeting_2012-03-20filtertoestand , ex:peilmeting_2012-03-20peil_mtaw , ex:peilmeting_2012-03-20diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-03-20"^^xsd:date .
 
 ex:peilmeting_2012-02-27zoet
@@ -8062,9 +7713,7 @@ ex:peilmeting_2012-02-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-02-27zoet , ex:peilmeting_2012-02-27filterstatus , ex:peilmeting_2012-02-27filtertoestand , ex:peilmeting_2012-02-27peil_mtaw , ex:peilmeting_2012-02-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-02-27"^^xsd:date .
 
 ex:peilmeting_2012-01-19zoet
@@ -8107,9 +7756,7 @@ ex:peilmeting_2012-01-19
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2012-01-19zoet , ex:peilmeting_2012-01-19filterstatus , ex:peilmeting_2012-01-19filtertoestand , ex:peilmeting_2012-01-19peil_mtaw , ex:peilmeting_2012-01-19diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2012-01-19"^^xsd:date .
 
 ex:peilmeting_2011-12-12zoet
@@ -8152,9 +7799,7 @@ ex:peilmeting_2011-12-12
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-12-12zoet , ex:peilmeting_2011-12-12filterstatus , ex:peilmeting_2011-12-12filtertoestand , ex:peilmeting_2011-12-12peil_mtaw , ex:peilmeting_2011-12-12diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-12-12"^^xsd:date .
 
 ex:peilmeting_2011-11-28zoet
@@ -8197,9 +7842,7 @@ ex:peilmeting_2011-11-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-11-28zoet , ex:peilmeting_2011-11-28filterstatus , ex:peilmeting_2011-11-28filtertoestand , ex:peilmeting_2011-11-28peil_mtaw , ex:peilmeting_2011-11-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-11-28"^^xsd:date .
 
 ex:peilmeting_2011-10-24zoet
@@ -8242,9 +7885,7 @@ ex:peilmeting_2011-10-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-10-24zoet , ex:peilmeting_2011-10-24filterstatus , ex:peilmeting_2011-10-24filtertoestand , ex:peilmeting_2011-10-24peil_mtaw , ex:peilmeting_2011-10-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-10-24"^^xsd:date .
 
 ex:peilmeting_2011-09-16zoet
@@ -8287,9 +7928,7 @@ ex:peilmeting_2011-09-16
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-09-16zoet , ex:peilmeting_2011-09-16filterstatus , ex:peilmeting_2011-09-16filtertoestand , ex:peilmeting_2011-09-16peil_mtaw , ex:peilmeting_2011-09-16diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-09-16"^^xsd:date .
 
 ex:peilmeting_2011-08-30zoet
@@ -8332,9 +7971,7 @@ ex:peilmeting_2011-08-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-08-30zoet , ex:peilmeting_2011-08-30filterstatus , ex:peilmeting_2011-08-30filtertoestand , ex:peilmeting_2011-08-30peil_mtaw , ex:peilmeting_2011-08-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-08-30"^^xsd:date .
 
 ex:peilmeting_2011-08-08zoet
@@ -8377,9 +8014,7 @@ ex:peilmeting_2011-08-08
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-08-08zoet , ex:peilmeting_2011-08-08filterstatus , ex:peilmeting_2011-08-08filtertoestand , ex:peilmeting_2011-08-08peil_mtaw , ex:peilmeting_2011-08-08diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-08-08"^^xsd:date .
 
 ex:peilmeting_2011-07-26zoet
@@ -8422,9 +8057,7 @@ ex:peilmeting_2011-07-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-07-26zoet , ex:peilmeting_2011-07-26filterstatus , ex:peilmeting_2011-07-26filtertoestand , ex:peilmeting_2011-07-26peil_mtaw , ex:peilmeting_2011-07-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-07-26"^^xsd:date .
 
 ex:peilmeting_2011-06-23zoet
@@ -8467,9 +8100,7 @@ ex:peilmeting_2011-06-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-06-23zoet , ex:peilmeting_2011-06-23filterstatus , ex:peilmeting_2011-06-23filtertoestand , ex:peilmeting_2011-06-23peil_mtaw , ex:peilmeting_2011-06-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-06-23"^^xsd:date .
 
 ex:peilmeting_2011-05-17zoet
@@ -8512,9 +8143,7 @@ ex:peilmeting_2011-05-17
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-05-17zoet , ex:peilmeting_2011-05-17filterstatus , ex:peilmeting_2011-05-17filtertoestand , ex:peilmeting_2011-05-17peil_mtaw , ex:peilmeting_2011-05-17diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-05-17"^^xsd:date .
 
 ex:peilmeting_2011-04-27zoet
@@ -8557,9 +8186,7 @@ ex:peilmeting_2011-04-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-04-27zoet , ex:peilmeting_2011-04-27filterstatus , ex:peilmeting_2011-04-27filtertoestand , ex:peilmeting_2011-04-27peil_mtaw , ex:peilmeting_2011-04-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-04-27"^^xsd:date .
 
 ex:peilmeting_2011-04-06zoet
@@ -8602,9 +8229,7 @@ ex:peilmeting_2011-04-06
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-04-06zoet , ex:peilmeting_2011-04-06filterstatus , ex:peilmeting_2011-04-06filtertoestand , ex:peilmeting_2011-04-06peil_mtaw , ex:peilmeting_2011-04-06diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-04-06"^^xsd:date .
 
 ex:peilmeting_2011-03-01zoet
@@ -8647,10 +8272,11 @@ ex:peilmeting_2011-03-01
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-03-01zoet , ex:peilmeting_2011-03-01filterstatus , ex:peilmeting_2011-03-01filtertoestand , ex:peilmeting_2011-03-01peil_mtaw , ex:peilmeting_2011-03-01diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-03-01"^^xsd:date .
+
+agent:Labo  rdf:type  sosa:Sensor;
+        rdfs:label  "Labo" .
 
 ex:peilmeting_2011-02-04zoet
         rdf:type               sosa:Observation;
@@ -8692,9 +8318,7 @@ ex:peilmeting_2011-02-04
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-02-04zoet , ex:peilmeting_2011-02-04filterstatus , ex:peilmeting_2011-02-04filtertoestand , ex:peilmeting_2011-02-04peil_mtaw , ex:peilmeting_2011-02-04diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Labo"
-                                   ];
+        sosa:madeBySensor          agent:Labo;
         sosa:resultTime            "2011-02-04"^^xsd:date .
 
 ex:peilmeting_2011-01-14zoet
@@ -8737,9 +8361,7 @@ ex:peilmeting_2011-01-14
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2011-01-14zoet , ex:peilmeting_2011-01-14filterstatus , ex:peilmeting_2011-01-14filtertoestand , ex:peilmeting_2011-01-14peil_mtaw , ex:peilmeting_2011-01-14diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2011-01-14"^^xsd:date .
 
 ex:peilmeting_2010-12-16zoet
@@ -8782,9 +8404,7 @@ ex:peilmeting_2010-12-16
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-12-16zoet , ex:peilmeting_2010-12-16filterstatus , ex:peilmeting_2010-12-16filtertoestand , ex:peilmeting_2010-12-16peil_mtaw , ex:peilmeting_2010-12-16diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-12-16"^^xsd:date .
 
 ex:peilmeting_2010-12-02zoet
@@ -8827,9 +8447,7 @@ ex:peilmeting_2010-12-02
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-12-02zoet , ex:peilmeting_2010-12-02filterstatus , ex:peilmeting_2010-12-02filtertoestand , ex:peilmeting_2010-12-02peil_mtaw , ex:peilmeting_2010-12-02diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-12-02"^^xsd:date .
 
 ex:peilmeting_2010-10-20zoet
@@ -8872,9 +8490,7 @@ ex:peilmeting_2010-10-20
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-10-20zoet , ex:peilmeting_2010-10-20filterstatus , ex:peilmeting_2010-10-20filtertoestand , ex:peilmeting_2010-10-20peil_mtaw , ex:peilmeting_2010-10-20diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-10-20"^^xsd:date .
 
 ex:peilmeting_2010-09-17zoet
@@ -8917,9 +8533,7 @@ ex:peilmeting_2010-09-17
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-09-17zoet , ex:peilmeting_2010-09-17filterstatus , ex:peilmeting_2010-09-17filtertoestand , ex:peilmeting_2010-09-17peil_mtaw , ex:peilmeting_2010-09-17diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-09-17"^^xsd:date .
 
 ex:peilmeting_2010-08-11zoet
@@ -8962,9 +8576,7 @@ ex:peilmeting_2010-08-11
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-08-11zoet , ex:peilmeting_2010-08-11filterstatus , ex:peilmeting_2010-08-11filtertoestand , ex:peilmeting_2010-08-11peil_mtaw , ex:peilmeting_2010-08-11diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-08-11"^^xsd:date .
 
 ex:peilmeting_2010-07-27zoet
@@ -9007,9 +8619,7 @@ ex:peilmeting_2010-07-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-07-27zoet , ex:peilmeting_2010-07-27filterstatus , ex:peilmeting_2010-07-27filtertoestand , ex:peilmeting_2010-07-27peil_mtaw , ex:peilmeting_2010-07-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-07-27"^^xsd:date .
 
 ex:peilmeting_2010-06-30zoet
@@ -9052,9 +8662,7 @@ ex:peilmeting_2010-06-30
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-06-30zoet , ex:peilmeting_2010-06-30filterstatus , ex:peilmeting_2010-06-30filtertoestand , ex:peilmeting_2010-06-30peil_mtaw , ex:peilmeting_2010-06-30diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-06-30"^^xsd:date .
 
 ex:peilmeting_2010-05-19zoet
@@ -9097,9 +8705,7 @@ ex:peilmeting_2010-05-19
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-05-19zoet , ex:peilmeting_2010-05-19filterstatus , ex:peilmeting_2010-05-19filtertoestand , ex:peilmeting_2010-05-19peil_mtaw , ex:peilmeting_2010-05-19diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-05-19"^^xsd:date .
 
 ex:peilmeting_2010-04-22zoet
@@ -9142,9 +8748,7 @@ ex:peilmeting_2010-04-22
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-04-22zoet , ex:peilmeting_2010-04-22filterstatus , ex:peilmeting_2010-04-22filtertoestand , ex:peilmeting_2010-04-22peil_mtaw , ex:peilmeting_2010-04-22diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-04-22"^^xsd:date .
 
 ex:peilmeting_2010-03-29zoet
@@ -9187,9 +8791,7 @@ ex:peilmeting_2010-03-29
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-03-29zoet , ex:peilmeting_2010-03-29filterstatus , ex:peilmeting_2010-03-29filtertoestand , ex:peilmeting_2010-03-29peil_mtaw , ex:peilmeting_2010-03-29diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-03-29"^^xsd:date .
 
 ex:peilmeting_2010-02-18zoet
@@ -9232,9 +8834,7 @@ ex:peilmeting_2010-02-18
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-02-18zoet , ex:peilmeting_2010-02-18filterstatus , ex:peilmeting_2010-02-18filtertoestand , ex:peilmeting_2010-02-18peil_mtaw , ex:peilmeting_2010-02-18diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-02-18"^^xsd:date .
 
 ex:peilmeting_2010-01-20zoet
@@ -9277,9 +8877,7 @@ ex:peilmeting_2010-01-20
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2010-01-20zoet , ex:peilmeting_2010-01-20filterstatus , ex:peilmeting_2010-01-20filtertoestand , ex:peilmeting_2010-01-20peil_mtaw , ex:peilmeting_2010-01-20diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2010-01-20"^^xsd:date .
 
 ex:peilmeting_2009-12-18zoet
@@ -9322,9 +8920,7 @@ ex:peilmeting_2009-12-18
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-12-18zoet , ex:peilmeting_2009-12-18filterstatus , ex:peilmeting_2009-12-18filtertoestand , ex:peilmeting_2009-12-18peil_mtaw , ex:peilmeting_2009-12-18diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-12-18"^^xsd:date .
 
 ex:peilmeting_2009-11-26zoet
@@ -9367,9 +8963,7 @@ ex:peilmeting_2009-11-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-11-26zoet , ex:peilmeting_2009-11-26filterstatus , ex:peilmeting_2009-11-26filtertoestand , ex:peilmeting_2009-11-26peil_mtaw , ex:peilmeting_2009-11-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-11-26"^^xsd:date .
 
 ex:peilmeting_2009-10-22zoet
@@ -9412,9 +9006,7 @@ ex:peilmeting_2009-10-22
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-10-22zoet , ex:peilmeting_2009-10-22filterstatus , ex:peilmeting_2009-10-22filtertoestand , ex:peilmeting_2009-10-22peil_mtaw , ex:peilmeting_2009-10-22diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-10-22"^^xsd:date .
 
 ex:peilmeting_2009-09-16zoet
@@ -9457,9 +9049,7 @@ ex:peilmeting_2009-09-16
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-09-16zoet , ex:peilmeting_2009-09-16filterstatus , ex:peilmeting_2009-09-16filtertoestand , ex:peilmeting_2009-09-16peil_mtaw , ex:peilmeting_2009-09-16diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-09-16"^^xsd:date .
 
 ex:peilmeting_2009-08-18zoet
@@ -9502,9 +9092,7 @@ ex:peilmeting_2009-08-18
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-08-18zoet , ex:peilmeting_2009-08-18filterstatus , ex:peilmeting_2009-08-18filtertoestand , ex:peilmeting_2009-08-18peil_mtaw , ex:peilmeting_2009-08-18diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-08-18"^^xsd:date .
 
 ex:peilmeting_2009-07-29zoet
@@ -9547,9 +9135,7 @@ ex:peilmeting_2009-07-29
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-07-29zoet , ex:peilmeting_2009-07-29filterstatus , ex:peilmeting_2009-07-29filtertoestand , ex:peilmeting_2009-07-29peil_mtaw , ex:peilmeting_2009-07-29diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-07-29"^^xsd:date .
 
 ex:peilmeting_2009-06-25zoet
@@ -9592,9 +9178,7 @@ ex:peilmeting_2009-06-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-06-25zoet , ex:peilmeting_2009-06-25filterstatus , ex:peilmeting_2009-06-25filtertoestand , ex:peilmeting_2009-06-25peil_mtaw , ex:peilmeting_2009-06-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-06-25"^^xsd:date .
 
 ex:peilmeting_2009-05-20zoet
@@ -9637,9 +9221,7 @@ ex:peilmeting_2009-05-20
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-05-20zoet , ex:peilmeting_2009-05-20filterstatus , ex:peilmeting_2009-05-20filtertoestand , ex:peilmeting_2009-05-20peil_mtaw , ex:peilmeting_2009-05-20diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-05-20"^^xsd:date .
 
 ex:peilmeting_2009-04-28zoet
@@ -9682,9 +9264,7 @@ ex:peilmeting_2009-04-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-04-28zoet , ex:peilmeting_2009-04-28filterstatus , ex:peilmeting_2009-04-28filtertoestand , ex:peilmeting_2009-04-28peil_mtaw , ex:peilmeting_2009-04-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-04-28"^^xsd:date .
 
 ex:peilmeting_2009-03-20zoet
@@ -9727,9 +9307,7 @@ ex:peilmeting_2009-03-20
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-03-20zoet , ex:peilmeting_2009-03-20filterstatus , ex:peilmeting_2009-03-20filtertoestand , ex:peilmeting_2009-03-20peil_mtaw , ex:peilmeting_2009-03-20diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-03-20"^^xsd:date .
 
 ex:peilmeting_2009-02-11zoet
@@ -9772,9 +9350,7 @@ ex:peilmeting_2009-02-11
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-02-11zoet , ex:peilmeting_2009-02-11filterstatus , ex:peilmeting_2009-02-11filtertoestand , ex:peilmeting_2009-02-11peil_mtaw , ex:peilmeting_2009-02-11diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-02-11"^^xsd:date .
 
 ex:peilmeting_2009-01-27zoet
@@ -9817,9 +9393,7 @@ ex:peilmeting_2009-01-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2009-01-27zoet , ex:peilmeting_2009-01-27filterstatus , ex:peilmeting_2009-01-27filtertoestand , ex:peilmeting_2009-01-27peil_mtaw , ex:peilmeting_2009-01-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2009-01-27"^^xsd:date .
 
 ex:peilmeting_2008-12-23zoet
@@ -9862,9 +9436,7 @@ ex:peilmeting_2008-12-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-12-23zoet , ex:peilmeting_2008-12-23filterstatus , ex:peilmeting_2008-12-23filtertoestand , ex:peilmeting_2008-12-23peil_mtaw , ex:peilmeting_2008-12-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2008-12-23"^^xsd:date .
 
 ex:peilmeting_2008-11-25zoet
@@ -9907,9 +9479,7 @@ ex:peilmeting_2008-11-25
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-11-25zoet , ex:peilmeting_2008-11-25filterstatus , ex:peilmeting_2008-11-25filtertoestand , ex:peilmeting_2008-11-25peil_mtaw , ex:peilmeting_2008-11-25diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2008-11-25"^^xsd:date .
 
 ex:peilmeting_2008-10-22zoet
@@ -9952,9 +9522,7 @@ ex:peilmeting_2008-10-22
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-10-22zoet , ex:peilmeting_2008-10-22filterstatus , ex:peilmeting_2008-10-22filtertoestand , ex:peilmeting_2008-10-22peil_mtaw , ex:peilmeting_2008-10-22diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2008-10-22"^^xsd:date .
 
 ex:peilmeting_2008-09-29zoet
@@ -9997,9 +9565,7 @@ ex:peilmeting_2008-09-29
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-09-29zoet , ex:peilmeting_2008-09-29filterstatus , ex:peilmeting_2008-09-29filtertoestand , ex:peilmeting_2008-09-29peil_mtaw , ex:peilmeting_2008-09-29diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2008-09-29"^^xsd:date .
 
 ex:peilmeting_2008-08-14zoet
@@ -10042,9 +9608,7 @@ ex:peilmeting_2008-08-14
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-08-14zoet , ex:peilmeting_2008-08-14filterstatus , ex:peilmeting_2008-08-14filtertoestand , ex:peilmeting_2008-08-14peil_mtaw , ex:peilmeting_2008-08-14diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2008-08-14"^^xsd:date .
 
 ex:peilmeting_2008-07-31zoet
@@ -10087,9 +9651,7 @@ ex:peilmeting_2008-07-31
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-07-31zoet , ex:peilmeting_2008-07-31filterstatus , ex:peilmeting_2008-07-31filtertoestand , ex:peilmeting_2008-07-31peil_mtaw , ex:peilmeting_2008-07-31diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2008-07-31"^^xsd:date .
 
 ex:peilmeting_2008-06-26zoet
@@ -10132,9 +9694,7 @@ ex:peilmeting_2008-06-26
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-06-26zoet , ex:peilmeting_2008-06-26filterstatus , ex:peilmeting_2008-06-26filtertoestand , ex:peilmeting_2008-06-26peil_mtaw , ex:peilmeting_2008-06-26diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Onbekend"
-                                   ];
+        sosa:madeBySensor          agent:Onbekend;
         sosa:resultTime            "2008-06-26"^^xsd:date .
 
 ex:peilmeting_2008-05-13zoet
@@ -10177,9 +9737,7 @@ ex:peilmeting_2008-05-13
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-05-13zoet , ex:peilmeting_2008-05-13filterstatus , ex:peilmeting_2008-05-13filtertoestand , ex:peilmeting_2008-05-13peil_mtaw , ex:peilmeting_2008-05-13diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Onbekend"
-                                   ];
+        sosa:madeBySensor          agent:Onbekend;
         sosa:resultTime            "2008-05-13"^^xsd:date .
 
 ex:peilmeting_2008-04-23zoet
@@ -10222,10 +9780,11 @@ ex:peilmeting_2008-04-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-04-23zoet , ex:peilmeting_2008-04-23filterstatus , ex:peilmeting_2008-04-23filtertoestand , ex:peilmeting_2008-04-23peil_mtaw , ex:peilmeting_2008-04-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Onbekend"
-                                   ];
+        sosa:madeBySensor          agent:Onbekend;
         sosa:resultTime            "2008-04-23"^^xsd:date .
+
+agent:Onbekend  rdf:type  sosa:Sensor;
+        rdfs:label  "Onbekend" .
 
 ex:peilmeting_2008-03-14zoet
         rdf:type               sosa:Observation;
@@ -10254,6 +9813,8 @@ ex:peilmeting_2008-03-14peil_mtaw
         sosa:observedProperty  ex:peil_mtaw;
         sosa:usedProcedure     ex:Onbekend_methode .
 
+ex:Onbekend_methode  rdf:type  sosa:Procedure .
+
 ex:peilmeting_2008-03-14diepte_tov_referentiepunt
         rdf:type               sosa:Observation;
         sosa:hasResult         [ rdf:type      sosa:Result;
@@ -10267,10 +9828,12 @@ ex:peilmeting_2008-03-14
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-03-14zoet , ex:peilmeting_2008-03-14filterstatus , ex:peilmeting_2008-03-14filtertoestand , ex:peilmeting_2008-03-14peil_mtaw , ex:peilmeting_2008-03-14diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Onbekend"
-                                   ];
+        sosa:madeBySensor          agent:Onbekend;
         sosa:resultTime            "2008-03-14"^^xsd:date .
+
+agent:VMM-AfdelingOperationeelWaterbeheer
+        rdf:type    sosa:Sensor;
+        rdfs:label  "VMM - Afdeling Operationeel Waterbeheer" .
 
 ex:peilmeting_2008-02-18zoet
         rdf:type               sosa:Observation;
@@ -10312,9 +9875,7 @@ ex:peilmeting_2008-02-18
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-02-18zoet , ex:peilmeting_2008-02-18filterstatus , ex:peilmeting_2008-02-18filtertoestand , ex:peilmeting_2008-02-18peil_mtaw , ex:peilmeting_2008-02-18diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "VMM - Afdeling Operationeel Waterbeheer"
-                                   ];
+        sosa:madeBySensor          agent:VMM-AfdelingOperationeelWaterbeheer;
         sosa:resultTime            "2008-02-18"^^xsd:date .
 
 ex:peilmeting_2008-01-22zoet
@@ -10357,9 +9918,7 @@ ex:peilmeting_2008-01-22
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2008-01-22zoet , ex:peilmeting_2008-01-22filterstatus , ex:peilmeting_2008-01-22filtertoestand , ex:peilmeting_2008-01-22peil_mtaw , ex:peilmeting_2008-01-22diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2008-01-22"^^xsd:date .
 
 ex:peilmeting_2007-12-18zoet
@@ -10402,9 +9961,7 @@ ex:peilmeting_2007-12-18
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-12-18zoet , ex:peilmeting_2007-12-18filterstatus , ex:peilmeting_2007-12-18filtertoestand , ex:peilmeting_2007-12-18peil_mtaw , ex:peilmeting_2007-12-18diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-12-18"^^xsd:date .
 
 ex:peilmeting_2007-12-12zoet
@@ -10447,9 +10004,7 @@ ex:peilmeting_2007-12-12
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-12-12zoet , ex:peilmeting_2007-12-12filterstatus , ex:peilmeting_2007-12-12filtertoestand , ex:peilmeting_2007-12-12peil_mtaw , ex:peilmeting_2007-12-12diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-12-12"^^xsd:date .
 
 ex:peilmeting_2007-11-21zoet
@@ -10492,9 +10047,7 @@ ex:peilmeting_2007-11-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-11-21zoet , ex:peilmeting_2007-11-21filterstatus , ex:peilmeting_2007-11-21filtertoestand , ex:peilmeting_2007-11-21peil_mtaw , ex:peilmeting_2007-11-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-11-21"^^xsd:date .
 
 ex:peilmeting_2007-10-24zoet
@@ -10537,9 +10090,7 @@ ex:peilmeting_2007-10-24
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-10-24zoet , ex:peilmeting_2007-10-24filterstatus , ex:peilmeting_2007-10-24filtertoestand , ex:peilmeting_2007-10-24peil_mtaw , ex:peilmeting_2007-10-24diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-10-24"^^xsd:date .
 
 ex:peilmeting_2007-09-21zoet
@@ -10582,9 +10133,7 @@ ex:peilmeting_2007-09-21
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-09-21zoet , ex:peilmeting_2007-09-21filterstatus , ex:peilmeting_2007-09-21filtertoestand , ex:peilmeting_2007-09-21peil_mtaw , ex:peilmeting_2007-09-21diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-09-21"^^xsd:date .
 
 ex:peilmeting_2007-08-13zoet
@@ -10627,9 +10176,7 @@ ex:peilmeting_2007-08-13
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-08-13zoet , ex:peilmeting_2007-08-13filterstatus , ex:peilmeting_2007-08-13filtertoestand , ex:peilmeting_2007-08-13peil_mtaw , ex:peilmeting_2007-08-13diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-08-13"^^xsd:date .
 
 ex:peilmeting_2007-07-19zoet
@@ -10672,9 +10219,7 @@ ex:peilmeting_2007-07-19
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-07-19zoet , ex:peilmeting_2007-07-19filterstatus , ex:peilmeting_2007-07-19filtertoestand , ex:peilmeting_2007-07-19peil_mtaw , ex:peilmeting_2007-07-19diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-07-19"^^xsd:date .
 
 ex:peilmeting_2007-06-28zoet
@@ -10717,9 +10262,7 @@ ex:peilmeting_2007-06-28
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-06-28zoet , ex:peilmeting_2007-06-28filterstatus , ex:peilmeting_2007-06-28filtertoestand , ex:peilmeting_2007-06-28peil_mtaw , ex:peilmeting_2007-06-28diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-06-28"^^xsd:date .
 
 ex:peilmeting_2007-05-15zoet
@@ -10762,9 +10305,7 @@ ex:peilmeting_2007-05-15
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-05-15zoet , ex:peilmeting_2007-05-15filterstatus , ex:peilmeting_2007-05-15filtertoestand , ex:peilmeting_2007-05-15peil_mtaw , ex:peilmeting_2007-05-15diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-05-15"^^xsd:date .
 
 ex:peilmeting_2007-04-19zoet
@@ -10807,9 +10348,7 @@ ex:peilmeting_2007-04-19
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-04-19zoet , ex:peilmeting_2007-04-19filterstatus , ex:peilmeting_2007-04-19filtertoestand , ex:peilmeting_2007-04-19peil_mtaw , ex:peilmeting_2007-04-19diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-04-19"^^xsd:date .
 
 ex:peilmeting_2007-03-20zoet
@@ -10852,9 +10391,7 @@ ex:peilmeting_2007-03-20
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-03-20zoet , ex:peilmeting_2007-03-20filterstatus , ex:peilmeting_2007-03-20filtertoestand , ex:peilmeting_2007-03-20peil_mtaw , ex:peilmeting_2007-03-20diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-03-20"^^xsd:date .
 
 ex:peilmeting_2007-02-14zoet
@@ -10897,9 +10434,7 @@ ex:peilmeting_2007-02-14
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-02-14zoet , ex:peilmeting_2007-02-14filterstatus , ex:peilmeting_2007-02-14filtertoestand , ex:peilmeting_2007-02-14peil_mtaw , ex:peilmeting_2007-02-14diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-02-14"^^xsd:date .
 
 ex:peilmeting_2007-01-23zoet
@@ -10942,9 +10477,7 @@ ex:peilmeting_2007-01-23
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2007-01-23zoet , ex:peilmeting_2007-01-23filterstatus , ex:peilmeting_2007-01-23filtertoestand , ex:peilmeting_2007-01-23peil_mtaw , ex:peilmeting_2007-01-23diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2007-01-23"^^xsd:date .
 
 ex:peilmeting_2006-12-18zoet
@@ -10987,9 +10520,7 @@ ex:peilmeting_2006-12-18
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2006-12-18zoet , ex:peilmeting_2006-12-18filterstatus , ex:peilmeting_2006-12-18filtertoestand , ex:peilmeting_2006-12-18peil_mtaw , ex:peilmeting_2006-12-18diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2006-12-18"^^xsd:date .
 
 ex:peilmeting_2006-11-27zoet
@@ -11032,10 +10563,11 @@ ex:peilmeting_2006-11-27
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2006-11-27zoet , ex:peilmeting_2006-11-27filterstatus , ex:peilmeting_2006-11-27filtertoestand , ex:peilmeting_2006-11-27peil_mtaw , ex:peilmeting_2006-11-27diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2006-11-27"^^xsd:date .
+
+agent:Beheerder  rdf:type  sosa:Sensor;
+        rdfs:label  "Beheerder" .
 
 ex:peilmeting_2006-10-20zoet
         rdf:type               sosa:Observation;
@@ -11064,6 +10596,8 @@ ex:peilmeting_2006-10-20peil_mtaw
         sosa:observedProperty  ex:peil_mtaw;
         sosa:usedProcedure     ex:peillint_methode .
 
+ex:peillint_methode  rdf:type  sosa:Procedure .
+
 ex:peilmeting_2006-10-20diepte_tov_referentiepunt
         rdf:type               sosa:Observation;
         sosa:hasResult         [ rdf:type      sosa:Result;
@@ -11077,40 +10611,38 @@ ex:peilmeting_2006-10-20
         rdf:type                   sosa:ObservationCollection;
         sosa:hasFeatureOfInterest  put:2017-003450;
         sosa:hasMember             ex:peilmeting_2006-10-20zoet , ex:peilmeting_2006-10-20filterstatus , ex:peilmeting_2006-10-20filtertoestand , ex:peilmeting_2006-10-20peil_mtaw , ex:peilmeting_2006-10-20diepte_tov_referentiepunt;
-        sosa:madeBySensor          [ rdf:type    sosa:Sensor;
-                                     rdfs:label  "Beheerder"
-                                   ];
+        sosa:madeBySensor          agent:Beheerder;
         sosa:resultTime            "2006-10-20"^^xsd:date .
 
-[ rdf:type            sosa:System;
-  ex:binnendiameter   57.0;
-  ex:filterelement    "zandvang";
-  ex:materiaal        "";
-  ex:tot              27.0;
-  ex:van              26.0;
-  sosa:isHostedBy     put:2017-003450;
-  sosa:isSubSystemOf  filter:2005-007247
-] .
+<https://www.dov.vlaanderen.be/data/filter/2005-007247/zandvang>
+        rdf:type            sosa:System;
+        ex:binnendiameter   57.0;
+        ex:filterelement    "zandvang";
+        ex:materiaal        "";
+        ex:tot              27.0;
+        ex:van              26.0;
+        sosa:isHostedBy     put:2017-003450;
+        sosa:isSubSystemOf  filter:2005-007247 .
 
-[ rdf:type            sosa:System;
-  ex:binnendiameter   57.0;
-  ex:filterelement    "filter";
-  ex:materiaal        "pvc";
-  ex:tot              26.0;
-  ex:van              24.0;
-  sosa:isHostedBy     put:2017-003450;
-  sosa:isSubSystemOf  filter:2005-007247
-] .
+<https://www.dov.vlaanderen.be/data/filter/2005-007247/filter>
+        rdf:type            sosa:System;
+        ex:binnendiameter   57.0;
+        ex:filterelement    "filter";
+        ex:materiaal        "pvc";
+        ex:tot              26.0;
+        ex:van              24.0;
+        sosa:isHostedBy     put:2017-003450;
+        sosa:isSubSystemOf  filter:2005-007247 .
 
-[ rdf:type            sosa:System;
-  ex:binnendiameter   57.0;
-  ex:filterelement    "stijgbuis";
-  ex:materiaal        "pvc";
-  ex:tot              24.0;
-  ex:van              0.0;
-  sosa:isHostedBy     put:2017-003450;
-  sosa:isSubSystemOf  filter:2005-007247
-] .
+<https://www.dov.vlaanderen.be/data/filter/2005-007247/stijgbuis>
+        rdf:type            sosa:System;
+        ex:binnendiameter   57.0;
+        ex:filterelement    "stijgbuis";
+        ex:materiaal        "pvc";
+        ex:tot              24.0;
+        ex:van              0.0;
+        sosa:isHostedBy     put:2017-003450;
+        sosa:isSubSystemOf  filter:2005-007247 .
 
 filter:2005-007247  rdf:type  sosa:System;
         rdfs:comment     "HCOVv2 toekenning: HCOVv1 0800 wordt naar HCOVv2 A0800 omgezet en ligt binnen het voorkomen van deze laag.";
