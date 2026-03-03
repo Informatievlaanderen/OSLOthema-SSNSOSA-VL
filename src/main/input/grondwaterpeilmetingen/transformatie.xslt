@@ -3,11 +3,15 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:sosa="http://www.w3.org/ns/sosa/"
+                xmlns:ssn="http://www.w3.org/ns/ssn/"
+                xmlns:time="http://www.w3.org/2006/time#"
                 xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:ex="http://example.org/"
                 xmlns:geo="http://www.opengis.net/ont/geosparql#"
-                xmlns:qudt="http://qudt.org/vocab/unit#"
+                xmlns:unit="http://qudt.org/vocab/unit#"
+                xmlns:agent="http://example.org/agent/"
+                xmlns:qudt="http://qudt.org/schema/qudt/"
                 xmlns:ns4="http://kern.schemas.dov.vlaanderen.be"
                 xmlns:put="https://www.dov.vlaanderen.be/data/put/"
                 xmlns:filter="https://www.dov.vlaanderen.be/data/filter/"
@@ -21,6 +25,32 @@
 
     <xsl:template match="/">
         <rdf:RDF>
+            <!-- Fix 10: Observable property type declarations -->
+            <rdf:Description rdf:about="http://example.org/peil_mtaw">
+                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Property"/>
+                <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://example.org/diepte_tov_referentiepunt">
+                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Property"/>
+                <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://example.org/filtertoestand">
+                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Property"/>
+                <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://example.org/filterstatus">
+                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Property"/>
+                <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+            </rdf:Description>
+            <rdf:Description rdf:about="http://example.org/zoet">
+                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
+                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Property"/>
+                <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
+            </rdf:Description>
             <xsl:apply-templates select="/ns4:dov-schema/grondwaterlocatie"/>
             <xsl:apply-templates select="/ns4:dov-schema/filter"/>
             <xsl:apply-templates select="//peilmeting"/>
@@ -32,9 +62,8 @@
             <xsl:attribute name="rdf:about">
                 <xsl:value-of select="/ns4:dov-schema/filter/dataidentifier/uri"/>
             </xsl:attribute>
-            <xsl:attribute name="rdf:type">
-                <xsl:value-of select="'http://www.w3.org/ns/sosa/System'"/>
-            </xsl:attribute>
+            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/System"/>
+            <rdf:type rdf:resource="http://www.w3.org/ns/ssn/System"/>
             <sosa:isHostedBy>
                 <rdf:Description>
                     <xsl:attribute name="rdf:about">
@@ -42,9 +71,9 @@
                     </xsl:attribute>
                 </rdf:Description>
             </sosa:isHostedBy>
-            <dct:author>
+            <dct:creator>
                 <xsl:value-of select="concat(opmerking/auteur/voornaam, ' ', opmerking/auteur/naam)"/>
-            </dct:author>
+            </dct:creator>
             <rdfs:comment>
                 <xsl:value-of select="opmerking/tekst"/>
             </rdfs:comment>
@@ -56,9 +85,11 @@
 
     <xsl:template match="onderdeel">
         <rdf:Description>
-            <xsl:attribute name="rdf:type">
-                <xsl:value-of select="'http://www.w3.org/ns/sosa/System'"/>
+            <xsl:attribute name="rdf:about">
+                <xsl:value-of select="concat(/ns4:dov-schema/filter/dataidentifier/uri, '/' , filterelement)"/>
             </xsl:attribute>
+            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/System"/>
+            <rdf:type rdf:resource="http://www.w3.org/ns/ssn/System"/>
             <sosa:isHostedBy>
                 <rdf:Description>
                     <xsl:attribute name="rdf:about">
@@ -98,103 +129,420 @@
                 <xsl:value-of select="concat('http://example.org/peilmeting_', datum)"/>
             </xsl:attribute>
             <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservationCollection"/>
+            <!-- Fix 2, 3, 4, 5, 7, 8: diepte_tov_referentiepunt observation -->
             <sosa:hasMember>
                 <rdf:Description>
                     <xsl:attribute name="rdf:about">
                         <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'diepte_tov_referentiepunt')"/>
                     </xsl:attribute>
                     <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Execution"/>
+                    <!-- Fix 2: hasFeatureOfInterest -->
+                    <sosa:hasFeatureOfInterest>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
+                            </xsl:attribute>
+                            <sosa:isFeatureOfInterestOf>
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'diepte_tov_referentiepunt')"/>
+                                </xsl:attribute>
+                            </sosa:isFeatureOfInterestOf>
+                        </rdf:Description>
+                    </sosa:hasFeatureOfInterest>
+                    <!-- Fix 3: resultTime and phenomenonTime -->
+                    <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                        <xsl:value-of select="datum"/>
+                    </sosa:resultTime>
+                    <sosa:phenomenonTime >
+                        <rdf:Description>
+                            <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+                            <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                                <xsl:value-of select="datum"/>
+                            </time:inXSDDate>
+                        </rdf:Description>
+                    </sosa:phenomenonTime>
+                    <!-- Fix 4: madeBySensor -->
+                    <sosa:madeBySensor>
+                        <xsl:attribute name="rdf:resource">
+                            <xsl:value-of select="concat('http://example.org/agent/', translate(opmeter/naam, ' ', ''))"/>
+                        </xsl:attribute>
+                    </sosa:madeBySensor>
+                    <!-- Fix 5: wasOriginatedBy -->
+                    <ssn:wasOriginatedBy>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="concat('http://example.org/stimulus_', datum, '_diepte_tov_referentiepunt')"/>
+                            </xsl:attribute>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
+                        </rdf:Description>
+                    </ssn:wasOriginatedBy>
                     <sosa:hasResult>
                         <rdf:Description>
                             <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
-                            <rdf:value  rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
+                            <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
                                 <xsl:value-of select="diepte_tov_referentiepunt"/>
                             </rdf:value>
-                            <qudt:unit  rdf:resource="http://qudt.org/vocab/unit#Meter"/>
+                            <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit#Meter"/>
+                            <sosa:isResultOf>
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'diepte_tov_referentiepunt')"/>
+                                </xsl:attribute>
+                            </sosa:isResultOf>
                         </rdf:Description>
                     </sosa:hasResult>
                     <sosa:observedProperty rdf:resource="http://example.org/diepte_tov_referentiepunt"/>
+                    <!-- Fix 7: add ObservingProcedure type -->
                     <sosa:usedProcedure>
-                        <xsl:attribute name="rdf:resource">
-                            <xsl:value-of select="translate(concat('http://example.org/', methode, '_methode'), ' ', '')"/>
-                        </xsl:attribute>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="translate(concat('http://example.org/', methode, '_methode'), ' ', '')"/>
+                            </xsl:attribute>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservingProcedure"/>
+                        </rdf:Description>
                     </sosa:usedProcedure>
                 </rdf:Description>
             </sosa:hasMember>
+            <!-- Fix 2, 3, 4, 5, 7, 8: peil_mtaw observation -->
             <sosa:hasMember>
                 <rdf:Description>
                     <xsl:attribute name="rdf:about">
                         <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'peil_mtaw')"/>
                     </xsl:attribute>
-                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/sosa:Observation"/>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Execution"/>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+                    <!-- Fix 2: hasFeatureOfInterest -->
+                    <sosa:hasFeatureOfInterest>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
+                            </xsl:attribute>
+                            <sosa:isFeatureOfInterestOf>
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'peil_mtaw')"/>
+                                </xsl:attribute>
+                            </sosa:isFeatureOfInterestOf>
+                        </rdf:Description>
+                    </sosa:hasFeatureOfInterest>
+                    <!-- Fix 3: resultTime and phenomenonTime -->
+                    <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                        <xsl:value-of select="datum"/>
+                    </sosa:resultTime>
+                    <sosa:phenomenonTime >
+                        <rdf:Description>
+                            <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+                            <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                                <xsl:value-of select="datum"/>
+                            </time:inXSDDate>
+                        </rdf:Description>
+                    </sosa:phenomenonTime>
+                    <!-- Fix 4: madeBySensor -->
+                    <sosa:madeBySensor>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="concat('http://example.org/agent/', translate(opmeter/naam, ' ', ''))"/>
+                            </xsl:attribute>
+                            <ssn:implements rdf:resource="http://example.org/peillint_methode"/>
+
+
+                           <!-- <sosa:madeObservation>
+                                <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'peil_mtaw')"/>
+                            </sosa:madeObservation>-->
+                        </rdf:Description>
+
+                    </sosa:madeBySensor>
+                    <!-- Fix 5: wasOriginatedBy -->
+                    <ssn:wasOriginatedBy>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="concat('http://example.org/stimulus_', datum, '_peil_mtaw')"/>
+                            </xsl:attribute>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
+                        </rdf:Description>
+                    </ssn:wasOriginatedBy>
                     <sosa:hasResult>
                         <rdf:Description>
                             <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
-                            <rdf:value  rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
+                            <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
                                 <xsl:value-of select="peil_mtaw"/>
                             </rdf:value>
-                            <qudt:unit  rdf:resource="http://qudt.org/vocab/unit#Meter"/>
+                            <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit#Meter"/>
+                            <sosa:isResultOf>
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'peil_mtaw')"/>
+                                </xsl:attribute>
+                            </sosa:isResultOf>
                         </rdf:Description>
                     </sosa:hasResult>
                     <sosa:observedProperty rdf:resource="http://example.org/peil_mtaw"/>
+                    <!-- Fix 7: add ObservingProcedure type -->
                     <sosa:usedProcedure>
-                        <xsl:attribute name="rdf:resource">
-                            <xsl:value-of select="translate(concat('http://example.org/', methode, '_methode'), ' ', '')"/>
-                        </xsl:attribute>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="translate(concat('http://example.org/', methode, '_methode'), ' ', '')"/>
+                            </xsl:attribute>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservingProcedure"/>
+                        </rdf:Description>
                     </sosa:usedProcedure>
                 </rdf:Description>
+
             </sosa:hasMember>
+            <!-- Fix 2, 3, 4, 5, 6, 8: filtertoestand observation -->
             <sosa:hasMember>
                 <rdf:Description>
                     <xsl:attribute name="rdf:about">
                         <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'filtertoestand')"/>
                     </xsl:attribute>
-                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/sosa:Observation"/>
-                    <sosa:hasSimpleResult rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">
-                        <xsl:value-of select="filtertoestand"/>
-                    </sosa:hasSimpleResult>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Execution"/>
+                    <!-- Fix 2: hasFeatureOfInterest -->
+                    <sosa:hasFeatureOfInterest>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
+                            </xsl:attribute>
+                            <sosa:isFeatureOfInterestOf>
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'filtertoestand')"/>
+                                </xsl:attribute>
+                            </sosa:isFeatureOfInterestOf>
+                        </rdf:Description>
+                    </sosa:hasFeatureOfInterest>
+                    <!-- Fix 3: resultTime and phenomenonTime -->
+                    <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                        <xsl:value-of select="datum"/>
+                    </sosa:resultTime>
+                    <sosa:phenomenonTime >
+                        <rdf:Description>
+                            <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+                            <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                                <xsl:value-of select="datum"/>
+                            </time:inXSDDate>
+                        </rdf:Description>
+                    </sosa:phenomenonTime>
+                    <!-- Fix 4: madeBySensor -->
+                    <sosa:madeBySensor>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="concat('http://example.org/agent/', translate(opmeter/naam, ' ', ''))"/>
+                            </xsl:attribute>
+                            <ssn:implements rdf:resource="http://example.org/visueel_methode"/>
+
+                        </rdf:Description>
+                    </sosa:madeBySensor>
+                    <!-- Fix 5: wasOriginatedBy -->
+                    <ssn:wasOriginatedBy>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="concat('http://example.org/stimulus_', datum, '_filtertoestand')"/>
+                            </xsl:attribute>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
+                        </rdf:Description>
+                    </ssn:wasOriginatedBy>
+                    <!-- Fix 8: hasResult instead of hasSimpleResult (integer) -->
+                    <sosa:hasResult>
+                        <rdf:Description>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+                            <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">
+                                <xsl:value-of select="filtertoestand"/>
+                            </rdf:value>
+                            <sosa:isResultOf>
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'filtertoestand')"/>
+                                </xsl:attribute>
+                            </sosa:isResultOf>
+                        </rdf:Description>
+                    </sosa:hasResult>
                     <sosa:observedProperty rdf:resource="http://example.org/filtertoestand"/>
-                    <sosa:usedProcedure rdf:resource="http://example.org/visueel_methode"/>
+                    <!-- Fix 6: nested procedure declaration with types -->
+                    <sosa:usedProcedure>
+                        <rdf:Description rdf:about="http://example.org/visueel_methode">
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservingProcedure"/>
+                        </rdf:Description>
+                    </sosa:usedProcedure>
                 </rdf:Description>
             </sosa:hasMember>
+            <!-- Fix 2, 3, 4, 5, 6, 8: filterstatus observation -->
             <sosa:hasMember>
                 <rdf:Description>
                     <xsl:attribute name="rdf:about">
                         <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'filterstatus')"/>
                     </xsl:attribute>
-                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/sosa:Observation"/>
-                    <sosa:hasSimpleResult rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-                        <xsl:value-of select="filterstatus"/>
-                    </sosa:hasSimpleResult>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Execution"/>
+                    <!-- Fix 2: hasFeatureOfInterest -->
+                    <sosa:hasFeatureOfInterest>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
+                            </xsl:attribute>
+                            <sosa:isFeatureOfInterestOf>
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'filterstatus')"/>
+                                </xsl:attribute>
+                            </sosa:isFeatureOfInterestOf>
+                        </rdf:Description>
+                    </sosa:hasFeatureOfInterest>
+                    <!-- Fix 3: resultTime and phenomenonTime -->
+                    <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                        <xsl:value-of select="datum"/>
+                    </sosa:resultTime>
+                    <sosa:phenomenonTime >
+                        <rdf:Description>
+                            <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+                            <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                                <xsl:value-of select="datum"/>
+                            </time:inXSDDate>
+                        </rdf:Description>
+                    </sosa:phenomenonTime>
+                    <!-- Fix 4: madeBySensor -->
+                    <sosa:madeBySensor>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="concat('http://example.org/agent/', translate(opmeter/naam, ' ', ''))"/>
+                            </xsl:attribute>
+                            <ssn:implements rdf:resource="http://example.org/visuele_controle"/>
+<!--                            <sosa:madeObservation>-->
+<!--                                <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'filterstatus')"/>-->
+<!--                            </sosa:madeObservation>-->
+                        </rdf:Description>
+                    </sosa:madeBySensor>
+                    <!-- Fix 5: wasOriginatedBy -->
+                    <ssn:wasOriginatedBy>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="concat('http://example.org/stimulus_', datum, '_filterstatus')"/>
+                            </xsl:attribute>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
+                        </rdf:Description>
+                    </ssn:wasOriginatedBy>
+                    <!-- Fix 8: hasResult instead of hasSimpleResult (string) -->
+                    <sosa:hasResult>
+                        <rdf:Description>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+                            <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                                <xsl:value-of select="filterstatus"/>
+                            </rdf:value>
+                            <sosa:isResultOf>
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'filterstatus')"/>
+                                </xsl:attribute>
+                            </sosa:isResultOf>
+                        </rdf:Description>
+                    </sosa:hasResult>
                     <sosa:observedProperty rdf:resource="http://example.org/filterstatus"/>
-                    <sosa:usedProcedure rdf:resource="http://example.org/visuele_controle"/>
+                    <!-- Fix 6: nested procedure declaration with types -->
+                    <sosa:usedProcedure>
+                        <rdf:Description rdf:about="http://example.org/visuele_controle">
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservingProcedure"/>
+                        </rdf:Description>
+                    </sosa:usedProcedure>
                 </rdf:Description>
             </sosa:hasMember>
+            <!-- Fix 2, 3, 4, 5, 6, 8: zoet observation -->
             <sosa:hasMember>
                 <rdf:Description>
                     <xsl:attribute name="rdf:about">
                         <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'zoet')"/>
                     </xsl:attribute>
-                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/sosa:Observation"/>
-                    <sosa:hasSimpleResult rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-                        <xsl:value-of select="zoet"/>
-                    </sosa:hasSimpleResult>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Observation"/>
+                    <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Execution"/>
+                    <!-- Fix 2: hasFeatureOfInterest -->
+                    <sosa:hasFeatureOfInterest>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
+                            </xsl:attribute>
+                            <sosa:isFeatureOfInterestOf>
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'zoet')"/>
+                                </xsl:attribute>
+                            </sosa:isFeatureOfInterestOf>
+                        </rdf:Description>
+                    </sosa:hasFeatureOfInterest>
+                    <!-- Fix 3: resultTime and phenomenonTime -->
+                    <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                        <xsl:value-of select="datum"/>
+                    </sosa:resultTime>
+                    <sosa:phenomenonTime >
+                        <rdf:Description>
+                            <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+                            <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                                <xsl:value-of select="datum"/>
+                            </time:inXSDDate>
+                        </rdf:Description>
+                    </sosa:phenomenonTime>
+                    <!-- Fix 4: madeBySensor -->
+                    <sosa:madeBySensor>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="concat('http://example.org/agent/', translate(opmeter/naam, ' ', ''))"/>
+                            </xsl:attribute>
+                            <ssn:implements rdf:resource="http://example.org/smaaktest"/>
+                    <!--        <sosa:madeObservation>
+                                <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'zoet')"/>
+                            </sosa:madeObservation>-->
+                        </rdf:Description>
+                    </sosa:madeBySensor>
+                    <!-- Fix 5: wasOriginatedBy -->
+                    <ssn:wasOriginatedBy>
+                        <rdf:Description>
+                            <xsl:attribute name="rdf:about">
+                                <xsl:value-of select="concat('http://example.org/stimulus_', datum, '_zoet')"/>
+                            </xsl:attribute>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
+                        </rdf:Description>
+                    </ssn:wasOriginatedBy>
+                    <!-- Fix 8: hasResult instead of hasSimpleResult (string) -->
+                    <sosa:hasResult>
+                        <rdf:Description>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+                            <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                                <xsl:value-of select="zoet"/>
+                            </rdf:value>
+                            <sosa:isResultOf>
+                                <xsl:attribute name="rdf:resource">
+                                    <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'zoet')"/>
+                                </xsl:attribute>
+                            </sosa:isResultOf>
+                        </rdf:Description>
+                    </sosa:hasResult>
                     <sosa:observedProperty rdf:resource="http://example.org/zoet"/>
-                    <sosa:usedProcedure rdf:resource="http://example.org/smaaktest"/>
+                    <!-- Fix 6: nested procedure declaration with types -->
+                    <sosa:usedProcedure>
+                        <rdf:Description rdf:about="http://example.org/smaaktest">
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservingProcedure"/>
+                        </rdf:Description>
+                    </sosa:usedProcedure>
                 </rdf:Description>
             </sosa:hasMember>
-            <sosa:madeBySensor >
+            <sosa:madeBySensor>
                 <rdf:Description>
+                    <xsl:attribute name="rdf:about">
+                        <xsl:value-of select="concat('http://example.org/agent/', translate(opmeter/naam, ' ', ''))"/>
+                    </xsl:attribute>
                     <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
                     <rdfs:label>
                         <xsl:value-of select="opmeter/naam"/>
                     </rdfs:label>
                 </rdf:Description>
             </sosa:madeBySensor>
-            <sosa:hasFeatureOfInterest >
-                <xsl:attribute name="rdf:resource">
-                    <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
-                </xsl:attribute>
+            <sosa:hasFeatureOfInterest>
+                <rdf:Description>
+                    <xsl:attribute name="rdf:about">
+                        <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
+                    </xsl:attribute>
+                   <!-- <sosa:isFeatureOfInterestOf>
+                        <xsl:attribute name="rdf:resource">
+                            <xsl:value-of select="concat('http://example.org/peilmeting_', datum)"/>
+                        </xsl:attribute>
+                    </sosa:isFeatureOfInterestOf>-->
+                </rdf:Description>
             </sosa:hasFeatureOfInterest>
             <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                 <xsl:value-of select="datum"/>
@@ -202,14 +550,20 @@
         </rdf:Description>
 
     </xsl:template>
+
+    <!-- Fix 9: grondwaterlocatie as FeatureOfInterest with ssn:hasProperty -->
     <xsl:template match="grondwaterlocatie">
         <rdf:Description>
             <xsl:attribute name="rdf:about">
                 <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
             </xsl:attribute>
-            <xsl:attribute name="rdf:type">
-                <xsl:value-of select="'http://www.w3.org/ns/sosa/Platform'"/>
-            </xsl:attribute>
+            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
+            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
+            <ssn:hasProperty rdf:resource="http://example.org/peil_mtaw"/>
+            <ssn:hasProperty rdf:resource="http://example.org/diepte_tov_referentiepunt"/>
+            <ssn:hasProperty rdf:resource="http://example.org/filtertoestand"/>
+            <ssn:hasProperty rdf:resource="http://example.org/filterstatus"/>
+            <ssn:hasProperty rdf:resource="http://example.org/zoet"/>
             <geo:hasGeometry>
                 <rdf:Description>
                     <rdf:type rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>

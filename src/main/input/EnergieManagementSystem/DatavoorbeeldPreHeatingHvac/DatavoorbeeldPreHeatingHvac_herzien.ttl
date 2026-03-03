@@ -17,7 +17,7 @@ PREFIX dct:          <http://purl.org/dc/terms/>
 @prefix energiebrontype: <https://example.com/concept/energiebrontype/> .
 @prefix toesteltype:   <https://example.com/concept/toesteltype/> .
 @prefix sosa:        <http://www.w3.org/ns/sosa/> .
-@prefix p-plan:      <http://p-plan.org/> .
+@prefix p-plan:      <http://purl.org/net/p-plan#> .
 @prefix prov:        <http://www.w3.org/ns/prov#> .
 @prefix qudt:        <http://qudt.org/schema/qudt/> .
 @prefix unit:        <http://qudt.org/vocab/unit/> .
@@ -37,24 +37,11 @@ PREFIX dct:          <http://purl.org/dc/terms/>
 # PLANNING NIVEAU - Abstracte procedure definitie
 # *********************************************
 
-# Het gebouw en HVAC systeem
-gebouw:belpaire
-  a gebouw:Gebouw;
-  gebouw:gebouwnaam "Belpaire Gebouw"@nl;
-  locn:address [ a locn:Address;
-                   locn:fullAddress "Simon Bolivarlaan 17, 1030 Schaarbeek"@nl ] .
-
-# HVAC warmtepomp als feature of interest
-device:warmtepomp_belpaire
-  a saref:Device;
-  dct:type energiebrontype:warmtepomp_elektriciteit, toesteltype:HVAC_verwarming;
-  saref:isLocatedIn gebouw:belpaire .
 
 # Abstracte procedure voor HVAC pre-heating
 plan:hvac_preheating
   a p-plan:Plan, sosa:Procedure;
   rdfs:label "HVAC pre-heating procedure"@nl;
-  p-plan:hasStep step:voorspel_tijdstip, step:meet_omstandigheden, step:activeer_hvac;
   sosa:hasInput var:historische_data, var:doeltemperatuur, var:doeltijdstip;
   sosa:hasOutput var:voorspeld_tijdstip, var:activeringsresultaat .
 
@@ -126,11 +113,15 @@ var:activeringsresultaat
 # DEPLOYMENT NIVEAU - Concrete implementatie
 # *********************************************
 
+
+# Het gebouw en HVAC systeem
 # Platform (gebouw automatiseringssysteem)
-platform:belpaire_automatisering
-  a sosa:Platform;
+gebouw:belpaire
+  a sosa:Platform, gebouw:Gebouw ;
   rdfs:label "Belpaire Gebouw Automatiseringssysteem"@nl;
-  sosa:hosts sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, actuator:hvac_controller .
+  sosa:hosts sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, actuator:hvac_controller, device:warmtepomp_belpaire ;
+  gebouw:gebouwnaam "Belpaire Gebouw"@nl;
+  locn:address [ a locn:Address; locn:fullAddress "Simon Bolivarlaan 17, 1030 Schaarbeek"@nl ] .
 
 # ML model als artefact
 model:preheating_ml_model
@@ -138,8 +129,14 @@ model:preheating_ml_model
   rdfs:label "Pre-heating ML Model"@nl;
   prov:wasGeneratedBy [ a prov:Activity;
                           prov:used [ a prov:Collection;
-                                        dct:type inputtype:observatieverzameling;
-                                        seb:Input.referentie "_:OV001"^^xsd:anyURI ] ] .
+                                        dct:type inputtype:observatieverzameling ]
+                      ].
+
+# HVAC warmtepomp als feature of interest
+device:warmtepomp_belpaire
+  a ssn:System ;
+  dct:type energiebrontype:warmtepomp_elektriciteit, toesteltype:HVAC_verwarming;
+  .
 
 # Sensor die het model gebruikt
 sensor:temperatuur_voorspeller
@@ -167,8 +164,8 @@ deploy:hvac_preheating_2025
   a sosa:Deployment;
   rdfs:label "HVAC pre-heating implementatie 2025"@nl;
   sosa:implements plan:hvac_preheating;
-  sosa:deployedOnPlatform platform:belpaire_automatisering;
-  sosa:deployedAsset sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, actuator:hvac_controller;
+  sosa:deployedOnPlatform gebouw:belpaire;
+  sosa:deployedAsset sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, actuator:hvac_controller, device:warmtepomp_belpaire;
   sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
 
 # *********************************************
@@ -180,7 +177,7 @@ ent:historische_data_2025Q1
   a prov:Entity;
   rdfs:label "Historische data Q1 2025"@nl;
   p-plan:correspondsToVariable var:historische_data;
-  seb:Input.referentie "_:OV001"^^xsd:anyURI .
+  .
 
 ent:doeltemperatuur_20c
   a prov:Entity;

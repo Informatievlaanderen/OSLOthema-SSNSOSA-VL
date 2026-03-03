@@ -4,7 +4,6 @@ curl -O https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-Energie
 curl -O https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-EnergieManagementSystem/refs/heads/main/resources/datavoorbeelden/DatavoorbeeldSGerealiseerdeBesparing.json
 curl -O https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-EnergieManagementSystem/refs/heads/main/resources/datavoorbeelden/DatavoorbeeldPreHeatingHvac.json
 curl -O https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-EnergieManagementSystem/refs/heads/main/resources/datavoorbeelden/DatavoorbeeldIsolatieadvies.json
-curl -O https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-EnergieManagementSystem/refs/heads/main/resources/datavoorbeelden/DatavoorbeeldHoofdaansluitingSubaansluiting.json
 
 for i in *json ; do
   [[ -d ../${i/.json/}/source ]] || mkdir -p ../${i/.json/}/source
