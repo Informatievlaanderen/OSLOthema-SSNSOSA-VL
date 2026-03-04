@@ -63,7 +63,6 @@
                 <xsl:value-of select="/ns4:dov-schema/filter/dataidentifier/uri"/>
             </xsl:attribute>
             <rdf:type rdf:resource="http://www.w3.org/ns/sosa/System"/>
-            <rdf:type rdf:resource="http://www.w3.org/ns/ssn/System"/>
             <sosa:isHostedBy>
                 <rdf:Description>
                     <xsl:attribute name="rdf:about">
@@ -77,7 +76,17 @@
             <rdfs:comment>
                 <xsl:value-of select="opmerking/tekst"/>
             </rdfs:comment>
+        </rdf:Description>
 
+        <rdf:Description>
+            <xsl:attribute name="rdf:about">
+                <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
+            </xsl:attribute>
+            <sosa:hosts>
+                <xsl:attribute name="rdf:resource">
+                    <xsl:value-of select="/ns4:dov-schema/filter/dataidentifier/uri"/>
+                </xsl:attribute>
+            </sosa:hosts>
         </rdf:Description>
         <xsl:apply-templates select="opbouw/onderdeel"/>
     </xsl:template>
@@ -89,7 +98,6 @@
                 <xsl:value-of select="concat(/ns4:dov-schema/filter/dataidentifier/uri, '/' , filterelement)"/>
             </xsl:attribute>
             <rdf:type rdf:resource="http://www.w3.org/ns/sosa/System"/>
-            <rdf:type rdf:resource="http://www.w3.org/ns/ssn/System"/>
             <sosa:isHostedBy>
                 <rdf:Description>
                     <xsl:attribute name="rdf:about">
@@ -120,7 +128,16 @@
                 <xsl:value-of select="binnendiameter"/>
             </ex:binnendiameter>
         </rdf:Description>
-
+        <rdf:Description>
+            <xsl:attribute name="rdf:about">
+                <xsl:value-of select="/ns4:dov-schema/filter/dataidentifier/uri"/>
+            </xsl:attribute>
+            <sosa:hasSubSystem>
+                <xsl:attribute name="rdf:resource">
+                    <xsl:value-of select="concat(/ns4:dov-schema/filter/dataidentifier/uri, '/' , filterelement)"/>
+                </xsl:attribute>
+            </sosa:hasSubSystem>
+        </rdf:Description>
     </xsl:template>
 
     <xsl:template match="peilmeting">
@@ -154,21 +171,21 @@
                     <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                         <xsl:value-of select="datum"/>
                     </sosa:resultTime>
-                    <sosa:phenomenonTime >
+                   <!-- <sosa:phenomenonTime >
                         <rdf:Description>
                             <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
                             <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                                 <xsl:value-of select="datum"/>
                             </time:inXSDDate>
                         </rdf:Description>
-                    </sosa:phenomenonTime>
+                    </sosa:phenomenonTime>-->
                     <!-- Fix 4: madeBySensor -->
                     <sosa:madeBySensor>
                         <xsl:attribute name="rdf:resource">
                             <xsl:value-of select="concat('http://example.org/agent/', translate(opmeter/naam, ' ', ''))"/>
                         </xsl:attribute>
                     </sosa:madeBySensor>
-                    <!-- Fix 5: wasOriginatedBy -->
+                    <!-- Fix 5: wasOriginatedBy
                     <ssn:wasOriginatedBy>
                         <rdf:Description>
                             <xsl:attribute name="rdf:about">
@@ -176,7 +193,7 @@
                             </xsl:attribute>
                             <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
                         </rdf:Description>
-                    </ssn:wasOriginatedBy>
+                    </ssn:wasOriginatedBy>-->
                     <sosa:hasResult>
                         <rdf:Description>
                             <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
@@ -229,14 +246,14 @@
                     <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                         <xsl:value-of select="datum"/>
                     </sosa:resultTime>
-                    <sosa:phenomenonTime >
+                  <!--  <sosa:phenomenonTime >
                         <rdf:Description>
                             <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
                             <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                                 <xsl:value-of select="datum"/>
                             </time:inXSDDate>
                         </rdf:Description>
-                    </sosa:phenomenonTime>
+                    </sosa:phenomenonTime>-->
                     <!-- Fix 4: madeBySensor -->
                     <sosa:madeBySensor>
                         <rdf:Description>
@@ -252,7 +269,7 @@
                         </rdf:Description>
 
                     </sosa:madeBySensor>
-                    <!-- Fix 5: wasOriginatedBy -->
+                    <!-- Fix 5: wasOriginatedBy
                     <ssn:wasOriginatedBy>
                         <rdf:Description>
                             <xsl:attribute name="rdf:about">
@@ -260,7 +277,7 @@
                             </xsl:attribute>
                             <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
                         </rdf:Description>
-                    </ssn:wasOriginatedBy>
+                    </ssn:wasOriginatedBy>-->
                     <sosa:hasResult>
                         <rdf:Description>
                             <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
@@ -301,7 +318,7 @@
                     <sosa:hasFeatureOfInterest>
                         <rdf:Description>
                             <xsl:attribute name="rdf:about">
-                                <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
+                                <xsl:value-of select="/ns4:dov-schema/filter/dataidentifier/uri"/>
                             </xsl:attribute>
                             <sosa:isFeatureOfInterestOf>
                                 <xsl:attribute name="rdf:resource">
@@ -314,14 +331,14 @@
                     <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                         <xsl:value-of select="datum"/>
                     </sosa:resultTime>
-                    <sosa:phenomenonTime >
+                 <!--   <sosa:phenomenonTime >
                         <rdf:Description>
                             <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
                             <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                                 <xsl:value-of select="datum"/>
                             </time:inXSDDate>
                         </rdf:Description>
-                    </sosa:phenomenonTime>
+                    </sosa:phenomenonTime>-->
                     <!-- Fix 4: madeBySensor -->
                     <sosa:madeBySensor>
                         <rdf:Description>
@@ -332,7 +349,7 @@
 
                         </rdf:Description>
                     </sosa:madeBySensor>
-                    <!-- Fix 5: wasOriginatedBy -->
+                    <!-- Fix 5: wasOriginatedBy
                     <ssn:wasOriginatedBy>
                         <rdf:Description>
                             <xsl:attribute name="rdf:about">
@@ -340,7 +357,7 @@
                             </xsl:attribute>
                             <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
                         </rdf:Description>
-                    </ssn:wasOriginatedBy>
+                    </ssn:wasOriginatedBy>-->
                     <!-- Fix 8: hasResult instead of hasSimpleResult (integer) -->
                     <sosa:hasResult>
                         <rdf:Description>
@@ -377,7 +394,7 @@
                     <sosa:hasFeatureOfInterest>
                         <rdf:Description>
                             <xsl:attribute name="rdf:about">
-                                <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
+                                <xsl:value-of select="/ns4:dov-schema/filter/dataidentifier/uri"/>
                             </xsl:attribute>
                             <sosa:isFeatureOfInterestOf>
                                 <xsl:attribute name="rdf:resource">
@@ -390,14 +407,14 @@
                     <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                         <xsl:value-of select="datum"/>
                     </sosa:resultTime>
-                    <sosa:phenomenonTime >
+                  <!--  <sosa:phenomenonTime >
                         <rdf:Description>
                             <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
                             <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                                 <xsl:value-of select="datum"/>
                             </time:inXSDDate>
                         </rdf:Description>
-                    </sosa:phenomenonTime>
+                    </sosa:phenomenonTime> -->
                     <!-- Fix 4: madeBySensor -->
                     <sosa:madeBySensor>
                         <rdf:Description>
@@ -410,7 +427,7 @@
 <!--                            </sosa:madeObservation>-->
                         </rdf:Description>
                     </sosa:madeBySensor>
-                    <!-- Fix 5: wasOriginatedBy -->
+                    <!-- Fix 5: wasOriginatedBy
                     <ssn:wasOriginatedBy>
                         <rdf:Description>
                             <xsl:attribute name="rdf:about">
@@ -418,7 +435,7 @@
                             </xsl:attribute>
                             <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
                         </rdf:Description>
-                    </ssn:wasOriginatedBy>
+                    </ssn:wasOriginatedBy>-->
                     <!-- Fix 8: hasResult instead of hasSimpleResult (string) -->
                     <sosa:hasResult>
                         <rdf:Description>
@@ -468,14 +485,14 @@
                     <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                         <xsl:value-of select="datum"/>
                     </sosa:resultTime>
-                    <sosa:phenomenonTime >
+                   <!-- <sosa:phenomenonTime >
                         <rdf:Description>
                             <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
                             <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                                 <xsl:value-of select="datum"/>
                             </time:inXSDDate>
                         </rdf:Description>
-                    </sosa:phenomenonTime>
+                    </sosa:phenomenonTime>-->
                     <!-- Fix 4: madeBySensor -->
                     <sosa:madeBySensor>
                         <rdf:Description>
@@ -488,7 +505,7 @@
                             </sosa:madeObservation>-->
                         </rdf:Description>
                     </sosa:madeBySensor>
-                    <!-- Fix 5: wasOriginatedBy -->
+                    <!-- Fix 5: wasOriginatedBy
                     <ssn:wasOriginatedBy>
                         <rdf:Description>
                             <xsl:attribute name="rdf:about">
@@ -496,7 +513,7 @@
                             </xsl:attribute>
                             <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Stimulus"/>
                         </rdf:Description>
-                    </ssn:wasOriginatedBy>
+                    </ssn:wasOriginatedBy>-->
                     <!-- Fix 8: hasResult instead of hasSimpleResult (string) -->
                     <sosa:hasResult>
                         <rdf:Description>
@@ -533,22 +550,27 @@
                 </rdf:Description>
             </sosa:madeBySensor>
             <sosa:hasFeatureOfInterest>
-                <rdf:Description>
-                    <xsl:attribute name="rdf:about">
+                    <xsl:attribute name="rdf:resource">
                         <xsl:value-of select="/ns4:dov-schema/grondwaterlocatie/dataidentifier/uri"/>
                     </xsl:attribute>
-                   <!-- <sosa:isFeatureOfInterestOf>
-                        <xsl:attribute name="rdf:resource">
-                            <xsl:value-of select="concat('http://example.org/peilmeting_', datum)"/>
-                        </xsl:attribute>
-                    </sosa:isFeatureOfInterestOf>-->
-                </rdf:Description>
+            </sosa:hasFeatureOfInterest>
+            <sosa:hasFeatureOfInterest>
+                <xsl:attribute name="rdf:resource">
+                    <xsl:value-of select="/ns4:dov-schema/filter/dataidentifier/uri"/>
+                </xsl:attribute>
             </sosa:hasFeatureOfInterest>
             <sosa:resultTime rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
                 <xsl:value-of select="datum"/>
             </sosa:resultTime>
+            <sosa:phenomenonTime >
+                <rdf:Description>
+                    <rdf:type rdf:resource="http://www.w3.org/2006/time#Instant"/>
+                    <time:inXSDDate rdf:datatype="http://www.w3.org/2001/XMLSchema#date">
+                        <xsl:value-of select="datum"/>
+                    </time:inXSDDate>
+                </rdf:Description>
+            </sosa:phenomenonTime>
         </rdf:Description>
-
     </xsl:template>
 
     <!-- Fix 9: grondwaterlocatie as FeatureOfInterest with ssn:hasProperty -->

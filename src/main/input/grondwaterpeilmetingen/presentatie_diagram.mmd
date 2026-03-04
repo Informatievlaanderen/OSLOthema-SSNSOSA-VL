@@ -1,0 +1,90 @@
+flowchart TD
+
+%% =====================================================
+%% INFRASTRUCTUUR (blauw)
+%% =====================================================
+
+PUT(["put:2017-003450<br/>sosa:Platform + sosa:FeatureOfInterest<br/>geo: GML-punt (98811, 192768)"])
+FILTER(["filter:2005-007247<br/>sosa:System<br/>creator: Johan Lermytte"])
+ZANDVANG(["filter:2005-007247/zandvang<br/>sosa:System<br/>filterelement: zandvang<br/>van: 26, tot: 27, binnendiameter: 57"])
+FILTEREL(["filter:2005-007247/filter<br/>sosa:System<br/>filterelement: filter, materiaal: pvc<br/>van: 24, tot: 26, binnendiameter: 57"])
+STIJGBUIS(["filter:2005-007247/stijgbuis<br/>sosa:System<br/>filterelement: stijgbuis, materiaal: pvc<br/>van: 0, tot: 24, binnendiameter: 57"])
+BEHEERDER(["agent:Beheerder<br/>sosa:Sensor<br/>label: Beheerder"])
+
+
+
+style PUT       fill:#60c4e4,stroke:#2E5C8A,color:#000
+style FILTER    fill:#60c4e4,stroke:#2E5C8A,color:#000
+style ZANDVANG  fill:#60c4e4,stroke:#2E5C8A,color:#000
+style FILTEREL  fill:#60c4e4,stroke:#2E5C8A,color:#000
+style STIJGBUIS fill:#60c4e4,stroke:#2E5C8A,color:#000
+style BEHEERDER fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+
+
+%% =====================================================
+%% WAARNEMING – peilmeting 2006-10-20 (roze)
+%% =====================================================
+
+COLL1(["ex:peilmeting_2006-10-20<br/>sosa:ObservationCollection<br/>resultTime: 2006-10-20"])
+TIME1(["time:Instant<br/>inXSDDate: 2006-10-20"])
+
+OBS1_ZOET(["sosa:Observation + sosa:Execution<br/>observedProperty: ex:zoet<br/>usedProcedure: ex:smaaktest<br/>resultTime: 2006-10-20"])
+RES1_ZOET(["sosa:Result<br/>value: 'N'"])
+
+OBS1_FILTS(["sosa:Observation + sosa:Execution<br/>observedProperty: ex:filterstatus<br/>usedProcedure: ex:visuele_controle<br/>resultTime: 2006-10-20"])
+RES1_FILTS(["sosa:Result<br/>value: 'in rust'"])
+
+OBS1_FILTT(["sosa:Observation + sosa:Execution<br/>observedProperty: ex:filtertoestand<br/>usedProcedure: ex:visueel_methode<br/>resultTime: 2006-10-20"])
+RES1_FILTT(["sosa:Result<br/>value: 1"])
+
+OBS1_PEIL(["sosa:Observation + sosa:Execution<br/>observedProperty: ex:peil_mtaw<br/>usedProcedure: ex:peillint_methode<br/>resultTime: 2006-10-20"])
+RES1_PEIL(["sosa:Result<br/>value: 7.53 m"])
+
+OBS1_DIEPTE(["sosa:Observation + sosa:Execution<br/>observedProperty: ex:diepte_tov_referentiepunt<br/>usedProcedure: ex:peillint_methode<br/>resultTime: 2006-10-20"])
+RES1_DIEPTE(["sosa:Result<br/>value: 2.25 m"])
+
+
+style COLL1       fill:#e54b89,stroke:#2E5C8A,color:#000
+style TIME1       fill:#f8b622,stroke:#2E5C8A,color:#000
+style OBS1_ZOET   fill:#e54b89,stroke:#2E5C8A,color:#000
+style RES1_ZOET   fill:#f8b622,stroke:#2E5C8A,color:#000
+style OBS1_FILTS  fill:#e54b89,stroke:#2E5C8A,color:#000
+style RES1_FILTS  fill:#f8b622,stroke:#2E5C8A,color:#000
+style OBS1_FILTT  fill:#e54b89,stroke:#2E5C8A,color:#000
+style RES1_FILTT  fill:#f8b622,stroke:#2E5C8A,color:#000
+style OBS1_PEIL   fill:#e54b89,stroke:#2E5C8A,color:#000
+style RES1_PEIL   fill:#f8b622,stroke:#2E5C8A,color:#000
+style OBS1_DIEPTE fill:#e54b89,stroke:#2E5C8A,color:#000
+style RES1_DIEPTE fill:#f8b622,stroke:#2E5C8A,color:#000
+
+
+
+
+%% =====================================================
+%% RELATIES – INFRASTRUCTUUR
+%% =====================================================
+PUT      -->|sosa:hosts| FILTER
+FILTER   -->|sosa:hasSubSystem| ZANDVANG
+FILTER   -->|sosa:hasSubSystem| FILTEREL
+FILTER   -->|sosa:hasSubSystem| STIJGBUIS
+
+%% =====================================================
+%% RELATIES – peilmeting 2006-10-20
+%% =====================================================
+COLL1 -->|sosa:phenomenonTime| TIME1
+COLL1 -->|sosa:hasFeatureOfInterest| PUT
+COLL1 -->|sosa:hasFeatureOfInterest| FILTER
+COLL1 -->|sosa:madeBySensor| BEHEERDER
+COLL1 -->|sosa:hasMember| OBS1_ZOET
+COLL1 -->|sosa:hasMember| OBS1_FILTS
+COLL1 -->|sosa:hasMember| OBS1_FILTT
+COLL1 -->|sosa:hasMember| OBS1_PEIL
+COLL1 -->|sosa:hasMember| OBS1_DIEPTE
+OBS1_ZOET   -->|sosa:hasResult| RES1_ZOET
+OBS1_FILTS  -->|sosa:hasResult| RES1_FILTS
+OBS1_FILTT  -->|sosa:hasResult| RES1_FILTT
+OBS1_PEIL   -->|sosa:hasResult| RES1_PEIL
+OBS1_DIEPTE -->|sosa:hasResult| RES1_DIEPTE
+
+
