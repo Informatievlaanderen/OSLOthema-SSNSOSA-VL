@@ -31,7 +31,6 @@ PREFIX dct:          <http://purl.org/dc/terms/>
 @prefix seb:         <https://data.vlaanderen.be/ns/sensoren-en-bemonstering#> .
 @prefix saref:       <https://saref.etsi.org/core/> .
 @prefix locn:        <http://www.w3.org/ns/locn#> .
-@prefix skos:        <http://www.w3.org/2004/02/skos/core#> .
 
 # *********************************************
 # PLANNING NIVEAU - Abstracte procedure definitie
@@ -265,8 +264,7 @@ exec:hvac_actuatie_001
 ent:hvac_status_aan
   a sosa:Result;
   rdfs:label "HVAC status: AAN"@nl;
-  p-plan:correspondsToVariable var:activeringsresultaat;
-  skos:closeMatch toestelstatus:aan .
+  p-plan:correspondsToVariable var:activeringsresultaat .
 
 # Observatieverzameling voor historische data
 exec:historische_data_verzameling

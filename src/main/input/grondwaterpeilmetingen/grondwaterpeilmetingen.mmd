@@ -1,4 +1,4 @@
-flowchart TD
+flowchart LR
 
 %% =====================================================
 %% INFRASTRUCTUUR (blauw)
@@ -28,6 +28,11 @@ flowchart TD
         VIS_CONTR(["ex:visuele_controle<br/>sosa:ObservingProcedure"])
         VIS_METH(["ex:visueel_methode<br/>sosa:ObservingProcedure"])
         PEILLINT(["ex:peillint_methode<br/>sosa:ObservingProcedure"])
+        ZOET(["ex:zoet<br/>sosa:ObservableProperty"])
+        FILTERSTATUS(["ex:filterstatus<br/>sosa:ObservableProperty"])
+        FILTERTOESTAND(["ex:filtertoestand<br/>sosa:ObservableProperty"])
+        PEIL_MTAW(["ex:peil_mtaw<br/>sosa:ObservableProperty"])
+        DIEPTE(["ex:diepte_tov_referentiepunt<br/>sosa:ObservableProperty"])
     end
 
     style PROC           fill:#b8a2d4,stroke:#2E5C8A,color:#000
@@ -35,6 +40,11 @@ flowchart TD
     style VIS_CONTR      fill:#c6a0f5,stroke:#2E5C8A,color:#000
     style VIS_METH       fill:#c6a0f5,stroke:#2E5C8A,color:#000
     style PEILLINT       fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style ZOET           fill:#fe7130,stroke:#2E5C8A,color:#000
+    style FILTERSTATUS   fill:#fe7130,stroke:#2E5C8A,color:#000
+    style FILTERTOESTAND fill:#fe7130,stroke:#2E5C8A,color:#000
+    style PEIL_MTAW      fill:#fe7130,stroke:#2E5C8A,color:#000
+    style DIEPTE         fill:#fe7130,stroke:#2E5C8A,color:#000
 
 %% =====================================================
 %% WAARNEMING – peilmeting 2006-10-20 (roze)
@@ -83,6 +93,10 @@ flowchart TD
     FILTER   -->|sosa:hasSubSystem| ZANDVANG
     FILTER   -->|sosa:hasSubSystem| FILTEREL
     FILTER   -->|sosa:hasSubSystem| STIJGBUIS
+    BEHEERDER -->|ssn:implements| SMAAKTEST
+    BEHEERDER -->|ssn:implements| VIS_CONTR
+    BEHEERDER -->|ssn:implements| VIS_METH
+    BEHEERDER -->|ssn:implements| PEILLINT
 
 %% =====================================================
 %% RELATIES – peilmeting 2006-10-20
