@@ -83,17 +83,6 @@ veldronde. Door ze te bundelen in een `sosa:ObservationCollection` vermijden we 
 gedeelde metadata en maken we de samenhang expliciet. Systemen die de collectie niet begrijpen,
 kunnen nog steeds elke observatie afzonderlijk verwerken.
 
-### Observation én Execution tegelijk
-
-Elke deelwaarneming krijgt een dubbele typering:
-
-```
-ex:peilmeting_2006-10-20peil_mtaw  a sosa:Observation, sosa:Execution
-```
-
-`sosa:Observation` zegt *wat* er waargenomen is; `sosa:Execution` zegt *dat er een procedure
-uitgevoerd werd*. Dit maakt de relatie naar `usedProcedure` semantisch correct: een procedure wordt
-uitgevoerd, niet alleen geraadpleegd.
 
 ### Resultaat als apart object
 
@@ -117,7 +106,7 @@ gestandaardiseerde procedure verwijzen.
 
 ---
 
-## 6. Technische noot (voor OSLO/SOSA-specialisten)
+## 6. Technische noot 
 
 ### Prefixen en IRI-structuur
 
@@ -136,9 +125,4 @@ De modellering gebruikt zowel de voorwaartse als de inverse richting expliciet:
 Hetzelfde geldt voor `sosa:hasFeatureOfInterest` (op observatie) en `sosa:isFeatureOfInterestOf`
 (op de put en filter). Beide richtingen zijn in de Turtle opgenomen voor query-efficiëntie.
 
-### Dubbele typering Observation + Execution
 
-`sosa:Execution` is een subklasse van `sosa:Procedure`-uitvoering in de SSN-extensie. De dubbele
-typering (`sosa:Observation, sosa:Execution`) maakt het mogelijk om zowel het observatie-perspectief
-(wat werd waargenomen?) als het uitvoerings-perspectief (welke procedure werd gevolgd?) te
-combineren op één individu, zonder redundante triples.
