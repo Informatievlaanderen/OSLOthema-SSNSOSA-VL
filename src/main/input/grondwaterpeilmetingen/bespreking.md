@@ -80,8 +80,8 @@ Elk resultaat is een apart object van het type `sosa:Result`. Voor meetwaarden m
 
 Vijf metingen op dezelfde dag, door dezelfde beheerder, op hetzelfde object vormen logisch één
 veldronde. Door ze te bundelen in een `sosa:ObservationCollection` vermijden we herhaling van
-gedeelde metadata en maken we de samenhang expliciet. Systemen die de collectie niet begrijpen,
-kunnen nog steeds elke observatie afzonderlijk verwerken.
+gedeelde metadata en maken we de samenhang expliciet. Optioneel kan, voor systemen die de collectie niet begrijpen,
+voor iedere observatie alle relaties en eigenschappen redundant herhaald worden.
 
 
 ### Resultaat als apart object
