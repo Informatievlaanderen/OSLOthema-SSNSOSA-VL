@@ -15,7 +15,7 @@
   <!-- ========================= -->
   <properties>
     <java.version>11</java.version>
-    <jackson.version>2.15.2</jackson.version>
+    <jackson.version>2.18.6</jackson.version>
 
     <!-- Scala / Spark -->
     <scala.version>2.12.18</scala.version>
@@ -57,7 +57,7 @@
     <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
-      <version>1.4.11</version>
+      <version>1.4.12</version>
     </dependency>
 
     <!-- Scala -->
