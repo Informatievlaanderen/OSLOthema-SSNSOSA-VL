@@ -122,14 +122,14 @@ exec:meting-001
 ent:drempelwaarde-001
   a prov:Entity ;
   rdfs:label "Drempelwaarde 0.4 °C/hr"@nl ;
-  qudt:value "0.4"^^xsd:decimal ;
+  qudt:numericValue "0.4"^^xsd:decimal ;
   qudt:hasUnit unit:DEG_C-PER-HR ;
   p-plan:correspondsToVariable var:drempelwaarde .
 
 # Concrete meting van warmteverlies
 ent:meting-001
    a qudt:QuantityValue , sosa:Result ;
-   qudt:value "0.415"^^xsd:decimal ;
+   qudt:numericValue "0.415"^^xsd:decimal ;
    qudt:hasUnit unit:DEG_C-PER-HR ;
   p-plan:correspondsToVariable var:meting .
 

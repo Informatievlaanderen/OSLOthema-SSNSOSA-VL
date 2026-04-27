@@ -1,0 +1,48 @@
+flowchart LR
+
+subgraph PROC["PROCEDURE"]
+    VP["ex:VeldmeetProcedure\nsosa:ObservingProcedure"]
+    SV["ex:SedimentVolume\nsosa:Property"]
+end
+
+subgraph INFRA["INFRASTRUCTUUR"]
+    EP["ex:Erosiepoel_Mechelen\nsosa:Platform\nsosa:FeatureOfInterest"]
+    WX["ex:Waarnemer_X\nsosa:Sensor"]
+end
+
+subgraph WAAR["WAARNEMING"]
+    OC["ex:ObsCollection_EM_20240901\nsosa:ObservationCollection"]
+    OB["ex:Obs_SedimentVolume_EM_20240901\nsosa:Observation"]
+    RES["ex:Result_SedimentVolume_EM_20240901\n245.000 L\nqudt:QuantityValue"]
+    TI["ex:Instant_20240901_09u\n2024-09-01T09:00\ntime:Instant"]
+end
+
+%% subgraaf-stijlen
+style PROC fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style WAAR fill:#e7a3be,stroke:#2E5C8A,color:#000
+
+%% node-stijlen
+style VP fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style SV fill:#fe7130,stroke:#2E5C8A,color:#000
+style EP fill:#60c4e4,stroke:#2E5C8A,color:#000
+style WX fill:#60c4e4,stroke:#2E5C8A,color:#000
+style OC fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OB fill:#e54b89,stroke:#2E5C8A,color:#fff
+style RES fill:#f8b622,stroke:#2E5C8A,color:#000
+style TI fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% relaties
+EP -->|sosa:hosts| WX
+WX -->|sosa:isHostedBy| EP
+WX -->|sosa:implements| VP
+OC -->|sosa:hasMember| OB
+OC -->|sosa:hasFeatureOfInterest| EP
+OC -->|sosa:madeBySensor| WX
+OC -->|sosa:usedProcedure| VP
+OC -->|sosa:phenomenonTime| TI
+OB -->|sosa:observedProperty| SV
+OB -->|sosa:hasFeatureOfInterest| EP
+OB -->|sosa:phenomenonTime| TI
+OB -->|sosa:hasResult| RES
+EP -->|sosa:isFeatureOfInterestOf| OC

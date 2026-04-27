@@ -36,7 +36,7 @@ ex:C14Observatie a sosa:Observation ;
   sosa:hasResult [
       a qudt:QuantityValue ;
       qudt:hasUnit unit:YR ;
-      qudt:value 7530.0 ;
+      qudt:numericValue 7530.0 ;
   ] ;
   sosa:resultTime "2026-02-01T14:15:00+00:00"^^xsd:dateTime ;
 .
@@ -48,7 +48,7 @@ ex:CO2Observatie a sosa:Observation ;
   sosa:hasResult [
         a qudt:QuantityValue ;
         qudt:hasUnit unit:PPM ;
-        qudt:value 240.0 ;
+        qudt:numericValue 240.0 ;
   ] ;
   sosa:resultTime "2026-02-01T14:16:00+00:00"^^xsd:dateTime ;
 .
@@ -59,7 +59,7 @@ ex:PaleoCO2Observatie a sosa:Observation ;
   sosa:hasResult [
       a qudt:QuantityValue ;
       qudt:hasUnit unit:PPM ; ## Parts per million (aantal deeltjes per miljoen deeltjes lucht
-      qudt:value 240.0 ;
+      qudt:numericValue 240.0 ;
   ] ;
   sosa:phenomenonTime [
     time:inTimePosition [

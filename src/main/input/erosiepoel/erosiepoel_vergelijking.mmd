@@ -1,0 +1,42 @@
+flowchart LR
+
+subgraph VOOR["❌ VOOR — Architectuurfouten"]
+    F_EP["Erosiepoel_Mechelen\n❌ sosa:FeatureOfInterest alleen\n(ontbreekt sosa:Platform)"]
+    F_WX["Waarnemer_X\n❌ prov:Agent\n(geen sosa:Sensor)"]
+    F_OB["Obs_Sediment_20240901\nsosa:Observation\n❌ geen usedProcedure\n❌ geen ObservationCollection"]
+    F_RES["'245000' xsd:decimal\n❌ hasSimpleResult zonder eenheid"]
+    F_EP -->|hasFeatureOfInterest| F_OB
+    F_WX -.->|geen hosts-relatie mogelijk| F_OB
+    F_OB -->|hasSimpleResult| F_RES
+end
+
+subgraph NA["✅ NA — Herziene modellering"]
+    N_VP["VeldmeetProcedure\nsosa:ObservingProcedure"]
+    N_EP["Erosiepoel_Mechelen\n✅ sosa:Platform\n✅ sosa:FeatureOfInterest"]
+    N_WX["Waarnemer_X\n✅ sosa:Sensor"]
+    N_OC["ObsCollection_EM_20240901\n✅ sosa:ObservationCollection"]
+    N_OB["Obs_SedimentVolume\nsosa:Observation"]
+    N_RES["Result_SedimentVolume\n✅ 245.000 L\n✅ qudt:QuantityValue + unit:L"]
+    N_EP -->|sosa:hosts| N_WX
+    N_WX -->|sosa:implements| N_VP
+    N_OC -->|sosa:hasMember| N_OB
+    N_OC -->|sosa:usedProcedure| N_VP
+    N_OC -->|sosa:hasFeatureOfInterest| N_EP
+    N_OB -->|sosa:hasResult| N_RES
+end
+
+%% stijlen VOOR (fouten — rood)
+style VOOR fill:#fde8e8,stroke:#c0392b,color:#000
+style F_EP fill:#ffaaaa,stroke:#c0392b,color:#000
+style F_WX fill:#ffaaaa,stroke:#c0392b,color:#000
+style F_OB fill:#ffaaaa,stroke:#c0392b,color:#000
+style F_RES fill:#ffcccc,stroke:#c0392b,color:#000
+
+%% stijlen NA (correct — standaard palet)
+style NA fill:#e8f5e9,stroke:#2E5C8A,color:#000
+style N_VP fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style N_EP fill:#60c4e4,stroke:#2E5C8A,color:#000
+style N_WX fill:#60c4e4,stroke:#2E5C8A,color:#000
+style N_OC fill:#e54b89,stroke:#2E5C8A,color:#fff
+style N_OB fill:#e54b89,stroke:#2E5C8A,color:#fff
+style N_RES fill:#f8b622,stroke:#2E5C8A,color:#000

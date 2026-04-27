@@ -189,27 +189,27 @@ ent:drempel_100eur
   a prov:Entity;
   rdfs:label "Elektriciteitsprijs drempel 100 EUR/MWh"@nl;
   p-plan:correspondsToVariable var:elektriciteitsprijs_drempel;
-  qudt:value "100"^^rdfs:Literal;
+  qudt:numericValue "100"^^rdfs:Literal;
   qudt:hasUnit unit:EUR-PER-MegaW-HR .
 
 ent:max_8hr
   a prov:Entity;
   rdfs:label "Maximale stillegging duur 8 uur"@nl;
   p-plan:correspondsToVariable var:max_stillegging_duur;
-  qudt:value "8"^^rdfs:Literal;
+  qudt:numericValue "8"^^rdfs:Literal;
   qudt:hasUnit unit:HR .
 
 ent:min_4hr
   a prov:Entity;
   rdfs:label "Minimale stillegging duur 4 uur"@nl;
   p-plan:correspondsToVariable var:min_stillegging_duur;
-  qudt:value "4"^^rdfs:Literal;
+  qudt:numericValue "4"^^rdfs:Literal;
   qudt:hasUnit unit:HR .
 
 ent:prijs_105eur
   a sosa:Result;
   rdfs:label "Elektriciteitsprijs 105 EUR/MWh"@nl;
-  qudt:value "105"^^rdfs:Literal;
+  qudt:numericValue "105"^^rdfs:Literal;
   qudt:hasUnit unit:EUR-PER-MegaW-HR .
 
 ent:status_uit
