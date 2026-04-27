@@ -92,8 +92,8 @@ explicieter. Tevens vergemakkelijkt dit uitbreiding naar extra observabele eigen
 Verworpen alternatief: `sosa:hasSimpleResult "245000"^^xsd:decimal` (originele aanpak) —
 eenheid ontbreekt, getal is ambigu (liter? m³? mm?). Gekozen aanpak: `sosa:hasResult`
 verwijzend naar `ex:Result_SedimentVolume_EM_20240901` met `qudt:hasUnit unit:L`. Motivatie:
-CLAUDE.md R3 schrijft het object-resultaat-patroon voor wanneer een eenheid nodig is; het
-resultaat heeft een persistente IRI en kan extern gerefereerd worden.
+Het object-resultaat-patroon is vereist wanneer een eenheid, onzekerheid of provenance nodig is;
+het resultaat heeft een persistente IRI en kan extern gerefereerd worden.
 
 ### Waarom `sosa:Sensor` voor een menselijke waarnemer?
 

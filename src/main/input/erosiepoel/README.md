@@ -26,7 +26,7 @@ fouten gecorrigeerd:
 1. **`ep:Erosiepoel` (domein-klasse) → `sosa:Platform + sosa:FeatureOfInterest`** — de
    erosiepoel moet getypeerd worden met SSN/SOSA-klassen. `sosa:Platform` is vereist omdat
    de poel de veldwaarnemer host; `sosa:FeatureOfInterest` omdat de poel het bestudeerde
-   object is (R1 in CLAUDE.md).
+   object is.
 
 2. **`sosa:ObservableProperty` (niet herkend door pipeline) → `sosa:Property`** — de geladen
    SSN/SOSA 2023-ontologie definieert `sosa:Property` als basisklasse; `sosa:ObservableProperty`
@@ -35,23 +35,19 @@ fouten gecorrigeerd:
 3. **`qudt:unit` → `qudt:hasUnit`** — het correcte predikaat voor eenheidsannotatie in QUDT
    is `qudt:hasUnit`; `qudt:unit` bestaat niet in de geladen QUDT-ontologie.
 
-4. **`qudt:numericValue` → `qudt:value`** — het QUDT-predikaat voor de numerieke waarde is
-   `qudt:value`, niet `qudt:numericValue`.
-
-5. **`prov:startedAtTime` / `prov:endedAtTime` → `sosa:phenomenonTime` + `sosa:resultTime`** —
+4. **`prov:startedAtTime` / `prov:endedAtTime` → `sosa:phenomenonTime` + `sosa:resultTime`** —
    PROV-O tijdsproperties beschrijven activiteiten in provenance-context; SSN/SOSA voorziet
-   aparte properties voor fenomeentijd en resultaattijd (§7 tijdsmodellering in CLAUDE.md).
+   aparte properties voor fenomeentijd en resultaattijd.
 
-6. **Geen `sosa:Sensor` gedefinieerd** → `ex:Waarnemer_X a sosa:Sensor` toegevoegd.
-   `sosa:Sensor` is vereist als subject van `sosa:usedProcedure` en als value van
-   `sosa:madeBySensor` (R2 in CLAUDE.md).
+5. **Geen `sosa:Sensor` gedefinieerd** → `ex:Waarnemer_X a sosa:Sensor` toegevoegd.
+   `sosa:Sensor` is vereist als subject van `sosa:implements` en als value van `sosa:madeBySensor`.
 
-7. **Geen `sosa:ObservationCollection`** → toegevoegd om gedeelde metadata (sensor, procedure,
+6. **Geen `sosa:ObservationCollection`** → toegevoegd om gedeelde metadata (sensor, procedure,
    tijdstip) op collection-niveau te bundelen en uitbreiding naar meerdere observaties te
    ondersteunen.
 
-8. **Geen `sosa:usedProcedure`** → `ex:VeldmeetProcedure` toegevoegd met typering
-   `sosa:ObservingProcedure`. R2 stelt dat `sosa:usedProcedure` sterk aanbevolen is voor
+7. **Geen `sosa:usedProcedure`** → `ex:VeldmeetProcedure` toegevoegd met typering
+   `sosa:ObservingProcedure`. `sosa:usedProcedure` is sterk aanbevolen voor
    reproducibiliteitsclaims.
 
 ## Grafische voorstelling
