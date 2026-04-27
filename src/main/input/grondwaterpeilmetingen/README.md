@@ -114,12 +114,6 @@ graph TD
     I -->|sosa:Observation| N[Resultaat]
 ```
 
-## Validatie
-De gegenereerde output bestanden kunnen worden gevalideerd met behulp van Apache Jena RIOT:
-```bash
-riot --validate grondwaterpeilmetingen.rdf
-riot --validate grondwaterpeilmetingen.ttl
-```
 
 ## Gebruik
 Om de transformatie uit te voeren, voer het volgende script uit:
@@ -135,8 +129,7 @@ Het script voert de volgende stappen uit:
 
 ### Output Bestanden
 De transformatie genereert de volgende output bestanden:
-- `grondwaterpeilmetingen.rdf`: RDF/XML output van de XSLT-transformatie.
-- `grondwaterpeilmetingen.ttl`: Turtle output van de conversie.
+- `grondwaterpeilmetingen.trig`: Turtle output van de conversie.
 - `grondwaterpeilmetingen.csv`: CSV output met observatierecords.
 
 ### SPARQL Query

@@ -1,0 +1,80 @@
+flowchart LR
+
+%% =====================================================
+%% PROCEDURE (paars – naar analogie van ONTWERP)
+%% =====================================================
+    subgraph PROC["PROCEDURE"]
+        Procedure["sosa:Procedure"]
+        Prop(["sosa:Property"])
+    end
+
+    style PROC         fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style Procedure    fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style Prop      fill:#fe7130,stroke:#2E5C8A,color:#000
+    style Prop         fill:#fe7130,stroke:#2E5C8A,color:#000
+
+%% =====================================================
+%% INFRASTRUCTUUR (blauw – naar analogie van CAPACITEIT)
+%% =====================================================
+    subgraph INFRA["INFRASTRUCTUUR"]
+        Platform(["sosa:Platform"])
+        System(["sosa:System<br/>---<br/>binnendiameter · van · tot<br/>filterelement · materiaal<br/>creator · comment"])
+        Sensor(["sosa:Sensor<br/>---<br/>label"])
+        Geom(["geo:Geometry<br/>---<br/>asGML"])
+    end
+
+    style INFRA    fill:#b0d9e7,stroke:#2E5C8A,color:#000
+    style Platform fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style System   fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style Sensor   fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style Geom     fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% =====================================================
+%% WAARNEMING (roze – naar analogie van REALISATIE)
+%% =====================================================
+    subgraph WAAR["WAARNEMING"]
+        Observation(["sosa:Observation<br/>"])
+        ObsCollection(["sosa:ObservationCollection<br/>---<br/>resultTime: date"])
+        Result(["sosa:Result<br/>---<br/>value: decimal / string / int<br/>hasUnit"])
+        Instant(["time:Instant<br/>---<br/>inXSDDate: date"])
+    end
+
+    style WAAR         fill:#e7a3be,stroke:#2E5C8A,color:#000
+    style Observation   fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style ObsCollection fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style Result        fill:#f8b622,stroke:#2E5C8A,color:#000
+    style Instant       fill:#f8b622,stroke:#2E5C8A,color:#000
+
+
+%% =====================================================
+%% RELATIES – INFRASTRUCTUUR
+%% =====================================================
+    Platform -->|geo:hasGeometry| Geom
+    Platform -->|sosa:hosts| System
+    Platform -->|ssn:hasProperty| Prop
+
+
+    System -->|sosa:isHostedBy| Platform
+    System -->|sosa:hasSubSystem| System
+
+    Sensor -->|ssn:implements| Procedure
+
+%% =====================================================
+%% RELATIES – OBSERVATION
+%% =====================================================
+    Observation -->|sosa:hasFeatureOfInterest| Platform
+    Observation -->|sosa:hasFeatureOfInterest| System
+    Observation -->|sosa:madeBySensor| Sensor
+    Observation -->|sosa:observedProperty| Prop
+    Observation -->|sosa:usedProcedure| Procedure
+    Observation -->|sosa:hasResult| Result
+
+
+%% =====================================================
+%% RELATIES – OBSERVATIONCOLLECTION
+%% =====================================================
+    ObsCollection -->|sosa:hasMember| Observation
+    ObsCollection -->|sosa:hasFeatureOfInterest| Platform
+    ObsCollection -->|sosa:hasFeatureOfInterest| System
+    ObsCollection -->|sosa:phenomenonTime| Instant
+
