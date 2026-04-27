@@ -1,0 +1,102 @@
+flowchart LR
+
+subgraph PROC["PROCEDURE"]
+    P1["ex:procedure-automatisch-tellen
+    sosa:ObservingProcedure"]
+    PA["ex:property-verkeersintensiteit
+    sosa:Property"]
+    PB["ex:property-verkeersindex
+    sosa:Property"]
+end
+
+subgraph INFRA["INFRASTRUCTUUR"]
+    I1["ex:meetpunt-MP-VB-001
+    sosa:Platform
+    F1_Antwerpen_Station"]
+    I2["ex:teller-MP-VB-001
+    sosa:Sensor"]
+    I3["ex:fietsroute-F1-antwerpen
+    sosa:FeatureOfInterest"]
+end
+
+subgraph WAAR["WAARNEMING"]
+    W1["ex:collectie-MP-VB-001-20260429
+    sosa:ObservationCollection"]
+    W2["ex:obs-...-dag
+    sosa:Observation
+    dagsom 29/04/2026"]
+    W3["ex:obs-...-08u
+    sosa:Observation
+    08:00 ochtendspits"]
+    W4["ex:obs-...-17u
+    sosa:Observation
+    17:00 avondspits"]
+    T1["ex:dag-20260429
+    time:Instant
+    2026-04-29"]
+    T2["ex:instant-20260429T08
+    time:Instant
+    2026-04-29T08:00"]
+    T3["ex:instant-20260429T17
+    time:Instant
+    2026-04-29T17:00"]
+    R1["2395 voertuigen/dag"]
+    R2["index 0,86"]
+    R3["index 0,79"]
+end
+
+%% stijlen subgrafen
+style PROC fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style WAAR fill:#e7a3be,stroke:#2E5C8A,color:#000
+
+%% stijlen nodes PROCEDURE
+style P1 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style PA fill:#fe7130,stroke:#2E5C8A,color:#000
+style PB fill:#fe7130,stroke:#2E5C8A,color:#000
+
+%% stijlen nodes INFRASTRUCTUUR
+style I1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I3 fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+%% stijlen nodes WAARNEMING
+style W1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W2 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W3 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W4 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style T1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T2 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T3 fill:#f8b622,stroke:#2E5C8A,color:#000
+style R1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style R2 fill:#f8b622,stroke:#2E5C8A,color:#000
+style R3 fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% relaties — infrastructuur
+I1 -->|sosa:hosts| I2
+I2 -->|ssn:implements| P1
+I2 -->|sosa:observes| PA
+I2 -->|sosa:observes| PB
+I3 -->|ssn:hasProperty| PA
+I3 -->|ssn:hasProperty| PB
+
+%% relaties — collectie naar infrastructuur
+W1 -->|sosa:madeBySensor| I2
+W1 -->|sosa:usedProcedure| P1
+W1 -->|sosa:hasFeatureOfInterest| I3
+W1 -->|sosa:hasMember| W2
+W1 -->|sosa:hasMember| W3
+W1 -->|sosa:hasMember| W4
+
+%% relaties — observaties
+W2 -->|sosa:observedProperty| PA
+W2 -->|sosa:phenomenonTime| T1
+W2 -->|sosa:hasSimpleResult| R1
+
+W3 -->|sosa:observedProperty| PB
+W3 -->|sosa:phenomenonTime| T2
+W3 -->|sosa:hasSimpleResult| R2
+
+W4 -->|sosa:observedProperty| PB
+W4 -->|sosa:phenomenonTime| T3
+W4 -->|sosa:hasSimpleResult| R3
