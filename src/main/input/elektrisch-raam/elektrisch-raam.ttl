@@ -1,0 +1,350 @@
+@prefix plan:   <https://example.org/elektrisch-raam/plan/> .
+@prefix step:   <https://example.org/elektrisch-raam/step/> .
+@prefix var:    <https://example.org/elektrisch-raam/var/> .
+@prefix exec:   <https://example.org/elektrisch-raam/exec/> .
+@prefix ent:    <https://example.org/elektrisch-raam/ent/> .
+@prefix inst:   <https://example.org/elektrisch-raam/inst/> .
+@prefix htg:    <https://example.org/herman-teirlinck/> .
+@prefix prop:   <https://example.org/elektrisch-raam/prop/> .
+
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+@prefix unit:   <http://qudt.org/vocab/unit/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+# *********************************************
+# PLANNING
+# *********************************************
+
+plan:raambesturing a p-plan:Plan, sosa:Procedure ;
+    rdfs:label "Raambesturingsplan Herman Teirlinck"@nl .
+
+# Stap 1
+step:temp-meting a p-plan:Step, sosa:Procedure, sosa:ObservingProcedure ;
+    rdfs:label "Stap 1: Temperatuursmeting binnenlucht elke 5 min"@nl ;
+    p-plan:isStepOfPlan plan:raambesturing .
+
+# Stap 2
+step:wind-meting a p-plan:Step, sosa:Procedure, sosa:ObservingProcedure ;
+    rdfs:label "Stap 2: Windsnelheidsmeting buitenomgeving"@nl ;
+    p-plan:isStepOfPlan plan:raambesturing .
+
+# Stap 3
+step:licht-meting a p-plan:Step, sosa:Procedure, sosa:ObservingProcedure ;
+    rdfs:label "Stap 3: Lichtintensiteitsmeting"@nl ;
+    p-plan:isStepOfPlan plan:raambesturing .
+
+# Stap 4
+step:regen-detectie a p-plan:Step, sosa:Procedure, sosa:ObservingProcedure ;
+    rdfs:label "Stap 4: Regendetectie"@nl ;
+    p-plan:isStepOfPlan plan:raambesturing .
+
+# Stap 5a — afgeleide observatie: afwijking t.o.v. ideale temperatuur van 20°C
+step:afwijking-berekening a p-plan:Step, sosa:Procedure, sosa:ObservingProcedure ;
+    rdfs:label "Stap 5a: Berekening temperatuursafwijking t.o.v. 20°C"@nl ;
+    p-plan:isStepOfPlan plan:raambesturing ;
+    p-plan:isPrecededBy step:temp-meting .
+
+# Stap 5b — actuatie: raamstand bepalen en elektrische opener aansturen
+step:raam-stand-bepaling a p-plan:Step, sosa:Procedure, sosa:ActuatingProcedure ;
+    rdfs:label "Stap 5b: Bepaling raamstand en sturing elektrische opener"@nl ;
+    p-plan:isStepOfPlan plan:raambesturing ;
+    p-plan:isPrecededBy step:afwijking-berekening ;
+    p-plan:isPrecededBy step:wind-meting ;
+    p-plan:isPrecededBy step:licht-meting ;
+    p-plan:isPrecededBy step:regen-detectie .
+
+# Variabelen
+
+var:temperatuur a p-plan:Variable ;
+    rdfs:label "Variabele: binnentemperatuur (°C)"@nl ;
+    p-plan:isVariableOfPlan plan:raambesturing ;
+    p-plan:isOutputVarOf step:temp-meting ;
+    p-plan:isInputVarOf step:afwijking-berekening .
+
+var:windsnelheid a p-plan:Variable ;
+    rdfs:label "Variabele: windsnelheid (m/s)"@nl ;
+    p-plan:isVariableOfPlan plan:raambesturing ;
+    p-plan:isOutputVarOf step:wind-meting ;
+    p-plan:isInputVarOf step:raam-stand-bepaling .
+
+var:lichtintensiteit a p-plan:Variable ;
+    rdfs:label "Variabele: lichtintensiteit (lux)"@nl ;
+    p-plan:isVariableOfPlan plan:raambesturing ;
+    p-plan:isOutputVarOf step:licht-meting ;
+    p-plan:isInputVarOf step:raam-stand-bepaling .
+
+var:regen-aanwezigheid a p-plan:Variable ;
+    rdfs:label "Variabele: regendetectie (boolean)"@nl ;
+    p-plan:isVariableOfPlan plan:raambesturing ;
+    p-plan:isOutputVarOf step:regen-detectie ;
+    p-plan:isInputVarOf step:raam-stand-bepaling .
+
+var:temp-afwijking a p-plan:Variable ;
+    rdfs:label "Variabele: temperatuursafwijking t.o.v. 20°C (positief = te warm)"@nl ;
+    p-plan:isVariableOfPlan plan:raambesturing ;
+    p-plan:isOutputVarOf step:afwijking-berekening ;
+    p-plan:isInputVarOf step:raam-stand-bepaling .
+
+var:raam-stand a p-plan:Variable ;
+    rdfs:label "Variabele: raamstand (% geopend)"@nl ;
+    p-plan:isVariableOfPlan plan:raambesturing ;
+    p-plan:isOutputVarOf step:raam-stand-bepaling .
+
+
+# *********************************************
+# DEPLOYMENT
+# *********************************************
+
+exec:raamautomatisering-deployment a sosa:Deployment ;
+    rdfs:label "Inzet raamautomatisering Herman Teirlinck Gebouw"@nl ;
+    sosa:deployedAsset
+        inst:thermometer-01 ,
+        inst:windmeter-01 ,
+        inst:lichtmeter-01 ,
+        inst:regensensor-01 ,
+        inst:besturings-eenheid ,
+        inst:raam-opener-01 ;
+    sosa:deployedOnPlatform htg:gebouw-herman-teirlinck ;
+    sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
+
+
+# *********************************************
+# INFRASTRUCTUUR
+# *********************************************
+
+htg:gebouw-herman-teirlinck a sosa:Platform ;
+    rdfs:label "Herman Teirlinck Gebouw, Brussel"@nl ;
+    sosa:hosts htg:zaal-0116 ;
+    sosa:hosts htg:gevel .
+
+htg:zaal-0116 a sosa:Platform, sosa:FeatureOfInterest ;
+    rdfs:label "Zaal 01.16 Rik Wouters, Herman Teirlinck Gebouw"@nl ;
+    sosa:isHostedBy htg:gebouw-herman-teirlinck ;
+    sosa:hosts inst:thermometer-01 ;
+    sosa:hosts inst:raam-opener-01 ;
+    sosa:hasProperty prop:binnentemperatuur .
+
+htg:gevel a sosa:Platform ;
+    rdfs:label "Buitengevel Herman Teirlinck Gebouw"@nl ;
+    sosa:isHostedBy htg:gebouw-herman-teirlinck ;
+    sosa:hosts inst:windmeter-01 ;
+    sosa:hosts inst:lichtmeter-01 ;
+    sosa:hosts inst:regensensor-01 .
+
+htg:buitenomgeving a sosa:FeatureOfInterest ;
+    rdfs:label "Buitenomgeving Herman Teirlinck Gebouw"@nl ;
+    sosa:hasProperty prop:windsnelheid ;
+    sosa:hasProperty prop:lichtintensiteit ;
+    sosa:hasProperty prop:regen-aanwezigheid .
+
+htg:raam-zaal-0116 a sosa:FeatureOfInterest ;
+    rdfs:label "Raam Zaal 01.16 Herman Teirlinck Gebouw"@nl ;
+    sosa:hasProperty prop:raam-stand .
+
+inst:thermometer-01 a sosa:Sensor, sosa:System ;
+    rdfs:label "Thermometer Zaal 01.16"@nl ;
+    sosa:isHostedBy htg:zaal-0116 ;
+    sosa:implements step:temp-meting .
+
+inst:windmeter-01 a sosa:Sensor, sosa:System ;
+    rdfs:label "Windmeter Buitengevel"@nl ;
+    sosa:isHostedBy htg:gevel ;
+    sosa:implements step:wind-meting .
+
+inst:lichtmeter-01 a sosa:Sensor, sosa:System ;
+    rdfs:label "Lichtintensiteitsensor Buitengevel"@nl ;
+    sosa:isHostedBy htg:gevel ;
+    sosa:implements step:licht-meting .
+
+inst:regensensor-01 a sosa:Sensor, sosa:System ;
+    rdfs:label "Regensensor Buitengevel"@nl ;
+    sosa:isHostedBy htg:gevel ;
+    sosa:implements step:regen-detectie .
+
+inst:besturings-eenheid a sosa:Sensor, sosa:System ;
+    rdfs:label "Raambesturings-eenheid Herman Teirlinck"@nl ;
+    sosa:isHostedBy htg:gebouw-herman-teirlinck ;
+    sosa:implements step:afwijking-berekening .
+
+inst:raam-opener-01 a sosa:Actuator, sosa:System ;
+    rdfs:label "Elektrische Raamopener Zaal 01.16"@nl ;
+    sosa:isHostedBy htg:zaal-0116 ;
+    sosa:implements step:raam-stand-bepaling .
+
+
+# *********************************************
+# OBSERVEERBARE EN ACTUEERBARE EIGENSCHAPPEN
+# *********************************************
+
+prop:binnentemperatuur a sosa:Property ;
+    rdfs:label "Binnentemperatuur zaal"@nl .
+
+prop:windsnelheid a sosa:Property ;
+    rdfs:label "Windsnelheid buitenomgeving"@nl .
+
+prop:lichtintensiteit a sosa:Property ;
+    rdfs:label "Lichtintensiteit"@nl .
+
+prop:regen-aanwezigheid a sosa:Property ;
+    rdfs:label "Neerslagaanwezigheid"@nl .
+
+prop:temp-afwijking a sosa:Property ;
+    rdfs:label "Temperatuursafwijking t.o.v. ideale temperatuur (20°C)"@nl .
+
+prop:raam-stand a sosa:Property ;
+    rdfs:label "Raamstand (percentage geopend)"@nl .
+
+
+# *********************************************
+# EXECUTION
+# *********************************************
+
+# --- Stap 1: Temperatuursmeting ---
+
+exec:temp-obs-20250427 a sosa:Observation ;
+    rdfs:label "Temperatuursmeting Zaal 01.16 op 2025-04-27T09:00Z"@nl ;
+    p-plan:correspondsToStep step:temp-meting ;
+    sosa:usedProcedure step:temp-meting ;
+    sosa:madeBySensor inst:thermometer-01 ;
+    sosa:observedProperty prop:binnentemperatuur ;
+    sosa:hasFeatureOfInterest htg:zaal-0116 ;
+    sosa:resultTime "2025-04-27T09:00:00Z"^^xsd:dateTime ;
+    sosa:phenomenonTime exec:instant-20250427T0900 ;
+    sosa:hasResult ent:result-temp-20250427 .
+
+exec:instant-20250427T0900 a time:Instant ;
+    time:inXSDDateTimeStamp "2025-04-27T09:00:00Z"^^xsd:dateTimeStamp .
+
+ent:result-temp-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+    qudt:numericValue "22.3"^^xsd:decimal ;
+    qudt:hasUnit unit:DEG_C ;
+    p-plan:correspondsToVariable var:temperatuur .
+
+# --- Stap 2: Windsnelheidsmeting ---
+
+exec:wind-obs-20250427 a sosa:Observation ;
+    rdfs:label "Windsnelheidsmeting Buitengevel op 2025-04-27T09:00Z"@nl ;
+    p-plan:correspondsToStep step:wind-meting ;
+    sosa:usedProcedure step:wind-meting ;
+    sosa:madeBySensor inst:windmeter-01 ;
+    sosa:observedProperty prop:windsnelheid ;
+    sosa:hasFeatureOfInterest htg:buitenomgeving ;
+    sosa:resultTime "2025-04-27T09:00:00Z"^^xsd:dateTime ;
+    sosa:phenomenonTime exec:instant-20250427T0900 ;
+    sosa:hasResult ent:result-wind-20250427 .
+
+ent:result-wind-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+    qudt:numericValue "3.5"^^xsd:decimal ;
+    qudt:hasUnit unit:M-PER-SEC ;
+    p-plan:correspondsToVariable var:windsnelheid .
+
+# --- Stap 3: Lichtintensiteitsmeting ---
+
+exec:licht-obs-20250427 a sosa:Observation ;
+    rdfs:label "Lichtintensiteitsmeting Buitengevel op 2025-04-27T09:00Z"@nl ;
+    p-plan:correspondsToStep step:licht-meting ;
+    sosa:usedProcedure step:licht-meting ;
+    sosa:madeBySensor inst:lichtmeter-01 ;
+    sosa:observedProperty prop:lichtintensiteit ;
+    sosa:hasFeatureOfInterest htg:buitenomgeving ;
+    sosa:resultTime "2025-04-27T09:00:00Z"^^xsd:dateTime ;
+    sosa:phenomenonTime exec:instant-20250427T0900 ;
+    sosa:hasResult ent:result-licht-20250427 .
+
+ent:result-licht-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+    qudt:numericValue "450"^^xsd:decimal ;
+    qudt:hasUnit unit:LUX ;
+    p-plan:correspondsToVariable var:lichtintensiteit .
+
+# --- Stap 4: Regendetectie ---
+
+exec:regen-obs-20250427 a sosa:Observation ;
+    rdfs:label "Regendetectie Buitengevel op 2025-04-27T09:00Z"@nl ;
+    p-plan:correspondsToStep step:regen-detectie ;
+    sosa:usedProcedure step:regen-detectie ;
+    sosa:madeBySensor inst:regensensor-01 ;
+    sosa:observedProperty prop:regen-aanwezigheid ;
+    sosa:hasFeatureOfInterest htg:buitenomgeving ;
+    sosa:resultTime "2025-04-27T09:00:00Z"^^xsd:dateTime ;
+    sosa:phenomenonTime exec:instant-20250427T0900 ;
+    sosa:hasResult ent:result-regen-20250427 .
+
+ent:result-regen-20250427 a prov:Entity, sosa:Result ;
+    rdf:value "false"^^xsd:boolean ;
+    p-plan:correspondsToVariable var:regen-aanwezigheid .
+
+# --- Stap 5a: Afwijkingsberekening (afgeleide observatie) ---
+# Berekening: afwijking = gemeten temperatuur - ideale temperatuur (20°C)
+# Positieve afwijking = te warm, negatieve afwijking = te koud
+
+exec:afwijking-obs-20250427 a sosa:Observation ;
+    rdfs:label "Berekening temperatuursafwijking op 2025-04-27T09:00:05Z"@nl ;
+    p-plan:correspondsToStep step:afwijking-berekening ;
+    sosa:usedProcedure step:afwijking-berekening ;
+    sosa:madeBySensor inst:besturings-eenheid ;
+    sosa:observedProperty prop:temp-afwijking ;
+    sosa:hasFeatureOfInterest htg:zaal-0116 ;
+    sosa:resultTime "2025-04-27T09:00:05Z"^^xsd:dateTime ;
+    prov:used ent:result-temp-20250427 ;
+    sosa:hasResult ent:result-afwijking-20250427 .
+
+ent:result-afwijking-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+    qudt:numericValue "2.3"^^xsd:decimal ;
+    qudt:hasUnit unit:DEG_C ;
+    p-plan:correspondsToVariable var:temp-afwijking .
+
+# --- Stap 5b: Raamstandbepaling en actuatie ---
+# Raamstand evenredig met temp-afwijking en lichtintensiteit,
+# omgekeerd evenredig met windsnelheid en regendetectie.
+# Sluiten als regen=true, windsnelheid > drempel, of temp-afwijking < -2°C.
+
+exec:raam-actuatie-20250427 a sosa:Actuation ;
+    rdfs:label "Instelling raamstand Zaal 01.16 op 2025-04-27T09:00:10Z"@nl ;
+    p-plan:correspondsToStep step:raam-stand-bepaling ;
+    sosa:usedProcedure step:raam-stand-bepaling ;
+    sosa:madeByActuator inst:raam-opener-01 ;
+    sosa:actsOnProperty prop:raam-stand ;
+    sosa:hasFeatureOfInterest htg:raam-zaal-0116 ;
+    sosa:resultTime "2025-04-27T09:00:10Z"^^xsd:dateTime ;
+    sosa:phenomenonTime exec:instant-20250427T0900 ;
+    prov:used ent:result-afwijking-20250427 ;
+    prov:used ent:result-wind-20250427 ;
+    prov:used ent:result-licht-20250427 ;
+    prov:used ent:result-regen-20250427 ;
+    sosa:hasResult ent:result-raam-stand-20250427 .
+
+ent:result-raam-stand-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+    qudt:numericValue "45"^^xsd:decimal ;
+    qudt:hasUnit unit:PERCENT ;
+    p-plan:correspondsToVariable var:raam-stand .
+
+
+# *********************************************
+# INVERSE RELATIES
+# *********************************************
+
+htg:zaal-0116
+    sosa:isFeatureOfInterestOf exec:temp-obs-20250427 ;
+    sosa:isFeatureOfInterestOf exec:afwijking-obs-20250427 .
+
+htg:buitenomgeving
+    sosa:isFeatureOfInterestOf exec:wind-obs-20250427 ;
+    sosa:isFeatureOfInterestOf exec:licht-obs-20250427 ;
+    sosa:isFeatureOfInterestOf exec:regen-obs-20250427 .
+
+htg:raam-zaal-0116
+    sosa:isFeatureOfInterestOf exec:raam-actuatie-20250427 .
+
+ent:result-temp-20250427       sosa:isResultOf exec:temp-obs-20250427 .
+ent:result-wind-20250427       sosa:isResultOf exec:wind-obs-20250427 .
+ent:result-licht-20250427      sosa:isResultOf exec:licht-obs-20250427 .
+ent:result-regen-20250427      sosa:isResultOf exec:regen-obs-20250427 .
+ent:result-afwijking-20250427  sosa:isResultOf exec:afwijking-obs-20250427 .
+ent:result-raam-stand-20250427 sosa:isResultOf exec:raam-actuatie-20250427 .

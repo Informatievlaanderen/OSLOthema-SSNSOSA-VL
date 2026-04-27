@@ -1,0 +1,170 @@
+flowchart RL
+
+subgraph PLANNING["PLANNING"]
+    Plan["plan:raambesturing\na p-plan:Plan"]
+    StapTemp["step:temp-meting\na p-plan:Step\nsosa:ObservingProcedure"]
+    StapWind["step:wind-meting\na p-plan:Step\nsosa:ObservingProcedure"]
+    StapLicht["step:licht-meting\na p-plan:Step\nsosa:ObservingProcedure"]
+    StapRegen["step:regen-detectie\na p-plan:Step\nsosa:ObservingProcedure"]
+    StapAfw["step:afwijking-berekening\na p-plan:Step\nsosa:ObservingProcedure"]
+    StapRaam["step:raam-stand-bepaling\na p-plan:Step\nsosa:ActuatingProcedure"]
+    VarTemp["var:temperatuur\na p-plan:Variable"]
+    VarWind["var:windsnelheid\na p-plan:Variable"]
+    VarLicht["var:lichtintensiteit\na p-plan:Variable"]
+    VarRegen["var:regen-aanwezigheid\na p-plan:Variable"]
+    VarAfw["var:temp-afwijking\na p-plan:Variable"]
+    VarRaamStand["var:raam-stand\na p-plan:Variable"]
+end
+
+subgraph DEPLOYMENT["DEPLOYMENT"]
+    Gebouw["htg:gebouw-herman-teirlinck\na sosa:Platform"]
+    Zaal["htg:zaal-0116\na sosa:Platform\nsosa:FeatureOfInterest"]
+    Gevel["htg:gevel\na sosa:Platform"]
+    Thermo["inst:thermometer-01\na sosa:Sensor"]
+    WindM["inst:windmeter-01\na sosa:Sensor"]
+    LichtM["inst:lichtmeter-01\na sosa:Sensor"]
+    RegenS["inst:regensensor-01\na sosa:Sensor"]
+    Besturing["inst:besturings-eenheid\na sosa:Sensor"]
+    RaamOpener["inst:raam-opener-01\na sosa:Actuator"]
+end
+
+subgraph EXECUTION["EXECUTION"]
+    TempObs["exec:temp-obs-20250427\na sosa:Observation"]
+    WindObs["exec:wind-obs-20250427\na sosa:Observation"]
+    LichtObs["exec:licht-obs-20250427\na sosa:Observation"]
+    RegenObs["exec:regen-obs-20250427\na sosa:Observation"]
+    ResultTemp["ent:result-temp-20250427\n22.3 °C"]
+    ResultWind["ent:result-wind-20250427\n3.5 m/s"]
+    ResultLicht["ent:result-licht-20250427\n450 lux"]
+    ResultRegen["ent:result-regen-20250427\nfalse"]
+    subgraph DERIVATION["DERIVATION"]
+        AfwObs["exec:afwijking-obs-20250427\na sosa:Observation"]
+        ResultAfw["ent:result-afwijking-20250427\n+2.3 °C"]
+        RaamAct["exec:raam-actuatie-20250427\na sosa:Actuation"]
+        ResultRaam["ent:result-raam-stand-20250427\n45 %"]
+    end
+end
+
+%% Stijlen subgrafen
+style PLANNING fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style DEPLOYMENT fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style EXECUTION fill:#e7a3be,stroke:#2E5C8A,color:#000
+style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+
+%% Stijlen planning-nodes
+style Plan fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapTemp fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapWind fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapLicht fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapRegen fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapAfw fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapRaam fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style VarTemp fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarWind fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarLicht fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarRegen fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarAfw fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarRaamStand fill:#fe7130,stroke:#2E5C8A,color:#000
+
+%% Stijlen deployment-nodes
+style Gebouw fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Zaal fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Gevel fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Thermo fill:#60c4e4,stroke:#2E5C8A,color:#000
+style WindM fill:#60c4e4,stroke:#2E5C8A,color:#000
+style LichtM fill:#60c4e4,stroke:#2E5C8A,color:#000
+style RegenS fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Besturing fill:#60c4e4,stroke:#2E5C8A,color:#000
+style RaamOpener fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+%% Stijlen execution-nodes
+style TempObs fill:#e54b89,stroke:#2E5C8A,color:#fff
+style WindObs fill:#e54b89,stroke:#2E5C8A,color:#fff
+style LichtObs fill:#e54b89,stroke:#2E5C8A,color:#fff
+style RegenObs fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ResultTemp fill:#f8b622,stroke:#2E5C8A,color:#000
+style ResultWind fill:#f8b622,stroke:#2E5C8A,color:#000
+style ResultLicht fill:#f8b622,stroke:#2E5C8A,color:#000
+style ResultRegen fill:#f8b622,stroke:#2E5C8A,color:#000
+style AfwObs fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ResultAfw fill:#f8b622,stroke:#2E5C8A,color:#000
+style RaamAct fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ResultRaam fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% Planning-relaties
+StapTemp -->|isStepOfPlan| Plan
+StapWind -->|isStepOfPlan| Plan
+StapLicht -->|isStepOfPlan| Plan
+StapRegen -->|isStepOfPlan| Plan
+StapAfw -->|isStepOfPlan| Plan
+StapRaam -->|isStepOfPlan| Plan
+StapAfw -.->|isPrecededBy| StapTemp
+StapRaam -.->|isPrecededBy| StapAfw
+StapRaam -.->|isPrecededBy| StapWind
+StapRaam -.->|isPrecededBy| StapLicht
+StapRaam -.->|isPrecededBy| StapRegen
+VarTemp -->|isOutputVarOf| StapTemp
+VarTemp -.->|isInputVarOf| StapAfw
+VarWind -->|isOutputVarOf| StapWind
+VarWind -.->|isInputVarOf| StapRaam
+VarLicht -->|isOutputVarOf| StapLicht
+VarLicht -.->|isInputVarOf| StapRaam
+VarRegen -->|isOutputVarOf| StapRegen
+VarRegen -.->|isInputVarOf| StapRaam
+VarAfw -->|isOutputVarOf| StapAfw
+VarAfw -.->|isInputVarOf| StapRaam
+VarRaamStand -->|isOutputVarOf| StapRaam
+
+%% Deployment-relaties
+Zaal -->|isHostedBy| Gebouw
+Gevel -->|isHostedBy| Gebouw
+Thermo -->|isHostedBy| Zaal
+RaamOpener -->|isHostedBy| Zaal
+WindM -->|isHostedBy| Gevel
+LichtM -->|isHostedBy| Gevel
+RegenS -->|isHostedBy| Gevel
+Thermo -->|implements| StapTemp
+WindM -->|implements| StapWind
+LichtM -->|implements| StapLicht
+RegenS -->|implements| StapRegen
+Besturing -->|implements| StapAfw
+RaamOpener -->|implements| StapRaam
+
+%% Execution-relaties (observations → steps)
+TempObs -->|correspondsToStep| StapTemp
+WindObs -->|correspondsToStep| StapWind
+LichtObs -->|correspondsToStep| StapLicht
+RegenObs -->|correspondsToStep| StapRegen
+AfwObs -->|correspondsToStep| StapAfw
+RaamAct -->|correspondsToStep| StapRaam
+
+%% Execution-relaties (observations → sensors)
+TempObs -->|madeBySensor| Thermo
+WindObs -->|madeBySensor| WindM
+LichtObs -->|madeBySensor| LichtM
+RegenObs -->|madeBySensor| RegenS
+AfwObs -->|madeBySensor| Besturing
+RaamAct -->|madeByActuator| RaamOpener
+
+%% Execution-relaties (observations → results)
+TempObs -->|hasResult| ResultTemp
+WindObs -->|hasResult| ResultWind
+LichtObs -->|hasResult| ResultLicht
+RegenObs -->|hasResult| ResultRegen
+AfwObs -->|hasResult| ResultAfw
+RaamAct -->|hasResult| ResultRaam
+
+%% Derivation-relaties
+AfwObs -->|prov:used| ResultTemp
+RaamAct -->|prov:used| ResultAfw
+RaamAct -->|prov:used| ResultWind
+RaamAct -->|prov:used| ResultLicht
+RaamAct -->|prov:used| ResultRegen
+
+%% Result → variable
+ResultTemp -->|correspondsToVariable| VarTemp
+ResultWind -->|correspondsToVariable| VarWind
+ResultLicht -->|correspondsToVariable| VarLicht
+ResultRegen -->|correspondsToVariable| VarRegen
+ResultAfw -->|correspondsToVariable| VarAfw
+ResultRaam -->|correspondsToVariable| VarRaamStand
