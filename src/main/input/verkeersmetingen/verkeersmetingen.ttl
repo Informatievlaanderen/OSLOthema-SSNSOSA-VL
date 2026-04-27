@@ -1,4 +1,6 @@
 @prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+@prefix unit:   <http://qudt.org/vocab/unit/> .
 @prefix time:   <http://www.w3.org/2006/time#> .
 @prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -69,11 +71,15 @@ ex:obs-FMN-021-20260429-dag a sosa:Observation ;
     sosa:observedProperty ex:property-verkeersintensiteit ;
     sosa:phenomenonTime ex:dag-20260429 ;
     sosa:resultTime "2026-04-29T23:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "2395"^^xsd:integer ;
+    sosa:hasResult ex:result-FMN-021-20260429-dag ;
     sosa:isMemberOf ex:collectie-FMN-021-20260429 .
 
 ex:dag-20260429 a time:Instant ;
     time:inXSDDate "2026-04-29"^^xsd:date .
+
+ex:result-FMN-021-20260429-dag a qudt:QuantityValue ;
+    qudt:numericValue "2395"^^xsd:integer ;
+    qudt:hasUnit unit:NUM .
 
 # Uurobservatie 08:00 — ochtendspits (verkeersindex woensdag = 0,86)
 ex:obs-FMN-021-20260429-08u a sosa:Observation ;

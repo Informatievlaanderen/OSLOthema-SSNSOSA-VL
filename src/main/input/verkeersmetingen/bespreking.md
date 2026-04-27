@@ -45,21 +45,21 @@ observedProperty, tijdstip en resultaat toe.
 
 | IRI | observedProperty | usedProcedure | hasSimpleResult | hasFeatureOfInterest |
 |---|---|---|---|---|
-| `ex:obs-...-dag` | `ex:property-verkeersintensiteit` | `ex:procedure-automatisch-tellen` | `"2395"^^xsd:integer` | `ex:fietsroute-F1-antwerpen` |
+| `ex:obs-...-dag` | `ex:property-verkeersintensiteit` | `ex:procedure-automatisch-tellen` | `ex:result-FMN-021-20260429-dag` (qudt:QuantityValue, 2395 · unit:NUM) | `ex:fietsroute-F1-antwerpen` |
 | `ex:obs-...-08u` | `ex:property-verkeersindex` | `ex:procedure-automatisch-tellen` | `"0.86"^^xsd:decimal` | `ex:fietsroute-F1-antwerpen` |
 | `ex:obs-...-17u` | `ex:property-verkeersindex` | `ex:procedure-automatisch-tellen` | `"0.79"^^xsd:decimal` | `ex:fietsroute-F1-antwerpen` |
 
 ## 5. Procedure en ObservableProperty
 
 **`ex:procedure-automatisch-tellen` — `sosa:ObservingProcedure`**
-Geïmplementeerd door `ex:teller-FMN-021` via `ssn:implements`.
+Geïmplementeerd door `ex:teller-FMN-021` via `sosa:implements`.
 Alle drie observaties gebruiken deze procedure via `sosa:usedProcedure`.
 De procedure beschrijft de meetmethode: geautomatiseerde detectie van passerende lichte
 voertuigen (inductielus of radarsensor).
 
 **`ex:property-verkeersintensiteit` — `sosa:Property`**
 Absolute dagsom van passerende voertuigen (fiets, step, motorfiets) als integer (dimensieloos
-aantal). Eigenschap van `ex:fietsroute-F1-antwerpen` via `ssn:hasProperty`.
+aantal). Eigenschap van `ex:fietsroute-F1-antwerpen` via `sosa:hasProperty`.
 
 **`ex:property-verkeersindex` — `sosa:Property`**
 Relatieve verkeersintensiteitsindex per uur, uitgedrukt als decimale factor t.o.v. het
@@ -82,18 +82,26 @@ referentieperiode. Verschillende ObservableProperties maken SPARQL-queries duide
 voorkomen dat afnemers de twee begrippen moeten onderscheiden op basis van het datatype
 van `hasSimpleResult`.
 
-### Waarom `sosa:hasSimpleResult` en niet `qudt:QuantityValue`?
+### Waarom `sosa:hasResult` voor de dagsom en `sosa:hasSimpleResult` voor de uurindex?
 
-**Verworpen alternatief:** Elk resultaat als een apart `qudt:QuantityValue`-object met
-`qudt:numericValue` en `qudt:hasUnit`.
+**Dagsom (verkeersintensiteit):**
+`sosa:hasResult ex:result-FMN-021-20260429-dag` met een benaamde `qudt:QuantityValue`
+(`qudt:numericValue "2395"^^xsd:integer ; qudt:hasUnit unit:NUM`).
 
-**Gekozen aanpak:** `sosa:hasSimpleResult` met gelitypeerde waarden (`xsd:integer`,
-`xsd:decimal`).
+**Motivatie dagsom:** De absolute telling heeft een fysieke eenheid (aantal, `unit:NUM`)
+die extern uitgedrukt moet worden. Een benaamd resultaatobject maakt de eenheid expliciet
+en laat toe dat het resultaat afzonderlijk gerefereerd wordt vanuit andere grafen
+(paleo-stijl: R3 CLAUDE.md).
 
-**Motivatie:** De resultaten hoeven niet extern gerefereerd te worden als zelfstandige
-entiteiten. Er is geen onzekerheid of provenance op resultaatniveau. De SOSA-spec zegt
-expliciet dat `hasSimpleResult` gepast is wanneer geen apart resultaatobject nodig is
-(SOSA §3.2). Mixen van de twee stijlen binnen één voorbeeld is verboden (R3 CLAUDE.md).
+**Uurindex (verkeersindex):**
+`sosa:hasSimpleResult "0.86"^^xsd:decimal` en `"0.79"^^xsd:decimal`.
+
+**Motivatie uurindex:** De relatieve index is een dimensieloze ratio zonder fysieke eenheid.
+De SOSA-spec zegt expliciet dat `hasSimpleResult` gepast is wanneer geen apart
+resultaatobject nodig is (SOSA §3.2). De twee eigenschappen (`verkeersintensiteit` vs
+`verkeersindex`) zijn conceptueel anders: de ene is een absolute meting met eenheid, de
+andere een dimensieloze verhouding. Beide stijlen worden bewust per eigenschap toegepast
+en niet door elkaar gemengd binnen dezelfde `sosa:ObservableProperty`.
 
 ### Waarom `sosa:ObservationCollection`?
 
@@ -137,7 +145,8 @@ model voor meerstaps-processen (zie EnergieManagementSystem of paleo).
 |---|---|---|
 | `ex:` | `https://example.org/verkeersmetingen/` | Tijdelijk (illustratief) |
 | `sosa:` | `http://www.w3.org/ns/sosa/` | Persistent (W3C) |
-| `ssn:` | `http://www.w3.org/ns/ssn/` | Persistent (W3C) |
+| `qudt:` | `http://qudt.org/schema/qudt/` | Persistent (QUDT) |
+| `unit:` | `http://qudt.org/vocab/unit/` | Persistent (QUDT) |
 | `time:` | `http://www.w3.org/2006/time#` | Persistent (W3C) |
 | `xsd:` | `http://www.w3.org/2001/XMLSchema#` | Persistent (W3C) |
 | `rdf:` | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` | Persistent (W3C) |

@@ -40,7 +40,9 @@ subgraph WAAR["WAARNEMING"]
     T3["ex:instant-20260429T17
     time:Instant
     2026-04-29T17:00"]
-    R1["2395 voertuigen/dag"]
+    R1["ex:result-FMN-021-20260429-dag
+    qudt:QuantityValue
+    2395 · unit:NUM"]
     R2["index 0,86"]
     R3["index 0,79"]
 end
@@ -91,7 +93,7 @@ W1 -->|sosa:hasMember| W4
 %% relaties — observaties
 W2 -->|sosa:observedProperty| PA
 W2 -->|sosa:phenomenonTime| T1
-W2 -->|sosa:hasSimpleResult| R1
+W2 -->|sosa:hasResult| R1
 
 W3 -->|sosa:observedProperty| PB
 W3 -->|sosa:phenomenonTime| T2
