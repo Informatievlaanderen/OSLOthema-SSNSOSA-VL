@@ -1,9 +1,9 @@
-# Verkeersmetingen — fietstelpost F1_Antwerpen_Station
+# Verkeersmetingen — fietstelpost Mercatorstraat
 
 ## Bronbestand
 
 Fictief illustratief voorbeeld gebaseerd op het dataformaat van automatische fietstelposten
-beheerd door Provincie Antwerpen. Meetpunt-ID: **MP-VB-001**, naam: **F1_Antwerpen_Station**,
+beheerd door Provincie Antwerpen. Meetpunt-ID: **FMN-021**, naam: **Mercatorstraat**,
 locatie: Hoek Mercatorstraat met Van Den Nestlei, Antwerpen (lat 51.20910 / lon 4.423123).
 
 ## Transformatieproces

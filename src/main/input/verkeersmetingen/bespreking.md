@@ -3,8 +3,8 @@
 ## 1. Wat stelt dit voorbeeld voor?
 
 Dit voorbeeld modelleert de teldata van een vaste automatische fietstelpost op fietsroute F1
-in Antwerpen, ter hoogte van het station Antwerpen-Centraal. De teller (meetpunt MP-VB-001,
-naam F1_Antwerpen_Station, beheerder Provincie Antwerpen) registreert tweerichtingsverkeer van
+in Antwerpen, ter hoogte van het station Antwerpen-Centraal. De teller (meetpunt FMN-021,
+naam Mercatorstraat, beheerder Provincie Antwerpen) registreert tweerichtingsverkeer van
 lichte voertuigen: fietsen, steps en motorfietsen. Het voorbeeld toont zowel een dagobservatie
 (absolute dagsom) als twee uurobservaties (ochtend- en avondspits via een relatieve
 verkeersindex) op woensdag 29 april 2026.
@@ -21,12 +21,12 @@ verkeersindex) op woensdag 29 april 2026.
 
 ## 3. Infrastructuur (blauwe nodes)
 
-**`ex:meetpunt-MP-VB-001` — `sosa:Platform`**
+**`ex:meetpunt-FMN-021` — `sosa:Platform`**
 De fysieke locatie (hoek Mercatorstraat/Van Den Nestlei) die de automatische teller herbergt.
 Een Platform is hier de juiste klasse omdat het een vaste locatie is die sensorapparatuur
 draagt (`sosa:hosts`). Het meetpunt is niet zelf een sensor: het maakt geen observaties.
 
-**`ex:teller-MP-VB-001` — `sosa:Sensor`**
+**`ex:teller-FMN-021` — `sosa:Sensor`**
 De automatische teller die de voertuigen detecteert en telt. Een Sensor is hier gepast omdat
 het een agent is die observaties uitvoert (`sosa:madeBySensor`). De teller implementeert één
 ObservingProcedure en observeert twee ObservableProperties.
@@ -38,7 +38,7 @@ studieobject. Er is geen samplingketen nodig: de teller observeert de route dire
 
 ## 4. Observatie/Actuatie-structuur (roze nodes)
 
-De `sosa:ObservationCollection` `ex:collectie-MP-VB-001-20260429` groepeert de drie
+De `sosa:ObservationCollection` `ex:collectie-FMN-021-20260429` groepeert de drie
 observaties van 29 april 2026. Op collectieniveau staan de gedeelde metadata: sensor,
 procedure en feature of interest. De individuele observaties voegen enkel hun specifieke
 observedProperty, tijdstip en resultaat toe.
@@ -52,7 +52,7 @@ observedProperty, tijdstip en resultaat toe.
 ## 5. Procedure en ObservableProperty
 
 **`ex:procedure-automatisch-tellen` — `sosa:ObservingProcedure`**
-Geïmplementeerd door `ex:teller-MP-VB-001` via `ssn:implements`.
+Geïmplementeerd door `ex:teller-FMN-021` via `ssn:implements`.
 Alle drie observaties gebruiken deze procedure via `sosa:usedProcedure`.
 De procedure beschrijft de meetmethode: geautomatiseerde detectie van passerende lichte
 voertuigen (inductielus of radarsensor).
@@ -144,7 +144,7 @@ model voor meerstaps-processen (zie EnergieManagementSystem of paleo).
 | `rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` | Persistent (W3C) |
 
 In een productieomgeving zouden de meetpunt-IRI's gebaseerd zijn op de gezaghebbende URI
-van het telpostenbeheerssysteem (bijv. `https://data.provincie-antwerpen.be/telpost/MP-VB-001`).
+van het telpostenbeheerssysteem (bijv. `https://data.provincie-antwerpen.be/telpost/FMN-021`).
 De ObservableProperty- en Procedure-IRI's zouden idealiter verwijzen naar een gedeelde
 concepten-thesaurus voor verkeer (bijv. een OSLO-verkeersvocabulaire).
 
@@ -154,7 +154,7 @@ concepten-thesaurus voor verkeer (bijv. een OSLO-verkeersvocabulaire).
 
 | Eigenschap | Inverse | Opgenomen op |
 |---|---|---|
-| `sosa:hosts` | `sosa:isHostedBy` | `ex:teller-MP-VB-001 sosa:isHostedBy ex:meetpunt-MP-VB-001` |
+| `sosa:hosts` | `sosa:isHostedBy` | `ex:teller-FMN-021 sosa:isHostedBy ex:meetpunt-FMN-021` |
 | `sosa:hasFeatureOfInterest` | `sosa:isFeatureOfInterestOf` | `ex:fietsroute-F1-antwerpen sosa:isFeatureOfInterestOf <collectie/obs>` |
 | `sosa:hasMember` | `sosa:isMemberOf` | `ex:obs-... sosa:isMemberOf ex:collectie-...` |
 
