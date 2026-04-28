@@ -35,7 +35,6 @@ end
 style PLANNING fill:#b8a2d4,stroke:#2E5C8A,color:#000
 style DEPLOYMENT fill:#b0d9e7,stroke:#2E5C8A,color:#000
 style EXECUTION fill:#e7a3be,stroke:#2E5C8A,color:#000
-style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
 
 %% Stijlen planning-nodes
 style Plan fill:#7f59ae,stroke:#2E5C8A,color:#fff
@@ -97,6 +96,12 @@ TempObs1 -->|observedProperty| PropTemp
 TempObs2 -->|observedProperty| PropTemp
 RaamAct1 -->|actsOnProperty| PropRaam
 RaamAct2 -->|actsOnProperty| PropRaam
+
+%% Execution-relaties (naar features of interest)
+TempObs1 -->|hasFeatureOfInterest| Zaal
+TempObs2 -->|hasFeatureOfInterest| Zaal
+RaamAct1 -->|hasFeatureOfInterest| Raam
+RaamAct2 -->|hasFeatureOfInterest| Raam
 
 %% Execution-relaties (naar resultaten)
 TempObs1 -->|hasResult| ResultTemp1

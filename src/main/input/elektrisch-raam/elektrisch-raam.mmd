@@ -20,6 +20,14 @@ subgraph DEPLOYMENT["DEPLOYMENT"]
     Gebouw["htg:gebouw-herman-teirlinck\na sosa:Platform"]
     Zaal["htg:zaal-0116\na sosa:Platform\nsosa:FeatureOfInterest"]
     Gevel["htg:gevel\na sosa:Platform"]
+    Buitenomgeving["htg:buitenomgeving\na sosa:FeatureOfInterest"]
+    Raam["htg:raam-zaal-0116\na sosa:FeatureOfInterest"]
+    PropTemp["prop:binnentemperatuur\na sosa:Property"]
+    PropWind["prop:windsnelheid\na sosa:Property"]
+    PropLicht["prop:lichtintensiteit\na sosa:Property"]
+    PropRegen["prop:regen-aanwezigheid\na sosa:Property"]
+    PropAfw["prop:temp-afwijking\na sosa:Property"]
+    PropRaam["prop:raam-stand\na sosa:Property"]
     Thermo["inst:thermometer-01\na sosa:Sensor"]
     WindM["inst:windmeter-01\na sosa:Sensor"]
     LichtM["inst:lichtmeter-01\na sosa:Sensor"]
@@ -70,6 +78,14 @@ style VarRaamStand fill:#fe7130,stroke:#2E5C8A,color:#000
 style Gebouw fill:#60c4e4,stroke:#2E5C8A,color:#000
 style Zaal fill:#60c4e4,stroke:#2E5C8A,color:#000
 style Gevel fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Buitenomgeving fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Raam fill:#60c4e4,stroke:#2E5C8A,color:#000
+style PropTemp fill:#fe7130,stroke:#2E5C8A,color:#000
+style PropWind fill:#fe7130,stroke:#2E5C8A,color:#000
+style PropLicht fill:#fe7130,stroke:#2E5C8A,color:#000
+style PropRegen fill:#fe7130,stroke:#2E5C8A,color:#000
+style PropAfw fill:#fe7130,stroke:#2E5C8A,color:#000
+style PropRaam fill:#fe7130,stroke:#2E5C8A,color:#000
 style Thermo fill:#60c4e4,stroke:#2E5C8A,color:#000
 style WindM fill:#60c4e4,stroke:#2E5C8A,color:#000
 style LichtM fill:#60c4e4,stroke:#2E5C8A,color:#000
@@ -123,6 +139,12 @@ RaamOpener -->|isHostedBy| Zaal
 WindM -->|isHostedBy| Gevel
 LichtM -->|isHostedBy| Gevel
 RegenS -->|isHostedBy| Gevel
+Besturing -->|isHostedBy| Gebouw
+Zaal -->|hasProperty| PropTemp
+Buitenomgeving -->|hasProperty| PropWind
+Buitenomgeving -->|hasProperty| PropLicht
+Buitenomgeving -->|hasProperty| PropRegen
+Raam -->|hasProperty| PropRaam
 Thermo -->|implements| StapTemp
 WindM -->|implements| StapWind
 LichtM -->|implements| StapLicht
@@ -145,6 +167,22 @@ LichtObs -->|madeBySensor| LichtM
 RegenObs -->|madeBySensor| RegenS
 AfwObs -->|madeBySensor| Besturing
 RaamAct -->|madeByActuator| RaamOpener
+
+%% Execution-relaties (observations → properties)
+TempObs -->|observedProperty| PropTemp
+WindObs -->|observedProperty| PropWind
+LichtObs -->|observedProperty| PropLicht
+RegenObs -->|observedProperty| PropRegen
+AfwObs -->|observedProperty| PropAfw
+RaamAct -->|actsOnProperty| PropRaam
+
+%% Execution-relaties (observations → features of interest)
+TempObs -->|hasFeatureOfInterest| Zaal
+WindObs -->|hasFeatureOfInterest| Buitenomgeving
+LichtObs -->|hasFeatureOfInterest| Buitenomgeving
+RegenObs -->|hasFeatureOfInterest| Buitenomgeving
+AfwObs -->|hasFeatureOfInterest| Zaal
+RaamAct -->|hasFeatureOfInterest| Raam
 
 %% Execution-relaties (observations → results)
 TempObs -->|hasResult| ResultTemp
