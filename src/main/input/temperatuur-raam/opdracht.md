@@ -80,10 +80,8 @@ Gebruik pijlen om relaties te tonen en label elke pijl met de bijhorende propert
 
 Beantwoord bij het tekenen:
 
-- Hoe toon je de afhankelijkheid tussen een temperatuurresultaat en de bijhorende
+- Hoe toon je de afhankelijkheid tussen een temperatuur observatie en de bijhorende
   raamactuatie?
-- Welke property gebruik je op execution-niveau voor die koppeling: `sosa:hasInput` of
-  `prov:used`? Waarom?
 
 ---
 
