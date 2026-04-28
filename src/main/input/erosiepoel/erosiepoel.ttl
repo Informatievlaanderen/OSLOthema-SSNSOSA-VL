@@ -15,13 +15,11 @@ ex:Erosiepoel_Mechelen
     a sosa:Platform, sosa:FeatureOfInterest ;
     rdfs:label "Erosiepoel Mechelen"@nl ;
     rdfs:comment "Retentiepoel voor erosiesediment, beheerd door Stad Mechelen. Afmetingen: 10 m × 5 m × 5 m, maximaal volume: 250.000 liter."@nl ;
-    sosa:hosts ex:Waarnemer_X ;
     sosa:isFeatureOfInterestOf ex:ObsCollection_EM_20240901 .
 
 ex:Waarnemer_X
     a sosa:Sensor, sosa:System ;
     rdfs:label "Veldwaarnemer X"@nl ;
-    sosa:isHostedBy ex:Erosiepoel_Mechelen ;
     sosa:implements ex:VeldmeetProcedure .
 
 ### PROCEDURE & OBSERVEERBARE EIGENSCHAPPEN

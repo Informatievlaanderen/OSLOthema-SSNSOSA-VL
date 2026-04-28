@@ -7,8 +7,10 @@ end
 
 subgraph INFRA["INFRASTRUCTUUR"]
     EP["ex:Erosiepoel_Mechelen\nsosa:Platform\nsosa:FeatureOfInterest"]
-    WX["ex:Waarnemer_X\nsosa:Sensor"]
+
 end
+
+    WX["ex:Waarnemer_X\nsosa:Sensor"]
 
 subgraph WAAR["WAARNEMING"]
     OC["ex:ObsCollection_EM_20240901\nsosa:ObservationCollection"]
@@ -33,8 +35,6 @@ style RES fill:#f8b622,stroke:#2E5C8A,color:#000
 style TI fill:#f8b622,stroke:#2E5C8A,color:#000
 
 %% relaties
-EP -->|sosa:hosts| WX
-WX -->|sosa:isHostedBy| EP
 WX -->|sosa:implements| VP
 OC -->|sosa:hasMember| OB
 OC -->|sosa:hasFeatureOfInterest| EP
