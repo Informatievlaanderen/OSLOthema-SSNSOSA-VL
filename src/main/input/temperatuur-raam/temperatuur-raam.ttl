@@ -1,0 +1,209 @@
+@prefix plan:   <https://example.org/temperatuur-raam/plan/> .
+@prefix step:   <https://example.org/temperatuur-raam/step/> .
+@prefix var:    <https://example.org/temperatuur-raam/var/> .
+@prefix exec:   <https://example.org/temperatuur-raam/exec/> .
+@prefix ent:    <https://example.org/temperatuur-raam/ent/> .
+@prefix inst:   <https://example.org/temperatuur-raam/inst/> .
+@prefix htg:    <https://example.org/herman-teirlinck/> .
+@prefix prop:   <https://example.org/temperatuur-raam/prop/> .
+
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+@prefix unit:   <http://qudt.org/vocab/unit/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+
+# *********************************************
+# PLANNING
+# *********************************************
+
+plan:raambesturing a p-plan:Plan, sosa:Procedure ;
+    rdfs:label "Temperatuurgestuurde raambesturing"@nl .
+
+# Stap 1: Temperatuursmeting
+step:temp-meting a p-plan:Step, sosa:Procedure, sosa:ObservingProcedure ;
+    rdfs:label "Stap 1: Temperatuursmeting binnenlucht"@nl ;
+    p-plan:isStepOfPlan plan:raambesturing .
+
+# Stap 2: Raamstand bepalen o.b.v. drempelwaarden (>20°C open, <18°C dicht)
+step:raam-actuatie a p-plan:Step, sosa:Procedure, sosa:ActuatingProcedure ;
+    rdfs:label "Stap 2: Raamstand bepalen o.b.v. temperatuurdrempel"@nl ;
+    p-plan:isStepOfPlan plan:raambesturing ;
+    p-plan:isPrecededBy step:temp-meting .
+
+# Variabelen
+var:temperatuur a p-plan:Variable ;
+    rdfs:label "Variabele: binnentemperatuur (°C)"@nl ;
+    p-plan:isVariableOfPlan plan:raambesturing ;
+    p-plan:isOutputVarOf step:temp-meting ;
+    p-plan:isInputVarOf step:raam-actuatie .
+
+var:raam-stand a p-plan:Variable ;
+    rdfs:label "Variabele: raamstand (% geopend)"@nl ;
+    p-plan:isVariableOfPlan plan:raambesturing ;
+    p-plan:isOutputVarOf step:raam-actuatie .
+
+
+# *********************************************
+# DEPLOYMENT
+# *********************************************
+
+exec:raamautomatisering-deployment a sosa:Deployment ;
+    rdfs:label "Inzet temperatuurgestuurde raamautomatisering Herman Teirlinck"@nl ;
+    sosa:deployedAsset
+        inst:thermometer-01 ,
+        inst:raam-opener-01 ;
+    sosa:deployedOnPlatform htg:gebouw-herman-teirlinck ;
+    sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
+
+
+# *********************************************
+# INFRASTRUCTUUR
+# *********************************************
+
+htg:gebouw-herman-teirlinck a sosa:Platform ;
+    rdfs:label "Herman Teirlinck Gebouw, Brussel"@nl ;
+    sosa:hosts htg:zaal-0116 .
+
+htg:zaal-0116 a sosa:Platform, sosa:FeatureOfInterest ;
+    rdfs:label "Zaal 01.16 Rik Wouters, Herman Teirlinck Gebouw"@nl ;
+    sosa:isHostedBy htg:gebouw-herman-teirlinck ;
+    sosa:hosts inst:thermometer-01 ;
+    sosa:hosts inst:raam-opener-01 ;
+    sosa:hasProperty prop:binnentemperatuur .
+
+htg:raam-zaal-0116 a sosa:FeatureOfInterest ;
+    rdfs:label "Raam Zaal 01.16 Herman Teirlinck Gebouw"@nl ;
+    sosa:hasProperty prop:raam-stand .
+
+inst:thermometer-01 a sosa:Sensor, sosa:System ;
+    rdfs:label "Thermometer Zaal 01.16"@nl ;
+    sosa:isHostedBy htg:zaal-0116 ;
+    sosa:implements step:temp-meting .
+
+inst:raam-opener-01 a sosa:Actuator, sosa:System ;
+    rdfs:label "Elektrische Raamopener Zaal 01.16"@nl ;
+    sosa:isHostedBy htg:zaal-0116 ;
+    sosa:implements step:raam-actuatie .
+
+
+# *********************************************
+# OBSERVEERBARE EN ACTUEERBARE EIGENSCHAPPEN
+# *********************************************
+
+prop:binnentemperatuur a sosa:Property ;
+    rdfs:label "Binnentemperatuur zaal"@nl .
+
+prop:raam-stand a sosa:Property ;
+    rdfs:label "Raamstand (percentage geopend)"@nl .
+
+
+# *********************************************
+# EXECUTION
+# *********************************************
+
+# --- Stap 1: Temperatuursmeting ---
+
+exec:temp-obs-20250427 a sosa:Observation ;
+    rdfs:label "Temperatuursmeting Zaal 01.16 op 2025-04-27T09:00Z"@nl ;
+    p-plan:correspondsToStep step:temp-meting ;
+    sosa:usedProcedure step:temp-meting ;
+    sosa:madeBySensor inst:thermometer-01 ;
+    sosa:observedProperty prop:binnentemperatuur ;
+    sosa:hasFeatureOfInterest htg:zaal-0116 ;
+    sosa:resultTime "2025-04-27T09:00:00Z"^^xsd:dateTime ;
+    sosa:phenomenonTime exec:instant-20250427T0900 ;
+    sosa:hasResult ent:result-temp-20250427 .
+
+exec:instant-20250427T0900 a time:Instant ;
+    time:inXSDDateTimeStamp "2025-04-27T09:00:00Z"^^xsd:dateTimeStamp .
+
+ent:result-temp-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+    qudt:numericValue "22.3"^^xsd:decimal ;
+    qudt:hasUnit unit:DEG_C ;
+    p-plan:correspondsToVariable var:temperatuur .
+
+# --- Stap 2: Raamstandbepaling en actuatie ---
+# 22.3 °C > 20 °C → raam volledig open (100 %)
+
+exec:raam-actuatie-20250427 a sosa:Actuation ;
+    rdfs:label "Raamopening Zaal 01.16 op 2025-04-27T09:00:05Z (T=22.3°C > 20°C drempel)"@nl ;
+    p-plan:correspondsToStep step:raam-actuatie ;
+    sosa:usedProcedure step:raam-actuatie ;
+    sosa:madeByActuator inst:raam-opener-01 ;
+    sosa:actsOnProperty prop:raam-stand ;
+    sosa:hasFeatureOfInterest htg:raam-zaal-0116 ;
+    sosa:resultTime "2025-04-27T09:00:05Z"^^xsd:dateTime ;
+    sosa:phenomenonTime exec:instant-20250427T0900 ;
+    prov:used ent:result-temp-20250427 ;
+    sosa:hasResult ent:result-raam-stand-20250427 .
+
+ent:result-raam-stand-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+    qudt:numericValue "100"^^xsd:decimal ;
+    qudt:hasUnit unit:PERCENT ;
+    p-plan:correspondsToVariable var:raam-stand .
+
+
+# --- Stap 1 (tweede meting): Temperatuursmeting ---
+
+exec:temp-obs-20250427T1000 a sosa:Observation ;
+    rdfs:label "Temperatuursmeting Zaal 01.16 op 2025-04-27T10:00Z"@nl ;
+    p-plan:correspondsToStep step:temp-meting ;
+    sosa:usedProcedure step:temp-meting ;
+    sosa:madeBySensor inst:thermometer-01 ;
+    sosa:observedProperty prop:binnentemperatuur ;
+    sosa:hasFeatureOfInterest htg:zaal-0116 ;
+    sosa:resultTime "2025-04-27T10:00:00Z"^^xsd:dateTime ;
+    sosa:phenomenonTime exec:instant-20250427T1000 ;
+    sosa:hasResult ent:result-temp-20250427T1000 .
+
+exec:instant-20250427T1000 a time:Instant ;
+    time:inXSDDateTimeStamp "2025-04-27T10:00:00Z"^^xsd:dateTimeStamp .
+
+ent:result-temp-20250427T1000 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+    qudt:numericValue "17.5"^^xsd:decimal ;
+    qudt:hasUnit unit:DEG_C ;
+    p-plan:correspondsToVariable var:temperatuur .
+
+# --- Stap 2 (tweede actuatie): Raamstandbepaling en sluiting ---
+# 17.5 °C < 18 °C → raam volledig dicht (0 %)
+
+exec:raam-actuatie-20250427T1005 a sosa:Actuation ;
+    rdfs:label "Raamafsluiting Zaal 01.16 op 2025-04-27T10:00:05Z (T=17.5°C < 18°C drempel)"@nl ;
+    p-plan:correspondsToStep step:raam-actuatie ;
+    sosa:usedProcedure step:raam-actuatie ;
+    sosa:madeByActuator inst:raam-opener-01 ;
+    sosa:actsOnProperty prop:raam-stand ;
+    sosa:hasFeatureOfInterest htg:raam-zaal-0116 ;
+    sosa:resultTime "2025-04-27T10:00:05Z"^^xsd:dateTime ;
+    sosa:phenomenonTime exec:instant-20250427T1000 ;
+    prov:used ent:result-temp-20250427T1000 ;
+    sosa:hasResult ent:result-raam-stand-20250427T1005 .
+
+ent:result-raam-stand-20250427T1005 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+    qudt:numericValue "0"^^xsd:decimal ;
+    qudt:hasUnit unit:PERCENT ;
+    p-plan:correspondsToVariable var:raam-stand .
+
+
+# *********************************************
+# INVERSE RELATIES
+# *********************************************
+
+htg:zaal-0116
+    sosa:isFeatureOfInterestOf exec:temp-obs-20250427 ;
+    sosa:isFeatureOfInterestOf exec:temp-obs-20250427T1000 .
+
+htg:raam-zaal-0116
+    sosa:isFeatureOfInterestOf exec:raam-actuatie-20250427 ;
+    sosa:isFeatureOfInterestOf exec:raam-actuatie-20250427T1005 .
+
+ent:result-temp-20250427         sosa:isResultOf exec:temp-obs-20250427 .
+ent:result-temp-20250427T1000    sosa:isResultOf exec:temp-obs-20250427T1000 .
+ent:result-raam-stand-20250427   sosa:isResultOf exec:raam-actuatie-20250427 .
+ent:result-raam-stand-20250427T1005 sosa:isResultOf exec:raam-actuatie-20250427T1005 .

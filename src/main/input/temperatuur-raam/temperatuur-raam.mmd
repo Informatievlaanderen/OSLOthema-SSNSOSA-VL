@@ -1,0 +1,101 @@
+flowchart RL
+
+subgraph PLANNING["PLANNING"]
+    Plan["plan:raambesturing\na p-plan:Plan"]
+    StapTemp["step:temp-meting\na p-plan:Step\nsosa:ObservingProcedure"]
+    StapRaam["step:raam-actuatie\na p-plan:Step\nsosa:ActuatingProcedure"]
+    VarTemp["var:temperatuur\na p-plan:Variable"]
+    VarRaamStand["var:raam-stand\na p-plan:Variable"]
+end
+
+subgraph DEPLOYMENT["DEPLOYMENT"]
+    Gebouw["htg:gebouw-herman-teirlinck\na sosa:Platform"]
+    Zaal["htg:zaal-0116\na sosa:Platform\nsosa:FeatureOfInterest"]
+    Thermo["inst:thermometer-01\na sosa:Sensor"]
+    RaamOpener["inst:raam-opener-01\na sosa:Actuator"]
+end
+
+subgraph EXECUTION["EXECUTION"]
+    TempObs1["exec:temp-obs-20250427\na sosa:Observation"]
+    ResultTemp1["ent:result-temp-20250427\n22.3 °C"]
+    TempObs2["exec:temp-obs-20250427T1000\na sosa:Observation"]
+    ResultTemp2["ent:result-temp-20250427T1000\n17.5 °C"]
+
+        RaamAct1["exec:raam-actuatie-20250427\na sosa:Actuation"]
+        ResultRaam1["ent:result-raam-stand-20250427\n100 %"]
+        RaamAct2["exec:raam-actuatie-20250427T1005\na sosa:Actuation"]
+        ResultRaam2["ent:result-raam-stand-20250427T1005\n0 %"]
+
+end
+
+%% Stijlen subgrafen
+style PLANNING fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style DEPLOYMENT fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style EXECUTION fill:#e7a3be,stroke:#2E5C8A,color:#000
+style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+
+%% Stijlen planning-nodes
+style Plan fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapTemp fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapRaam fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style VarTemp fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarRaamStand fill:#fe7130,stroke:#2E5C8A,color:#000
+
+%% Stijlen deployment-nodes
+style Gebouw fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Zaal fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Thermo fill:#60c4e4,stroke:#2E5C8A,color:#000
+style RaamOpener fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+%% Stijlen execution-nodes
+style TempObs1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ResultTemp1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style TempObs2 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ResultTemp2 fill:#f8b622,stroke:#2E5C8A,color:#000
+style RaamAct1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ResultRaam1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style RaamAct2 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ResultRaam2 fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% Planning-relaties
+StapTemp -->|isStepOfPlan| Plan
+StapRaam -->|isStepOfPlan| Plan
+StapRaam -.->|isPrecededBy| StapTemp
+VarTemp -->|isOutputVarOf| StapTemp
+VarTemp -.->|isInputVarOf| StapRaam
+VarRaamStand -->|isOutputVarOf| StapRaam
+
+%% Deployment-relaties
+Zaal -->|isHostedBy| Gebouw
+Thermo -->|isHostedBy| Zaal
+RaamOpener -->|isHostedBy| Zaal
+Thermo -->|implements| StapTemp
+RaamOpener -->|implements| StapRaam
+
+%% Execution-relaties (naar stappen)
+TempObs1 -->|correspondsToStep| StapTemp
+TempObs2 -->|correspondsToStep| StapTemp
+RaamAct1 -->|correspondsToStep| StapRaam
+RaamAct2 -->|correspondsToStep| StapRaam
+
+%% Execution-relaties (naar sensoren/actuatoren)
+TempObs1 -->|madeBySensor| Thermo
+TempObs2 -->|madeBySensor| Thermo
+RaamAct1 -->|madeByActuator| RaamOpener
+RaamAct2 -->|madeByActuator| RaamOpener
+
+%% Execution-relaties (naar resultaten)
+TempObs1 -->|hasResult| ResultTemp1
+TempObs2 -->|hasResult| ResultTemp2
+RaamAct1 -->|hasResult| ResultRaam1
+RaamAct2 -->|hasResult| ResultRaam2
+
+%% Derivation-relaties
+RaamAct1 -->|prov:used| ResultTemp1
+RaamAct2 -->|prov:used| ResultTemp2
+
+%% Result → variabele
+ResultTemp1 -->|correspondsToVariable| VarTemp
+ResultTemp2 -->|correspondsToVariable| VarTemp
+ResultRaam1 -->|correspondsToVariable| VarRaamStand
+ResultRaam2 -->|correspondsToVariable| VarRaamStand
