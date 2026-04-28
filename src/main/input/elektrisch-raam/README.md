@@ -24,11 +24,11 @@ Het scenario bevat 5 procedures met een duidelijke gegevensstroom:
 - Stap 5b (actuatie) bepaalt de raamstand op basis van stap 5a en stappen 2–4.
 
 Omdat dezelfde procedure herbruikbaar is op meerdere platforms en traceerbaarheid naar het
-abstracte plan vereist is, is het drielaags model van toepassing (regel R4 van CLAUDE.md).
+abstracte plan vereist is, is het drielaags model van toepassing.
 
 Elke sensor implementeert één stap die tegelijk `p-plan:Step` en `sosa:Procedure` is.
 Resultaten zijn benoemde IRI-entiteiten met `p-plan:correspondsToVariable` zodat ze
-extern gerefereerd kunnen worden (paleo-stijl, zie R3).
+extern gerefereerd kunnen worden.
 
 ## Grafische voorstelling
 

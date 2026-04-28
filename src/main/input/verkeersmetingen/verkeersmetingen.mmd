@@ -5,100 +5,214 @@ subgraph PROC["PROCEDURE"]
     sosa:ObservingProcedure"]
     PA["ex:property-verkeersintensiteit
     sosa:Property"]
-    PB["ex:property-verkeersindex
-    sosa:Property"]
 end
 
 subgraph INFRA["INFRASTRUCTUUR"]
     I1["ex:meetpunt-FMN-021
-    sosa:Platform
-    Mercatorstraat"]
+    sosa:Platform · sosa:FeatureOfInterest
+    sosa:SpatialSample · Mercatorstraat
+    geo:asWKT Point(4.423123 51.20910)"]
     I2["ex:teller-FMN-021
     sosa:Sensor"]
     I3["ex:fietsroute-F1-antwerpen
     sosa:FeatureOfInterest"]
 end
 
-subgraph WAAR["WAARNEMING"]
-    W1["ex:collectie-FMN-021-20260429
+subgraph WAAR["WAARNEMING — 28 april 2026 (dinsdag)"]
+    W1["ex:collectie-FMN-021-20260428
     sosa:ObservationCollection"]
-    W2["ex:obs-...-dag
+
+    WD["ex:obs-...-dag
     sosa:Observation
-    dagsom 29/04/2026"]
-    W3["ex:obs-...-08u
-    sosa:Observation
-    08:00 ochtendspits"]
-    W4["ex:obs-...-17u
-    sosa:Observation
-    17:00 avondspits"]
-    T1["ex:dag-20260429
-    time:Instant
-    2026-04-29"]
-    T2["ex:instant-20260429T08
-    time:Instant
-    2026-04-29T08:00"]
-    T3["ex:instant-20260429T17
-    time:Instant
-    2026-04-29T17:00"]
-    R1["ex:result-FMN-021-20260429-dag
-    qudt:QuantityValue
-    2395 · unit:NUM"]
-    R2["index 0,86"]
-    R3["index 0,79"]
+    hasSimpleResult: 2541"]
+    TD["time:Interval
+    28/04 00:00 → 29/04 00:00"]
+
+    W00["ex:obs-...-00u · 15"]
+    T00["time:Interval 00:00–01:00"]
+    W01["ex:obs-...-01u · 9"]
+    T01["time:Interval 01:00–02:00"]
+    W02["ex:obs-...-02u · 6"]
+    T02["time:Interval 02:00–03:00"]
+    W03["ex:obs-...-03u · 6"]
+    T03["time:Interval 03:00–04:00"]
+    W04["ex:obs-...-04u · 9"]
+    T04["time:Interval 04:00–05:00"]
+    W05["ex:obs-...-05u · 20"]
+    T05["time:Interval 05:00–06:00"]
+    W06["ex:obs-...-06u · 49"]
+    T06["time:Interval 06:00–07:00"]
+    W07["ex:obs-...-07u · 134"]
+    T07["time:Interval 07:00–08:00"]
+    W08["ex:obs-...-08u · 291 ★"]
+    T08["time:Interval 08:00–09:00"]
+    W09["ex:obs-...-09u · 148"]
+    T09["time:Interval 09:00–10:00"]
+    W10["ex:obs-...-10u · 102"]
+    T10["time:Interval 10:00–11:00"]
+    W11["ex:obs-...-11u · 93"]
+    T11["time:Interval 11:00–12:00"]
+    W12["ex:obs-...-12u · 128"]
+    T12["time:Interval 12:00–13:00"]
+    W13["ex:obs-...-13u · 125"]
+    T13["time:Interval 13:00–14:00"]
+    W14["ex:obs-...-14u · 119"]
+    T14["time:Interval 14:00–15:00"]
+    W15["ex:obs-...-15u · 151"]
+    T15["time:Interval 15:00–16:00"]
+    W16["ex:obs-...-16u · 239"]
+    T16["time:Interval 16:00–17:00"]
+    W17["ex:obs-...-17u · 279 ★"]
+    T17["time:Interval 17:00–18:00"]
+    W18["ex:obs-...-18u · 204"]
+    T18["time:Interval 18:00–19:00"]
+    W19["ex:obs-...-19u · 128"]
+    T19["time:Interval 19:00–20:00"]
+    W20["ex:obs-...-20u · 90"]
+    T20["time:Interval 20:00–21:00"]
+    W21["ex:obs-...-21u · 79"]
+    T21["time:Interval 21:00–22:00"]
+    W22["ex:obs-...-22u · 76"]
+    T22["time:Interval 22:00–23:00"]
+    W23["ex:obs-...-23u · 41"]
+    T23["time:Interval 23:00–00:00"]
 end
 
 %% stijlen subgrafen
-style PROC fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style PROC  fill:#b8a2d4,stroke:#2E5C8A,color:#000
 style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
-style WAAR fill:#e7a3be,stroke:#2E5C8A,color:#000
+style WAAR  fill:#e7a3be,stroke:#2E5C8A,color:#000
 
 %% stijlen nodes PROCEDURE
 style P1 fill:#c6a0f5,stroke:#2E5C8A,color:#000
 style PA fill:#fe7130,stroke:#2E5C8A,color:#000
-style PB fill:#fe7130,stroke:#2E5C8A,color:#000
 
 %% stijlen nodes INFRASTRUCTUUR
 style I1 fill:#60c4e4,stroke:#2E5C8A,color:#000
 style I2 fill:#60c4e4,stroke:#2E5C8A,color:#000
 style I3 fill:#60c4e4,stroke:#2E5C8A,color:#000
 
-%% stijlen nodes WAARNEMING
+%% stijlen nodes WAARNEMING — collectie en dagobservatie
 style W1 fill:#e54b89,stroke:#2E5C8A,color:#fff
-style W2 fill:#e54b89,stroke:#2E5C8A,color:#fff
-style W3 fill:#e54b89,stroke:#2E5C8A,color:#fff
-style W4 fill:#e54b89,stroke:#2E5C8A,color:#fff
-style T1 fill:#f8b622,stroke:#2E5C8A,color:#000
-style T2 fill:#f8b622,stroke:#2E5C8A,color:#000
-style T3 fill:#f8b622,stroke:#2E5C8A,color:#000
-style R1 fill:#f8b622,stroke:#2E5C8A,color:#000
-style R2 fill:#f8b622,stroke:#2E5C8A,color:#000
-style R3 fill:#f8b622,stroke:#2E5C8A,color:#000
+style WD fill:#e54b89,stroke:#2E5C8A,color:#fff
+style TD fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% stijlen nodes WAARNEMING — uurobservaties
+style W00 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W01 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W02 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W03 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W04 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W05 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W06 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W07 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W08 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W09 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W10 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W11 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W12 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W13 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W14 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W15 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W16 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W17 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W18 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W19 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W20 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W21 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W22 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style W23 fill:#e54b89,stroke:#2E5C8A,color:#fff
+
+%% stijlen nodes WAARNEMING — tijdsintervallen
+style T00 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T01 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T02 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T03 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T04 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T05 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T06 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T07 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T08 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T09 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T10 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T11 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T12 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T13 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T14 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T15 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T16 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T17 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T18 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T19 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T20 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T21 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T22 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T23 fill:#f8b622,stroke:#2E5C8A,color:#000
 
 %% relaties — infrastructuur
 I1 -->|sosa:hosts| I2
-I2 -->|ssn:implements| P1
+I1 -->|sosa:isSampleOf| I3
+I2 -->|sosa:implements| P1
 I2 -->|sosa:observes| PA
-I2 -->|sosa:observes| PB
-I3 -->|ssn:hasProperty| PA
-I3 -->|ssn:hasProperty| PB
+I1 -->|sosa:hasProperty| PA
 
-%% relaties — collectie naar infrastructuur
+%% relaties — collectie (gedeelde metadata op collectieniveau)
 W1 -->|sosa:madeBySensor| I2
 W1 -->|sosa:usedProcedure| P1
-W1 -->|sosa:hasFeatureOfInterest| I3
-W1 -->|sosa:hasMember| W2
-W1 -->|sosa:hasMember| W3
-W1 -->|sosa:hasMember| W4
+W1 -->|sosa:hasFeatureOfInterest| I1
+W1 -->|sosa:observedProperty| PA
+W1 -->|sosa:hasMember| W00
+W1 -->|sosa:hasMember| W01
+W1 -->|sosa:hasMember| W02
+W1 -->|sosa:hasMember| W03
+W1 -->|sosa:hasMember| W04
+W1 -->|sosa:hasMember| W05
+W1 -->|sosa:hasMember| W06
+W1 -->|sosa:hasMember| W07
+W1 -->|sosa:hasMember| W08
+W1 -->|sosa:hasMember| W09
+W1 -->|sosa:hasMember| W10
+W1 -->|sosa:hasMember| W11
+W1 -->|sosa:hasMember| W12
+W1 -->|sosa:hasMember| W13
+W1 -->|sosa:hasMember| W14
+W1 -->|sosa:hasMember| W15
+W1 -->|sosa:hasMember| W16
+W1 -->|sosa:hasMember| W17
+W1 -->|sosa:hasMember| W18
+W1 -->|sosa:hasMember| W19
+W1 -->|sosa:hasMember| W20
+W1 -->|sosa:hasMember| W21
+W1 -->|sosa:hasMember| W22
+W1 -->|sosa:hasMember| W23
 
-%% relaties — observaties
-W2 -->|sosa:observedProperty| PA
-W2 -->|sosa:phenomenonTime| T1
-W2 -->|sosa:hasResult| R1
+%% dagobservatie — afgeleid van de uurcollectie
+WD -->|sosa:relatedObservation| W1
+WD -->|sosa:hasInputValue| W1
 
-W3 -->|sosa:observedProperty| PB
-W3 -->|sosa:phenomenonTime| T2
-W3 -->|sosa:hasSimpleResult| R2
-
-W4 -->|sosa:observedProperty| PB
-W4 -->|sosa:phenomenonTime| T3
-W4 -->|sosa:hasSimpleResult| R3
+%% relaties — observaties → tijdstippen
+WD  -->|sosa:phenomenonTime| TD
+W00 -->|sosa:phenomenonTime| T00
+W01 -->|sosa:phenomenonTime| T01
+W02 -->|sosa:phenomenonTime| T02
+W03 -->|sosa:phenomenonTime| T03
+W04 -->|sosa:phenomenonTime| T04
+W05 -->|sosa:phenomenonTime| T05
+W06 -->|sosa:phenomenonTime| T06
+W07 -->|sosa:phenomenonTime| T07
+W08 -->|sosa:phenomenonTime| T08
+W09 -->|sosa:phenomenonTime| T09
+W10 -->|sosa:phenomenonTime| T10
+W11 -->|sosa:phenomenonTime| T11
+W12 -->|sosa:phenomenonTime| T12
+W13 -->|sosa:phenomenonTime| T13
+W14 -->|sosa:phenomenonTime| T14
+W15 -->|sosa:phenomenonTime| T15
+W16 -->|sosa:phenomenonTime| T16
+W17 -->|sosa:phenomenonTime| T17
+W18 -->|sosa:phenomenonTime| T18
+W19 -->|sosa:phenomenonTime| T19
+W20 -->|sosa:phenomenonTime| T20
+W21 -->|sosa:phenomenonTime| T21
+W22 -->|sosa:phenomenonTime| T22
+W23 -->|sosa:phenomenonTime| T23
