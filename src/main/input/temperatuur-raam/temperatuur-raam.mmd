@@ -11,6 +11,9 @@ end
 subgraph DEPLOYMENT["DEPLOYMENT"]
     Gebouw["htg:gebouw-herman-teirlinck\na sosa:Platform"]
     Zaal["htg:zaal-0116\na sosa:Platform\nsosa:FeatureOfInterest"]
+    Raam["htg:raam-zaal-0116\na sosa:FeatureOfInterest"]
+    PropTemp["prop:binnentemperatuur\na sosa:Property"]
+    PropRaam["prop:raam-stand\na sosa:Property"]
     Thermo["inst:thermometer-01\na sosa:Sensor"]
     RaamOpener["inst:raam-opener-01\na sosa:Actuator"]
 end
@@ -44,6 +47,9 @@ style VarRaamStand fill:#fe7130,stroke:#2E5C8A,color:#000
 %% Stijlen deployment-nodes
 style Gebouw fill:#60c4e4,stroke:#2E5C8A,color:#000
 style Zaal fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Raam fill:#60c4e4,stroke:#2E5C8A,color:#000
+style PropTemp fill:#fe7130,stroke:#2E5C8A,color:#000
+style PropRaam fill:#fe7130,stroke:#2E5C8A,color:#000
 style Thermo fill:#60c4e4,stroke:#2E5C8A,color:#000
 style RaamOpener fill:#60c4e4,stroke:#2E5C8A,color:#000
 
@@ -69,6 +75,8 @@ VarRaamStand -->|isOutputVarOf| StapRaam
 Zaal -->|isHostedBy| Gebouw
 Thermo -->|isHostedBy| Zaal
 RaamOpener -->|isHostedBy| Zaal
+Zaal -->|hasProperty| PropTemp
+Raam -->|hasProperty| PropRaam
 Thermo -->|implements| StapTemp
 RaamOpener -->|implements| StapRaam
 
@@ -83,6 +91,12 @@ TempObs1 -->|madeBySensor| Thermo
 TempObs2 -->|madeBySensor| Thermo
 RaamAct1 -->|madeByActuator| RaamOpener
 RaamAct2 -->|madeByActuator| RaamOpener
+
+%% Execution-relaties (naar eigenschappen)
+TempObs1 -->|observedProperty| PropTemp
+TempObs2 -->|observedProperty| PropTemp
+RaamAct1 -->|actsOnProperty| PropRaam
+RaamAct2 -->|actsOnProperty| PropRaam
 
 %% Execution-relaties (naar resultaten)
 TempObs1 -->|hasResult| ResultTemp1
