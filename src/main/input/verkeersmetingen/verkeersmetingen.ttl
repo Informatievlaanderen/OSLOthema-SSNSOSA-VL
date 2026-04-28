@@ -1,0 +1,110 @@
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+@prefix unit:   <http://qudt.org/vocab/unit/> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex:     <https://example.org/verkeersmetingen/> .
+
+###############################################################################
+### INFRASTRUCTUUR
+###############################################################################
+
+ex:meetpunt-FMN-021 a sosa:Platform ;
+    rdfs:label "Mercatorstraat"@nl ;
+    rdfs:comment "Vast tweerichtingsmeetpunt op de hoek van de Mercatorstraat met de Van Den Nestlei, Antwerpen (lat 51.20910, lon 4.423123). Beheerder: Provincie Antwerpen."@nl ;
+    sosa:hosts ex:teller-FMN-021 .
+
+ex:teller-FMN-021 a sosa:Sensor ;
+    rdfs:label "Automatische teller FMN-021"@nl ;
+    rdfs:comment "Automatische teller voor lichte voertuigen (fiets, step, motorfiets) in tweerichtingsverkeer."@nl ;
+    sosa:isHostedBy ex:meetpunt-FMN-021 ;
+    sosa:implements ex:procedure-automatisch-tellen ;
+    sosa:observes ex:property-verkeersintensiteit ;
+    sosa:observes ex:property-verkeersindex .
+
+ex:fietsroute-F1-antwerpen a sosa:FeatureOfInterest ;
+    rdfs:label "Fietsroute F1 ter hoogte van Antwerpen-Centraal"@nl ;
+    rdfs:comment "Tweerichtingsfietsroute F1 in Antwerpen, gemeten ter hoogte van het station Antwerpen-Centraal."@nl ;
+    sosa:hasProperty ex:property-verkeersintensiteit ;
+    sosa:hasProperty ex:property-verkeersindex ;
+    sosa:isFeatureOfInterestOf ex:collectie-FMN-021-20260429 ;
+    sosa:isFeatureOfInterestOf ex:obs-FMN-021-20260429-dag ;
+    sosa:isFeatureOfInterestOf ex:obs-FMN-021-20260429-08u ;
+    sosa:isFeatureOfInterestOf ex:obs-FMN-021-20260429-17u .
+
+###############################################################################
+### PROCEDURE & OBSERVEERBARE EIGENSCHAPPEN
+###############################################################################
+
+ex:procedure-automatisch-tellen a sosa:ObservingProcedure ;
+    rdfs:label "Automatische telmethode"@nl ;
+    rdfs:comment "Detectie en telling van passerende lichte voertuigen via een geautomatiseerde teller (inductielus of radar)."@nl .
+
+ex:property-verkeersintensiteit a sosa:Property ;
+    rdfs:label "Verkeersintensiteit"@nl ;
+    rdfs:comment "Absoluut aantal lichte voertuigen (fiets, step, motorfiets) dat het meetpunt op een dag passeert."@nl .
+
+ex:property-verkeersindex a sosa:Property ;
+    rdfs:label "Relatieve verkeersindex per uur"@nl ;
+    rdfs:comment "Dimensieloze uurintensiteitsindex genormaliseerd t.o.v. het piekuur (dinsdag 08:00 = 1,00)."@nl .
+
+###############################################################################
+### OBSERVATIES
+###############################################################################
+
+ex:collectie-FMN-021-20260429 a sosa:ObservationCollection ;
+    rdfs:label "Verkeerstelcollectie FMN-021 op 29 april 2026"@nl ;
+    sosa:madeBySensor ex:teller-FMN-021 ;
+    sosa:usedProcedure ex:procedure-automatisch-tellen ;
+    sosa:hasFeatureOfInterest ex:fietsroute-F1-antwerpen ;
+    sosa:hasMember ex:obs-FMN-021-20260429-dag ;
+    sosa:hasMember ex:obs-FMN-021-20260429-08u ;
+    sosa:hasMember ex:obs-FMN-021-20260429-17u .
+
+# Dagobservatie: totale dagsom op 29 april 2026 (woensdag)
+ex:obs-FMN-021-20260429-dag a sosa:Observation ;
+    sosa:madeBySensor ex:teller-FMN-021 ;
+    sosa:usedProcedure ex:procedure-automatisch-tellen ;
+    sosa:hasFeatureOfInterest ex:fietsroute-F1-antwerpen ;
+    sosa:observedProperty ex:property-verkeersintensiteit ;
+    sosa:phenomenonTime ex:dag-20260429 ;
+    sosa:resultTime "2026-04-29T23:59:59"^^xsd:dateTime ;
+    sosa:hasResult ex:result-FMN-021-20260429-dag ;
+    sosa:isMemberOf ex:collectie-FMN-021-20260429 .
+
+ex:dag-20260429 a time:Instant ;
+    time:inXSDDate "2026-04-29"^^xsd:date .
+
+ex:result-FMN-021-20260429-dag a qudt:QuantityValue ;
+    qudt:numericValue "2395"^^xsd:integer ;
+    qudt:hasUnit unit:NUM .
+
+# Uurobservatie 08:00 — ochtendspits (verkeersindex woensdag = 0,86)
+ex:obs-FMN-021-20260429-08u a sosa:Observation ;
+    sosa:madeBySensor ex:teller-FMN-021 ;
+    sosa:usedProcedure ex:procedure-automatisch-tellen ;
+    sosa:hasFeatureOfInterest ex:fietsroute-F1-antwerpen ;
+    sosa:observedProperty ex:property-verkeersindex ;
+    sosa:phenomenonTime ex:instant-20260429T08 ;
+    sosa:resultTime "2026-04-29T08:59:59"^^xsd:dateTime ;
+    sosa:hasSimpleResult "0.86"^^xsd:decimal ;
+    sosa:isMemberOf ex:collectie-FMN-021-20260429 .
+
+ex:instant-20260429T08 a time:Instant ;
+    time:inXSDDateTime "2026-04-29T08:00:00"^^xsd:dateTime .
+
+# Uurobservatie 17:00 — avondspits (verkeersindex woensdag = 0,79)
+ex:obs-FMN-021-20260429-17u a sosa:Observation ;
+    sosa:madeBySensor ex:teller-FMN-021 ;
+    sosa:usedProcedure ex:procedure-automatisch-tellen ;
+    sosa:hasFeatureOfInterest ex:fietsroute-F1-antwerpen ;
+    sosa:observedProperty ex:property-verkeersindex ;
+    sosa:phenomenonTime ex:instant-20260429T17 ;
+    sosa:resultTime "2026-04-29T17:59:59"^^xsd:dateTime ;
+    sosa:hasSimpleResult "0.79"^^xsd:decimal ;
+    sosa:isMemberOf ex:collectie-FMN-021-20260429 .
+
+ex:instant-20260429T17 a time:Instant ;
+    time:inXSDDateTime "2026-04-29T17:00:00"^^xsd:dateTime .

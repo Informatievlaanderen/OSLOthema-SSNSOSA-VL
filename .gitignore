@@ -1,3 +1,6 @@
 .idea
 *.ldb
 *.xlsm
+target
+src/main/output
+.claude
