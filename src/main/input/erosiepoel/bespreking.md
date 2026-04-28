@@ -1,13 +1,11 @@
-# Bespreking — Erosiepoel (herziene modellering)
+# Bespreking — Erosiepoel (modellering)
 
 ## 1. Wat stelt dit voorbeeld voor?
 
 Een veldwaarnemer (Waarnemer X) voert 's ochtends een controle uit op een erosiepoel
 beheerd door Stad Mechelen. Na een nachtelijke regenbui schat hij het volume neergeslagen
 sediment op 245.000 liter — bijna de volledige capaciteit van 250.000 liter. De meting
-ondersteunt besluitvorming over ruimingsbeheer om bodemerosie te beperken. Dit voorbeeld
-illustreert ook een herzieningsproces: het oorspronkelijke bronbestand bevatte vijf
-architectuurfouten (zie `source/erosiepoel.ttl.bak` en de sectie Verbeterpunten in README.md).
+ondersteunt besluitvorming over ruimingsbeheer om bodemerosie te beperken.
 
 ## 2. Kleurlegenda
 

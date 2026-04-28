@@ -2,15 +2,13 @@
 
 ## Bronbestand
 
-Ontvangen Turtle-bestand: `source/erosiepoel2.ttl.bak`. Aangeleverd scenario: veldobservatie
-van een erosiepoel beheerd door Stad Mechelen. Geen persistente externe databron-URI; de herziene
-versie gebruikt `https://example.org/erosiepoel/` als basis voor illustratieve IRIs.
+Aangeleverd scenario: veldobservatie van een erosiepoel beheerd door Stad Mechelen.
+Geen persistente externe databron-URI; deze versie gebruikt
+`https://example.org/erosiepoel/` als basis voor illustratieve IRIs.
 
 ## Transformatieproces
 
-Geen automatische transformatie vereist. De herziene Turtle-data is rechtstreeks als voorbeeld
-aangemaakt op basis van het ontvangen bronbestand. Het bronbestand staat in
-`source/erosiepoel2.ttl.bak`; dit bestand wordt niet door de pipeline verwerkt (`.bak`-extensie).
+Geen automatische transformatie vereist.
 
 ## Mapping-keuzes
 
@@ -20,8 +18,7 @@ Plat model met `sosa:ObservationCollection`. De erosiepoel fungeert zowel als `s
 
 ## Verbeterpunten
 
-Vergeleken met het ontvangen bronbestand (`source/erosiepoel2.ttl.bak`) zijn de volgende
-fouten gecorrigeerd:
+Vergeleken met het ontvangen bronbestand zijn de volgende fouten gecorrigeerd:
 
 1. **`ep:Erosiepoel` (domein-klasse) → `sosa:Platform + sosa:FeatureOfInterest`** — de
    erosiepoel moet getypeerd worden met SSN/SOSA-klassen. `sosa:Platform` is vereist omdat
@@ -52,13 +49,12 @@ fouten gecorrigeerd:
 
 ## Grafische voorstelling
 
-- Herziene modellering: [erosiepoel_herzien.mmd](erosiepoel_herzien.mmd)
-- Vergelijking voor/na: [erosiepoel_vergelijking.mmd](erosiepoel_vergelijking.mmd)
+- Modellering: [erosiepoel.mmd](erosiepoel.mmd)
 
 ## Outputbestanden
 
-- `erosiepoel_herzien.ttl` — gecorrigeerde primaire RDF-data
-- `src/main/output/erosiepoel/erosiepoel_herzien.jsonld` — gegenereerde JSON-LD
+- `erosiepoel.ttl` — gecorrigeerde primaire RDF-data
+- `src/main/output/erosiepoel/erosiepoel.jsonld` — gegenereerde JSON-LD
 
 ## Gebruik
 
