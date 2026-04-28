@@ -41,21 +41,27 @@ De raamopener reageert telkens 5 seconden na de meting.
 
 *Individueel — 10 minuten*
 
-Lees de use case en vul onderstaande tabel in. Gebruik de SOSA-klassen `Platform`,
-`FeatureOfInterest`, `Sensor`, `Actuator`, `ObservingProcedure`, `ActuatingProcedure`,
-`ObservableProperty`, `Observation`, `Actuation` en `Result`.
+Lees de use case en vul onderstaande vragen in. Geef waar van toepassing de bijbehorende klasse aan en maak hierbij gebruik van de volgende SOSA-klassen `FeatureOfInterest`,
+`ObservableProperty`, `ActuableProperty`, `Sensor`, `Actuator`, `Observation`, `Actuation`, `Result`, `Platform`, `Plan`, `ObservingProcedure`, `ActuatingProcedure`, `Step` en `Variable`.
 
-| Vraag | Antwoord |
-|---|---|
-| Wat zijn de **platforms** in dit systeem? | |
-| Wat is het **ding dat bestudeerd wordt** (FeatureOfInterest) voor de temperatuurmeting? | |
-| Wat is het **ding dat geactueerd wordt** voor de raamstand? | |
-| Welke **sensor** produceert observaties? | |
-| Welke **actuator** voert acties uit? | |
-| Wat is de **observeerbare eigenschap** van de zaal? | |
-| Wat is de **actueerbare eigenschap** van het raam? | |
-| Hoeveel **observaties** zijn er in de concrete dataset? | |
-| Hoeveel **actuaties** zijn er? | |
+| Vraag                                                                       | Antwoord | Klasse |
+|-----------------------------------------------------------------------------|---|---|
+| Wat is het **geobserveerde object** van de metingen?                        | | |
+| Wat is het **geobserveerde kenmerk** van de metingen?                       | | |
+| Wat is het **object** waarvan de toestand veranderd kan worden?             | | |
+| Wat is de **eigenschap** die veranderd kan worden?                          | | |
+| Welk **systeem** produceert de observaties?                                 | | |
+| Welk **systeem** voert de actuaties uit?                                    | | |
+| Wat is het **platform** waarop deze systemen gedeployed zijn?               | | |
+| Wat is het **resultaat** van een individuele meting?                        | | |
+| Wat is het **resultaat** van een individuele toestandsverandering?          | | |
+| Wat geeft de **fenomeentijd** aan van een individuele meting?               | | |
+| Wat geeft de **fenomeentijd** aan van een individuele toestandsverandering? | | |
+| Hoeveel **observaties** zijn er in dit voorbeeld?                           | | |
+| Hoeveel **actuaties** zijn er in dit voorbeeld?                             | | |
+| Welke **procedure** wordt er gevolgd?                                       | | |
+| Uit hoeveel **stappen** bestaat deze procedure?                             | | |
+| Wat zijn de **input en output** variabelen van deze stappen?                | | |
 
 ---
 
@@ -65,17 +71,16 @@ Lees de use case en vul onderstaande tabel in. Gebruik de SOSA-klassen `Platform
 
 Teken een diagram met de volgende drie lagen:
 
-- **PLANNING** — het abstracte plan met stappen en variabelen
-  (`p-plan:Plan`, `p-plan:Step`, `p-plan:Variable`)
-- **DEPLOYMENT** — de concrete fysieke opstelling (platforms, sensor, actuator)
-- **EXECUTION** — de twee concrete meetmomenten met hun resultaten
+- **PLANNING** — het plan (de procedure) met de verschillende stappen, input- en output variabelen.
+- **DEPLOYMENT** — de concrete fysieke opstelling (gebouw, zaal, sensor, raamsturing)
+- **EXECUTION** — de concrete metingen, actuaties en hun resultaten
 
 Gebruik pijlen om relaties te tonen en label elke pijl met de bijhorende property
-(bijv. `sosa:madeBySensor`, `prov:used`).
+(bijv. `sosa:hasFeatureOfInterest`, `sosa:observedProperty`, `sosa:actsOnProperty`, `sosa:usedProcedure`, `p-plan:correspondsToStep`, `sosa:madeBySensor`, `sosa:madeByActuator`, `sosa:implements`, `sosa:hasProperty`, `sosa:hosts`, `sosa:hasResult`, `p-plan:correspondsToVariable`, `p-plan:isStepOfPlan`, `p-plan:isInputVarOf`, `p-plan:isOutputVarOf`,`prov:used`, `prov:wasInformedBy`).
 
 Beantwoord bij het tekenen:
 
-- Hoe toon je de data-afhankelijkheid tussen een temperatuurresultaat en de bijhorende
+- Hoe toon je de afhankelijkheid tussen een temperatuurresultaat en de bijhorende
   raamactuatie?
 - Welke property gebruik je op execution-niveau voor die koppeling: `sosa:hasInput` of
   `prov:used`? Waarom?
