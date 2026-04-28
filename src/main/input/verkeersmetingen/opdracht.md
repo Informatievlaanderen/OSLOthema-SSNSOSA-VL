@@ -7,7 +7,6 @@
 Op fietsroute F1 in Antwerpen, naast de spoorweg tussen Antwerpen-Centraal en station Berchem, staat een vaste
 automatische fietstelpost. Het meetpunt draagt de code **FMN-021** en is gelegen op de hoek
 van de Mercatorstraat met de Van Den Nestlei (coördinaten: lat 51.20910, lon 4.423123).
-Beheerder is de Provincie Antwerpen.
 
 ### Beschrijving van het systeem
 
@@ -48,20 +47,21 @@ niet rechtstreeks geregistreerd door de teller.
 
 *Individueel — 10 minuten*
 
-Lees de use case en vul onderstaande tabel in. Gebruik de SOSA-klassen `Platform`,
-`FeatureOfInterest`, `Sample`, `Sensor`, `ObservingProcedure`, `ObservableProperty`,
-`Observation` en `ObservationCollection`.
+Lees de use case en vul onderstaande vragen in. Geef waar van toepassing de bijbehorende klasse aan en maak hierbij gebruik van de volgende SOSA-klassen `FeatureOfInterest`,
+`ObservableProperty`, `Sensor`, `ObservingProcedure`, `Observation`, `ObservationCollection`, `Sample` en `Platform` .
 
-| Vraag | Antwoord |
-|---|---|
-| Wat is het **platform** dat de sensor draagt? | |
-| Wat is het **directe studieobject** van de metingen? | |
-| Wat is het **bredere studieobject** waarvan het meetpunt een deelmonster is? | |
-| Welke **sensor** produceert de observaties? | |
-| Wat is de **observeerbare eigenschap**? | |
-| Hoeveel **observaties** bevat de dataset voor 28 april 2026? | |
-| Waarom is een `ObservationCollection` hier zinvol? | |
-| Wat is de relatie tussen de **dagsom** en de 24 uurtellingen? | |
+| Vraag                                                         | Antwoord | Klasse |
+|---------------------------------------------------------------|---|---|
+| Wat is het **geobserveerde object** van de metingen?          | | |
+| Wat is het **geobserveerde kenmerk** van de metingen?         | | |
+| Voor welk **object** zijn deze metingen representatief?       | | |
+| Welk **systeem** produceert de observaties?                   | | |
+| Wat is het **platform** waarop dit systeem gedeployed is?     | | |
+| Wat is het **resultaat** van een individuele meting?          | | |
+| Wat geeft de **fenomeentijd** aan van een individuele meting? | | |
+| Hoeveel **observaties** bevat de dataset voor 28 april 2026?  | | |
+| Welke **groepering** van metingen is hier zinvol?             | | |
+| Wat is de relatie tussen de **dagsom** en de 24 uurtellingen? | | |
 
 ---
 
@@ -76,14 +76,12 @@ Teken een diagram met de volgende drie zones:
 - **WAARNEMING** — de collectie en de individuele observaties
 
 Gebruik pijlen om relaties te tonen en label elke pijl met de bijhorende property
-(bijv. `sosa:madeBySensor`, `sosa:hasMember`).
+(bijv. `sosa:hasFeatureOfInterest`, `sosa:observedProperty`, `sosa:usedProcedure`, `sosa:madeBySensor`, `sosa:isSampleOf`, `sosa:implements`, `sosa:hasProperty`, `sosa:hosts`, `sosa:implements`, `sosa:observes`, `sosa:relatedObservation`, `sosa:hasInputValue`).
 
 Beantwoord bij het tekenen:
 
-- Het meetpunt is tegelijk platform, studieobject én ruimtelijk monster. Welke drie
+- Het meetpunt is tegelijk platform, geobserveerd object én ruimtelijk monster. Welke drie
   SOSA-klassen ken je er dan aan toe? Welke extra property legt de band met de fietsroute?
-- Een telling beslaat een periode, geen puntmoment. Welk OWL-Time-concept gebruik je voor
-  `sosa:phenomenonTime`?
 - De dagsom is afgeleid van de uurtellingen. Staat ze als gewoon lid in de collectie, of
   heeft ze een andere relatie? Welke properties gebruik je?
 
