@@ -77,6 +77,7 @@ Beantwoord bij het tekenen:
 
 - Kan de erosiepoel tegelijk `sosa:Platform` **en** `sosa:FeatureOfInterest` zijn?
 - Waarnemer X is een persoon, geen elektronisch instrument. Welke klasse ken je toe?
+- Is een collectie van observaties zinvol hier?
 
 ---
 
@@ -103,8 +104,7 @@ Gebruik `https://example.org/erosiepoel/` als basis-IRI.
 
 *Plenair — 15 minuten*
 
-1. De erosiepoel is tegelijk `sosa:Platform` en `sosa:FeatureOfInterest`. Wanneer is
-   zo'n dubbele typering zinvol? Wat zou er ontbreken als je de Platform-rol weglaat?
+1. De erosiepoel is tegelijk `sosa:Platform` en `sosa:FeatureOfInterest`. Waarom als FeatureOfInterest? Waarom als Platform?
 2. Waarom is Waarnemer X een `sosa:Sensor` en geen `prov:Agent`?
    Wat win je daarmee ten opzichte van een generieke agentrol?
 3. Waarom `sosa:hasResult` met een `qudt:QuantityValue`-object in plaats van
