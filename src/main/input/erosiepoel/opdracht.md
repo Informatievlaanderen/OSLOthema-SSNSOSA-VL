@@ -76,8 +76,6 @@ Gebruik pijlen om relaties te tonen en label elke pijl met de bijhorende propert
 Beantwoord bij het tekenen:
 
 - Kan de erosiepoel tegelijk `sosa:Platform` **en** `sosa:FeatureOfInterest` zijn?
-- Welke metadata staat op de `sosa:ObservationCollection`?
-  Wat zet je op de individuele `sosa:Observation` zelf?
 - Waarnemer X is een persoon, geen elektronisch instrument. Welke klasse ken je toe?
 
 ---
