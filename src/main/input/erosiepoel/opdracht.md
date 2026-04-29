@@ -49,13 +49,13 @@ Lees de use case en vul onderstaande vragen in. Geef waar van toepassing de bijb
 
 | Vraag                                                  | Antwoord | Klasse |
 |--------------------------------------------------------|---|--------|
-| Wat is het **geobserveerde object**?                   | |        |
-| Wat is het **geobserveerde kenmerk**?                  | |        |
-| Welk **systeem** doet de observatie?                   | |        |
-| Welke **procedure** volgt de waarnemer?                | |        |
-| Wat is het **resultaat** van de observatie?            | |        |
-| Hoeveel **observaties** zijn er in deze dataset?       | |        |
-| Kan de erosiepoel ook als `Platform` fungeren? Waarom? | |        |
+| Wat is het **geobserveerde object**?                   |Erosiepoel / Sediment |        |
+| Wat is het **geobserveerde kenmerk**?                  |Sedimentvolume / Water / is het vol?... |        |
+| Welk **systeem** doet de observatie?                   |Waarnemer X |        |
+| Welke **procedure** volgt de waarnemer?                |Visuele veldmeetprocedure |        |
+| Wat is het **resultaat** van de observatie?            |245.000 liter / 'Ja, bijna vol'  |        |
+| Hoeveel **observaties** zijn er in deze dataset?       |2: Volumemeting, opmerking |        |
+| Kan de erosiepoel ook als `Platform` fungeren? Waarom? |Ja --> Bijvoorbeeld sensoren / meetstok zijn gedeployed op het platform (Erosiepoel) |        |
 
 
 ---
