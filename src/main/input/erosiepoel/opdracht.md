@@ -64,18 +64,18 @@ Lees de use case en vul onderstaande vragen in. Geef waar van toepassing de bijb
 
 *In groepjes van 2 — 15 minuten*
 
-Teken een plat model (geen drielaags-architectuur) met drie lagen:
+Teken een diagram met de volgende drie zones:
 
 - **PROCEDURE** — procedure en observeerbare eigenschap
 - **INFRASTRUCTUUR** — platform, feature of interest, sensor
-- **WAARNEMING** — observatiecollectie, observatie, resultaat, tijdstip
+- **WAARNEMING** — observatie, resultaat, tijdstip
 
 Gebruik pijlen om relaties te tonen en label elke pijl met de bijhorende property.
+(bijv. `sosa:hasFeatureOfInterest`, `sosa:observedProperty`, `sosa:usedProcedure`, `sosa:madeBySensor`, `sosa:hasResult`, `sosa:hasProperty`, `sosa:phenomenonTime`).
 
 Beantwoord bij het tekenen:
 
 - Kan de erosiepoel tegelijk `sosa:Platform` **en** `sosa:FeatureOfInterest` zijn?
-  Welk gevolg heeft die keuze voor de relaties in het diagram?
 - Welke metadata staat op de `sosa:ObservationCollection`?
   Wat zet je op de individuele `sosa:Observation` zelf?
 - Waarnemer X is een persoon, geen elektronisch instrument. Welke klasse ken je toe?
