@@ -43,19 +43,20 @@ spoedruiming te plannen.
 
 *Individueel — 10 minuten*
 
-Lees de use case en vul onderstaande tabel in. Gebruik de SOSA-klassen `Platform`,
+Lees de use case en vul onderstaande vragen in. Geef waar van toepassing de bijbehorende klasse aan en maak hierbij gebruik van de volgende SOSA-klassen `Platform`,
 `FeatureOfInterest`, `Sensor`, `System`, `ObservingProcedure`, `ObservableProperty`,
-`ObservationCollection`, `Observation` en `Result`.
+`Observation` en `Result`.
 
-| Vraag | Antwoord |
-|---|---|
-| Wat is het **ding dat bestudeerd wordt** (FeatureOfInterest)? | |
-| Kan de erosiepoel ook als `Platform` fungeren? Waarom? | |
-| Welke **sensor** produceert de observatie? | |
-| Wat is de **observeerbare eigenschap** van de erosiepoel? | |
-| Welke **procedure** volgt de waarnemer? | |
-| Hoeveel **observaties** zijn er in deze dataset? | |
-| Wat is de **klasse** van het resultaat (245.000 liter)? | |
+| Vraag                                                  | Antwoord | Klasse |
+|--------------------------------------------------------|---|--------|
+| Wat is het **geobserveerde object**?                   | |        |
+| Wat is het **geobserveerde kenmerk**?                  | |        |
+| Welk **systeem** doet de observatie?                   | |        |
+| Welke **procedure** volgt de waarnemer?                | |        |
+| Wat is het **resultaat** van de observatie?            | |        |
+| Hoeveel **observaties** zijn er in deze dataset?       | |        |
+| Kan de erosiepoel ook als `Platform` fungeren? Waarom? | |        |
+
 
 ---
 
