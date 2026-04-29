@@ -52,16 +52,16 @@ Lees de use case en vul onderstaande vragen in. Geef waar van toepassing de bijb
 
 | Vraag                                                         | Antwoord | Klasse |
 |---------------------------------------------------------------|---|---|
-| Wat is het **geobserveerde object** van de metingen?          | | |
-| Wat is het **geobserveerde kenmerk** van de metingen?         | | |
-| Voor welk **object** zijn deze metingen representatief?       | | |
-| Welk **systeem** produceert de observaties?                   | | |
-| Wat is het **platform** waarop dit systeem gedeployed is?     | | |
-| Wat is het **resultaat** van een individuele meting?          | | |
-| Wat geeft de **fenomeentijd** aan van een individuele meting? | | |
-| Hoeveel **observaties** bevat de dataset voor 28 april 2026?  | | |
-| Welke **groepering** van metingen is hier zinvol?             | | |
-| Wat is de relatie tussen de **dagsom** en de 24 uurtellingen? | | |
+| Wat is het **geobserveerde object** van de metingen?          |Meetpunt (punt langs de weg) - Andere antwoorden: Inductielus / Lichte voertuigen / Fietsroute F1 / Telpost /  | |
+| Wat is het **geobserveerde kenmerk** van de metingen?         |Passerende verkeer / Aantal passages / Aantal lichte voertuigen (per tijdseenheid) | |
+| Voor welk **object** zijn deze metingen representatief?       |Segment van fietsroute F1 (representatief voor die route) | |
+| Welk **systeem** produceert de observaties?                   |Inductielus / Telsysteem  | |
+| Wat is het **platform** waarop dit systeem gedeployed is?     |Meetpunt (punt langs de weg) | |
+| Wat is het **resultaat** van een individuele meting?          |Hangt af van geobserveerd Kenmerk -  | |
+| Wat geeft de **fenomeentijd** aan van een individuele meting? |Tijdsinterval | |
+| Hoeveel **observaties** bevat de dataset voor 28 april 2026?  |25 (1 per uur & dagresultaat) | |
+| Welke **groepering** van metingen is hier zinvol?             |Per dag (24 in één collectie) | |
+| Wat is de relatie tussen de **dagsom** en de 24 uurtellingen? |'Het heeft iets met elkaar te maken' | |
 
 ---
 
