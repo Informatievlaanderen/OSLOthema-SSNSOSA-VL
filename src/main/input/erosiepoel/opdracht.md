@@ -43,19 +43,20 @@ spoedruiming te plannen.
 
 *Individueel — 10 minuten*
 
-Lees de use case en vul onderstaande tabel in. Gebruik de SOSA-klassen `Platform`,
+Lees de use case en vul onderstaande vragen in. Geef waar van toepassing de bijbehorende klasse aan en maak hierbij gebruik van de volgende SOSA-klassen `Platform`,
 `FeatureOfInterest`, `Sensor`, `System`, `ObservingProcedure`, `ObservableProperty`,
-`ObservationCollection`, `Observation` en `Result`.
+`Observation` en `Result`.
 
-| Vraag | Antwoord |
-|---|---|
-| Wat is het **ding dat bestudeerd wordt** (FeatureOfInterest)? | |
-| Kan de erosiepoel ook als `Platform` fungeren? Waarom? | |
-| Welke **sensor** produceert de observatie? | |
-| Wat is de **observeerbare eigenschap** van de erosiepoel? | |
-| Welke **procedure** volgt de waarnemer? | |
-| Hoeveel **observaties** zijn er in deze dataset? | |
-| Wat is de **klasse** van het resultaat (245.000 liter)? | |
+| Vraag                                                  | Antwoord | Klasse |
+|--------------------------------------------------------|---|--------|
+| Wat is het **geobserveerde object**?                   |Erosiepoel / Sediment |        |
+| Wat is het **geobserveerde kenmerk**?                  |Sedimentvolume / Water / is het vol?... |        |
+| Welk **systeem** doet de observatie?                   |Waarnemer X |        |
+| Welke **procedure** volgt de waarnemer?                |Visuele veldmeetprocedure |        |
+| Wat is het **resultaat** van de observatie?            |245.000 liter / 'Ja, bijna vol'  |        |
+| Hoeveel **observaties** zijn er in deze dataset?       |2: Volumemeting, opmerking |        |
+| Kan de erosiepoel ook als `Platform` fungeren? Waarom? |Ja --> Bijvoorbeeld sensoren / meetstok zijn gedeployed op het platform (Erosiepoel) |        |
+
 
 ---
 
@@ -63,21 +64,20 @@ Lees de use case en vul onderstaande tabel in. Gebruik de SOSA-klassen `Platform
 
 *In groepjes van 2 — 15 minuten*
 
-Teken een plat model (geen drielaags-architectuur) met drie lagen:
+Teken een diagram met de volgende drie zones:
 
 - **PROCEDURE** — procedure en observeerbare eigenschap
 - **INFRASTRUCTUUR** — platform, feature of interest, sensor
-- **WAARNEMING** — observatiecollectie, observatie, resultaat, tijdstip
+- **WAARNEMING** — observatie, resultaat, tijdstip
 
 Gebruik pijlen om relaties te tonen en label elke pijl met de bijhorende property.
+(bijv. `sosa:hasFeatureOfInterest`, `sosa:observedProperty`, `sosa:usedProcedure`, `sosa:madeBySensor`, `sosa:hasResult`, `sosa:hasProperty`, `sosa:phenomenonTime`).
 
 Beantwoord bij het tekenen:
 
 - Kan de erosiepoel tegelijk `sosa:Platform` **en** `sosa:FeatureOfInterest` zijn?
-  Welk gevolg heeft die keuze voor de relaties in het diagram?
-- Welke metadata staat op de `sosa:ObservationCollection`?
-  Wat zet je op de individuele `sosa:Observation` zelf?
 - Waarnemer X is een persoon, geen elektronisch instrument. Welke klasse ken je toe?
+- Is een collectie van observaties zinvol hier?
 
 ---
 
@@ -104,8 +104,7 @@ Gebruik `https://example.org/erosiepoel/` als basis-IRI.
 
 *Plenair — 15 minuten*
 
-1. De erosiepoel is tegelijk `sosa:Platform` en `sosa:FeatureOfInterest`. Wanneer is
-   zo'n dubbele typering zinvol? Wat zou er ontbreken als je de Platform-rol weglaat?
+1. De erosiepoel is tegelijk `sosa:Platform` en `sosa:FeatureOfInterest`. Waarom als FeatureOfInterest? Waarom als Platform?
 2. Waarom is Waarnemer X een `sosa:Sensor` en geen `prov:Agent`?
    Wat win je daarmee ten opzichte van een generieke agentrol?
 3. Waarom `sosa:hasResult` met een `qudt:QuantityValue`-object in plaats van
