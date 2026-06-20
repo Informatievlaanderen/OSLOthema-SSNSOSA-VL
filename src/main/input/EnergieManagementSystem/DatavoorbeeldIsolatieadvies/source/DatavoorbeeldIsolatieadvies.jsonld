@@ -83,11 +83,11 @@
         "@type": "Periode",
         "Periode.van": {
           "@type": "Moment",
-          "Moment.inXSDDateTime": "20250315T00:00:00.000"
+          "Moment.inXSDDateTime": "2025-03-15T00:00:00Z"
         },
         "Periode.tot": {
           "@type": "Moment",
-          "Moment.inXSDDateTime": "20250321T23:59:59.000"
+          "Moment.inXSDDateTime": "2025-03-15T00:00:00Z"
         }
       },
       "Observatie.resultaat": {
