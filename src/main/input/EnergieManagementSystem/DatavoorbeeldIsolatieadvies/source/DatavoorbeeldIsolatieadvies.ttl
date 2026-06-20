@@ -41,10 +41,10 @@ _:b0    rdf:type           gebouw:Gebouw;
                                                                              schema:value     "4.15E-1"^^rdfs:Literal
                                                                            ];
                                                 sosa:observedProperty      kenmerktype:gemiddeld_nachtelijk_warmteverlies;
-                                                sosa:usedProcedure         [ sosa:hasInput  <file:///home/gehau/git/OSLOthema-SSNSOSA-VL/resources/EnergieManagementSystem/DatavoorbeeldIsolatieadvies/source/DatavoorbeeldIsolatieadvies.jsonld>;
+                                                sosa:usedProcedure         [ sosa:hasInput  <DatavoorbeeldIsolatieadvies>;
                                                                              sosa:hasInput  [ rdf:type                   sosa:Observation;
                                                                                               dct:type                   observatietype:meting;
-                                                                                              sosa:hasFeatureOfInterest  [ rdf:type  <file:///home/gehau/git/OSLOthema-SSNSOSA-VL/resources/EnergieManagementSystem/DatavoorbeeldIsolatieadvies/source/Domeinobject> ];
+                                                                                              sosa:hasFeatureOfInterest  [ rdf:type  <Domeinobject> ];
                                                                                               sosa:hasResult             [ rdf:type         schema:QuantitativeValue;
                                                                                                                            schema:unitCode  unit:DEG_C-PER-HR;
                                                                                                                            schema:value     "4.4E-1"^^rdfs:Literal
