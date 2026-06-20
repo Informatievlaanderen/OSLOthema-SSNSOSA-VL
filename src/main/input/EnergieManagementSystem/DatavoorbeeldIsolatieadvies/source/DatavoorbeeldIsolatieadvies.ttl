@@ -1,71 +1,98 @@
-PREFIX dct:                        <http://purl.org/dc/terms/>
-PREFIX gebouw:                     <https://data.vlaanderen.be/ns/gebouw#>
-PREFIX inputtype:                  <https://example.com/concept/inputtype/>
-PREFIX kenmerktype:                <https://example.com/concept/kenmerktype/>
-PREFIX observatietype:             <https://example.com/concept/observatietype/>
-PREFIX observatieverzamelingtype:  <https://example.com/concept/observatieverzamelingtype/>
-PREFIX qudt:                       <https://qudt.org/schema/qudt/>
-PREFIX rdf:                        <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs:                       <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX schema:                     <https://schema.org/>
-PREFIX seb:                        <https://data.vlaanderen.be/ns/sensoren-en-bemonstering#>
-PREFIX sosa:                       <http://www.w3.org/ns/sosa/>
-PREFIX ssn:                        <http://www.w3.org/ns/ssn/>
-PREFIX time:                       <http://www.w3.org/2006/time#>
-PREFIX unit:                       <http://qudt.org/vocab/unit/>
-PREFIX warmteverliesklasse:        <https://example.com/concept/warmteverliesklasse/>
-PREFIX xs:                         <http://www.w3.org/2001/XMLSchema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX gebouw: <https://data.vlaanderen.be/ns/gebouw#>
+PREFIX inputtype: <https://example.com/concept/inputtype/>
+PREFIX kenmerktype: <https://example.com/concept/kenmerktype/>
+PREFIX observatietype: <https://example.com/concept/observatietype/>
+PREFIX observatieverzamelingtype: <https://example.com/concept/observatieverzamelingtype/>
+PREFIX qudt: <https://qudt.org/schema/qudt/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX schema: <https://schema.org/>
+PREFIX seb: <https://data.vlaanderen.be/ns/sensoren-en-bemonstering#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX unit: <http://qudt.org/vocab/unit/>
+PREFIX warmteverliesklasse: <https://example.com/concept/warmteverliesklasse/>
+PREFIX xs: <http://www.w3.org/2001/XMLSchema#>
+PREFIX ex: <http://example.com/>
 
 unit:DEG_C-PER-HR  rdf:type  qudt:Unit .
 
 _:b0    rdf:type           gebouw:Gebouw;
         gebouw:gebouwnaam  "Stadskantoor"@nl .
 
-[ rdf:type                   sosa:Observation;
-  dct:type                   observatietype:classificatie;
-  sosa:hasFeatureOfInterest  _:b0;
-  sosa:hasResult             warmteverliesklasse:matig;
-  sosa:observedProperty      kenmerktype:warmteverliesklasse;
-  sosa:usedProcedure         [ sosa:hasInput  [ rdf:type              ssn:Input;
-                                                dct:type              inputtype:warmteverlies_drempelwaarde;
-                                                seb:Input.referentie  [ rdf:type         schema:QuantitativeValue;
-                                                                        schema:unitCode  unit:DEG_C-PER-HR;
-                                                                        schema:value     "4.0E-1"^^rdfs:Literal
-                                                                      ]
-                                              ];
-                               sosa:hasInput  [ rdf:type                   sosa:Observation;
-                                                dct:type                   observatietype:meting;
-                                                sosa:hasFeatureOfInterest  _:b0;
-                                                sosa:hasResult             [ rdf:type         schema:QuantitativeValue;
-                                                                             schema:unitCode  unit:DEG_C-PER-HR;
-                                                                             schema:value     "4.15E-1"^^rdfs:Literal
-                                                                           ];
-                                                sosa:observedProperty      kenmerktype:gemiddeld_nachtelijk_warmteverlies;
-                                                sosa:usedProcedure         [ sosa:hasInput  <DatavoorbeeldIsolatieadvies>;
-                                                                             sosa:hasInput  [ rdf:type                   sosa:Observation;
-                                                                                              dct:type                   observatietype:meting;
-                                                                                              sosa:hasFeatureOfInterest  [ rdf:type  <Domeinobject> ];
-                                                                                              sosa:hasResult             [ rdf:type         schema:QuantitativeValue;
-                                                                                                                           schema:unitCode  unit:DEG_C-PER-HR;
-                                                                                                                           schema:value     "4.4E-1"^^rdfs:Literal
-                                                                                                                         ];
-                                                                                              sosa:observedProperty      kenmerktype:gemiddeld_nachtelijk_warmteverlies;
-                                                                                              sosa:phenomenonTime        [ rdf:type           time:ProperInterval;
-                                                                                                                           time:hasBeginning  [ rdf:type            time:Instant;
-                                                                                                                                                time:inXSDDateTime  "20250315T00:00:00.000"^^xs:dateTime
-                                                                                                                                              ];
-                                                                                                                           time:hasEnd        [ rdf:type            time:Instant;
-                                                                                                                                                time:inXSDDateTime  "20250321T23:59:59.000"^^xs:dateTime
-                                                                                                                                              ]
-                                                                                                                         ];
-                                                                                              sosa:usedProcedure         [ sosa:hasInput  [ rdf:type  sosa:Observation;
-                                                                                                                                            dct:type  observatietype:tijdreeksobservatie
-                                                                                                                                          ]
-                                                                                                                         ]
-                                                                                            ]
-                                                                           ]
-                                              ]
-                             ]
-] .
+_:b1    rdf:type                   sosa:Observation;
+        dct:type                   observatietype:classificatie;
+        sosa:hasFeatureOfInterest  _:b0;
+        sosa:hasResult             warmteverliesklasse:matig;
+        sosa:observedProperty      kenmerktype:warmteverliesklasse .
 
-[ rdf:type  observatieverzamelingtype:warmtevermlies_gebouwen ] .
+_:b2    rdf:type  ssn:Input;
+        dct:type  inputtype:warmteverlies_drempelwaarde .
+
+_:b3    rdf:type         schema:QuantitativeValue;
+        schema:unitCode  unit:DEG_C-PER-HR;
+        schema:value     "4.0E-1"^^rdfs:Literal .
+
+_:b2    seb:Input.referentie  _:b3 .
+
+_:b4    sosa:hasInput  _:b2 .
+
+_:b5    rdf:type                   sosa:Observation;
+        dct:type                   observatietype:meting;
+        sosa:hasFeatureOfInterest  _:b0 .
+
+_:b6    rdf:type         schema:QuantitativeValue;
+        schema:unitCode  unit:DEG_C-PER-HR;
+        schema:value     "4.15E-1"^^rdfs:Literal .
+
+_:b5    sosa:hasResult         _:b6;
+        sosa:observedProperty  kenmerktype:gemiddeld_nachtelijk_warmteverlies .
+
+_:b7    sosa:hasInput  ex:DatavoorbeeldIsolatieadvies .
+
+_:b8    rdf:type  sosa:Observation;
+        dct:type  observatietype:meting .
+
+_:b9    rdf:type  ex:Domeinobject .
+
+_:b8    sosa:hasFeatureOfInterest  _:b9 .
+
+_:b10   rdf:type         schema:QuantitativeValue;
+        schema:unitCode  unit:DEG_C-PER-HR;
+        schema:value     "4.4E-1"^^rdfs:Literal .
+
+_:b8    sosa:hasResult         _:b10;
+        sosa:observedProperty  kenmerktype:gemiddeld_nachtelijk_warmteverlies .
+
+_:b11   rdf:type  time:ProperInterval .
+
+_:b12   rdf:type            time:Instant;
+        time:inXSDDateTime  "2025-03-15T00:00:00Z"^^xs:dateTime .
+
+_:b11   time:hasBeginning  _:b12 .
+
+_:b13   rdf:type            time:Instant;
+        time:inXSDDateTime  "2025-03-15T00:00:00Z"^^xs:dateTime .
+
+_:b11   time:hasEnd  _:b13 .
+
+_:b8    sosa:phenomenonTime  _:b11 .
+
+_:b14   rdf:type  sosa:Observation;
+        dct:type  observatietype:tijdreeksobservatie .
+
+_:b15   sosa:hasInput  _:b14 .
+
+_:b8    sosa:usedProcedure  _:b15 .
+
+_:b7    sosa:hasInput  _:b8 .
+
+_:b5    sosa:usedProcedure  _:b7 .
+
+_:b4    sosa:hasInput  _:b5 .
+
+_:b1    sosa:usedProcedure  _:b4 .
+
+_:b16   rdf:type  observatieverzamelingtype:warmtevermlies_gebouwen .
