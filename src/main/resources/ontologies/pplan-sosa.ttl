@@ -1,0 +1,36 @@
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+
+# --- Class alignment ---
+
+p-plan:Plan
+    rdfs:subClassOf  sosa:Procedure ;
+    rdfs:comment     "A p-plan:Plan is a structured, reusable specification of activities composed of steps and variables, and is therefore a subtype of sosa:Procedure."@en .
+
+p-plan:Step
+    rdfs:subClassOf  sosa:Procedure ;
+    rdfs:comment     "A p-plan:Step specifies how a single activity within a plan is to be carried out, and is therefore a sosa:Procedure."@en .
+
+# --- Property alignment ---
+
+sosa:inputFor
+    rdf:type               owl:ObjectProperty ;
+    rdfs:comment           "A variable that is input to a step is input for the plan containing that step."@en ;
+    owl:propertyChainAxiom ( p-plan:isInputVarOf p-plan:isStepOfPlan ) .
+
+sosa:outputFor
+    rdf:type               owl:ObjectProperty ;
+    rdfs:comment           "A variable that is output of a step is output for the plan containing that step."@en ;
+    owl:propertyChainAxiom ( p-plan:isOutputVarOf p-plan:isStepOfPlan ) .
+
+sosa:usedProcedure
+    rdfs:comment           "An execution that corresponds to a step uses the plan to which that step is decomposed."@en ;
+    owl:propertyChainAxiom ( p-plan:correspondsToStep p-plan:isDecomposedAsPlan ) ;
+    rdfs:comment           "An execution uses the procedure for which its result is an output variable."@en ;
+    owl:propertyChainAxiom ( sosa:hasResult p-plan:correspondsToVariable sosa:outputFor ) ;
+    rdfs:comment           "An execution uses the procedure for which its feature of interest is an input variable. Note: may infer a parent plan rather than the most specific procedure when the feature of interest corresponds to a variable of an enclosing plan."@en ;
+    owl:propertyChainAxiom ( sosa:hasFeatureOfInterest p-plan:correspondsToVariable sosa:inputFor ) .
+
