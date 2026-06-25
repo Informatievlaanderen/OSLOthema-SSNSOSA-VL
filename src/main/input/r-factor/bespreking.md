@@ -147,6 +147,18 @@ van de observaties; via `sosa:isSampleOf ex:vlaanderen` is het overkoepelende st
 bereikbaar. Lambert 72-geometrie (`SRID=31370;POINT(...)^^geo:wktLiteral`) geeft de
 exacte stationslocatie mee (R11).
 
+### Waarom skolem-IRIs voor `time:Interval`, `time:Instant`, `qudt:QuantityValue` en `geo:Geometry`?
+
+Verworpen alternatief: blank nodes voor de geneste structuren (zoals in andere eenvoudigere
+voorbeelden). Bij een dataset met 34.000+ observaties zijn blank nodes onpraktisch: ze kunnen
+niet van buiten gerefereerd worden, ze kunnen niet worden hergebruikt in joins over grafen,
+en SPARQL property-path-queries op blank nodes zijn minder efficiënt. Gekozen aanpak: elke
+geneste resource krijgt een deterministische IRI op basis van de bovenliggende observatie-ID
+— bijv. `ex:interval-KMI-6408-jaar-2002`, `ex:instant-KMI-6408-jaar-2002-begin`,
+`ex:result-KMI-6408-jaar-2002`. Geometrieën worden gedeeld per station: `ex:geom-KMI-6408`.
+Het resultaat is een volledig blank-node-vrij graaf (R10: geen blank nodes voor extern
+refereerbare resources).
+
 ### Waarom een lokale `ex:unit-rfactor` en geen standaard QUDT-eenheid?
 
 De RUSLE R-factor eenheid MJ·mm/(ha·h·jaar) heeft geen equivalent in het QUDT-

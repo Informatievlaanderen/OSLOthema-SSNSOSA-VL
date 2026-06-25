@@ -20,34 +20,41 @@ if (length(script_file) > 0) {
 
 # ─── Inlezen ──────────────────────────────────────────────────────────────────
 message("Inlezen CSV-bestanden ...")
-stations    <- read_csv("stations_rfactor.csv",   show_col_types = FALSE)
-view        <- read_csv("view_rfactor.csv",        show_col_types = FALSE)
-jaarlijks   <- read_csv("jaarlijkse_rfactor.csv",  show_col_types = FALSE)
+stations    <- read_csv("stations_rfactor.csv",    show_col_types = FALSE)
+view        <- read_csv("view_rfactor.csv",         show_col_types = FALSE)
+jaarlijks   <- read_csv("jaarlijkse_rfactor.csv",   show_col_types = FALSE)
 maandelijks <- read_csv("maandelijkse_rfactor.csv", show_col_types = FALSE)
-perioden    <- read_csv("15-daagse_rfactor.csv",   show_col_types = FALSE)
+perioden    <- read_csv("15-daagse_rfactor.csv",    show_col_types = FALSE)
 
-# Beheerder (KMI/VMM) opzoeken op basis van stations-CSV
 beheerder_lu <- stations %>% select(station, beheerder)
 jaarlijks    <- left_join(jaarlijks,   beheerder_lu, by = "station")
 maandelijks  <- left_join(maandelijks, beheerder_lu, by = "station")
 perioden     <- left_join(perioden,    beheerder_lu, by = "station")
 
 # ─── Hulpfuncties ─────────────────────────────────────────────────────────────
-clean <- function(s) gsub("_", "-", s)  # IRI-veilige station-ID
-
-# Getypeerde letterwaarden
-val_date <- function(d) list(`@value` = as.character(d),         `@type` = "xsd:date")
+clean    <- function(s) gsub("_", "-", s)
+val_date <- function(d) list(`@value` = as.character(d), `@type` = "xsd:date")
 val_dec  <- function(v) list(`@value` = as.character(round(v, 3)), `@type` = "xsd:decimal")
 
-# Blank-node time:Interval
-interval <- function(begin, end) list(
+# time:Interval met benoemde IRIs — alle blank nodes zijn skoelm-IRIs
+interval <- function(begin, end, id) list(
+  `@id`               = paste0("ex:interval-", id),
   `@type`             = "time:Interval",
-  `time:hasBeginning` = list(`@type` = "time:Instant", `time:inXSDDate` = val_date(begin)),
-  `time:hasEnd`       = list(`@type` = "time:Instant", `time:inXSDDate` = val_date(end))
+  `time:hasBeginning` = list(
+    `@id`            = paste0("ex:instant-", id, "-begin"),
+    `@type`          = "time:Instant",
+    `time:inXSDDate` = val_date(begin)
+  ),
+  `time:hasEnd` = list(
+    `@id`            = paste0("ex:instant-", id, "-end"),
+    `@type`          = "time:Instant",
+    `time:inXSDDate` = val_date(end)
+  )
 )
 
-# Blank-node qudt:QuantityValue
-qty <- function(v) list(
+# qudt:QuantityValue met benoemde IRI
+qty <- function(v, id) list(
+  `@id`               = paste0("ex:result-", id),
   `@type`             = "qudt:QuantityValue",
   `qudt:numericValue` = val_dec(v),
   `qudt:hasUnit`      = list(`@id` = "ex:unit-rfactor")
@@ -74,7 +81,7 @@ ctx <- list(
   ex   = "https://example.org/rfactor/"
 )
 
-# ─── Gedeelde infrastructuurresources ────────────────────────────────────────
+# ─── Gedeelde resources ───────────────────────────────────────────────────────
 message("Gedeelde resources opbouwen ...")
 
 gedeeld <- list(
@@ -88,7 +95,7 @@ gedeeld <- list(
     `@id`          = "ex:procedure-rfactor-kmi",
     `@type`        = "sosa:ObservingProcedure",
     `rdfs:label`   = list(`@value` = "KMI R-factor berekening", `@language` = "nl"),
-    `rdfs:comment` = list(`@value` = "Berekening van de RUSLE R-factor (regenval-erosiviteitsindex) via KMI-neerslagstations (pluviografen).", `@language` = "nl")
+    `rdfs:comment` = list(`@value` = "Berekening van de RUSLE R-factor via KMI-neerslagstations (pluviografen).", `@language` = "nl")
   ),
   list(
     `@id`          = "ex:procedure-rfactor-vmm",
@@ -116,9 +123,9 @@ message("Platforms en sensoren opbouwen ...")
 view_lu <- view %>% select(station, meting_van, meting_tot, aantal_gevalideerde_jaren)
 
 infra <- unlist(lapply(seq_len(nrow(stations)), function(i) {
-  s   <- stations[i, ]
-  sc  <- clean(s$station)
-  v   <- view_lu[view_lu$station == s$station, ]
+  s  <- stations[i, ]
+  sc <- clean(s$station)
+  v  <- view_lu[view_lu$station == s$station, ]
 
   comment <- if (nrow(v) > 0)
     sprintf("%s-station %s te %s. Meetperiode: %s–%s (%s gevalideerde jaren).",
@@ -133,6 +140,7 @@ infra <- unlist(lapply(seq_len(nrow(stations)), function(i) {
       `rdfs:label`   = list(`@value` = s$locatie, `@language` = "nl"),
       `rdfs:comment` = list(`@value` = comment, `@language` = "nl"),
       `geo:hasGeometry` = list(
+        `@id`     = paste0("ex:geom-", sc),
         `@type`   = "geo:Geometry",
         `geo:asWKT` = list(
           `@value` = sprintf("SRID=31370;POINT(%s %s)", s$x, s$y),
@@ -148,7 +156,7 @@ infra <- unlist(lapply(seq_len(nrow(stations)), function(i) {
       `@type` = "sosa:Sensor",
       `rdfs:label`      = list(`@value` = sprintf("%s sensor %s", s$beheerder, s$station), `@language` = "nl"),
       `sosa:isHostedBy` = list(`@id` = paste0("ex:", sc)),
-      `sosa:implements`  = list(`@id` = paste0("ex:procedure-rfactor-", tolower(s$beheerder))),
+      `sosa:implements` = list(`@id` = paste0("ex:procedure-rfactor-", tolower(s$beheerder))),
       `sosa:observes`   = list(`@id` = "ex:property-erosiviteit")
     )
   )
@@ -158,8 +166,9 @@ infra <- unlist(lapply(seq_len(nrow(stations)), function(i) {
 message(sprintf("Jaarlijkse observaties opbouwen (%d records) ...", nrow(jaarlijks)))
 
 obs_jaar <- lapply(seq_len(nrow(jaarlijks)), function(i) {
-  r  <- jaarlijks[i, ]
-  sc <- clean(r$station)
+  r    <- jaarlijks[i, ]
+  sc   <- clean(r$station)
+  oid  <- paste0(sc, "-jaar-", r$jaar)
   list(
     `@id`   = paste0("ex:obs-", sc, "-", r$jaar),
     `@type` = "sosa:Observation",
@@ -167,8 +176,8 @@ obs_jaar <- lapply(seq_len(nrow(jaarlijks)), function(i) {
     `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", tolower(r$beheerder))),
     `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
     `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
-    `sosa:phenomenonTime`       = interval(make_date(r$jaar, 1, 1), make_date(r$jaar + 1, 1, 1)),
-    `sosa:hasResult`            = qty(r$erosiviteit),
+    `sosa:phenomenonTime`       = interval(make_date(r$jaar, 1, 1), make_date(r$jaar + 1, 1, 1), oid),
+    `sosa:hasResult`            = qty(r$erosiviteit, oid),
     `sosa:isMemberOf`           = list(`@id` = paste0("ex:collectie-", sc, "-jaarlijks"))
   )
 })
@@ -178,20 +187,20 @@ jaarlijks_g <- jaarlijks %>%
   summarise(jaren = list(jaar), .groups = "drop")
 
 coll_jaar <- lapply(seq_len(nrow(jaarlijks_g)), function(i) {
-    r  <- jaarlijks_g[i, ]
-    sc <- clean(r$station)
-    list(
-      `@id`   = paste0("ex:collectie-", sc, "-jaarlijks"),
-      `@type` = "sosa:ObservationCollection",
-      `rdfs:label`                = list(`@value` = sprintf("Jaarlijkse erosiviteitscollectie %s", r$station), `@language` = "nl"),
-      `sosa:madeBySensor`         = list(`@id` = paste0("ex:sensor-", sc)),
-      `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", tolower(r$beheerder))),
-      `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
-      `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
-      `sosa:hasMember`            = lapply(r$jaren[[1]], function(j) list(`@id` = paste0("ex:obs-", sc, "-", j)))
-    )
-  }
-)
+  r  <- jaarlijks_g[i, ]
+  sc <- clean(r$station)
+  list(
+    `@id`   = paste0("ex:collectie-", sc, "-jaarlijks"),
+    `@type` = "sosa:ObservationCollection",
+    `rdfs:label`                = list(`@value` = sprintf("Jaarlijkse erosiviteitscollectie %s", r$station), `@language` = "nl"),
+    `sosa:madeBySensor`         = list(`@id` = paste0("ex:sensor-", sc)),
+    `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", tolower(r$beheerder))),
+    `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
+    `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
+    `sosa:hasMember`            = lapply(r$jaren[[1]], function(j)
+      list(`@id` = paste0("ex:obs-", sc, "-", j)))
+  )
+})
 
 # ─── Maandelijkse observaties & collecties ────────────────────────────────────
 message(sprintf("Maandelijkse observaties opbouwen (%d records) ...", nrow(maandelijks)))
@@ -199,6 +208,7 @@ message(sprintf("Maandelijkse observaties opbouwen (%d records) ...", nrow(maand
 obs_maand <- lapply(seq_len(nrow(maandelijks)), function(i) {
   r     <- maandelijks[i, ]
   sc    <- clean(r$station)
+  oid   <- paste0(sc, "-maand-", r$jaar, "-m", sprintf("%02d", r$maand_id))
   begin <- make_date(r$jaar, r$maand_id, 1)
   end   <- begin %m+% months(1)
   list(
@@ -208,8 +218,8 @@ obs_maand <- lapply(seq_len(nrow(maandelijks)), function(i) {
     `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", tolower(r$beheerder))),
     `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
     `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
-    `sosa:phenomenonTime`       = interval(begin, end),
-    `sosa:hasResult`            = qty(r$erosiviteit),
+    `sosa:phenomenonTime`       = interval(begin, end, oid),
+    `sosa:hasResult`            = qty(r$erosiviteit, oid),
     `sosa:isMemberOf`           = list(`@id` = paste0("ex:collectie-", sc, "-", r$jaar, "-maandelijks"))
   )
 })
@@ -240,6 +250,7 @@ message(sprintf("15-daagse observaties opbouwen (%d records) ...", nrow(perioden
 obs_15d <- lapply(seq_len(nrow(perioden)), function(i) {
   r     <- perioden[i, ]
   sc    <- clean(r$station)
+  oid   <- paste0(sc, "-15d-", r$jaar, "-p", sprintf("%02d", r$periode))
   dates <- periode_interval(r$jaar, r$periode)
   list(
     `@id`   = paste0("ex:obs-", sc, "-", r$jaar, "-p", sprintf("%02d", r$periode)),
@@ -248,8 +259,8 @@ obs_15d <- lapply(seq_len(nrow(perioden)), function(i) {
     `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", tolower(r$beheerder))),
     `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
     `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
-    `sosa:phenomenonTime`       = interval(dates$begin, dates$end),
-    `sosa:hasResult`            = qty(r$erosiviteit),
+    `sosa:phenomenonTime`       = interval(dates$begin, dates$end, oid),
+    `sosa:hasResult`            = qty(r$erosiviteit, oid),
     `sosa:isMemberOf`           = list(`@id` = paste0("ex:collectie-", sc, "-", r$jaar, "-15daags"))
   )
 })
@@ -274,15 +285,16 @@ coll_15d <- lapply(seq_len(nrow(perioden_g)), function(i) {
   )
 })
 
-# ─── Gemiddelde-observaties (afgeleide per R13) ───────────────────────────────
+# ─── Gemiddelde-observaties (afgeleide, R13) ─────────────────────────────────
 message("Gemiddelde-observaties opbouwen (afgeleide R13) ...")
 
 obs_gem <- lapply(seq_len(nrow(view)), function(i) {
-  v  <- view[i, ]
-  sc <- clean(v$station)
-  bh <- tolower(v$beheerder)
+  v   <- view[i, ]
+  sc  <- clean(v$station)
+  oid <- paste0(sc, "-gemiddelde")
+  bh  <- tolower(v$beheerder)
   list(
-    `@id`   = paste0("ex:obs-", sc, "-gemiddelde"),
+    `@id`   = paste0("ex:obs-", oid),
     `@type` = "sosa:Observation",
     `rdfs:label`                = list(`@value` = sprintf("Gemiddelde jaarlijkse erosiviteit %s (%s–%s)", v$station, v$meting_van, v$meting_tot), `@language` = "nl"),
     `sosa:madeBySensor`         = list(`@id` = paste0("ex:sensor-", sc)),
@@ -291,11 +303,12 @@ obs_gem <- lapply(seq_len(nrow(view)), function(i) {
     `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
     `sosa:phenomenonTime`       = interval(
       make_date(v$meting_van, 1, 1),
-      make_date(v$meting_tot + 1, 1, 1)
+      make_date(v$meting_tot + 1, 1, 1),
+      oid
     ),
     `sosa:hasInputValue`      = list(`@id` = paste0("ex:collectie-", sc, "-jaarlijks")),
     `sosa:relatedObservation` = list(`@id` = paste0("ex:collectie-", sc, "-jaarlijks")),
-    `sosa:hasResult`          = qty(v$gemiddelde_waarde)
+    `sosa:hasResult`          = qty(v$gemiddelde_waarde, oid)
   )
 })
 
@@ -306,13 +319,41 @@ jsonld <- list(`@context` = ctx, `@graph` = graph)
 message(sprintf("Schrijven rfactor.jsonld (%d resources) ...", length(graph)))
 write_json(jsonld, "rfactor.jsonld", auto_unbox = TRUE, pretty = FALSE)
 
-# ─── riot-conversie ───────────────────────────────────────────────────────────
-message("Converteren naar Turtle via riot ...")
-riot_cmd <- "riot --formatted=turtle rfactor.jsonld > rfactor.ttl"
-ret <- system(riot_cmd)
-if (ret == 0) {
-  ttl_size <- file.size("rfactor.ttl")
-  message(sprintf("rfactor.ttl aangemaakt (%.1f MB).", ttl_size / 1e6))
-} else {
-  stop("riot-conversie mislukt. Controleer rfactor.jsonld op JSON-LD-fouten.")
-}
+# ─── Volledige dataset → rfactor.trig (uitgesloten van mvn-validatie) ─────────
+message("Converteren naar rfactor.trig (volledige dataset, ~44 MB) ...")
+ret <- system("riot --output=turtle rfactor.jsonld > rfactor.trig")
+if (ret != 0) stop("riot-conversie (trig) mislukt.")
+message(sprintf("rfactor.trig aangemaakt (%.1f MB).", file.size("rfactor.trig") / 1e6))
+
+# ─── Validatie-subset → rfactor.ttl (1 station: KMI_6408) ────────────────────
+# Bevat alle drie aggregatieniveaus + gemiddelde voor KMI_6408.
+# Dit bestand wordt wél meegenomen in mvn compile exec:java.
+VALIDATIE_STATION <- "KMI-6408"
+
+gedeeld_ids <- c("ex:vlaanderen", "ex:procedure-rfactor-kmi", "ex:procedure-rfactor-vmm",
+                 "ex:property-erosiviteit", "ex:unit-rfactor")
+
+graph_validatie <- Filter(function(x) {
+  id <- x[["@id"]]
+  if (is.null(id)) return(FALSE)
+  id %in% gedeeld_ids ||
+    grepl(paste0("^ex:(", VALIDATIE_STATION,
+                 "|sensor-", VALIDATIE_STATION,
+                 "|geom-", VALIDATIE_STATION,
+                 "|collectie-", VALIDATIE_STATION,
+                 "|obs-", VALIDATIE_STATION,
+                 "|interval-", VALIDATIE_STATION,
+                 "|instant-", VALIDATIE_STATION,
+                 "|result-", VALIDATIE_STATION, ")"),
+          id)
+}, graph)
+
+message(sprintf("Validatie-subset: %d resources (station %s).", length(graph_validatie), VALIDATIE_STATION))
+jsonld_val <- list(`@context` = ctx, `@graph` = graph_validatie)
+write_json(jsonld_val, "rfactor_validatie.jsonld", auto_unbox = TRUE, pretty = FALSE)
+
+ret <- system("riot --output=turtle rfactor_validatie.jsonld > rfactor.ttl")
+if (ret != 0) stop("riot-conversie (ttl validatie) mislukt.")
+message(sprintf("rfactor.ttl aangemaakt (%.0f KB, validatie-subset).",
+                file.size("rfactor.ttl") / 1e3))
+file.remove("rfactor_validatie.jsonld")

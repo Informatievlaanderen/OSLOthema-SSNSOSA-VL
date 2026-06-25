@@ -31,10 +31,11 @@ maandelijkse_rfactor.csv─┤  (vanuit r-factor/ directory)
 15-daagse_rfactor.csv  ─┘
         │
         ▼
-   rfactor.jsonld    (JSON-LD intermediair, ~20 MB)
+   rfactor.jsonld        (JSON-LD intermediair, ~34 MB)
         │
-        ▼ riot --output=turtle
-   rfactor.ttl       (Turtle, ~34 MB)
+        ├─► rfactor.trig (volledige dataset, ~42 MB — uitgesloten van mvn-validatie)
+        │
+        └─► rfactor.ttl  (validatie-subset: station KMI_6408, ~185 KB)
 ```
 
 ### Stap voor stap
@@ -46,6 +47,17 @@ Rscript r/rfactor_to_rdf.R
 
 Vereisten: R ≥ 4.0 met pakketten `readr`, `dplyr`, `jsonlite`, `lubridate`;
 Apache Jena `riot` op PATH.
+
+Het script genereert twee Turtle-bestanden:
+- **`rfactor.trig`** — volledige dataset (alle 53 stations, alle jaren). De `.trig`-extensie
+  zorgt ervoor dat dit bestand niet meegenomen wordt in `mvn compile exec:java`
+  (de pipeline verwerkt alleen `.ttl`-bestanden).
+- **`rfactor.ttl`** — validatie-subset met één station (KMI_6408, jaren 2002–2005),
+  alle drie aggregatieniveaus en de gemiddelde observatie. Dit bestand wordt wél
+  gevalideerd door de pipeline.
+
+Om een ander station als validatie-subset te kiezen, pas `VALIDATIE_STATION` aan in
+`r/rfactor_to_rdf.R`.
 
 ## SSN/SOSA-modelleringspatroon
 
@@ -61,9 +73,13 @@ Elk station is `sosa:Platform + sosa:FeatureOfInterest + sosa:SpatialSample`
 De gemiddelde jaarlijkse R-factor uit `view_rfactor.csv` is een **afgeleide observatie**
 (`sosa:hasInputValue` → jaarlijkse collectie, conform R13).
 
+Alle geneste resources (`time:Interval`, `time:Instant`, `qudt:QuantityValue`,
+`geo:Geometry`) krijgen deterministische skolem-IRIs — het model bevat geen blank nodes.
+
 ## Gegenereerde output
 
-| Bestand | Formaat | Grootte |
-|---|---|---|
-| `rfactor.jsonld` | JSON-LD | ~20 MB |
-| `rfactor.ttl` | Turtle | ~34 MB |
+| Bestand | Formaat | Grootte | Opmerking |
+|---|---|---|---|
+| `rfactor.jsonld` | JSON-LD | ~34 MB | Intermediair, volledig |
+| `rfactor.trig` | Turtle (TriG-extensie) | ~42 MB | Volledige dataset, niet gevalideerd door pipeline |
+| `rfactor.ttl` | Turtle | ~185 KB | Validatie-subset (1 station), wél gevalideerd |
