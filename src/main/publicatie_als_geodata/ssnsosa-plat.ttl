@@ -1,0 +1,335 @@
+@prefix ssnsosa: <https://data.vlaanderen.be/ns/ssnsosa#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa:    <http://www.w3.org/ns/sosa/> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix geo:     <http://www.opengis.net/ont/geosparql#> .
+@prefix time:    <http://www.w3.org/2006/time#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix vann:    <http://purl.org/vocab/vann/> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+
+# ============================================================ #
+# Ontology definition
+# ============================================================ #
+
+<https://data.vlaanderen.be/ns/ssnsosa#> a owl:Ontology ;
+    dct:title "OSLO SSN/SOSA Plat Model Ontologie"@nl ;
+    dct:title "OSLO SSN/SOSA Flat Model Ontology"@en ;
+    dct:creator "Informatie Vlaanderen"@nl ;
+    dct:publisher "Informatie Vlaanderen"@nl ;
+    dct:description "Domein-neutrale OWL2-DL ontologie voor het publiceren van SSN/SOSA observatiedata in een relationeel formaat. Dient als bron voor ODDToolkit-codegeneratie (SQL, SHACL, ER-diagram). Gebaseerd op het rfactor-voorbeeld (KMI neerslagerosiviteit)."@nl ;
+    dct:license <https://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/v1.0> ;
+    owl:versionInfo "0.1.0" ;
+    vann:preferredNamespacePrefix "ssnsosa" ;
+    vann:preferredNamespaceUri "https://data.vlaanderen.be/ns/ssnsosa#" ;
+    foaf:homepage <https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL> ;
+    owl:imports <http://www.w3.org/ns/sosa/> ,
+                <http://qudt.org/schema/qudt/> ,
+                <http://www.opengis.net/ont/geosparql#> ,
+                <http://www.w3.org/2006/time> .
+
+# ============================================================ #
+# Classes
+# ============================================================ #
+
+# ------------------------------------------------------------ #
+# ssnsosa:MeetStation
+# Triple-typing: Platform + FeatureOfInterest + SpatialSample
+# Conform R1 en R11 in CLAUDE.md: een meetstation is een locatie
+# die uitrusting herbergt (Platform), het directe studieobject
+# van observaties (FeatureOfInterest), en een ruimtelijk
+# deelmonster van een groter studiegebied (SpatialSample).
+# ------------------------------------------------------------ #
+
+ssnsosa:MeetStation a owl:Class ;
+    rdfs:label "Meetstation"@nl ;
+    rdfs:label "Monitoring Station"@en ;
+    rdfs:comment "Een geografisch meetpunt dat één of meer sensoren herbergt, als direct studieobject dient voor observaties, en een ruimtelijk deelmonster is van een groter studiegebied."@nl ;
+    rdfs:subClassOf sosa:Platform ,
+                    sosa:FeatureOfInterest ,
+                    sosa:SpatialSample ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een meetstation moet een label hebben."@nl ;
+        owl:onProperty rdfs:label ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een meetstation moet een geometrie hebben."@nl ;
+        owl:onProperty geo:hasGeometry ;
+        owl:someValuesFrom geo:Geometry ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een meetstation is een monster van precies één studiegebied."@nl ;
+        owl:onProperty sosa:isSampleOf ;
+        owl:someValuesFrom ssnsosa:StudieGebied ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een meetstation kan een beschrijving hebben."@nl ;
+        owl:onProperty rdfs:comment ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+# ------------------------------------------------------------ #
+# ssnsosa:StudieGebied
+# Het bredere geografische of thematische studieobject waarvan
+# het meetstation een ruimtelijk deelmonster is (R8, R11).
+# ------------------------------------------------------------ #
+
+ssnsosa:StudieGebied a owl:Class ;
+    rdfs:label "Studiegebied"@nl ;
+    rdfs:label "Study Area"@en ;
+    rdfs:comment "Het bredere geografische of thematische object dat bestudeerd wordt; bereikbaar via de sampling-keten vanuit het meetstation."@nl ;
+    rdfs:subClassOf sosa:FeatureOfInterest ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een studiegebied moet een label hebben."@nl ;
+        owl:onProperty rdfs:label ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een studiegebied kan een beschrijving hebben."@nl ;
+        owl:onProperty rdfs:comment ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+# ------------------------------------------------------------ #
+# ssnsosa:Sensor
+# Conform R1: de agent (apparaat of software) die observaties
+# uitvoert. Gehost door precies één meetstation.
+# ------------------------------------------------------------ #
+
+ssnsosa:Sensor a owl:Class ;
+    rdfs:label "Sensor"@nl ;
+    rdfs:label "Sensor"@en ;
+    rdfs:comment "Een apparaat of softwarecomponent die observaties uitvoert door een meetprocedure te implementeren."@nl ;
+    rdfs:subClassOf sosa:Sensor ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een sensor moet een label hebben."@nl ;
+        owl:onProperty rdfs:label ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een sensor is gehost door precies één meetstation."@nl ;
+        owl:onProperty sosa:isHostedBy ;
+        owl:someValuesFrom ssnsosa:MeetStation ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een sensor implementeert minstens één meetprocedure."@nl ;
+        owl:onProperty sosa:implements ;
+        owl:someValuesFrom ssnsosa:MeetProcedure ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een sensor observeert minstens één eigenschap."@nl ;
+        owl:onProperty sosa:observes ;
+        owl:someValuesFrom ssnsosa:ObserveerdeEigenschap ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+# ------------------------------------------------------------ #
+# ssnsosa:MeetProcedure
+# De methode of het protocol dat de sensor implementeert.
+# ------------------------------------------------------------ #
+
+ssnsosa:MeetProcedure a owl:Class ;
+    rdfs:label "Meetprocedure"@nl ;
+    rdfs:label "Observation Procedure"@en ;
+    rdfs:comment "Een beschrijving van de methode of het protocol dat gevolgd wordt om een observatie uit te voeren."@nl ;
+    rdfs:subClassOf sosa:ObservingProcedure ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een meetprocedure moet een label hebben."@nl ;
+        owl:onProperty rdfs:label ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een meetprocedure kan een beschrijving hebben."@nl ;
+        owl:onProperty rdfs:comment ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+# ------------------------------------------------------------ #
+# ssnsosa:ObserveerdeEigenschap
+# Conform SOSA 2023: sosa:Property (was sosa:ObservableProperty).
+# ------------------------------------------------------------ #
+
+ssnsosa:ObserveerdeEigenschap a owl:Class ;
+    rdfs:label "Geobserveerde eigenschap"@nl ;
+    rdfs:label "Observable Property"@en ;
+    rdfs:comment "Een fysische of domeinspecifieke eigenschap die gemeten wordt door een observatie."@nl ;
+    rdfs:subClassOf sosa:Property ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een geobserveerde eigenschap moet een label hebben."@nl ;
+        owl:onProperty rdfs:label ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een geobserveerde eigenschap kan een beschrijving hebben."@nl ;
+        owl:onProperty rdfs:comment ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+# ------------------------------------------------------------ #
+# ssnsosa:ObservatieCollectie
+# Groepeert observaties die gedeelde metadata delen (sensor,
+# procedure, eigenschap, studieobject). Conform R4/R13.
+# ------------------------------------------------------------ #
+
+ssnsosa:ObservatieCollectie a owl:Class ;
+    rdfs:label "Observatiecollectie"@nl ;
+    rdfs:label "Observation Collection"@en ;
+    rdfs:comment "Een geordende of ongeordende verzameling observaties die gedeelde metadata (sensor, procedure, eigenschap, studieobject) op collectieniveau dragen."@nl ;
+    rdfs:subClassOf sosa:ObservationCollection ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatiecollectie moet een label hebben."@nl ;
+        owl:onProperty rdfs:label ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatiecollectie heeft minstens één meetstation als studieobject."@nl ;
+        owl:onProperty sosa:hasFeatureOfInterest ;
+        owl:someValuesFrom ssnsosa:MeetStation ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatiecollectie is gedaan door minstens één sensor."@nl ;
+        owl:onProperty sosa:madeBySensor ;
+        owl:someValuesFrom ssnsosa:Sensor ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatiecollectie kan een gebruikte procedure hebben."@nl ;
+        owl:onProperty sosa:usedProcedure ;
+        owl:someValuesFrom ssnsosa:MeetProcedure ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatiecollectie kan een geobserveerde eigenschap hebben."@nl ;
+        owl:onProperty sosa:observedProperty ;
+        owl:someValuesFrom ssnsosa:ObserveerdeEigenschap ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+# ------------------------------------------------------------ #
+# ssnsosa:Observatie
+# Centrale klasse: één meting met tijdsinterval en resultaat.
+# Conform R2, R12: verplichte sosa:hasFeatureOfInterest,
+# sosa:hasResult en sosa:phenomenonTime.
+# ------------------------------------------------------------ #
+
+ssnsosa:Observatie a owl:Class ;
+    rdfs:label "Observatie"@nl ;
+    rdfs:label "Observation"@en ;
+    rdfs:comment "Eén waarneming of meting uitgevoerd op een meetstation door een sensor, met een tijdsinterval en een kwantitatief resultaat."@nl ;
+    rdfs:subClassOf sosa:Observation ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatie heeft precies één meetstation als studieobject."@nl ;
+        owl:onProperty sosa:hasFeatureOfInterest ;
+        owl:someValuesFrom ssnsosa:MeetStation ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatie is gedaan door precies één sensor."@nl ;
+        owl:onProperty sosa:madeBySensor ;
+        owl:someValuesFrom ssnsosa:Sensor ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatie heeft precies één meetresultaat."@nl ;
+        owl:onProperty sosa:hasResult ;
+        owl:someValuesFrom ssnsosa:QuantitatieveWaarde ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatie heeft precies één fenomeentijdstip of -interval."@nl ;
+        owl:onProperty sosa:phenomenonTime ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatie heeft precies één geobserveerde eigenschap."@nl ;
+        owl:onProperty sosa:observedProperty ;
+        owl:someValuesFrom ssnsosa:ObserveerdeEigenschap ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatie heeft precies één gebruikte procedure."@nl ;
+        owl:onProperty sosa:usedProcedure ;
+        owl:someValuesFrom ssnsosa:MeetProcedure ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een observatie kan een resultaattijdstip hebben."@nl ;
+        owl:onProperty sosa:resultTime ;
+        owl:someValuesFrom xsd:dateTime ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+# ------------------------------------------------------------ #
+# ssnsosa:QuantitatieveWaarde
+# Conform R3: qudt:QuantityValue met numericValue en hasUnit.
+# ------------------------------------------------------------ #
+
+ssnsosa:QuantitatieveWaarde a owl:Class ;
+    rdfs:label "Kwantitatieve waarde"@nl ;
+    rdfs:label "Quantitative Value"@en ;
+    rdfs:comment "Een numerieke meetwaarde met een fysische eenheid, conform het QUDT-model."@nl ;
+    rdfs:subClassOf qudt:QuantityValue ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een kwantitatieve waarde heeft precies één numerieke waarde."@nl ;
+        owl:onProperty qudt:numericValue ;
+        owl:someValuesFrom xsd:decimal ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een kwantitatieve waarde heeft precies één eenheid."@nl ;
+        owl:onProperty qudt:hasUnit ;
+        owl:someValuesFrom ssnsosa:Eenheid ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
+# ------------------------------------------------------------ #
+# ssnsosa:Eenheid
+# Conform R10: gebruik QUDT-unit URIs voor productiedata.
+# ------------------------------------------------------------ #
+
+ssnsosa:Eenheid a owl:Class ;
+    rdfs:label "Eenheid"@nl ;
+    rdfs:label "Unit"@en ;
+    rdfs:comment "Een meting- of telmeteenheid, bij voorkeur aangeduid via een QUDT-unit-URI."@nl ;
+    rdfs:subClassOf qudt:Unit ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een eenheid moet een label hebben."@nl ;
+        owl:onProperty rdfs:label ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger
+    ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een eenheid kan een beschrijving hebben."@nl ;
+        owl:onProperty rdfs:comment ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger
+    ] .
+
