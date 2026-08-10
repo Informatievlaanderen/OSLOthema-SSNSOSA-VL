@@ -2269,6 +2269,8 @@ sosa:Execution  rdf:type  owl:Class;
         skos:definition   "\n  act of carrying out a Procedure using a System\n  "@en;
         skos:scopeNote    "\n  Execution generalizes the Actuation, Observation, and Sampling classes. \n  It is included in the ontology to support the definition of a common pattern for executions and their properties. \n\n  Execution MUST be considered to be abstract, so any individual Execution SHOULD be declared to be an instance of one of the concrete sub-classes, and not of the Execution class.\n  "@en .
 
+
+
 sosa:usedProcedure  rdf:type    owl:ObjectProperty;
         rdfs:isDefinedBy        sosa-common:;
         rdfs:label              "used procedure"@en;
