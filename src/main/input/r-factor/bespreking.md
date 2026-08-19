@@ -18,7 +18,7 @@ Bron: Vlaams Erosiemeetnet via KMI en VMM (geen publieke Linked Data-URI beschik
 
 | Kleur | SOSA-concept | Domeinbetekenis |
 |---|---|---|
-| Blauw (#60c4e4) | Platform / SpatialSample / FeatureOfInterest / Sensor | Neerslagmeetstation + -sensor |
+| Blauw (#60c4e4) | Platform / SpatialSample / FeatureOfInterest / Sensor | Neerslagmeetstation + centrale berekeningssensor |
 | Oranje (#fe7130) | Property / ObservingProcedure | Erosiviteitseigenschap + meetprocedure |
 | Roze (#e54b89) | ObservationCollection / Observation | Erosiviteitsmeting of -collectie |
 | Geel (#f8b622) | qudt:QuantityValue / time:Interval | Meetresultaat en tijdsperiode |
@@ -41,14 +41,17 @@ Elke van de 53 neerslagstations is drievoudig getypeerd (zie R1, R11):
 Geometrie: Lambert 72-coördinaten (`SRID=31370;POINT(x y)^^geo:wktLiteral`).
 Koppeling: `sosa:isSampleOf ex:vlaanderen`.
 
-### `ex:sensor-{station-id}` — `sosa:Sensor`
-Één sensor per station (pluviograaf of hydrometrisch instrument). Elke sensor:
-- `sosa:isHostedBy` → het bijbehorende Platform
-- `sosa:implements` → `ex:procedure-rfactor-kmi` of `ex:procedure-rfactor-vmm`
-- `sosa:observes` → `ex:property-erosiviteit`
+### `ex:departement-omgeving` — `sosa:Platform`
+De Vlaamse overheidsdienst die de RUSLE R-factor centraal berekent op basis van de ruwe
+neerslagdata van het KMI- en VMM-meetnet. Het station zelf levert enkel brondata; de
+erosiviteitsberekening gebeurt niet op het station.
 
-Twee sensorfamilies (KMI vs VMM) reflect het feit dat de twee netwerken verschillende
-instrumenttypes en kalibratiemethoden gebruiken.
+### `ex:sensor-rfactor` — `sosa:Sensor`
+Eén centrale berekeningsketen, niet per station of per beheerder:
+- `sosa:isHostedBy` → `ex:departement-omgeving`
+- `sosa:implements` → zowel `ex:procedure-rfactor-kmi` als `ex:procedure-rfactor-vmm`
+  (dezelfde sensor verwerkt brondata van beide meetnetten, elk volgens hun eigen procedure)
+- `sosa:observes` → `ex:property-erosiviteit`
 
 ---
 
@@ -58,7 +61,7 @@ instrumenttypes en kalibratiemethoden gebruiken.
 
 | Collectie-IRI | Groepeert | Gedeelde metadata |
 |---|---|---|
-| `ex:collectie-{station}-jaarlijks` | alle jaarlijkse obs voor een station | sensor, procedure, FOI, property |
+| `ex:collectie-{station}-jaarlijks` | alle jaarlijkse obs voor een station | sensor (`ex:sensor-rfactor`), procedure, FOI, property |
 | `ex:collectie-{station}-{jaar}-maandelijks` | 12 maandelijkse obs per station-jaar | idem |
 | `ex:collectie-{station}-{jaar}-15daags` | 24 15-daagse obs per station-jaar | idem |
 
@@ -71,7 +74,8 @@ instrumenttypes en kalibratiemethoden gebruiken.
 | 15-daags | `ex:obs-{st}-{jaar}-p{pp}` | idem | idem | idem | idem |
 | Gemiddelde | `ex:obs-{st}-gemiddelde` | idem | idem | idem | idem |
 
-Elke observatie draagt ook `sosa:madeBySensor` en `sosa:isMemberOf` voor de bijbehorende collectie.
+Elke observatie draagt ook `sosa:madeBySensor ex:sensor-rfactor` (de centrale berekeningsketen,
+ongeacht beheerder) en `sosa:isMemberOf` voor de bijbehorende collectie.
 
 ---
 
@@ -81,11 +85,13 @@ Elke observatie draagt ook `sosa:madeBySensor` en `sosa:isMemberOf` voor de bijb
 
 | IRI | Klasse | Geïmplementeerd door |
 |---|---|---|
-| `ex:procedure-rfactor-kmi` | `sosa:ObservingProcedure` | alle KMI-sensoren (10 stations) |
-| `ex:procedure-rfactor-vmm` | `sosa:ObservingProcedure` | alle VMM-sensoren (43 stations) |
+| `ex:procedure-rfactor-kmi` | `sosa:ObservingProcedure` | `ex:sensor-rfactor` (bij verwerking van KMI-brondata, 10 stations) |
+| `ex:procedure-rfactor-vmm` | `sosa:ObservingProcedure` | `ex:sensor-rfactor` (bij verwerking van VMM-brondata, 43 stations) |
 
-Beide procedures berekenen de RUSLE R-factor maar via verschillende meetinstrumenten:
-KMI gebruikt klassieke pluviografen, VMM telemetrische hydrometrie.
+Beide procedures berekenen de RUSLE R-factor maar via verschillende brondata-instrumenten:
+KMI gebruikt klassieke pluviografen, VMM telemetrische hydrometrie. Eén en dezelfde centrale
+sensor (`ex:sensor-rfactor`) implementeert beide procedures, elk voor de brondata van het
+bijbehorende meetnet.
 
 ### ObservableProperty
 
@@ -98,14 +104,29 @@ Dit is de temporele R-factor zoals gedefinieerd in de RUSLE-methodiek
 
 ## 6. Modelleer-keuzes toegelicht
 
-### Waarom één sensor per station in plaats van één per beheerder?
+### Waarom één centrale sensor bij Departement Omgeving in plaats van één sensor per station (of per beheerder)?
 
-Verworpen alternatief: twee globale sensoren (`ex:sensor-kmi`, `ex:sensor-vmm`), elk gedeeld
-door alle stations van die beheerder. Dit is semantisch onjuist: `sosa:isHostedBy` impliceert
-een 1-op-1 fysieke host-relatie. Een sensor kan niet tegelijk door 10 verschillende platforms
-worden geherbergd (één meetinstrument staat op één locatie). Gekozen aanpak: één sensor per
-station. De twee procedures (`ex:procedure-rfactor-kmi` en `ex:procedure-rfactor-vmm`)
-modelleren het verschil in meetmethode per beheerder.
+Verworpen alternatief 1: één sensor per station (`ex:sensor-{station-id}`, `sosa:isHostedBy`
+het station). Dit is feitelijk onjuist: het station levert enkel de ruwe neerslagdata; de
+RUSLE R-factor wordt niet lokaal op het station berekend. `sosa:madeBySensor` naar een
+stations-sensor zou suggereren dat het meetinstrument op locatie de erosiviteit produceert,
+wat niet strookt met het werkelijke proces.
+
+Verworpen alternatief 2: twee sensoren, één per beheerder (`ex:sensor-kmi`, `ex:sensor-vmm`).
+Ook dit is onjuist, om dezelfde onderliggende reden: de berekening gebeurt niet bij KMI of VMM
+zelf, maar centraal bij Departement Omgeving, dat de brondata van beide meetnetten verzamelt
+en volgens één centrale RUSLE-implementatie verwerkt.
+
+Gekozen aanpak: één centrale sensor `ex:sensor-rfactor`, gehost door `ex:departement-omgeving`
+(`sosa:Platform`). `sosa:isHostedBy` (waar de sensor staat) en `sosa:hasFeatureOfInterest`
+(waarover de observatie gaat) zijn onafhankelijke properties in SOSA — precies zoals in
+`elektrisch-raam`, waar `inst:besturings-eenheid` op gebouwniveau gehost wordt terwijl de
+Observations die het produceert een fijnmaziger `sosa:hasFeatureOfInterest` (een specifieke
+kamer) hebben. Hier blijft `sosa:hasFeatureOfInterest` op elke observatie naar het station
+wijzen, terwijl `sosa:madeBySensor` naar de centrale sensor wijst. `sosa:usedProcedure` blijft
+wél gedifferentieerd naar KMI/VMM, omdat de twee procedures (`ex:procedure-rfactor-kmi` en
+`ex:procedure-rfactor-vmm`) het verschil in brondata-instrumentatie per beheerder modelleren —
+alleen de sensor die de berekening uitvoert is gedeeld.
 
 ### Waarom `sosa:ObservationCollection` per aggregatieniveau?
 
@@ -134,7 +155,13 @@ onjuist zijn. Half-open intervallen conform CLAUDE.md-conventie: [begin, einde).
   resource nodig.
 - `gemiddelde_waarde` = gemiddelde over alle gevalideerde jaren. Dit is wél een nieuwe
   observatie die niet in `jaarlijkse_rfactor.csv` staat. Conform R13 wordt ze gemodelleerd
-  als afgeleide observatie met `sosa:hasInputValue` → jaarlijkse collectie.
+  als afgeleide observatie met `sosa:hasInputValue` → de individuele `qudt:QuantityValue`-
+  resultaten van elke jaarlijkse observatie (bv. `ex:result-KMI-6408-jaar-2002`, `-2003`, …),
+  niet naar de collectie of naar de observaties zelf: `sosa:hasInputValue` "kent een waarde toe
+  aan een input" (SOSA 2023-definitie) — het gemiddelde wordt berekend op basis van de
+  resultáátwaarden van de jaarlijkse observaties, niet op basis van de observatiecollectie als
+  geheel. `sosa:relatedObservation` blijft wél naar de jaarlijkse collectie wijzen, als losse
+  associatieve band (geen waarde-semantiek).
   Ze staat bewust NIET als `sosa:hasMember` in de jaarlijkse collectie (R13: afgeleide
   observaties zijn geen directe leden van de broncollectie).
 
@@ -205,10 +232,10 @@ Elk `time:Interval` bevat:
 
 Regels:
 - Stations: `ex:{KMI-6408}` (underscores → koppeltekens voor IRI-leesbaarheid)
-- Sensoren: `ex:sensor-{station-id}`
+- Centrale sensor: `ex:sensor-rfactor` (één, niet per station of beheerder)
 - Collecties: `ex:collectie-{station-id}-jaarlijks`, `-{jaar}-maandelijks`, `-{jaar}-15daags`
 - Observaties: `ex:obs-{station-id}-{jaar}`, `-{jaar}-m{mm}`, `-{jaar}-p{pp}`, `-gemiddelde`
-- Geen blank nodes voor stations, sensoren of collecties (extern refereerbaar, R10)
+- Geen blank nodes voor stations, sensor of collecties (extern refereerbaar, R10)
 
 ---
 
@@ -216,7 +243,7 @@ Regels:
 
 | Directe relatie | Inverse relatie | Aanwezig |
 |---|---|---|
-| `sosa:hosts` (Platform → Sensor) | `sosa:isHostedBy` (Sensor → Platform) | Ja, op sensor |
+| `sosa:hosts` (`ex:departement-omgeving` → `ex:sensor-rfactor`) | `sosa:isHostedBy` (Sensor → Platform) | Ja, op beide |
 | `sosa:implements` (Sensor → Procedure) | — | Niet nodig |
 | `sosa:hasMember` (Collectie → Obs) | `sosa:isMemberOf` (Obs → Collectie) | Ja, op elke observatie |
 | `sosa:hasFeatureOfInterest` (Obs → FOI) | `sosa:isFeatureOfInterestOf` (FOI → Obs) | Ja, Platform → jaarlijkse collectie |

@@ -9,7 +9,8 @@ end
 subgraph INFRA["INFRASTRUCTUUR (53 stations)"]
   VL["ex:vlaanderen\nsosa:FeatureOfInterest"]
   ST["ex:KMI-6408\nsosa:Platform\n+ sosa:FeatureOfInterest\n+ sosa:SpatialSample"]
-  SENS["ex:sensor-KMI-6408\nsosa:Sensor"]
+  DEPT["ex:departement-omgeving\nsosa:Platform"]
+  SENSC["ex:sensor-rfactor\nsosa:Sensor"]
 end
 
 subgraph WAAR["WAARNEMING (voorbeeld: KMI-6408)"]
@@ -29,28 +30,34 @@ subgraph WAAR["WAARNEMING (voorbeeld: KMI-6408)"]
 end
 
 ST -->|"sosa:isSampleOf"| VL
-ST -->|"sosa:hosts"| SENS
-SENS -->|"sosa:implements"| PK
-SENS -->|"sosa:observes"| PROP
+DEPT -->|"sosa:hosts"| SENSC
+SENSC -->|"sosa:implements"| PK
+SENSC -->|"sosa:implements"| PV
+SENSC -->|"sosa:observes"| PROP
 CJ -->|"sosa:hasFeatureOfInterest"| ST
+CJ -->|"sosa:madeBySensor"| SENSC
 CJ -->|"sosa:hasMember"| OJ
 OJ -->|"sosa:hasResult"| RJ
 OJ -->|"sosa:phenomenonTime"| TJ
 CM -->|"sosa:hasFeatureOfInterest"| ST
+CM -->|"sosa:madeBySensor"| SENSC
 CM -->|"sosa:hasMember"| OM
 C15 -->|"sosa:hasFeatureOfInterest"| ST
+C15 -->|"sosa:madeBySensor"| SENSC
 C15 -->|"sosa:hasMember"| O15
-GEM -->|"sosa:hasInputValue"| CJ
+GEM -->|"sosa:hasInputValue"| RJ
 GEM -->|"sosa:relatedObservation"| CJ
 GEM -->|"sosa:hasResult"| GEMR
 GEM -->|"sosa:hasFeatureOfInterest"| ST
+GEM -->|"sosa:madeBySensor"| SENSC
 
 style PK  fill:#c6a0f5,stroke:#2E5C8A,color:#000
 style PV  fill:#c6a0f5,stroke:#2E5C8A,color:#000
 style PROP fill:#fe7130,stroke:#2E5C8A,color:#000
 style VL  fill:#60c4e4,stroke:#2E5C8A,color:#000
 style ST  fill:#60c4e4,stroke:#2E5C8A,color:#000
-style SENS fill:#60c4e4,stroke:#2E5C8A,color:#000
+style DEPT fill:#60c4e4,stroke:#2E5C8A,color:#000
+style SENSC fill:#60c4e4,stroke:#2E5C8A,color:#000
 style CJ  fill:#e54b89,stroke:#2E5C8A,color:#fff
 style OJ  fill:#e54b89,stroke:#2E5C8A,color:#fff
 style RJ  fill:#f8b622,stroke:#2E5C8A,color:#000
