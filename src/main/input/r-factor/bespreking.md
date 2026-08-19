@@ -46,11 +46,17 @@ De Vlaamse overheidsdienst die de RUSLE R-factor centraal berekent op basis van 
 neerslagdata van het KMI- en VMM-meetnet. Het station zelf levert enkel brondata; de
 erosiviteitsberekening gebeurt niet op het station.
 
-### `ex:sensor-rfactor` — `sosa:Sensor` + `sosa:System`
+### `ex:sensor-rfactor` — `sosa:Sensor` + `sosa:System` + `prov:SoftwareAgent`
 Eén centrale berekeningsketen, niet per station of per beheerder:
 - `sosa:isHostedBy` → `ex:departement-omgeving`
 - `sosa:implements` → `ex:procedure-rfactor` (één procedure, ongeacht brondatabron)
 - `sosa:observes` → `ex:property-erosiviteit`
+
+Drievoudige typering: `sosa:Sensor` (produceert observaties, R1), `sosa:System` (component dat
+als één geheel de RUSLE-berekening uitvoert) en `prov:SoftwareAgent` (het is expliciet een
+softwareproces, geen fysiek instrument — in tegenstelling tot de per-station meetinstrumenten
+die de ruwe neerslagdata leveren). Deze laatste typering maakt PROV-O-attributie mogelijk
+(`prov:wasAssociatedWith`/`prov:actedOnBehalfOf`) zonder dat er een aparte Agent-resource nodig is.
 
 ---
 

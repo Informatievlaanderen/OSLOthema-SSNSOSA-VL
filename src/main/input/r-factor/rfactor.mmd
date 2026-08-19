@@ -9,7 +9,7 @@ subgraph INFRA["INFRASTRUCTUUR (53 stations)"]
   VL["ex:vlaanderen\nsosa:FeatureOfInterest"]
   ST["ex:KMI-6408\nsosa:Platform\n+ sosa:FeatureOfInterest\n+ sosa:SpatialSample"]
   DEPT["ex:departement-omgeving\nsosa:Platform"]
-  SENSC["ex:sensor-rfactor\nsosa:Sensor"]
+  SENSC["ex:sensor-rfactor\nsosa:Sensor\n+ sosa:System\n+ prov:SoftwareAgent"]
 end
 
 subgraph WAAR["WAARNEMING (voorbeeld: KMI-6408)"]
