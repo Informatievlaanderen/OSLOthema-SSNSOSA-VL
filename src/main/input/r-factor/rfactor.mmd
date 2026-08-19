@@ -1,8 +1,7 @@
 flowchart LR
 
 subgraph PROC["PROCEDURE"]
-  PK["ex:procedure-rfactor-kmi\nsosa:ObservingProcedure"]
-  PV["ex:procedure-rfactor-vmm\nsosa:ObservingProcedure"]
+  PK["ex:procedure-rfactor\nsosa:ObservingProcedure"]
   PROP["ex:property-erosiviteit\nsosa:Property"]
 end
 
@@ -32,7 +31,6 @@ end
 ST -->|"sosa:isSampleOf"| VL
 DEPT -->|"sosa:hosts"| SENSC
 SENSC -->|"sosa:implements"| PK
-SENSC -->|"sosa:implements"| PV
 SENSC -->|"sosa:observes"| PROP
 CJ -->|"sosa:hasFeatureOfInterest"| ST
 CJ -->|"sosa:madeBySensor"| SENSC
@@ -52,7 +50,6 @@ GEM -->|"sosa:hasFeatureOfInterest"| ST
 GEM -->|"sosa:madeBySensor"| SENSC
 
 style PK  fill:#c6a0f5,stroke:#2E5C8A,color:#000
-style PV  fill:#c6a0f5,stroke:#2E5C8A,color:#000
 style PROP fill:#fe7130,stroke:#2E5C8A,color:#000
 style VL  fill:#60c4e4,stroke:#2E5C8A,color:#000
 style ST  fill:#60c4e4,stroke:#2E5C8A,color:#000

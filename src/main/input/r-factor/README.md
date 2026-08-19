@@ -71,9 +71,9 @@ Elk station is `sosa:Platform + sosa:FeatureOfInterest + sosa:SpatialSample`
 (ruimtelijk deelmonster van Vlaanderen) met Lambert 72-geometrie.
 
 De R-factor wordt niet lokaal per station berekend, maar centraal door Departement Omgeving.
-Alle observaties/collecties dragen daarom `sosa:madeBySensor` naar één gedeelde
-`ex:sensor-rfactor` (gehost door `ex:departement-omgeving`), terwijl `sosa:usedProcedure`
-wel gedifferentieerd blijft naar KMI/VMM omdat de brondataverwerking per meetnet verschilt.
+Alle observaties/collecties dragen daarom zowel `sosa:madeBySensor` als `sosa:usedProcedure`
+naar één gedeelde `ex:sensor-rfactor` / `ex:procedure-rfactor` (gehost door
+`ex:departement-omgeving`) — ongeacht of de brondata van een KMI- of een VMM-station komt.
 
 De gemiddelde jaarlijkse R-factor uit `view_rfactor.csv` is een **afgeleide observatie**
 (`sosa:hasInputValue` → jaarlijkse collectie, conform R13).

@@ -4,6 +4,7 @@ PREFIX qudt: <http://qudt.org/schema/qudt/>
 PREFIX geo: <http://www.opengis.net/ont/geosparql#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX ex: <https://example.org/rfactor/>
 
 ex:KMI-6408  a                      sosa:Platform;
@@ -17,6 +18,7 @@ ex:KMI-6408  a                      sosa:Platform;
 
 ex:collectie-KMI-6408-2002-15daags
         a                          sosa:ObservationCollection;
+        a                          sosa:ExecutionCollection;
         rdfs:label                 "15-daagse erosiviteitscollectie KMI_6408, 2002"@nl;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
         sosa:hasMember             ex:obs-KMI-6408-2002-p01;
@@ -45,10 +47,11 @@ ex:collectie-KMI-6408-2002-15daags
         sosa:hasMember             ex:obs-KMI-6408-2002-p24;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:collectie-KMI-6408-2002-maandelijks
         a                          sosa:ObservationCollection;
+        a                          sosa:ExecutionCollection;
         rdfs:label                 "Maandelijkse erosiviteitscollectie KMI_6408, 2002"@nl;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
         sosa:hasMember             ex:obs-KMI-6408-2002-m01;
@@ -65,10 +68,11 @@ ex:collectie-KMI-6408-2002-maandelijks
         sosa:hasMember             ex:obs-KMI-6408-2002-m12;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:collectie-KMI-6408-2003-15daags
         a                          sosa:ObservationCollection;
+        a                          sosa:ExecutionCollection;
         rdfs:label                 "15-daagse erosiviteitscollectie KMI_6408, 2003"@nl;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
         sosa:hasMember             ex:obs-KMI-6408-2003-p01;
@@ -97,10 +101,11 @@ ex:collectie-KMI-6408-2003-15daags
         sosa:hasMember             ex:obs-KMI-6408-2003-p24;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:collectie-KMI-6408-2003-maandelijks
         a                          sosa:ObservationCollection;
+        a                          sosa:ExecutionCollection;
         rdfs:label                 "Maandelijkse erosiviteitscollectie KMI_6408, 2003"@nl;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
         sosa:hasMember             ex:obs-KMI-6408-2003-m01;
@@ -117,10 +122,11 @@ ex:collectie-KMI-6408-2003-maandelijks
         sosa:hasMember             ex:obs-KMI-6408-2003-m12;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:collectie-KMI-6408-2004-15daags
         a                          sosa:ObservationCollection;
+        a                          sosa:ExecutionCollection;
         rdfs:label                 "15-daagse erosiviteitscollectie KMI_6408, 2004"@nl;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
         sosa:hasMember             ex:obs-KMI-6408-2004-p01;
@@ -149,10 +155,11 @@ ex:collectie-KMI-6408-2004-15daags
         sosa:hasMember             ex:obs-KMI-6408-2004-p24;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:collectie-KMI-6408-2004-maandelijks
         a                          sosa:ObservationCollection;
+        a                          sosa:ExecutionCollection;
         rdfs:label                 "Maandelijkse erosiviteitscollectie KMI_6408, 2004"@nl;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
         sosa:hasMember             ex:obs-KMI-6408-2004-m01;
@@ -169,10 +176,11 @@ ex:collectie-KMI-6408-2004-maandelijks
         sosa:hasMember             ex:obs-KMI-6408-2004-m12;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:collectie-KMI-6408-2005-15daags
         a                          sosa:ObservationCollection;
+        a                          sosa:ExecutionCollection;
         rdfs:label                 "15-daagse erosiviteitscollectie KMI_6408, 2005"@nl;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
         sosa:hasMember             ex:obs-KMI-6408-2005-p01;
@@ -201,10 +209,11 @@ ex:collectie-KMI-6408-2005-15daags
         sosa:hasMember             ex:obs-KMI-6408-2005-p24;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:collectie-KMI-6408-2005-maandelijks
         a                          sosa:ObservationCollection;
+        a                          sosa:ExecutionCollection;
         rdfs:label                 "Maandelijkse erosiviteitscollectie KMI_6408, 2005"@nl;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
         sosa:hasMember             ex:obs-KMI-6408-2005-m01;
@@ -221,10 +230,11 @@ ex:collectie-KMI-6408-2005-maandelijks
         sosa:hasMember             ex:obs-KMI-6408-2005-m12;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:collectie-KMI-6408-jaarlijks
         a                          sosa:ObservationCollection;
+        a                          sosa:ExecutionCollection;
         rdfs:label                 "Jaarlijkse erosiviteitscollectie KMI_6408"@nl;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
         sosa:hasMember             ex:obs-KMI-6408-2002;
@@ -233,7 +243,7 @@ ex:collectie-KMI-6408-jaarlijks
         sosa:hasMember             ex:obs-KMI-6408-2005;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:departement-omgeving
         a             sosa:Platform;
@@ -2188,7 +2198,7 @@ ex:obs-KMI-6408-2002  a            sosa:Observation;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-jaar-2002;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m01
         a                          sosa:Observation;
@@ -2198,7 +2208,7 @@ ex:obs-KMI-6408-2002-m01
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m01;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m02
         a                          sosa:Observation;
@@ -2208,7 +2218,7 @@ ex:obs-KMI-6408-2002-m02
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m02;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m03
         a                          sosa:Observation;
@@ -2218,7 +2228,7 @@ ex:obs-KMI-6408-2002-m03
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m03;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m04
         a                          sosa:Observation;
@@ -2228,7 +2238,7 @@ ex:obs-KMI-6408-2002-m04
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m04;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m05
         a                          sosa:Observation;
@@ -2238,7 +2248,7 @@ ex:obs-KMI-6408-2002-m05
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m05;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m06
         a                          sosa:Observation;
@@ -2248,7 +2258,7 @@ ex:obs-KMI-6408-2002-m06
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m06;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m07
         a                          sosa:Observation;
@@ -2258,7 +2268,7 @@ ex:obs-KMI-6408-2002-m07
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m07;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m08
         a                          sosa:Observation;
@@ -2268,7 +2278,7 @@ ex:obs-KMI-6408-2002-m08
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m08;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m09
         a                          sosa:Observation;
@@ -2278,7 +2288,7 @@ ex:obs-KMI-6408-2002-m09
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m09;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m10
         a                          sosa:Observation;
@@ -2288,7 +2298,7 @@ ex:obs-KMI-6408-2002-m10
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m10;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m11
         a                          sosa:Observation;
@@ -2298,7 +2308,7 @@ ex:obs-KMI-6408-2002-m11
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m11;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-m12
         a                          sosa:Observation;
@@ -2308,7 +2318,7 @@ ex:obs-KMI-6408-2002-m12
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2002-m12;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p01
         a                          sosa:Observation;
@@ -2318,7 +2328,7 @@ ex:obs-KMI-6408-2002-p01
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p01;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p02
         a                          sosa:Observation;
@@ -2328,7 +2338,7 @@ ex:obs-KMI-6408-2002-p02
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p02;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p03
         a                          sosa:Observation;
@@ -2338,7 +2348,7 @@ ex:obs-KMI-6408-2002-p03
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p03;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p04
         a                          sosa:Observation;
@@ -2348,7 +2358,7 @@ ex:obs-KMI-6408-2002-p04
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p04;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p05
         a                          sosa:Observation;
@@ -2358,7 +2368,7 @@ ex:obs-KMI-6408-2002-p05
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p05;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p06
         a                          sosa:Observation;
@@ -2368,7 +2378,7 @@ ex:obs-KMI-6408-2002-p06
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p06;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p07
         a                          sosa:Observation;
@@ -2378,7 +2388,7 @@ ex:obs-KMI-6408-2002-p07
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p07;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p08
         a                          sosa:Observation;
@@ -2388,7 +2398,7 @@ ex:obs-KMI-6408-2002-p08
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p08;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p09
         a                          sosa:Observation;
@@ -2398,7 +2408,7 @@ ex:obs-KMI-6408-2002-p09
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p09;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p10
         a                          sosa:Observation;
@@ -2408,7 +2418,7 @@ ex:obs-KMI-6408-2002-p10
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p10;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p11
         a                          sosa:Observation;
@@ -2418,7 +2428,7 @@ ex:obs-KMI-6408-2002-p11
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p11;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p12
         a                          sosa:Observation;
@@ -2428,7 +2438,7 @@ ex:obs-KMI-6408-2002-p12
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p12;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p13
         a                          sosa:Observation;
@@ -2438,7 +2448,7 @@ ex:obs-KMI-6408-2002-p13
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p13;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p14
         a                          sosa:Observation;
@@ -2448,7 +2458,7 @@ ex:obs-KMI-6408-2002-p14
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p14;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p15
         a                          sosa:Observation;
@@ -2458,7 +2468,7 @@ ex:obs-KMI-6408-2002-p15
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p15;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p16
         a                          sosa:Observation;
@@ -2468,7 +2478,7 @@ ex:obs-KMI-6408-2002-p16
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p16;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p17
         a                          sosa:Observation;
@@ -2478,7 +2488,7 @@ ex:obs-KMI-6408-2002-p17
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p17;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p18
         a                          sosa:Observation;
@@ -2488,7 +2498,7 @@ ex:obs-KMI-6408-2002-p18
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p18;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p19
         a                          sosa:Observation;
@@ -2498,7 +2508,7 @@ ex:obs-KMI-6408-2002-p19
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p19;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p20
         a                          sosa:Observation;
@@ -2508,7 +2518,7 @@ ex:obs-KMI-6408-2002-p20
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p20;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p21
         a                          sosa:Observation;
@@ -2518,7 +2528,7 @@ ex:obs-KMI-6408-2002-p21
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p21;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p22
         a                          sosa:Observation;
@@ -2528,7 +2538,7 @@ ex:obs-KMI-6408-2002-p22
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p22;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p23
         a                          sosa:Observation;
@@ -2538,7 +2548,7 @@ ex:obs-KMI-6408-2002-p23
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p23;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2002-p24
         a                          sosa:Observation;
@@ -2548,7 +2558,7 @@ ex:obs-KMI-6408-2002-p24
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2002-p24;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003  a            sosa:Observation;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
@@ -2557,7 +2567,7 @@ ex:obs-KMI-6408-2003  a            sosa:Observation;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-jaar-2003;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m01
         a                          sosa:Observation;
@@ -2567,7 +2577,7 @@ ex:obs-KMI-6408-2003-m01
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m01;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m02
         a                          sosa:Observation;
@@ -2577,7 +2587,7 @@ ex:obs-KMI-6408-2003-m02
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m02;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m03
         a                          sosa:Observation;
@@ -2587,7 +2597,7 @@ ex:obs-KMI-6408-2003-m03
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m03;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m04
         a                          sosa:Observation;
@@ -2597,7 +2607,7 @@ ex:obs-KMI-6408-2003-m04
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m04;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m05
         a                          sosa:Observation;
@@ -2607,7 +2617,7 @@ ex:obs-KMI-6408-2003-m05
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m05;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m06
         a                          sosa:Observation;
@@ -2617,7 +2627,7 @@ ex:obs-KMI-6408-2003-m06
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m06;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m07
         a                          sosa:Observation;
@@ -2627,7 +2637,7 @@ ex:obs-KMI-6408-2003-m07
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m07;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m08
         a                          sosa:Observation;
@@ -2637,7 +2647,7 @@ ex:obs-KMI-6408-2003-m08
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m08;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m09
         a                          sosa:Observation;
@@ -2647,7 +2657,7 @@ ex:obs-KMI-6408-2003-m09
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m09;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m10
         a                          sosa:Observation;
@@ -2657,7 +2667,7 @@ ex:obs-KMI-6408-2003-m10
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m10;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m11
         a                          sosa:Observation;
@@ -2667,7 +2677,7 @@ ex:obs-KMI-6408-2003-m11
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m11;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-m12
         a                          sosa:Observation;
@@ -2677,7 +2687,7 @@ ex:obs-KMI-6408-2003-m12
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2003-m12;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p01
         a                          sosa:Observation;
@@ -2687,7 +2697,7 @@ ex:obs-KMI-6408-2003-p01
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p01;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p02
         a                          sosa:Observation;
@@ -2697,7 +2707,7 @@ ex:obs-KMI-6408-2003-p02
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p02;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p03
         a                          sosa:Observation;
@@ -2707,7 +2717,7 @@ ex:obs-KMI-6408-2003-p03
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p03;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p04
         a                          sosa:Observation;
@@ -2717,7 +2727,7 @@ ex:obs-KMI-6408-2003-p04
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p04;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p05
         a                          sosa:Observation;
@@ -2727,7 +2737,7 @@ ex:obs-KMI-6408-2003-p05
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p05;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p06
         a                          sosa:Observation;
@@ -2737,7 +2747,7 @@ ex:obs-KMI-6408-2003-p06
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p06;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p07
         a                          sosa:Observation;
@@ -2747,7 +2757,7 @@ ex:obs-KMI-6408-2003-p07
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p07;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p08
         a                          sosa:Observation;
@@ -2757,7 +2767,7 @@ ex:obs-KMI-6408-2003-p08
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p08;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p09
         a                          sosa:Observation;
@@ -2767,7 +2777,7 @@ ex:obs-KMI-6408-2003-p09
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p09;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p10
         a                          sosa:Observation;
@@ -2777,7 +2787,7 @@ ex:obs-KMI-6408-2003-p10
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p10;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p11
         a                          sosa:Observation;
@@ -2787,7 +2797,7 @@ ex:obs-KMI-6408-2003-p11
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p11;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p12
         a                          sosa:Observation;
@@ -2797,7 +2807,7 @@ ex:obs-KMI-6408-2003-p12
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p12;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p13
         a                          sosa:Observation;
@@ -2807,7 +2817,7 @@ ex:obs-KMI-6408-2003-p13
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p13;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p14
         a                          sosa:Observation;
@@ -2817,7 +2827,7 @@ ex:obs-KMI-6408-2003-p14
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p14;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p15
         a                          sosa:Observation;
@@ -2827,7 +2837,7 @@ ex:obs-KMI-6408-2003-p15
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p15;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p16
         a                          sosa:Observation;
@@ -2837,7 +2847,7 @@ ex:obs-KMI-6408-2003-p16
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p16;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p17
         a                          sosa:Observation;
@@ -2847,7 +2857,7 @@ ex:obs-KMI-6408-2003-p17
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p17;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p18
         a                          sosa:Observation;
@@ -2857,7 +2867,7 @@ ex:obs-KMI-6408-2003-p18
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p18;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p19
         a                          sosa:Observation;
@@ -2867,7 +2877,7 @@ ex:obs-KMI-6408-2003-p19
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p19;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p20
         a                          sosa:Observation;
@@ -2877,7 +2887,7 @@ ex:obs-KMI-6408-2003-p20
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p20;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p21
         a                          sosa:Observation;
@@ -2887,7 +2897,7 @@ ex:obs-KMI-6408-2003-p21
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p21;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p22
         a                          sosa:Observation;
@@ -2897,7 +2907,7 @@ ex:obs-KMI-6408-2003-p22
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p22;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p23
         a                          sosa:Observation;
@@ -2907,7 +2917,7 @@ ex:obs-KMI-6408-2003-p23
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p23;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2003-p24
         a                          sosa:Observation;
@@ -2917,7 +2927,7 @@ ex:obs-KMI-6408-2003-p24
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2003-p24;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004  a            sosa:Observation;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
@@ -2926,7 +2936,7 @@ ex:obs-KMI-6408-2004  a            sosa:Observation;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-jaar-2004;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m01
         a                          sosa:Observation;
@@ -2936,7 +2946,7 @@ ex:obs-KMI-6408-2004-m01
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m01;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m02
         a                          sosa:Observation;
@@ -2946,7 +2956,7 @@ ex:obs-KMI-6408-2004-m02
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m02;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m03
         a                          sosa:Observation;
@@ -2956,7 +2966,7 @@ ex:obs-KMI-6408-2004-m03
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m03;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m04
         a                          sosa:Observation;
@@ -2966,7 +2976,7 @@ ex:obs-KMI-6408-2004-m04
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m04;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m05
         a                          sosa:Observation;
@@ -2976,7 +2986,7 @@ ex:obs-KMI-6408-2004-m05
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m05;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m06
         a                          sosa:Observation;
@@ -2986,7 +2996,7 @@ ex:obs-KMI-6408-2004-m06
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m06;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m07
         a                          sosa:Observation;
@@ -2996,7 +3006,7 @@ ex:obs-KMI-6408-2004-m07
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m07;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m08
         a                          sosa:Observation;
@@ -3006,7 +3016,7 @@ ex:obs-KMI-6408-2004-m08
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m08;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m09
         a                          sosa:Observation;
@@ -3016,7 +3026,7 @@ ex:obs-KMI-6408-2004-m09
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m09;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m10
         a                          sosa:Observation;
@@ -3026,7 +3036,7 @@ ex:obs-KMI-6408-2004-m10
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m10;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m11
         a                          sosa:Observation;
@@ -3036,7 +3046,7 @@ ex:obs-KMI-6408-2004-m11
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m11;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-m12
         a                          sosa:Observation;
@@ -3046,7 +3056,7 @@ ex:obs-KMI-6408-2004-m12
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2004-m12;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p01
         a                          sosa:Observation;
@@ -3056,7 +3066,7 @@ ex:obs-KMI-6408-2004-p01
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p01;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p02
         a                          sosa:Observation;
@@ -3066,7 +3076,7 @@ ex:obs-KMI-6408-2004-p02
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p02;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p03
         a                          sosa:Observation;
@@ -3076,7 +3086,7 @@ ex:obs-KMI-6408-2004-p03
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p03;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p04
         a                          sosa:Observation;
@@ -3086,7 +3096,7 @@ ex:obs-KMI-6408-2004-p04
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p04;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p05
         a                          sosa:Observation;
@@ -3096,7 +3106,7 @@ ex:obs-KMI-6408-2004-p05
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p05;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p06
         a                          sosa:Observation;
@@ -3106,7 +3116,7 @@ ex:obs-KMI-6408-2004-p06
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p06;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p07
         a                          sosa:Observation;
@@ -3116,7 +3126,7 @@ ex:obs-KMI-6408-2004-p07
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p07;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p08
         a                          sosa:Observation;
@@ -3126,7 +3136,7 @@ ex:obs-KMI-6408-2004-p08
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p08;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p09
         a                          sosa:Observation;
@@ -3136,7 +3146,7 @@ ex:obs-KMI-6408-2004-p09
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p09;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p10
         a                          sosa:Observation;
@@ -3146,7 +3156,7 @@ ex:obs-KMI-6408-2004-p10
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p10;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p11
         a                          sosa:Observation;
@@ -3156,7 +3166,7 @@ ex:obs-KMI-6408-2004-p11
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p11;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p12
         a                          sosa:Observation;
@@ -3166,7 +3176,7 @@ ex:obs-KMI-6408-2004-p12
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p12;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p13
         a                          sosa:Observation;
@@ -3176,7 +3186,7 @@ ex:obs-KMI-6408-2004-p13
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p13;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p14
         a                          sosa:Observation;
@@ -3186,7 +3196,7 @@ ex:obs-KMI-6408-2004-p14
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p14;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p15
         a                          sosa:Observation;
@@ -3196,7 +3206,7 @@ ex:obs-KMI-6408-2004-p15
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p15;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p16
         a                          sosa:Observation;
@@ -3206,7 +3216,7 @@ ex:obs-KMI-6408-2004-p16
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p16;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p17
         a                          sosa:Observation;
@@ -3216,7 +3226,7 @@ ex:obs-KMI-6408-2004-p17
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p17;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p18
         a                          sosa:Observation;
@@ -3226,7 +3236,7 @@ ex:obs-KMI-6408-2004-p18
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p18;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p19
         a                          sosa:Observation;
@@ -3236,7 +3246,7 @@ ex:obs-KMI-6408-2004-p19
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p19;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p20
         a                          sosa:Observation;
@@ -3246,7 +3256,7 @@ ex:obs-KMI-6408-2004-p20
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p20;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p21
         a                          sosa:Observation;
@@ -3256,7 +3266,7 @@ ex:obs-KMI-6408-2004-p21
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p21;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p22
         a                          sosa:Observation;
@@ -3266,7 +3276,7 @@ ex:obs-KMI-6408-2004-p22
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p22;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p23
         a                          sosa:Observation;
@@ -3276,7 +3286,7 @@ ex:obs-KMI-6408-2004-p23
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p23;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2004-p24
         a                          sosa:Observation;
@@ -3286,7 +3296,7 @@ ex:obs-KMI-6408-2004-p24
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2004-p24;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005  a            sosa:Observation;
         sosa:hasFeatureOfInterest  ex:KMI-6408;
@@ -3295,7 +3305,7 @@ ex:obs-KMI-6408-2005  a            sosa:Observation;
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-jaar-2005;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m01
         a                          sosa:Observation;
@@ -3305,7 +3315,7 @@ ex:obs-KMI-6408-2005-m01
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m01;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m02
         a                          sosa:Observation;
@@ -3315,7 +3325,7 @@ ex:obs-KMI-6408-2005-m02
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m02;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m03
         a                          sosa:Observation;
@@ -3325,7 +3335,7 @@ ex:obs-KMI-6408-2005-m03
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m03;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m04
         a                          sosa:Observation;
@@ -3335,7 +3345,7 @@ ex:obs-KMI-6408-2005-m04
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m04;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m05
         a                          sosa:Observation;
@@ -3345,7 +3355,7 @@ ex:obs-KMI-6408-2005-m05
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m05;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m06
         a                          sosa:Observation;
@@ -3355,7 +3365,7 @@ ex:obs-KMI-6408-2005-m06
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m06;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m07
         a                          sosa:Observation;
@@ -3365,7 +3375,7 @@ ex:obs-KMI-6408-2005-m07
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m07;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m08
         a                          sosa:Observation;
@@ -3375,7 +3385,7 @@ ex:obs-KMI-6408-2005-m08
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m08;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m09
         a                          sosa:Observation;
@@ -3385,7 +3395,7 @@ ex:obs-KMI-6408-2005-m09
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m09;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m10
         a                          sosa:Observation;
@@ -3395,7 +3405,7 @@ ex:obs-KMI-6408-2005-m10
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m10;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m11
         a                          sosa:Observation;
@@ -3405,7 +3415,7 @@ ex:obs-KMI-6408-2005-m11
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m11;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-m12
         a                          sosa:Observation;
@@ -3415,7 +3425,7 @@ ex:obs-KMI-6408-2005-m12
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-maand-2005-m12;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p01
         a                          sosa:Observation;
@@ -3425,7 +3435,7 @@ ex:obs-KMI-6408-2005-p01
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p01;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p02
         a                          sosa:Observation;
@@ -3435,7 +3445,7 @@ ex:obs-KMI-6408-2005-p02
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p02;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p03
         a                          sosa:Observation;
@@ -3445,7 +3455,7 @@ ex:obs-KMI-6408-2005-p03
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p03;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p04
         a                          sosa:Observation;
@@ -3455,7 +3465,7 @@ ex:obs-KMI-6408-2005-p04
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p04;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p05
         a                          sosa:Observation;
@@ -3465,7 +3475,7 @@ ex:obs-KMI-6408-2005-p05
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p05;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p06
         a                          sosa:Observation;
@@ -3475,7 +3485,7 @@ ex:obs-KMI-6408-2005-p06
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p06;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p07
         a                          sosa:Observation;
@@ -3485,7 +3495,7 @@ ex:obs-KMI-6408-2005-p07
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p07;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p08
         a                          sosa:Observation;
@@ -3495,7 +3505,7 @@ ex:obs-KMI-6408-2005-p08
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p08;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p09
         a                          sosa:Observation;
@@ -3505,7 +3515,7 @@ ex:obs-KMI-6408-2005-p09
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p09;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p10
         a                          sosa:Observation;
@@ -3515,7 +3525,7 @@ ex:obs-KMI-6408-2005-p10
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p10;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p11
         a                          sosa:Observation;
@@ -3525,7 +3535,7 @@ ex:obs-KMI-6408-2005-p11
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p11;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p12
         a                          sosa:Observation;
@@ -3535,7 +3545,7 @@ ex:obs-KMI-6408-2005-p12
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p12;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p13
         a                          sosa:Observation;
@@ -3545,7 +3555,7 @@ ex:obs-KMI-6408-2005-p13
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p13;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p14
         a                          sosa:Observation;
@@ -3555,7 +3565,7 @@ ex:obs-KMI-6408-2005-p14
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p14;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p15
         a                          sosa:Observation;
@@ -3565,7 +3575,7 @@ ex:obs-KMI-6408-2005-p15
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p15;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p16
         a                          sosa:Observation;
@@ -3575,7 +3585,7 @@ ex:obs-KMI-6408-2005-p16
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p16;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p17
         a                          sosa:Observation;
@@ -3585,7 +3595,7 @@ ex:obs-KMI-6408-2005-p17
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p17;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p18
         a                          sosa:Observation;
@@ -3595,7 +3605,7 @@ ex:obs-KMI-6408-2005-p18
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p18;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p19
         a                          sosa:Observation;
@@ -3605,7 +3615,7 @@ ex:obs-KMI-6408-2005-p19
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p19;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p20
         a                          sosa:Observation;
@@ -3615,7 +3625,7 @@ ex:obs-KMI-6408-2005-p20
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p20;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p21
         a                          sosa:Observation;
@@ -3625,7 +3635,7 @@ ex:obs-KMI-6408-2005-p21
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p21;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p22
         a                          sosa:Observation;
@@ -3635,7 +3645,7 @@ ex:obs-KMI-6408-2005-p22
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p22;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p23
         a                          sosa:Observation;
@@ -3645,7 +3655,7 @@ ex:obs-KMI-6408-2005-p23
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p23;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-2005-p24
         a                          sosa:Observation;
@@ -3655,7 +3665,7 @@ ex:obs-KMI-6408-2005-p24
         sosa:madeBySensor          ex:sensor-rfactor;
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-15d-2005-p24;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
 ex:obs-KMI-6408-gemiddelde
         a                          sosa:Observation;
@@ -3670,17 +3680,11 @@ ex:obs-KMI-6408-gemiddelde
         sosa:observedProperty      ex:property-erosiviteit;
         sosa:phenomenonTime        ex:interval-KMI-6408-gemiddelde;
         sosa:relatedObservation    ex:collectie-KMI-6408-jaarlijks;
-        sosa:usedProcedure         ex:procedure-rfactor-kmi .
+        sosa:usedProcedure         ex:procedure-rfactor .
 
-ex:procedure-rfactor-kmi
-        a             sosa:ObservingProcedure;
-        rdfs:comment  "Berekening van de RUSLE R-factor via KMI-neerslagstations (pluviografen)."@nl;
-        rdfs:label    "KMI R-factor berekening"@nl .
-
-ex:procedure-rfactor-vmm
-        a             sosa:ObservingProcedure;
-        rdfs:comment  "Berekening van de RUSLE R-factor via VMM-hydrometriestations (telemetrische neerslagmeters)."@nl;
-        rdfs:label    "VMM R-factor berekening"@nl .
+ex:procedure-rfactor  a  sosa:ObservingProcedure;
+        rdfs:comment  "Berekening van de RUSLE R-factor uit neerslagdata van het KMI- (pluviografen) en VMM-meetnet (telemetrische hydrometrie)."@nl;
+        rdfs:label    "RUSLE R-factor berekening"@nl .
 
 ex:property-erosiviteit
         a             sosa:Property;
@@ -4433,9 +4437,10 @@ ex:result-KMI-6408-maand-2005-m12
         qudt:numericValue  24.95 .
 
 ex:sensor-rfactor  a     sosa:Sensor;
+        a                sosa:System;
+        a                prov:SoftwareAgent;
         rdfs:label       "Centrale R-factor berekeningsketen"@nl;
-        sosa:implements  ex:procedure-rfactor-kmi;
-        sosa:implements  ex:procedure-rfactor-vmm;
+        sosa:implements  ex:procedure-rfactor;
         sosa:isHostedBy  ex:departement-omgeving;
         sosa:observes    ex:property-erosiviteit .
 

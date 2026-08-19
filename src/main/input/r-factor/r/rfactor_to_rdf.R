@@ -78,6 +78,7 @@ ctx <- list(
   geo  = "http://www.opengis.net/ont/geosparql#",
   rdfs = "http://www.w3.org/2000/01/rdf-schema#",
   xsd  = "http://www.w3.org/2001/XMLSchema#",
+  prov  = "http://www.w3.org/ns/prov#",
   ex   = "https://example.org/rfactor/"
 )
 
@@ -92,16 +93,10 @@ gedeeld <- list(
     `rdfs:comment` = list(`@value` = "Studiegebied: Vlaamse regio, Belgie. Alle meetstations zijn ruimtelijke deelmonsters van dit studieobject.", `@language` = "nl")
   ),
   list(
-    `@id`          = "ex:procedure-rfactor-kmi",
+    `@id`          = "ex:procedure-rfactor",
     `@type`        = "sosa:ObservingProcedure",
-    `rdfs:label`   = list(`@value` = "KMI R-factor berekening", `@language` = "nl"),
-    `rdfs:comment` = list(`@value` = "Berekening van de RUSLE R-factor via KMI-neerslagstations (pluviografen).", `@language` = "nl")
-  ),
-  list(
-    `@id`          = "ex:procedure-rfactor-vmm",
-    `@type`        = "sosa:ObservingProcedure",
-    `rdfs:label`   = list(`@value` = "VMM R-factor berekening", `@language` = "nl"),
-    `rdfs:comment` = list(`@value` = "Berekening van de RUSLE R-factor via VMM-hydrometriestations (telemetrische neerslagmeters).", `@language` = "nl")
+    `rdfs:label`   = list(`@value` = "RUSLE R-factor berekening", `@language` = "nl"),
+    `rdfs:comment` = list(`@value` = "Berekening van de RUSLE R-factor uit neerslagdata van het KMI- (pluviografen) en VMM-meetnet (telemetrische hydrometrie).", `@language` = "nl")
   ),
   list(
     `@id`          = "ex:property-erosiviteit",
@@ -124,10 +119,10 @@ gedeeld <- list(
   ),
   list(
     `@id`   = "ex:sensor-rfactor",
-    `@type` = "sosa:Sensor",
+    `@type` = c("sosa:Sensor", "sosa:System", "prov:SoftwareAgent"),
     `rdfs:label`      = list(`@value` = "Centrale R-factor berekeningsketen", `@language` = "nl"),
     `sosa:isHostedBy` = list(`@id` = "ex:departement-omgeving"),
-    `sosa:implements` = list(list(`@id` = "ex:procedure-rfactor-kmi"), list(`@id` = "ex:procedure-rfactor-vmm")),
+    `sosa:implements` = list(`@id` = "ex:procedure-rfactor"),
     `sosa:observes`   = list(`@id` = "ex:property-erosiviteit")
   )
 )
@@ -177,7 +172,7 @@ obs_jaar <- lapply(seq_len(nrow(jaarlijks)), function(i) {
     `@id`   = paste0("ex:obs-", sc, "-", r$jaar),
     `@type` = "sosa:Observation",
     `sosa:madeBySensor`         = list(`@id` = "ex:sensor-rfactor"),
-    `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", tolower(r$beheerder))),
+    `sosa:usedProcedure`        = list(`@id` = "ex:procedure-rfactor"),
     `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
     `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
     `sosa:phenomenonTime`       = interval(make_date(r$jaar, 1, 1), make_date(r$jaar + 1, 1, 1), oid),
@@ -195,10 +190,10 @@ coll_jaar <- lapply(seq_len(nrow(jaarlijks_g)), function(i) {
   sc <- clean(r$station)
   list(
     `@id`   = paste0("ex:collectie-", sc, "-jaarlijks"),
-    `@type` = "sosa:ObservationCollection",
+    `@type` = c("sosa:ObservationCollection", "sosa:ExecutionCollection"),
     `rdfs:label`                = list(`@value` = sprintf("Jaarlijkse erosiviteitscollectie %s", r$station), `@language` = "nl"),
     `sosa:madeBySensor`         = list(`@id` = "ex:sensor-rfactor"),
-    `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", tolower(r$beheerder))),
+    `sosa:usedProcedure`        = list(`@id` = "ex:procedure-rfactor"),
     `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
     `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
     `sosa:hasMember`            = lapply(r$jaren[[1]], function(j)
@@ -219,7 +214,7 @@ obs_maand <- lapply(seq_len(nrow(maandelijks)), function(i) {
     `@id`   = paste0("ex:obs-", sc, "-", r$jaar, "-m", sprintf("%02d", r$maand_id)),
     `@type` = "sosa:Observation",
     `sosa:madeBySensor`         = list(`@id` = "ex:sensor-rfactor"),
-    `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", tolower(r$beheerder))),
+    `sosa:usedProcedure`        = list(`@id` = "ex:procedure-rfactor"),
     `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
     `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
     `sosa:phenomenonTime`       = interval(begin, end, oid),
@@ -237,10 +232,10 @@ coll_maand <- lapply(seq_len(nrow(maand_g)), function(i) {
   sc <- clean(r$station)
   list(
     `@id`   = paste0("ex:collectie-", sc, "-", r$jaar, "-maandelijks"),
-    `@type` = "sosa:ObservationCollection",
+    `@type` = c("sosa:ObservationCollection", "sosa:ExecutionCollection"),
     `rdfs:label`                = list(`@value` = sprintf("Maandelijkse erosiviteitscollectie %s, %d", r$station, r$jaar), `@language` = "nl"),
     `sosa:madeBySensor`         = list(`@id` = "ex:sensor-rfactor"),
-    `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", tolower(r$beheerder))),
+    `sosa:usedProcedure`        = list(`@id` = "ex:procedure-rfactor"),
     `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
     `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
     `sosa:hasMember`            = lapply(r$maanden[[1]], function(m)
@@ -260,7 +255,7 @@ obs_15d <- lapply(seq_len(nrow(perioden)), function(i) {
     `@id`   = paste0("ex:obs-", sc, "-", r$jaar, "-p", sprintf("%02d", r$periode)),
     `@type` = "sosa:Observation",
     `sosa:madeBySensor`         = list(`@id` = "ex:sensor-rfactor"),
-    `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", tolower(r$beheerder))),
+    `sosa:usedProcedure`        = list(`@id` = "ex:procedure-rfactor"),
     `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
     `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
     `sosa:phenomenonTime`       = interval(dates$begin, dates$end, oid),
@@ -278,10 +273,10 @@ coll_15d <- lapply(seq_len(nrow(perioden_g)), function(i) {
   sc <- clean(r$station)
   list(
     `@id`   = paste0("ex:collectie-", sc, "-", r$jaar, "-15daags"),
-    `@type` = "sosa:ObservationCollection",
+    `@type` = c("sosa:ObservationCollection", "sosa:ExecutionCollection"),
     `rdfs:label`                = list(`@value` = sprintf("15-daagse erosiviteitscollectie %s, %d", r$station, r$jaar), `@language` = "nl"),
     `sosa:madeBySensor`         = list(`@id` = "ex:sensor-rfactor"),
-    `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", tolower(r$beheerder))),
+    `sosa:usedProcedure`        = list(`@id` = "ex:procedure-rfactor"),
     `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
     `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
     `sosa:hasMember`            = lapply(r$periodes[[1]], function(p)
@@ -296,7 +291,6 @@ obs_gem <- lapply(seq_len(nrow(view)), function(i) {
   v   <- view[i, ]
   sc  <- clean(v$station)
   oid <- paste0(sc, "-gemiddelde")
-  bh  <- tolower(v$beheerder)
   jaren_st <- jaarlijks$jaar[jaarlijks$station == v$station]
   input_waarden <- lapply(jaren_st, function(j)
     list(`@id` = paste0("ex:result-", sc, "-jaar-", j)))
@@ -305,7 +299,7 @@ obs_gem <- lapply(seq_len(nrow(view)), function(i) {
     `@type` = "sosa:Observation",
     `rdfs:label`                = list(`@value` = sprintf("Gemiddelde jaarlijkse erosiviteit %s (%s–%s)", v$station, v$meting_van, v$meting_tot), `@language` = "nl"),
     `sosa:madeBySensor`         = list(`@id` = "ex:sensor-rfactor"),
-    `sosa:usedProcedure`        = list(`@id` = paste0("ex:procedure-rfactor-", bh)),
+    `sosa:usedProcedure`        = list(`@id` = "ex:procedure-rfactor"),
     `sosa:hasFeatureOfInterest` = list(`@id` = paste0("ex:", sc)),
     `sosa:observedProperty`     = list(`@id` = "ex:property-erosiviteit"),
     `sosa:phenomenonTime`       = interval(
@@ -337,7 +331,7 @@ message(sprintf("rfactor.trig aangemaakt (%.1f MB).", file.size("rfactor.trig") 
 # Dit bestand wordt wél meegenomen in mvn compile exec:java.
 VALIDATIE_STATION <- "KMI-6408"
 
-gedeeld_ids <- c("ex:vlaanderen", "ex:procedure-rfactor-kmi", "ex:procedure-rfactor-vmm",
+gedeeld_ids <- c("ex:vlaanderen", "ex:procedure-rfactor",
                  "ex:property-erosiviteit", "ex:unit-rfactor",
                  "ex:departement-omgeving", "ex:sensor-rfactor")
 

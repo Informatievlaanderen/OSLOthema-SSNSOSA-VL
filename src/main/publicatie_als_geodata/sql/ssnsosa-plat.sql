@@ -26,7 +26,7 @@ CREATE TABLE studiegebied (
 );
 
 COMMENT ON TABLE studiegebied IS 'http://www.w3.org/ns/sosa/FeatureOfInterest';
-COMMENT ON COLUMN studiegebied.uri IS 'http://example.org/vocab/uri';
+COMMENT ON COLUMN studiegebied.uri IS 'http://purl.org/dc/terms/identifier';
 COMMENT ON COLUMN studiegebied.label IS 'http://www.w3.org/2000/01/rdf-schema#label';
 COMMENT ON COLUMN studiegebied.beschrijving IS 'http://www.w3.org/2000/01/rdf-schema#comment';
 
@@ -44,7 +44,7 @@ CREATE TABLE meetstation (
 );
 
 COMMENT ON TABLE meetstation IS 'http://www.w3.org/ns/sosa/Platform';
-COMMENT ON COLUMN meetstation.uri IS 'http://example.org/vocab/uri';
+COMMENT ON COLUMN meetstation.uri IS 'http://purl.org/dc/terms/identifier';
 COMMENT ON COLUMN meetstation.label IS 'http://www.w3.org/2000/01/rdf-schema#label';
 COMMENT ON COLUMN meetstation.beschrijving IS 'http://www.w3.org/2000/01/rdf-schema#comment';
 COMMENT ON COLUMN meetstation.geom_wkt IS 'http://www.opengis.net/ont/geosparql#asWKT';
@@ -61,7 +61,7 @@ CREATE TABLE procedure (
 );
 
 COMMENT ON TABLE procedure IS 'http://www.w3.org/ns/sosa/ObservingProcedure';
-COMMENT ON COLUMN procedure.uri IS 'http://example.org/vocab/uri';
+COMMENT ON COLUMN procedure.uri IS 'http://purl.org/dc/terms/identifier';
 COMMENT ON COLUMN procedure.label IS 'http://www.w3.org/2000/01/rdf-schema#label';
 COMMENT ON COLUMN procedure.beschrijving IS 'http://www.w3.org/2000/01/rdf-schema#comment';
 
@@ -76,7 +76,7 @@ CREATE TABLE eigenschap (
 );
 
 COMMENT ON TABLE eigenschap IS 'http://www.w3.org/ns/sosa/Property';
-COMMENT ON COLUMN eigenschap.uri IS 'http://example.org/vocab/uri';
+COMMENT ON COLUMN eigenschap.uri IS 'http://purl.org/dc/terms/identifier';
 COMMENT ON COLUMN eigenschap.label IS 'http://www.w3.org/2000/01/rdf-schema#label';
 COMMENT ON COLUMN eigenschap.beschrijving IS 'http://www.w3.org/2000/01/rdf-schema#comment';
 
@@ -91,7 +91,7 @@ CREATE TABLE eenheid (
 );
 
 COMMENT ON TABLE eenheid IS 'http://qudt.org/schema/qudt/Unit';
-COMMENT ON COLUMN eenheid.uri IS 'http://example.org/vocab/uri';
+COMMENT ON COLUMN eenheid.uri IS 'http://purl.org/dc/terms/identifier';
 COMMENT ON COLUMN eenheid.label IS 'http://www.w3.org/2000/01/rdf-schema#label';
 COMMENT ON COLUMN eenheid.beschrijving IS 'http://www.w3.org/2000/01/rdf-schema#comment';
 
@@ -111,7 +111,7 @@ CREATE TABLE sensor (
 );
 
 COMMENT ON TABLE sensor IS 'http://www.w3.org/ns/sosa/Sensor';
-COMMENT ON COLUMN sensor.uri IS 'http://example.org/vocab/uri';
+COMMENT ON COLUMN sensor.uri IS 'http://purl.org/dc/terms/identifier';
 COMMENT ON COLUMN sensor.label IS 'http://www.w3.org/2000/01/rdf-schema#label';
 COMMENT ON COLUMN sensor.host IS 'http://www.w3.org/ns/sosa/isHostedBy';
 COMMENT ON COLUMN sensor.implementeert IS 'http://www.w3.org/ns/sosa/implements';
@@ -135,7 +135,7 @@ CREATE TABLE observatie_collectie (
 );
 
 COMMENT ON TABLE observatie_collectie IS 'http://www.w3.org/ns/sosa/ObservationCollection';
-COMMENT ON COLUMN observatie_collectie.uri IS 'http://example.org/vocab/uri';
+COMMENT ON COLUMN observatie_collectie.uri IS 'http://purl.org/dc/terms/identifier';
 COMMENT ON COLUMN observatie_collectie.label IS 'http://www.w3.org/2000/01/rdf-schema#label';
 COMMENT ON COLUMN observatie_collectie.foi_uri IS 'http://www.w3.org/ns/sosa/hasFeatureOfInterest';
 COMMENT ON COLUMN observatie_collectie.sensor_uri IS 'http://www.w3.org/ns/sosa/madeBySensor';
@@ -154,7 +154,7 @@ CREATE TABLE resultaat (
 );
 
 COMMENT ON TABLE resultaat IS 'http://qudt.org/schema/qudt/QuantityValue';
-COMMENT ON COLUMN resultaat.uri IS 'http://example.org/vocab/uri';
+COMMENT ON COLUMN resultaat.uri IS 'http://purl.org/dc/terms/identifier';
 COMMENT ON COLUMN resultaat.waarde IS 'http://qudt.org/schema/qudt/numericValue';
 COMMENT ON COLUMN resultaat.eenheid_uri IS 'http://qudt.org/schema/qudt/hasUnit';
 
@@ -183,7 +183,7 @@ CREATE TABLE observatie (
 );
 
 COMMENT ON TABLE observatie IS 'http://www.w3.org/ns/sosa/Observation';
-COMMENT ON COLUMN observatie.uri IS 'http://example.org/vocab/uri';
+COMMENT ON COLUMN observatie.uri IS 'http://purl.org/dc/terms/identifier';
 COMMENT ON COLUMN observatie.foi_uri IS 'http://www.w3.org/ns/sosa/hasFeatureOfInterest';
 COMMENT ON COLUMN observatie.sensor_uri IS 'http://www.w3.org/ns/sosa/madeBySensor';
 COMMENT ON COLUMN observatie.procedure_uri IS 'http://www.w3.org/ns/sosa/usedProcedure';
@@ -208,7 +208,7 @@ CREATE TABLE observatie_collectie_lid (
 );
 
 COMMENT ON TABLE observatie_collectie_lid IS 'http://www.w3.org/ns/sosa/ObservationCollection';
-COMMENT ON COLUMN observatie_collectie_lid.source_uri IS 'http://example.org/vocab/uri';
+COMMENT ON COLUMN observatie_collectie_lid.source_uri IS 'http://purl.org/dc/terms/identifier';
 COMMENT ON COLUMN observatie_collectie_lid.target_uri IS 'http://www.w3.org/ns/sosa/hasMember';
 
 ----------------------------------------------------------------------

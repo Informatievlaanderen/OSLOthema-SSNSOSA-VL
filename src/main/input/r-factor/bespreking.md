@@ -46,11 +46,10 @@ De Vlaamse overheidsdienst die de RUSLE R-factor centraal berekent op basis van 
 neerslagdata van het KMI- en VMM-meetnet. Het station zelf levert enkel brondata; de
 erosiviteitsberekening gebeurt niet op het station.
 
-### `ex:sensor-rfactor` — `sosa:Sensor`
+### `ex:sensor-rfactor` — `sosa:Sensor` + `sosa:System`
 Eén centrale berekeningsketen, niet per station of per beheerder:
 - `sosa:isHostedBy` → `ex:departement-omgeving`
-- `sosa:implements` → zowel `ex:procedure-rfactor-kmi` als `ex:procedure-rfactor-vmm`
-  (dezelfde sensor verwerkt brondata van beide meetnetten, elk volgens hun eigen procedure)
+- `sosa:implements` → `ex:procedure-rfactor` (één procedure, ongeacht brondatabron)
 - `sosa:observes` → `ex:property-erosiviteit`
 
 ---
@@ -69,7 +68,7 @@ Eén centrale berekeningsketen, niet per station of per beheerder:
 
 | Type | IRI-patroon | observedProperty | usedProcedure | hasResult | hasFeatureOfInterest |
 |---|---|---|---|---|---|
-| Jaarlijks | `ex:obs-{st}-{jaar}` | ex:property-erosiviteit | ex:procedure-rfactor-{kmi\|vmm} | qudt:QuantityValue (xsd:decimal) | ex:{station} |
+| Jaarlijks | `ex:obs-{st}-{jaar}` | ex:property-erosiviteit | ex:procedure-rfactor | qudt:QuantityValue (xsd:decimal) | ex:{station} |
 | Maandelijks | `ex:obs-{st}-{jaar}-m{mm}` | idem | idem | idem | idem |
 | 15-daags | `ex:obs-{st}-{jaar}-p{pp}` | idem | idem | idem | idem |
 | Gemiddelde | `ex:obs-{st}-gemiddelde` | idem | idem | idem | idem |
@@ -85,13 +84,13 @@ ongeacht beheerder) en `sosa:isMemberOf` voor de bijbehorende collectie.
 
 | IRI | Klasse | Geïmplementeerd door |
 |---|---|---|
-| `ex:procedure-rfactor-kmi` | `sosa:ObservingProcedure` | `ex:sensor-rfactor` (bij verwerking van KMI-brondata, 10 stations) |
-| `ex:procedure-rfactor-vmm` | `sosa:ObservingProcedure` | `ex:sensor-rfactor` (bij verwerking van VMM-brondata, 43 stations) |
+| `ex:procedure-rfactor` | `sosa:ObservingProcedure` | `ex:sensor-rfactor` (alle 53 stations, KMI en VMM) |
 
-Beide procedures berekenen de RUSLE R-factor maar via verschillende brondata-instrumenten:
-KMI gebruikt klassieke pluviografen, VMM telemetrische hydrometrie. Eén en dezelfde centrale
-sensor (`ex:sensor-rfactor`) implementeert beide procedures, elk voor de brondata van het
-bijbehorende meetnet.
+Eén procedure voor alle stations: de RUSLE-berekening zelf is dezelfde centrale
+methode, ongeacht welk meetnet de brondata levert. Het verschil tussen KMI
+(klassieke pluviografen) en VMM (telemetrische hydrometrie) zit in de instrumentatie die de
+ruwe neerslagdata aanlevert, niet in de berekeningsprocedure die `ex:sensor-rfactor`
+uitvoert — dat verschil hoeft dus niet als aparte procedure gemodelleerd te worden.
 
 ### ObservableProperty
 
@@ -123,10 +122,11 @@ Gekozen aanpak: één centrale sensor `ex:sensor-rfactor`, gehost door `ex:depar
 `elektrisch-raam`, waar `inst:besturings-eenheid` op gebouwniveau gehost wordt terwijl de
 Observations die het produceert een fijnmaziger `sosa:hasFeatureOfInterest` (een specifieke
 kamer) hebben. Hier blijft `sosa:hasFeatureOfInterest` op elke observatie naar het station
-wijzen, terwijl `sosa:madeBySensor` naar de centrale sensor wijst. `sosa:usedProcedure` blijft
-wél gedifferentieerd naar KMI/VMM, omdat de twee procedures (`ex:procedure-rfactor-kmi` en
-`ex:procedure-rfactor-vmm`) het verschil in brondata-instrumentatie per beheerder modelleren —
-alleen de sensor die de berekening uitvoert is gedeeld.
+wijzen, terwijl `sosa:madeBySensor` naar de centrale sensor wijst. Om dezelfde reden is er ook
+maar één `sosa:usedProcedure` (`ex:procedure-rfactor`, zie §5): de RUSLE-berekening zelf is één
+centrale methode; het verschil in brondata-instrumentatie per beheerder (KMI-pluviograaf vs.
+VMM-telemetrie) beschrijft hoe de ruwe data tot stand komt, niet hoe de erosiviteit uit die data
+berekend wordt.
 
 ### Waarom `sosa:ObservationCollection` per aggregatieniveau?
 

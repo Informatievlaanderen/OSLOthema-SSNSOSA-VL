@@ -31,7 +31,7 @@ DEFAULT_TTL    = SCRIPT_DIR / "../input/r-factor/rfactor.trig"
 DEFAULT_SCHEMA = SCRIPT_DIR / "sql/ssnsosa-plat.sql"
 DEFAULT_OUTPUT = SCRIPT_DIR / "sql/insert.sql"
 
-PSEUDO_URI_PRED  = "http://example.org/vocab/uri"
+IDENTIFIER_PRED = "http://purl.org/dc/terms/identifier"
 LOCALID_PRED     = "https://data.riepr.omgeving.vlaanderen.be/ns/riepr#localId"
 VLID_PRED        = "https://data.riepr.omgeving.vlaanderen.be/ns/riepr#vlaanderenId"
 STATUS_PRED      = "http://www.w3.org/ns/adms#status"
@@ -327,7 +327,7 @@ def get_value(
 ) -> str:
     """Geeft SQL-waarde terug voor één kolom, of 'NULL'."""
 
-    if pred_uri == PSEUDO_URI_PRED:
+    if pred_uri == IDENTIFIER_PRED:
         return sql_escape(str(subject))
 
     # Multi-hop property path heeft voorrang op directe predikaat-opzoeking
@@ -581,6 +581,7 @@ def main():
         out.write("-- Gegenereerd door ttl_to_sql.py\n")
         out.write(f"-- Bron: {ttl_path.resolve()}\n\n")
         out.write("BEGIN;\n")
+        out.write("SET session_replication_role = replica; -- FK-checks tijdelijk uit\n")
 
         for ttype in ("IDENTITY", "REGULAR", "JOIN"):
             for tname in sorted(tables):
@@ -604,7 +605,8 @@ def main():
                 stats[tname] = n
                 print(f"[INFO]   → {n} rijen", file=sys.stderr, flush=True)
 
-        out.write("\nCOMMIT;\n")
+        out.write("\nSET session_replication_role = DEFAULT; -- FK-checks terug aan\n")
+        out.write("COMMIT;\n")
 
     # Samenvatting
     print("\n[SAMENVATTING] Rijen per tabel:", file=sys.stderr)
