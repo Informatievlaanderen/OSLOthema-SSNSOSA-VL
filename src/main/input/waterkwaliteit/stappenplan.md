@@ -149,6 +149,16 @@ De kern van het voorbeeld: de rijkste structuur (staal, meetpunt, grenzen, teken
 
 #### Stap 2: concentraties in oppervlaktewater (`250114`)
 
+> **Status (2026-09-30): eerste versie klaar** in `nieuw_model/oppervlaktewater_concentraties/`
+> (script `scripts/oppervlaktewater_concentraties.py`; gedeelde CSOR-code in
+> `scripts/waterkwaliteit_gemeen.py`). 999 observaties, 3 stalen. Subset en volledige set zijn
+> conform SHACL, zonder `[VOCAB ERROR]`.
+> - De meetplaats is het resultaat van een eigen `sosa:Sampling` (keuze van de meetplaats), zodat
+>   ook de waterloop FOI van een Execution is.
+> - `OW12000` ligt in Nederland (Philippine); de koppeling met het Leopoldkanaal (629 m) is
+>   inhoudelijk juist.
+> - Procedure en staalnemer ontbreken in de bron.
+
 - **Keten:** staal → meetplaats `OWxxxx` (`sosa:Platform + sosa:FeatureOfInterest + sosa:SpatialSample`,
   `geo:hasGeometry` uit Lambert 72) → VHA-waterloop (`code:Vhag`) als ultiem FOI (R8, R11;
   `featureofinterest.md` §3).
@@ -159,6 +169,16 @@ De kern van het voorbeeld: de rijkste structuur (staal, meetpunt, grenzen, teken
 - **Subset:** één staal (de uittreksels bevatten 3 staalnamedata op `OW12000`).
 
 #### Stap 3: jaardebieten van lozingen (`250129`)
+
+> **Status (2026-09-30): eerste versie klaar** in `nieuw_model/afvalwater_debieten/` (script
+> `scripts/afvalwater_debieten.py`). 1555 observaties. Subset (AGC Glass Mol) en volledige set
+> zijn conform SHACL, zonder `[VOCAB ERROR]`; samengevoegd met stap 1 ook conform.
+> - Dezelfde IRI's voor meetput, lozing en exploitatie als stap 1; 59 lozingen hebben zowel
+>   stalen als een jaardebiet.
+> - De AGC-meetputten verwijzen met `rdfs:seeAlso` naar de RIE-IEPR-controle-inrichtingen.
+> - Databron IMJV/MNT als `prov:used`.
+> - Let op: de concentraties (stap 1) zijn van 2024, de debieten van 2023. Voor vrachten dus
+>   `251013` gebruiken (stap 4).
 
 - **FOI:** `riepr:Emissie` (de lozing), `madeBySensor` = de controle-inrichting (`riepr:Meetpunt`)
   (`featureofinterest.md` §2.3).
@@ -213,6 +233,7 @@ De kern van het voorbeeld: de rijkste structuur (staal, meetpunt, grenzen, teken
 | V6 | Welke referentie gebruikt de VMM voor meetplaatsen in stilstaand water? | stap 2 (B7) |
 | V7 | Zijn de coördinaten in `250124` Lambert 2008? | fase 2 |
 | V8 | Volledige waardenlijsten van meetputtype, lozingswijze, DWA/RWA, soort afvalwater, positie in de zuivering | fase 3 |
+| V9 | Wat betekent databron "MNT" bij het jaardebiet (naast IMJV)? En met welke procedure wordt het debiet bepaald (kandidaat `WAC/I/1/012`)? | stap 3 |
 
 Voor het VHA-beheer (en niet voor de VMM-data): 133 `code:vhag`-verwijzingen in de segmenten
 verwijzen naar waterlopen die niet in de VHA-waterlopen voorkomen

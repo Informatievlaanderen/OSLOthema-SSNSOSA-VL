@@ -31,31 +31,22 @@ import collections
 import json
 import os
 import sys
-from decimal import Decimal
 
 from rdflib import Graph, Literal, Namespace, URIRef
-from rdflib.namespace import DCTERMS, OWL, PROV, RDF, RDFS, SKOS, XSD
+from rdflib.namespace import DCTERMS, PROV, RDF, RDFS, SKOS, XSD
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from waterkwaliteit_gemeen import (ADMS, EPSG31370, GEO, MATRIX, PROCEDURE as OBSPROC, QUDT, SOSA,  # noqa: E402
+                                   TIME, Csor, Procedures, decimaal)
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 BRON = os.path.normpath(os.path.join(
     HIER, "..", "brondata_Jurgen", "250108_AW_Resultaat_Prompts_R_62-mtpn-UK-PFAS-AW_2024", "Pagina1.json"))
 UIT = os.path.normpath(os.path.join(HIER, "..", "nieuw_model", "afvalwater_concentraties"))
-VITO = os.path.normpath(os.path.join(
-    HIER, "..", "brondata_Jurgen", "Lijst_observatiemethodes_VITO-v1", "Observatiemethoden.json"))
 NAAM = "afvalwater_concentraties"
 SUBSET_STAAL = "16231"  # M-AW-2024-006358-1, RWZI Mechelen-Noord: 15 resultaten, teken '<' en '='
 
 EX = Namespace("https://example.org/waterkwaliteit/afvalwater/")
-SOSA = Namespace("http://www.w3.org/ns/sosa/")
-QUDT = Namespace("http://qudt.org/schema/qudt/")
-TIME = Namespace("http://www.w3.org/2006/time#")
-GEO = Namespace("http://www.opengis.net/ont/geosparql#")
-ADMS = Namespace("http://www.w3.org/ns/adms#")
-CSOR = Namespace("https://data.omgeving.vlaanderen.be/ns/csor#")
-CSOR_B = "src/main/resources/be/vlaanderen/omgeving/data/id/conceptscheme/csor"
-MATRIX = Namespace("https://data.omgeving.vlaanderen.be/id/concept/matrix/")
-OBSPROC = Namespace("https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/")
-EPSG31370 = "<http://www.opengis.net/def/crs/EPSG/0/31370>"
 
 # Soort monstername -> hoofdprocedure (WAC). "Debietgebonden monster" = verzamelmonster: te
 # bevestigen door de VMM (stappenplan.md V1). De jaarversie wordt per staal gekozen (Procedures).
@@ -64,60 +55,6 @@ MONSTERNAME = {
     "Debietgebonden monster": OBSPROC["WAC_I_A_004"],
 }
 MATRICES = {"Afvalwater": MATRIX["afvalwater"]}
-
-
-class Csor:
-    """Zoekt CSOR-parameteraspect en -eenheid op voor (Parameter Code, eenheidssymbool)."""
-
-    def __init__(self, map_):
-        self.g = Graph()
-        for repo, naam in (("parameter", "parameter"), ("parameteraspect", "parameteraspect"),
-                           ("kwantificeerbaar-aspect", "kwantificeerbaaraspect"), ("eenheid", "eenheid")):
-            self.g.parse(os.path.join(map_, f"codelijst-csor-{repo}", CSOR_B, naam, f"{naam}.nt"), format="nt")
-        eenheid_schema = URIRef("https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/eenheid")
-        self.eenheid = {}
-        for e, s in self.g.subject_objects(CSOR.symbool):
-            if (e, SKOS.inScheme, eenheid_schema) in self.g and self.actief(e):
-                self.eenheid.setdefault(str(s), e)
-        self.parameter = {str(n): p for p, n in self.g.subject_objects(SKOS.notation)
-                          if (p, RDF.type, CSOR.Parameter) in self.g and self.actief(p)}
-        self.aspecten = collections.defaultdict(list)
-        for pa, p in self.g.subject_objects(CSOR.heeftParameter):
-            if self.actief(pa):
-                self.aspecten[p].append(pa)
-
-    def actief(self, x):
-        return str(self.g.value(x, OWL.deprecated)).lower() != "true"
-
-    def label(self, x):
-        return self.g.value(x, SKOS.prefLabel)
-
-    def parameteraspect(self, code, symbool):
-        p, e = self.parameter.get(code), self.eenheid.get(symbool)
-        if p is None or e is None:
-            return None, e
-        kandidaten = [pa for pa in self.aspecten[p]
-                      if (self.g.value(pa, CSOR.heeftAspect), CSOR.toepasbareEenheid, e) in self.g]
-        return (kandidaten[0] if len(kandidaten) == 1 else None), e
-
-
-class Procedures:
-    """Jaarversies van de observatieprocedures uit de VITO-lijst: (hoofdprocedure, jaar) -> record."""
-
-    def __init__(self, pad):
-        rijen = json.load(open(pad, encoding="utf-8"))
-        self.hoofd = {URIRef(r["URI"]): r for r in rijen if not r["Is versie van"]}
-        self.versie = {(URIRef(r["Is versie van"]), int(r["Jaar"])): r for r in rijen if r["Is versie van"]}
-
-    def voor(self, hoofd, jaar):
-        r = self.versie.get((hoofd, jaar))
-        if r is None:
-            sys.exit(f"geen jaarversie {jaar} van {hoofd} in de VITO-lijst")
-        return r
-
-
-def decimaal(v):
-    return Literal(Decimal(str(v)), datatype=XSD.decimal)
 
 
 def bouw(rijen, csor, procedures):
@@ -267,8 +204,8 @@ def main():
     args = ap.parse_args()
 
     rijen = json.load(open(BRON, encoding="utf-8"))
-    csor = Csor(os.path.expanduser(args.csor))
-    procedures = Procedures(VITO)
+    csor = Csor(args.csor)
+    procedures = Procedures()
     os.makedirs(UIT, exist_ok=True)
 
     kop = ("# Concentraties in afvalwater (VMM, 250108) als SSN/SOSA 2023 -- DIT IS VOORBEELDDATA\n"

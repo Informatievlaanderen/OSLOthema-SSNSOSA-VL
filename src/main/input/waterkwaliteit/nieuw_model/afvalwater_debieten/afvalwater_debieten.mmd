@@ -1,0 +1,63 @@
+flowchart LR
+
+subgraph PROC["PROCEDURE"]
+    PA["csor-parameteraspect:PAS_1838
+    sosa:Property
+    Q (standaard in water): debiet"]
+    DB["ex:databron-IMJV
+    prov:Entity
+    Integraal milieujaarverslag"]
+end
+
+subgraph INFRA["INFRASTRUCTUUR"]
+    I1["ex:meetpunt-2400006
+    sosa:Sampler · prov:Location
+    AW2400006"]
+    I1R["riepr-meetpunt:019e9271-145f-…
+    riepr:Meetpunt (RIE-IEPR)
+    Controleinrichting LP01"]
+    I2["ex:lozing-2400006
+    sosa:FeatureOfInterest · prov:Entity
+    (≙ riepr:Emissie)"]
+    I3["ex:exploitatie-696
+    prov:Organization
+    AGC Glass Europe vestiging Mol"]
+end
+
+subgraph WAAR["WAARNEMING — jaardebieten 2023"]
+    C1["ex:collectie-jaardebieten-2023
+    sosa:ObservationCollection"]
+    P1["ex:periode-2023
+    time:Interval
+    2023-01-01 → 2024-01-01"]
+    O1["ex:observatie-jaardebiet-2400006-2023
+    sosa:Observation"]
+    R1["ex:resultaat-jaardebiet-2400006-2023
+    sosa:Result
+    numericValue 244378 · csor-eenheid:E_50 m³/jr"]
+end
+
+I1 -.->|rdfs:seeAlso| I1R
+I2 -->|prov:wasAttributedTo| I3
+C1 -->|sosa:observedProperty| PA
+C1 -->|sosa:phenomenonTime| P1
+C1 -->|sosa:hasMember| O1
+O1 -->|sosa:hasFeatureOfInterest| I2
+O1 -->|sosa:observedProperty| PA
+O1 -->|prov:atLocation| I1
+O1 -->|prov:used| DB
+O1 -->|sosa:hasResult| R1
+
+style PROC fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style WAAR fill:#e7a3be,stroke:#2E5C8A,color:#000
+style PA fill:#fe7130,stroke:#2E5C8A,color:#000
+style DB fill:#f8b622,stroke:#2E5C8A,color:#000
+style I1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I1R fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I3 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style C1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style P1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style O1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R1 fill:#f8b622,stroke:#2E5C8A,color:#000
