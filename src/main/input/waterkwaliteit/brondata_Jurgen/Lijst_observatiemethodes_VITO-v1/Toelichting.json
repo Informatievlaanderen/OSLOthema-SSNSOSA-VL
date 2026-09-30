@@ -1,0 +1,112 @@
+[
+  {
+    "kolom_A": "Kolom A",
+    "kolom_B": "URI",
+    "kolom_C": "Link van de procedure in de databank, enerzijds de hoofdprocedure en anderzijds de procedures per jaar (2024 en 2025)"
+  },
+  {
+    "kolom_A": "Kolom B",
+    "kolom_B": "Pref_label",
+    "kolom_C": "Code +titel"
+  },
+  {
+    "kolom_A": "Kolom C",
+    "kolom_B": "Notation",
+    "kolom_C": "Code"
+  },
+  {
+    "kolom_A": "Kolom D",
+    "kolom_B": "Is versie van",
+    "kolom_C": "URI van het algemeen niveau (hoofdprocedure)"
+  },
+  {
+    "kolom_A": "Kolom E",
+    "kolom_B": "Jaar",
+    "kolom_C": "2024 of 2025 (deze 2 jaren moeten we bekijken)"
+  },
+  {
+    "kolom_A": "Kolom F",
+    "kolom_B": "Definition",
+    "kolom_C": "Korte beschrijving van de methode"
+  },
+  {
+    "kolom_A": "Kolom G",
+    "kolom_B": "pdf-bestand",
+    "kolom_C": "pdf bestand van de methode op de emis website"
+  },
+  {
+    "kolom_A": "Kolom H",
+    "kolom_B": "Pipe separated lijst van uri's van de parameters die kunnen gemeten worden",
+    "kolom_C": "NVT voor 2026"
+  },
+  {
+    "kolom_A": "Het gaat principieel om het aanleveren van een lijst zoals gepubliceerd op ",
+    "kolom_B": null,
+    "kolom_C": "https://data.omgeving.vlaanderen.be/doc/conceptscheme/observatieprocedure."
+  },
+  {
+    "kolom_A": "Hierbij dient 1 bestand aangeleverd te worden over de observatieprocedures.",
+    "kolom_B": null,
+    "kolom_C": null
+  },
+  {
+    "kolom_A": "Er zijn twee niveaus die moeten opgenomen worden in deze lijst:",
+    "kolom_B": null,
+    "kolom_C": null
+  },
+  {
+    "kolom_A": "De observatieprocedure zelf, bijv. WAC/I/A/002, en, in dezelfde lijst ook de jaarversies met een verwijzing naar de hoofdprocedure.",
+    "kolom_B": null,
+    "kolom_C": null
+  },
+  {
+    "kolom_A": "Daarnaast moeten uiteraard een aantal velden opgenomen zoals preflabel en notation. Een conceptueel voorbeeldje in bijlage. Het aantal velden kan wel nog iets uitgebreid worden als we hier meer in detail over overleggen.",
+    "kolom_B": null,
+    "kolom_C": null
+  },
+  {
+    "kolom_A": "De methodiek is analoog aan de methodiek gehanteerd bij de voorziene publicatie van de indelingslijst. Karel Styns zou daar mee moeten kunnen inschatten wat de gevraagde inspanning betekent.",
+    "kolom_B": null,
+    "kolom_C": null
+  },
+  {
+    "kolom_A": "De koppeling met de parameters in facultatief. Het zou goed zijn dat zeker de laatste versie een reeks gekoppelde parameters krijgt. De URI’s van deze parameters zijn echter nog niet bekend omdat deze nog niet gepubliceerd zijn. Maar dat zou in de loop van het voorjaar in orde moeten komen.",
+    "kolom_B": null,
+    "kolom_C": null
+  },
+  {
+    "kolom_A": "Het zou wel goed zijn dat alle observatieprocedures beschikbaar zouden komen, en dat we de budgettaire beperkingen gebruiken om te bepalen voor welke reeks observatieprocedures we de koppeling met de parameters al laten voorzien. Bij vragen kan VITO steeds Jurgen Meirlaan (VMM) of Geert Van Haute (DOMG) contacteren.",
+    "kolom_B": null,
+    "kolom_C": null
+  },
+  {
+    "kolom_A": "Jurgen Meirlaen j.meirlaen@vmm.be",
+    "kolom_B": null,
+    "kolom_C": null
+  },
+  {
+    "kolom_A": "Geert Van Haute geert.vanhaute@vlaanderen.be",
+    "kolom_B": null,
+    "kolom_C": null
+  },
+  {
+    "kolom_A": "Opmerking",
+    "kolom_B": null,
+    "kolom_C": null
+  },
+  {
+    "kolom_A": null,
+    "kolom_B": "https://data.omgeving.vlaanderen.be/doc/conceptscheme/observatieprocedure.",
+    "kolom_C": null
+  },
+  {
+    "kolom_A": "In de codelijst (linkse blok) staan enkel de titels vermeld.",
+    "kolom_B": null,
+    "kolom_C": null
+  },
+  {
+    "kolom_A": "Het is beter om te starten met de compendium code",
+    "kolom_B": null,
+    "kolom_C": null
+  }
+]

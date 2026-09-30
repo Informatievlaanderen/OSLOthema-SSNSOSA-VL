@@ -17,8 +17,8 @@ meetpunten, rapportagegrenzen (teken `<`) en de koppeling aan CSOR.
 
 | Bestand | Inhoud |
 |---|---|
-| `afvalwater_concentraties.ttl` | validatie-subset: staal `M-AW-2024-006358-1` (RWZI Mechelen-Noord, 27/03/2024), 15 resultaten, teken `<` en `=`; 258 triples. Wordt door de Maven-pipeline gevalideerd. |
-| `afvalwater_concentraties.trig` | volledige omzetting: 1998 observaties, 42 321 triples (Turtle-inhoud; `.trig` houdt het buiten de pipeline) |
+| `afvalwater_concentraties.ttl` | validatie-subset: staal `M-AW-2024-006358-1` (RWZI Mechelen-Noord, 27/03/2024), 15 resultaten, teken `<` en `=`; 266 triples. Wordt door de Maven-pipeline gevalideerd. |
+| `afvalwater_concentraties.trig` | volledige omzetting: 1998 observaties, 42 337 triples (Turtle-inhoud; `.trig` houdt het buiten de pipeline) |
 | `afvalwater_concentraties.mmd` | Mermaid-diagram van de subset |
 | `bespreking.md` | conceptmapping en modelleerkeuzes |
 
@@ -30,7 +30,9 @@ python3 src/main/input/waterkwaliteit/scripts/afvalwater_concentraties.py [--cso
 
 1. Het script leest de JSON-omzetting van de Excel (`brondata_Jurgen/xlsx_naar_json.py`).
 2. Het laadt de CSOR-codelijsten parameter, parameteraspect, kwantificeerbaar aspect en eenheid
-   uit `~/git/csor/codelijst-csor-*`.
+   uit `~/git/csor/codelijst-csor-*`, en de jaarversies van de observatieprocedures uit
+   `brondata_Jurgen/Lijst_observatiemethodes_VITO-v1/Observatiemethoden.json`. Een staalname
+   verwijst naar de versie van haar jaar (bv. `WAC_I_A_003_2024`).
 3. Per rij:
    - parameter via `Parameter Code` (= CSOR `skos:notation`);
    - eenheid via `Eenheid` (= CSOR `csor:symbool`);

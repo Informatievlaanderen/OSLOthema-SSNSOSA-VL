@@ -8,7 +8,7 @@
 @prefix ex: <https://example.org/waterkwaliteit/afvalwater/> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix matrix: <https://data.omgeving.vlaanderen.be/id/concept/matrix/> .
-@prefix observatieprocedure: <https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/> .
+@prefix procedure: <https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -67,9 +67,18 @@ csor-parameteraspect:PAS_728 a sosa:Property ;
 matrix:afvalwater a skos:Concept ;
     rdfs:label "Afvalwater"@nl .
 
-observatieprocedure:WAC_I_A_003 a sosa:Procedure,
+procedure:WAC_I_A_003 a skos:Concept,
+        sosa:Procedure,
         sosa:SamplingProcedure ;
-    rdfs:label "Schepmonster"@nl .
+    rdfs:label "WAC/I/A/003 - Ogenblikkelijke monstername (schepmonster) van water."@nl .
+
+procedure:WAC_I_A_003_2024 a skos:Concept,
+        sosa:Procedure,
+        sosa:SamplingProcedure ;
+    rdfs:label "WAC/I/A/003 - Ogenblikkelijke monstername (schepmonster) van water."@nl ;
+    dct:isVersionOf procedure:WAC_I_A_003 ;
+    dct:issued "2024"^^xsd:gYear ;
+    prov:hadPrimarySource <https://reflabos.vito.be/2024/WAC_I_A_003.pdf> .
 
 ex:collectie-16231 a sosa:ExecutionCollection,
         sosa:ObservationCollection ;
@@ -311,7 +320,7 @@ ex:sampling-16231 a sosa:Execution,
     sosa:hasResult ex:staal-16231 ;
     sosa:madeBySampler ex:meetpunt-2800028 ;
     sosa:phenomenonTime ex:tijdstip-2024-03-27 ;
-    sosa:usedProcedure observatieprocedure:WAC_I_A_003 .
+    sosa:usedProcedure procedure:WAC_I_A_003_2024 .
 
 ex:tijdstip-2024-03-27 a time:Instant ;
     time:inXSDDate "2024-03-27"^^xsd:date .

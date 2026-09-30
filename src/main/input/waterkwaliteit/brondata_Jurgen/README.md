@@ -49,6 +49,19 @@ aangemaakt met `xlsx_naar_json.py`.
 | | `Vlaremnormen_sediment` | 54 | Waterbodem | Vlarem-normen per parameter: eenheid, toetswijze (`MAX`), norm (`<=0,1`) | 2: normen |
 | | `Triggerwaarden` | 73 | Waterbodem | Triggerwaarden per parameter, in dezelfde structuur | 2: normen |
 
+### Referentielijst observatiemethoden (VITO)
+
+| Bestand (subdirectory) | Tab | Records | Inhoud |
+|---|---|---|---|
+| `Lijst_observatiemethodes_VITO-v1` | `Observatiemethoden` | 939 | Voorstel van VITO voor de codelijst observatieprocedures: 313 hoofdprocedures (CMA 164, WAC 109, LUC 38, BOC 2) en per hoofdprocedure een jaarversie 2024 en 2025 (626). Per versie: URI (`…/observatieprocedure/<code>_<jaar>`), label, notation, `Is versie van` → hoofdprocedure, jaar, pdf op reflabos.vito.be. `Definition` is nog leeg. |
+| | `Eindresultaat` | 3 | Voorbeeld van het gevraagde eindformaat (WAC/IV/A/007), met een extra kolom voor de meetbare parameters (pipe-gescheiden URI's) |
+| | `Toelichting` | 22 | Uitleg per kolom en de opdracht aan VITO. Geen koprij, dus sleutels `kolom_A`–`kolom_C`. |
+
+De hoofdprocedures gebruiken dezelfde URI's als `codelijst-observatieprocedure`
+(bv. `WAC_I_A_003` schepmonster en `WAC_I_A_004` verzamelmonster, gebruikt in
+`../nieuw_model/afvalwater_concentraties`). De jaarversies (`WAC_I_A_003_2024`, `…_2025`) zijn
+nieuw.
+
 ## Eerste modelleeraandachtspunten
 
 - **Teken `<`:** een resultaat onder de aantoonbaarheids- of bepaalbaarheidsgrens. Dat komt veel

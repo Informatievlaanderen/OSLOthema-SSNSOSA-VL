@@ -70,13 +70,25 @@ oplevert: `sosa:hasResult ex:staal-16231`, `sosa:hasFeatureOfInterest ex:lozing-
 
 ## 5. Procedure en ObservableProperty
 
-**SamplingProcedure.** De soort monstername verwijst naar het WAC-compendium in
-`codelijst-observatieprocedure`:
+**SamplingProcedure.** De soort monstername verwijst naar de **jaarversie** van de
+WAC-procedure die gold in het jaar van de staalname. De versies komen uit de VITO-lijst
+observatiemethoden (`../../brondata_Jurgen/Lijst_observatiemethodes_VITO-v1/`). De jaarversie
+verwijst met `dct:isVersionOf` naar de hoofdprocedure uit `codelijst-observatieprocedure`:
 
-| Bron (`Aard Monstername`) | Procedure | Aantal rijen |
-|---|---|---|
-| Schepmonster | `observatieprocedure:WAC_I_A_003` Ogenblikkelijke monstername (schepmonster) van water | 1965 |
-| Debietgebonden monster | `observatieprocedure:WAC_I_A_004` Procedure voor het nemen van een verzamelmonster | 33 (bevestiging VMM nodig, `stappenplan.md` V1) |
+| Bron (`Aard Monstername`) | Jaarversie (`sosa:usedProcedure`) | Hoofdprocedure (`dct:isVersionOf`) | Stalen |
+|---|---|---|---|
+| Schepmonster | `procedure:WAC_I_A_003_2024` | `WAC_I_A_003` Ogenblikkelijke monstername (schepmonster) van water | 670 |
+| Debietgebonden monster | `procedure:WAC_I_A_004_2024` | `WAC_I_A_004` Procedure voor het nemen van een verzamelmonster | 27 (bevestiging VMM nodig, `stappenplan.md` V1) |
+
+De jaarversie krijgt ook `dct:issued "2024"^^xsd:gYear` en `prov:hadPrimarySource` (de pdf op
+reflabos.vito.be) mee. Zo ligt vast volgens welke versie van het compendium er bemonsterd is.
+Wie op hoofdprocedure zoekt, volgt `dct:isVersionOf`. Het script kiest de versie uit het jaar van
+`Datum Dag` en stopt als die versie niet in de VITO-lijst staat.
+
+De jaarversie-IRI's zijn nog een **voorstel van VITO** en niet gepubliceerd. De
+hoofdprocedure-IRI's bestaan wel al. De VITO-lijst typeert alles als `sosa:Procedure`. Het type
+`sosa:SamplingProcedure` komt uit dit voorbeeld (§6.7), omdat de lijst geen soort procedure
+vermeldt.
 
 De procedure wordt gebruikt door de `sosa:Sampling` en niet `sosa:implements` door het meetpunt.
 De meetput laat beide soorten staalname toe.
@@ -213,7 +225,7 @@ Eén staalname en één analyse per parameter, zonder meerstapsproces of herbrui
 | `ex:` | `https://example.org/waterkwaliteit/afvalwater/` | tijdelijk (illustratief, R10) |
 | `csor-parameteraspect:` | `https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/` | persistent (CSOR) |
 | `csor-eenheid:` | `https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/` | persistent (CSOR) |
-| `observatieprocedure:` | `https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/` | persistent |
+| `procedure:` | `https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/` | persistent (hoofdprocedures); jaarversies = voorstel VITO. Prefix `procedure:` omdat de lijst zowel staalname- als observatieprocedures bevat. |
 | `matrix:` | `https://data.omgeving.vlaanderen.be/id/concept/matrix/` | persistent |
 | `sosa:` | `http://www.w3.org/ns/sosa/` | persistent |
 | `qudt:` | `http://qudt.org/schema/qudt/` | persistent |

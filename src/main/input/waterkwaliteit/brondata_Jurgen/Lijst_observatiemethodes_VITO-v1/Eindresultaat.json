@@ -1,0 +1,32 @@
+[
+  {
+    "URI": "https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/WAC_IV_A_007",
+    "Pref_label": "WAC/IV/A/007 - Bepaling van formaldehyde in water",
+    "Notation": "WAC/IV/A/007",
+    "Is versie van": null,
+    "Jaar": null,
+    "Definition": "Deze procedure beschrijft een methode voor de derivatisatie, extractie en meting van formaldehyde in oppervlakte-, grond- en afvalwater.",
+    "pdf-bestand": null,
+    "Pipe separated lijst van uri's van de parameters die kunnen gemeten worden": "Hier de lijst van de huidige URI's van de parameters"
+  },
+  {
+    "URI": "https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/WAC_IV_A_007_2025",
+    "Pref_label": "WAC/IV/A/007 - Bepaling van formaldehyde in water - 2025",
+    "Notation": "WAC/IV/A/007",
+    "Is versie van": "https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/WAC_IV_A_007",
+    "Jaar": 2025,
+    "Definition": null,
+    "pdf-bestand": "https://reflabos.vito.be/2025/WAC_IV_A_007.pdf",
+    "Pipe separated lijst van uri's van de parameters die kunnen gemeten worden": "Hier de lijst van de  URI's van de parameters uit deze versie"
+  },
+  {
+    "URI": "https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/WAC_IV_A_007_2024",
+    "Pref_label": "WAC/IV/A/007 - Bepaling van formaldehyde in water - 2024",
+    "Notation": "WAC/IV/A/007",
+    "Is versie van": "https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/WAC_IV_A_007",
+    "Jaar": 2024,
+    "Definition": null,
+    "pdf-bestand": "https://reflabos.vito.be/2024/WAC_IV_A_007.pdf",
+    "Pipe separated lijst van uri's van de parameters die kunnen gemeten worden": "Hier de lijst van de  URI's van de parameters uit deze versie"
+  }
+]

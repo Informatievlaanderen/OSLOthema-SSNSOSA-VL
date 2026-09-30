@@ -3,6 +3,9 @@
 Invoer:
 - ../brondata_Jurgen/250108_AW_Resultaat_Prompts_R_62-mtpn-UK-PFAS-AW_2024/Pagina1.json
 - CSOR-codelijsten (parameter, parameteraspect, kwantificeerbaar aspect, eenheid) in ~/git/csor
+- ../brondata_Jurgen/Lijst_observatiemethodes_VITO-v1/Observatiemethoden.json: jaarversies van de
+  observatieprocedures (VITO, v1). De staalname verwijst naar de versie van het jaar van de
+  staalname (bv. WAC_I_A_003_2024), met dct:isVersionOf naar de hoofdprocedure.
 
 Uitvoer (../nieuw_model/afvalwater_concentraties/):
 - afvalwater_concentraties.trig  alle 1998 resultaten (Turtle-inhoud, buiten de Maven-validatie)
@@ -37,6 +40,8 @@ HIER = os.path.dirname(os.path.abspath(__file__))
 BRON = os.path.normpath(os.path.join(
     HIER, "..", "brondata_Jurgen", "250108_AW_Resultaat_Prompts_R_62-mtpn-UK-PFAS-AW_2024", "Pagina1.json"))
 UIT = os.path.normpath(os.path.join(HIER, "..", "nieuw_model", "afvalwater_concentraties"))
+VITO = os.path.normpath(os.path.join(
+    HIER, "..", "brondata_Jurgen", "Lijst_observatiemethodes_VITO-v1", "Observatiemethoden.json"))
 NAAM = "afvalwater_concentraties"
 SUBSET_STAAL = "16231"  # M-AW-2024-006358-1, RWZI Mechelen-Noord: 15 resultaten, teken '<' en '='
 
@@ -52,8 +57,8 @@ MATRIX = Namespace("https://data.omgeving.vlaanderen.be/id/concept/matrix/")
 OBSPROC = Namespace("https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/")
 EPSG31370 = "<http://www.opengis.net/def/crs/EPSG/0/31370>"
 
-# Soort monstername -> observatieprocedure (WAC). "Debietgebonden monster" = verzamelmonster: te
-# bevestigen door de VMM (stappenplan.md V1).
+# Soort monstername -> hoofdprocedure (WAC). "Debietgebonden monster" = verzamelmonster: te
+# bevestigen door de VMM (stappenplan.md V1). De jaarversie wordt per staal gekozen (Procedures).
 MONSTERNAME = {
     "Schepmonster": OBSPROC["WAC_I_A_003"],
     "Debietgebonden monster": OBSPROC["WAC_I_A_004"],
@@ -96,17 +101,32 @@ class Csor:
         return (kandidaten[0] if len(kandidaten) == 1 else None), e
 
 
+class Procedures:
+    """Jaarversies van de observatieprocedures uit de VITO-lijst: (hoofdprocedure, jaar) -> record."""
+
+    def __init__(self, pad):
+        rijen = json.load(open(pad, encoding="utf-8"))
+        self.hoofd = {URIRef(r["URI"]): r for r in rijen if not r["Is versie van"]}
+        self.versie = {(URIRef(r["Is versie van"]), int(r["Jaar"])): r for r in rijen if r["Is versie van"]}
+
+    def voor(self, hoofd, jaar):
+        r = self.versie.get((hoofd, jaar))
+        if r is None:
+            sys.exit(f"geen jaarversie {jaar} van {hoofd} in de VITO-lijst")
+        return r
+
+
 def decimaal(v):
     return Literal(Decimal(str(v)), datatype=XSD.decimal)
 
 
-def bouw(rijen, csor):
+def bouw(rijen, csor, procedures):
     g = Graph()
     for p, ns in (("ex", EX), ("sosa", SOSA), ("qudt", QUDT), ("time", TIME), ("geo", GEO), ("adms", ADMS),
                   ("prov", PROV), ("dct", DCTERMS), ("skos", SKOS), ("xsd", XSD), ("rdfs", RDFS),
                   ("csor-parameteraspect", "https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/"),
                   ("csor-eenheid", "https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/"),
-                  ("matrix", MATRIX), ("observatieprocedure", OBSPROC)):
+                  ("matrix", MATRIX), ("procedure", OBSPROC)):
         g.bind(p, ns)
 
     vmm = EX["organisatie-vmm"]
@@ -166,8 +186,17 @@ def bouw(rijen, csor):
         g.add((tijdstip, TIME.inXSDDate, Literal(r["Datum Dag"], datatype=XSD.date)))
 
         # --- bemonstering ---
-        procedure = MONSTERNAME[r["Aard Monstername"]]
-        extern(procedure, (SOSA.SamplingProcedure, SOSA.Procedure), r["Aard Monstername"])
+        hoofd = MONSTERNAME[r["Aard Monstername"]]
+        versie = procedures.voor(hoofd, int(r["Datum Dag"][:4]))
+        procedure = URIRef(versie["URI"])
+        if procedure not in gezien_extern:
+            extern(procedure, (SOSA.SamplingProcedure, SOSA.Procedure, SKOS.Concept), versie["Pref_label"])
+            g.add((procedure, DCTERMS.isVersionOf, hoofd))
+            g.add((procedure, DCTERMS.issued, Literal(str(versie["Jaar"]), datatype=XSD.gYear)))
+            if versie["pdf-bestand"]:
+                g.add((procedure, PROV.hadPrimarySource, URIRef(versie["pdf-bestand"])))
+            extern(hoofd, (SOSA.SamplingProcedure, SOSA.Procedure, SKOS.Concept),
+                   procedures.hoofd[hoofd]["Pref_label"])
         g.add((sampling, RDF.type, SOSA.Sampling))
         g.add((sampling, RDF.type, SOSA.Execution))
         g.add((sampling, SOSA.hasFeatureOfInterest, lozing))
@@ -239,13 +268,14 @@ def main():
 
     rijen = json.load(open(BRON, encoding="utf-8"))
     csor = Csor(os.path.expanduser(args.csor))
+    procedures = Procedures(VITO)
     os.makedirs(UIT, exist_ok=True)
 
     kop = ("# Concentraties in afvalwater (VMM, 250108) als SSN/SOSA 2023 -- DIT IS VOORBEELDDATA\n"
            "# Gegenereerd door scripts/afvalwater_concentraties.py; niet manueel bewerken.\n")
-    volledig, ontbrekend = bouw(rijen, csor)
+    volledig, ontbrekend = bouw(rijen, csor, procedures)
     schrijf(volledig, os.path.join(UIT, f"{NAAM}.trig"), kop)
-    subset, _ = bouw([r for r in rijen if str(r["Sample ID"]) == SUBSET_STAAL], csor)
+    subset, _ = bouw([r for r in rijen if str(r["Sample ID"]) == SUBSET_STAAL], csor, procedures)
     schrijf(subset, os.path.join(UIT, f"{NAAM}.ttl"), kop + f"# Validatie-subset: staal {SUBSET_STAAL}.\n")
 
     n_obs = len(set(volledig.subjects(RDF.type, SOSA.Observation)))
