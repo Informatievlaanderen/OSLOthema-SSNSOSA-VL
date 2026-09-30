@@ -1,0 +1,1309 @@
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix shacl: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01> rdfs:member <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#AgensShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeobserveerdWeerShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MeetnetShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MeetpuntShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#SoortShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#StatistischeObservatieShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeneriekeNaamShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MaatShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MomentShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#TemporeleEntiteitShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#PeriodeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#KenmerktypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#KwaliteitselementShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#PositioneleNauwkeurigheidShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HerkomstShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MetadataShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObjectShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MetingShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ProcesShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectverzamelingShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#AgentShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#AnyShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterTypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterObjectTypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexTypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatietypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischIndexTypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronTypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MatrixTypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieTypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorTypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensKenmerkTypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjecttypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingmethodeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiewijzetypeShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#IdentificatorShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeometrieShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#LocatieShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieverzamelingShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieprocedureShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ProcedureShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#SensorShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#SysteemShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WettelijkKaderShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterObjectShape>,
+                                                                                                                <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#AgensShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <https://data.vlaanderen.be/ns/waterkwaliteit#Agens> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#AgentShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass dc:Agent .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#AnyShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass rdfs:Resource .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/59b9347ab72afa0c39a2c50ed656780c82fba2dc>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/7dc9be25e8708bd3eb46ed61288f2a193eea5d61>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/bff6e3438377968c492a6ca0fe2e7df779731318>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/2ad9fcaea8c54f3993381acf97bd6401ba6549dc>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/7f7729e4df614394423f92badbe4304148f90b07>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/05134c4e7c34157d6f7ac1128713a08418e0fe7d>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/972d73e7a13100b66c0c2f44466edac47aa1ab28>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/09c0c3a9baa1d16aecc7fc56bca94b26629162e5>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/236f0210baaf149903750c43bbe7012c21debb2a>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/322371a77364a50f049d46180f6192532eea26dc>;
+    shacl:targetClass <http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/05134c4e7c34157d6f7ac1128713a08418e0fe7d> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobject.identificator";
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Verwijzing naar de informatie die het Bemonsteringsobject uniek identificeert."@nl;
+    shacl:name "identificator"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/observaties-en-metingen#Bemonsteringsobject.identificator> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/09c0c3a9baa1d16aecc7fc56bca94b26629162e5> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobject.parameter";
+    shacl:class <http://def.isotc211.org/iso19156/2011/Observation#NamedValue>;
+    shacl:description "Willekeurig gegeven gassocieerd met het Bemonsteringsobject."@nl;
+    shacl:name "parameter"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature.parameter> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/236f0210baaf149903750c43bbe7012c21debb2a> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobject.type";
+    shacl:description "Aard van het Bemonsteringsobject."@nl;
+    shacl:maxCount 1;
+    shacl:name "type"@nl;
+    shacl:path dc:type .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/2ad9fcaea8c54f3993381acf97bd6401ba6549dc> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobject.herkomst";
+    shacl:description "Verwijzing naar de Herkomst van een Bemonsteringsobject."@nl;
+    shacl:maxCount 1;
+    shacl:name "herkomst"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature.lineage> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/322371a77364a50f049d46180f6192532eea26dc> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobject.type";
+    shacl:class skos:Concept;
+    shacl:description "Aard van het Bemonsteringsobject."@nl;
+    shacl:name "type"@nl;
+    shacl:path dc:type .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/59b9347ab72afa0c39a2c50ed656780c82fba2dc> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobject.bemonsterdObject";
+    shacl:class <http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#GFI_Feature>;
+    shacl:description "Verwijzing naar het Object dat men wil bemonsteren."@nl;
+    shacl:name "bemonsterdObject"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature.sampledFeature> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/7dc9be25e8708bd3eb46ed61288f2a193eea5d61> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobject.bemonsterdObject";
+    shacl:description "Verwijzing naar het Object dat men wil bemonsteren."@nl;
+    shacl:minCount 1;
+    shacl:name "bemonsterdObject"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature.sampledFeature> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/7f7729e4df614394423f92badbe4304148f90b07> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobject.herkomst";
+    shacl:class <http://def.isotc211.org/iso19115/2006/DataQualityInformation#LI_Lineage>;
+    shacl:description "Verwijzing naar de Herkomst van een Bemonsteringsobject."@nl;
+    shacl:name "herkomst"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature.lineage> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/972d73e7a13100b66c0c2f44466edac47aa1ab28> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobject.identificator";
+    shacl:description "Verwijzing naar de informatie die het Bemonsteringsobject uniek identificeert."@nl;
+    shacl:minCount 1;
+    shacl:name "identificator"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/observaties-en-metingen#Bemonsteringsobject.identificator> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectShape/bff6e3438377968c492a6ca0fe2e7df779731318> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobject.geassocieerdBemonsteringsobject";
+    shacl:class <http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature>;
+    shacl:description "Ander Bemonsteringsobject waarmee het Bemonsteringsobject geassocieerd is."@nl;
+    shacl:name "geassocieerdBemonsteringsobject"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SamplingFeature#SamplingFeatureComplex.relatedSamplingFeature> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjecttypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectverzamelingShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectverzamelingShape/206c544516fab208a11d82e335f72d2d51670f47>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectverzamelingShape/f3e638e9fa0134317e0bbb6fcce8a96ca0bf1f70>;
+    shacl:targetClass <http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeatureCollection> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectverzamelingShape/206c544516fab208a11d82e335f72d2d51670f47> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobjectverzameling.lid";
+    shacl:description "Bemonsteringsobject dat deel uitmaakt van de verzameling van Bemonsteringsobjecten."@nl;
+    shacl:minCount 1;
+    shacl:name "lid"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeatureCollection.member> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BemonsteringsobjectverzamelingShape/f3e638e9fa0134317e0bbb6fcce8a96ca0bf1f70> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Bemonsteringsobjectverzameling.lid";
+    shacl:class <http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeature>;
+    shacl:description "Bemonsteringsobject dat deel uitmaakt van de verzameling van Bemonsteringsobjecten."@nl;
+    shacl:name "lid"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SamplingFeature#SF_SamplingFeatureCollection.member> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/1399bd400d4637b15d5fe38202d6572f82150aac>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/5fceb068938b8a837e254da418f45825d992aec8>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/e9d8e42e8041e72c4534134d5a9044b03bed7ec5>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/09b9910c25556782aaecc7a4c636d19c1ffcf8a6>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/762f5094731b213d88d8a29332598749ea0eaa46>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/ca4892872b345b4fe994128b7c31877979275399>;
+    shacl:targetClass <http://def.isotc211.org/iso19156/2011/Observation#NamedValue> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/09b9910c25556782aaecc7a4c636d19c1ffcf8a6> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaarde.waarde";
+    shacl:class rdfs:Resource;
+    shacl:description "Kwalitatieve of kwantitatieve invulling van de waarde."@nl;
+    shacl:name "waarde"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#NamedValue.value> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/1399bd400d4637b15d5fe38202d6572f82150aac> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaarde.naam";
+    shacl:class <http://def.isotc211.org/iso19103/2005/Names#GenericName>;
+    shacl:description "Naam van het type van de waarde."@nl;
+    shacl:name "naam"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#NamedValue.name> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/5fceb068938b8a837e254da418f45825d992aec8> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaarde.naam";
+    shacl:description "Naam van het type van de waarde."@nl;
+    shacl:maxCount 1;
+    shacl:name "naam"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#NamedValue.name> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/762f5094731b213d88d8a29332598749ea0eaa46> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaarde.waarde";
+    shacl:description "Kwalitatieve of kwantitatieve invulling van de waarde."@nl;
+    shacl:maxCount 1;
+    shacl:name "waarde"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#NamedValue.value> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/ca4892872b345b4fe994128b7c31877979275399> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaarde.waarde";
+    shacl:description "Kwalitatieve of kwantitatieve invulling van de waarde."@nl;
+    shacl:minCount 1;
+    shacl:name "waarde"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#NamedValue.value> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaardeShape/e9d8e42e8041e72c4534134d5a9044b03bed7ec5> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BenoemdeWaarde.naam";
+    shacl:description "Naam van het type van de waarde."@nl;
+    shacl:minCount 1;
+    shacl:name "naam"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#NamedValue.name> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/ab041635d4722b4a892088aa370f352585a89979>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/c7289a8935b48d82da95ee95b9ade987afc967b7>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/db37a4e151423a1d5d39dc20797958fa4d2c6d74>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/31230d23b4823cbf159f7d924eb4295ddcfeaf47>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/99d96ac17c094fde1498170cc97a99d7aeeb49c0>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/c4551b44af618a1b496726e512c56865b529b68a>;
+    shacl:targetClass <https://purl.eu/ns/air-and-water/water#BioIndicatorObservation> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:minCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioIndicatorObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/31230d23b4823cbf159f7d924eb4295ddcfeaf47> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatie.soort";
+    shacl:class <https://data.vlaanderen.be/ns/waterkwaliteit#Soort>;
+    shacl:description "De bioindicator soort die bij de observatie geobserveerd wordt."@nl;
+    shacl:name "soort"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#soort> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:maxCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioIndicatorObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/99d96ac17c094fde1498170cc97a99d7aeeb49c0> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatie.soort";
+    shacl:description "De bioindicator soort die bij de observatie geobserveerd wordt."@nl;
+    shacl:maxCount 1;
+    shacl:name "soort"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#soort> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/ab041635d4722b4a892088aa370f352585a89979> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatie.bioIndicator";
+    shacl:description "Resultaat van de BioIndicatorObservatie."@nl;
+    shacl:minCount 1;
+    shacl:name "bioIndicator"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioIndicatorObservation.bioIndicator> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatie.geobserveerdKenmerk";
+    shacl:class skos:Concept;
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioIndicatorObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/c4551b44af618a1b496726e512c56865b529b68a> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatie.soort";
+    shacl:description "De bioindicator soort die bij de observatie geobserveerd wordt."@nl;
+    shacl:minCount 1;
+    shacl:name "soort"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#soort> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/c7289a8935b48d82da95ee95b9ade987afc967b7> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatie.bioIndicator";
+    shacl:description "Resultaat van de BioIndicatorObservatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "bioIndicator"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioIndicatorObservation.bioIndicator> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatieShape/db37a4e151423a1d5d39dc20797958fa4d2c6d74> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorObservatie.bioIndicator";
+    shacl:class rdfs:Resource;
+    shacl:description "Resultaat van de BioIndicatorObservatie."@nl;
+    shacl:name "bioIndicator"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioIndicatorObservation.bioIndicator> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BioIndicatorTypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/053dbf74073d7033554db9114a4fa9878ccebefa>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/45c3fa903bcb25fa5e0d3a8839d1f06a18d4c971>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/db2c4f2627677895edc9e60c0b92a1020a23e851>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436>;
+    shacl:targetClass <https://purl.eu/ns/air-and-water/water#BioticIndexObservation> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/053dbf74073d7033554db9114a4fa9878ccebefa> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatie.biotischeIndex";
+    shacl:description "Resultaat van de BiotischeIndexObservatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "biotischeIndex"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioticIndexObservation.bioticIndex> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:minCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioticIndexObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/45c3fa903bcb25fa5e0d3a8839d1f06a18d4c971> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatie.biotischeIndex";
+    shacl:class <http://def.isotc211.org/iso19103/2005/UnitsOfMeasure#Measure>;
+    shacl:description "Resultaat van de BiotischeIndexObservatie."@nl;
+    shacl:name "biotischeIndex"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioticIndexObservation.bioticIndex> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:maxCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioticIndexObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatie.geobserveerdKenmerk";
+    shacl:class skos:Concept;
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioticIndexObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatieShape/db2c4f2627677895edc9e60c0b92a1020a23e851> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexObservatie.biotischeIndex";
+    shacl:description "Resultaat van de BiotischeIndexObservatie."@nl;
+    shacl:minCount 1;
+    shacl:name "biotischeIndex"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#BioticIndexObservation.bioticIndex> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#BiotischeIndexTypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/7b9cfd31bf59b8fcc7080988f25934f4e468ee77>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/c5f04658a7b3e7965ad44f3f5073fb77e7b9aa27>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/ce1405ee2fce378b3e6ed4fedbdeb54eab7d39ff>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/7c3052c4a0c8bc5c3d45dc50638b7c20ead87e93>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/873536b3a4835cb74709c8c24f6ecf6b777549ac>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/d1655d86fb1169ec11966628070041f1999900d5>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436>;
+    shacl:targetClass <https://purl.eu/ns/air-and-water/water#ChemicalAgentConcentrationObservation> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:minCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#ChemicalAgentConcentrationObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:maxCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#ChemicalAgentConcentrationObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/7b9cfd31bf59b8fcc7080988f25934f4e468ee77> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatie.agens";
+    shacl:description "Het agens dat bij de observatie geobserveerd wordt."@nl;
+    shacl:maxCount 1;
+    shacl:name "agens"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensConcentratieObservatie.agens> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/7c3052c4a0c8bc5c3d45dc50638b7c20ead87e93> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatie.chemischAgensConcentratie";
+    shacl:description "Resultaat van de ChemischAgensConcentratieObservatie."@nl;
+    shacl:minCount 1;
+    shacl:name "chemischAgensConcentratie"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#ChemicalAgentConcentrationObservation.chemicalAgentConcentration> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/873536b3a4835cb74709c8c24f6ecf6b777549ac> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatie.chemischAgensConcentratie";
+    shacl:class <http://def.isotc211.org/iso19103/2005/UnitsOfMeasure#Measure>;
+    shacl:description "Resultaat van de ChemischAgensConcentratieObservatie."@nl;
+    shacl:name "chemischAgensConcentratie"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#ChemicalAgentConcentrationObservation.chemicalAgentConcentration> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatie.geobserveerdKenmerk";
+    shacl:class <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensKenmerkType>;
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#ChemicalAgentConcentrationObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/c5f04658a7b3e7965ad44f3f5073fb77e7b9aa27> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatie.agens";
+    shacl:class <https://data.vlaanderen.be/ns/waterkwaliteit#Agens>;
+    shacl:description "Het agens dat bij de observatie geobserveerd wordt."@nl;
+    shacl:name "agens"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensConcentratieObservatie.agens> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/ce1405ee2fce378b3e6ed4fedbdeb54eab7d39ff> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatie.agens";
+    shacl:description "Het agens dat bij de observatie geobserveerd wordt."@nl;
+    shacl:minCount 1;
+    shacl:name "agens"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensConcentratieObservatie.agens> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatieShape/d1655d86fb1169ec11966628070041f1999900d5> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensConcentratieObservatie.chemischAgensConcentratie";
+    shacl:description "Resultaat van de ChemischAgensConcentratieObservatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "chemischAgensConcentratie"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#ChemicalAgentConcentrationObservation.chemicalAgentConcentration> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensKenmerkTypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/7b9cfd31bf59b8fcc7080988f25934f4e468ee77>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/c5f04658a7b3e7965ad44f3f5073fb77e7b9aa27>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/ce1405ee2fce378b3e6ed4fedbdeb54eab7d39ff>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/481b124c35a8b462f22b277673cf7ae399785019>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/61ef217c8533d717a3dbfd4477817c571215bad6>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/66c1232294b44432dbe96d7a12697a5338ae544c>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436>;
+    shacl:targetClass <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensVrachtObservatie> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:minCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensVrachtObservatie.geobserveerdKenmerk> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/481b124c35a8b462f22b277673cf7ae399785019> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatie.chemischAgensVracht";
+    shacl:class <http://def.isotc211.org/iso19103/2005/UnitsOfMeasure#Measure>;
+    shacl:description "De afgemeten hoeveelheid vracht die van het chemisch Agens werd geloosd."@nl;
+    shacl:name "chemischAgensVracht"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#chemischAgensVracht> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:maxCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensVrachtObservatie.geobserveerdKenmerk> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/61ef217c8533d717a3dbfd4477817c571215bad6> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatie.chemischAgensVracht";
+    shacl:description "De afgemeten hoeveelheid vracht die van het chemisch Agens werd geloosd."@nl;
+    shacl:maxCount 1;
+    shacl:name "chemischAgensVracht"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#chemischAgensVracht> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/66c1232294b44432dbe96d7a12697a5338ae544c> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatie.chemischAgensVracht";
+    shacl:description "De afgemeten hoeveelheid vracht die van het chemisch Agens werd geloosd."@nl;
+    shacl:minCount 1;
+    shacl:name "chemischAgensVracht"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#chemischAgensVracht> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/7b9cfd31bf59b8fcc7080988f25934f4e468ee77> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatie.agens";
+    shacl:description "Het agens dat bij de observatie geobserveerd wordt."@nl;
+    shacl:maxCount 1;
+    shacl:name "agens"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensVrachtObservatie.agens> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatie.geobserveerdKenmerk";
+    shacl:class <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensKenmerkType>;
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensVrachtObservatie.geobserveerdKenmerk> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/c5f04658a7b3e7965ad44f3f5073fb77e7b9aa27> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatie.agens";
+    shacl:class <https://data.vlaanderen.be/ns/waterkwaliteit#Agens>;
+    shacl:description "Het agens dat bij de observatie geobserveerd wordt."@nl;
+    shacl:name "agens"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensVrachtObservatie.agens> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatieShape/ce1405ee2fce378b3e6ed4fedbdeb54eab7d39ff> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ChemischAgensVrachtObservatie.agens";
+    shacl:description "Het agens dat bij de observatie geobserveerd wordt."@nl;
+    shacl:minCount 1;
+    shacl:name "agens"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#ChemischAgensVrachtObservatie.agens> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape/e6cc7688f010a7e25209107ff7f1b2ed7d65e5cc>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape/261e1bc6b05986c50940761e720117d2931ff372>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape/236818a46442d5839007629fc7515b884fd201ef>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape/322371a77364a50f049d46180f6192532eea26dc>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape/65b4fb4e8099cbbc440f515d9c854ff48dcc9fd6>;
+    shacl:targetClass <https://data.vlaanderen.be/ns/waterkwaliteit#Emissie> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape/236818a46442d5839007629fc7515b884fd201ef> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissie.periode";
+    shacl:class <http://def.isotc211.org/iso19108/2006/TemporalObjects#TM_Period>;
+    shacl:description "Periode waarin de Emissie plaatsvond."@nl;
+    shacl:name "periode"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#periode> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape/261e1bc6b05986c50940761e720117d2931ff372> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissie.matrix";
+    shacl:class skos:Concept;
+    shacl:description "De matrix (omgeving) waarin de emissie zich voordoet."@nl;
+    shacl:name "matrix"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#matrix> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape/322371a77364a50f049d46180f6192532eea26dc> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissie.type";
+    shacl:class skos:Concept;
+    shacl:description "De aard van de emissie."@nl;
+    shacl:name "type"@nl;
+    shacl:path dc:type .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape/65b4fb4e8099cbbc440f515d9c854ff48dcc9fd6> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissie.uitgestotenDoor";
+    shacl:class <https://data.vlaanderen.be/ns/waterkwaliteit#Emissiebron>;
+    shacl:description "Relateert de emissie aan de emissiebron waarvan deze afkomstig is."@nl;
+    shacl:name "uitgestotenDoor"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#uitgestotenDoor> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieShape/e6cc7688f010a7e25209107ff7f1b2ed7d65e5cc> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissie.emissiewijze";
+    shacl:class skos:Concept;
+    shacl:description "Manier waarop de emissie plaatsvindt."@nl;
+    shacl:name "emissiewijze"@nl;
+    shacl:path dc:type .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissieTypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/05134c4e7c34157d6f7ac1128713a08418e0fe7d>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/634c9034242d42f92452dc2ddbbe2a5f49265cbd>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/c2eaae51d4ae0747f8d5c47b7a021b76dce51aa5>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/322371a77364a50f049d46180f6192532eea26dc>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/74feba662f4f65577bf45a8dd94f8faec0f03592>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/25eec7676674c9257a3333d5295b669d5ab2c824>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/eb74198c8c4a09d7bf36acd7ad653c3df7f495ca>;
+    shacl:targetClass <https://data.vlaanderen.be/ns/waterkwaliteit#Emissiebron> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/05134c4e7c34157d6f7ac1128713a08418e0fe7d> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissiebron.identificator";
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Identificator van de Emissiebron."@nl;
+    shacl:name "identificator"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#identificator> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/25eec7676674c9257a3333d5295b669d5ab2c824> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissiebron.verantwoordelijke";
+    shacl:class dc:Agent;
+    shacl:description "Persoon of Organisatie die verantwoordelijk is voor de Emissiebron."@nl;
+    shacl:name "verantwoordelijke"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#verantwoordelijke> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/322371a77364a50f049d46180f6192532eea26dc> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissiebron.type";
+    shacl:class skos:Concept;
+    shacl:description "Aard van de Emissiebron."@nl;
+    shacl:name "type"@nl;
+    shacl:path dc:type .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/634c9034242d42f92452dc2ddbbe2a5f49265cbd> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissiebron.locatie";
+    shacl:class prov:Location;
+    shacl:description "De locatie van de emissiebron."@nl;
+    shacl:name "locatie"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#locatie> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/74feba662f4f65577bf45a8dd94f8faec0f03592> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissiebron.type";
+    shacl:description "Aard van de Emissiebron."@nl;
+    shacl:minCount 1;
+    shacl:name "type"@nl;
+    shacl:path dc:type .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/c2eaae51d4ae0747f8d5c47b7a021b76dce51aa5> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissiebron.ontvanger";
+    shacl:class <http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#GFI_Feature>;
+    shacl:description "Het object waarin de emissie van de Emissiebron terecht komt."@nl;
+    shacl:name "ontvanger"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#ontvanger> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronShape/eb74198c8c4a09d7bf36acd7ad653c3df7f495ca> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Emissiebron.wettelijkKader";
+    shacl:class <https://data.vlaanderen.be/ns/generiek#WettelijkKader>;
+    shacl:description "De wetgeving die van toepassing is op de Emissiebron."@nl;
+    shacl:name "wettelijkKader"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#wettelijkkader> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiebronTypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#EmissiewijzetypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeneriekeNaamShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19103/2005/Names#GenericName> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeobserveerdWeerShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <https://data.vlaanderen.be/ns/waterkwaliteit#GeobserveerdWeer> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeometrieShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeometrieShape/1fa2e16d78d8fce7d565e8b0d0b295ccfce4ccf1>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeometrieShape/924fa0891e29beb42edc03865640a804126d1a9f>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeometrieShape/c61a6fcf48222cfd263d87bb92f5ef2035d7b7dc>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeometrieShape/412041a7e5eb713d30c26685c48cbbc05c934a2f>;
+    shacl:targetClass <http://www.w3.org/ns/locn#Geometry> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeometrieShape/1fa2e16d78d8fce7d565e8b0d0b295ccfce4ccf1> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Geometrie.gml";
+    shacl:description "Geometrie uitgedrukt in gml-formaat."@nl;
+    shacl:maxCount 1;
+    shacl:name "gml"@nl;
+    shacl:path <http://www.opengis.net/ont/geosparql#asGML> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeometrieShape/412041a7e5eb713d30c26685c48cbbc05c934a2f> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Geometrie.wkt";
+    shacl:description "Geometrie uitgedrukt in wkt-formaat."@nl;
+    shacl:maxCount 1;
+    shacl:name "wkt"@nl;
+    shacl:path <http://www.opengis.net/ont/geosparql#asWKT> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeometrieShape/924fa0891e29beb42edc03865640a804126d1a9f> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Geometrie.opmeting";
+    shacl:description "De manier waarop de Geometrie werd bepaald."@nl;
+    shacl:maxCount 1;
+    shacl:name "opmeting"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#opmeting> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#GeometrieShape/c61a6fcf48222cfd263d87bb92f5ef2035d7b7dc> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Geometrie.opmeting";
+    shacl:class <https://data.vlaanderen.be/ns/generiek#Opmeting>;
+    shacl:description "De manier waarop de Geometrie werd bepaald."@nl;
+    shacl:name "opmeting"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#opmeting> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HerkomstShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19115/2006/DataQualityInformation#LI_Lineage> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischIndexTypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/280a3a85767c3de4b3831d32b6773836e11a42a2>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/842a97ceb1bef1fcdc4b23055e989c365e7f2ed1>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/cba35261fe20f828b2859ca1751ab0bc51300099>;
+    shacl:targetClass <https://data.vlaanderen.be/ns/waterkwaliteit#HydromorfologischeIndexObservatie> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:minCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#HydromorfologischeIndexObservatie.geobserveerdKenmerk> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/280a3a85767c3de4b3831d32b6773836e11a42a2> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatie.hydromorfologischeIndex";
+    shacl:description "Resultaat van de HydromorfologischeObservatie."@nl;
+    shacl:minCount 1;
+    shacl:name "hydromorfologischeIndex"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#hydromorfologischeIndex> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:maxCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#HydromorfologischeIndexObservatie.geobserveerdKenmerk> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/842a97ceb1bef1fcdc4b23055e989c365e7f2ed1> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatie.hydromorfologischeIndex";
+    shacl:class <http://def.isotc211.org/iso19103/2005/UnitsOfMeasure#Measure>;
+    shacl:description "Resultaat van de HydromorfologischeObservatie."@nl;
+    shacl:name "hydromorfologischeIndex"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#hydromorfologischeIndex> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatie.geobserveerdKenmerk";
+    shacl:class skos:Concept;
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#HydromorfologischeIndexObservatie.geobserveerdKenmerk> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatieShape/cba35261fe20f828b2859ca1751ab0bc51300099> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#HydromorfologischeIndexObservatie.hydromorfologischeIndex";
+    shacl:description "Resultaat van de HydromorfologischeObservatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "hydromorfologischeIndex"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/waterkwaliteit#hydromorfologischeIndex> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#IdentificatorShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://www.w3.org/ns/adms#Identifier> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#KenmerktypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19109/2005/GeneralFeatureModel#GF_PropertyType> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#KwaliteitselementShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19115/2006/DataQualityInformation#DQ_Element> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#LocatieShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass prov:Location .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MaatShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19103/2005/UnitsOfMeasure#Measure> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MatrixTypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MeetnetShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <https://data.vlaanderen.be/ns/waterkwaliteit#Meetnet> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MeetpuntShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <https://data.vlaanderen.be/ns/waterkwaliteit#Meetpunt> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MetadataShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19115/2006/MetadataEntitySetInformation#MD_Metadata> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MetingShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19156/2011/Measurement#OM_Measurement> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#MomentShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19108/2006/TemporalObjects#TM_Instant> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObjectShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObjectShape/51310218a73702145efdd3745fe4381f8f825b91>;
+    shacl:targetClass <http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#GFI_Feature> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObjectShape/51310218a73702145efdd3745fe4381f8f825b91> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Object.waardeverschaffer";
+    shacl:class <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation>;
+    shacl:description "Observaties die een waarde geven aan Kenmerken van het Object."@nl;
+    shacl:name "waardeverschaffer"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/observaties-en-metingen#waardeverschaffer> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/3dcf5d118694daa2984ccba001a7511086077310>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/7e48cb02875f43e23e10f29660cd8fc1155cd5e7>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/c33ac267fe8f7de3530ed38145aaceef27be77d1>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/b2e1d41dd34b0e606eaf24daa006eb248281867d>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/7afa0066b3a4f97d47d51ff39171ffd92d38f090>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/2476b162f4d390440398a8be835c2a2b0f3f9fa3>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/d1359f49e768196bdb04700f790c2b843bc0150f>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/02392d5801878f9e5a93fa1f9b524558c2d2be0d>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/b4fef4e71702ab03a51fad45549ce17a4cd6d8ca>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/c98db63081606ff3cead34428d27ce68f0deb45e>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/05134c4e7c34157d6f7ac1128713a08418e0fe7d>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/232574ba55f16dc7ee7137393c3eaa57d00ebcfb>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/37c331bc552f359c42a81e0f0e78412d9b2e1a05>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/09c0c3a9baa1d16aecc7fc56bca94b26629162e5>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/09ed995683a26095de4577d13e597160f260ecb2>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/1bab1bb4af028fef0775daa8246b62cbb09cdcd1>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/fc134bbb026523e6afde205e88de56ae056be099>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/8d7b393f7e5b9ba276227b0389883c961068567c>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/7145331ca75a6fc6bf523f6c3034c16d9e8f4a3d>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/b8c6ecd7c03eb00b58ec7d840a38b458bcfb2bf6>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/c5515643446093fdbc0cb7700575546c51f519b6>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/322371a77364a50f049d46180f6192532eea26dc>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/a825ef9ed99d3af5d19a15985b5127033b6c35ab>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/22104a27a961d699b6cb0d11be9f3a21d1551a6c>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/410d2ea66a404d55892f6c6167481c627e93056f>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/a83bc8abdec025d91826c57b2bee4154d8617ffe>;
+    shacl:targetClass <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatiecontext.observatie.target> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/02392d5801878f9e5a93fa1f9b524558c2d2be0d> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.geobserveerdObject";
+    shacl:description "Object dat men observeert."@nl;
+    shacl:maxCount 1;
+    shacl:name "geobserveerdObject"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.featureOfInterest> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/05134c4e7c34157d6f7ac1128713a08418e0fe7d> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.identificator";
+    shacl:class <http://www.w3.org/ns/adms#Identifier>;
+    shacl:description "Verwijzing naar de informatie die de Observatie uniek identificeert."@nl;
+    shacl:name "identificator"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatie.identificator> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/09c0c3a9baa1d16aecc7fc56bca94b26629162e5> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.parameter";
+    shacl:class <http://def.isotc211.org/iso19156/2011/Observation#NamedValue>;
+    shacl:description "Willekeurig gegeven gassocieerd met het gebeuren van de Observatie."@nl;
+    shacl:name "parameter"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.parameter> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/09ed995683a26095de4577d13e597160f260ecb2> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.resultaat";
+    shacl:class rdfs:Resource;
+    shacl:description "De waarde van het geobserveerdeKenmerk als resultaat van de Observatie."@nl;
+    shacl:name "resultaat"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.geobserveerdKenmerk";
+    shacl:description "Kenmerk dat men observeert vh geobserveerdObject."@nl;
+    shacl:minCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/1bab1bb4af028fef0775daa8246b62cbb09cdcd1> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.resultaat";
+    shacl:description "De waarde van het geobserveerdeKenmerk als resultaat van de Observatie."@nl;
+    shacl:minCount 1;
+    shacl:name "resultaat"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/22104a27a961d699b6cb0d11be9f3a21d1551a6c> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.uitgevoerdMetSensor";
+    shacl:description "Sensor waarmee de Observatie is uitgevoerd."@nl;
+    shacl:maxCount 1;
+    shacl:name "uitgevoerdMetSensor"@nl;
+    shacl:path <http://www.w3.org/ns/sosa/madeBySensor> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/232574ba55f16dc7ee7137393c3eaa57d00ebcfb> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.metadata";
+    shacl:description "Verwijzing naar Metadata over de Observatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "metadata"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.metadata> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/2476b162f4d390440398a8be835c2a2b0f3f9fa3> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.geldigeTijd";
+    shacl:description "Periode waarvoor het resultaat van de Observatie geldt."@nl;
+    shacl:maxCount 1;
+    shacl:name "geldigeTijd"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.validTime> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/322371a77364a50f049d46180f6192532eea26dc> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.type";
+    shacl:class skos:Concept;
+    shacl:description "Het type van observatie."@nl;
+    shacl:name "type"@nl;
+    shacl:path dc:type .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/37c331bc552f359c42a81e0f0e78412d9b2e1a05> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.metadata";
+    shacl:class <http://def.isotc211.org/iso19115/2006/MetadataEntitySetInformation#MD_Metadata>;
+    shacl:description "Verwijzing naar Metadata over de Observatie."@nl;
+    shacl:name "metadata"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.metadata> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/3dcf5d118694daa2984ccba001a7511086077310> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.fenomeentijd";
+    shacl:class <http://def.isotc211.org/iso19108/2006/TemporalObjects#TM_Object>;
+    shacl:description "Het moment waarop het resultaat van de Observatie van toepassing was."@nl;
+    shacl:name "fenomeentijd"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.phenomenonTime> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/410d2ea66a404d55892f6c6167481c627e93056f> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.uitgevoerdMetSensor";
+    shacl:description "Sensor waarmee de Observatie is uitgevoerd."@nl;
+    shacl:minCount 1;
+    shacl:name "uitgevoerdMetSensor"@nl;
+    shacl:path <http://www.w3.org/ns/sosa/madeBySensor> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.geobserveerdKenmerk";
+    shacl:description "Kenmerk dat men observeert vh geobserveerdObject."@nl;
+    shacl:maxCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/7145331ca75a6fc6bf523f6c3034c16d9e8f4a3d> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.resultaattijd";
+    shacl:description "Tijdstip waarop het resultaat van de Observatie werd bekomen."@nl;
+    shacl:minCount 1;
+    shacl:name "resultaattijd"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/7afa0066b3a4f97d47d51ff39171ffd92d38f090> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.gebruikteProcedure";
+    shacl:class <http://www.w3.org/ns/sosa/Procedure>;
+    shacl:description "Een relatie die de connectie legt tussen een herbruikbare procedure voor het maken van een observatie, een beschrijving of een bemonstering, typisch door een sensor, beschrijver of bemonsteraar."@nl;
+    shacl:name "gebruikteProcedure"@nl;
+    shacl:path <http://www.w3.org/ns/sosa/usedProcedure> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/7e48cb02875f43e23e10f29660cd8fc1155cd5e7> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.fenomeentijd";
+    shacl:description "Het moment waarop het resultaat van de Observatie van toepassing was."@nl;
+    shacl:minCount 1;
+    shacl:name "fenomeentijd"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.phenomenonTime> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/8d7b393f7e5b9ba276227b0389883c961068567c> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.resultaatkwaliteit";
+    shacl:class <http://def.isotc211.org/iso19115/2006/DataQualityInformation#DQ_Element>;
+    shacl:description "Mate waarin het resultaat van de Observatie voldoet aan de vereisten of verwachtingen."@nl;
+    shacl:name "resultaatkwaliteit"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultQuality> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/a825ef9ed99d3af5d19a15985b5127033b6c35ab> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.uitgevoerdDoor";
+    shacl:class dc:Agent;
+    shacl:description "Agent die de Observatie heeft uitgevoerd."@nl;
+    shacl:name "uitgevoerdDoor"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatie.uitgevoerdDoor> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/a83bc8abdec025d91826c57b2bee4154d8617ffe> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.uitgevoerdMetSensor";
+    shacl:class <http://www.w3.org/ns/sosa/Sensor>;
+    shacl:description "Sensor waarmee de Observatie is uitgevoerd."@nl;
+    shacl:name "uitgevoerdMetSensor"@nl;
+    shacl:path <http://www.w3.org/ns/sosa/madeBySensor> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.geobserveerdKenmerk";
+    shacl:class <http://def.isotc211.org/iso19109/2005/GeneralFeatureModel#GF_PropertyType>;
+    shacl:description "Kenmerk dat men observeert vh geobserveerdObject."@nl;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/b2e1d41dd34b0e606eaf24daa006eb248281867d> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.geassocieerdeObservatie";
+    shacl:class <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation>;
+    shacl:description "Observaties waarvan de resultaten op een of andere manier samenhangen."@nl;
+    shacl:name "geassocieerdeObservatie"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.relatedObservation> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/b4fef4e71702ab03a51fad45549ce17a4cd6d8ca> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.geobserveerdObject";
+    shacl:description "Object dat men observeert."@nl;
+    shacl:minCount 1;
+    shacl:name "geobserveerdObject"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.featureOfInterest> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/b8c6ecd7c03eb00b58ec7d840a38b458bcfb2bf6> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.resultaattijd";
+    shacl:class <http://def.isotc211.org/iso19108/2006/TemporalObjects#TM_Instant>;
+    shacl:description "Tijdstip waarop het resultaat van de Observatie werd bekomen."@nl;
+    shacl:name "resultaattijd"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/c33ac267fe8f7de3530ed38145aaceef27be77d1> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.fenomeentijd";
+    shacl:description "Het moment waarop het resultaat van de Observatie van toepassing was."@nl;
+    shacl:maxCount 1;
+    shacl:name "fenomeentijd"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.phenomenonTime> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/c5515643446093fdbc0cb7700575546c51f519b6> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.resultaattijd";
+    shacl:description "Tijdstip waarop het resultaat van de Observatie werd bekomen."@nl;
+    shacl:maxCount 1;
+    shacl:name "resultaattijd"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.resultTime> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/c98db63081606ff3cead34428d27ce68f0deb45e> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.geobserveerdObject";
+    shacl:class <http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#GFI_Feature>;
+    shacl:description "Object dat men observeert."@nl;
+    shacl:name "geobserveerdObject"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.featureOfInterest> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/d1359f49e768196bdb04700f790c2b843bc0150f> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.geldigeTijd";
+    shacl:class <http://def.isotc211.org/iso19108/2006/TemporalObjects#TM_Period>;
+    shacl:description "Periode waarvoor het resultaat van de Observatie geldt."@nl;
+    shacl:name "geldigeTijd"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.validTime> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieShape/fc134bbb026523e6afde205e88de56ae056be099> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatie.resultaat";
+    shacl:description "De waarde van het geobserveerdeKenmerk als resultaat van de Observatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "resultaat"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.result> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/37f2538e1470c05c25f8fa9511284bdc3a872ffc>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/6c91dd5182bcd1befc33cf55c51c7f18a3e501d8>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/9924f404512af39696ab7603aca494ab5021f192>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/5f16da4b838cf855fddb03c766a2ebd7d88c2055>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/b7ca33233e43fe6338b1513a337b9480bbae13e6>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/f3a994758b0d0488a964898196d82ef08048b2a6>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/68837b0eda962a941b0162e1ae4c5f0e471e0c51>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/acb59b00c5c67fec8d3f0b2543d5259a09b17d18>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/e5ccf692ee38c28199531eb5e0c59554153a57c3>;
+    shacl:targetClass <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/37f2538e1470c05c25f8fa9511284bdc3a872ffc> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatiecontext.Observatie(source)";
+    shacl:description "Referentie naar verbonden klasse."@nl;
+    shacl:minCount 1;
+    shacl:name "Observatie (source)"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatiecontext.observatie.source> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/5f16da4b838cf855fddb03c766a2ebd7d88c2055> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatiecontext.Observatie(target)";
+    shacl:class <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation>;
+    shacl:description "Referentie naar verbonden klasse."@nl;
+    shacl:name "Observatie (target)"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatiecontext.observatie.target> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/68837b0eda962a941b0162e1ae4c5f0e471e0c51> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatiecontext.rol";
+    shacl:description "Aard van de samenhang."@nl;
+    shacl:minCount 1;
+    shacl:name "rol"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.role> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/6c91dd5182bcd1befc33cf55c51c7f18a3e501d8> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatiecontext.Observatie(source)";
+    shacl:class <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation>;
+    shacl:description "Referentie naar verbonden klasse."@nl;
+    shacl:name "Observatie (source)"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatiecontext.observatie.source> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/9924f404512af39696ab7603aca494ab5021f192> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatiecontext.Observatie(source)";
+    shacl:description "Referentie naar verbonden klasse."@nl;
+    shacl:maxCount 1;
+    shacl:name "Observatie (source)"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatiecontext.observatie.source> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/acb59b00c5c67fec8d3f0b2543d5259a09b17d18> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatiecontext.rol";
+    shacl:description "Aard van de samenhang."@nl;
+    shacl:maxCount 1;
+    shacl:name "rol"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.role> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/b7ca33233e43fe6338b1513a337b9480bbae13e6> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatiecontext.Observatie(target)";
+    shacl:description "Referentie naar verbonden klasse."@nl;
+    shacl:maxCount 1;
+    shacl:name "Observatie (target)"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatiecontext.observatie.target> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/e5ccf692ee38c28199531eb5e0c59554153a57c3> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatiecontext.rol";
+    shacl:class <http://def.isotc211.org/iso19103/2005/Names#GenericName>;
+    shacl:description "Aard van de samenhang."@nl;
+    shacl:name "rol"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/Observation#ObservationContext.role> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatiecontextShape/f3a994758b0d0488a964898196d82ef08048b2a6> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Observatiecontext.Observatie(target)";
+    shacl:description "Referentie naar verbonden klasse."@nl;
+    shacl:minCount 1;
+    shacl:name "Observatie (target)"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/observaties-en-metingen#Observatiecontext.observatie.target> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieprocedureShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://www.w3.org/ns/sosa/Procedure> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatietypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ObservatieverzamelingShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://www.w3.org/ns/sosa/ObservationCollection> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/6890e1def304cb2b3a13ab957c88611b3da3a34e>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/c192eb0d5e5c85399936518a4f4503c049d71714>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/c5ab93f3649a701e1fefd1ffdb8529899ed6675c>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/a825ef9ed99d3af5d19a15985b5127033b6c35ab>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/b60cbb1f5aefd2bfc3349aed95e6c89745dd980d>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/cca2c488938324b89e759dd60201a611e0f43485>;
+    shacl:targetClass <https://data.vlaanderen.be/ns/generiek#Opmeting> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/6890e1def304cb2b3a13ab957c88611b3da3a34e> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Opmeting.methode";
+    shacl:description "Aard van de gebruikte methode."@nl;
+    shacl:maxCount 1;
+    shacl:name "methode"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#Opmeting.methode> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/a825ef9ed99d3af5d19a15985b5127033b6c35ab> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Opmeting.uitgevoerdDoor";
+    shacl:class dc:Agent;
+    shacl:description "Agent die de Opmeting heeft uitgevoerd."@nl;
+    shacl:name "uitgevoerdDoor"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#Opmeting.uitgevoerdDoor> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/b60cbb1f5aefd2bfc3349aed95e6c89745dd980d> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Opmeting.uitgevoerdDoor";
+    shacl:description "Agent die de Opmeting heeft uitgevoerd."@nl;
+    shacl:minCount 1;
+    shacl:name "uitgevoerdDoor"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#Opmeting.uitgevoerdDoor> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/c192eb0d5e5c85399936518a4f4503c049d71714> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Opmeting.methode";
+    shacl:description "Aard van de gebruikte methode."@nl;
+    shacl:minCount 1;
+    shacl:name "methode"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#Opmeting.methode> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/c5ab93f3649a701e1fefd1ffdb8529899ed6675c> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Opmeting.methode";
+    shacl:class skos:Concept;
+    shacl:description "Aard van de gebruikte methode."@nl;
+    shacl:name "methode"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#Opmeting.methode> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingShape/cca2c488938324b89e759dd60201a611e0f43485> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Opmeting.uitgevoerdDoor";
+    shacl:description "Agent die de Opmeting heeft uitgevoerd."@nl;
+    shacl:maxCount 1;
+    shacl:name "uitgevoerdDoor"@nl;
+    shacl:path <https://data.vlaanderen.be/ns/generiek#Opmeting.uitgevoerdDoor> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#OpmetingmethodeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#PeriodeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19108/2006/TemporalObjects#TM_Period> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#PositioneleNauwkeurigheidShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19115/2006/DataQualityInformation#DQ_PositionalAccuracy> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ProcedureShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://www.w3.org/ns/sosa/Procedure> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#ProcesShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.OM_Process> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/e43d85a7010b5cf3b536d17e7fb055db04ea3e12>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/06750a3b20c69a1d055cfd0af2c2b5d6bf989bd2>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/722a1f18cabb107c684fe4ca857876ade00b0d01>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/d7e4e623022693159b355b9e717ac7ec1a50695c>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/6bdbc5157124b302cc9bf28ff5abf928f859badd>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/ca9e75a6a8664f0da29ea7c32c242aaeef56005b>;
+    shacl:targetClass <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/06750a3b20c69a1d055cfd0af2c2b5d6bf989bd2> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobject.geometrie";
+    shacl:description "Geometrie van het RuimtelijkBemonsteringsobject."@nl;
+    shacl:maxCount 1;
+    shacl:name "geometrie"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature.shape> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/6bdbc5157124b302cc9bf28ff5abf928f859badd> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobject.positioneleNauwkeurigheid";
+    shacl:description "Nauwkeurigheid waarmee de geometrie is bepaald."@nl;
+    shacl:maxCount 2;
+    shacl:name "positioneleNauwkeurigheid"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature.positionalAccuracy> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/722a1f18cabb107c684fe4ca857876ade00b0d01> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobject.geometrie";
+    shacl:class <http://www.w3.org/ns/locn#Geometry>;
+    shacl:description "Geometrie van het RuimtelijkBemonsteringsobject."@nl;
+    shacl:name "geometrie"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature.shape> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/ca9e75a6a8664f0da29ea7c32c242aaeef56005b> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobject.positioneleNauwkeurigheid";
+    shacl:class <http://def.isotc211.org/iso19115/2006/DataQualityInformation#DQ_PositionalAccuracy>;
+    shacl:description "Nauwkeurigheid waarmee de geometrie is bepaald."@nl;
+    shacl:name "positioneleNauwkeurigheid"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature.positionalAccuracy> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/d7e4e623022693159b355b9e717ac7ec1a50695c> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobject.geometrie";
+    shacl:description "Geometrie van het RuimtelijkBemonsteringsobject."@nl;
+    shacl:minCount 1;
+    shacl:name "geometrie"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature.shape> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobjectShape/e43d85a7010b5cf3b536d17e7fb055db04ea3e12> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#RuimtelijkBemonsteringsobject.gehostPlatform";
+    shacl:class <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation.OM_Process>;
+    shacl:description "Procedure die of instrument dat in of op het RuimtelijkBemonsteringsobject is geïnstalleerd."@nl;
+    shacl:name "gehostPlatform"@nl;
+    shacl:path <http://def.isotc211.org/iso19156/2011/SpatialSamplingFeature#SF_SpatialSamplingFeature.hostedProcedure> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#SensorShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#SensorShape/14c40f776fb0831ad8fda6f529cb7436a511c577>;
+    shacl:targetClass <http://www.w3.org/ns/sosa/Sensor> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#SensorShape/14c40f776fb0831ad8fda6f529cb7436a511c577> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#Sensor.uitgevoerdeObservatie";
+    shacl:class <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation>;
+    shacl:description "Observatie die met de Sensor is uitrgevoerd."@nl;
+    shacl:name "uitgevoerdeObservatie"@nl;
+    shacl:path <http://www.w3.org/ns/sosa/madeObservation> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#SoortShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <https://data.vlaanderen.be/ns/waterkwaliteit#Soort> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#StatistischeObservatieShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <https://data.vlaanderen.be/ns/waterkwaliteit#StatistischeObservatie> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#SysteemShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://www.w3.org/ns/ssn/System> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#TemporeleEntiteitShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <http://def.isotc211.org/iso19108/2006/TemporalObjects#TM_Object> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterObjectShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterObjectShape/236f0210baaf149903750c43bbe7012c21debb2a>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterObjectShape/322371a77364a50f049d46180f6192532eea26dc>;
+    shacl:targetClass <https://purl.eu/ns/air-and-water/water#WaterFeature> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterObjectShape/236f0210baaf149903750c43bbe7012c21debb2a> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterObject.type";
+    shacl:description "Type WaterObject."@nl;
+    shacl:maxCount 1;
+    shacl:name "type"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#Waterfeature.type> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterObjectShape/322371a77364a50f049d46180f6192532eea26dc> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterObject.type";
+    shacl:class skos:Concept;
+    shacl:description "Type WaterObject."@nl;
+    shacl:name "type"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#Waterfeature.type> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterObjectTypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/3dcf5d118694daa2984ccba001a7511086077310>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/7e48cb02875f43e23e10f29660cd8fc1155cd5e7>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/c33ac267fe8f7de3530ed38145aaceef27be77d1>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/02392d5801878f9e5a93fa1f9b524558c2d2be0d>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/b4fef4e71702ab03a51fad45549ce17a4cd6d8ca>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/c98db63081606ff3cead34428d27ce68f0deb45e>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/206c544516fab208a11d82e335f72d2d51670f47>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/f3e638e9fa0134317e0bbb6fcce8a96ca0bf1f70>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/7c9f84e29b230d9ba732c411481aeca5e48655d3>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/f260564775e1a03791e434769ef55dbef0bbe245>;
+    shacl:targetClass <https://data.vlaanderen.be/ns/waterkwaliteit#WaterkwaliteitObservatieVerzameling> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/02392d5801878f9e5a93fa1f9b524558c2d2be0d> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzameling.geobserveerdObject";
+    shacl:description "Een referentie naar het object dat geobserveerd werd tijdens de observaties in de collectie."@nl;
+    shacl:maxCount 1;
+    shacl:name "geobserveerdObject"@nl;
+    shacl:path <http://www.w3.org/ns/sosa/hasFeatureOfInterest> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/206c544516fab208a11d82e335f72d2d51670f47> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzameling.lid";
+    shacl:description "Een referentie naar het object dat geobserveerd werd tijdens de observaties in de collectie."@nl;
+    shacl:minCount 1;
+    shacl:name "lid"@nl;
+    shacl:path <https://www.w3.org/ns/sosa/hasMember> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/3dcf5d118694daa2984ccba001a7511086077310> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzameling.fenomeentijd";
+    shacl:class <http://def.isotc211.org/iso19108/2006/TemporalObjects#TM_Object>;
+    shacl:description "Het moment waarop het resultaat van de observatie in de collectie toepasbaar was."@nl;
+    shacl:name "fenomeentijd"@nl;
+    shacl:path <http://www.w3.org/ns/sosa/phenomenonTime> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/7c9f84e29b230d9ba732c411481aeca5e48655d3> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzameling.refGeobserveerdWeer";
+    shacl:description "Een beschrijving van de weersomstandigheden tijdens de Observaties in de Collectie."@nl;
+    shacl:maxCount 1;
+    shacl:name "refGeobserveerdWeer"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#WaterQualityObservationCollection.refWeatherObserved> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/7e48cb02875f43e23e10f29660cd8fc1155cd5e7> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzameling.fenomeentijd";
+    shacl:description "Het moment waarop het resultaat van de observatie in de collectie toepasbaar was."@nl;
+    shacl:minCount 1;
+    shacl:name "fenomeentijd"@nl;
+    shacl:path <http://www.w3.org/ns/sosa/phenomenonTime> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/b4fef4e71702ab03a51fad45549ce17a4cd6d8ca> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzameling.geobserveerdObject";
+    shacl:description "Een referentie naar het object dat geobserveerd werd tijdens de observaties in de collectie."@nl;
+    shacl:minCount 1;
+    shacl:name "geobserveerdObject"@nl;
+    shacl:path <http://www.w3.org/ns/sosa/hasFeatureOfInterest> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/c33ac267fe8f7de3530ed38145aaceef27be77d1> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzameling.fenomeentijd";
+    shacl:description "Het moment waarop het resultaat van de observatie in de collectie toepasbaar was."@nl;
+    shacl:maxCount 1;
+    shacl:name "fenomeentijd"@nl;
+    shacl:path <http://www.w3.org/ns/sosa/phenomenonTime> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/c98db63081606ff3cead34428d27ce68f0deb45e> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzameling.geobserveerdObject";
+    shacl:class <http://def.isotc211.org/iso19156/2011/GeneralFeatureInstance#GFI_Feature>;
+    shacl:description "Een referentie naar het object dat geobserveerd werd tijdens de observaties in de collectie."@nl;
+    shacl:name "geobserveerdObject"@nl;
+    shacl:path <http://www.w3.org/ns/sosa/hasFeatureOfInterest> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/f260564775e1a03791e434769ef55dbef0bbe245> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzameling.refGeobserveerdWeer";
+    shacl:class <https://data.vlaanderen.be/ns/waterkwaliteit#GeobserveerdWeer>;
+    shacl:description "Een beschrijving van de weersomstandigheden tijdens de Observaties in de Collectie."@nl;
+    shacl:name "refGeobserveerdWeer"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#WaterQualityObservationCollection.refWeatherObserved> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzamelingShape/f3e638e9fa0134317e0bbb6fcce8a96ca0bf1f70> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitObservatieVerzameling.lid";
+    shacl:class <http://def.isotc211.org/iso19156/2011/Observation#OM_Observation>;
+    shacl:description "Een referentie naar het object dat geobserveerd werd tijdens de observaties in de collectie."@nl;
+    shacl:name "lid"@nl;
+    shacl:path <https://www.w3.org/ns/sosa/hasMember> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:property <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/4a89232665884162d26b498e6185cbf29864a763>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/648d8e632856b23dd9ac81a6a6b913579a82cda1>,
+                       <https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/c7761c1075aed1d6350d8bde4d7b0b9ccf72cad7>;
+    shacl:targetClass <https://purl.eu/ns/air-and-water/water#WaterQualityParameterObservation> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/0b8f1cfacc6c877b4618f064aa070495c9ee15e3> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:minCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#WaterQualityParameterObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/4a89232665884162d26b498e6185cbf29864a763> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatie.waterkwaliteitParameterResultaat";
+    shacl:description "Resultaat van de WaterkwaliteitParameterObservatie."@nl;
+    shacl:minCount 1;
+    shacl:name "waterkwaliteitParameterResultaat"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#WaterQualityParameterObservation.waterQualityParameterResult> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/60638eca218f8b9f8ea1b79fb9b42510aa9f03fe> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatie.geobserveerdKenmerk";
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:maxCount 1;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#WaterQualityParameterObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/648d8e632856b23dd9ac81a6a6b913579a82cda1> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatie.waterkwaliteitParameterResultaat";
+    shacl:description "Resultaat van de WaterkwaliteitParameterObservatie."@nl;
+    shacl:maxCount 1;
+    shacl:name "waterkwaliteitParameterResultaat"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#WaterQualityParameterObservation.waterQualityParameterResult> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/af62feb10fc401a33b0ef1ef3d3dc3a9dc30f436> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatie.geobserveerdKenmerk";
+    shacl:class skos:Concept;
+    shacl:description "Type van het geobserveerdKenmerk."@nl;
+    shacl:name "geobserveerdKenmerk"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#WaterQualityParameterObservation.observedProperty> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatieShape/c7761c1075aed1d6350d8bde4d7b0b9ccf72cad7> rdfs:seeAlso "https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterObservatie.waterkwaliteitParameterResultaat";
+    shacl:class <http://def.isotc211.org/iso19103/2005/UnitsOfMeasure#Measure>;
+    shacl:description "Resultaat van de WaterkwaliteitParameterObservatie."@nl;
+    shacl:name "waterkwaliteitParameterResultaat"@nl;
+    shacl:path <https://purl.eu/ns/air-and-water/water#WaterQualityParameterObservation.waterQualityParameterResult> .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WaterkwaliteitParameterTypeShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass skos:Concept .
+
+<https://data.vlaanderen.be/doc/applicatieprofiel/waterkwaliteit/kandidaatstandaard/2023-06-01#WettelijkKaderShape> a shacl:NodeShape;
+    shacl:closed false;
+    shacl:targetClass <https://data.vlaanderen.be/ns/generiek#WettelijkKader> .

@@ -1,0 +1,87 @@
+flowchart LR
+
+subgraph PROC["PROCEDURE"]
+    P1["observatieprocedure:WAC_I_A_003
+    sosa:SamplingProcedure
+    Ogenblikkelijke monstername (schepmonster)"]
+    PA1["csor-parameteraspect:PAS_1789
+    sosa:Property
+    U t (totaal in water): massaconcentratie"]
+    PA2["csor-parameteraspect:PAS_1432
+    sosa:Property
+    DCvos (standaard in water): massaconcentratie"]
+end
+
+subgraph INFRA["INFRASTRUCTUUR"]
+    I1["ex:meetpunt-2800028
+    sosa:Sampler · AW2800028
+    Effluent F203 · EPSG:31370"]
+    I2["ex:lozing-2800028
+    sosa:FeatureOfInterest · prov:Entity
+    lozing RWZI Mechelen-Noord
+    (≙ riepr:Emissie)"]
+    I3["ex:exploitatie-1498
+    prov:Organization"]
+    I4["ex:organisatie-vmm
+    prov:Organization"]
+end
+
+subgraph WAAR["WAARNEMING — staal M-AW-2024-006358-1, 27 maart 2024"]
+    S1["ex:sampling-16231
+    sosa:Sampling"]
+    S2["ex:staal-16231
+    sosa:Sample · sosa:FeatureOfInterest
+    dct:type matrix:afvalwater"]
+    T1["ex:tijdstip-2024-03-27
+    time:Instant · 2024-03-27"]
+    C1["ex:collectie-16231
+    sosa:ObservationCollection
+    15 observaties"]
+    O1["ex:observatie-16231-P_1017
+    sosa:Observation"]
+    R1["ex:resultaat-16231-P_1017
+    sosa:Result
+    numericValue 0.45 · csor-eenheid:E_4 µg/L"]
+    O2["ex:observatie-16231-P_813
+    sosa:Observation"]
+    R2["ex:resultaat-16231-P_813
+    sosa:Result · teken &lt;
+    lowerBound 0 · upperBound 0.0125 · E_4 µg/L"]
+end
+
+I2 -->|prov:wasAttributedTo| I3
+S1 -->|sosa:hasFeatureOfInterest| I2
+S1 -->|sosa:madeBySampler| I1
+S1 -->|sosa:usedProcedure| P1
+S1 -.->|prov:wasAssociatedWith| I4
+S1 -->|sosa:phenomenonTime| T1
+S1 -->|sosa:hasResult| S2
+S2 -->|sosa:isSampleOf| I2
+C1 -->|sosa:hasFeatureOfInterest| S2
+C1 -->|sosa:hasUltimateFeatureOfInterest| I2
+C1 -->|sosa:phenomenonTime| T1
+C1 -->|sosa:hasMember| O1
+C1 -->|sosa:hasMember| O2
+O1 -->|sosa:observedProperty| PA1
+O1 -->|sosa:hasResult| R1
+O2 -->|sosa:observedProperty| PA2
+O2 -->|sosa:hasResult| R2
+
+style PROC fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style WAAR fill:#e7a3be,stroke:#2E5C8A,color:#000
+style P1 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style PA1 fill:#fe7130,stroke:#2E5C8A,color:#000
+style PA2 fill:#fe7130,stroke:#2E5C8A,color:#000
+style I1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I3 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I4 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style S1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style S2 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style C1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style O1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style O2 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style R2 fill:#f8b622,stroke:#2E5C8A,color:#000

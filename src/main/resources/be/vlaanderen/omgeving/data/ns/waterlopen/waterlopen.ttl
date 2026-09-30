@@ -1,0 +1,244 @@
+# Waterlopen-vocabularium (VHA-waterlopen, VHA-waterloopsegmenten, VHA-categorietrajecten).
+# Bron: ~/git/shapefile_to_rdf/ontology/waterlopen.ttl
+# Aanpassingen t.o.v. de bron, zodat de domein/bereik-inferentie van de pipeline klopt met de data:
+#   - code:vhag  rdfs:range xs:decimal -> code:Vhag     (verwijst naar een waterloop-IRI)
+#   - code:beknr rdfs:range xs:decimal -> skos:Concept  (verwijst naar een bekken-concept)
+#   - code:geo   rdfs:range xs:decimal -> xs:string     (de data bevat "0"/"1" als tekst)
+#   - rdfs:range skos:Concept toegevoegd voor code:catc, code:beheer, code:strmgeb, code:wtrlichc
+#   - code:Vhag, code:Wlas, code:VhaCattraj ook als owl:Class, met OWL-restricties (onderaan).
+#     De restricties volgen de kardinaliteiten gemeten in de volledige herstelde dataset
+#     (27 239 waterlopen, 64 863 segmenten, 30 028 categorietrajecten, 2026-09-29). De pipeline
+#     zet ze om naar SHACL (OwlToShaclGenerator).
+@prefix : <https://data.omgeving.vlaanderen.be/ns/waterlopen> .
+@prefix code: <https://data.omgeving.vlaanderen.be/ns/waterlopen#> .
+@prefix ont: <https://data.omgeving.vlaanderen.be/id/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qb: <http://purl.org/linked-data/cube#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xs: <http://www.w3.org/2001/XMLSchema#> .
+
+code:VhaCattraj a rdfs:Class ;
+    rdfs:label "VHA-waterlopen - VHA-categorietraject"@nl ;
+    rdfs:comment "Deel van een VHA – Waterloop, van één Categorie "@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:Vhag a rdfs:Class ;
+    rdfs:label "VHA-waterlopen - VHA-waterloop"@nl ;
+    rdfs:comment "Vhag"@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:Wlas a rdfs:Class ;
+    rdfs:label "VHA-waterlopen - VHA-waterloopsegment"@nl ;
+    rdfs:comment "Wlas"@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:beheer a rdf:Property ;
+    rdfs:label "Code Waterloopbeheerder"@nl ;
+    rdfs:comment "Code voor de beheerder van het gedeelte van de waterloop waartoe het segment behoort."@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:beknaam a rdf:Property ;
+    rdfs:label "Benaming VHA-Bekken"@nl ;
+    rdfs:comment "Naam van het VHA-bekken (cfr attribuut BEKNR) waarin het VHA-waterloopsegment gelegen is"@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:beknr a rdf:Property ;
+    rdfs:label "VHA-Bekkennummer"@nl ;
+    rdfs:comment "Nummer van het VHA-bekken waarin het VHA-waterloopsegment gelegen is."@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : ;
+    rdfs:range skos:Concept .
+
+code:catc a qb:CodedProperty,
+        rdf:Property ;
+    rdfs:label "Categoriecode"@nl ;
+    qb:codeList <https://data.omgeving.vlaanderen.be/id/conceptscheme/waterlopen/categorie> ;
+    rdfs:comment "Code voor de categorie (cfr Wet betreffende onbevaarbare waterlopen) van dit Categorietraject van een VHA-waterloop."@nl,
+        "Code voor de categorie (cfr Wet betreffende onbevaarbare waterlopen) van het deel van de waterloop waartoe het segment behoort."@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:geo a rdf:Property ;
+    rdfs:label "Geometrische kwaliteit"@nl ;
+    rdfs:comment "Code voor de nauwkeurigheid van de geometrie van het VHA-waterloopsegment, afgeleid van de informatie die aan de bron ligt van deze informatie."@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : ;
+    rdfs:range xs:string .
+
+code:lblcatc a rdf:Property ;
+    rdfs:label "Categorie"@nl ;
+    rdfs:comment "Omschrijving van de categorie (attribuut CATC) van het deel van de VHA-waterloop waartoe het VHA-wat"@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:lblgeo a rdf:Property ;
+    rdfs:label "Label geometrische kwaliteit"@nl ;
+    rdfs:comment "Omschrijving van nauwkeurigheid van de geometrie van het VHA-waterloopsegment."@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:lengte a rdf:Property ;
+    rdfs:label "Lengte"@nl ;
+    rdfs:comment "Lengte"@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : ;
+    rdfs:range xs:decimal .
+
+code:naam a rdf:Property ;
+    rdfs:label "Roepnaam"@nl,
+        "Roepnaam VHA-waterloop"@nl ;
+    rdfs:comment "Naam bij de monding van de VHA-waterloop, waartoe dit Categorietraject van een VHA-waterloop, behoort."@nl,
+        "Naam die de VHA-waterloop draagt bij zijn monding."@nl,
+        "Naam die de VHA-waterloop, waartoe het segment behoort, draagt bij zijn monding, de zgn. VHA-roepnaam van de waterloop. Het betreft niet de naam ter hoogte van het segment maar de naam aan de monding van de VHA-waterloop waartoe het segment behoort."@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:namen a rdf:Property ;
+    rdfs:label "Namen"@nl ;
+    rdfs:comment "Sequentie van namen die de VHA-waterloop van zijn bron tot zijn monding heeft"@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:oidn a rdf:Property ;
+    rdfs:label "Objectidentificator"@nl ;
+    rdfs:comment "Objectidentificator"@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : ;
+    rdfs:range xs:decimal .
+
+code:regcode a rdf:Property ;
+    rdfs:label "Registratiecode, provinciaal nummer"@nl ;
+    rdfs:comment "Provinciaal nummer van de geklasseerde, onbevaarbare waterloop of identificatiecode van de waterweg waartoe het segment behoort."@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:regcode1 a rdf:Property ;
+    rdfs:label "Bijkomende registratiecode, provinciaal nummer"@nl ;
+    rdfs:comment "Eventueel tweede provinciaal nummer van de geklasseerde onbevaarbare waterloop of de 3-cijferige identificatiecode van de waterweg waartoe het segment behoort."@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:strmgeb a rdf:Property ;
+    rdfs:label "Stroomgebied"@nl ;
+    rdfs:comment "Stroomgebied waartoe het VHA-bekken behoort. Een stroomgebied is gebied waarvan al het afstromen"@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:uidn a rdf:Property ;
+    rdfs:label "Versie identificator"@nl ;
+    rdfs:comment "Identificator van de verschijningsvorm"@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : ;
+    rdfs:range xs:decimal .
+
+code:vhag a rdf:Property ;
+    rdfs:label "Gewestcode VHA-waterloop"@nl ;
+    rdfs:comment "Identificatiecode van de VHA-waterloop waartoe dit exemplaar van Categorietraject van een VHA-waterloop, behoort. Een VHA-waterloop is een reële waterloop van bron (punt-van-oorsprong) tot monding (voor zover binnen Vlaanderen gelegen)."@nl,
+        "Identificatiecode van de VHA-waterloop waartoe het segment behoort. Een VHA-waterloop is een reële waterloop van bron (punt-van-oorsprong) tot monding (voor zover binnen Vlaanderen gelegen)."@nl,
+        "Identificatiecode voor een VHA-waterloop binnen het Vlaams Gewest. Een VHA-waterloop is een reële waterloop van bron (punt-van-oorsprong) tot monding (voor zover binnen Vlaanderen gelegen)."@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : ;
+    rdfs:range code:Vhag .
+
+code:vhas a rdf:Property ;
+    rdfs:label "Identificator VHA-Waterloopsegment"@nl ;
+    rdfs:comment "Identificator van het VHA-waterloopsegment in de beheeromgeving van VMM, geometrie-identificator."@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : ;
+    rdfs:range xs:decimal .
+
+code:vhazonenr a rdf:Property ;
+    rdfs:label "VHA Zonenummer"@nl ;
+    rdfs:comment "VHA-zone waarbinnen het VHA-waterloopsegment gelegen is. Een VHA-zone is een hydrografische eenheid van Vlaanderen, die het hydrografisch afwateringsgebied van een VHA-waterloop of deel van een VHA-waterloop voorstelt. De ligging van de grenzen van de VHA-zones is o.a. gebaseerd op afwatering via oppervlaktewater, en reliëf."@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+code:wtrlichc a rdf:Property ;
+    rdfs:label "Code Waterlichaam"@nl ;
+    rdfs:comment "Identificerende code van het oppervlaktewaterlichaam waartoe het segment behoort. Een oppervlaktewaterlichaam is een onderscheiden oppervlaktewater (zoals een meer, een wachtbekken, een spaarbekken, een stroom, een rivier, een kanaal, een overgangswater, een deel van een stroom, rivier, kanaal of een overgangswater) dat een uniform geheel vormt naar fysische en ecologische kenmerken en naar de mate van natuurlijkheid. De afbakening van de waterlichamen gebeurt door de Coördinatiecommissie Integraal Waterbel"@nl ;
+    rdfs:isDefinedBy ont:waterlopen,
+        : .
+
+ont:waterlopen a owl:Ontology ;
+    rdfs:label "Waterlopen vocabularium"@nl ;
+    owl:sameAs : .
+
+: a owl:Ontology ;
+    rdfs:label "Waterlopen vocabularium"@nl ;
+    owl:sameAs ont:waterlopen .
+
+# ---------------------------------------------------------------------------
+# Bereiken voor codelijst-verwijzingen
+# ---------------------------------------------------------------------------
+
+code:catc rdfs:range skos:Concept .
+code:beheer rdfs:range skos:Concept .
+code:strmgeb rdfs:range skos:Concept .
+code:wtrlichc rdfs:range skos:Concept .
+
+# ---------------------------------------------------------------------------
+# OWL-restricties (-> SHACL via OwlToShaclGenerator)
+# Eén restrictie per aspect (kardinaliteit of waardebereik), zoals OWL het vraagt.
+# Literalen met taaltag (@nl), geosparql:wktLiteral en de getypeerde qudt:length krijgen enkel
+# een kardinaliteit: de generator herkent alleen xs:-datatypes als sh:datatype.
+# Codelijst-verwijzingen (beknr, catc, beheer, strmgeb, wtrlichc) krijgen enkel een kardinaliteit,
+# geen owl:allValuesFrom skos:Concept. De pipeline valideert SHACL op het niet-geïnfereerde model
+# (TurtleTransformer.processModel), dus sh:class slaagt enkel als de data het concept zelf typeert.
+# Voor waterlichamen en stroomgebieden bestaat er ook nog geen codelijst. Het type volgt wel uit
+# rdfs:range hierboven. code:vhazonenr krijgt geen waardebereik: de VHA-zones zijn geen codelijst.
+# ---------------------------------------------------------------------------
+
+code:Vhag a owl:Class ;
+    rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty qudt:length ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty geosparql:asWKT ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty rdfs:label ; owl:maxCardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:naam ; owl:maxCardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:namen ; owl:maxCardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:namen ; owl:allValuesFrom xs:string ] .
+
+code:Wlas a owl:Class ;
+    rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty qudt:length ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty geosparql:asWKT ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty rdfs:label ; owl:maxCardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:naam ; owl:maxCardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:vhag ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:vhag ; owl:allValuesFrom code:Vhag ] ,
+        [ a owl:Restriction ; owl:onProperty code:beknr ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:catc ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:beheer ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:strmgeb ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:wtrlichc ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:vhazonenr ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:beknaam ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:lblcatc ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:geo ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:geo ; owl:allValuesFrom xs:string ] ,
+        [ a owl:Restriction ; owl:onProperty code:lblgeo ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:lblgeo ; owl:allValuesFrom xs:string ] ,
+        [ a owl:Restriction ; owl:onProperty code:regcode ; owl:maxCardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:regcode ; owl:allValuesFrom xs:string ] ,
+        [ a owl:Restriction ; owl:onProperty code:regcode1 ; owl:maxCardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:regcode1 ; owl:allValuesFrom xs:string ] .
+
+code:VhaCattraj a owl:Class ;
+    rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty qudt:length ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty geosparql:asWKT ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty rdfs:label ; owl:maxCardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:naam ; owl:maxCardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:vhag ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:vhag ; owl:allValuesFrom code:Vhag ] ,
+        [ a owl:Restriction ; owl:onProperty code:catc ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:lblcatc ; owl:cardinality 1 ] .
+

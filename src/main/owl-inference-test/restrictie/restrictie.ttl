@@ -1,0 +1,16 @@
+@prefix ex: <http://example.org/> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+sosa:isProxyFor a owl:ObjectProperty .
+sosa:Property   a owl:Class .
+
+owl:Thing  a owl:Class ;
+    rdfs:subClassOf [
+                              a owl:Restriction ;
+                              owl:onProperty    sosa:isProxyFor ;
+                              owl:allValuesFrom sosa:Property
+                          ] .
+ex:thing a owl:Thing ;
+                              sosa:isProxyFor ex:sensor .

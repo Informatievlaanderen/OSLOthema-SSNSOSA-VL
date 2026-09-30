@@ -1,0 +1,44 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rov: <http://www.w3.org/ns/regorg#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix hydra: <http://www.w3.org/ns/hydra/core#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix cpsv: <http://purl.org/vocab/cpsv#> .
+@prefix cv: <http://data.europa.eu/m8g/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix schema: <http://schema.org/> .
+@prefix schemas: <https://schema.org/> .
+
+<http://vocab.belgif.be/auth/nace2025> a skos:ConceptScheme;
+  dcterms:title "NACE-BEL 2025"@nl, "NACE-BEL 2025"@fr, "NACE-BEL 2025"@en, "NACE-BEL 2025"@de;
+  dcterms:description "Statistical classification of economic activities in the European Community (Belgian version)"@en,
+    "Nomenclature statistique des activités économiques dans la Communauté européenne (la version belge)"@fr,
+    "Statistische nomenclatuur van de Economische activiteiten in de Europese Gemeenschap (Belgische versie)"@nl,
+    "Statistische Systematik der Wirtschaftszweige in der Europäischen Gemeinschaft (belgische Fassung)"@de;
+  owl:versionInfo "Draft 2026-08-24";
+  dcterms:modified "2026-08-24T14:50"^^xsd:dateTime;
+  dcterms:creator <https://org.belgif.be/id/CbeRegisteredEntity/0314595348#statbel>;
+  dcterms:rightsHolder <https://org.belgif.be/id/CbeRegisteredEntity/0314595348#statbel>;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/>;
+  skos:hasTopConcept <http://vocab.belgif.be/auth/nace2025/O>, <http://vocab.belgif.be/auth/nace2025/C>,
+    <http://vocab.belgif.be/auth/nace2025/S>, <http://vocab.belgif.be/auth/nace2025/H>,
+    <http://vocab.belgif.be/auth/nace2025/B>, <http://vocab.belgif.be/auth/nace2025/P>,
+    <http://vocab.belgif.be/auth/nace2025/N>, <http://vocab.belgif.be/auth/nace2025/A>,
+    <http://vocab.belgif.be/auth/nace2025/R>, <http://vocab.belgif.be/auth/nace2025/V>,
+    <http://vocab.belgif.be/auth/nace2025/G>, <http://vocab.belgif.be/auth/nace2025/J>,
+    <http://vocab.belgif.be/auth/nace2025/E>, <http://vocab.belgif.be/auth/nace2025/K>,
+    <http://vocab.belgif.be/auth/nace2025/M>, <http://vocab.belgif.be/auth/nace2025/D>,
+    <http://vocab.belgif.be/auth/nace2025/Q>, <http://vocab.belgif.be/auth/nace2025/F>,
+    <http://vocab.belgif.be/auth/nace2025/I>, <http://vocab.belgif.be/auth/nace2025/T>,
+    <http://vocab.belgif.be/auth/nace2025/L>, <http://vocab.belgif.be/auth/nace2025/U> .

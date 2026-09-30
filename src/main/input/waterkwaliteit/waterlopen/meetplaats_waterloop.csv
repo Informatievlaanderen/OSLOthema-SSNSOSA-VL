@@ -1,0 +1,55 @@
+sample_point,vmm_waterloop,segment,segment_naam,waterloop,afstand_m,naamovereenkomst,controle
+OW12000,LEOPOLDKANAAL,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/64417,Leopoldkanaal,https://data.omgeving.vlaanderen.be/id/waterloop/2801,629.3,ja,ja
+OW122,IJZER - HAVEN VAN NIEUWPOORT,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/85276,IJzer,https://data.omgeving.vlaanderen.be/id/waterloop/1201,55.6,ja,nee
+OW154100,ZEESCHELDE - BENEDEN-ZEESCHELDE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/85692,Beneden-Zeeschelde,https://data.omgeving.vlaanderen.be/id/waterloop/2,9.0,ja,nee
+OW162000,ZEESCHELDE - BENEDEN-ZEESCHELDE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/62977,Boven-Zeeschelde,https://data.omgeving.vlaanderen.be/id/waterloop/5004,158.7,nee,ja
+OW164000,ZEESCHELDE - BENEDEN-ZEESCHELDE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/62942,Boven-Zeeschelde,https://data.omgeving.vlaanderen.be/id/waterloop/5004,5.4,nee,ja
+OW172100,BOVENSCHELDE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/66673,Bovenschelde,https://data.omgeving.vlaanderen.be/id/waterloop/1,0.0,ja,nee
+OW174000,BOVENSCHELDE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/92440,Bovenschelde,https://data.omgeving.vlaanderen.be/id/waterloop/1,1.2,ja,nee
+OW179000,BOVENSCHELDE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/48329,Bovenschelde,https://data.omgeving.vlaanderen.be/id/waterloop/1,1142.1,ja,ja
+OW212000,DIJLE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/98004,Dijle,https://data.omgeving.vlaanderen.be/id/waterloop/6551,43.8,ja,nee
+OW216000,DIJLE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/63866,Dijle,https://data.omgeving.vlaanderen.be/id/waterloop/6551,6.3,ja,nee
+OW221000,DIJLE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/61245,Dijle,https://data.omgeving.vlaanderen.be/id/waterloop/6551,14.1,ja,nee
+OW243200,ZWARTE BEEK - WAVERSLOOP - AGATBEEK,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/28007,Zwarte Beek,https://data.omgeving.vlaanderen.be/id/waterloop/3123,0.9,ja,nee
+OW253000,GROTE NETE - NETE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/101086,Grote Nete,https://data.omgeving.vlaanderen.be/id/waterloop/8501,2.0,ja,nee
+OW258000,GROTE NETE - NETE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/101021,Grote Nete,https://data.omgeving.vlaanderen.be/id/waterloop/8501,0.6,ja,nee
+OW274000,KLEINE NETE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/102751,Kleine Nete,https://data.omgeving.vlaanderen.be/id/waterloop/8502,9.4,ja,nee
+OW276700,KLEINE NETE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/103355,Kleine Nete,https://data.omgeving.vlaanderen.be/id/waterloop/8502,4.6,ja,nee
+OW30000,KANAAL GENT - TERNEUZEN,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/85481,Kanaal Gent - Terneuzen,https://data.omgeving.vlaanderen.be/id/waterloop/7,86.8,ja,nee
+OW345000,ZENNE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/60798,Zenne,https://data.omgeving.vlaanderen.be/id/waterloop/6552,2.3,ja,nee
+OW347800,ZENNE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/60125,Zenne,https://data.omgeving.vlaanderen.be/id/waterloop/6552,0.8,ja,nee
+OW351000,KANAAL BRUSSEL-RUPEL - KANAAL VAN BRUSSEL NAAR DE SCHELDE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/81918,Kanaal Brussel-Rupel,https://data.omgeving.vlaanderen.be/id/waterloop/20,35.6,ja,nee
+OW377220,DE NEKKER,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/87320,Platte Beek,https://data.omgeving.vlaanderen.be/id/waterloop/6619,168.9,nee,ja
+OW390000,DEMER,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/84299,Demer,https://data.omgeving.vlaanderen.be/id/waterloop/7151,1.5,ja,nee
+OW401000,DEMER,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/46752,Demer,https://data.omgeving.vlaanderen.be/id/waterloop/7151,3.3,ja,nee
+OW433900,MELSTERBEEK,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/43680,Melsterbeek,https://data.omgeving.vlaanderen.be/id/waterloop/7154,10.5,ja,nee
+OW435000,MELSTERBEEK,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/43677,Melsterbeek,https://data.omgeving.vlaanderen.be/id/waterloop/7154,2.7,ja,nee
+OW446000,HERK,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/78558,Herk,https://data.omgeving.vlaanderen.be/id/waterloop/7152,6.0,ja,nee
+OW499500,DENDER,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/87787,Dender,https://data.omgeving.vlaanderen.be/id/waterloop/5951,6.7,ja,nee
+OW503500,DENDER,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/83011,Dender,https://data.omgeving.vlaanderen.be/id/waterloop/5951,1.9,ja,nee
+OW511000,DENDER,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/83461,Dender,https://data.omgeving.vlaanderen.be/id/waterloop/5951,12.6,ja,nee
+OW523000,BELLEBEEK - HUNSELBEEK - MOLENBEEK,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/44596,Bellebeek,https://data.omgeving.vlaanderen.be/id/waterloop/5956,0.9,ja,nee
+OW570150,BLAARMEERSEN,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/85409,Leiearm,https://data.omgeving.vlaanderen.be/id/waterloop/683,416.4,nee,ja
+OW571900,LEIE - GRENSLEIE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/54694,Leie,https://data.omgeving.vlaanderen.be/id/waterloop/4201,45.4,ja,nee
+OW573300,LEIE - GRENSLEIE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/70751,Leie,https://data.omgeving.vlaanderen.be/id/waterloop/4201,19.7,ja,nee
+OW581000,LEIE - GRENSLEIE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/54745,Leie,https://data.omgeving.vlaanderen.be/id/waterloop/4201,0.5,ja,nee
+OW6000,LEOPOLDKANAAL,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/6337,Leopoldkanaal,https://data.omgeving.vlaanderen.be/id/waterloop/2121,14.3,ja,nee
+OW605900,MANDEL,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/65448,Mandel,https://data.omgeving.vlaanderen.be/id/waterloop/4203,3.0,ja,nee
+OW673065,LINDEBEEK,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/13919,Lindebeek,https://data.omgeving.vlaanderen.be/id/waterloop/4626,14.0,ja,nee
+OW680000,KANAAL PLASSENDALE-DUINKERKEN - KANAAL VAN NIEUWPOORT NAAR DUINKERKEN (BELGISCH GEDEELTE),https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/85395,Kanaal Plassendale-Duinkerken,https://data.omgeving.vlaanderen.be/id/waterloop/13,7.8,ja,nee
+OW72000,MARK - DE MARK,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/74078,Mark,https://data.omgeving.vlaanderen.be/id/waterloop/9502,112.8,ja,ja
+OW740500,MOLENBEEK,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/3184,Molenbeek,https://data.omgeving.vlaanderen.be/id/waterloop/5188,1.4,ja,nee
+OW765007,AFLEIDINGSKANAAL VAN DE LEIE - AFLEIDINGSKANAAL DER LEIE - SCHIPDONKKANAAL,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/72049,Afleidingskanaal van de Leie,https://data.omgeving.vlaanderen.be/id/waterloop/9,0.3,ja,nee
+OW768000,AFLEIDINGSKANAAL VAN DE LEIE - AFLEIDINGSKANAAL DER LEIE - SCHIPDONKKANAAL,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/71095,Afleidingskanaal van de Leie,https://data.omgeving.vlaanderen.be/id/waterloop/9,25.4,ja,nee
+OW770000,KANAAL VAN GENT NAAR OOSTENDE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/87807,Kanaal van Gent naar Oostende,https://data.omgeving.vlaanderen.be/id/waterloop/12,13.8,ja,nee
+OW789420,NIEUWE KALE,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/64709,Nieuwe Kale,https://data.omgeving.vlaanderen.be/id/waterloop/625,0.1,ja,nee
+OW804000,HAVENDOK - KANAALDOK B1 - KANAALDOK B2,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/97857,Havendok,https://data.omgeving.vlaanderen.be/id/waterloop/34,183.1,ja,ja
+OW824000,ALBERTKANAAL,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/82734,Albertkanaal,https://data.omgeving.vlaanderen.be/id/waterloop/4,54.9,ja,nee
+OW848200,KANAAL VAN BOCHOLT NAAR HERENTALS,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/85444,Kanaal van Bocholt naar Herentals,https://data.omgeving.vlaanderen.be/id/waterloop/5,9.9,ja,nee
+OW851700,ZUIDWILLEMSVAART (NOORD),https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/70983,Zuid-Willemsvaart,https://data.omgeving.vlaanderen.be/id/waterloop/15,9.6,nee,ja
+OW877000,BLANKENBERGSEVAART,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/63754,Blankenbergsevaart,https://data.omgeving.vlaanderen.be/id/waterloop/2123,0.0,ja,nee
+OW91000,DOMMEL - BOVEN DOMMEL,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/62595,Dommel,https://data.omgeving.vlaanderen.be/id/waterloop/9512,3.7,ja,nee
+OW910000,IJZER - HAVEN VAN NIEUWPOORT,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/85269,IJzer,https://data.omgeving.vlaanderen.be/id/waterloop/1201,5.5,ja,nee
+OW916000,IJZER - HAVEN VAN NIEUWPOORT,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/85255,IJzer,https://data.omgeving.vlaanderen.be/id/waterloop/1201,6.0,ja,nee
+OW946000,KANAAL IEPER-IJZER - KANAAL VAN IEPER NAAR DE IJZER,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/94116,Kanaal Ieper-Ijzer,https://data.omgeving.vlaanderen.be/id/waterloop/32,9.6,ja,nee
+OW99900,PEERDERLOOP,https://data.omgeving.vlaanderen.be/id/waterloop/waterloopsegment/62542,Peerderloop,https://data.omgeving.vlaanderen.be/id/waterloop/9744,0.6,ja,nee

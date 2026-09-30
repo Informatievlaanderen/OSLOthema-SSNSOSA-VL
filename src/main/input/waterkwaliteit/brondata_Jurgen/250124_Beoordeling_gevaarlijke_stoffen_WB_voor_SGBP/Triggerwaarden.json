@@ -1,0 +1,440 @@
+[
+  {
+    "Parameter Symbool": "1234CBz",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,38"
+  },
+  {
+    "Parameter Symbool": "1235CBz",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,5872"
+  },
+  {
+    "Parameter Symbool": "1245CBz",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,64"
+  },
+  {
+    "Parameter Symbool": "14CBz",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,23"
+  },
+  {
+    "Parameter Symbool": "24DDD",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=1,16"
+  },
+  {
+    "Parameter Symbool": "44DDD",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=4,4"
+  },
+  {
+    "Parameter Symbool": "44DDE",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=7,088"
+  },
+  {
+    "Parameter Symbool": "44DDT",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=2,3"
+  },
+  {
+    "Parameter Symbool": "Acenaft",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,2"
+  },
+  {
+    "Parameter Symbool": "Acenaftyl",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,15"
+  },
+  {
+    "Parameter Symbool": "Ant",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,23368"
+  },
+  {
+    "Parameter Symbool": "As t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=52"
+  },
+  {
+    "Parameter Symbool": "B(a)A",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,73832"
+  },
+  {
+    "Parameter Symbool": "B(a)P",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,6652"
+  },
+  {
+    "Parameter Symbool": "B(b)Flu",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,8304"
+  },
+  {
+    "Parameter Symbool": "B(e)P",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=1,212"
+  },
+  {
+    "Parameter Symbool": "B(ghi)Pe",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,5564"
+  },
+  {
+    "Parameter Symbool": "B(k)Flu",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,38"
+  },
+  {
+    "Parameter Symbool": "BDE 100",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=2,1"
+  },
+  {
+    "Parameter Symbool": "BDE 153",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=2,5"
+  },
+  {
+    "Parameter Symbool": "BDE 154",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,5"
+  },
+  {
+    "Parameter Symbool": "BDE 183",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=1,76"
+  },
+  {
+    "Parameter Symbool": "BDE 209",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=1120"
+  },
+  {
+    "Parameter Symbool": "BDE 28",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=3"
+  },
+  {
+    "Parameter Symbool": "BDE 47",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=3,4"
+  },
+  {
+    "Parameter Symbool": "BDE 66",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=3,38"
+  },
+  {
+    "Parameter Symbool": "BDE 85",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=2,5"
+  },
+  {
+    "Parameter Symbool": "BDE 99",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=4,22"
+  },
+  {
+    "Parameter Symbool": "Cd t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=5,564"
+  },
+  {
+    "Parameter Symbool": "Chr",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=1"
+  },
+  {
+    "Parameter Symbool": "CN- t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=2,31"
+  },
+  {
+    "Parameter Symbool": "CN- v",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=1251"
+  },
+  {
+    "Parameter Symbool": "Co t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=32,72"
+  },
+  {
+    "Parameter Symbool": "Cr t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=94,928"
+  },
+  {
+    "Parameter Symbool": "Cu t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=101,64"
+  },
+  {
+    "Parameter Symbool": "DBySn",
+    "Eenheid": "µgSn/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=55,632"
+  },
+  {
+    "Parameter Symbool": "dBz(ah)An",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,1252"
+  },
+  {
+    "Parameter Symbool": "DFySn",
+    "Eenheid": "µgSn/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=4,592"
+  },
+  {
+    "Parameter Symbool": "Dieldrin",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=1,3"
+  },
+  {
+    "Parameter Symbool": "EAS TtCEe",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=787"
+  },
+  {
+    "Parameter Symbool": "EOX",
+    "Eenheid": "mgCl/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=3,6"
+  },
+  {
+    "Parameter Symbool": "Fen",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,8316"
+  },
+  {
+    "Parameter Symbool": "Flu",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=1,6488"
+  },
+  {
+    "Parameter Symbool": "Fluoreen",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,24"
+  },
+  {
+    "Parameter Symbool": "HCBz",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=1,6"
+  },
+  {
+    "Parameter Symbool": "Hg t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=1,2128"
+  },
+  {
+    "Parameter Symbool": "IP",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,5988"
+  },
+  {
+    "Parameter Symbool": "KWS ap.",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=988"
+  },
+  {
+    "Parameter Symbool": "MBySn",
+    "Eenheid": "µgSn/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=45,64"
+  },
+  {
+    "Parameter Symbool": "Naft",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,6176"
+  },
+  {
+    "Parameter Symbool": "Ni t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=35,64"
+  },
+  {
+    "Parameter Symbool": "Pb t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=151,64"
+  },
+  {
+    "Parameter Symbool": "PCB 101",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=10"
+  },
+  {
+    "Parameter Symbool": "PCB 118",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=6,9"
+  },
+  {
+    "Parameter Symbool": "PCB 138",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=13"
+  },
+  {
+    "Parameter Symbool": "PCB 153",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=17"
+  },
+  {
+    "Parameter Symbool": "PCB 170",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=3,608"
+  },
+  {
+    "Parameter Symbool": "PCB 180",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=12"
+  },
+  {
+    "Parameter Symbool": "PCB 28",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=4,684"
+  },
+  {
+    "Parameter Symbool": "PCB 31",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=3,456"
+  },
+  {
+    "Parameter Symbool": "PCB 49",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=2,7"
+  },
+  {
+    "Parameter Symbool": "PCB 52",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=7,916"
+  },
+  {
+    "Parameter Symbool": "Peryleen",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,28"
+  },
+  {
+    "Parameter Symbool": "Pyr",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=1,342"
+  },
+  {
+    "Parameter Symbool": "Se t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=6,132"
+  },
+  {
+    "Parameter Symbool": "Sn t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=15"
+  },
+  {
+    "Parameter Symbool": "TBBP-A",
+    "Eenheid": "µg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=33,8"
+  },
+  {
+    "Parameter Symbool": "TBySn",
+    "Eenheid": "µgSn/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=26,92"
+  },
+  {
+    "Parameter Symbool": "tCdaan",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,1"
+  },
+  {
+    "Parameter Symbool": "TFySn",
+    "Eenheid": "µgSn/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=6,79"
+  },
+  {
+    "Parameter Symbool": "Tolueen",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=0,61"
+  },
+  {
+    "Parameter Symbool": "V t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=56,92"
+  },
+  {
+    "Parameter Symbool": "Zn t",
+    "Eenheid": "mg/kg ds",
+    "Toetswijze Code": "MAX",
+    "Norm": "<=678,56"
+  }
+]

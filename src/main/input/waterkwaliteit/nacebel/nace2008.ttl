@@ -1,0 +1,42 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rov: <http://www.w3.org/ns/regorg#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix hydra: <http://www.w3.org/ns/hydra/core#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix cpsv: <http://purl.org/vocab/cpsv#> .
+@prefix cv: <http://data.europa.eu/m8g/> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix schema: <http://schema.org/> .
+@prefix schemas: <https://schema.org/> .
+
+<http://vocab.belgif.be/auth/nace2008> a skos:ConceptScheme;
+  dcterms:title "NACE-BEL 2008"@nl, "NACE-BEL 2008"@fr, "NACE-BEL 2008"@en, "NACE-BEL 2008"@de;
+  dcterms:description "Statistical classification of economic activities in the European Community (Belgian version)"@en,
+    "Statistical classification of economic activities in the European Community (Belgian version)"@de,
+    "Nomenclature statistique des activités économiques dans la Communauté européenne (la version belge)"@fr,
+    "Statistische nomenclatuur van de Economische activiteiten in de Europese Gemeenschap (Belgische versie)"@nl;
+  owl:versionInfo "Draft 2019-01-31";
+  dcterms:modified "2019-01-31T22:00"^^xsd:dateTime;
+  dcterms:license <http://statbel.fgov.be/en/statistics/opendata/licence/>;
+  skos:hasTopConcept <http://vocab.belgif.be/auth/nace2008/R>, <http://vocab.belgif.be/auth/nace2008/L>,
+    <http://vocab.belgif.be/auth/nace2008/T>, <http://vocab.belgif.be/auth/nace2008/J>,
+    <http://vocab.belgif.be/auth/nace2008/C>, <http://vocab.belgif.be/auth/nace2008/U>,
+    <http://vocab.belgif.be/auth/nace2008/E>, <http://vocab.belgif.be/auth/nace2008/A>,
+    <http://vocab.belgif.be/auth/nace2008/I>, <http://vocab.belgif.be/auth/nace2008/M>,
+    <http://vocab.belgif.be/auth/nace2008/K>, <http://vocab.belgif.be/auth/nace2008/N>,
+    <http://vocab.belgif.be/auth/nace2008/S>, <http://vocab.belgif.be/auth/nace2008/H>,
+    <http://vocab.belgif.be/auth/nace2008/P>, <http://vocab.belgif.be/auth/nace2008/D>,
+    <http://vocab.belgif.be/auth/nace2008/G>, <http://vocab.belgif.be/auth/nace2008/Q>,
+    <http://vocab.belgif.be/auth/nace2008/O>, <http://vocab.belgif.be/auth/nace2008/B>,
+    <http://vocab.belgif.be/auth/nace2008/F> .

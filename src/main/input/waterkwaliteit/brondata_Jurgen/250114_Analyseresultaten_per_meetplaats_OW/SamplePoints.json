@@ -1,0 +1,488 @@
+[
+  {
+    "Sample Point": "OW12000",
+    "Sample Point Omschrijving": "Philippine,Isabellahaven,Dijckmeesterweg",
+    "Lambert X": 104329.998097,
+    "Lambert Y": 218850.007239,
+    "Waterloop": "LEOPOLDKANAAL",
+    "Bekken": "Bekken van de Gentse Kanalen",
+    "Gemeente": null
+  },
+  {
+    "Sample Point": "OW122",
+    "Sample Point Omschrijving": "Watersportlaan",
+    "Lambert X": 36342.002398,
+    "Lambert Y": 204544.00478,
+    "Waterloop": "IJZER - HAVEN VAN NIEUWPOORT",
+    "Bekken": "IJzerbekken",
+    "Gemeente": "Nieuwpoort"
+  },
+  {
+    "Sample Point": "OW154100",
+    "Sample Point Omschrijving": "Zandvliet, grens Doel; vaargeul midden Schelde thv P boei",
+    "Lambert X": 141076.996185,
+    "Lambert Y": 227032.999177,
+    "Waterloop": "ZEESCHELDE - BENEDEN-ZEESCHELDE",
+    "Bekken": "Benedenscheldebekken",
+    "Gemeente": "Antwerpen"
+  },
+  {
+    "Sample Point": "OW162000",
+    "Sample Point Omschrijving": "Kallebeekstraat, thv veerpont Hemiksem - Kruibeke (Bazel)",
+    "Lambert X": 147327.997509,
+    "Lambert Y": 203674.997386,
+    "Waterloop": "ZEESCHELDE - BENEDEN-ZEESCHELDE",
+    "Bekken": "Benedenscheldebekken",
+    "Gemeente": "Hemiksem"
+  },
+  {
+    "Sample Point": "OW164000",
+    "Sample Point Omschrijving": "FC: weg Hamme-Dendermonde, opw brug; BIO 700m afw. aan linkeroever (Grembergen)",
+    "Lambert X": 132788.001912,
+    "Lambert Y": 192321.99911,
+    "Waterloop": "ZEESCHELDE - BENEDEN-ZEESCHELDE",
+    "Bekken": "Benedenscheldebekken",
+    "Gemeente": "Dendermonde"
+  },
+  {
+    "Sample Point": "OW172100",
+    "Sample Point Omschrijving": "Zwijnaarde,Zonneputtragel,opw brug",
+    "Lambert X": 104744.996088,
+    "Lambert Y": 188126.99722,
+    "Waterloop": "BOVENSCHELDE",
+    "Bekken": "Bovenscheldebekken",
+    "Gemeente": "Gent"
+  },
+  {
+    "Sample Point": "OW174000",
+    "Sample Point Omschrijving": "Voor-Eine,Ohiostraat,Ohiobrug",
+    "Lambert X": 97859.999466,
+    "Lambert Y": 173599.99849,
+    "Waterloop": "BOVENSCHELDE",
+    "Bekken": "Bovenscheldebekken",
+    "Gemeente": "Oudenaarde"
+  },
+  {
+    "Sample Point": "OW179000",
+    "Sample Point Omschrijving": "Warcoing,brug Warcoing-Hérinnes,Rue de la Sucrerie-Rue du Rivage",
+    "Lambert X": 78196.0012,
+    "Lambert Y": 154964.001737,
+    "Waterloop": "BOVENSCHELDE",
+    "Bekken": "Bovenscheldebekken",
+    "Gemeente": "Pecq"
+  },
+  {
+    "Sample Point": "OW212000",
+    "Sample Point Omschrijving": "Battel, Hoge Weg",
+    "Lambert X": 155009.996737,
+    "Lambert Y": 193500.005602,
+    "Waterloop": "DIJLE",
+    "Bekken": "Dijle- en Zennebekken",
+    "Gemeente": "Mechelen"
+  },
+  {
+    "Sample Point": "OW216000",
+    "Sample Point Omschrijving": "Werchter, Provinciebaan, afw brug",
+    "Lambert X": 172865.99611,
+    "Lambert Y": 184039.001634,
+    "Waterloop": "DIJLE",
+    "Bekken": "Dijle- en Zennebekken",
+    "Gemeente": "Rotselaar"
+  },
+  {
+    "Sample Point": "OW221000",
+    "Sample Point Omschrijving": "Sint-Joris-Weert, Neerijsebaan, opw brug (BBI: + stenen LO afw brug, opw lozing)",
+    "Lambert X": 169300.00012,
+    "Lambert Y": 165850.005183,
+    "Waterloop": "DIJLE",
+    "Bekken": "Dijle- en Zennebekken",
+    "Gemeente": "Oud-Heverlee"
+  },
+  {
+    "Sample Point": "OW243200",
+    "Sample Point Omschrijving": "brug aan pad naar Hazewinkel",
+    "Lambert X": 150230.997013,
+    "Lambert Y": 195153.00462,
+    "Waterloop": "ZWARTE BEEK - WAVERSLOOP - AGATBEEK",
+    "Bekken": "Benedenscheldebekken",
+    "Gemeente": "Willebroek"
+  },
+  {
+    "Sample Point": "OW253000",
+    "Sample Point Omschrijving": "K. Govaertsstraat-Krombeekweg, afw brug",
+    "Lambert X": 175729.999449,
+    "Lambert Y": 199241.999816,
+    "Waterloop": "GROTE NETE - NETE",
+    "Bekken": "Netebekken",
+    "Gemeente": "Heist-op-den-Berg"
+  },
+  {
+    "Sample Point": "OW258000",
+    "Sample Point Omschrijving": "Amocolaan, langs E313, opw brug en lozing Amoco",
+    "Lambert X": 193170.997747,
+    "Lambert Y": 200899.999123,
+    "Waterloop": "GROTE NETE - NETE",
+    "Bekken": "Netebekken",
+    "Gemeente": "Geel"
+  },
+  {
+    "Sample Point": "OW274000",
+    "Sample Point Omschrijving": "Olympiadelaan, SOP",
+    "Lambert X": 182382.00267,
+    "Lambert Y": 208594.00357,
+    "Waterloop": "KLEINE NETE",
+    "Bekken": "Netebekken",
+    "Gemeente": "Herentals"
+  },
+  {
+    "Sample Point": "OW276700",
+    "Sample Point Omschrijving": "Retie, watermolen. opw de molen",
+    "Lambert X": 197762.002427,
+    "Lambert Y": 215119.003955,
+    "Waterloop": "KLEINE NETE",
+    "Bekken": "Netebekken",
+    "Gemeente": "Retie"
+  },
+  {
+    "Sample Point": "OW30000",
+    "Sample Point Omschrijving": "einde Vredekaai,veldweg,thv steiger",
+    "Lambert X": 110470.000929,
+    "Lambert Y": 211000.001148,
+    "Waterloop": "KANAAL GENT - TERNEUZEN",
+    "Bekken": "Bekken van de Gentse Kanalen",
+    "Gemeente": "Zelzate"
+  },
+  {
+    "Sample Point": "OW345000",
+    "Sample Point Omschrijving": "Eppegem, Brusselsestwg, opw brug",
+    "Lambert X": 156111.000958,
+    "Lambert Y": 183358.999529,
+    "Waterloop": "ZENNE",
+    "Bekken": "Dijle- en Zennebekken",
+    "Gemeente": "Zemst"
+  },
+  {
+    "Sample Point": "OW347800",
+    "Sample Point Omschrijving": "Ruisbroek, Broekweg, opw brug",
+    "Lambert X": 145553.998962,
+    "Lambert Y": 164519.996955,
+    "Waterloop": "ZENNE",
+    "Bekken": "Dijle- en Zennebekken",
+    "Gemeente": "Sint-Pieters-Leeuw"
+  },
+  {
+    "Sample Point": "OW351000",
+    "Sample Point Omschrijving": "Kraag, thv. spoorwegbrug(FC), voorbij brug aan verlichtingspaal 11(BIO)",
+    "Lambert X": 149743.998661,
+    "Lambert Y": 195080.000071,
+    "Waterloop": "KANAAL BRUSSEL-RUPEL - KANAAL VAN BRUSSEL NAAR DE SCHELDE",
+    "Bekken": "Benedenscheldebekken",
+    "Gemeente": "Willebroek"
+  },
+  {
+    "Sample Point": "OW377220",
+    "Sample Point Omschrijving": "Prov. Sport- & Recreatiecentrum De Nekker (grote vijver); in zwemzone, thv infopaal",
+    "Lambert X": 159583.9982,
+    "Lambert Y": 190402.999996,
+    "Waterloop": "DE NEKKER",
+    "Bekken": "Dijle- en Zennebekken",
+    "Gemeente": "Mechelen"
+  },
+  {
+    "Sample Point": "OW390000",
+    "Sample Point Omschrijving": "Werchter, Veerpont, afw soldatenbrug",
+    "Lambert X": 174579.998365,
+    "Lambert Y": 184470.004126,
+    "Waterloop": "DEMER",
+    "Bekken": "Demerbekken",
+    "Gemeente": "Rotselaar"
+  },
+  {
+    "Sample Point": "OW401000",
+    "Sample Point Omschrijving": "Munsterbilzen, Rentfortstr, thv Rentfortmolen, afw brug",
+    "Lambert X": 229422.998617,
+    "Lambert Y": 176366.001103,
+    "Waterloop": "DEMER",
+    "Bekken": "Demerbekken",
+    "Gemeente": null
+  },
+  {
+    "Sample Point": "OW433900",
+    "Sample Point Omschrijving": "Herk-de-Stad, zijweg van Korpsestr (zandpad), opw brug",
+    "Lambert X": 203849.996097,
+    "Lambert Y": 179329.996686,
+    "Waterloop": "MELSTERBEEK",
+    "Bekken": "Demerbekken",
+    "Gemeente": "Herk-de-Stad"
+  },
+  {
+    "Sample Point": "OW435000",
+    "Sample Point Omschrijving": "Grazen, Galgestr, opw brug",
+    "Lambert X": 204868.001798,
+    "Lambert Y": 172526.001813,
+    "Waterloop": "MELSTERBEEK",
+    "Bekken": "Demerbekken",
+    "Gemeente": "Geetbets"
+  },
+  {
+    "Sample Point": "OW446000",
+    "Sample Point Omschrijving": "Donk, Zijweg van grote baan N2, to kapel inrijden, na 700 m opw brug",
+    "Lambert X": 203500.000212,
+    "Lambert Y": 182930.002147,
+    "Waterloop": "HERK",
+    "Bekken": "Demerbekken",
+    "Gemeente": "Herk-de-Stad"
+  },
+  {
+    "Sample Point": "OW499500",
+    "Sample Point Omschrijving": "Sint-Onolfsdijk - Schoolstraat,thv meetstation",
+    "Lambert X": 129551.000422,
+    "Lambert Y": 191944.004782,
+    "Waterloop": "DENDER",
+    "Bekken": "Benedenscheldebekken",
+    "Gemeente": "Dendermonde"
+  },
+  {
+    "Sample Point": "OW503500",
+    "Sample Point Omschrijving": "Erembodegem,Erembodegem-Dorp,opw brug",
+    "Lambert X": 128299.996102,
+    "Lambert Y": 178916.998624,
+    "Waterloop": "DENDER",
+    "Bekken": "Denderbekken",
+    "Gemeente": "Aalst"
+  },
+  {
+    "Sample Point": "OW511000",
+    "Sample Point Omschrijving": "Overboelare,afw brug Majoor van Lierdelaan",
+    "Lambert X": 114593.001906,
+    "Lambert Y": 161378.007332,
+    "Waterloop": "DENDER",
+    "Bekken": "Denderbekken",
+    "Gemeente": "Geraardsbergen"
+  },
+  {
+    "Sample Point": "OW523000",
+    "Sample Point Omschrijving": "Affligemsestraat-Driesstraat,afw weg,thv handelszaak",
+    "Lambert X": 130846.997524,
+    "Lambert Y": 175039.996713,
+    "Waterloop": "BELLEBEEK - HUNSELBEEK - MOLENBEEK",
+    "Bekken": "Denderbekken",
+    "Gemeente": "Liedekerke"
+  },
+  {
+    "Sample Point": "OW570150",
+    "Sample Point Omschrijving": "RV: Sport-en Recreatiepark De Blaarmeersen; Zuiderlaan 12,noordelijk deel",
+    "Lambert X": 102192.001589,
+    "Lambert Y": 192835.007042,
+    "Waterloop": "BLAARMEERSEN",
+    "Bekken": "Bekken van de Gentse Kanalen",
+    "Gemeente": "Gent"
+  },
+  {
+    "Sample Point": "OW571900",
+    "Sample Point Omschrijving": "Drongen, Keuzemeersen, goedingestr, brug autosnelweg",
+    "Lambert X": 99220.002014,
+    "Lambert Y": 191690.000628,
+    "Waterloop": "LEIE - GRENSLEIE",
+    "Bekken": "Leiebekken",
+    "Gemeente": "Gent"
+  },
+  {
+    "Sample Point": "OW573300",
+    "Sample Point Omschrijving": "Spoorwegbrug",
+    "Lambert X": 89247.99741,
+    "Lambert Y": 185467.998809,
+    "Waterloop": "LEIE - GRENSLEIE",
+    "Bekken": "Leiebekken",
+    "Gemeente": "Deinze"
+  },
+  {
+    "Sample Point": "OW581000",
+    "Sample Point Omschrijving": "Lauwestraat, brug nr Lauwe",
+    "Lambert X": 66809.00236,
+    "Lambert Y": 166287.003791,
+    "Waterloop": "LEIE - GRENSLEIE",
+    "Bekken": "Leiebekken",
+    "Gemeente": "Wevelgem"
+  },
+  {
+    "Sample Point": "OW6000",
+    "Sample Point Omschrijving": "Ramskapelle, Vaartdijk, grens Zeebrugge",
+    "Lambert X": 70580.000391,
+    "Lambert Y": 224570.002146,
+    "Waterloop": "LEOPOLDKANAAL",
+    "Bekken": "Bekken van de Brugse Polders",
+    "Gemeente": "Brugge"
+  },
+  {
+    "Sample Point": "OW605900",
+    "Sample Point Omschrijving": "Kachtem, Rumbeeksestraat",
+    "Lambert X": 66698.001446,
+    "Lambert Y": 180955.002595,
+    "Waterloop": "MANDEL",
+    "Bekken": "Leiebekken",
+    "Gemeente": "Izegem"
+  },
+  {
+    "Sample Point": "OW673065",
+    "Sample Point Omschrijving": "Dranouter, Lettingstraat",
+    "Lambert X": 38793.997956,
+    "Lambert Y": 163410.004468,
+    "Waterloop": "LINDEBEEK",
+    "Bekken": "Leiebekken",
+    "Gemeente": "Heuvelland"
+  },
+  {
+    "Sample Point": "OW680000",
+    "Sample Point Omschrijving": "Oostduinkerke, Veurnekeiweg, Pelikaan",
+    "Lambert X": 36549.998165,
+    "Lambert Y": 202500.002792,
+    "Waterloop": "KANAAL PLASSENDALE-DUINKERKEN - KANAAL VAN NIEUWPOORT NAAR DUINKERKEN (BELGISCH GEDEELTE)",
+    "Bekken": "IJzerbekken",
+    "Gemeente": "Koksijde"
+  },
+  {
+    "Sample Point": "OW72000",
+    "Sample Point Omschrijving": "Nederland; Alphen-Chaam; Galder; Hollandse Dreef, opw Markbrug",
+    "Lambert X": 178630.000495,
+    "Lambert Y": 244023.999936,
+    "Waterloop": "MARK - DE MARK",
+    "Bekken": "Maasbekken",
+    "Gemeente": "Hoogstraten"
+  },
+  {
+    "Sample Point": "OW740500",
+    "Sample Point Omschrijving": "Beekstraat,thv achterzijde Flocart",
+    "Lambert X": 96268.998744,
+    "Lambert Y": 160370.004753,
+    "Waterloop": "MOLENBEEK",
+    "Bekken": "Bovenscheldebekken",
+    "Gemeente": "Ronse"
+  },
+  {
+    "Sample Point": "OW765007",
+    "Sample Point Omschrijving": "Zeebrugge, Alfred Ronsestraat",
+    "Lambert X": 70610.996408,
+    "Lambert Y": 224388.998458,
+    "Waterloop": "AFLEIDINGSKANAAL VAN DE LEIE - AFLEIDINGSKANAAL DER LEIE - SCHIPDONKKANAAL",
+    "Bekken": "Bekken van de Brugse Polders",
+    "Gemeente": "Brugge"
+  },
+  {
+    "Sample Point": "OW768000",
+    "Sample Point Omschrijving": "Merendree,Hansbekestraat,Merendreebrug",
+    "Lambert X": 93947.996358,
+    "Lambert Y": 196248.996683,
+    "Waterloop": "AFLEIDINGSKANAAL VAN DE LEIE - AFLEIDINGSKANAAL DER LEIE - SCHIPDONKKANAAL",
+    "Bekken": "Bekken van de Gentse Kanalen",
+    "Gemeente": "Deinze"
+  },
+  {
+    "Sample Point": "OW770000",
+    "Sample Point Omschrijving": "Prins Albertlaan",
+    "Lambert X": 50845.001562,
+    "Lambert Y": 213408.005169,
+    "Waterloop": "KANAAL VAN GENT NAAR OOSTENDE",
+    "Bekken": "Bekken van de Brugse Polders",
+    "Gemeente": "Oostende"
+  },
+  {
+    "Sample Point": "OW789420",
+    "Sample Point Omschrijving": "Spoorwegstraat-Christoffelweg-veldweg langs spoorweg,afw brug (Waalbrug)",
+    "Lambert X": 103713.997891,
+    "Lambert Y": 199522.005826,
+    "Waterloop": "NIEUWE KALE",
+    "Bekken": "Bekken van de Gentse Kanalen",
+    "Gemeente": "Evergem"
+  },
+  {
+    "Sample Point": "OW804000",
+    "Sample Point Omschrijving": "Kaai 601, Afvalpark Lillopark, zijwaarts Evonik",
+    "Lambert X": 146491.99835,
+    "Lambert Y": 221980.005187,
+    "Waterloop": "HAVENDOK - KANAALDOK B1 - KANAALDOK B2",
+    "Bekken": "Benedenscheldebekken",
+    "Gemeente": "Antwerpen"
+  },
+  {
+    "Sample Point": "OW824000",
+    "Sample Point Omschrijving": "Kanne, FC: Trekweg op Canne, LO, opw brug; BBI:aan de brug",
+    "Lambert X": 241872.000507,
+    "Lambert Y": 167342.004079,
+    "Waterloop": "ALBERTKANAAL",
+    "Bekken": "Maasbekken",
+    "Gemeente": "Riemst"
+  },
+  {
+    "Sample Point": "OW848200",
+    "Sample Point Omschrijving": "kanaalpad (noorderlijk); thv kmpaal 32",
+    "Lambert X": 204500.997441,
+    "Lambert Y": 213799.00687,
+    "Waterloop": "KANAAL VAN BOCHOLT NAAR HERENTALS",
+    "Bekken": "Netebekken",
+    "Gemeente": "Dessel"
+  },
+  {
+    "Sample Point": "OW851700",
+    "Sample Point Omschrijving": "Lozen, Lozerstraat, aan grenspaal en tolkantoor",
+    "Lambert X": 234841.000759,
+    "Lambert Y": 212548.001325,
+    "Waterloop": "ZUIDWILLEMSVAART (NOORD)",
+    "Bekken": "Maasbekken",
+    "Gemeente": "Bocholt"
+  },
+  {
+    "Sample Point": "OW877000",
+    "Sample Point Omschrijving": "Uitkerke, Scharebrugstraat, Scharebrug",
+    "Lambert X": 62799.001642,
+    "Lambert Y": 220991.005008,
+    "Waterloop": "BLANKENBERGSEVAART",
+    "Bekken": "Bekken van de Brugse Polders",
+    "Gemeente": "Blankenberge"
+  },
+  {
+    "Sample Point": "OW91000",
+    "Sample Point Omschrijving": "Grote Heide, thv natuurreservaat Hageven, opw brug",
+    "Lambert X": 223949.996956,
+    "Lambert Y": 218080.002486,
+    "Waterloop": "DOMMEL - BOVEN DOMMEL",
+    "Bekken": "Maasbekken",
+    "Gemeente": "Pelt"
+  },
+  {
+    "Sample Point": "OW910000",
+    "Sample Point Omschrijving": "Sint-Joris, Bruggesteenweg, Uniebrug, afw",
+    "Lambert X": 40319.996957,
+    "Lambert Y": 203009.997402,
+    "Waterloop": "IJZER - HAVEN VAN NIEUWPOORT",
+    "Bekken": "IJzerbekken",
+    "Gemeente": "Nieuwpoort"
+  },
+  {
+    "Sample Point": "OW916000",
+    "Sample Point Omschrijving": "Roesbrugge, Bergenstraat, Roesbruggebrug",
+    "Lambert X": 27250.000413,
+    "Lambert Y": 180319.997665,
+    "Waterloop": "IJZER - HAVEN VAN NIEUWPOORT",
+    "Bekken": "IJzerbekken",
+    "Gemeente": "Poperinge"
+  },
+  {
+    "Sample Point": "OW946000",
+    "Sample Point Omschrijving": "Westkaai, Ieperbrug",
+    "Lambert X": 44799.998552,
+    "Lambert Y": 174550.00082,
+    "Waterloop": "KANAAL IEPER-IJZER - KANAAL VAN IEPER NAAR DE IJZER",
+    "Bekken": "IJzerbekken",
+    "Gemeente": "Ieper"
+  },
+  {
+    "Sample Point": "OW99900",
+    "Sample Point Omschrijving": "Kleine Brogel, Molhemstraat, opw weg en lozing veld",
+    "Lambert X": 224990.999306,
+    "Lambert Y": 206490.006015,
+    "Waterloop": "PEERDERLOOP",
+    "Bekken": "Maasbekken",
+    "Gemeente": "Peer"
+  }
+]

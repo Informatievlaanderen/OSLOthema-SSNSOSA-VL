@@ -1,0 +1,3237 @@
+[
+  {
+    "Parameter Symbool": "10:2 FTS",
+    "Parameter Omschrijving": "10:2 fluortelomeersulfonzuur (10:2 FTS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "1112CEa",
+    "Parameter Omschrijving": "1,1,1,2-Tetrachloorethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "111CEa",
+    "Parameter Omschrijving": "1,1,1-Trichloorethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "1122CEa",
+    "Parameter Omschrijving": "1,1,2,2-Tetrachloorethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "112CEa",
+    "Parameter Omschrijving": "1,1,2-Trichloorethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "112CTFEa",
+    "Parameter Omschrijving": "1,1,2-Trichloortrifluorethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "11CEa",
+    "Parameter Omschrijving": "1,1-Dichloorethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "11CEe",
+    "Parameter Omschrijving": "1,1-Dichlooretheen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "1234CBz",
+    "Parameter Omschrijving": "1,2,3,4-Tetrachloorbenzeen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "1235+1245CBz",
+    "Parameter Omschrijving": "1,2,3,5+1,2,4,5-Tetrachloorbenzeen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "123CBz",
+    "Parameter Omschrijving": "1,2,3-Trichloorbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "124CBz",
+    "Parameter Omschrijving": "1,2,4-Trichloorbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "124MyBz",
+    "Parameter Omschrijving": "1,2,4-Trimethylbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "12BEa",
+    "Parameter Omschrijving": "1,2-Dibroomethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "12CBz",
+    "Parameter Omschrijving": "1,2-Dichloorbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "12CEa",
+    "Parameter Omschrijving": "1,2-Dichloorethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "12CEe",
+    "Parameter Omschrijving": "1,2-Dichlooretheen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "12CPa",
+    "Parameter Omschrijving": "1,2-Dichloorpropaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "135CBz",
+    "Parameter Omschrijving": "1,3,5-Trichloorbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "135MyBz",
+    "Parameter Omschrijving": "1,3,5-Trimethylbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "13CBz",
+    "Parameter Omschrijving": "1,3-Dichloorbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "14CBz",
+    "Parameter Omschrijving": "1,4-Dichloorbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "17bEstra",
+    "Parameter Omschrijving": "17-beta-Estradiol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "2233TFPrA",
+    "Parameter Omschrijving": "2,2,3,3-Tetrafluorpentaanzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "2333TFPrA",
+    "Parameter Omschrijving": "2,3,3,3-Tetrafluorpentaanzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "2345CFol",
+    "Parameter Omschrijving": "2,3,4,5-Tetrachloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "2346CFol",
+    "Parameter Omschrijving": "2,3,4,6-Tetrachloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "234CFol",
+    "Parameter Omschrijving": "2,3,4-Trichloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "2356CFol",
+    "Parameter Omschrijving": "2,3,5,6-Tetrachloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "2356CNiBz",
+    "Parameter Omschrijving": "2,3,5,6-Tetrachloornitrobenzeen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "235CFol",
+    "Parameter Omschrijving": "2,3,5-Trichloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "235MyFol",
+    "Parameter Omschrijving": "2,3,5-Trimethylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "236CFol",
+    "Parameter Omschrijving": "2,3,6-Trichloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "23CFol",
+    "Parameter Omschrijving": "2,3-Dichloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "23CPe",
+    "Parameter Omschrijving": "2,3-Dichloorpropeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "23MyFol",
+    "Parameter Omschrijving": "2,3-Dimethylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "24+25-CFol",
+    "Parameter Omschrijving": "2,4+2,5-Dichloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "245CFol",
+    "Parameter Omschrijving": "2,4,5-Trichloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "245-T",
+    "Parameter Omschrijving": "2,4,5-Trichloorfenoxyazijnzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "246CFol",
+    "Parameter Omschrijving": "2,4,6-Trichloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "24-D",
+    "Parameter Omschrijving": "2,4-Dichloorfenoxyazijnzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "24-DB",
+    "Parameter Omschrijving": "2,4-Dichloorfenoxybutaanzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "24DDD",
+    "Parameter Omschrijving": "op'Dichloordifenyldichloorethaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "24DDE",
+    "Parameter Omschrijving": "op'Dichloordifenyldichlooretheen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "24DDT",
+    "Parameter Omschrijving": "op'Dichloordifenyltrichloorethaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "24-DP",
+    "Parameter Omschrijving": "Dichloorprop",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "24MyFol",
+    "Parameter Omschrijving": "2,4-Dimethylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "24NiFol",
+    "Parameter Omschrijving": "2,4-Dinitrofenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "25MyFol",
+    "Parameter Omschrijving": "2,5-Dimethylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "26CFol",
+    "Parameter Omschrijving": "2,6-Dichloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "26MyFol",
+    "Parameter Omschrijving": "2,6-Dimethylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "2CFol",
+    "Parameter Omschrijving": "2-Chloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "2CTol",
+    "Parameter Omschrijving": "2-Chloortolueen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "2EyFol",
+    "Parameter Omschrijving": "2-Ethylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "2hAtraz",
+    "Parameter Omschrijving": "2-Hydroxy-atrazine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "2iPyFol",
+    "Parameter Omschrijving": "2-Isopropylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "2MyFol",
+    "Parameter Omschrijving": "2-Methylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "345CFol",
+    "Parameter Omschrijving": "3,4,5-Trichloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "34CFol",
+    "Parameter Omschrijving": "3,4-Dichloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "34MyFol",
+    "Parameter Omschrijving": "3,4-Dimethylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "35CFol",
+    "Parameter Omschrijving": "3,5-Dichloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "3CFol",
+    "Parameter Omschrijving": "3-Chloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "3CPe",
+    "Parameter Omschrijving": "3-Chloorpropeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "3CTol",
+    "Parameter Omschrijving": "3-Chloortolueen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "3EyFol",
+    "Parameter Omschrijving": "3-Ethylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "3MyFol",
+    "Parameter Omschrijving": "3-Methylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "4:2 FTS",
+    "Parameter Omschrijving": "4:2 fluortelomeersulfonzuur (4:2 FTS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "44DDD",
+    "Parameter Omschrijving": "pp'Dichloordifenyldichloorethaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "44DDE",
+    "Parameter Omschrijving": "pp'Dichloordifenyldichlooretheen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "44DDT",
+    "Parameter Omschrijving": "pp'Dichloordifenyltrichloorethaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "4C35MyFol",
+    "Parameter Omschrijving": "4-Chloor-3,5-dimethylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "4C3MyFol",
+    "Parameter Omschrijving": "4-Chloor-3-methylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "4CFol",
+    "Parameter Omschrijving": "4-Chloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "4CTol",
+    "Parameter Omschrijving": "4-Chloortolueen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "4EyFol + 35MyFol",
+    "Parameter Omschrijving": "4-ethylfenol + 3,5 dimethylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "4MyFol",
+    "Parameter Omschrijving": "4-Methylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "4tOyFol",
+    "Parameter Omschrijving": "4-tert-Octylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "6:2 diPAP",
+    "Parameter Omschrijving": "6:2 fluortelomeerfosfaat diester (6:2 diPAP)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "6:2 FTS",
+    "Parameter Omschrijving": "6:2 fluortelomeersulfonzuur (6:2 FTS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "6:2/8:2 diPAP",
+    "Parameter Omschrijving": "6:2/8:2 Fluortelomeerfosfaat diester",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "8:2 diPAP",
+    "Parameter Omschrijving": "8:2 fluortelomeerfosfaat diester (8:2 diPAP)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "8:2 FTS",
+    "Parameter Omschrijving": "8:2 fluortelomeersulfonzuur (8:2 FTS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "a+b+d+gHCHS",
+    "Parameter Omschrijving": "alfa+beta+gamma+delta Hexachloorcyclohexaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "a+bEndoS",
+    "Parameter Omschrijving": "alfa+beta Endosulfan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Acenaft",
+    "Parameter Omschrijving": "Acenafteen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Acenaftyl",
+    "Parameter Omschrijving": "Acenaftyleen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Acetamiprid",
+    "Parameter Omschrijving": "Acetamiprid",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Aclonifen",
+    "Parameter Omschrijving": "Aclonifen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "ADEIdrin",
+    "Parameter Omschrijving": "Aldrin+Dieldrin+Endrin+Isodrin",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "aEndo",
+    "Parameter Omschrijving": "alfa-Endosulfan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Ag mo",
+    "Parameter Omschrijving": "Zilver, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ag mt",
+    "Parameter Omschrijving": "Zilver, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ag o",
+    "Parameter Omschrijving": "Zilver, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ag t",
+    "Parameter Omschrijving": "Zilver, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "aHCH",
+    "Parameter Omschrijving": "alfa-Hexachloorcyclohexaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Al mo",
+    "Parameter Omschrijving": "Aluminium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Al mt",
+    "Parameter Omschrijving": "Aluminium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Al o",
+    "Parameter Omschrijving": "Aluminium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Alachloor",
+    "Parameter Omschrijving": "Alachloor",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Aldrin",
+    "Parameter Omschrijving": "Aldrin",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Amidotriz",
+    "Parameter Omschrijving": "Amidotrizoinezuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Amoxicillin",
+    "Parameter Omschrijving": "Amoxicilline",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "AMPA",
+    "Parameter Omschrijving": "Aminomethylfosfonzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Ant",
+    "Parameter Omschrijving": "Anthraceen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "As mo",
+    "Parameter Omschrijving": "Arseen, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "As mt",
+    "Parameter Omschrijving": "Arseen, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "As o",
+    "Parameter Omschrijving": "Arseen, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "As t",
+    "Parameter Omschrijving": "Arseen, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Atenolol",
+    "Parameter Omschrijving": "Atenolol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Atraz",
+    "Parameter Omschrijving": "Atrazine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Au mo",
+    "Parameter Omschrijving": "Goud, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Au mt",
+    "Parameter Omschrijving": "Goud, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Avobenzone",
+    "Parameter Omschrijving": "Butylmethoxydibenzoylmethaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "AzinfosEy",
+    "Parameter Omschrijving": "Azinfos-ethyl",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "AzinfosMy",
+    "Parameter Omschrijving": "Azinfos-methyl",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Azithromyc",
+    "Parameter Omschrijving": "Azithromycine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Azobin",
+    "Parameter Omschrijving": "Azoxystrobin",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "B mo",
+    "Parameter Omschrijving": "Boor, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "B mt",
+    "Parameter Omschrijving": "Boor, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "B o",
+    "Parameter Omschrijving": "Boor, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "B t",
+    "Parameter Omschrijving": "Boor, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "B(a)A",
+    "Parameter Omschrijving": "Benzo(a)anthraceen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "B(a)P",
+    "Parameter Omschrijving": "Benzo(a)pyreen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "B(b)Flu",
+    "Parameter Omschrijving": "Benzo(b)fluorantheen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "B(ghi)Pe",
+    "Parameter Omschrijving": "Benzo(g,h,i)peryleen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "B(k)Flu",
+    "Parameter Omschrijving": "Benzo(k)fluorantheen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "b2EyHyFt",
+    "Parameter Omschrijving": "bis-(2-ethylhexyl)-ftalaat",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ba mo",
+    "Parameter Omschrijving": "Barium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ba mt",
+    "Parameter Omschrijving": "Barium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ba o",
+    "Parameter Omschrijving": "Barium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ba t",
+    "Parameter Omschrijving": "Barium, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "BAM",
+    "Parameter Omschrijving": "2,6-Dichloorbenzamide",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "BBz",
+    "Parameter Omschrijving": "Broombenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "BDCMa",
+    "Parameter Omschrijving": "Broomdichloormethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Be mo",
+    "Parameter Omschrijving": "Beryllium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Be mt",
+    "Parameter Omschrijving": "Beryllium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Be o",
+    "Parameter Omschrijving": "Beryllium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Be t",
+    "Parameter Omschrijving": "Beryllium, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "bEndo",
+    "Parameter Omschrijving": "beta-Endosulfan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Bentazone",
+    "Parameter Omschrijving": "Bentazone",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Benzeen",
+    "Parameter Omschrijving": "Benzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Benzofenon-3",
+    "Parameter Omschrijving": "Benzofenon-3",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Benzotriazool",
+    "Parameter Omschrijving": "Benzotriazool",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Bezafibraat",
+    "Parameter Omschrijving": "Bezafibraat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "BFlu som",
+    "Parameter Omschrijving": "PAK benzo(b+k)fluorantheen (b)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "bFol-A",
+    "Parameter Omschrijving": "Bisfenol-A",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "bHCH",
+    "Parameter Omschrijving": "beta-Hexachloorcyclohexaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Bi mo",
+    "Parameter Omschrijving": "Bismut, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Bi mt",
+    "Parameter Omschrijving": "Bismut, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Bifenox",
+    "Parameter Omschrijving": "Bifenox",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "BPe + IP som",
+    "Parameter Omschrijving": "PAK Benzo(g,h,i)peryleen + Indeno(1,2,3-cd)pyreen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "BrfosEy",
+    "Parameter Omschrijving": "Bromofos-ethyl",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "BrfosMy",
+    "Parameter Omschrijving": "Bromofos-methyl",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Bromacil",
+    "Parameter Omschrijving": "Bromacil",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Bromoxyn",
+    "Parameter Omschrijving": "Bromoxynil",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "ByBzyFt",
+    "Parameter Omschrijving": "Butylbenzylftalaat",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "BZV5",
+    "Parameter Omschrijving": "Biochemisch zuurstofverbruik na 5d.",
+    "Eenheid": "mgO2/L"
+  },
+  {
+    "Parameter Symbool": "c12CEe",
+    "Parameter Omschrijving": "cis-1,2-Dichlooretheen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "c13CPe",
+    "Parameter Omschrijving": "cis-1,3-Dichloorpropeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ca mo",
+    "Parameter Omschrijving": "Calcium, multi opgelost",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Ca mt",
+    "Parameter Omschrijving": "Calcium, multi totaal",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Ca o",
+    "Parameter Omschrijving": "Calcium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Carbamaze",
+    "Parameter Omschrijving": "Carbamazepine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Carbdzim",
+    "Parameter Omschrijving": "Carbendazim",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cartamid",
+    "Parameter Omschrijving": "Carbetamide",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cbromuron",
+    "Parameter Omschrijving": "Chloorbromuron",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "CBz",
+    "Parameter Omschrijving": "Chloorbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "CBzsom",
+    "Parameter Omschrijving": "Dichloorbenzenen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "cCdaan",
+    "Parameter Omschrijving": "cis-Chloordaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "cCfvinfos",
+    "Parameter Omschrijving": "cis-Chloorfenvinfos",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cd mo",
+    "Parameter Omschrijving": "Cadmium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cd mt",
+    "Parameter Omschrijving": "Cadmium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cd o",
+    "Parameter Omschrijving": "Cadmium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cd t",
+    "Parameter Omschrijving": "Cadmium, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cdaan",
+    "Parameter Omschrijving": "Chloordaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cdazon",
+    "Parameter Omschrijving": "Chloridazon",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Ce mo",
+    "Parameter Omschrijving": "Cerium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ce mt",
+    "Parameter Omschrijving": "Cerium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "CFolS",
+    "Parameter Omschrijving": "Chloorfenolen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cfvinfos",
+    "Parameter Omschrijving": "Chloorfenvinfos",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "cHpCEpx",
+    "Parameter Omschrijving": "cis-Heptachloorepoxyde",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Chr",
+    "Parameter Omschrijving": "Chryseen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Ciprofloxacin",
+    "Parameter Omschrijving": "Ciprofloxacine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cl-",
+    "Parameter Omschrijving": "Chloride",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Clarithromyc",
+    "Parameter Omschrijving": "Clarithromycine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Clfyl a",
+    "Parameter Omschrijving": "Chlorofyl a",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Clindamyc",
+    "Parameter Omschrijving": "Clindamycine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "ClindamycineHCl",
+    "Parameter Omschrijving": "Clindamycine, waterstofchloride",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Clopyralid",
+    "Parameter Omschrijving": "Clopyralid",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Clotidine",
+    "Parameter Omschrijving": "Clothianidine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Clotrimazol",
+    "Parameter Omschrijving": "Clotrimazol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Clozapine",
+    "Parameter Omschrijving": "Clozapine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "CN- t",
+    "Parameter Omschrijving": "Cyaniden, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Co mo",
+    "Parameter Omschrijving": "Kobalt, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Co mt",
+    "Parameter Omschrijving": "Kobalt, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Co o",
+    "Parameter Omschrijving": "Kobalt, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Co t",
+    "Parameter Omschrijving": "Kobalt, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "CpfosEy",
+    "Parameter Omschrijving": "Chloorpyrifos-ethyl",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "CpfosMy",
+    "Parameter Omschrijving": "Chloorpyrifos-methyl",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cprofam",
+    "Parameter Omschrijving": "Chloorprofam",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cr mo",
+    "Parameter Omschrijving": "Chroom, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cr mt",
+    "Parameter Omschrijving": "Chroom, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cr o",
+    "Parameter Omschrijving": "Chroom, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cr t",
+    "Parameter Omschrijving": "Chroom, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cr6+ o",
+    "Parameter Omschrijving": "Chroom, zeswaardig, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cs mo",
+    "Parameter Omschrijving": "Cesium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cs mt",
+    "Parameter Omschrijving": "Cesium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "ct13CPe",
+    "Parameter Omschrijving": "1,3-Dichloorpropeen (cis+trans)",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "CTolS",
+    "Parameter Omschrijving": "Chloortoluenen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ctoluron",
+    "Parameter Omschrijving": "Chloortoluron",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cu mo",
+    "Parameter Omschrijving": "Koper, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cu mt",
+    "Parameter Omschrijving": "Koper, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cu o",
+    "Parameter Omschrijving": "Koper, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cu t",
+    "Parameter Omschrijving": "Koper, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cumafos",
+    "Parameter Omschrijving": "Cumafos",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cyanaz",
+    "Parameter Omschrijving": "Cyanazine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cyano Clfyl",
+    "Parameter Omschrijving": "Cyano Chlorofyl",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Cybutrine",
+    "Parameter Omschrijving": "Cybutrine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Cypmethrin",
+    "Parameter Omschrijving": "Cypermethrin",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "CZV",
+    "Parameter Omschrijving": "Chemisch zuurstofverbruik",
+    "Eenheid": "mgO2/L"
+  },
+  {
+    "Parameter Symbool": "DBCMa",
+    "Parameter Omschrijving": "Dibroomchloormethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "DBMa",
+    "Parameter Omschrijving": "Dibroommethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "DBySn",
+    "Parameter Omschrijving": "Dibutyltin",
+    "Eenheid": "ngSn/L"
+  },
+  {
+    "Parameter Symbool": "DBySn som",
+    "Parameter Omschrijving": "Dibutyltinverbindingen",
+    "Eenheid": "ngSn/L"
+  },
+  {
+    "Parameter Symbool": "dBz(ah)An",
+    "Parameter Omschrijving": "Dibenzo(a,h)anthraceen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DcHyFt",
+    "Parameter Omschrijving": "Dicyclohexylftalaat",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "DCMa",
+    "Parameter Omschrijving": "Dichloormethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "DCvos",
+    "Parameter Omschrijving": "Dichloorvos",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DDT t",
+    "Parameter Omschrijving": "DDT, totaal",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Demeton",
+    "Parameter Omschrijving": "Demeton",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Demeton-O",
+    "Parameter Omschrijving": "Demeton-O",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Demeton-S",
+    "Parameter Omschrijving": "Demeton-S",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DEyatraz",
+    "Parameter Omschrijving": "Desethylatrazine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DEyFt",
+    "Parameter Omschrijving": "Diethylftalaat",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "DEytByaz",
+    "Parameter Omschrijving": "Desethylterbutylazine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Dflucan",
+    "Parameter Omschrijving": "Diflufenican",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "dHCH",
+    "Parameter Omschrijving": "delta-Hexachloorcyclohexaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Diazinon",
+    "Parameter Omschrijving": "Diazinon",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DiByFt",
+    "Parameter Omschrijving": "Di-isobutylftalaat",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "DIC",
+    "Parameter Omschrijving": "Koolstof, anorganisch opgelost",
+    "Eenheid": "mgC/L"
+  },
+  {
+    "Parameter Symbool": "Dicamba",
+    "Parameter Omschrijving": "Dicamba",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Diclofenac",
+    "Parameter Omschrijving": "Diclofenac",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Dieldrin",
+    "Parameter Omschrijving": "Dieldrin",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Dimdazol",
+    "Parameter Omschrijving": "Dimetridazol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DiMetamid",
+    "Parameter Omschrijving": "Dimethenamid",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DiMetmorf",
+    "Parameter Omschrijving": "Dimethomorf",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Dimoxystrobine",
+    "Parameter Omschrijving": "Dimoxystrobine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DiPyatraz",
+    "Parameter Omschrijving": "Desisopropylatrazine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DiPyEt",
+    "Parameter Omschrijving": "Di-isopropylether",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Diuron",
+    "Parameter Omschrijving": "Diuron",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Dmetoat",
+    "Parameter Omschrijving": "Dimethoaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DMyFt",
+    "Parameter Omschrijving": "Dimethylftalaat",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "DnByFt",
+    "Parameter Omschrijving": "Di-n-butylftalaat",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "DNOC",
+    "Parameter Omschrijving": "4,6-Dinitro-o-cresol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DnOyFt",
+    "Parameter Omschrijving": "Di-n-octylftalaat",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "DOC",
+    "Parameter Omschrijving": "Koolstof, organisch opgelost",
+    "Eenheid": "mgC/L"
+  },
+  {
+    "Parameter Symbool": "DONA",
+    "Parameter Omschrijving": "4,8-dioxa-3H-perfluornonaanzuur (DONA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "DPnyFt",
+    "Parameter Omschrijving": "Dipentylftalaat",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Dsulfoton",
+    "Parameter Omschrijving": "Disulfoton",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Dy mo",
+    "Parameter Omschrijving": "Dysprosium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Dy mt",
+    "Parameter Omschrijving": "Dysprosium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "EC 20",
+    "Parameter Omschrijving": "Geleidbaarheid (20°C)",
+    "Eenheid": "µS/cm"
+  },
+  {
+    "Parameter Symbool": "EC 25",
+    "Parameter Omschrijving": "Geleidbaarheid (25°C)",
+    "Eenheid": "µS/cm"
+  },
+  {
+    "Parameter Symbool": "EColi",
+    "Parameter Omschrijving": "Escherichia Coli",
+    "Eenheid": "/100mL"
+  },
+  {
+    "Parameter Symbool": "EHDPP",
+    "Parameter Omschrijving": "2-Ethylhexyldifenylfosfaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "EndoS",
+    "Parameter Omschrijving": "Endosulfansulfaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Endrin",
+    "Parameter Omschrijving": "Endrin",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Er mo",
+    "Parameter Omschrijving": "Erbium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Er mt",
+    "Parameter Omschrijving": "Erbium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Erythromyc",
+    "Parameter Omschrijving": "Erythromycine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Etfum",
+    "Parameter Omschrijving": "Ethofumesate",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Ethopfos",
+    "Parameter Omschrijving": "Ethoprofos",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "EtPFOSA",
+    "Parameter Omschrijving": "N-ethylperfluoroctaan-1-sulfonamide (EtPFOSA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "EtPFOSA totaal",
+    "Parameter Omschrijving": "Totaal N-ethylperfluoroctaansulfonamide (lin+vert)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "EtPFOSA vertakt",
+    "Parameter Omschrijving": "= EtPFOSAtotaal - EtPFOSA",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "EtPFOSAA",
+    "Parameter Omschrijving": "N-ethylperfluoroctaansulfonamidoazijnzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Eu mo",
+    "Parameter Omschrijving": "Europium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Eu mt",
+    "Parameter Omschrijving": "Europium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "EyBz",
+    "Parameter Omschrijving": "Ethylbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "EytByEt",
+    "Parameter Omschrijving": "Ethyl-tert-butylether",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "F- o",
+    "Parameter Omschrijving": "Fluoride, opgelost",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Famoxadone",
+    "Parameter Omschrijving": "Famoxadone",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Fe mo",
+    "Parameter Omschrijving": "Ijzer, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Fe mt",
+    "Parameter Omschrijving": "Ijzer, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Fe o",
+    "Parameter Omschrijving": "Ijzer, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Fe t",
+    "Parameter Omschrijving": "Ijzer, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Fen",
+    "Parameter Omschrijving": "Fenantreen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Fenazon",
+    "Parameter Omschrijving": "Fenazon",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Fenithion",
+    "Parameter Omschrijving": "Fenitrothion",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Fenoprop",
+    "Parameter Omschrijving": "Fenoprop",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Fenthion",
+    "Parameter Omschrijving": "Fenthion",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Feofyt a",
+    "Parameter Omschrijving": "Feofytine a",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Fipronil",
+    "Parameter Omschrijving": "Fipronil",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Floxpyr",
+    "Parameter Omschrijving": "Fluroxypyr",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Flu",
+    "Parameter Omschrijving": "Fluorantheen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Flucet",
+    "Parameter Omschrijving": "Flufenacet",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Fluconazol",
+    "Parameter Omschrijving": "Fluconazol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Fluopyram",
+    "Parameter Omschrijving": "Fluopyram",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Fluoreen",
+    "Parameter Omschrijving": "Fluoreen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Fol",
+    "Parameter Omschrijving": "Fenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Fonofos",
+    "Parameter Omschrijving": "Fonofos",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Ga mo",
+    "Parameter Omschrijving": "Gallium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ga mt",
+    "Parameter Omschrijving": "Gallium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Gabapentine",
+    "Parameter Omschrijving": "Gabapentine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Gd mo",
+    "Parameter Omschrijving": "Gadolinium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Gd mt",
+    "Parameter Omschrijving": "Gadolinium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ge mo",
+    "Parameter Omschrijving": "Germanium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ge mt",
+    "Parameter Omschrijving": "Germanium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "gHCH",
+    "Parameter Omschrijving": "gamma-Hexachloorcyclohexaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Glyfosaat",
+    "Parameter Omschrijving": "Glyfosaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Guanylureum",
+    "Parameter Omschrijving": "Guanylureum",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "H t",
+    "Parameter Omschrijving": "Hardheid, totaal",
+    "Eenheid": "°F"
+  },
+  {
+    "Parameter Symbool": "HCBdn",
+    "Parameter Omschrijving": "Hexachloorbutadieen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "HCBz",
+    "Parameter Omschrijving": "Hexachloorbenzeen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "HCH",
+    "Parameter Omschrijving": "Hexachloorcyclohexaan, alle isomeren",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Hexazinon",
+    "Parameter Omschrijving": "Hexazinon",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Hf mo",
+    "Parameter Omschrijving": "Hafnium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Hf mt",
+    "Parameter Omschrijving": "Hafnium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "HFPO-DA",
+    "Parameter Omschrijving": "2,3,3,3-tetrafluor-2(heptafluorpropoxy)propionzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Hg mo",
+    "Parameter Omschrijving": "Kwik, multi opgelost",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Hg mt",
+    "Parameter Omschrijving": "Kwik, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Hg o",
+    "Parameter Omschrijving": "Kwik, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Hg t",
+    "Parameter Omschrijving": "Kwik, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ho mo",
+    "Parameter Omschrijving": "Holmium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ho mt",
+    "Parameter Omschrijving": "Holmium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "HpC",
+    "Parameter Omschrijving": "Heptachloor",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "HpC+Epx",
+    "Parameter Omschrijving": "Heptachloor+epoxyde",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "HyCtazide",
+    "Parameter Omschrijving": "Hydrochloorthiazide",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "IEntero",
+    "Parameter Omschrijving": "Intestinale Enterokokken",
+    "Eenheid": "/100mL"
+  },
+  {
+    "Parameter Symbool": "Imazalil",
+    "Parameter Omschrijving": "Imazalil",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Imcloprid",
+    "Parameter Omschrijving": "Imidacloprid",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "In mo",
+    "Parameter Omschrijving": "Indium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "In mt",
+    "Parameter Omschrijving": "Indium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Iopamidol",
+    "Parameter Omschrijving": "Iopamidol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Iopromide",
+    "Parameter Omschrijving": "Iopromide",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "IP",
+    "Parameter Omschrijving": "Indeno(1,2,3-cd)pyreen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Ipconazool",
+    "Parameter Omschrijving": "Ipconazool",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Iproturon",
+    "Parameter Omschrijving": "Isoproturon",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "iPyBz",
+    "Parameter Omschrijving": "Isopropylbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Irbesartan",
+    "Parameter Omschrijving": "Irbesartan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Isodrin",
+    "Parameter Omschrijving": "Isodrin",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "K mo",
+    "Parameter Omschrijving": "Kalium, multi opgelost",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "K mt",
+    "Parameter Omschrijving": "Kalium, multi totaal",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "K o",
+    "Parameter Omschrijving": "Kalium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ketoprofen",
+    "Parameter Omschrijving": "Ketoprofen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "KjN",
+    "Parameter Omschrijving": "Kjeldahlstikstof",
+    "Eenheid": "mgN/L"
+  },
+  {
+    "Parameter Symbool": "KWS ap.",
+    "Parameter Omschrijving": "Apolaire koolwaterstoffen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "KWS C10-12",
+    "Parameter Omschrijving": "Apolaire koolwaterstoffen, fractie C10-C12",
+    "Eenheid": "%"
+  },
+  {
+    "Parameter Symbool": "KWS C12-20",
+    "Parameter Omschrijving": "Apolaire koolwaterstoffen, fractie C12-C20",
+    "Eenheid": "%"
+  },
+  {
+    "Parameter Symbool": "KWS C20-30",
+    "Parameter Omschrijving": "Apolaire koolwaterstoffen, fractie C20-C30",
+    "Eenheid": "%"
+  },
+  {
+    "Parameter Symbool": "KWS C30-40",
+    "Parameter Omschrijving": "Apolaire koolwaterstoffen, fractie C30-C40",
+    "Eenheid": "%"
+  },
+  {
+    "Parameter Symbool": "La mo",
+    "Parameter Omschrijving": "Lanthaan, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "La mt",
+    "Parameter Omschrijving": "Lanthaan, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Lenacil",
+    "Parameter Omschrijving": "Lenacil",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Lidocaine",
+    "Parameter Omschrijving": "Lidocaine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Linuron",
+    "Parameter Omschrijving": "Linuron",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Lu mo",
+    "Parameter Omschrijving": "Lutetium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Lu mt",
+    "Parameter Omschrijving": "Lutetium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Malathion",
+    "Parameter Omschrijving": "Malathion",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Mbromuron",
+    "Parameter Omschrijving": "Metobromuron",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "mBthiaz",
+    "Parameter Omschrijving": "Metabenzthiazuron",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "MCPA",
+    "Parameter Omschrijving": "(4-Chloor-2-methylfenoxy)azijnzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "MCPB",
+    "Parameter Omschrijving": "4-(4-Chloor-2-methylfenoxy)boterzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "MCPP",
+    "Parameter Omschrijving": "Mecoprop",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Mcyst",
+    "Parameter Omschrijving": "Microcystine",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "MePFBSA",
+    "Parameter Omschrijving": "N-methylperfluorbutaansulfonamide (MePFBSA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "MePFBSAA",
+    "Parameter Omschrijving": "N-methylperfluorbutaansulfonamidoazijnzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "MePFOSA",
+    "Parameter Omschrijving": "N-methylperfluoroctaan-1-sulfonamide (MePFOSA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "MePFOSA totaal",
+    "Parameter Omschrijving": "Totaal N-methylperfluoroctaansulfonamide (lin+ver)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "MePFOSA vertakt",
+    "Parameter Omschrijving": "= MePFOSAtotaal - MePFOSA",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "MePFOSAA",
+    "Parameter Omschrijving": "N-methylperfluoroctaansulfonamidoazijnzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Metaza",
+    "Parameter Omschrijving": "Metazachloor",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Metbuzin",
+    "Parameter Omschrijving": "Metribuzin",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Metcarb",
+    "Parameter Omschrijving": "Methiocarb",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Metconazool",
+    "Parameter Omschrijving": "Metconazool",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Methformine",
+    "Parameter Omschrijving": "Methformine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Methidat",
+    "Parameter Omschrijving": "Methidation",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Metola",
+    "Parameter Omschrijving": "Metolachloor",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Metoprolol",
+    "Parameter Omschrijving": "Metoprolol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Metoprololtartraat",
+    "Parameter Omschrijving": "Metoprololtartraat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Metoxur",
+    "Parameter Omschrijving": "Metoxuron",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Mevinfos",
+    "Parameter Omschrijving": "Mevinfos",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "mFlumizon",
+    "Parameter Omschrijving": "Metaflumizone",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Mg mo",
+    "Parameter Omschrijving": "Magnesium, multi opgelost",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Mg mt",
+    "Parameter Omschrijving": "Magnesium, multi totaal",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Mg o",
+    "Parameter Omschrijving": "Magnesium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Miconazol",
+    "Parameter Omschrijving": "Miconazol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Mlinuron",
+    "Parameter Omschrijving": "Monolinuron",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Mmitron",
+    "Parameter Omschrijving": "Metamitron",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Mn mo",
+    "Parameter Omschrijving": "Mangaan, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Mn mt",
+    "Parameter Omschrijving": "Mangaan, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Mn o",
+    "Parameter Omschrijving": "Mangaan, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Mn t",
+    "Parameter Omschrijving": "Mangaan, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Mo mo",
+    "Parameter Omschrijving": "Molybdeen, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Mo mt",
+    "Parameter Omschrijving": "Molybdeen, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Mo o",
+    "Parameter Omschrijving": "Molybdeen, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Mo t",
+    "Parameter Omschrijving": "Molybdeen, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "mpXyl",
+    "Parameter Omschrijving": "Xylenen (m+p)",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "MUCd-EC 20",
+    "Parameter Omschrijving": "Geleidbaarheid (20°C), MUCd project",
+    "Eenheid": "µS/cm"
+  },
+  {
+    "Parameter Symbool": "MUC-EC 20",
+    "Parameter Omschrijving": "Geleidbaarheid (20°C), MUC project",
+    "Eenheid": "µS/cm"
+  },
+  {
+    "Parameter Symbool": "MxyC",
+    "Parameter Omschrijving": "Methoxychloor",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "MytByEt",
+    "Parameter Omschrijving": "Methyl-tert.butylether",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "N t",
+    "Parameter Omschrijving": "Stikstof, totaal",
+    "Eenheid": "mgN/L"
+  },
+  {
+    "Parameter Symbool": "N+N",
+    "Parameter Omschrijving": "Nitraat+nitriet",
+    "Eenheid": "mgN/L"
+  },
+  {
+    "Parameter Symbool": "N+N+N",
+    "Parameter Omschrijving": "Nitraat+nitriet+ammonium",
+    "Eenheid": "mgN/L"
+  },
+  {
+    "Parameter Symbool": "Na mo",
+    "Parameter Omschrijving": "Natrium, multi opgelost",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Na mt",
+    "Parameter Omschrijving": "Natrium, multi totaal",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Na o",
+    "Parameter Omschrijving": "Natrium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Na_diclofenac",
+    "Parameter Omschrijving": "Diclofenac, natrium",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Naft",
+    "Parameter Omschrijving": "Naftaleen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Naproxen",
+    "Parameter Omschrijving": "Naproxen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Nb mo",
+    "Parameter Omschrijving": "Niobium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Nb mt",
+    "Parameter Omschrijving": "Niobium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Nd mo",
+    "Parameter Omschrijving": "Neodymium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Nd mt",
+    "Parameter Omschrijving": "Neodymium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "NH4+",
+    "Parameter Omschrijving": "Ammonium",
+    "Eenheid": "mgN/L"
+  },
+  {
+    "Parameter Symbool": "Ni mo",
+    "Parameter Omschrijving": "Nikkel, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ni mt",
+    "Parameter Omschrijving": "Nikkel, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ni o",
+    "Parameter Omschrijving": "Nikkel, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ni t",
+    "Parameter Omschrijving": "Nikkel, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "NO2-",
+    "Parameter Omschrijving": "Nitriet",
+    "Eenheid": "mgN/L"
+  },
+  {
+    "Parameter Symbool": "NO3-",
+    "Parameter Omschrijving": "Nitraat",
+    "Eenheid": "mgN/L"
+  },
+  {
+    "Parameter Symbool": "NPOC",
+    "Parameter Omschrijving": "Koolstof, organisch niet purgeerbaar",
+    "Eenheid": "mgC/L"
+  },
+  {
+    "Parameter Symbool": "NyFol",
+    "Parameter Omschrijving": "Nonylfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "NyFolsom",
+    "Parameter Omschrijving": "Nonylfenolen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "O2",
+    "Parameter Omschrijving": "Zuurstof, opgelost",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "O2 verz",
+    "Parameter Omschrijving": "Zuurstof, verzadiging",
+    "Eenheid": "%"
+  },
+  {
+    "Parameter Symbool": "OCP t",
+    "Parameter Omschrijving": "Organochloorpesticiden, totaal",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Octocryleen",
+    "Parameter Omschrijving": "Octocryleen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Odesmethylvenlafaxin",
+    "Parameter Omschrijving": "O-desmethylvenlafaxine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Oestron",
+    "Parameter Omschrijving": "Oestron",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Ofloxacine",
+    "Parameter Omschrijving": "Ofloxacine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "ompXyl",
+    "Parameter Omschrijving": "Xylenen (o+m+p)",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "oPO4 f",
+    "Parameter Omschrijving": "Orthofosfaat, gefilterd",
+    "Eenheid": "mgP/L"
+  },
+  {
+    "Parameter Symbool": "Os mo",
+    "Parameter Omschrijving": "Osmium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Os mt",
+    "Parameter Omschrijving": "Osmium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Oxadiazon",
+    "Parameter Omschrijving": "Oxadiazon",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "oXyl",
+    "Parameter Omschrijving": "ortho-Xyleen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "OyFolsom",
+    "Parameter Omschrijving": "Octylfenolen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "P mo",
+    "Parameter Omschrijving": "Fosfor, multi opgelost",
+    "Eenheid": "mgP/L"
+  },
+  {
+    "Parameter Symbool": "P mt",
+    "Parameter Omschrijving": "Fosfor, multi totaal",
+    "Eenheid": "mgP/L"
+  },
+  {
+    "Parameter Symbool": "P t",
+    "Parameter Omschrijving": "Fosfor, totaal",
+    "Eenheid": "mgP/L"
+  },
+  {
+    "Parameter Symbool": "PAK 10",
+    "Parameter Omschrijving": "Polyaromatische KWS (10 Vrom)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PAK 6",
+    "Parameter Omschrijving": "Polyaromatische KWS (6 Borneff)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PathionEy",
+    "Parameter Omschrijving": "Parathion-ethyl",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PathionMy",
+    "Parameter Omschrijving": "Parathion-methyl",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Pb mo",
+    "Parameter Omschrijving": "Lood, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Pb mt",
+    "Parameter Omschrijving": "Lood, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Pb o",
+    "Parameter Omschrijving": "Lood, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Pb t",
+    "Parameter Omschrijving": "Lood, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "PCB 101",
+    "Parameter Omschrijving": "2,2',4,5,5'-Pentachloorbifenyl (PCB101)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PCB 118",
+    "Parameter Omschrijving": "2,3',4,4',5-Pentachloorbifenyl (PCB118)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PCB 138",
+    "Parameter Omschrijving": "2,2',3,4,4',5'-Hexachloorbifenyl (PCB138)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PCB 153",
+    "Parameter Omschrijving": "2,2',4,4',5,5'-Hexachloorbifenyl (PCB153)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PCB 180",
+    "Parameter Omschrijving": "2,2',3,4,4',5,5'-Heptachloorbifenyl (PCB180)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PCB 28",
+    "Parameter Omschrijving": "2,4,4'-Trichloorbifenyl (PCB28)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PCB 52",
+    "Parameter Omschrijving": "2,2',5,5'-Tetrachloorbifenyl (PCB52)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PCB t",
+    "Parameter Omschrijving": "Polychloorbifenyl, totaal",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PCBz",
+    "Parameter Omschrijving": "Pentachloorbenzeen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PCFol",
+    "Parameter Omschrijving": "Pentachloorfenol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PCNiBz",
+    "Parameter Omschrijving": "Pentachloornitrobenzeen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PCZ",
+    "Parameter Omschrijving": "Penconazole",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Pd mo",
+    "Parameter Omschrijving": "Palladium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Pd mt",
+    "Parameter Omschrijving": "Palladium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Pentoxif",
+    "Parameter Omschrijving": "Pentoxifylline",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFAS-43",
+    "Parameter Omschrijving": "Som van de 43 PFAS",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFBA",
+    "Parameter Omschrijving": "Perfluorbutaanzuur (PFBA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFBS",
+    "Parameter Omschrijving": "Perfluorbutaansulfonzuur (PFBS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFBSA",
+    "Parameter Omschrijving": "Perfluorbutaansulfonamide (PFBSA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFDA",
+    "Parameter Omschrijving": "Perfluordecaanzuur (PFDA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFDoDA",
+    "Parameter Omschrijving": "Perfluordodecaanzuur (PFDoDA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFDoDS",
+    "Parameter Omschrijving": "Perfluordodecaansulfonzuur (PFDoDS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFDS",
+    "Parameter Omschrijving": "Perfluordecaansulfonzuur (PFDS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFECHS",
+    "Parameter Omschrijving": "Perfluor-4-ethylcyclohexaansulfonzuur (PFECHS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFES",
+    "Parameter Omschrijving": "Perfluorethaansulfonzuur (PFES)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFHpA",
+    "Parameter Omschrijving": "Perfluorheptaanzuur (PFHpA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFHpS",
+    "Parameter Omschrijving": "Perfluorheptaansulfonzuur (PFHpS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFHxA",
+    "Parameter Omschrijving": "Perfluorhexaanzuur (PFHxA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFHxDA",
+    "Parameter Omschrijving": "Perfluorhexadecaanzuur (PFHxDA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFHxS",
+    "Parameter Omschrijving": "Perfluorhexaansulfonzuur (PFHxS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFHxS totaal",
+    "Parameter Omschrijving": "Totaal perfluorhexaansulfonzuur (lineair+vertakt)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFHxS vertakt",
+    "Parameter Omschrijving": "= PFHxStotaal - PFHxS",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFHxSA",
+    "Parameter Omschrijving": "Perfluorhexaansulfonamide (PFHxSA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFNA",
+    "Parameter Omschrijving": "Perfluornonaanzuur (PFNA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFNS",
+    "Parameter Omschrijving": "Perfluornonaansulfonzuur (PFNS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFOA",
+    "Parameter Omschrijving": "Perfluoroctaanzuur (PFOA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFOA totaal",
+    "Parameter Omschrijving": "Totaal perfluoroctaanzuur (lineair + vertakt)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFOA vertakt",
+    "Parameter Omschrijving": "= PFOAtotaal - PFOA",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFODA",
+    "Parameter Omschrijving": "Perfluoroctadecaanzuur (PFODA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFOS",
+    "Parameter Omschrijving": "Perfluoroctaansulfonzuur (PFOS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFOS totaal",
+    "Parameter Omschrijving": "Totaal perfluoroctaansulfonzuur (lineair+vertakt)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFOS vertakt",
+    "Parameter Omschrijving": "= PFOStotaal - PFOS",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFOSA",
+    "Parameter Omschrijving": "Perfluoroctaansulfonamide (PFOSA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFOSA totaal",
+    "Parameter Omschrijving": "Totaal perfluoroctaansulfonamide (lineair+vertakt)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFOSA vertakt",
+    "Parameter Omschrijving": "= PFOSAtoaal - PFOSA",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFPeA",
+    "Parameter Omschrijving": "Perfluorpentaanzuur (PFPeA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFPeDA",
+    "Parameter Omschrijving": "Perfluorpentadecaanzuur (PFPeDA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFPeS",
+    "Parameter Omschrijving": "Perfluorpentaansulfonzuur (PFPeS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFPrA",
+    "Parameter Omschrijving": "Perfluor-n-propaanzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFPrS",
+    "Parameter Omschrijving": "Perfluor-n-propaansulfonzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFTeDA",
+    "Parameter Omschrijving": "Perfluortetradecaanzuur (PFTeDA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFTrDA",
+    "Parameter Omschrijving": "Perfluortridecaanzuur (PFTrDA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFTrDS",
+    "Parameter Omschrijving": "Perfluor-1-tridecaansulfonzuur (PFTrS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFUnDA",
+    "Parameter Omschrijving": "Perfluorundecaanzuur (PFUnDA)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PFUnDS",
+    "Parameter Omschrijving": "Perfluor-1-undecaansulfonzuur (PFUnS)",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "pH",
+    "Parameter Omschrijving": "pH",
+    "Eenheid": "-"
+  },
+  {
+    "Parameter Symbool": "Picarb",
+    "Parameter Omschrijving": "Pirimicarb",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PirfosMy",
+    "Parameter Omschrijving": "Pirimifos-methyl",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Pr mo",
+    "Parameter Omschrijving": "Praseodymium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Pr mt",
+    "Parameter Omschrijving": "Praseodymium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Procaz",
+    "Parameter Omschrijving": "Prochloraz",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Prochloor",
+    "Parameter Omschrijving": "Propachloor",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Prometryn",
+    "Parameter Omschrijving": "Prometryn",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Propanil",
+    "Parameter Omschrijving": "Propanil",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Propanolol",
+    "Parameter Omschrijving": "Propanolol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "PropanololHCl",
+    "Parameter Omschrijving": "Propanolol, waterstofchloride",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Propaz",
+    "Parameter Omschrijving": "Propazine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Proscarb",
+    "Parameter Omschrijving": "Prosulfocarb",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Pt mo",
+    "Parameter Omschrijving": "Platina, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Pt mt",
+    "Parameter Omschrijving": "Platina, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "PyBz",
+    "Parameter Omschrijving": "Propylbenzeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Pyr",
+    "Parameter Omschrijving": "Pyreen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Quinofen",
+    "Parameter Omschrijving": "Quinoxyfen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Rb mo",
+    "Parameter Omschrijving": "Rubidium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Rb mt",
+    "Parameter Omschrijving": "Rubidium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Re mo",
+    "Parameter Omschrijving": "Renium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Re mt",
+    "Parameter Omschrijving": "Renium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ru mo",
+    "Parameter Omschrijving": "Ruthenium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ru mt",
+    "Parameter Omschrijving": "Ruthenium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "S mo",
+    "Parameter Omschrijving": "Zwavel, multi opgelost",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "S mt",
+    "Parameter Omschrijving": "Zwavel, multi totaal",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Sb mo",
+    "Parameter Omschrijving": "Antimoon, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sb mt",
+    "Parameter Omschrijving": "Antimoon, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sb o",
+    "Parameter Omschrijving": "Antimoon, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sb t",
+    "Parameter Omschrijving": "Antimoon, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sc mo",
+    "Parameter Omschrijving": "Scandium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sc mt",
+    "Parameter Omschrijving": "Scandium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Se mo",
+    "Parameter Omschrijving": "Seleen, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Se mt",
+    "Parameter Omschrijving": "Seleen, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Se o",
+    "Parameter Omschrijving": "Seleen, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Se t",
+    "Parameter Omschrijving": "Seleen, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sebutylaz",
+    "Parameter Omschrijving": "Sebutylazine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Secchi",
+    "Parameter Omschrijving": "Doorzichtigheid",
+    "Eenheid": "cm"
+  },
+  {
+    "Parameter Symbool": "Si mo",
+    "Parameter Omschrijving": "Silicium, multi opgelost",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Si mt",
+    "Parameter Omschrijving": "Silicium, multi totaal",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Si o",
+    "Parameter Omschrijving": "Silicium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Simaz",
+    "Parameter Omschrijving": "Simazine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "SiO2 o",
+    "Parameter Omschrijving": "Silicaat, opgelost",
+    "Eenheid": "mgSiO2/L"
+  },
+  {
+    "Parameter Symbool": "Sm mo",
+    "Parameter Omschrijving": "Samarium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sm mt",
+    "Parameter Omschrijving": "Samarium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sn mo",
+    "Parameter Omschrijving": "Tin, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sn mt",
+    "Parameter Omschrijving": "Tin, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sn o",
+    "Parameter Omschrijving": "Tin, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sn t",
+    "Parameter Omschrijving": "Tin, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "SO4=",
+    "Parameter Omschrijving": "Sulfaat",
+    "Eenheid": "mg/L"
+  },
+  {
+    "Parameter Symbool": "Sotalol",
+    "Parameter Omschrijving": "Sotalol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "SotalolHCl",
+    "Parameter Omschrijving": "Sotalol, waterstofchloride",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Sr mo",
+    "Parameter Omschrijving": "Strontium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sr mt",
+    "Parameter Omschrijving": "Strontium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Styreen",
+    "Parameter Omschrijving": "Styreen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Sulfamazol",
+    "Parameter Omschrijving": "Sulfamethoxazol",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "T",
+    "Parameter Omschrijving": "Temperatuur",
+    "Eenheid": "°C"
+  },
+  {
+    "Parameter Symbool": "t12CEe",
+    "Parameter Omschrijving": "trans-1,2-Dichlooretheen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "t13CPe",
+    "Parameter Omschrijving": "trans-1,3-Dichloorpropeen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ta mo",
+    "Parameter Omschrijving": "Tantaal, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ta mt",
+    "Parameter Omschrijving": "Tantaal, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "TAM",
+    "Parameter Omschrijving": "Alkaliniteit met methyloranje",
+    "Eenheid": "meq/L"
+  },
+  {
+    "Parameter Symbool": "Tb mo",
+    "Parameter Omschrijving": "Terbium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Tb mt",
+    "Parameter Omschrijving": "Terbium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "TBEP",
+    "Parameter Omschrijving": "Tributoxyethylfosfaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TBMa",
+    "Parameter Omschrijving": "Tribroommethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "TBP",
+    "Parameter Omschrijving": "Tributylfosfaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TBySn",
+    "Parameter Omschrijving": "Tributyltin",
+    "Eenheid": "ngSn/L"
+  },
+  {
+    "Parameter Symbool": "TCBz",
+    "Parameter Omschrijving": "Trichloorbenzenen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "tCdaan",
+    "Parameter Omschrijving": "trans-Chloordaan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TCEe",
+    "Parameter Omschrijving": "Trichlooretheen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "TCEP",
+    "Parameter Omschrijving": "Tris-(2-chloorethyl)-fosfaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "tCfvinfos",
+    "Parameter Omschrijving": "trans-Chloorfenvinfos",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TclofosMy",
+    "Parameter Omschrijving": "Tolclofos-methyl",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TCMa",
+    "Parameter Omschrijving": "Trichloormethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "TCPP",
+    "Parameter Omschrijving": "Tris-(2-chloorisopropyl)-fosfaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TDC(P)P",
+    "Parameter Omschrijving": "Tris-(1,3-dichloor-2-propyl)-fosfaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Te mo",
+    "Parameter Omschrijving": "Telluur, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Te mt",
+    "Parameter Omschrijving": "Telluur, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Te o",
+    "Parameter Omschrijving": "Telluur, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Te t",
+    "Parameter Omschrijving": "Telluur, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Tebazole",
+    "Parameter Omschrijving": "Tebuconazole",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Telodrin",
+    "Parameter Omschrijving": "Telodrin",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TEP",
+    "Parameter Omschrijving": "Triethylfosfaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TEPP",
+    "Parameter Omschrijving": "Tetraethylpyrofosfaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Terbufos",
+    "Parameter Omschrijving": "Terbufos",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Terbutryn",
+    "Parameter Omschrijving": "Terbutryn",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Tetraconazool",
+    "Parameter Omschrijving": "Tetraconazool",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TFA",
+    "Parameter Omschrijving": "Trifluorazijnzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Tfluralin",
+    "Parameter Omschrijving": "Trifluralin",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TFMS",
+    "Parameter Omschrijving": "Trifluormethaansulfonzuur",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TFySn",
+    "Parameter Omschrijving": "Trifenyltin",
+    "Eenheid": "ngSn/L"
+  },
+  {
+    "Parameter Symbool": "TFySn som",
+    "Parameter Omschrijving": "Trifenyltinacetaat, chloride, hydroxide",
+    "Eenheid": "ngSn/L"
+  },
+  {
+    "Parameter Symbool": "Th mo",
+    "Parameter Omschrijving": "Thorium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Th mt",
+    "Parameter Omschrijving": "Thorium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Thiacloprid",
+    "Parameter Omschrijving": "Thiacloprid",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "tHpCEpx",
+    "Parameter Omschrijving": "trans-Heptachloorepoxyde",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Ti mo",
+    "Parameter Omschrijving": "Titaan, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ti mt",
+    "Parameter Omschrijving": "Titaan, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ti o",
+    "Parameter Omschrijving": "Titaan, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Ti t",
+    "Parameter Omschrijving": "Titaan, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Tl mo",
+    "Parameter Omschrijving": "Thallium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Tl mt",
+    "Parameter Omschrijving": "Thallium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Tl o",
+    "Parameter Omschrijving": "Thallium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Tl t",
+    "Parameter Omschrijving": "Thallium, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Tm mo",
+    "Parameter Omschrijving": "Thulium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Tm mt",
+    "Parameter Omschrijving": "Thulium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Tmethoxam",
+    "Parameter Omschrijving": "Thiamethoxam",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Tolueen",
+    "Parameter Omschrijving": "Tolueen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "TPP",
+    "Parameter Omschrijving": "Trifenylfosfaat",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TrByaz",
+    "Parameter Omschrijving": "Terbutylazine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Triazofos",
+    "Parameter Omschrijving": "Triazofos",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "triCFolsom",
+    "Parameter Omschrijving": "Trichloorfenolen",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Triclopyr",
+    "Parameter Omschrijving": "Triclopyr",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Trimoprim",
+    "Parameter Omschrijving": "Trimethoprim",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "TtBySn",
+    "Parameter Omschrijving": "Tetrabutyltin",
+    "Eenheid": "ngSn/L"
+  },
+  {
+    "Parameter Symbool": "TtCEe",
+    "Parameter Omschrijving": "Tetrachlooretheen",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "TtCMa",
+    "Parameter Omschrijving": "Tetrachloormethaan",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "U mo",
+    "Parameter Omschrijving": "Uranium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "U mt",
+    "Parameter Omschrijving": "Uranium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "U o",
+    "Parameter Omschrijving": "Uranium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "U t",
+    "Parameter Omschrijving": "Uranium, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "V mo",
+    "Parameter Omschrijving": "Vanadium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "V mt",
+    "Parameter Omschrijving": "Vanadium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "V o",
+    "Parameter Omschrijving": "Vanadium, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "V t",
+    "Parameter Omschrijving": "Vanadium, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Valsartan",
+    "Parameter Omschrijving": "Valsartan",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "Venlafax",
+    "Parameter Omschrijving": "Venlafaxine",
+    "Eenheid": "ng/L"
+  },
+  {
+    "Parameter Symbool": "VinCl",
+    "Parameter Omschrijving": "Vinylchloride",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "W mo",
+    "Parameter Omschrijving": "Wolfraam, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "W mt",
+    "Parameter Omschrijving": "Wolfraam, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Y mo",
+    "Parameter Omschrijving": "Yttrium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Y mt",
+    "Parameter Omschrijving": "Yttrium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Yb mo",
+    "Parameter Omschrijving": "Ytterbium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Yb mt",
+    "Parameter Omschrijving": "Ytterbium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Zn mo",
+    "Parameter Omschrijving": "Zink, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Zn mt",
+    "Parameter Omschrijving": "Zink, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Zn o",
+    "Parameter Omschrijving": "Zink, opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Zn t",
+    "Parameter Omschrijving": "Zink, totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Zr mo",
+    "Parameter Omschrijving": "Zirkonium, multi opgelost",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "Zr mt",
+    "Parameter Omschrijving": "Zirkonium, multi totaal",
+    "Eenheid": "µg/L"
+  },
+  {
+    "Parameter Symbool": "ZS",
+    "Parameter Omschrijving": "Zwevende stoffen",
+    "Eenheid": "mg/L"
+  }
+]
