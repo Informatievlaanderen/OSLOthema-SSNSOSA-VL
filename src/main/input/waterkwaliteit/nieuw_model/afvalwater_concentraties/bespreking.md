@@ -27,8 +27,10 @@ stalen, 60 meetpunten, 325 parameters. De validatie-subset (`afvalwater_concentr
   bron. Het meetputnummer `2800028` is een `adms:Identifier` met `dct:creator` VMM. De geometrie
   staat in Lambert 72 (`EPSG:31370`), zoals aangeleverd. In RIE-IEPR is dit een `riepr:Meetpunt`
   (⊂ `ssn:System`) met `vmm:lozingspuntCode` (`../../featureofinterest.md` §2.2).
-- **`ex:lozing-2800028`**: `sosa:FeatureOfInterest` + `prov:Entity`. De lozing aan die meetput:
-  het ultieme onderwerp van de metingen. Dit komt overeen met `riepr:Emissie` (§6.2).
+- **`ex:lozing-2800028`**: `wk:Emissie` (ontwerpversie, `../../beslisdocument.md` A14) +
+  `sosa:FeatureOfInterest` + `prov:Entity`, `dct:type
+  matrix:afvalwater`. De lozing aan die meetput: het ultieme onderwerp van de metingen. Dit komt
+  overeen met `riepr:Emissie` (§6.2). Ze is **tijdsloos**: de tijd zit in de observaties (§6.8).
   `prov:wasAttributedTo` de exploitatie.
 - **`ex:exploitatie-1498`** (RWZI Mechelen-Noord) en **`ex:organisatie-vmm`**:
   `prov:Organization`. De exploitatie is enkel een identificator (`dct:identifier` =
@@ -193,11 +195,25 @@ een minimale type-assertie `sosa:Property` en hun label (§6.5).
 > deze SOSA-versie is `sosa:Sample` enkel `prov:Entity`; als FOI moet het staal dus ook
 > `sosa:FeatureOfInterest` zijn.
 
-### 6.8 Waarom de matrix als `dct:type` van het staal?
+### 6.8 Waarom de matrix op het FOI (staal en lozing), en niet in de observedProperty?
 
-> **Gekozen aanpak:** `dct:type matrix:afvalwater` (`codelijst-matrix`) op het staal.
-> **Motivatie:** de matrix is een eigenschap van het bemonsterde materiaal. De CSOR-drager in het
-> parameteraspect (`water`) is grover en gaat over de parameter, niet over het staal.
+> **Verworpen alternatieven:** (a) een samengestelde eigenschap "parameteraspect + matrix", bv.
+> `[PAS_1432, afvalwater]`; (b) een FOI per periode ("lozing in 2024").
+> **Gekozen aanpak:** `dct:type matrix:afvalwater` (`codelijst-matrix`) op het staal én op de
+> lozing. De observedProperty is het CSOR-parameteraspect zoals het is. De lozing is tijdsloos,
+> en de tijd staat in `sosa:phenomenonTime`.
+> **Motivatie:**
+> - De matrix beschrijft het bemonsterde materiaal, dus het FOI. `observedProperty` is een
+>   eigenschap *van* het FOI: DCvos in water van een afvalwaterstaal is DCvos in afvalwater.
+> - CSOR houdt drager (`water`, grof) en matrix bewust gescheiden. Een lokaal samenstel zou een
+>   onbeheerd parallel register naast CSOR worden (parameteraspect × matrix).
+> - Een FOI per periode legt de tijd dubbel vast (`phenomenonTime` is per definitie de tijd
+>   waarop het resultaat op het FOI van toepassing is). Het zou alle observaties van een lozing
+>   over jaren en voorbeelden heen versnipperen. RIE-IEPR modelleert `riepr:Emissie` ook
+>   tijdsloos, zonder versiesegment in de IRI.
+> - Veranderen de kenmerken van een lozing in de tijd (bv. vanaf een datum ook koelwater), dan
+>   krijgt de lozing versies (`dct:isVersionOf`/`prov:specializationOf`), zoals RIE-IEPR voor
+>   structurele elementen doet. Dat is fase 3.
 
 ### 6.9 Waarom een plat model en geen drielaags architectuur?
 
@@ -223,6 +239,7 @@ Eén staalname en één analyse per parameter, zonder meerstapsproces of herbrui
 | Prefix | Base URI | Tijdelijk of persistent |
 |---|---|---|
 | `ex:` | `https://example.org/waterkwaliteit/afvalwater/` | tijdelijk (illustratief, R10) |
+| `wk:` | `https://data.vlaanderen.be/ns/waterkwaliteit#` | ontwerpversie (`src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl`), niet gepubliceerd |
 | `csor-parameteraspect:` | `https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/` | persistent (CSOR) |
 | `csor-eenheid:` | `https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/` | persistent (CSOR) |
 | `procedure:` | `https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/` | persistent (hoofdprocedures); jaarversies = voorstel VITO. Prefix `procedure:` omdat de lijst zowel staalname- als observatieprocedures bevat. |

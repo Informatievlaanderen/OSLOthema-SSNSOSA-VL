@@ -3,6 +3,7 @@
 Invoer:
 - ../brondata_Jurgen/250114_Analyseresultaten_per_meetplaats_OW/Resultaten.json en SamplePoints.json
 - ../waterlopen/meetplaats_waterloop.csv (koppeling meetplaats -> VHA-waterloop, waterlopen_subset.py)
+- ../waterlopen/waterlopen_meetplaatsen.ttl (beschrijving van de gekoppelde VHA-waterlopen, code:Vhag)
 - CSOR-codelijsten in ~/git/csor (via waterkwaliteit_gemeen.Csor)
 
 Uitvoer (../nieuw_model/oppervlaktewater_concentraties/):
@@ -39,14 +40,21 @@ from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCTERMS, RDF, RDFS, SKOS, XSD
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from waterkwaliteit_gemeen import EPSG31370, GEO, MATRIX, QUDT, SOSA, TIME, Csor, decimaal  # noqa: E402
+from waterkwaliteit_gemeen import CSOR, EPSG31370, GEO, MATRIX, QUDT, SOSA, TIME, WK, Csor, decimaal  # noqa: E402
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 BRONMAP = os.path.normpath(os.path.join(HIER, "..", "brondata_Jurgen", "250114_Analyseresultaten_per_meetplaats_OW"))
 KOPPELING = os.path.normpath(os.path.join(HIER, "..", "waterlopen", "meetplaats_waterloop.csv"))
+VHA = os.path.normpath(os.path.join(HIER, "..", "waterlopen", "waterlopen_meetplaatsen.ttl"))
+WATERLOPEN = Namespace("https://data.omgeving.vlaanderen.be/ns/waterlopen#")
 UIT = os.path.normpath(os.path.join(HIER, "..", "nieuw_model", "oppervlaktewater_concentraties"))
 NAAM = "oppervlaktewater_concentraties"
 SUBSET_STAAL = ("OW12000", "2019-01-28", "13:01:00")
+# Een volledig staal (331 resultaten) is te zwaar voor de OWL-validatie van de pipeline (minuten per
+# bestand). De subset beperkt zich tot representatieve parameters: alle soorten eenheden en grootheden,
+# en twee resultaten onder de rapportagegrens.
+SUBSET_PARAMETERS = {"pH", "EC 20", "T", "O2 verz", "BZV5", "KjN", "NO3-", "P t", "H t", "Cl-",
+                     "Zn o", "Cu o", "TBySn", "1112CEa"}
 
 EX = Namespace("https://example.org/waterkwaliteit/oppervlaktewater/")
 WATERLOOP = Namespace("https://data.omgeving.vlaanderen.be/id/waterloop/")
@@ -59,12 +67,13 @@ def tijdstip(datum, tijd):
     return t.isoformat()
 
 
-def bouw(rijen, meetplaatsen, koppeling, csor):
+def bouw(rijen, meetplaatsen, koppeling, csor, vha):
     g = Graph()
     for p, ns in (("ex", EX), ("sosa", SOSA), ("qudt", QUDT), ("time", TIME), ("geo", GEO), ("dct", DCTERMS),
                   ("skos", SKOS), ("xsd", XSD), ("rdfs", RDFS), ("waterloop", WATERLOOP),
+                  ("waterlopen", WATERLOPEN),
                   ("csor-parameteraspect", "https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/"),
-                  ("csor-eenheid", "https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/"),
+                  ("csor-eenheid", "https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/"), ("csor", CSOR),
                   ("matrix", MATRIX)):
         g.bind(p, ns)
     gezien = set()
@@ -92,10 +101,19 @@ def bouw(rijen, meetplaatsen, koppeling, csor):
 
         if sp not in gezien:
             gezien.add(sp)
-            # VHA-waterloop: enkel wat nodig is om ernaar te verwijzen (volledige beschrijving in
-            # ../waterlopen/waterlopen_meetplaatsen.ttl, klasse code:Vhag)
+            # VHA-waterloop (code:Vhag ⊂ sosa:FeatureOfInterest, waterkwaliteit.ttl; ⊂ geo:Feature,
+            # waterlopen.ttl): de volledige beschrijving uit ../waterlopen/waterlopen_meetplaatsen.ttl,
+            # met de geometrie (blank node), zodat de data conform is aan de VHA-shape (lengte,
+            # geometrie) en het label dat van de VHA is.
+            if (waterloop, RDF.type, WATERLOPEN.Vhag) not in vha:
+                sys.exit(f"waterloop {waterloop} van meetplaats {sp} ontbreekt als code:Vhag in {VHA}")
+            for p_, o_ in vha.predicate_objects(waterloop):
+                g.add((waterloop, p_, o_))
+                if p_ == GEO.hasGeometry:
+                    for t in vha.triples((o_, None, None)):
+                        g.add(t)
+            g.add((waterloop, RDF.type, WATERLOPEN.VhaWaterloopobject))  # superklasse, expliciet voor SHACL
             g.add((waterloop, RDF.type, SOSA.FeatureOfInterest))
-            label(waterloop, k["segment_naam"])
             g.add((waterloop, SOSA.hasSample, meetplaats))
             g.add((waterloop, SOSA.isFeatureOfInterestOf, keuze))
             # ruimtelijke bemonstering: keuze van de meetplaats op de waterloop
@@ -107,12 +125,14 @@ def bouw(rijen, meetplaatsen, koppeling, csor):
             # meetplaats (R11)
             for typ in (SOSA.Platform, SOSA.FeatureOfInterest, SOSA.SpatialSample, SOSA.Sample):
                 g.add((meetplaats, RDF.type, typ))
+            g.add((meetplaats, RDF.type, WK.Meetplaats))  # AP (beslisdocument.md A15)
             label(meetplaats, sp)
             g.add((meetplaats, RDFS.comment, Literal(mp["Sample Point Omschrijving"], lang="nl")))
             g.add((meetplaats, SOSA.isSampleOf, waterloop))
             g.add((meetplaats, SOSA.isResultOf, keuze))
             geom = EX[f"geometrie-meetplaats-{sp}"]
             g.add((meetplaats, GEO.hasGeometry, geom))
+            g.add((meetplaats, RDF.type, GEO.Feature))  # domein van geo:hasGeometry
             g.add((geom, RDF.type, GEO.Geometry))
             g.add((geom, GEO.asWKT, Literal(f"{EPSG31370} POINT({mp['Lambert X']} {mp['Lambert Y']})",
                                             datatype=GEO.wktLiteral)))
@@ -122,6 +142,7 @@ def bouw(rijen, meetplaatsen, koppeling, csor):
 
         # bemonstering van het water op de meetplaats
         g.add((sampling, RDF.type, SOSA.Sampling))
+        g.add((sampling, RDF.type, WK.Staalname))  # AP (beslisdocument.md A15)
         g.add((sampling, RDF.type, SOSA.Execution))
         g.add((sampling, SOSA.hasFeatureOfInterest, meetplaats))
         g.add((sampling, SOSA.hasResult, staal))
@@ -130,6 +151,7 @@ def bouw(rijen, meetplaatsen, koppeling, csor):
         g.add((meetplaats, SOSA.hasSample, staal))
 
         g.add((staal, RDF.type, SOSA.Sample))
+        g.add((staal, RDF.type, WK.Staal))  # AP (beslisdocument.md A15)
         g.add((staal, RDF.type, SOSA.FeatureOfInterest))
         label(staal, f"Staal {sp} {tijd}")
         g.add((staal, DCTERMS.type, matrix))
@@ -138,6 +160,7 @@ def bouw(rijen, meetplaatsen, koppeling, csor):
         g.add((staal, SOSA.isFeatureOfInterestOf, collectie))
 
         g.add((collectie, RDF.type, SOSA.ObservationCollection))
+        g.add((collectie, RDF.type, WK.WaterkwaliteitObservatieVerzameling))  # AP (beslisdocument.md A15)
         g.add((collectie, RDF.type, SOSA.ExecutionCollection))
         label(collectie, f"Analyseresultaten staal {sp} {tijd}")
         g.add((collectie, SOSA.hasFeatureOfInterest, staal))
@@ -149,22 +172,24 @@ def bouw(rijen, meetplaatsen, koppeling, csor):
         if pa is None or eenheid is None:
             ontbrekend[(r["Parameter Symbool"], r["Eenheid"])] += 1
             continue
-        for iri, typ in ((pa, SOSA.Property), (eenheid, None)):
+        for iri, typen in ((pa, (SOSA.Property, CSOR.ParameterAspect)), (eenheid, (CSOR.Eenheid,))):
             if iri not in gezien:
                 gezien.add(iri)
-                if typ is not None:
+                for typ in typen:
                     g.add((iri, RDF.type, typ))
                 label(iri, csor.label(iri))
         code = str(pa).rsplit("/", 1)[1]
         obs, res = EX[f"observatie-{sleutel}-{code}"], EX[f"resultaat-{sleutel}-{code}"]
         g.add((collectie, SOSA.hasMember, obs))
         g.add((obs, RDF.type, SOSA.Observation))
+        g.add((obs, RDF.type, WK.WaterkwaliteitObservatie))  # AP (beslisdocument.md A15)
         g.add((obs, RDF.type, SOSA.Execution))
         g.add((obs, SOSA.hasFeatureOfInterest, staal))
         g.add((obs, SOSA.hasUltimateFeatureOfInterest, waterloop))
         g.add((obs, SOSA.observedProperty, pa))
         g.add((obs, SOSA.hasResult, res))
         g.add((res, RDF.type, SOSA.Result))
+        g.add((res, RDF.type, WK.Meetresultaat))  # AP (beslisdocument.md A15)
         g.add((res, SOSA.isResultOf, obs))
         g.add((res, QUDT.hasUnit, eenheid))
         if r["Teken"] == "=":
@@ -192,17 +217,20 @@ def main():
                                                                   encoding="utf-8"))}
     koppeling = {r["sample_point"]: r for r in csv.DictReader(open(KOPPELING, encoding="utf-8"))}
     csor = Csor(args.csor)
+    vha = Graph().parse(VHA, format="turtle")
     os.makedirs(UIT, exist_ok=True)
 
     kop = ("# Concentraties in oppervlaktewater (VMM, 250114) als SSN/SOSA 2023 -- DIT IS VOORBEELDDATA\n"
            "# Gegenereerd door scripts/oppervlaktewater_concentraties.py; niet manueel bewerken.\n")
-    volledig, ontbrekend = bouw(rijen, meetplaatsen, koppeling, csor)
+    volledig, ontbrekend = bouw(rijen, meetplaatsen, koppeling, csor, vha)
     schrijf(volledig, os.path.join(UIT, f"{NAAM}.trig"), kop)
     sp, datum, tijd = SUBSET_STAAL
     subset, _ = bouw([r for r in rijen if (r["Sample Point"], r["Sample Datum Monstername"],
-                                           r["Sample Tijdstip Monstername"]) == SUBSET_STAAL],
-                     meetplaatsen, koppeling, csor)
-    schrijf(subset, os.path.join(UIT, f"{NAAM}.ttl"), kop + f"# Validatie-subset: staal {sp} {datum} {tijd}.\n")
+                                           r["Sample Tijdstip Monstername"]) == SUBSET_STAAL
+                      and r["Parameter Symbool"] in SUBSET_PARAMETERS],
+                     meetplaatsen, koppeling, csor, vha)
+    schrijf(subset, os.path.join(UIT, f"{NAAM}.ttl"), kop + f"# Validatie-subset: staal {sp} {datum} {tijd}, "
+            f"{len(SUBSET_PARAMETERS)} representatieve parameters.\n")
 
     print(f"{len(rijen)} rijen -> {len(set(volledig.subjects(RDF.type, SOSA.Observation)))} observaties, "
           f"{len(set(volledig.subjects(RDF.type, SOSA.ObservationCollection)))} stalen; {len(volledig)} triples; "

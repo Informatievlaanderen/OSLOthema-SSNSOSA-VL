@@ -26,7 +26,9 @@ of uit de bron "MNT". Dit voorbeeld modelleert het jaardebiet 2023 als één SSN
   wordt (`prov:Location`, doel van `prov:atLocation`). `rdfs:seeAlso` verwijst naar het
   RIE-IEPR-meetpunt "Controleinrichting LP01 Industrieel glasfabriek", dat dezelfde VMM-code
   `2400006` als `vmm:lozingspuntCode` draagt.
-- **`ex:lozing-2400006`**: `sosa:FeatureOfInterest + prov:Entity`. De lozing aan die meetput. Dit
+- **`ex:lozing-2400006`**: `wk:Emissie` (A14) + `sosa:FeatureOfInterest + prov:Entity`,
+  `dct:type matrix:afvalwater`,
+  tijdsloos (§6.1). De lozing aan die meetput. Dit
   komt overeen met `riepr:Emissie` (`../afvalwater_concentraties/bespreking.md` §6.2), en het is
   dezelfde IRI als het ultieme FOI van de concentraties in stap 1.
 - **`ex:exploitatie-696`** (AGC Glass Europe vestiging Mol) en **`ex:exploitatie-102767`** (AGC
@@ -67,6 +69,11 @@ water): debiet (vracht)" met volume-eenheden (m³, L). Dat is het periodedebiet 
 > genomen staal. Dit is precies het RIE-IEPR-patroon (FOI = `riepr:Emissie`,
 > `../../featureofinterest.md` §2.3).
 
+**Tijdsloze lozing, matrix op het FOI.** Het FOI is de lozing zelf, niet "de lozing in 2023". Het
+jaar staat in `sosa:phenomenonTime` (§6.5). De matrix staat als `dct:type matrix:afvalwater` op
+de lozing, niet in een samengestelde observedProperty. Zo blijft `PAS_1838` het gewone
+CSOR-debiet. Uitgebreide motivatie: `../afvalwater_concentraties/bespreking.md` §6.8.
+
 ### 6.2 Waarom dezelfde IRI's als stap 1?
 
 > **Gekozen aanpak:** namespace `https://example.org/waterkwaliteit/afvalwater/` voor stap 1 en
@@ -85,6 +92,10 @@ water): debiet (vracht)" met volume-eenheden (m³, L). Dat is het periodedebiet 
 > is door de exploitant gerapporteerd, geen meetresultaat van de controle-inrichting. De meetput
 > is wel met zekerheid de plaats waarop het debiet betrekking heeft. Een Observation is een
 > `prov:Activity` (SOSA–PROV-alignering), dus `prov:atLocation` is toepasbaar.
+> **Aanvulling (A15.5):** de meetput is wel een systeem (`sosa:Sampler ⊂ sosa:System`), met
+> agency zoals in RIE-IEPR. Een meetput is geen gat in de grond: het is een verplichte
+> controle-inrichting (VLAREM) met meetgoot, debietmeter en eventueel een staalnameautomaat. Vermeldt
+> de bron dat de meetput het debiet mat, dan wordt ze ook `sosa:Sensor` met `madeBySensor`.
 
 ### 6.4 Waarom `prov:used` voor de databron?
 
@@ -132,6 +143,7 @@ Zoals in stap 1 (`../afvalwater_concentraties/bespreking.md` §6.5, §6.7, §6.9
 | Prefix | Base URI | Tijdelijk of persistent |
 |---|---|---|
 | `ex:` | `https://example.org/waterkwaliteit/afvalwater/` | tijdelijk (illustratief, R10); gedeeld met stap 1 |
+| `wk:` | `https://data.vlaanderen.be/ns/waterkwaliteit#` | ontwerpversie (`src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl`), niet gepubliceerd |
 | `riepr-meetpunt:` | `https://data.mjv.omgeving.vlaanderen.be/id/meetpunt/` | RIE-IEPR, "niet finaal" |
 | `csor-parameteraspect:`, `csor-eenheid:` | `https://data.omgeving.vlaanderen.be/id/concept/csor/…` | persistent (CSOR) |
 | `sosa:`, `qudt:`, `time:`, `prov:`, `adms:`, `dct:`, `skos:`, `rdfs:`, `xsd:` | W3C/QUDT/DCMI/SEMIC | persistent |

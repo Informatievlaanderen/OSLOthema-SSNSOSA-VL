@@ -2,8 +2,16 @@
 
 De concentratie van CO₂ kan worden gemeten in luchtbellen in ijskernen, waarvan wordt aangenomen dat ze een steekproef vormen van de atmosfeer op een bepaald moment in het verleden. In dit geval zijn de concentratie en de leeftijd het resultaat van twee oorspronkelijke waarnemingen. Deze leveren de invoerwaarden voor de uiteindelijke waarneming.
 
+## Bemonsteringsketen
+Beide alternatieven delen dezelfde bemonsteringsketen (R8): `IjsBel isSampleOf IjsKern isSampleOf AardKorst`. Elk monster is het resultaat van een `sosa:Sampling`: de boring van de ijskern (FOI de aardkorst) en de extractie van de luchtbel (FOI de ijskern). Zo is elk studieobject in de keten het FOI van een uitvoering, zoals SOSA vraagt. Alle FOI's dragen ook de inverse `sosa:isFeatureOfInterestOf`, omdat de SHACL-validatie op het niet-afgeleide model gebeurt.
+
 ## Alternatief 1
-In het voorbeeld zijn de 2 oorspronkelijke observaties (i.e de executions, de activiteiten) direct gelinkt met de uiteindelijke observatie.
+In dit voorbeeld krijgt de uiteindelijke observatie de **resultaten** van de 2 oorspronkelijke observaties als inputwaarden (`sosa:hasInputValue`). Ze verwijst naar de oorspronkelijke observaties zelf met `sosa:relatedObservation`. Er zijn geen p-plan-variabelen: de procedure beschrijft haar inputs enkel in tekst.
+
+#### Waarom niet `hasInputValue` naar de observaties?
+SOSA 2023 definieert `sosa:hasInputValue` als "kent een waarde toe aan een input, gedefinieerd door de Procedure, die gebruikt wordt in een Execution". Een inputwaarde is dus een waarde, een `prov:Entity`: de tegenhanger van `sosa:hasResult` (⊂ `prov:generated`). In `src/main/resources/ontologies/pplan-sosa.ttl` is `sosa:hasInputValue` daarom een subproperty van `prov:used`.
+
+Een observatie is een activiteit (`sosa:Execution` ⊂ `prov:Activity`), en `prov:Activity` is disjunct met `prov:Entity`. Een observatie als inputwaarde maakt het model dus inconsistent. De pipeline meldt dat als `[MODEL INVALID]`. De vorige versie van dit alternatief deed precies dat; ze is op 2026-10-01 rechtgezet.
 
 ```mermaid
 %%flowchart TD
@@ -23,16 +31,34 @@ B -->|isSampleOf| A
 C -->|isSampleOf| B
 C -->|isSampleOf| D
 
+%% Bemonsteringen: elk monster is het resultaat van een sosa:Sampling
+S1["`**BoringIjsKern**
+*(sosa:Sampling)*`"]
+S2["`**ExtractieIjsBel**
+*(sosa:Sampling)*`"]
+S1 -->|hasFeatureOfInterest| A
+S1 -->|hasResult| B
+S2 -->|hasFeatureOfInterest| B
+S2 -->|hasResult| C
+
 %% Original Observations
 O1["`**C14Observatie**
 -observedProperty = C14Leeftijd
--result = 7530 YR
 *(sosa:Observation)*`"]
+R1["`**ResultaatC14Observatie**
+-value = 7530
+-unit = YR
+*(sosa:Result)*`"]
 O2["`**CO2Observatie**
 -observedProperty = CO2Concentratie
--result = 240 PPM
 *(sosa:Observation)*`"]
+R2["`**ResultaatCO2Observatie**
+-value = 240
+-unit = PPM
+*(sosa:Result)*`"]
 
+O1 -->|hasResult| R1
+O2 -->|hasResult| R2
 O1 -->|hasFeatureOfInterest| C
 O2 -->|hasFeatureOfInterest| C
 O1 -->|hasUltimateFeatureOfInterest| D
@@ -47,9 +73,11 @@ P["`**PaleoCO2Observatie**
 
 P -->|hasFeatureOfInterest| D
 
-%% Input relations
-P -->|hasInputValue| O1
-P -->|hasInputValue| O2
+%% Input relations: de waarden, en de observaties die ze opleverden
+P -->|hasInputValue| R1
+P -->|hasInputValue| R2
+P -.->|relatedObservation| O1
+P -.->|relatedObservation| O2
 
 %% Procedure
 PR["`**ProcedurePaleoCO2Contentratie**
@@ -59,8 +87,7 @@ P -->|usedProcedure| PR
 ```
 
 ## Alternatief 2
-In dit voorbeeld worden de resultaten van de 2 oorspronkelijke observaties gelinkt met de uiteindelijke observatie (niet de observaties zelf).
-Deze 2 resultaten komen overeen met de input variabelen gedefinieerd in de procedure.
+Zoals in alternatief 1 zijn de resultaten van de 2 oorspronkelijke observaties de inputwaarden van de uiteindelijke observatie. Daarnaast worden ze met `p-plan:correspondsToVariable` gekoppeld aan de inputvariabelen van de procedure (`sosa:hasInput`). Zo is ook af te leiden welke procedure gebruikt werd (keten `hasInputValue ∘ correspondsToVariable ∘ inputFor ⊑ usedProcedure` in `pplan-sosa.ttl`).
 
 #### Opmerking:
 De 2 input variabelen zijn in dit voorbeeld apart gedefinieerd. Dit is niet noodzakelijk. We zouden als input variabelen de 2 overeenkomende observedProperties kunnen specifieren.
@@ -86,6 +113,16 @@ D["`**AardAtmosfeer**
 B -->|isSampleOf| A
 C -->|isSampleOf| B
 C -->|isSampleOf| D
+
+%% Bemonsteringen: elk monster is het resultaat van een sosa:Sampling
+S1["`**BoringIjsKern**
+*(sosa:Sampling)*`"]
+S2["`**ExtractieIjsBel**
+*(sosa:Sampling)*`"]
+S1 -->|hasFeatureOfInterest| A
+S1 -->|hasResult| B
+S2 -->|hasFeatureOfInterest| B
+S2 -->|hasResult| C
 
 %% Original Observations
 O1["`**C14Observatie**

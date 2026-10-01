@@ -3,6 +3,7 @@
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
 
 # --- Class alignment ---
 
@@ -29,7 +30,14 @@ sosa:outputFor
     rdfs:comment           "A variable that is output of a step is output for the plan containing that step."@en ;
     owl:propertyChainAxiom ( p-plan:isOutputVarOf p-plan:isStepOfPlan ) .
 
+sosa:hasInputValue
+    rdfs:subPropertyOf     prov:used ;
+    rdfs:comment           "An input value is an entity used by the execution: the counterpart of sosa:hasResult (rdfs:subPropertyOf prov:generated). SOSA 2023: assigns a value to an input defined by the Procedure that is used in an Execution. A value is a prov:Entity, never an execution (sosa:Execution is a prov:Activity, disjoint with prov:Entity)."@en ,
+                           "Een inputwaarde is een entiteit die de uitvoering gebruikt: de tegenhanger van sosa:hasResult (subproperty van prov:generated). SOSA 2023: kent een waarde toe aan een input, gedefinieerd door de Procedure, die gebruikt wordt in een Execution. Een waarde is een prov:Entity, nooit een uitvoering."@nl .
+
 sosa:usedProcedure
+    rdfs:comment           "An execution uses the procedure for which its input value is an input variable (counterpart of the hasResult chain below)."@en ;
+    owl:propertyChainAxiom ( sosa:hasInputValue p-plan:correspondsToVariable sosa:inputFor ) ;
     rdfs:comment           "An execution that corresponds to a step uses the plan to which that step is decomposed."@en ;
     owl:propertyChainAxiom ( p-plan:correspondsToStep p-plan:isDecomposedAsPlan ) ;
     rdfs:comment           "An execution uses the procedure for which its result is an output variable."@en ;

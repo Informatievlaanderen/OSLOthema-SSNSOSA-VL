@@ -18,8 +18,8 @@ RIE-IEPR-datavoorbeeld.
 
 | Bestand | Inhoud |
 |---|---|
-| `afvalwater_debieten.ttl` | validatie-subset: AGC Glass Mol, meetputten `2400006` (244 378 m³) en `2400007` (27 784 m³); 80 triples |
-| `afvalwater_debieten.trig` | volledige omzetting: 1555 observaties, 43 102 triples |
+| `afvalwater_debieten.ttl` | validatie-subset: AGC Glass Mol, meetputten `2400006` (244 378 m³) en `2400007` (27 784 m³); 98 triples |
+| `afvalwater_debieten.trig` | volledige omzetting: 1555 observaties, 52 285 triples |
 | `afvalwater_debieten.mmd` | Mermaid-diagram van de subset |
 | `bespreking.md` | conceptmapping en modelleerkeuzes |
 
@@ -42,6 +42,11 @@ python3 src/main/input/waterkwaliteit/scripts/afvalwater_debieten.py [--csor ~/g
   geen label.
 
 ## Validatie (2026-09-30)
+
+- Applicatieprofiel (`../../beslisdocument.md` A15): observaties, verzamelingen, resultaten,
+  stalen, staalnames, meetplaatsen en meetputten zijn ook getypeerd met hun wk-klasse
+  (`wk:WaterkwaliteitObservatie`, `wk:Meetresultaat` …). De SHACL-shapes worden gegenereerd uit
+  `src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl`.
 
 - `mvn compile exec:java`: subset zonder `[VOCAB ERROR]` of `[MODEL INVALID]`, conform SHACL.
 - `shacl validate` op de volledige `.trig`: `sh:conforms true`.

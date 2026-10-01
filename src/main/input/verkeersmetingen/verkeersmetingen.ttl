@@ -4,22 +4,25 @@
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix geo: <http://www.opengis.net/ont/geosparql#> .
 @prefix ex:     <https://example.org/verkeersmetingen/> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+@prefix unit:   <http://qudt.org/vocab/unit/> .
 
 ###############################################################################
 ### INFRASTRUCTUUR
 ###############################################################################
 
-ex:meetpunt-FMN-021 a sosa:Platform, sosa:FeatureOfInterest, sosa:SpatialSample ;
+ex:meetpunt-FMN-021 a sosa:Platform, sosa:FeatureOfInterest, sosa:SpatialSample, sosa:Sample ;
     rdfs:label "Mercatorstraat"@nl ;
     rdfs:comment "Vast tweerichtingsmeetpunt op de hoek van de Mercatorstraat met de Van Den Nestlei, Antwerpen (lat 51.20910, lon 4.423123). Beheerder: Provincie Antwerpen."@nl ;
     geo:hasGeometry             [ a  geo:Geometry;
                                       geo:asWKT  "Point(4.423123 51.20910)"^^geo:wktLiteral
                                 ];
     sosa:isSampleOf ex:fietsroute-F1-antwerpen ;
+    sosa:isResultOf ex:sampling-meetpunt-FMN-021 ;
     sosa:isFeatureOfInterestOf ex:collectie-FMN-021-20260428 ;
     sosa:hosts ex:teller-FMN-021 .
 
-ex:teller-FMN-021 a sosa:Sensor ;
+ex:teller-FMN-021 a sosa:Sensor , sosa:System ;
     rdfs:label "Automatische teller FMN-021"@nl ;
     rdfs:comment "Automatische teller voor lichte voertuigen (fiets, step, motorfiets) in tweerichtingsverkeer."@nl ;
     sosa:isHostedBy ex:meetpunt-FMN-021 ;
@@ -29,13 +32,22 @@ ex:teller-FMN-021 a sosa:Sensor ;
 ex:fietsroute-F1-antwerpen a sosa:FeatureOfInterest ;
     rdfs:label "Fietsroute F1 ter hoogte van Antwerpen-Centraal"@nl ;
     rdfs:comment "Tweerichtingsfietsroute F1 in Antwerpen, gemeten ter hoogte van het station Antwerpen-Centraal."@nl ;
-    sosa:hasProperty ex:property-verkeersintensiteit .
+    sosa:hasProperty ex:property-verkeersintensiteit ;
+    sosa:hasSample ex:meetpunt-FMN-021 ;
+    sosa:isFeatureOfInterestOf ex:sampling-meetpunt-FMN-021 .
+
+# Ruimtelijke bemonstering: de keuze van het meetpunt op de fietsroute (R8, R11). Het meetpunt is er
+# het resultaat van, en zo is ook de fietsroute het FOI van een uitvoering.
+ex:sampling-meetpunt-FMN-021 a sosa:Sampling , sosa:Execution ;
+    rdfs:label "Keuze van meetpunt FMN-021 op fietsroute F1"@nl ;
+    sosa:hasFeatureOfInterest ex:fietsroute-F1-antwerpen ;
+    sosa:hasResult ex:meetpunt-FMN-021 .
 
 ###############################################################################
 ### PROCEDURE & OBSERVEERBARE EIGENSCHAPPEN
 ###############################################################################
 
-ex:procedure-automatisch-tellen a sosa:ObservingProcedure ;
+ex:procedure-automatisch-tellen a sosa:ObservingProcedure , sosa:Procedure ;
     rdfs:label "Automatische telmethode"@nl ;
     rdfs:comment "Detectie en telling van passerende lichte voertuigen via een geautomatiseerde teller (inductielus of radar)."@nl .
 
@@ -50,7 +62,7 @@ ex:property-verkeersintensiteit a sosa:Property ;
 # Referentie: dinsdag 08:00 = 1,00 → 291 voertuigen/uur
 # (P = dagsom woensdag 2395 / relatieve weekdagsom woensdag 8,23 ≈ 291)
 
-ex:collectie-FMN-021-20260428 a sosa:ObservationCollection ;
+ex:collectie-FMN-021-20260428 a sosa:ObservationCollection , sosa:ExecutionCollection ;
     rdfs:label "Verkeerstelcollectie FMN-021 op 28 april 2026 (dinsdag)"@nl ;
     sosa:madeBySensor ex:teller-FMN-021 ;
     sosa:usedProcedure ex:procedure-automatisch-tellen ;
@@ -83,10 +95,34 @@ ex:collectie-FMN-021-20260428 a sosa:ObservationCollection ;
 
 # --- Dagobservatie ---
 
-ex:obs-FMN-021-20260428-dag a sosa:Observation ;
+ex:obs-FMN-021-20260428-dag a sosa:Observation , sosa:Execution ;
     rdfs:label "Dagsom FMN-021 op 28 april 2026"@nl ;
-    sosa:relatedObservation ex:collectie-FMN-021-20260428 ;
-    sosa:hasInputValue ex:collectie-FMN-021-20260428 ;
+    sosa:relatedObservation ex:collectie-FMN-021-20260428 ;   # de bronobservaties (de uurcollectie)
+    sosa:hasInputValue                                          # de waarden: de 24 uurresultaten
+        ex:resultaat-FMN-021-20260428-00u ,
+        ex:resultaat-FMN-021-20260428-01u ,
+        ex:resultaat-FMN-021-20260428-02u ,
+        ex:resultaat-FMN-021-20260428-03u ,
+        ex:resultaat-FMN-021-20260428-04u ,
+        ex:resultaat-FMN-021-20260428-05u ,
+        ex:resultaat-FMN-021-20260428-06u ,
+        ex:resultaat-FMN-021-20260428-07u ,
+        ex:resultaat-FMN-021-20260428-08u ,
+        ex:resultaat-FMN-021-20260428-09u ,
+        ex:resultaat-FMN-021-20260428-10u ,
+        ex:resultaat-FMN-021-20260428-11u ,
+        ex:resultaat-FMN-021-20260428-12u ,
+        ex:resultaat-FMN-021-20260428-13u ,
+        ex:resultaat-FMN-021-20260428-14u ,
+        ex:resultaat-FMN-021-20260428-15u ,
+        ex:resultaat-FMN-021-20260428-16u ,
+        ex:resultaat-FMN-021-20260428-17u ,
+        ex:resultaat-FMN-021-20260428-18u ,
+        ex:resultaat-FMN-021-20260428-19u ,
+        ex:resultaat-FMN-021-20260428-20u ,
+        ex:resultaat-FMN-021-20260428-21u ,
+        ex:resultaat-FMN-021-20260428-22u ,
+        ex:resultaat-FMN-021-20260428-23u ;
     sosa:madeBySensor ex:teller-FMN-021 ;
     sosa:usedProcedure ex:procedure-automatisch-tellen ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;
@@ -97,248 +133,404 @@ ex:obs-FMN-021-20260428-dag a sosa:Observation ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-29T00:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T23:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "2541"^^xsd:integer .
+    sosa:hasResult ex:resultaat-FMN-021-20260428-dag .
 
 # --- Uurobservaties ---
 
-ex:obs-FMN-021-20260428-00u a sosa:Observation ;
+ex:obs-FMN-021-20260428-00u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T00:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T01:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T00:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "15"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-00u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-01u a sosa:Observation ;
+ex:obs-FMN-021-20260428-01u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T01:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T02:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T01:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "9"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-01u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-02u a sosa:Observation ;
+ex:obs-FMN-021-20260428-02u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T02:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T03:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T02:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "6"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-02u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-03u a sosa:Observation ;
+ex:obs-FMN-021-20260428-03u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T03:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T04:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T03:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "6"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-03u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-04u a sosa:Observation ;
+ex:obs-FMN-021-20260428-04u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T04:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T05:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T04:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "9"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-04u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-05u a sosa:Observation ;
+ex:obs-FMN-021-20260428-05u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T05:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T06:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T05:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "20"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-05u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-06u a sosa:Observation ;
+ex:obs-FMN-021-20260428-06u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T06:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T07:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T06:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "49"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-06u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-07u a sosa:Observation ;
+ex:obs-FMN-021-20260428-07u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T07:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T08:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T07:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "134"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-07u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
 # 08:00 — ochtendspits (piekuur dinsdag, index 1,00)
-ex:obs-FMN-021-20260428-08u a sosa:Observation ;
+ex:obs-FMN-021-20260428-08u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T08:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T09:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T08:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "291"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-08u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-09u a sosa:Observation ;
+ex:obs-FMN-021-20260428-09u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T09:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T10:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T09:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "148"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-09u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-10u a sosa:Observation ;
+ex:obs-FMN-021-20260428-10u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T10:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T11:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T10:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "102"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-10u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-11u a sosa:Observation ;
+ex:obs-FMN-021-20260428-11u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T11:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T12:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T11:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "93"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-11u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-12u a sosa:Observation ;
+ex:obs-FMN-021-20260428-12u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T12:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T13:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T12:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "128"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-12u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-13u a sosa:Observation ;
+ex:obs-FMN-021-20260428-13u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T13:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T14:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T13:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "125"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-13u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-14u a sosa:Observation ;
+ex:obs-FMN-021-20260428-14u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T14:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T15:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T14:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "119"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-14u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-15u a sosa:Observation ;
+ex:obs-FMN-021-20260428-15u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T15:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T16:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T15:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "151"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-15u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-16u a sosa:Observation ;
+ex:obs-FMN-021-20260428-16u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T16:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T17:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T16:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "239"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-16u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
 # 17:00 — avondspits (index 0,96)
-ex:obs-FMN-021-20260428-17u a sosa:Observation ;
+ex:obs-FMN-021-20260428-17u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T17:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T18:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T17:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "279"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-17u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-18u a sosa:Observation ;
+ex:obs-FMN-021-20260428-18u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T18:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T19:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T18:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "204"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-18u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-19u a sosa:Observation ;
+ex:obs-FMN-021-20260428-19u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T19:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T20:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T19:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "128"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-19u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-20u a sosa:Observation ;
+ex:obs-FMN-021-20260428-20u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T20:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T21:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T20:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "90"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-20u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-21u a sosa:Observation ;
+ex:obs-FMN-021-20260428-21u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T21:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T22:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T21:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "79"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-21u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-22u a sosa:Observation ;
+ex:obs-FMN-021-20260428-22u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T22:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T23:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T22:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "76"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-22u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
 
-ex:obs-FMN-021-20260428-23u a sosa:Observation ;
+ex:obs-FMN-021-20260428-23u a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
         time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T23:00:00"^^xsd:dateTime ] ;
         time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-29T00:00:00"^^xsd:dateTime ]
     ] ;
     sosa:resultTime "2026-04-28T23:59:59"^^xsd:dateTime ;
-    sosa:hasSimpleResult "41"^^xsd:integer ;
+    sosa:hasResult ex:resultaat-FMN-021-20260428-23u ;
     sosa:isMemberOf ex:collectie-FMN-021-20260428 .
+
+###############################################################################
+### RESULTATEN
+###############################################################################
+# Benoemde resultaten (geen sosa:hasSimpleResult): de uurresultaten zijn de inputwaarden van de dagsom
+# (sosa:hasInputValue), en een inputwaarde is een entiteit (hasInputValue ⊂ prov:used, pplan-sosa.ttl).
+# Eenheid unit:NUM (aantal); "voertuigen per uur/dag" volgt uit de property en de phenomenonTime.
+
+ex:resultaat-FMN-021-20260428-dag a sosa:Result ;
+    qudt:numericValue 2541 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-dag .
+
+ex:resultaat-FMN-021-20260428-00u a sosa:Result ;
+    qudt:numericValue 15 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-00u .
+
+ex:resultaat-FMN-021-20260428-01u a sosa:Result ;
+    qudt:numericValue 9 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-01u .
+
+ex:resultaat-FMN-021-20260428-02u a sosa:Result ;
+    qudt:numericValue 6 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-02u .
+
+ex:resultaat-FMN-021-20260428-03u a sosa:Result ;
+    qudt:numericValue 6 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-03u .
+
+ex:resultaat-FMN-021-20260428-04u a sosa:Result ;
+    qudt:numericValue 9 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-04u .
+
+ex:resultaat-FMN-021-20260428-05u a sosa:Result ;
+    qudt:numericValue 20 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-05u .
+
+ex:resultaat-FMN-021-20260428-06u a sosa:Result ;
+    qudt:numericValue 49 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-06u .
+
+ex:resultaat-FMN-021-20260428-07u a sosa:Result ;
+    qudt:numericValue 134 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-07u .
+
+ex:resultaat-FMN-021-20260428-08u a sosa:Result ;
+    qudt:numericValue 291 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-08u .
+
+ex:resultaat-FMN-021-20260428-09u a sosa:Result ;
+    qudt:numericValue 148 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-09u .
+
+ex:resultaat-FMN-021-20260428-10u a sosa:Result ;
+    qudt:numericValue 102 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-10u .
+
+ex:resultaat-FMN-021-20260428-11u a sosa:Result ;
+    qudt:numericValue 93 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-11u .
+
+ex:resultaat-FMN-021-20260428-12u a sosa:Result ;
+    qudt:numericValue 128 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-12u .
+
+ex:resultaat-FMN-021-20260428-13u a sosa:Result ;
+    qudt:numericValue 125 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-13u .
+
+ex:resultaat-FMN-021-20260428-14u a sosa:Result ;
+    qudt:numericValue 119 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-14u .
+
+ex:resultaat-FMN-021-20260428-15u a sosa:Result ;
+    qudt:numericValue 151 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-15u .
+
+ex:resultaat-FMN-021-20260428-16u a sosa:Result ;
+    qudt:numericValue 239 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-16u .
+
+ex:resultaat-FMN-021-20260428-17u a sosa:Result ;
+    qudt:numericValue 279 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-17u .
+
+ex:resultaat-FMN-021-20260428-18u a sosa:Result ;
+    qudt:numericValue 204 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-18u .
+
+ex:resultaat-FMN-021-20260428-19u a sosa:Result ;
+    qudt:numericValue 128 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-19u .
+
+ex:resultaat-FMN-021-20260428-20u a sosa:Result ;
+    qudt:numericValue 90 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-20u .
+
+ex:resultaat-FMN-021-20260428-21u a sosa:Result ;
+    qudt:numericValue 79 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-21u .
+
+ex:resultaat-FMN-021-20260428-22u a sosa:Result ;
+    qudt:numericValue 76 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-22u .
+
+ex:resultaat-FMN-021-20260428-23u a sosa:Result ;
+    qudt:numericValue 41 ;
+    qudt:hasUnit unit:NUM ;
+    sosa:isResultOf ex:obs-FMN-021-20260428-23u .

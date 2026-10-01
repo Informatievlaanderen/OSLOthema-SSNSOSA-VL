@@ -2,10 +2,12 @@
 # Gegenereerd door scripts/afvalwater_debieten.py; niet manueel bewerken.
 # Validatie-subset: AGC Glass Mol, meetputten 2400006, 2400007.
 @prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix csor: <https://data.omgeving.vlaanderen.be/ns/csor#> .
 @prefix csor-eenheid: <https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/> .
 @prefix csor-parameteraspect: <https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix ex: <https://example.org/waterkwaliteit/afvalwater/> .
+@prefix matrix: <https://data.omgeving.vlaanderen.be/id/concept/matrix/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix qudt: <http://qudt.org/schema/qudt/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -13,10 +15,12 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix time: <http://www.w3.org/2006/time#> .
+@prefix wk: <https://data.vlaanderen.be/ns/waterkwaliteit#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 ex:collectie-jaardebieten-2023 a sosa:ExecutionCollection,
-        sosa:ObservationCollection ;
+        sosa:ObservationCollection,
+        wk:WaterkwaliteitObservatieVerzameling ;
     rdfs:label "Jaardebieten van lozingen 2023"@nl ;
     sosa:hasMember ex:observatie-jaardebiet-2400006-2023,
         ex:observatie-jaardebiet-2400007-2023 ;
@@ -27,11 +31,13 @@ ex:databron-MNT a prov:Entity ;
     rdfs:label "MNT"@nl ;
     rdfs:comment "Betekenis van de afkorting te bevestigen door de VMM (stappenplan.md V9)."@nl .
 
-ex:exploitatie-102767 a prov:Organization ;
+ex:exploitatie-102767 a prov:Agent,
+        prov:Organization ;
     rdfs:label "AGC FABRICATION - KEMPENGLAS"@nl ;
     dct:identifier "102767" .
 
-ex:exploitatie-696 a prov:Organization ;
+ex:exploitatie-696 a prov:Agent,
+        prov:Organization ;
     rdfs:label "AGC GLASS EUROPE VESTIGING MOL"@nl ;
     dct:identifier "696" .
 
@@ -44,25 +50,31 @@ ex:identificator-meetpunt-2400007 a adms:Identifier ;
     skos:notation "2400007" .
 
 ex:lozing-2400006 a prov:Entity,
-        sosa:FeatureOfInterest ;
+        sosa:FeatureOfInterest,
+        wk:Emissie ;
     rdfs:label "Lozing aan meetput AW2400006 (AGC GLASS EUROPE VESTIGING MOL)"@nl ;
+    dct:type matrix:afvalwater ;
     prov:wasAttributedTo ex:exploitatie-696 ;
     sosa:isFeatureOfInterestOf ex:observatie-jaardebiet-2400006-2023 .
 
 ex:lozing-2400007 a prov:Entity,
-        sosa:FeatureOfInterest ;
+        sosa:FeatureOfInterest,
+        wk:Emissie ;
     rdfs:label "Lozing aan meetput AW2400007 (AGC FABRICATION - KEMPENGLAS)"@nl ;
+    dct:type matrix:afvalwater ;
     prov:wasAttributedTo ex:exploitatie-102767 ;
     sosa:isFeatureOfInterestOf ex:observatie-jaardebiet-2400007-2023 .
 
 ex:meetpunt-2400006 a prov:Location,
-        sosa:Sampler ;
+        sosa:Sampler,
+        wk:Meetput ;
     rdfs:label "AW2400006"@nl ;
     rdfs:seeAlso riepr-meetpunt:019e9271-145f-75f2-8222-342e7028bb37 ;
     adms:identifier ex:identificator-meetpunt-2400006 .
 
 ex:meetpunt-2400007 a prov:Location,
-        sosa:Sampler ;
+        sosa:Sampler,
+        wk:Meetput ;
     rdfs:label "AW2400007"@nl ;
     rdfs:seeAlso riepr-meetpunt:019e9271-1461-7f34-b276-0b3c1bee1186 ;
     adms:identifier ex:identificator-meetpunt-2400007 .
@@ -71,12 +83,14 @@ ex:periode-2023 a time:Interval ;
     time:hasBeginning ex:tijdstip-2023-01-01T000000 ;
     time:hasEnd ex:tijdstip-2024-01-01T000000 .
 
-ex:resultaat-jaardebiet-2400006-2023 a sosa:Result ;
+ex:resultaat-jaardebiet-2400006-2023 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_50 ;
     qudt:numericValue 244378.0 ;
     sosa:isResultOf ex:observatie-jaardebiet-2400006-2023 .
 
-ex:resultaat-jaardebiet-2400007-2023 a sosa:Result ;
+ex:resultaat-jaardebiet-2400007-2023 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_50 ;
     qudt:numericValue 27784.0 ;
     sosa:isResultOf ex:observatie-jaardebiet-2400007-2023 .
@@ -87,19 +101,26 @@ ex:tijdstip-2023-01-01T000000 a time:Instant ;
 ex:tijdstip-2024-01-01T000000 a time:Instant ;
     time:inXSDDateTime "2024-01-01T00:00:00"^^xsd:dateTime .
 
-csor-eenheid:E_50 rdfs:label "kubieke meter per jaar"@nl .
+csor-eenheid:E_50 a csor:Eenheid ;
+    rdfs:label "kubieke meter per jaar"@nl .
+
+matrix:afvalwater a skos:Concept ;
+    rdfs:label "Afvalwater"@nl .
 
 ex:databron-IMJV a prov:Entity ;
     rdfs:label "Integraal milieujaarverslag (IMJV)"@nl .
 
-ex:organisatie-vmm a prov:Organization ;
+ex:organisatie-vmm a prov:Agent,
+        prov:Organization ;
     rdfs:label "Vlaamse Milieumaatschappij"@nl .
 
-csor-parameteraspect:PAS_1838 a sosa:Property ;
+csor-parameteraspect:PAS_1838 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "Q (standaard in water): debiet"@nl .
 
 ex:observatie-jaardebiet-2400006-2023 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     rdfs:label "Jaardebiet 2023 lozing aan meetput AW2400006"@nl ;
     prov:atLocation ex:meetpunt-2400006 ;
     prov:used ex:databron-IMJV ;
@@ -108,7 +129,8 @@ ex:observatie-jaardebiet-2400006-2023 a sosa:Execution,
     sosa:observedProperty csor-parameteraspect:PAS_1838 .
 
 ex:observatie-jaardebiet-2400007-2023 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     rdfs:label "Jaardebiet 2023 lozing aan meetput AW2400007"@nl ;
     prov:atLocation ex:meetpunt-2400007 ;
     prov:used ex:databron-IMJV ;

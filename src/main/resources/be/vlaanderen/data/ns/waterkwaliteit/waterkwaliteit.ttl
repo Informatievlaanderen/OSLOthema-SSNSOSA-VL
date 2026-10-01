@@ -1,0 +1,396 @@
+# Waterkwaliteit-vocabularium: ONTWERPVERSIE voor het OSLO-traject (niet gepubliceerd).
+# Opgesteld 2026-09-30 in OSLOthema-SSNSOSA-VL, zie
+# src/main/input/waterkwaliteit/beslisdocument.md, punt A14.
+#
+# Bevat enkel de termen die de datavoorbeelden in src/main/input/waterkwaliteit/nieuw_model/
+# gebruiken. De namespace is die van het bestaande AP Waterkwaliteit (kandidaatstandaard
+# 2023-06-01); daar is wk:Emissie een subklasse van Object (gfi:GFI_Feature, uit de verwijderde
+# ISO-namespace).
+#
+# - wk:Emissie ⊂ prov:Entity            : beslist (projectteam), ter bevestiging in het OSLO-traject
+# - wk:Emissie ⊂ sosa:FeatureOfInterest : voorstel A14.1
+# - gegenereerd door een activiteit, resultaat van een actuatie, afgeleid van een proces:
+#   A14.7 (projectteam). Als OWL-restricties met owl:minCardinality 0: ze definiëren de klasse,
+#   maar worden niet verplicht in de SHACL (OwlToShaclGenerator), zodat data zonder gekende
+#   activiteit of proces (VMM-brondata) geldig blijft.
+# - riepr:Emissie ⊂ wk:Emissie           : voorstel A14.2; hoort in riepr.ttl, niet hier
+# - csor:ParameterAspect ⊂ sosa:Property : voorstel C1 (beslisdocument.md); hoort op termijn in CSOR
+# - CSOR-restricties met owl:minCardinality 0: de existentiële restricties uit csor.ttl voor de drie
+#   CSOR-klassen die de voorbeelden gebruiken, herhaald met owl:minCardinality 0. Semantisch
+#   verandert dat niets (OWL-restricties tellen samen op); voor de SHACL-generator
+#   (OwlToShaclGenerator) betekent het "niet verplicht in de data". De voorbeelden verwijzen naar
+#   CSOR-concepten zonder de registergegevens (heeftParameter, heeftAspect, dimensie …) te
+#   dupliceren; de volledigheid bewaakt CSOR zelf.
+# - CSOR-ontologie (klassen en properties): owl:imports, bestand
+#   src/main/resources/be/vlaanderen/omgeving/data/ns/csor/csor.ttl. De voorbeelden typeren de
+#   CSOR-concepten waarnaar ze verwijzen met csor:ParameterAspect, csor:Eenheid en
+#   csor:KwantificeerbaarAspect.
+#
+# APPLICATIEPROFIEL (beslisdocument.md A15)
+# Dit bestand is ook de bron van het applicatieprofiel dat het AP Waterkwaliteit (kandidaatstandaard
+# 2023-06-01) vervangt: OwlToShaclGenerator zet de OWL-restricties op de wk-klassen om naar
+# src/main/resources/generated-shapes.ttl. Omzettingsregels van de generator:
+#   owl:someValuesFrom C              -> sh:class C (of sh:datatype) + sh:minCount 1
+#   owl:allValuesFrom C               -> sh:class C (of sh:datatype), niet verplicht
+#   owl:maxCardinality n              -> sh:maxCount n
+#   owl:unionOf ( A B )               -> sh:or ( [sh:class A] [sh:class B] )
+#   owl:minCardinality 0 op property  -> een someValuesFrom op dezelfde property wordt niet verplicht
+# De AP-beperkingen staan op eigen wk-subklassen van de SOSA-klassen, niet op de SOSA-klassen zelf:
+# restricties op sosa:Observation zouden voor alle data gelden (ook voor de andere voorbeelden in
+# dit project en voor elk ander profiel dat SOSA gebruikt). SHACL valideert het niet-afgeleide
+# model: data typeert daarom zowel de wk-klasse als de SOSA-superklassen expliciet.
+# Klassen: wk:WaterkwaliteitObservatie, wk:WaterkwaliteitObservatieVerzameling, wk:Meetresultaat,
+# wk:Staal, wk:Staalname, wk:Meetplaats, wk:Meetput, wk:Meetnet, wk:Emissie.
+#
+# - VHA-waterlopen (owl:imports, bestand
+#   src/main/resources/be/vlaanderen/omgeving/data/ns/waterlopen/waterlopen.ttl): de klassen
+#   waterlopen:Vhag (waterloop), waterlopen:Wlas (waterloopsegment) en waterlopen:VhaCattraj
+#   (categorietraject), met hun superklasse waterlopen:VhaWaterloopobject; die is hier
+#   sosa:FeatureOfInterest (voorstel A15.6, C3). Een meetplaats is een ruimtelijk monster van een
+#   VHA-waterloopobject.
+
+@prefix wk:   <https://data.vlaanderen.be/ns/waterkwaliteit#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+@prefix csor: <https://data.omgeving.vlaanderen.be/ns/csor#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix geo:  <http://www.opengis.net/ont/geosparql#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix waterlopen: <https://data.omgeving.vlaanderen.be/ns/waterlopen#> .
+
+<https://data.vlaanderen.be/ns/waterkwaliteit> a owl:Ontology ;
+    rdfs:label "Waterkwaliteit (ontwerpversie)"@nl ;
+    rdfs:comment "Ontwerpversie van het herziene waterkwaliteit-vocabularium op basis van SSN/SOSA 2023, voorbereid voor het OSLO-traject. Niet gepubliceerd."@nl ;
+    owl:imports <https://data.omgeving.vlaanderen.be/ns/csor#> ,
+        <https://data.omgeving.vlaanderen.be/ns/waterlopen> .
+
+# CSOR-klassen die het profiel gebruikt. Ze worden hier ook gedeclareerd, met label en definitie,
+# zodat dit bestand als applicatieprofiel op zichzelf leesbaar is. rdfs:label en skos:definition
+# zijn letterlijk overgenomen uit csor.ttl (daar rdfs:label en rdfs:comment), zodat er na
+# samenvoegen geen tweede Nederlands label ontstaat. De restricties staan in csor.ttl en, versoepeld,
+# verderop in dit bestand.
+
+# Alignering CSOR - SOSA (voorstel C1): een parameteraspect is wat een observatie observeert.
+csor:ParameterAspect a owl:Class ;
+    rdfs:label "ParameterAspect"@nl , "Parameter aspect"@en ;
+    skos:definition "Een parameteraspect geeft de manier aan waarop de waarde van een parameter is uitgedrukt. Elk parameteraspect koppelt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect."@nl ;
+    skos:scopeNote "In het waterkwaliteitsprofiel de geobserveerde eigenschap van elke waterkwaliteitobservatie (sosa:observedProperty, 1..1), bv. PAS_2163 \"P t (totaal in water): massaconcentratie fosfor\". Het parameteraspect onderscheidt concentratie, vracht en debiet van dezelfde stof (beslisdocument.md A1)."@nl ;
+    rdfs:subClassOf sosa:Property ;
+    rdfs:comment "Voorstel (beslisdocument.md C1): een CSOR-parameteraspect is een sosa:Property, zodat het als sosa:observedProperty gebruikt kan worden. Hoort op termijn in de CSOR-ontologie."@nl ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/csor#> .
+
+csor:Eenheid a owl:Class ;
+    rdfs:label "Eenheid"@nl , "Unit"@en ;
+    skos:definition "Een maat waarin een natuurkundige dimensie of een kwantificeerbaar aspect numeriek kan worden uitgedrukt."@nl ;
+    skos:scopeNote "In het waterkwaliteitsprofiel de eenheid van elk meetresultaat (qudt:hasUnit, 1..1). De QUDT-eenheid volgt via skos:exactMatch of skos:broadMatch in CSOR, zodat ook eenheden als \"milligram fosfor per liter\" uitgedrukt kunnen worden (beslisdocument.md A2)."@nl ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/csor#> .
+
+csor:KwantificeerbaarAspect a owl:Class ;
+    rdfs:label "KwantificeerbaarAspect"@nl , "Quantifiable aspect"@en ;
+    skos:definition "Een kwantificeerbaar aspect duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie."@nl ;
+    skos:scopeNote "In het waterkwaliteitsprofiel de abstracte input en output van een berekeningsprocedure (sosa:hasInput, sosa:hasOutput), bv. vracht (KWA_5) = massaconcentratie (KWA_1) × debiet (KWA_10) (beslisdocument.md A7)."@nl ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/csor#> .
+
+wk:Emissie a owl:Class ;
+    rdfs:label "Emissie"@nl , "Emission"@en ;
+    skos:definition "Wat door een bron of activiteit in de omgeving (lucht, water of bodem) terechtkomt, beschouwd als entiteit: het resultaat van het uitstoten, lozen, weglekken of verspreiden, niet die handeling zelf. Wat er vrijkomt en in welke hoeveelheid, beschrijven de observaties van de emissie; de geobserveerde eigenschap is een CSOR-parameteraspect. Een emissie wordt gegenereerd door een activiteit, is het resultaat van een actuatie en is afgeleid van het proces waaruit ze voortkomt."@nl ;
+    skos:scopeNote "Een emissie kan geleid zijn (via een emissie- of lozingspunt: een schoorsteen, een lozing van afvalwater), niet-geleid (lekverliezen, opslag- en overslagverliezen van een installatie, een fakkel) of diffuus (landbouwactiviteiten zoals het sproeien van gewasbeschermingsmiddelen of bemesting, de uitstoot van dieren). De typering gebeurt met dct:type (bv. de RIE-IEPR-lijst emissie_type: geleid, niet-geleid, abnormaal, lekverlies, opslagverlies, overslagverlies)."@nl ,
+        "De definitie bakent bewust niet af wát er vrijkomt (stoffen, micro-organismen, warmte …). Dat gebeurt via de observaties: sosa:observedProperty is een CSOR-parameteraspect, en CSOR beheert de variabelen (chemische stoffen, groepsparameters, fysische eigenschappen, bio-indicatoren). Het medium waarin de emissie terechtkomt of dat ze draagt (afvalwater, afgas …), staat als dct:type naar codelijst-matrix."@nl ,
+        "prov:Activity en prov:Entity zijn disjunct. De handeling (uitstoten, lozen, weglekken, verspreiden) is de activiteit, bv. een sosa:Actuation (⊂ sosa:Execution ⊂ prov:Activity) volgens een proces (sosa:Procedure). De emissie is wat die handeling oplevert. Zoals een sosa:Sample het resultaat is van een sosa:Sampling en het FeatureOfInterest van observaties, is een emissie het resultaat van een actuatie en het (ultieme) FeatureOfInterest van concentratie-, debiet- en vrachtobservaties."@nl ,
+        "Een emissie is tijdsloos: de periode waarop een meting of berekening betrekking heeft, staat in sosa:phenomenonTime van de observatie. Voorbeelden: de lozing aan een meetput, een groep van lozingen."@nl ;
+    rdfs:subClassOf prov:Entity , sosa:FeatureOfInterest ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een emissie is gegenereerd door een activiteit (de handeling van lozen of uitstoten)."@nl ;
+        owl:onProperty prov:wasGeneratedBy ;
+        owl:someValuesFrom prov:Activity ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een emissie is het resultaat van een actuatie (sosa:Actuation)."@nl ;
+        owl:onProperty sosa:isResultOf ;
+        owl:someValuesFrom sosa:Actuation ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ] ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een emissie is afgeleid van het (emissie)proces waaruit ze voortkomt, bv. een riepr:Proces (⊂ sosa:Procedure)."@nl ;
+        owl:onProperty prov:wasDerivedFrom ;
+        owl:someValuesFrom sosa:Procedure ;
+        owl:minCardinality "0"^^xsd:nonNegativeInteger ] ;
+    rdfs:isDefinedBy <https://data.vlaanderen.be/ns/waterkwaliteit> .
+
+# Alignering VHA-waterlopen - SOSA (voorstel A15.6): waterlopen, segmenten en categorietrajecten zijn
+# de studieobjecten waarvan een meetplaats een ruimtelijk monster is. De alignering staat op hun
+# gemeenschappelijke superklasse waterlopen:VhaWaterloopobject (waterlopen.ttl).
+# Dat ze ook geo:Feature zijn, met hun geometrie via geo:hasGeometry, staat in het
+# waterlopen-vocabularium zelf (beslisdocument.md C3).
+# De klassen worden hier ook gedeclareerd, met label en definitie, zodat dit bestand als
+# applicatieprofiel op zichzelf leesbaar is. Het rdfs:label is identiek aan dat in waterlopen.ttl
+# (geen tweede Nederlands label na samenvoegen). De restricties staan enkel in waterlopen.ttl.
+waterlopen:VhaWaterloopobject a owl:Class ;
+    rdfs:label "VHA-waterlopen - VHA-waterloopobject"@nl , "Flemish Hydrographic Atlas watercourse object"@en ;
+    skos:definition "Object uit de Vlaamse Hydrografische Atlas dat een waterloop of een deel ervan voorstelt: een VHA-waterloop, een VHA-waterloopsegment of een VHA-categorietraject."@nl ;
+    skos:scopeNote "In het waterkwaliteitsprofiel het bemonsterde waterlichaam van een meetplaats (sosa:isSampleOf; beslisdocument.md A6, A15.6)."@nl ;
+    rdfs:subClassOf sosa:FeatureOfInterest ;
+    rdfs:comment "Voorstel (beslisdocument.md A15.6): een VHA-waterloopobject is een sosa:FeatureOfInterest. Hoort op termijn in het waterlopen-vocabularium."@nl ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/waterlopen> .
+
+waterlopen:Vhag a owl:Class ;
+    rdfs:label "VHA-waterlopen - VHA-waterloop"@nl , "Flemish Hydrographic Atlas watercourse"@en ;
+    skos:definition "Waterloop zoals opgenomen in de Vlaamse Hydrografische Atlas (VHA), geïdentificeerd door zijn gewestcode (VHAG): het geheel van de waterloopsegmenten die samen één waterloop vormen."@nl ;
+    skos:scopeNote "In het waterkwaliteitsprofiel het (ultieme) studieobject van observaties in oppervlaktewater: een meetplaats is een ruimtelijk monster van een VHA-waterloop (sosa:isSampleOf; beslisdocument.md A6, A15.6)."@nl ;
+    rdfs:subClassOf waterlopen:VhaWaterloopobject ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/waterlopen> .
+
+waterlopen:Wlas a owl:Class ;
+    rdfs:label "VHA-waterlopen - VHA-waterloopsegment"@nl , "Flemish Hydrographic Atlas watercourse segment"@en ;
+    skos:definition "Deel van een VHA-waterloop met eenduidige kenmerken: één bekken, categorie, beheerder, stroomgebied, oppervlaktewaterlichaam en VHA-zone. Het segment verwijst met code:vhag naar zijn waterloop."@nl ;
+    skos:scopeNote "Het segment is de fijnste eenheid van het VHA-netwerk; de koppeling van een meetplaats aan een waterloop verloopt via het dichtstbijzijnde segment (waterlopen_subset.py)."@nl ;
+    rdfs:subClassOf waterlopen:VhaWaterloopobject ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/waterlopen> .
+
+waterlopen:VhaCattraj a owl:Class ;
+    rdfs:label "VHA-waterlopen - VHA-categorietraject"@nl , "Flemish Hydrographic Atlas watercourse category section"@en ;
+    skos:definition "Deel van een VHA-waterloop met één en dezelfde categorie (bevaarbaar, eerste, tweede of derde categorie, niet geklasseerd)."@nl ;
+    rdfs:subClassOf waterlopen:VhaWaterloopobject ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/waterlopen> .
+
+# ---------------------------------------------------------------------------
+# CSOR-restricties, niet verplicht in waterkwaliteitdata (owl:minCardinality 0)
+# ---------------------------------------------------------------------------
+
+csor:ParameterAspect rdfs:subClassOf
+    [ a owl:Restriction ; owl:onProperty csor:heeftParameter ;
+      owl:someValuesFrom csor:Parameter ; owl:minCardinality "0"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty csor:heeftAspect ;
+      owl:someValuesFrom [ a owl:Class ; owl:unionOf ( csor:KwantificeerbaarAspect csor:KwalificeerbaarAspect ) ] ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ] .
+
+csor:Eenheid rdfs:subClassOf
+    [ a owl:Restriction ; owl:onProperty csor:heeftNatuurkundigeDimensie ;
+      owl:someValuesFrom csor:NatuurkundigeDimensie ; owl:minCardinality "0"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty csor:heeftKwantificeerbaarAspect ;
+      owl:someValuesFrom csor:KwantificeerbaarAspect ; owl:minCardinality "0"^^xsd:nonNegativeInteger ] .
+
+csor:KwantificeerbaarAspect rdfs:subClassOf
+    [ a owl:Restriction ; owl:onProperty csor:heeftNatuurkundigeDimensie ;
+      owl:someValuesFrom csor:NatuurkundigeDimensie ; owl:minCardinality "0"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty csor:toepasbareEenheid ;
+      owl:someValuesFrom csor:Eenheid ; owl:minCardinality "0"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty csor:heeftResultaattype ;
+      owl:someValuesFrom csor:Resultaattype ; owl:minCardinality "0"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty csor:kwantificeerbaarAspectType ;
+      owl:someValuesFrom xsd:string ; owl:minCardinality "0"^^xsd:nonNegativeInteger ] .
+
+# ===========================================================================
+# APPLICATIEPROFIEL: klassen en restricties (beslisdocument.md A15)
+# ===========================================================================
+
+# ---------------------------------------------------------------------------
+# Emissie: beperkingen op de beschrijvende eigenschappen
+# ---------------------------------------------------------------------------
+
+wk:Emissie rdfs:subClassOf
+    [ a owl:Restriction ;
+      rdfs:comment "Type van de emissie: de matrix (codelijst-matrix, bv. afvalwater) en eventueel het emissietype (RIE-IEPR emissie_type)."@nl ;
+      owl:onProperty dct:type ; owl:allValuesFrom skos:Concept ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "De actor aan wie de emissie wordt toegeschreven, bv. de exploitant."@nl ;
+      owl:onProperty prov:wasAttributedTo ; owl:allValuesFrom prov:Agent ] ,
+    [ a owl:Restriction ; owl:onProperty dct:identifier ; owl:allValuesFrom xsd:string ] ,
+    [ a owl:Restriction ; owl:onProperty dct:identifier ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Stalen die van de emissie genomen zijn."@nl ;
+      owl:onProperty sosa:hasSample ; owl:allValuesFrom sosa:Sample ] .
+
+# ---------------------------------------------------------------------------
+# Observatie
+# ---------------------------------------------------------------------------
+
+wk:WaterkwaliteitObservatie a owl:Class ;
+    rdfs:label "Waterkwaliteitobservatie"@nl , "Water quality observation"@en ;
+    skos:definition "Observatie die de waarde bepaalt van een CSOR-parameteraspect van een staal, een emissie, een meetplaats of een ander studieobject in het waterkwaliteitsbeleid."@nl ;
+    skos:scopeNote "Vervangt de zes observatiesubklassen van het AP Waterkwaliteit 2023 (ChemischAgensConcentratieObservatie, ChemischAgensVrachtObservatie, WaterkwaliteitParameterObservatie, BiotischeIndexObservatie, BioIndicatorObservatie, HydromorfologischeIndexObservatie). Wat er geobserveerd wordt (concentratie van nitraat, vracht van iopamidol, biotische index …), bepaalt het CSOR-parameteraspect in sosa:observedProperty, niet de klasse."@nl ,
+        "Een afgeleide observatie (bv. een vracht berekend uit concentratie en debiet) verwijst met sosa:hasInputValue naar de meetresultaten waaruit ze berekend is, en met sosa:relatedObservation naar de observaties die ze opleverden; haar procedure declareert de abstracte inputs met sosa:hasInput."@nl ;
+    rdfs:subClassOf sosa:Observation ;
+    rdfs:subClassOf
+    [ a owl:Restriction ;
+      rdfs:comment "Het directe studieobject: het staal, de emissie of de meetplaats."@nl ;
+      owl:onProperty sosa:hasFeatureOfInterest ; owl:someValuesFrom sosa:FeatureOfInterest ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Het ultieme studieobject, bv. de lozing waarvan het staal genomen is, of de waterloop."@nl ;
+      owl:onProperty sosa:hasUltimateFeatureOfInterest ; owl:allValuesFrom sosa:FeatureOfInterest ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasUltimateFeatureOfInterest ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Wat er geobserveerd wordt: een CSOR-parameteraspect (beslisdocument.md A1)."@nl ;
+      owl:onProperty sosa:observedProperty ; owl:someValuesFrom csor:ParameterAspect ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Het resultaat, altijd als object met eenheid (beslisdocument.md A2, A3)."@nl ;
+      owl:onProperty sosa:hasResult ; owl:someValuesFrom wk:Meetresultaat ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasResult ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Tijdstip of periode waarop de observatie betrekking heeft. Mag ontbreken als de verzameling (bv. het staal) ze draagt."@nl ;
+      owl:onProperty sosa:phenomenonTime ;
+      owl:allValuesFrom [ a owl:Class ; owl:unionOf ( time:Instant time:Interval ) ] ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:phenomenonTime ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:resultTime ; owl:allValuesFrom xsd:dateTime ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:resultTime ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "De observatiemethode, bij voorkeur een jaarversie uit het compendium (beslisdocument.md A10)."@nl ;
+      owl:onProperty sosa:usedProcedure ; owl:allValuesFrom sosa:Procedure ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:usedProcedure ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Aanbevolen, niet verplicht: het labo of de sensor (verplicht 1..1 in het AP 2023)."@nl ;
+      owl:onProperty sosa:madeBySensor ; owl:allValuesFrom sosa:Sensor ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Inputwaarden van een afgeleide observatie: de meetresultaten waaruit ze berekend is, bv. de concentratie en het debiet van een bruto vracht. Een waarde, geen observatie: een observatie is een activiteit (sosa:Execution ⊂ prov:Activity). Elke inputwaarde past bij een sosa:hasInput van de gebruikte procedure (SOSA 2023; beslisdocument.md A7)."@nl ;
+      owl:onProperty sosa:hasInputValue ; owl:allValuesFrom wk:Meetresultaat ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Verwante observatie: bij een afgeleide observatie de bronobservaties die de inputwaarden opleverden; anders een associatieve band, bv. netto vracht met bruto vracht."@nl ;
+      owl:onProperty sosa:relatedObservation ; owl:allValuesFrom sosa:Observation ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Concrete entiteiten die gebruikt zijn, bv. een databron (IMJV, meettoestel)."@nl ;
+      owl:onProperty prov:used ; owl:allValuesFrom prov:Entity ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Plaats van de observatie, bv. de meetput."@nl ;
+      owl:onProperty prov:atLocation ; owl:allValuesFrom prov:Location ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Betrokken actor, bv. de exploitant op het moment van de observatie."@nl ;
+      owl:onProperty prov:wasAssociatedWith ; owl:allValuesFrom prov:Agent ] ;
+    rdfs:isDefinedBy <https://data.vlaanderen.be/ns/waterkwaliteit> .
+
+wk:WaterkwaliteitObservatieVerzameling a owl:Class ;
+    rdfs:label "Waterkwaliteitobservatieverzameling"@nl , "Water quality observation collection"@en ;
+    skos:definition "Verzameling van waterkwaliteitobservaties met gedeelde kenmerken, bv. alle analyseresultaten van één staal of alle jaardebieten van één lozing."@nl ;
+    skos:scopeNote "Eigenschappen op de verzameling (studieobject, fenomeentijd, geobserveerde eigenschap) gelden voor alle leden (SOSA 2023, sosa:ObservationCollection). Behoudt de IRI uit het AP Waterkwaliteit 2023; refGeobserveerdWeer vervalt: weersomstandigheden zijn zelf observaties, te koppelen met sosa:relatedObservation."@nl ;
+    rdfs:subClassOf sosa:ObservationCollection ;
+    rdfs:subClassOf
+    [ a owl:Restriction ; owl:onProperty sosa:hasMember ; owl:someValuesFrom wk:WaterkwaliteitObservatie ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest ; owl:allValuesFrom sosa:FeatureOfInterest ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasUltimateFeatureOfInterest ; owl:allValuesFrom sosa:FeatureOfInterest ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasUltimateFeatureOfInterest ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:allValuesFrom csor:ParameterAspect ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:observedProperty ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:phenomenonTime ;
+      owl:allValuesFrom [ a owl:Class ; owl:unionOf ( time:Instant time:Interval ) ] ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:phenomenonTime ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:usedProcedure ; owl:allValuesFrom sosa:Procedure ] ;
+    rdfs:isDefinedBy <https://data.vlaanderen.be/ns/waterkwaliteit> .
+
+wk:Meetresultaat a owl:Class ;
+    rdfs:label "Meetresultaat"@nl , "Measurement result"@en ;
+    skos:definition "Kwantitatief resultaat van een waterkwaliteitobservatie: een waarde of een begrensd interval, met een CSOR-eenheid."@nl ;
+    skos:scopeNote "Een gemeten waarde staat in qudt:numericValue. Een resultaat onder de rapportagegrens (teken <) staat als qudt:upperBound, eventueel met qudt:lowerBound 0 (beslisdocument.md A3). Minstens één van beide hoort aanwezig te zijn; die keuze tussen properties drukt de generator niet uit."@nl ;
+    rdfs:subClassOf sosa:Result ;
+    rdfs:subClassOf
+    [ a owl:Restriction ;
+      rdfs:comment "De CSOR-eenheid; de QUDT-eenheid volgt via de SKOS-mapping in CSOR (beslisdocument.md A2)."@nl ;
+      owl:onProperty qudt:hasUnit ; owl:someValuesFrom csor:Eenheid ] ,
+    [ a owl:Restriction ; owl:onProperty qudt:hasUnit ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty qudt:numericValue ; owl:allValuesFrom xsd:decimal ] ,
+    [ a owl:Restriction ; owl:onProperty qudt:numericValue ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty qudt:lowerBound ; owl:allValuesFrom xsd:decimal ] ,
+    [ a owl:Restriction ; owl:onProperty qudt:lowerBound ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty qudt:upperBound ; owl:allValuesFrom xsd:decimal ] ,
+    [ a owl:Restriction ; owl:onProperty qudt:upperBound ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:isResultOf ; owl:allValuesFrom sosa:Observation ] ;
+    rdfs:isDefinedBy <https://data.vlaanderen.be/ns/waterkwaliteit> .
+
+# ---------------------------------------------------------------------------
+# Bemonstering
+# ---------------------------------------------------------------------------
+
+wk:Staal a owl:Class ;
+    rdfs:label "Staal"@nl , "Sample"@en ;
+    skos:definition "Fysiek monster van water, afvalwater, slib of een ander medium, genomen om er analyses op uit te voeren."@nl ;
+    skos:scopeNote "Het staal is het directe studieobject van de analyseresultaten; de emissie of de waterloop waarvan het genomen is, is het ultieme studieobject (beslisdocument.md A4). De matrix staat als dct:type."@nl ;
+    rdfs:subClassOf sosa:Sample ;
+    rdfs:subClassOf
+    [ a owl:Restriction ;
+      rdfs:comment "Waarvan het staal genomen is: een emissie of een meetplaats."@nl ;
+      owl:onProperty sosa:isSampleOf ; owl:someValuesFrom sosa:FeatureOfInterest ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "De staalname waaruit het staal voortkomt."@nl ;
+      owl:onProperty sosa:isResultOf ; owl:someValuesFrom wk:Staalname ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:isResultOf ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Matrix van het staal (codelijst-matrix)."@nl ;
+      owl:onProperty dct:type ; owl:allValuesFrom skos:Concept ] ,
+    [ a owl:Restriction ; owl:onProperty dct:identifier ; owl:allValuesFrom xsd:string ] ,
+    [ a owl:Restriction ; owl:onProperty dct:identifier ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ;
+    rdfs:isDefinedBy <https://data.vlaanderen.be/ns/waterkwaliteit> .
+
+wk:Staalname a owl:Class ;
+    rdfs:label "Staalname"@nl , "Sampling"@en ;
+    skos:definition "Het nemen van een staal op een meetput of meetplaats."@nl ;
+    rdfs:subClassOf sosa:Sampling ;
+    rdfs:subClassOf
+    [ a owl:Restriction ;
+      rdfs:comment "Wat bemonsterd wordt: de emissie of de meetplaats."@nl ;
+      owl:onProperty sosa:hasFeatureOfInterest ; owl:someValuesFrom sosa:FeatureOfInterest ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasFeatureOfInterest ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:hasResult ; owl:someValuesFrom wk:Staal ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "De meetput of de staalnemer."@nl ;
+      owl:onProperty sosa:madeBySampler ; owl:allValuesFrom sosa:Sampler ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:madeBySampler ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "De staalnameprocedure, bij voorkeur een jaarversie uit het compendium."@nl ;
+      owl:onProperty sosa:usedProcedure ; owl:allValuesFrom sosa:SamplingProcedure ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:usedProcedure ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:phenomenonTime ;
+      owl:allValuesFrom [ a owl:Class ; owl:unionOf ( time:Instant time:Interval ) ] ] ,
+    [ a owl:Restriction ; owl:onProperty sosa:phenomenonTime ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Wie de staalname uitvoert of in opdracht geeft, bv. de VMM."@nl ;
+      owl:onProperty prov:wasAssociatedWith ; owl:allValuesFrom prov:Agent ] ;
+    rdfs:isDefinedBy <https://data.vlaanderen.be/ns/waterkwaliteit> .
+
+wk:Meetplaats a owl:Class ;
+    rdfs:label "Meetplaats"@nl , "Monitoring site"@en ;
+    skos:definition "Plaats in of aan een waterlichaam of waterloop waar metingen en staalnames gebeuren; ruimtelijk monster van dat waterlichaam."@nl ;
+    skos:scopeNote "Vervangt wk:Meetpunt uit het AP Waterkwaliteit 2023 (een ISO spatial sampling feature). Is tegelijk sosa:SpatialSample (monster van de waterloop), sosa:Platform (draagt meetapparatuur) en sosa:FeatureOfInterest (beslisdocument.md A6; CLAUDE.md R11)."@nl ,
+        "Een meetplaats is geen sosa:System: ze staat aan de geobserveerde kant, als het punt dat de waterloop vertegenwoordigt. Als systeem zou ze waarnemer van zichzelf worden. Staat er apparatuur (bv. een meetstation met continue sondes), dan is dat station een apart sosa:System of sosa:Sensor dat de meetplaats host (sosa:hosts). Anders dan de meetput, een installatie die op een lozing meet (beslisdocument.md A15.5)."@nl ,
+        "De meetplaats is een geo:Feature: geo:hasGeometry heeft als domein geo:Feature."@nl ;
+    rdfs:subClassOf sosa:SpatialSample , sosa:Platform , geo:Feature ;
+    rdfs:subClassOf
+    [ a owl:Restriction ;
+      rdfs:comment "Het bemonsterde waterlichaam, bv. een VHA-waterloop."@nl ;
+      owl:onProperty sosa:isSampleOf ; owl:someValuesFrom sosa:FeatureOfInterest ] ,
+    [ a owl:Restriction ;
+      rdfs:comment "Voorstel A15.6: een meetplaats is een monster van een VHA-waterloopobject (waterloop, waterloopsegment of categorietraject). Uit te breiden met KRW-waterlichamen (D2) en stilstaande waters zodra daar een klasse voor bestaat."@nl ;
+      owl:onProperty sosa:isSampleOf ;
+      owl:allValuesFrom waterlopen:VhaWaterloopobject ] ,
+    [ a owl:Restriction ; owl:onProperty geo:hasGeometry ; owl:someValuesFrom geo:Geometry ] ,
+    [ a owl:Restriction ; owl:onProperty geo:hasGeometry ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty adms:identifier ; owl:allValuesFrom adms:Identifier ] ;
+    rdfs:isDefinedBy <https://data.vlaanderen.be/ns/waterkwaliteit> .
+
+wk:Meetput a owl:Class ;
+    rdfs:label "Meetput"@nl , "Sampling chamber"@en ;
+    skos:definition "Controle-inrichting op een lozing waar afvalwater bemonsterd en het debiet gemeten wordt. Een meetput is geen gat in de grond: het is een verplichte controle-inrichting (VLAREM) met meetgoot, debietmeter en eventueel een staalnameautomaat. Dat is infrastructuur die een procedure uitvoert, en precies waarvoor sosa:System bedoeld is."@nl ;
+    skos:scopeNote "De meetput is een sosa:System (via sosa:Sampler ⊂ sosa:System) en heeft daarmee, zoals SOSA 2023 elk systeem toekent, agency (sosa:System ⊂ prov:Agent, prov:Entity). SSN beschrijft systemen op elk abstractieniveau (sosa:hasSubSystem): een staalname of meting kan aan de meetput als geheel worden toegeschreven, ook als de bron niet vermeldt welk onderdeel (debietmeter, staalnameautomaat) het deed. Dat sluit aan bij RIE-IEPR, waar het meetpunt een systeem is (beslisdocument.md A9, A15.5, C4)."@nl ,
+        "Een meetput die zelf meet (bv. met een debietmeter), is bovendien een sosa:Sensor; de observatie krijgt dan sosa:madeBySensor naar de meetput. Doe dat alleen als de bron het vermeldt: een IMJV-jaardebiet is een aangifte van de exploitant (prov:used naar de databron), geen meting door de meetput."@nl ,
+        "De meetput is ook een prov:Location: observaties verwijzen er met prov:atLocation naar (bereik prov:Location). Dat is het minimum wanneer niet bekend is wat of wie er gemeten heeft. Het RIE-IEPR-meetpunt is met rdfs:seeAlso gekoppeld."@nl ,
+        "De meetput is een geo:Feature: geo:hasGeometry heeft als domein geo:Feature."@nl ;
+    rdfs:subClassOf sosa:Sampler , prov:Location , geo:Feature ;
+    rdfs:subClassOf
+    [ a owl:Restriction ; owl:onProperty adms:identifier ; owl:allValuesFrom adms:Identifier ] ,
+    [ a owl:Restriction ; owl:onProperty geo:hasGeometry ; owl:allValuesFrom geo:Geometry ] ,
+    [ a owl:Restriction ; owl:onProperty geo:hasGeometry ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ;
+    rdfs:isDefinedBy <https://data.vlaanderen.be/ns/waterkwaliteit> .
+
+wk:Meetnet a owl:Class ;
+    rdfs:label "Meetnet"@nl , "Monitoring network"@en ;
+    skos:definition "Verzameling meetplaatsen die samen voor een bepaald doel opgevolgd worden, bv. het fysisch-chemisch meetnet oppervlaktewater."@nl ;
+    skos:scopeNote "Behoudt de IRI uit het AP Waterkwaliteit 2023, maar als sosa:SampleCollection in plaats van ISO SF_SamplingFeatureCollection. Nog niet in de datavoorbeelden."@nl ;
+    rdfs:subClassOf sosa:SampleCollection ;
+    rdfs:subClassOf
+    [ a owl:Restriction ; owl:onProperty sosa:hasMember ; owl:someValuesFrom wk:Meetplaats ] ;
+    rdfs:isDefinedBy <https://data.vlaanderen.be/ns/waterkwaliteit> .

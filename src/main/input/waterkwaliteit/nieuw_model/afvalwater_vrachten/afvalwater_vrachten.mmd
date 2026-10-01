@@ -1,0 +1,93 @@
+flowchart LR
+
+subgraph PROC["PROCEDURE"]
+    PR1["ex:procedure-bruto-vracht
+    sosa:ObservingProcedure
+    concentratie × debiet"]
+    K1["csor-kwa:KWA_1
+    massaconcentratie"]
+    K10["csor-kwa:KWA_10
+    debiet (vracht)"]
+    K5["csor-kwa:KWA_5
+    vracht"]
+    PAc["csor-parameteraspect:PAS_182
+    Amidotriz (standaard in water): massaconcentratie"]
+    PAd["csor-parameteraspect:PAS_1839
+    Q (standaard in water): debiet (vracht)"]
+    PAv["csor-parameteraspect:PAS_183
+    Amidotriz (standaard in water): vracht"]
+end
+
+subgraph INFRA["INFRASTRUCTUUR"]
+    G1["ex:lozingsgroep-bedrijven-rio
+    sosa:FeatureOfInterest · prov:Entity
+    lozingen van bedrijven via riool
+    dct:type matrix:afvalwater"]
+end
+
+subgraph WAAR["WAARNEMING — 2014"]
+    T1["ex:periode-2014
+    time:Interval"]
+    C1["ex:collectie-vrachtbronnen-bedrijven-rio-2014
+    sosa:ObservationCollection"]
+    OC["ex:observatie-concentratie-…-P_117
+    sosa:Observation"]
+    OD["ex:observatie-debiet-bedrijven-rio-2014
+    sosa:Observation"]
+    RC["ex:resultaat-concentratie-…-P_117
+    wk:Meetresultaat
+    322.35 µg/L"]
+    RD["ex:resultaat-debiet-bedrijven-rio-2014
+    wk:Meetresultaat
+    856 553 m³"]
+    subgraph DERIVATION["DERIVATION"]
+        OV["ex:observatie-brutovracht-…-P_117
+        sosa:Observation (afgeleid)
+        276 107 193 mg"]
+        ON["ex:observatie-nettovracht-…-P_117
+        sosa:Observation
+        276 107 193 mg"]
+    end
+end
+
+PR1 -->|sosa:hasInput| K1
+PR1 -->|sosa:hasInput| K10
+PR1 -->|sosa:hasOutput| K5
+C1 -->|sosa:hasFeatureOfInterest| G1
+C1 -->|sosa:phenomenonTime| T1
+C1 -->|sosa:hasMember| OC
+C1 -->|sosa:hasMember| OD
+OC -->|sosa:observedProperty| PAc
+OD -->|sosa:observedProperty| PAd
+OV -->|sosa:observedProperty| PAv
+OV -->|sosa:usedProcedure| PR1
+OC -->|sosa:hasResult| RC
+OD -->|sosa:hasResult| RD
+OV -->|sosa:hasInputValue| RC
+OV -->|sosa:hasInputValue| RD
+OV -.->|sosa:relatedObservation| OC
+OV -.->|sosa:relatedObservation| OD
+OV -->|sosa:hasFeatureOfInterest| G1
+OV -->|sosa:phenomenonTime| T1
+ON -.->|sosa:relatedObservation| OV
+
+style PROC fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style WAAR fill:#e7a3be,stroke:#2E5C8A,color:#000
+style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+style PR1 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style K1 fill:#fe7130,stroke:#2E5C8A,color:#000
+style K10 fill:#fe7130,stroke:#2E5C8A,color:#000
+style K5 fill:#fe7130,stroke:#2E5C8A,color:#000
+style PAc fill:#fe7130,stroke:#2E5C8A,color:#000
+style PAd fill:#fe7130,stroke:#2E5C8A,color:#000
+style PAv fill:#fe7130,stroke:#2E5C8A,color:#000
+style G1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style T1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style C1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OC fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OD fill:#e54b89,stroke:#2E5C8A,color:#fff
+style RC fill:#f8b622,stroke:#2E5C8A,color:#000
+style RD fill:#f8b622,stroke:#2E5C8A,color:#000
+style OV fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ON fill:#e54b89,stroke:#2E5C8A,color:#fff

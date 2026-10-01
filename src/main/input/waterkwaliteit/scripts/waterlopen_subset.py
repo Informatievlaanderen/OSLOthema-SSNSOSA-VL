@@ -14,7 +14,8 @@ Koppelregel per meetplaats (zie ../featureofinterest.md §3.3):
 
 Uitvoer (in ../waterlopen):
 - meetplaats_waterloop.csv: één rij per meetplaats met segment, waterloop, afstand, controle.
-- waterlopen_meetplaatsen.ttl: alle triples van de gekoppelde segmenten en hun waterlopen.
+- waterlopen_meetplaatsen.ttl: alle triples van de gekoppelde segmenten en hun waterlopen, met hun
+  geometrie (geo:hasGeometry naar een blank node, zie waterlopen_herstel.py stap 4).
   Die zijn klein genoeg voor de Maven-validatie (bewust .ttl).
 
 Gebruik (vanuit om het even welke werkmap):
@@ -36,7 +37,7 @@ from shapely.ops import transform
 from shapely.strtree import STRtree
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from waterlopen_herstel import CODE, NT, ntriples, schrijf_turtle  # noqa: E402
+from waterlopen_herstel import CODE, NT, P_HASGEOMETRY, P_WKT, ntriples, schrijf_turtle  # noqa: E402
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 WATERLOPEN = os.path.normpath(os.path.join(HIER, "..", "waterlopen"))
@@ -45,7 +46,6 @@ SAMPLEPOINTS = os.path.normpath(os.path.join(
 ZOEKSTRAAL = 2000  # m
 DREMPEL = 100  # m
 
-P_WKT = "<http://www.opengis.net/ont/geosparql#asWKT>"
 P_NAAM = f"<{CODE}naam>"
 P_VHAG = f"<{CODE}vhag>"
 LIT = re.compile(r'^"(.*)"(?:@\w+|\^\^<[^>]*>)?$')
@@ -57,26 +57,49 @@ def literal(o):
     return m.group(1).replace('\\"', '"').replace("\\\\", "\\") if m else None
 
 
-def lees_triples(pad):
-    """Groepeer de N-Triples per subject: {subject: [regel, ...]}."""
+def lees_triples(pad, voorvoegsel):
+    """Groepeer de N-Triples per subject: {subject: [(s, p, o), ...]}. Blank-node-labels krijgen
+    `voorvoegsel`, zodat ze uniek blijven wanneer triples uit meerdere bestanden samengaan."""
+    def bn(t):
+        return f"_:{voorvoegsel}{t[2:]}" if t.startswith("_:") else t
     per_subject = {}
     for r in ntriples(pad):
         m = NT.match(r)
         if m:
-            per_subject.setdefault(m.group(1), []).append(m.groups())
+            s, p, o = (bn(t) for t in m.groups())
+            per_subject.setdefault(s, []).append((s, p, o))
     return per_subject
+
+
+def met_geometrie(per_subject, s):
+    """De triples van `s` plus die van zijn geometrie (blank node)."""
+    triples = list(per_subject[s])
+    for _, p, o in per_subject[s]:
+        if p == P_HASGEOMETRY and o in per_subject:
+            triples += per_subject[o]
+    return triples
+
+
+def wkt_van(per_subject, s):
+    for _, p, o in met_geometrie(per_subject, s):
+        if p == P_WKT:
+            return o
+    return None
 
 
 def main():
     naar_l72 = Transformer.from_crs("EPSG:4326", "EPSG:31370", always_xy=True).transform
 
-    segmenten = lees_triples(os.path.join(WATERLOPEN, "wlas.trig"))
+    segmenten = lees_triples(os.path.join(WATERLOPEN, "wlas.trig"), "wlas")
     geoms, info = [], []
     for s, triples in segmenten.items():
-        d = {p: o for _, p, o in triples}
-        if P_WKT not in d:
+        if s.startswith("_:"):
             continue
-        geoms.append(transform(naar_l72, wkt.loads(literal(d[P_WKT]))))
+        d = {p: o for _, p, o in triples}
+        w = wkt_van(segmenten, s)
+        if w is None:
+            continue
+        geoms.append(transform(naar_l72, wkt.loads(literal(w))))
         info.append((s, literal(d.get(P_NAAM, "")) or "", d.get(P_VHAG)))
     boom = STRtree(geoms)
     print(f"{len(geoms)} segmenten ingelezen", file=sys.stderr)
@@ -113,17 +136,17 @@ def main():
         w.writeheader()
         w.writerows(rijen)
 
-    waterlopen = lees_triples(os.path.join(WATERLOPEN, "vhag.trig"))
+    waterlopen = lees_triples(os.path.join(WATERLOPEN, "vhag.trig"), "vhag")
     with tempfile.NamedTemporaryFile("w", suffix=".nt", delete=False, encoding="utf-8") as nt:
         for s in sorted(gekozen_seg):
-            for t in segmenten[s]:
+            for t in met_geometrie(segmenten, s):
                 nt.write(" ".join(t) + " .\n")
         ontbrekend = []
         for s in sorted(gekozen_wl):
             if s not in waterlopen:
                 ontbrekend.append(s)
                 continue
-            for t in waterlopen[s]:
+            for t in met_geometrie(waterlopen, s):
                 nt.write(" ".join(t) + " .\n")
     ttl_pad = os.path.join(WATERLOPEN, "waterlopen_meetplaatsen.ttl")
     try:

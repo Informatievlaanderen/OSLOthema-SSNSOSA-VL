@@ -98,7 +98,7 @@ Schrijf een Turtle-bestand met minstens:
 3. Een `sosa:ObservationCollection` met de gedeelde metadata op collectieniveau
 4. Drie volledige uurobservaties (kies zelf welke) met `sosa:phenomenonTime` als
    `time:Interval` (half-open interval: begin inclusief, einde exclusief)
-5. De dagobservatie als afgeleid gegeven met de juiste koppeling aan de collectie
+5. De dagobservatie als afgeleid gegeven, met de juiste koppeling aan de uurresultaten en aan de collectie
 
 Gebruik `https://example.org/verkeersmetingen/` als basis-IRI.
 
@@ -119,8 +119,9 @@ Gebruik `https://example.org/verkeersmetingen/` als basis-IRI.
    Welke properties gebruik je, en waarom staat de dagsom **niet** als `sosa:hasMember` in
    de collectie?
 4. Wanneer kies je voor `sosa:hasSimpleResult` en wanneer voor `sosa:hasResult` met een
-   apart `qudt:QuantityValue`-object? Wat zou je hier anders doen als de eenheid
-   (voertuigen/uur vs voertuigen/dag) extern gerefereerd moet worden?
+   apart resultaatobject? Waarom volstaat een literal hier niet zodra de dagsom naar haar
+   inputwaarden moet verwijzen? Wat is het verschil tussen een inputwaarde
+   (`sosa:hasInputValue`) en een bronobservatie (`sosa:relatedObservation`)?
 
 ---
 

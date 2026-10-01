@@ -12,6 +12,10 @@ Herstel:
 2. wlas: code:vhazonenr krijgt een eigen namespace
    (…/id/waterloop/vhazone/<nr>) in plaats van waterloop:<nr>.
 3. wlas en vhacattraj: code:vhag verwijst al naar de gewestcode en blijft ongewijzigd.
+4. vhag, wlas en vhacattraj: geosparql:asWKT staat in de bron rechtstreeks op het object. Het
+   domein van geosparql:asWKT is geo:Geometry, dat disjunct is met geo:Feature. Het object wordt
+   daarom `a geo:Feature ; geo:hasGeometry [ a geo:Geometry ; geo:asWKT … ]` (blank node),
+   zoals GeoSPARQL het bedoelt (../beslisdocument.md C3).
 
 Invoer: de originele vhag, wlas en vhacattraj (.ttl of .trig), standaard uit
 ~/git/shapefile_to_rdf/rdf. Al herstelde bestanden worden geweigerd.
@@ -38,6 +42,9 @@ SKOS_NOTATION = "<http://www.w3.org/2004/02/skos/core#notation>"
 RDF_TYPE = "<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>"
 P_VHAG = f"<{CODE}vhag>"
 P_VHAZONENR = f"<{CODE}vhazonenr>"
+GEO = "http://www.opengis.net/ont/geosparql#"
+P_WKT = f"<{GEO}asWKT>"
+P_HASGEOMETRY = f"<{GEO}hasGeometry>"
 
 PREFIXEN = f"""@prefix code: <{CODE}> .
 @prefix waterloop: <{WATERLOOP}> .
@@ -56,8 +63,27 @@ PREFIXEN = f"""@prefix code: <{CODE}> .
 @prefix xs: <http://www.w3.org/2001/XMLSchema#> .
 """
 
-# N-Triples-regel: <s> <p> o .   (o = IRI of literal)
-NT = re.compile(r"^(<[^>]*>) (<[^>]*>) (.*) \.$")
+# N-Triples-regel: s <p> o .   (s = IRI of blank node; o = IRI, blank node of literal)
+NT = re.compile(r"^(<[^>]*>|_:\S+) (<[^>]*>) (.*) \.$")
+
+
+class Geometrieen:
+    """Schrijft een triple; zet `s geosparql:asWKT o` om naar een geo:Feature met een
+    geo:Geometry als blank node (stap 4)."""
+
+    def __init__(self, naam):
+        self.naam, self.n = naam, 0
+
+    def schrijf(self, f, s, p, o):
+        if p != P_WKT or s.startswith("_:"):
+            f.write(f"{s} {p} {o} .\n")
+            return
+        self.n += 1
+        g = f"_:{self.naam}geom{self.n}"
+        f.write(f"{s} {RDF_TYPE} <{GEO}Feature> .\n")
+        f.write(f"{s} {P_HASGEOMETRY} {g} .\n")
+        f.write(f"{g} {RDF_TYPE} <{GEO}Geometry> .\n")
+        f.write(f"{g} {P_WKT} {o} .\n")
 
 
 def zoek(invoermap, naam):
@@ -110,6 +136,7 @@ def herstel_vhag(pad, werkmap):
     if len(set(nieuw.values())) != len(nieuw):
         sys.exit("vhag-codes zijn niet uniek: herstel afgebroken")
     uit = os.path.join(werkmap, "vhag.nt")
+    geom = Geometrieen("vhag")
     with open(uit, "w", encoding="utf-8") as f:
         for r in regels:
             m = NT.match(r)
@@ -123,14 +150,16 @@ def herstel_vhag(pad, werkmap):
                 f.write(f'{ns} {SKOS_NOTATION} "{code}"^^<{CODE}vhag> .\n')
                 f.write(f'{ns} {SKOS_NOTATION} "{oidn}"^^<{CODE}oidn> .\n')
             else:
-                f.write(f"{ns} {p} {o} .\n")
-    print(f"vhag: {len(nieuw)} waterlopen hernoemd naar hun gewestcode", file=sys.stderr)
+                geom.schrijf(f, ns, p, o)
+    print(f"vhag: {len(nieuw)} waterlopen hernoemd naar hun gewestcode; {geom.n} geometrieën als geo:Geometry",
+          file=sys.stderr)
     return uit, set(nieuw.values())
 
 
 def herstel_verwijzers(pad, naam, werkmap, geldig):
     uit = os.path.join(werkmap, f"{naam}.nt")
     refs, dangling, zones = set(), set(), 0
+    geom = Geometrieen(naam)
     with open(uit, "w", encoding="utf-8") as f:
         for r in ntriples(pad):
             m = NT.match(r)
@@ -144,9 +173,10 @@ def herstel_verwijzers(pad, naam, werkmap, geldig):
             elif p == P_VHAZONENR and o.startswith("<" + WATERLOOP):
                 o = "<" + VHAZONE + o[len("<" + WATERLOOP):]
                 zones += 1
-            f.write(f"{s} {p} {o} .\n")
+            geom.schrijf(f, s, p, o)
     print(f"{naam}: {len(refs)} verschillende code:vhag-verwijzingen, {len(dangling)} zonder waterloop in vhag"
-          + (f"; {zones} vhazonenr verplaatst naar {VHAZONE}" if zones else ""), file=sys.stderr)
+          + (f"; {zones} vhazonenr verplaatst naar {VHAZONE}" if zones else "")
+          + f"; {geom.n} geometrieën als geo:Geometry", file=sys.stderr)
     return uit, dangling
 
 

@@ -28,6 +28,7 @@ MATRIX = Namespace("https://data.omgeving.vlaanderen.be/id/concept/matrix/")
 PROCEDURE = Namespace("https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/")
 CSOR_PARAMETERASPECT = Namespace("https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/")
 CSOR_EENHEID = Namespace("https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/")
+WK = Namespace("https://data.vlaanderen.be/ns/waterkwaliteit#")  # ontwerpversie, beslisdocument.md A14
 EPSG31370 = "<http://www.opengis.net/def/crs/EPSG/0/31370>"
 
 _CSOR_B = "src/main/resources/be/vlaanderen/omgeving/data/id/conceptscheme/csor"

@@ -27,7 +27,7 @@
     "Statistische nomenclatuur van de Economische activiteiten in de Europese Gemeenschap (Belgische versie)"@nl,
     "Statistische Systematik der Wirtschaftszweige in der Europäischen Gemeinschaft (belgische Fassung)"@de;
   owl:versionInfo "Draft 2026-08-24";
-  dcterms:modified "2026-08-24T14:50"^^xsd:dateTime;
+  dcterms:modified "2026-08-24T14:50:00"^^xsd:dateTime;
   dcterms:creator <https://org.belgif.be/id/CbeRegisteredEntity/0314595348#statbel>;
   dcterms:rightsHolder <https://org.belgif.be/id/CbeRegisteredEntity/0314595348#statbel>;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/>;

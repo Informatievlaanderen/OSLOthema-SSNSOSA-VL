@@ -22,9 +22,16 @@ subgraph WAAR["WAARNEMING — 28 april 2026 (dinsdag)"]
     W1["ex:collectie-FMN-021-20260428
     sosa:ObservationCollection"]
 
+    SM["ex:sampling-meetpunt-FMN-021
+    sosa:Sampling
+    keuze van het meetpunt op F1"]
+
     WD["ex:obs-...-dag
     sosa:Observation
-    hasSimpleResult: 2541"]
+    hasResult: 2541 (unit:NUM)"]
+    RU["ex:resultaat-...-00u … -23u
+    24 × sosa:Result (unit:NUM)
+    de waarden achter de uurobservaties"]
     TD["time:Interval
     28/04 00:00 → 29/04 00:00"]
 
@@ -95,6 +102,8 @@ style I3 fill:#60c4e4,stroke:#2E5C8A,color:#000
 %% stijlen nodes WAARNEMING — collectie en dagobservatie
 style W1 fill:#e54b89,stroke:#2E5C8A,color:#fff
 style WD fill:#e54b89,stroke:#2E5C8A,color:#fff
+style SM fill:#e54b89,stroke:#2E5C8A,color:#fff
+style RU fill:#f8b622,stroke:#2E5C8A,color:#000
 style TD fill:#f8b622,stroke:#2E5C8A,color:#000
 
 %% stijlen nodes WAARNEMING — uurobservaties
@@ -152,6 +161,8 @@ style T23 fill:#f8b622,stroke:#2E5C8A,color:#000
 %% relaties — infrastructuur
 I1 -->|sosa:hosts| I2
 I1 -->|sosa:isSampleOf| I3
+SM -->|sosa:hasFeatureOfInterest| I3
+SM -->|sosa:hasResult| I1
 I2 -->|sosa:implements| P1
 I2 -->|sosa:observes| PA
 I1 -->|sosa:hasProperty| PA
@@ -187,8 +198,8 @@ W1 -->|sosa:hasMember| W22
 W1 -->|sosa:hasMember| W23
 
 %% dagobservatie — afgeleid van de uurcollectie
-WD -->|sosa:relatedObservation| W1
-WD -->|sosa:hasInputValue| W1
+WD -.->|sosa:relatedObservation| W1
+WD -->|sosa:hasInputValue| RU
 
 %% relaties — observaties → tijdstippen
 WD  -->|sosa:phenomenonTime| TD

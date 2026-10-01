@@ -1,0 +1,643 @@
+@prefix csor:    <https://data.omgeving.vlaanderen.be/ns/csor#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+
+#################################################################
+# csor.ttl — op zichzelf staande CSOR-ontologie
+#
+# Volledig herschreven op basis van de werkelijke registerdata (analyse/csor_merged.ttl,
+# 274.931 triples, `drager`-graph voor de schemadeclaraties zelf) — niet enkel de eerdere
+# concept-versie herwerkt. Zie csor-testing/reports/rapport_ontologie_definities.md voor de
+# label/comment-consistentiebespreking die aan dit bestand voorafging.
+#
+# ONTWERPPRINCIPES
+# -----------------
+# 1. Geen `rdfs:domain` op properties met meer dan één domeinklasse (bv. `heeftDoelParameter`
+#    wordt gebruikt op 4 verschillende klassen) — een globale `rdfs:domain` zou daar feitelijk
+#    onjuist zijn (rdfs:domain is een universele bewering: "alles met deze property is van dit
+#    type"). Dit is bovendien al de bewuste keuze in de bestaande testharness
+#    (CosrValidationTest.SHACL_INFERENCE_RULES: "no domain/range rules, to prevent blank nodes
+#    from being typed ... via rdfs:range"). In plaats daarvan: per-klasse OWL-restricties
+#    (`rdfs:subClassOf [ a owl:Restriction ; owl:onProperty ... ]`), zie sectie CLASS RESTRICTIONS.
+# 2. `rdfs:range` wél overal waar het bereik empirisch eenduidig is (alle 24 objectproperties
+#    resolven naar exact één doelklasse in de echte data — geen enkele uitzondering).
+# 3. GEEN kardinaliteitsrestricties (gewijzigd 2026-09-30, OSLOthema-SSNSOSA-VL): de ontologie
+#    definieert, ze valideert niet. Wat vroeger `owl:cardinality 1`/`owl:minCardinality 1` was, is
+#    `owl:someValuesFrom <bereik>` (er is zo'n waarde); wat `owl:maxCardinality 1` was, is
+#    `owl:allValuesFrom <bereik>` (elke waarde is van dat type). "Hoogstens één" blijft behouden
+#    als `owl:FunctionalProperty` voor de CSOR-eigen properties (sectie FUNCTIONELE PROPERTIES).
+#    Reden: kardinaliteiten beschrijven de volledigheid van het register. Wie de ontologie laadt en
+#    naar CSOR-concepten verwijst (bv. een datavoorbeeld dat een parameteraspect als
+#    csor:ParameterAspect typeert), kreeg ze anders als gesloten-wereld-SHACL opgelegd.
+#    Volledigheidscontroles van het register horen in de SHACL-profielen per codelijst
+#    (csor-*-ap-constraints.ttl). De oorspronkelijke tellingen (>95%-regel) blijven daar de basis.
+#    De restrictie op de PubChem-`compound` (maxCardinality 1, geen gekend bereik) is weggelaten.
+# 4. Voor `csor:ParameterTerm` en `csor:VeeltermParameterTerm` (blanke-knoop-klassen): GEEN
+#    strikte cardinality-restricties. CLAUDE.md §4 documenteert dat blanke-knoop-identiteit
+#    verloren gaat over de gepagineerde CONSTRUCT-fetch van deze twee klassen heen — empirisch
+#    bevestigd (1279 getypeerde blanke knopen vs. 1279 via `heeftTerm` bereikte blanke knopen,
+#    0 overlap). Enkel lichte `someValuesFrom`/`range`-typering; voor de werkelijke structuur is
+#    `sparql/samenstellende_variabelen_check.sparql` (live, niet lokaal) de bron van waarheid.
+#
+# GECORRIGEERDE FOUTEN t.o.v. de vorige (niet-gecommitte) conceptversie
+# ----------------------------------------------------------------------
+# - `heeftResultaattype`'s bereik was `owl:unionOf(KwantificeerbaarAspect KwalificeerbaarAspect)`
+#   (kopieerfout van `heeftAspect`) — 100% van de 140 echte doelen is `csor:Resultaattype`.
+# - `geldigTot` stond als `owl:ObjectProperty` met bereik `xsd:date` — alle 43 waarden zijn
+#   literals; nu `owl:DatatypeProperty`.
+# - `csor:conversiefactor` was dubbel gedeclareerd (twee keer, met verschillende comments) —
+#   samengevoegd tot één declaratie die beide toepassingen (eenheidsconversie èn
+#   parameteraspect-omzetting) vermeldt.
+# - Dangling referentie naar de nooit-gedefinieerde klasse `csor:ParameterAfleidingRendement`
+#   (ontbrekend "WZI") en een typo `csor:Variable` (i.p.v. `csor:Variabele`) zijn verdwenen.
+# - De klasse heette `ResultaatType` (hoofdletter T) maar heeft in de echte data NUL instanties —
+#   alle 4 werkelijke instanties gebruiken `Resultaattype` (kleine t, zie ook
+#   `generate_diagram.py` dat dit nu al stilzwijgend compenseert). Deze ontologie gebruikt
+#   daarom `csor:Resultaattype`, consistent met de data.
+# - `csor:OrganisatieSpecifiekeReferentie` had vijf verzonnen properties (`ovoCode`,
+#   `referentieType`, `referentieCategorie`, `waarde`, `referentieVan`) die in de 8772 echte
+#   instanties nooit voorkomen — de werkelijke data gebruikt uitsluitend externe properties
+#   (`prov:value`, `dc:creator`/`dcterms:creator`, `dc:type`, `dc:subject`, `skos:prefLabel`,
+#   `dcterms:references`). De verzonnen properties zijn niet overgenomen.
+# - Een reeks als "todo remove/hernoem" gemarkeerde, verouderde properties
+#   (`voorParameter`, `omzettingVoorParameter`, `parameterAspectVan`, `eenheidVan`,
+#   `parameterAspectNaar`, `eenheidNaar`, `veeltermParameter`, `tellerParameter`,
+#   `noemerParameter`, `rendementParameter`, `tellerFactor`, `noemerFactor`,
+#   `behoortTotNatuurkundigeDimensie`) is niet overgenomen — de huidige `heeft*`-varianten dekken
+#   deze functies al, bevestigd tegen de echte instantiedata.
+# - `heeftAfleiding` had geen `rdfs:range` — toegevoegd (`owl:unionOf` van de 3
+#   afleidingsklassen), bevestigd doordat elk van de 129+4+5 doelinstanties exact één van die
+#   drie klassen is.
+#
+# GEKENDE, BEWUST NIET OPGELOSTE AFWIJKINGEN (zie ook rapport_ontologie_definities.md)
+# --------------------------------------------------------------------------------------
+# - `csor:factor`/`csor:conversiefactor` zijn gedeclareerd als `xsd:decimal`, maar een deel van
+#   de echte waarden is geserialiseerd als `xsd:integer` (bv. 1282/1287 `factor`-waarden). SHACL
+#   `sh:datatype`-validatie toetst het exacte datatype, niet de XSD-numerieke hiërarchie, en zal
+#   dit dus als afwijking melden — bewust niet weggemodelleerd (zie ontwerpprincipe 3): dit is
+#   een reële, kleine schema/data-drift, geen ontologiefout.
+# - `csor:classificatielijst` en `csor:eionetDD` zijn gedeclareerd maar hebben nul instanties in
+#   de huidige data — behouden (geen bewijs dat ze afgeschaft zijn), niet gerestricteerd.
+#################################################################
+
+#################################
+### ONTOLOGY
+#################################
+
+csor:
+    a owl:Ontology ;
+    rdfs:label "CSOR vocabularium"@nl ;
+    rdfs:comment "Vocabularium voor concepten, parameters, aspecten, eenheden en afleidingen binnen het Vlaamse CSO-register (CSOR)."@nl .
+
+#################################
+### CLASSES
+#################################
+
+csor:Drager
+    a rdfs:Class, owl:Class ;
+    rdfs:label "Drager"@nl ;
+    rdfs:comment "Een drager beschrijft het medium waarin het kenmerk geobserveerd wordt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf skos:Concept .
+
+csor:Eenheid
+    a rdfs:Class, owl:Class ;
+    rdfs:label "Eenheid"@nl ;
+    rdfs:comment "Een maat waarin een natuurkundige dimensie of een kwantificeerbaar aspect numeriek kan worden uitgedrukt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf skos:Concept .
+
+csor:KwalificeerbaarAspect
+    a rdfs:Class, owl:Class ;
+    rdfs:label "KwalificeerbaarAspect"@nl ;
+    rdfs:comment "Een kwalificeerbaar aspect drukt uit dat de waarde die aan een observatie kan worden toegekend, beperkt is tot classificaties opgenomen in een elders gepubliceerde lijst."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf skos:Concept .
+
+csor:KwantificeerbaarAspect
+    a rdfs:Class, owl:Class ;
+    rdfs:label "KwantificeerbaarAspect"@nl ;
+    rdfs:comment "Een kwantificeerbaar aspect duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf skos:Concept .
+
+csor:NatuurkundigeDimensie
+    a rdfs:Class, owl:Class ;
+    rdfs:label "NatuurkundigeDimensie"@nl ;
+    rdfs:comment "Een natuurkundige dimensie duidt aan welke grootheid gebruikt wordt om de observatie te doen."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf skos:Concept .
+
+csor:OrganisatieSpecifiekeReferentie
+    a rdfs:Class, owl:Class ;
+    rdfs:label "OrganisatieSpecifiekeReferentie"@nl ;
+    rdfs:comment "Een referentie naar een concept die specifiek is voor een bepaalde organisatie (bv. een legacy-identifier). Modelleert de referentie zelf als een apart object; de eigenlijke gegevens (waarde, auteur, type) worden uitgedrukt met externe properties (prov:, dc:, dcterms:), zie CLASS RESTRICTIONS."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:Parameter
+    a rdfs:Class, owl:Class ;
+    rdfs:label "Parameter"@nl ;
+    rdfs:comment "Een parameter specificeert een soort uitspraak over een variabele door deze te koppelen aan de context waarin de observatie gebeurt (drager) en de wijze waarop de observatie gebeurt (soort waardebepaling)."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf skos:Concept .
+
+csor:ParameterAfleidingRWZIRendement
+    a rdfs:Class, owl:Class ;
+    rdfs:label "ParameterAfleidingRWZIRendement"@nl ;
+    rdfs:comment "Een afleiding van een parameter op basis van RWZI-rendement (het rendement van een rioolwaterzuiveringsinstallatie): koppelt een bron- en een doelparameter."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:ParameterAfleidingVeelterm
+    a rdfs:Class, owl:Class ;
+    rdfs:label "ParameterAfleidingVeelterm"@nl ;
+    rdfs:comment "Een afleiding van een doelparameter als optelling van meerdere termen (zie csor:VeeltermParameterTerm) — een veelterm."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:ParameterAfleidingVerhouding
+    a rdfs:Class, owl:Class ;
+    rdfs:label "ParameterAfleidingVerhouding"@nl ;
+    rdfs:comment "Een afleiding van een doelparameter als verhouding (teller/noemer) tussen twee termen."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:ParameterAspect
+    a rdfs:Class, owl:Class ;
+    rdfs:label "ParameterAspect"@nl ;
+    rdfs:comment "Een parameteraspect geeft de manier aan waarop de waarde van een parameter is uitgedrukt. Elk parameteraspect koppelt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf skos:Concept .
+
+csor:ParameterAspectOmzetting
+    a rdfs:Class, owl:Class ;
+    rdfs:label "ParameterAspectOmzetting"@nl ;
+    rdfs:comment "Definieert de omzetting tussen twee parameteraspecten, elk met hun eigen eenheid, en de conversiefactor tussen beide."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:ParameterTerm
+    a rdfs:Class, owl:Class ;
+    rdfs:label "ParameterTerm"@nl ;
+    rdfs:comment "Een term binnen een verhoudingsafleiding van een parameter (teller of noemer, zie csor:heeftTeller/csor:heeftNoemer). Blanke-knoop-klasse: zie ontwerpprincipe 4 hierboven — kardinaliteit hier niet lokaal te verifiëren."@nl ;
+    rdfs:isDefinedBy csor: .
+
+csor:Resultaattype
+    a rdfs:Class, owl:Class ;
+    rdfs:label "Resultaattype"@nl ;
+    rdfs:comment "Het type resultaat dat voor een parameter of observatie gebruikt wordt. Erratum: eerdere schemaversies declareerden deze klasse als `ResultaatType` (hoofdletter T); die spelling heeft nul instanties in de echte data en is hier niet aangehouden."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf skos:Concept .
+
+csor:SoortWaardebepaling
+    a rdfs:Class, owl:Class ;
+    rdfs:label "SoortWaardebepaling"@nl ;
+    rdfs:comment "De wijze waarop de observatie of waardebepaling gebeurt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf skos:Concept .
+
+csor:Variabele
+    a rdfs:Class, owl:Class ;
+    rdfs:label "Variabele"@nl ;
+    rdfs:comment "Een variabele beschrijft waarover een observatie of uitspraak gebeurt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf skos:Concept .
+
+csor:VeeltermParameterTerm
+    a rdfs:Class, owl:Class ;
+    rdfs:label "VeeltermParameterTerm"@nl ;
+    rdfs:comment "Een term binnen een veelterm-afleiding van een parameter (zie csor:heeftTerm) — niet elke term is verplicht om de optelling te mogen maken (zie csor:verplicht). Blanke-knoop-klasse: zie ontwerpprincipe 4 hierboven — kardinaliteit hier niet lokaal te verifiëren."@nl ;
+    rdfs:isDefinedBy csor: .
+
+#################################
+### PROPERTIES — GENERIEK
+#################################
+
+csor:symbool
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "Symbool"@nl ;
+    rdfs:comment "Symbool dat gebruikt wordt om het concept weer te geven."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:string .
+
+#################################
+### PROPERTIES — EENHEDEN / ASPECTEN / DIMENSIES
+#################################
+
+csor:toepasbareEenheid
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Toepasbare eenheid"@nl ;
+    rdfs:comment "Eenheid die toepasbaar is voor een specifiek kwantificeerbaar aspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Eenheid ;
+    owl:inverseOf csor:heeftKwantificeerbaarAspect .
+
+csor:heeftKwantificeerbaarAspect
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "heeft kwantificeerbaar aspect"@nl ;
+    rdfs:comment "Geeft op een eenheid de kwantificeerbare aspecten waarvoor deze eenheid toepasbaar is. Inverse van csor:toepasbareEenheid — bevestigd doordat beide richtingen exact hetzelfde aantal koppelingen (383) tellen in de echte data."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:KwantificeerbaarAspect .
+
+csor:heeftNatuurkundigeDimensie
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Natuurkundige dimensie"@nl ;
+    rdfs:comment "De link met de natuurkundige dimensie. Wordt zowel op csor:Eenheid als csor:KwantificeerbaarAspect gebruikt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:NatuurkundigeDimensie .
+
+csor:conversiefactor
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "Conversiefactor"@nl ;
+    rdfs:comment "Factor waarmee gerekend kan worden om van een bron- naar een doel-eenheid of -parameteraspect te gaan. Wordt gebruikt op csor:Eenheid (eenheidsconversie) en csor:ParameterAspectOmzetting (parameteraspect-omzetting)."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:decimal .
+
+csor:referentieEenheid
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Referentie-eenheid"@nl ;
+    rdfs:comment "De referentie-eenheid van de natuurkundige dimensie."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Eenheid .
+
+csor:uitgedruktIn
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Uitgedrukt in"@nl ;
+    rdfs:comment "De variabele waarin het resultaat van een kwantificeerbaar aspect uitgedrukt wordt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Variabele .
+
+csor:kwantificeerbaarAspectType
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "Kwantificeerbaar aspect type"@nl ;
+    rdfs:comment "Mogelijke waarden, bijvoorbeeld INDIVIDUELE_OBSERVATIE of VRACHT."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:string .
+
+csor:classificatielijst
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Referentie naar classificatielijst"@nl ;
+    rdfs:comment "De referentie naar een codelijst met geldige classificatiewaarden voor dit kwalificeerbaar aspect. Gedeclareerd maar nul instanties in de huidige data — zie ontwerpprincipe hierboven."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range rdfs:Resource .
+
+#################################
+### PROPERTIES — RESULTATEN
+#################################
+
+csor:heeftResultaattype
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Resultaattype"@nl ;
+    rdfs:comment "De link met het resultaattype. Wordt gebruikt op csor:KwantificeerbaarAspect en csor:KwalificeerbaarAspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Resultaattype .
+
+#################################
+### PROPERTIES — PARAMETER
+#################################
+
+csor:heeftVariabele
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Variabele"@nl ;
+    rdfs:comment "De variabele waarover de parameter een uitspraak doet."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Variabele .
+
+csor:heeftSoortWaardebepaling
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Soort waardebepaling"@nl ;
+    rdfs:comment "De wijze waarop de observatie of waardebepaling gebeurt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:SoortWaardebepaling .
+
+csor:heeftDrager
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Drager"@nl ;
+    rdfs:comment "De drager of context waarin de observatie gebeurt."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Drager .
+
+csor:heeftAfleiding
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "heeft afleiding"@nl ;
+    rdfs:comment "De afleiding die voor deze parameter gedefinieerd is."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range [ owl:unionOf ( csor:ParameterAfleidingVeelterm csor:ParameterAfleidingVerhouding csor:ParameterAfleidingRWZIRendement ) ] .
+
+csor:saroadCode
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "Saroad-code"@nl ;
+    rdfs:comment "Saroad-code gekoppeld aan de parameter."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:string .
+
+csor:cas
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "CAS-code"@nl ;
+    rdfs:comment "CAS Registry Number (Chemical Abstracts Service) van de stof waarover de variabele gaat."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:string .
+
+csor:eea
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "EEA-code"@nl ;
+    rdfs:comment "EEA-code gekoppeld aan de variabele — empirisch vaak het EC/EINECS-nummer van de stof (zie scripts/check_variabele_identity.py::eea_ec_crosscheck)."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:string .
+
+csor:iupacNaam
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "IUPAC-naam"@nl ;
+    rdfs:comment "Gestandaardiseerde, unieke naam voor een chemische stof, opgesteld volgens de nomenclatuur van de International Union of Pure and Applied Chemistry (IUPAC)."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:string .
+
+csor:inchikey
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "InChIKey"@nl ;
+    rdfs:comment "De InChIKey: een gehashte, vaste-lengte (25 tekens) afgeleide van de volledige InChI-structuurcode (International Chemical Identifier), bedoeld om snel en ondubbelzinnig naar een chemische stof te kunnen zoeken in databanken. Niet te verwarren met de volledige InChI-string zelf (csor definieert daar momenteel geen apart veld voor)."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:string .
+
+csor:eionetDD
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "eionetDD-code"@nl ;
+    rdfs:comment "EionetDD-code gekoppeld aan de parameter. Gedeclareerd maar nul instanties in de huidige data — zie ontwerpprincipe hierboven."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:string .
+
+csor:verkorteNotatie
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "Verkorte notatie"@nl ;
+    rdfs:comment "Samengestelde omschrijving op basis van de variabele- en soortwaardebepaling-omschrijving (zonder de drageromschrijving)."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf skos:altLabel .
+
+#################################
+### PROPERTIES — PARAMETERASPECT
+#################################
+
+csor:heeftParameter
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Heeft parameter"@nl ;
+    rdfs:comment "De parameter die gekoppeld is aan dit parameteraspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Parameter .
+
+csor:heeftParameterAspect
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "heeft parameteraspect"@nl ;
+    rdfs:comment "Een parameteraspect gekoppeld aan de parameter. Inverse van csor:heeftParameter — bevestigd doordat het totaal aantal koppelingen in beide richtingen overeenkomt (8547)."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:ParameterAspect ;
+    owl:inverseOf csor:heeftParameter .
+
+csor:geldigTot
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "Is geldig tot"@nl ;
+    rdfs:comment "De datum tot wanneer dit concept geldig is/was; leeg voor concepten zonder gekende einddatum."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:date ;
+    rdfs:subPropertyOf dcterms:valid .
+
+csor:heeftAspect
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Heeft aspect"@nl ;
+    rdfs:comment "Het aspect dat gekoppeld is aan dit parameteraspect."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range [ owl:unionOf ( csor:KwantificeerbaarAspect csor:KwalificeerbaarAspect ) ] .
+
+#################################
+### PROPERTIES — PARAMETERASPECTOMZETTING
+#################################
+
+csor:heeftBronParameterAspect
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Parameteraspect van"@nl ;
+    rdfs:comment "Het bron-parameteraspect van de omzetting."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:ParameterAspect .
+
+csor:heeftDoelParameterAspect
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Parameteraspect naar"@nl ;
+    rdfs:comment "Het doel-parameteraspect van de omzetting."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:ParameterAspect .
+
+csor:heeftBronEenheid
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Eenheid van"@nl ;
+    rdfs:comment "De bron-eenheid van de omzetting."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Eenheid .
+
+csor:heeftDoelEenheid
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Eenheid naar"@nl ;
+    rdfs:comment "De doel-eenheid van de omzetting."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Eenheid .
+
+csor:omkeerbaar
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "Omkeerbaar"@nl ;
+    rdfs:comment "Geeft aan of een omzetting tussen parameteraspecten in beide richtingen mag gebeuren."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:boolean .
+
+#################################
+### PROPERTIES — AFLEIDINGEN
+#################################
+
+csor:heeftDoelParameter
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "heeft doelparameter"@nl ;
+    rdfs:comment "De parameter waarvoor een omzetting, afleiding of mapping gedefinieerd wordt (de target/output-parameter). Wordt gebruikt op csor:ParameterAfleidingVeelterm, csor:ParameterAfleidingVerhouding, csor:ParameterAfleidingRWZIRendement en csor:ParameterAspectOmzetting."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Parameter .
+
+csor:heeftBronParameter
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "heeft bronparameter"@nl ;
+    rdfs:comment "Een parameter die als invoer gebruikt wordt in een afleiding, term of berekening (de source/input-parameter). Wordt gebruikt op csor:VeeltermParameterTerm en rechtstreeks op csor:ParameterAfleidingRWZIRendement."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:Parameter .
+
+csor:heeftTerm
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "Term"@nl ;
+    rdfs:comment "Een term die deel uitmaakt van een veelterm-afleiding."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:VeeltermParameterTerm .
+
+csor:heeftTeller
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "teller"@nl ;
+    rdfs:comment "De term die de teller vormt in een parameterafleiding als verhouding."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:ParameterTerm .
+
+csor:heeftNoemer
+    a owl:ObjectProperty, rdf:Property ;
+    rdfs:label "noemer"@nl ;
+    rdfs:comment "De term die de noemer vormt in een parameterafleiding als verhouding."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range csor:ParameterTerm .
+
+csor:factor
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "Factor"@nl ;
+    rdfs:comment "Multiplicatieve constante die de grootte of schaal van een term bepaalt binnen een veelterm-afleiding."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:decimal .
+
+csor:verplicht
+    a owl:DatatypeProperty, rdf:Property ;
+    rdfs:label "verplicht"@nl ;
+    rdfs:comment "Duidt aan of deze term verplicht is in een veelterm-afleiding (niet elke term hoeft aanwezig te zijn om de optelling te mogen maken)."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:range xsd:boolean .
+
+#################################
+### CLASS RESTRICTIONS
+###
+### Per-klasse cardinaliteits-/bereikrestricties, afgeleid uit de werkelijke instantiedata
+### (zie ontwerpprincipes hierboven). Enkel restricties die door de data ondubbelzinnig
+### ondersteund worden; geen restricties voor csor:ParameterTerm/csor:VeeltermParameterTerm zelf
+### (blanke-knoop-caveat) en geen restricties voor properties die bij minder dan ~90% van de
+### instanties voorkomen (die blijven optioneel, enkel via rdfs:range getypeerd).
+#################################
+
+csor:Eenheid rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty csor:heeftNatuurkundigeDimensie ; owl:someValuesFrom csor:NatuurkundigeDimensie ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftKwantificeerbaarAspect ; owl:someValuesFrom csor:KwantificeerbaarAspect ],
+        [ a owl:Restriction ; owl:onProperty csor:conversiefactor ; owl:allValuesFrom xsd:decimal ] .
+
+csor:KwalificeerbaarAspect rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty csor:heeftResultaattype ; owl:someValuesFrom csor:Resultaattype ] .
+
+csor:KwantificeerbaarAspect rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty csor:heeftNatuurkundigeDimensie ; owl:someValuesFrom csor:NatuurkundigeDimensie ],
+        [ a owl:Restriction ; owl:onProperty csor:toepasbareEenheid ; owl:someValuesFrom csor:Eenheid ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftResultaattype ; owl:someValuesFrom csor:Resultaattype ],
+        [ a owl:Restriction ; owl:onProperty csor:kwantificeerbaarAspectType ; owl:someValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty csor:uitgedruktIn ; owl:allValuesFrom csor:Variabele ] .
+
+csor:NatuurkundigeDimensie rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty csor:referentieEenheid ; owl:someValuesFrom csor:Eenheid ] .
+
+csor:OrganisatieSpecifiekeReferentie rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty prov:value ; owl:someValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty dc:type ; owl:someValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty dc:subject ; owl:someValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty dc:creator ; owl:someValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty dcterms:creator ; owl:someValuesFrom dcterms:Agent ],
+        [ a owl:Restriction ; owl:onProperty dcterms:references ; owl:someValuesFrom csor:Parameter ],
+        [ a owl:Restriction ; owl:onProperty skos:prefLabel ; owl:someValuesFrom rdf:langString ] .
+
+csor:Parameter rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty csor:heeftDrager ; owl:someValuesFrom csor:Drager ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftVariabele ; owl:someValuesFrom csor:Variabele ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftSoortWaardebepaling ; owl:someValuesFrom csor:SoortWaardebepaling ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftParameterAspect ; owl:someValuesFrom csor:ParameterAspect ],
+        [ a owl:Restriction ; owl:onProperty csor:saroadCode ; owl:allValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty csor:cas ; owl:allValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty csor:eea ; owl:allValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty csor:geldigTot ; owl:allValuesFrom xsd:date ] .
+
+csor:ParameterAfleidingRWZIRendement rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty csor:heeftBronParameter ; owl:someValuesFrom csor:Parameter ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftDoelParameter ; owl:someValuesFrom csor:Parameter ] .
+
+csor:ParameterAfleidingVeelterm rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty csor:heeftTerm ; owl:someValuesFrom csor:VeeltermParameterTerm ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftDoelParameter ; owl:someValuesFrom csor:Parameter ] .
+
+csor:ParameterAfleidingVerhouding rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty csor:heeftDoelParameter ; owl:someValuesFrom csor:Parameter ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftTeller ; owl:someValuesFrom csor:ParameterTerm ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftNoemer ; owl:someValuesFrom csor:ParameterTerm ] .
+
+csor:ParameterAspect rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty csor:heeftAspect ; owl:someValuesFrom [ a owl:Class ; owl:unionOf ( csor:KwantificeerbaarAspect csor:KwalificeerbaarAspect ) ] ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftParameter ; owl:someValuesFrom csor:Parameter ] .
+
+csor:ParameterAspectOmzetting rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty csor:heeftBronParameterAspect ; owl:someValuesFrom csor:ParameterAspect ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftDoelParameterAspect ; owl:someValuesFrom csor:ParameterAspect ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftBronEenheid ; owl:someValuesFrom csor:Eenheid ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftDoelEenheid ; owl:someValuesFrom csor:Eenheid ],
+        [ a owl:Restriction ; owl:onProperty csor:heeftDoelParameter ; owl:someValuesFrom csor:Parameter ],
+        [ a owl:Restriction ; owl:onProperty csor:omkeerbaar ; owl:someValuesFrom xsd:boolean ],
+        [ a owl:Restriction ; owl:onProperty csor:conversiefactor ; owl:someValuesFrom xsd:decimal ] .
+
+csor:Variabele rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty csor:cas ; owl:allValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty csor:inchikey ; owl:allValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty csor:iupacNaam ; owl:allValuesFrom xsd:string ],
+        [ a owl:Restriction ; owl:onProperty csor:eea ; owl:allValuesFrom xsd:string ] .
+
+#################################
+### AXIOMS
+#################################
+
+# Elke instantie behoort tot precies één van de 17 CSOR-klassen (empirisch geverifieerd: 0 van de
+# 274.931 triples typeert een subject als meer dan één van deze klassen tegelijk).
+[] a owl:AllDisjointClasses ;
+    owl:members (
+                    csor:Drager
+                    csor:Eenheid
+                    csor:KwalificeerbaarAspect
+                    csor:KwantificeerbaarAspect
+                    csor:NatuurkundigeDimensie
+                    csor:OrganisatieSpecifiekeReferentie
+                    csor:Parameter
+                    csor:ParameterAfleidingRWZIRendement
+                    csor:ParameterAfleidingVeelterm
+                    csor:ParameterAfleidingVerhouding
+                    csor:ParameterAspect
+                    csor:ParameterAspectOmzetting
+                    csor:ParameterTerm
+                    csor:Resultaattype
+                    csor:SoortWaardebepaling
+                    csor:Variabele
+                    csor:VeeltermParameterTerm
+                ) .
+
+#################################
+### FUNCTIONELE PROPERTIES
+#################################
+# Vroeger owl:cardinality 1 of owl:maxCardinality 1: elk subject heeft hoogstens één waarde.
+# Enkel CSOR-eigen properties; externe properties (skos:prefLabel, dcterms:creator …) niet, want
+# een FunctionalProperty-axioma geldt voor alle data die de property gebruikt.
+
+csor:cas a owl:FunctionalProperty .
+csor:conversiefactor a owl:FunctionalProperty .
+csor:eea a owl:FunctionalProperty .
+csor:geldigTot a owl:FunctionalProperty .
+csor:heeftAspect a owl:FunctionalProperty .
+csor:heeftBronEenheid a owl:FunctionalProperty .
+csor:heeftBronParameter a owl:FunctionalProperty .
+csor:heeftBronParameterAspect a owl:FunctionalProperty .
+csor:heeftDoelEenheid a owl:FunctionalProperty .
+csor:heeftDoelParameter a owl:FunctionalProperty .
+csor:heeftDoelParameterAspect a owl:FunctionalProperty .
+csor:heeftDrager a owl:FunctionalProperty .
+csor:heeftNatuurkundigeDimensie a owl:FunctionalProperty .
+csor:heeftNoemer a owl:FunctionalProperty .
+csor:heeftParameter a owl:FunctionalProperty .
+csor:heeftResultaattype a owl:FunctionalProperty .
+csor:heeftSoortWaardebepaling a owl:FunctionalProperty .
+csor:heeftTeller a owl:FunctionalProperty .
+csor:heeftVariabele a owl:FunctionalProperty .
+csor:inchikey a owl:FunctionalProperty .
+csor:iupacNaam a owl:FunctionalProperty .
+csor:kwantificeerbaarAspectType a owl:FunctionalProperty .
+csor:omkeerbaar a owl:FunctionalProperty .
+csor:referentieEenheid a owl:FunctionalProperty .
+csor:saroadCode a owl:FunctionalProperty .
+csor:uitgedruktIn a owl:FunctionalProperty .

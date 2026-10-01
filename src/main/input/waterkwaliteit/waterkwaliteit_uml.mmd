@@ -1,0 +1,185 @@
+%% Gegenereerd door scripts/ontologie_naar_uml.py uit waterkwaliteit.ttl; niet manueel bewerken.
+classDiagram
+    direction TB
+
+    class csor_Eenheid["csor:Eenheid"] {
+        +csor:heeftNatuurkundigeDimensie : csor:NatuurkundigeDimensie [0..*]
+    }
+    class csor_KwantificeerbaarAspect["csor:KwantificeerbaarAspect"] {
+        +csor:heeftNatuurkundigeDimensie : csor:NatuurkundigeDimensie [0..*]
+        +csor:heeftResultaattype : csor:Resultaattype [0..*]
+        +csor:kwantificeerbaarAspectType : xsd:string [0..*]
+    }
+    class csor_ParameterAspect["csor:ParameterAspect"] {
+        +csor:heeftAspect : csor:KwantificeerbaarAspect | csor:KwalificeerbaarAspect [0..*]
+        +csor:heeftParameter : csor:Parameter [0..*]
+    }
+    class geo_Feature["geo:Feature"] {
+        <<extern>>
+    }
+    class prov_Entity["prov:Entity"] {
+        <<extern>>
+    }
+    class prov_Location["prov:Location"] {
+        <<extern>>
+    }
+    class sosa_FeatureOfInterest["sosa:FeatureOfInterest"] {
+        <<extern>>
+    }
+    class sosa_Observation["sosa:Observation"] {
+        <<extern>>
+    }
+    class sosa_ObservationCollection["sosa:ObservationCollection"] {
+        <<extern>>
+    }
+    class sosa_Platform["sosa:Platform"] {
+        <<extern>>
+    }
+    class sosa_Property["sosa:Property"] {
+        <<extern>>
+    }
+    class sosa_Result["sosa:Result"] {
+        <<extern>>
+    }
+    class sosa_Sample["sosa:Sample"] {
+        <<extern>>
+    }
+    class sosa_SampleCollection["sosa:SampleCollection"] {
+        <<extern>>
+    }
+    class sosa_Sampler["sosa:Sampler"] {
+        <<extern>>
+    }
+    class sosa_Sampling["sosa:Sampling"] {
+        <<extern>>
+    }
+    class sosa_SpatialSample["sosa:SpatialSample"] {
+        <<extern>>
+    }
+    class waterlopen_VhaCattraj["waterlopen:VhaCattraj"] {
+    }
+    class waterlopen_VhaWaterloopobject["waterlopen:VhaWaterloopobject"] {
+    }
+    class waterlopen_Vhag["waterlopen:Vhag"] {
+    }
+    class waterlopen_Wlas["waterlopen:Wlas"] {
+    }
+    class wk_Emissie["wk:Emissie"] {
+        +dct:identifier : xsd:string [0..1]
+        +dct:type : skos:Concept [0..*]
+        +prov:wasAttributedTo : prov:Agent [0..*]
+        +prov:wasDerivedFrom : sosa:Procedure [0..*]
+        +prov:wasGeneratedBy : prov:Activity [0..*]
+        +sosa:isResultOf : sosa:Actuation [0..*]
+    }
+    class wk_Meetnet["wk:Meetnet"] {
+    }
+    class wk_Meetplaats["wk:Meetplaats"] {
+        +adms:identifier : adms:Identifier [0..*]
+        +geo:hasGeometry : geo:Geometry [1]
+    }
+    class wk_Meetput["wk:Meetput"] {
+        +adms:identifier : adms:Identifier [0..*]
+        +geo:hasGeometry : geo:Geometry [0..1]
+    }
+    class wk_Meetresultaat["wk:Meetresultaat"] {
+        +qudt:lowerBound : xsd:decimal [0..1]
+        +qudt:numericValue : xsd:decimal [0..1]
+        +qudt:upperBound : xsd:decimal [0..1]
+    }
+    class wk_Staal["wk:Staal"] {
+        +dct:identifier : xsd:string [0..1]
+        +dct:type : skos:Concept [0..*]
+    }
+    class wk_Staalname["wk:Staalname"] {
+        +prov:wasAssociatedWith : prov:Agent [0..*]
+        +sosa:phenomenonTime : time:Instant | time:Interval [0..1]
+        +sosa:usedProcedure : sosa:SamplingProcedure [0..1]
+    }
+    class wk_WaterkwaliteitObservatie["wk:WaterkwaliteitObservatie"] {
+        +prov:wasAssociatedWith : prov:Agent [0..*]
+        +sosa:madeBySensor : sosa:Sensor [0..*]
+        +sosa:phenomenonTime : time:Instant | time:Interval [0..1]
+        +sosa:resultTime : xsd:dateTime [0..1]
+        +sosa:usedProcedure : sosa:Procedure [0..1]
+    }
+    class wk_WaterkwaliteitObservatieVerzameling["wk:WaterkwaliteitObservatieVerzameling"] {
+        +sosa:phenomenonTime : time:Instant | time:Interval [0..1]
+        +sosa:usedProcedure : sosa:Procedure [0..*]
+    }
+
+    sosa_Property <|-- csor_ParameterAspect
+    waterlopen_VhaWaterloopobject <|-- waterlopen_VhaCattraj
+    sosa_FeatureOfInterest <|-- waterlopen_VhaWaterloopobject
+    waterlopen_VhaWaterloopobject <|-- waterlopen_Vhag
+    waterlopen_VhaWaterloopobject <|-- waterlopen_Wlas
+    prov_Entity <|-- wk_Emissie
+    sosa_FeatureOfInterest <|-- wk_Emissie
+    sosa_SampleCollection <|-- wk_Meetnet
+    geo_Feature <|-- wk_Meetplaats
+    sosa_Platform <|-- wk_Meetplaats
+    sosa_SpatialSample <|-- wk_Meetplaats
+    geo_Feature <|-- wk_Meetput
+    prov_Location <|-- wk_Meetput
+    sosa_Sampler <|-- wk_Meetput
+    sosa_Result <|-- wk_Meetresultaat
+    sosa_Sample <|-- wk_Staal
+    sosa_Sampling <|-- wk_Staalname
+    sosa_Observation <|-- wk_WaterkwaliteitObservatie
+    sosa_ObservationCollection <|-- wk_WaterkwaliteitObservatieVerzameling
+
+    csor_Eenheid --> "0..*" csor_KwantificeerbaarAspect : heeftKwantificeerbaarAspect
+    csor_KwantificeerbaarAspect --> "0..*" csor_Eenheid : toepasbareEenheid
+    wk_Emissie --> "0..*" sosa_Sample : hasSample
+    wk_Meetnet --> "1..*" wk_Meetplaats : hasMember
+    wk_Meetplaats --> "1..*" waterlopen_VhaWaterloopobject : isSampleOf
+    wk_Meetresultaat --> "1" csor_Eenheid : hasUnit
+    wk_Meetresultaat --> "0..*" sosa_Observation : isResultOf
+    wk_Staal --> "1" wk_Staalname : isResultOf
+    wk_Staal --> "1..*" sosa_FeatureOfInterest : isSampleOf
+    wk_Staalname --> "1" sosa_FeatureOfInterest : hasFeatureOfInterest
+    wk_Staalname --> "1..*" wk_Staal : hasResult
+    wk_Staalname --> "0..1" sosa_Sampler : madeBySampler
+    wk_WaterkwaliteitObservatie --> "0..*" prov_Location : atLocation
+    wk_WaterkwaliteitObservatie --> "0..*" prov_Entity : used
+    wk_WaterkwaliteitObservatie --> "1" sosa_FeatureOfInterest : hasFeatureOfInterest
+    wk_WaterkwaliteitObservatie --> "0..*" wk_Meetresultaat : hasInputValue
+    wk_WaterkwaliteitObservatie --> "1" wk_Meetresultaat : hasResult
+    wk_WaterkwaliteitObservatie --> "0..1" sosa_FeatureOfInterest : hasUltimateFeatureOfInterest
+    wk_WaterkwaliteitObservatie --> "1" csor_ParameterAspect : observedProperty
+    wk_WaterkwaliteitObservatie --> "0..*" sosa_Observation : relatedObservation
+    wk_WaterkwaliteitObservatieVerzameling --> "0..1" sosa_FeatureOfInterest : hasFeatureOfInterest
+    wk_WaterkwaliteitObservatieVerzameling --> "1..*" wk_WaterkwaliteitObservatie : hasMember
+    wk_WaterkwaliteitObservatieVerzameling --> "0..1" sosa_FeatureOfInterest : hasUltimateFeatureOfInterest
+    wk_WaterkwaliteitObservatieVerzameling --> "0..1" csor_ParameterAspect : observedProperty
+
+    style csor_Eenheid fill:#fe7130,stroke:#2E5C8A,color:#000
+    style csor_KwantificeerbaarAspect fill:#fe7130,stroke:#2E5C8A,color:#000
+    style csor_ParameterAspect fill:#fe7130,stroke:#2E5C8A,color:#000
+    style geo_Feature fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style prov_Entity fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style prov_Location fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style sosa_FeatureOfInterest fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style sosa_Observation fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style sosa_ObservationCollection fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style sosa_Platform fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style sosa_Property fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style sosa_Result fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style sosa_Sample fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style sosa_SampleCollection fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style sosa_Sampler fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style sosa_Sampling fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style sosa_SpatialSample fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style waterlopen_VhaCattraj fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style waterlopen_VhaWaterloopobject fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style waterlopen_Vhag fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style waterlopen_Wlas fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style wk_Emissie fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style wk_Meetnet fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style wk_Meetplaats fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style wk_Meetput fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style wk_Meetresultaat fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style wk_Staal fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style wk_Staalname fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style wk_WaterkwaliteitObservatie fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style wk_WaterkwaliteitObservatieVerzameling fill:#e54b89,stroke:#2E5C8A,color:#fff

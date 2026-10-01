@@ -27,7 +27,7 @@
     "Nomenclature statistique des activités économiques dans la Communauté européenne (la version belge)"@fr,
     "Statistische nomenclatuur van de Economische activiteiten in de Europese Gemeenschap (Belgische versie)"@nl;
   owl:versionInfo "Draft 2019-01-31";
-  dcterms:modified "2019-01-31T22:00"^^xsd:dateTime;
+  dcterms:modified "2019-01-31T22:00:00"^^xsd:dateTime;
   dcterms:license <http://statbel.fgov.be/en/statistics/opendata/licence/>;
   skos:hasTopConcept <http://vocab.belgif.be/auth/nace2008/R>, <http://vocab.belgif.be/auth/nace2008/L>,
     <http://vocab.belgif.be/auth/nace2008/T>, <http://vocab.belgif.be/auth/nace2008/J>,

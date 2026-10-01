@@ -36,8 +36,8 @@ from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCTERMS, PROV, RDF, RDFS, SKOS, XSD
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from waterkwaliteit_gemeen import (ADMS, EPSG31370, GEO, MATRIX, PROCEDURE as OBSPROC, QUDT, SOSA,  # noqa: E402
-                                   TIME, Csor, Procedures, decimaal)
+from waterkwaliteit_gemeen import (ADMS, CSOR, EPSG31370, GEO, MATRIX, PROCEDURE as OBSPROC, QUDT, SOSA,  # noqa: E402
+                                   TIME, WK, Csor, Procedures, decimaal)
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 BRON = os.path.normpath(os.path.join(
@@ -62,12 +62,13 @@ def bouw(rijen, csor, procedures):
     for p, ns in (("ex", EX), ("sosa", SOSA), ("qudt", QUDT), ("time", TIME), ("geo", GEO), ("adms", ADMS),
                   ("prov", PROV), ("dct", DCTERMS), ("skos", SKOS), ("xsd", XSD), ("rdfs", RDFS),
                   ("csor-parameteraspect", "https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/"),
-                  ("csor-eenheid", "https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/"),
-                  ("matrix", MATRIX), ("procedure", OBSPROC)):
+                  ("csor-eenheid", "https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/"), ("csor", CSOR),
+                  ("matrix", MATRIX), ("procedure", OBSPROC), ("wk", WK)):
         g.bind(p, ns)
 
     vmm = EX["organisatie-vmm"]
     g.add((vmm, RDF.type, PROV.Organization))
+    g.add((vmm, RDF.type, PROV.Agent))  # AP (beslisdocument.md A15)
     g.add((vmm, RDFS.label, Literal("Vlaamse Milieumaatschappij", lang="nl")))
 
     ontbrekend = collections.Counter()
@@ -94,10 +95,13 @@ def bouw(rijen, csor, procedures):
 
         # --- structuur (idempotent: rdflib-graaf negeert dubbele triples) ---
         g.add((exploitatie, RDF.type, PROV.Organization))
+        g.add((exploitatie, RDF.type, PROV.Agent))  # AP (beslisdocument.md A15)
         g.add((exploitatie, RDFS.label, Literal(r["Exploitatie Naam"].strip(), lang="nl")))
         g.add((exploitatie, DCTERMS.identifier, Literal(str(r["Exploitatie ID"]))))
 
         g.add((meetpunt, RDF.type, SOSA.Sampler))
+        g.add((meetpunt, RDF.type, WK.Meetput))  # AP (beslisdocument.md A15)
+        g.add((meetpunt, RDF.type, PROV.Location))  # AP (beslisdocument.md A15)
         g.add((meetpunt, RDFS.label, Literal(r["Sample Point Naam"], lang="nl")))
         g.add((meetpunt, RDFS.comment, Literal(r["Sample Point Omschrijving"].strip(), lang="nl")))
         ident = EX[f"identificator-meetpunt-{nr}"]
@@ -107,10 +111,12 @@ def bouw(rijen, csor, procedures):
         g.add((ident, DCTERMS.creator, vmm))
         geom = EX[f"geometrie-meetpunt-{nr}"]
         g.add((meetpunt, GEO.hasGeometry, geom))
+        g.add((meetpunt, RDF.type, GEO.Feature))  # domein van geo:hasGeometry
         g.add((geom, RDF.type, GEO.Geometry))
         x, y = r["Sample Point Lambert72 X Coördinaat"], r["Sample Point Lambert72 Y Coördinaat"]
         g.add((geom, GEO.asWKT, Literal(f"{EPSG31370} POINT({x} {y})", datatype=GEO.wktLiteral)))
 
+        g.add((lozing, RDF.type, WK.Emissie))           # beslisdocument.md A14
         g.add((lozing, RDF.type, SOSA.FeatureOfInterest))
         g.add((lozing, RDF.type, PROV.Entity))
         g.add((lozing, RDFS.label, Literal(f"Lozing aan meetput {r['Sample Point Naam']} "
@@ -135,6 +141,7 @@ def bouw(rijen, csor, procedures):
             extern(hoofd, (SOSA.SamplingProcedure, SOSA.Procedure, SKOS.Concept),
                    procedures.hoofd[hoofd]["Pref_label"])
         g.add((sampling, RDF.type, SOSA.Sampling))
+        g.add((sampling, RDF.type, WK.Staalname))  # AP (beslisdocument.md A15)
         g.add((sampling, RDF.type, SOSA.Execution))
         g.add((sampling, SOSA.hasFeatureOfInterest, lozing))
         g.add((sampling, SOSA.madeBySampler, meetpunt))
@@ -145,17 +152,20 @@ def bouw(rijen, csor, procedures):
         g.add((sampling, PROV.wasAssociatedWith, uitvoerder))
 
         g.add((staal, RDF.type, SOSA.Sample))
+        g.add((staal, RDF.type, WK.Staal))  # AP (beslisdocument.md A15)
         g.add((staal, RDF.type, SOSA.FeatureOfInterest))
         g.add((staal, RDFS.label, Literal(r["Sample ID Tekst"])))
         g.add((staal, DCTERMS.identifier, Literal(sid)))
         matrix = MATRICES[r["Matrix"]]
         extern(matrix, (SKOS.Concept,), r["Matrix"])
         g.add((staal, DCTERMS.type, matrix))
+        g.add((lozing, DCTERMS.type, matrix))       # de lozing is afvalwater (tijdsloos FOI)
         g.add((staal, SOSA.isSampleOf, lozing))
         g.add((staal, SOSA.isResultOf, sampling))
         g.add((staal, SOSA.isFeatureOfInterestOf, collectie))
 
         g.add((collectie, RDF.type, SOSA.ObservationCollection))
+        g.add((collectie, RDF.type, WK.WaterkwaliteitObservatieVerzameling))  # AP (beslisdocument.md A15)
         g.add((collectie, RDF.type, SOSA.ExecutionCollection))
         g.add((collectie, RDFS.label, Literal(f"Analyseresultaten staal {r['Sample ID Tekst']}", lang="nl")))
         g.add((collectie, SOSA.hasFeatureOfInterest, staal))
@@ -168,9 +178,10 @@ def bouw(rijen, csor, procedures):
         if pa is None or eenheid is None:
             ontbrekend[(code, r["Eenheid"])] += 1
             continue
-        extern(pa, (SOSA.Property,), csor.label(pa))
-        extern(eenheid, (), csor.label(eenheid))
+        extern(pa, (SOSA.Property, CSOR.ParameterAspect), csor.label(pa))
+        extern(eenheid, (CSOR.Eenheid,), csor.label(eenheid))
         g.add((obs, RDF.type, SOSA.Observation))
+        g.add((obs, RDF.type, WK.WaterkwaliteitObservatie))  # AP (beslisdocument.md A15)
         g.add((obs, RDF.type, SOSA.Execution))
         g.add((obs, SOSA.hasFeatureOfInterest, staal))
         g.add((obs, SOSA.hasUltimateFeatureOfInterest, lozing))
@@ -178,6 +189,7 @@ def bouw(rijen, csor, procedures):
         g.add((obs, SOSA.hasResult, res))
 
         g.add((res, RDF.type, SOSA.Result))
+        g.add((res, RDF.type, WK.Meetresultaat))  # AP (beslisdocument.md A15)
         g.add((res, SOSA.isResultOf, obs))
         g.add((res, QUDT.hasUnit, eenheid))
         waarde = r["Resultaat Standaard Eenheid"]

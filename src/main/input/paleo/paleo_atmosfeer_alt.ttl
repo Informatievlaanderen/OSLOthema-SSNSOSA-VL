@@ -23,19 +23,41 @@
 ## - ex:VariabeleCO2Observatie -> ex:CO2Concentratie
 ## - ex:VariabeleC14Observatie -> ex:C14Leeftijd
 
-ex:AardAtmosfeer a sosa:FeatureOfInterest .
+ex:AardAtmosfeer a sosa:FeatureOfInterest ;
+   sosa:isFeatureOfInterestOf ex:PaleoCO2Observatie ;
+.
 
-ex:AardKorst a sosa:FeatureOfInterest .
+ex:AardKorst a sosa:FeatureOfInterest ;
+   sosa:isFeatureOfInterestOf ex:BoringIjsKern ;
+.
 
 ex:IjsKern a sosa:Sample, sosa:FeatureOfInterest ;
    sosa:isSampleOf ex:AardKorst ;
+   sosa:isResultOf ex:BoringIjsKern ;
+   sosa:isFeatureOfInterestOf ex:ExtractieIjsBel ;
 .
 
 ex:IjsBel a sosa:Sample, sosa:FeatureOfInterest ;
    sosa:isSampleOf ex:IjsKern, ex:AardAtmosfeer ;
+   sosa:isResultOf ex:ExtractieIjsBel ;
+   sosa:isFeatureOfInterestOf ex:C14Observatie , ex:CO2Observatie ;
 .
 
-ex:C14Observatie a sosa:Observation ;
+## Bemonsteringen: een monster is het resultaat van een sosa:Sampling (R8). Zo is ook elk studieobject
+## in de bemonsteringsketen het FOI van een uitvoering.
+ex:BoringIjsKern a sosa:Sampling , sosa:Execution ;
+   rdfs:label "Boring van de ijskern"@nl ;
+   sosa:hasFeatureOfInterest ex:AardKorst ;
+   sosa:hasResult ex:IjsKern ;
+.
+
+ex:ExtractieIjsBel a sosa:Sampling , sosa:Execution ;
+   rdfs:label "Extractie van een luchtbel uit de ijskern"@nl ;
+   sosa:hasFeatureOfInterest ex:IjsKern ;
+   sosa:hasResult ex:IjsBel ;
+.
+
+ex:C14Observatie a sosa:Observation , sosa:Execution ;
    sosa:observedProperty ex:C14Leeftijd ;
    sosa:hasFeatureOfInterest ex:IjsBel ;
    sosa:hasUltimateFeatureOfInterest ex:AardAtmosfeer ;
@@ -43,7 +65,7 @@ ex:C14Observatie a sosa:Observation ;
    sosa:resultTime "2026-02-01T14:15:00+00:00"^^xsd:dateTime ;
 .
 
-ex:CO2Observatie a sosa:Observation ;
+ex:CO2Observatie a sosa:Observation , sosa:Execution ;
    sosa:observedProperty ex:CO2Concentratie ;
    sosa:hasFeatureOfInterest ex:IjsBel ;
    sosa:hasUltimateFeatureOfInterest ex:AardAtmosfeer ;
@@ -51,7 +73,7 @@ ex:CO2Observatie a sosa:Observation ;
    sosa:resultTime "2026-02-01T14:16:00+00:00"^^xsd:dateTime ;
 .
 
-ex:PaleoCO2Observatie a sosa:Observation ;
+ex:PaleoCO2Observatie a sosa:Observation , sosa:Execution ;
   sosa:observedProperty ex:CO2Concentratie ;
   sosa:hasFeatureOfInterest ex:AardAtmosfeer ;
   sosa:hasResult [
@@ -67,11 +89,12 @@ ex:PaleoCO2Observatie a sosa:Observation ;
   ] ;
   sosa:resultTime "2026-02-01T14:16:00+00:00"^^xsd:dateTime ;
   sosa:usedProcedure ex:ProcedurePaleoCO2Contentratie ;
-  prov:used ex:ResultaatC14Observatie, ex:ResultaatCO2Observatie ;
+  ## prov:used naar de resultaten volgt uit sosa:hasInputValue ⊂ prov:used (pplan-sosa.ttl)
   sosa:hasInputValue ex:ResultaatC14Observatie, ex:ResultaatCO2Observatie ;
 .
 
 ex:ResultaatC14Observatie a sosa:Result ;
+  sosa:isResultOf ex:C14Observatie ;
   a qudt:QuantityValue ;
   qudt:hasUnit unit:YR ;
   qudt:numericValue 7530.0 ;
@@ -79,6 +102,7 @@ ex:ResultaatC14Observatie a sosa:Result ;
 .
 
 ex:ResultaatCO2Observatie a sosa:Result ;
+  sosa:isResultOf ex:CO2Observatie ;
    a qudt:QuantityValue ;
    qudt:hasUnit unit:PPM ;
    qudt:numericValue 240.0 ;
@@ -86,7 +110,7 @@ ex:ResultaatCO2Observatie a sosa:Result ;
 .
 
 ## Optioneel de procedure zelf en zijn input variabelen
-ex:ProcedurePaleoCO2Contentratie a sosa:Procedure ;
+ex:ProcedurePaleoCO2Contentratie a sosa:ObservingProcedure , sosa:Procedure ;
    sosa:hasInput ex:VariabeleCO2Observatie, ex:VariabeleC14Observatie ; ## p-plan:IsVariableOfPlan
    dcterms:description "Het resultaat van de CO2Concentratie-observatie is de concentratie CO2 in de atmosfeer in het verleden (phenomenonTime) op tijdstip gegeven door C14Leeftijd-observatie"@nl ;
 .

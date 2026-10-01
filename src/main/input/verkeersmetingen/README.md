@@ -18,15 +18,19 @@ verkeerstellings-API) omgezet worden via:
 
 ## Mapping-keuzes
 
-Plat SSN/SOSA-model met `sosa:ObservationCollection`:
+Plat SSN/SOSA-model met `sosa:ObservationCollection` (details in `bespreking.md`):
 
-- Het **meetpunt** (vaste locatie) is een `sosa:Platform` dat de automatische teller herbergt.
-- De **automatische teller** is een `sosa:Sensor` die twee observeerbare eigenschappen meet:
-  absolute verkeersintensiteit (dagsom in aantal voertuigen) en een relatieve verkeersindex
-  per uur (dimensieloze factor t.o.v. het piekuur).
-- De **fietsroute F1** is het `sosa:FeatureOfInterest`.
-- Een `sosa:ObservationCollection` groepeert alle observaties van 29 april 2026.
-- Twee `sosa:ObservableProperty`-instanties onderscheiden dagsom- van uurprofielmetingen.
+- Het **meetpunt** FMN-021 is tegelijk `sosa:Platform` (het herbergt de teller),
+  `sosa:FeatureOfInterest` (het directe studieobject) en `sosa:SpatialSample` van de fietsroute
+  (R11). Het is het resultaat van een ruimtelijke bemonstering (`sosa:Sampling`): de keuze van het
+  meetpunt op de route.
+- De **automatische teller** is een `sosa:Sensor` die één eigenschap meet:
+  `ex:property-verkeersintensiteit` (aantal passerende lichte voertuigen in de gemeten periode).
+- De **fietsroute F1** is het ultieme `sosa:FeatureOfInterest`, bereikbaar via `sosa:isSampleOf`.
+- Een `sosa:ObservationCollection` groepeert de 24 uurtellingen van dinsdag 28 april 2026, elk
+  met een `time:Interval` (R12) en een benoemd `sosa:Result`.
+- De **dagsom** (2541) is een afgeleide observatie buiten de collectie (R13): `sosa:hasInputValue`
+  naar de 24 uurresultaten, `sosa:relatedObservation` naar de collectie.
 
 ## Grafische voorstelling
 

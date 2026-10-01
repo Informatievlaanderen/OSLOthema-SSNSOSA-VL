@@ -68,7 +68,8 @@ Om een ander station als validatie-subset te kiezen, pas `VALIDATIE_STATION` aan
 - **15-daags**: `ex:collectie-{station}-{jaar}-15daags` → 24 leden/jaar
 
 Elk station is `sosa:Platform + sosa:FeatureOfInterest + sosa:SpatialSample`
-(ruimtelijk deelmonster van Vlaanderen) met Lambert 72-geometrie.
+(ruimtelijk deelmonster van Vlaanderen) met Lambert 72-geometrie. Elk station is het resultaat
+van een ruimtelijke bemonstering (`ex:sampling-{station}`, `sosa:Sampling`) met Vlaanderen als FOI.
 
 De R-factor wordt niet lokaal per station berekend, maar centraal door Departement Omgeving.
 Alle observaties/collecties dragen daarom zowel `sosa:madeBySensor` als `sosa:usedProcedure`
@@ -76,7 +77,8 @@ naar één gedeelde `ex:sensor-rfactor` / `ex:procedure-rfactor` (gehost door
 `ex:departement-omgeving`) — ongeacht of de brondata van een KMI- of een VMM-station komt.
 
 De gemiddelde jaarlijkse R-factor uit `view_rfactor.csv` is een **afgeleide observatie**
-(`sosa:hasInputValue` → jaarlijkse collectie, conform R13).
+(`sosa:hasInputValue` → de jaarresultaten, `sosa:relatedObservation` → de jaarlijkse collectie,
+conform R7 en R13).
 
 Alle geneste resources (`time:Interval`, `time:Instant`, `qudt:QuantityValue`,
 `geo:Geometry`) krijgen deterministische skolem-IRIs — het model bevat geen blank nodes.

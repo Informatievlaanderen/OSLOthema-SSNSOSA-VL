@@ -131,9 +131,9 @@ Activity_voorspel -->|madeBySystem| SYS_voorspeller
 Activity_meet -->|madeBySystem| SYS_temp_sensor
 Activity_activeer -->|madeBySystem| SYS_hvac
 
-Activity_voorspel -->|used| I_historisch
-Activity_voorspel -->|used| I_doeltemp
-Activity_voorspel -->|used| I_doeltijd
+Activity_voorspel -->|hasInputValue| I_historisch
+Activity_voorspel -->|hasInputValue| I_doeltemp
+Activity_voorspel -->|hasInputValue| I_doeltijd
 Activity_voorspel -->|used| MODEL_ml
 Activity_train_model -->|used| Collection_observatieverzameling
 Activity_voorspel -->|hasResult| T_voorspeld
@@ -142,9 +142,9 @@ Activity_train_model -->|hasResult| MODEL_ml
 Activity_meet -->|hasResult| T_buitentemp
 Activity_meet -->|hasResult| T_bezetting
 
-Activity_activeer -->|used| T_voorspeld
-Activity_activeer -->|used| T_buitentemp
-Activity_activeer -->|used| T_bezetting
+Activity_activeer -->|hasInputValue| T_voorspeld
+Activity_activeer -->|hasInputValue| T_buitentemp
+Activity_activeer -->|hasInputValue| T_bezetting
 Activity_activeer -->|hasResult| R_status
 
 %% Derivatie

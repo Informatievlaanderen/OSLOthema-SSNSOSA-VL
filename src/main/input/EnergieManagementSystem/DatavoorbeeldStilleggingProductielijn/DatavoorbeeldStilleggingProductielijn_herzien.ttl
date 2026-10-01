@@ -27,7 +27,6 @@
 @prefix utility-services: <https://vocab.belgif.be/ns/utility-services#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix ssn:  <http://www.w3.org/ns/ssn/> .
 @prefix stim: <https://example.org/stimulus/> .
 
 # *******************************************
@@ -64,7 +63,7 @@ step:observeer_prijs
 
 # plan voor prijs observatie
 plan:observeer_prijs
-  a p-plan:Step , sosa:Procedure , sosa:ObservingProcedure;
+  a p-plan:Plan , sosa:Procedure , sosa:ObservingProcedure;
   rdfs:label "Observeer elektriciteitsprijs"@nl .
 
 # Variabelen op plan niveau
@@ -99,11 +98,11 @@ var:toestel_status
 # *******************************************
 
 observeerbaar_kenmerk:day_ahead_elektriciteitsprijs
-  a skos:Concept , sosa:ObservableProperty , sosa:Property , ssn:Property ;
+  a skos:Concept , sosa:Property ;
   skos:prefLabel "Day-ahead elektriciteitsprijs"@nl .
 
 observeerbaar_kenmerk:toestelstatus
-  a skos:Concept , sosa:ActuatableProperty , sosa:Property , ssn:Property ;
+  a skos:Concept , sosa:Property ;
   skos:prefLabel "Toestelstatus"@nl .
 
 # *******************************************
@@ -119,25 +118,24 @@ gebouw:fabriek_kortrijk
   rdfs:label "Fabriek Automatiseringssysteem"@nl;
   dct:type <https://example.com/concept/domeinobjecttype/productielijn_houtbewerking>;
   sosa:hosts sensor:elektriciteitsprijs_sensor, actuator:productielijn_controller ;
-  ssn:hasProperty observeerbaar_kenmerk:day_ahead_elektriciteitsprijs ,
-                  observeerbaar_kenmerk:toestelstatus ;
+  sosa:hasProperty observeerbaar_kenmerk:day_ahead_elektriciteitsprijs ,
+                   observeerbaar_kenmerk:toestelstatus ;
+  sosa:isFeatureOfInterestOf exec:prijs_observatie_20250214 , exec:stillegging_20250214 ;
   gebouw:gebouwnaam "Fabriek Kortrijk"@nl;
   locn:address [ a locn:Address;  locn:fullAddress "Voorbeeldstraat 123, 8500 Kortrijk"@nl ] .
 
 # Sensor voor elektriciteitsprijs
 sensor:elektriciteitsprijs_sensor
-  a sosa:Sensor;
+  a sosa:Sensor, sosa:System;
   rdfs:label "Elektriciteitsprijs sensor"@nl;
   sosa:implements plan:observeer_prijs ;
-  ssn:implements plan:observeer_prijs ;
   sosa:observes observeerbaar_kenmerk:day_ahead_elektriciteitsprijs .
 
 # Actuator voor productielijn
 actuator:productielijn_controller
-  a sosa:Actuator;
+  a sosa:Actuator, sosa:System;
   rdfs:label "Productielijn controller"@nl;
   sosa:implements plan:beslis_stillegging;
-  ssn:implements plan:beslis_stillegging;
   sosa:actsOn observeerbaar_kenmerk:toestelstatus .
 
 # Deployment
@@ -154,14 +152,16 @@ deploy:productielijn_2025
 
 # Observatie van elektriciteitsprijs
 exec:prijs_observatie_20250214
-  a sosa:Observation;
+  a sosa:Observation, sosa:Execution;
+  p-plan:correspondsToStep step:observeer_prijs;
+  sosa:usedProcedure plan:observeer_prijs;
   rdfs:label "Elektriciteitsprijs observatie 14 feb 2025"@nl;
   sosa:hasFeatureOfInterest gebouw:fabriek_kortrijk;
   sosa:observedProperty observeerbaar_kenmerk:day_ahead_elektriciteitsprijs;
   sosa:hasResult ent:prijs_105eur;
   sosa:madeBySensor sensor:elektriciteitsprijs_sensor;
   sosa:resultTime "2025-02-14T20:00:00Z"^^xsd:dateTime ;
-  ssn:wasOriginatedBy stim:prijs_stimulus_20250214 ;
+  sosa:wasOriginatedBy stim:prijs_stimulus_20250214 ;
   sosa:phenomenonTime [ a time:ProperInterval;
                         time:hasBeginning [ a time:Instant;
                                             time:inXSDDateTime "2025-02-14T14:00:00.000"^^xsd:dateTime ];
@@ -169,17 +169,19 @@ exec:prijs_observatie_20250214
                                       time:inXSDDateTime "2025-02-14T20:00:00.000"^^xsd:dateTime ] ] .
 
 stim:prijs_stimulus_20250214
-  a ssn:Stimulus ;
+  a sosa:Stimulus ;
   rdfs:label "Elektriciteitsprijs stimulus 14 feb 2025"@nl .
 
 # Actuatie van productielijn
 exec:stillegging_20250214
-  a sosa:Actuation ;
+  a sosa:Actuation , sosa:Execution ;
   rdfs:label "Productielijn stillegging 14 feb 2025"@nl;
   p-plan:correspondsToStep step:beslis_stillegging;
+  sosa:usedProcedure plan:beslis_stillegging;
   sosa:hasFeatureOfInterest gebouw:fabriek_kortrijk;
   sosa:actsOnProperty observeerbaar_kenmerk:toestelstatus;
-  prov:used ent:drempel_100eur, ent:max_8hr, ent:min_4hr, ent:prijs_105eur;
+  sosa:hasInputValue ent:drempel_100eur, ent:max_8hr, ent:min_4hr, ent:prijs_105eur;   # de waarden (⊂ prov:used)
+  sosa:relatedObservation exec:prijs_observatie_20250214;                              # de observatie die de prijs opleverde
   sosa:hasResult ent:status_uit;
   sosa:madeByActuator actuator:productielijn_controller;
   sosa:resultTime "2025-02-14T14:00:00.000"^^xsd:dateTime .
@@ -189,31 +191,33 @@ ent:drempel_100eur
   a prov:Entity;
   rdfs:label "Elektriciteitsprijs drempel 100 EUR/MWh"@nl;
   p-plan:correspondsToVariable var:elektriciteitsprijs_drempel;
-  qudt:numericValue "100"^^rdfs:Literal;
+  qudt:numericValue "100"^^xsd:decimal;
   qudt:hasUnit unit:EUR-PER-MegaW-HR .
 
 ent:max_8hr
   a prov:Entity;
   rdfs:label "Maximale stillegging duur 8 uur"@nl;
   p-plan:correspondsToVariable var:max_stillegging_duur;
-  qudt:numericValue "8"^^rdfs:Literal;
+  qudt:numericValue "8"^^xsd:decimal;
   qudt:hasUnit unit:HR .
 
 ent:min_4hr
   a prov:Entity;
   rdfs:label "Minimale stillegging duur 4 uur"@nl;
   p-plan:correspondsToVariable var:min_stillegging_duur;
-  qudt:numericValue "4"^^rdfs:Literal;
+  qudt:numericValue "4"^^xsd:decimal;
   qudt:hasUnit unit:HR .
 
 ent:prijs_105eur
   a sosa:Result;
+  sosa:isResultOf exec:prijs_observatie_20250214;
   rdfs:label "Elektriciteitsprijs 105 EUR/MWh"@nl;
-  qudt:numericValue "105"^^rdfs:Literal;
+  qudt:numericValue "105"^^xsd:decimal;
   qudt:hasUnit unit:EUR-PER-MegaW-HR .
 
 ent:status_uit
   a sosa:Result;
+  sosa:isResultOf exec:stillegging_20250214;
   rdfs:label "Productielijn status: UIT"@nl;
   p-plan:correspondsToVariable var:toestel_status;
   skos:closeMatch toestelstatus:uit .

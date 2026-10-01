@@ -285,6 +285,9 @@ enkel de waarden die in deze uittreksels voorkomen.
 
 ## 6. Open beslissingen
 
+> **Beslissingen worden centraal bijgehouden in `beslisdocument.md`.** Deze tabel is de
+> oorspronkelijke versie.
+
 | # | Vraag | Voorstel |
 |---|---|---|
 | 1 | observedProperty = CSOR-parameteraspect? | ja (§3.2) |

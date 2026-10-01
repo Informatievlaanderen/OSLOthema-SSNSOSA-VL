@@ -2,6 +2,7 @@
 # Gegenereerd door scripts/afvalwater_concentraties.py; niet manueel bewerken.
 # Validatie-subset: staal 16231.
 @prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix csor: <https://data.omgeving.vlaanderen.be/ns/csor#> .
 @prefix csor-eenheid: <https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/> .
 @prefix csor-parameteraspect: <https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/> .
 @prefix dct: <http://purl.org/dc/terms/> .
@@ -15,57 +16,71 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sosa: <http://www.w3.org/ns/sosa/> .
 @prefix time: <http://www.w3.org/2006/time#> .
+@prefix wk: <https://data.vlaanderen.be/ns/waterkwaliteit#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-csor-eenheid:E_131 rdfs:label "milligram fosfor per liter"@nl .
+csor-eenheid:E_131 a csor:Eenheid ;
+    rdfs:label "milligram fosfor per liter"@nl .
 
-csor-parameteraspect:PAS_1005 a sosa:Property ;
+csor-parameteraspect:PAS_1005 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "PCNiBz (standaard in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_1041 a sosa:Property ;
+csor-parameteraspect:PAS_1041 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "Diuron (standaard in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_1049 a sosa:Property ;
+csor-parameteraspect:PAS_1049 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "Metoxur (standaard in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_1432 a sosa:Property ;
+csor-parameteraspect:PAS_1432 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "DCvos (standaard in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_1507 a sosa:Property ;
+csor-parameteraspect:PAS_1507 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "tCdaan (standaard in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_1511 a sosa:Property ;
+csor-parameteraspect:PAS_1511 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "cCdaan (standaard in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_1789 a sosa:Property ;
+csor-parameteraspect:PAS_1789 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "U t (totaal in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_184 a sosa:Property ;
+csor-parameteraspect:PAS_184 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "Atenolol (standaard in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_1940 a sosa:Property ;
+csor-parameteraspect:PAS_1940 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "Bromoxyn (standaard in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_2076 a sosa:Property ;
+csor-parameteraspect:PAS_2076 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "Glyfosaat (standaard in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_2092 a sosa:Property ;
+csor-parameteraspect:PAS_2092 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "Mo t (totaal in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_2163 a sosa:Property ;
+csor-parameteraspect:PAS_2163 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "P t (totaal in water): massaconcentratie fosfor"@nl .
 
-csor-parameteraspect:PAS_2184 a sosa:Property ;
+csor-parameteraspect:PAS_2184 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "Prometryn (standaard in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_2499 a sosa:Property ;
+csor-parameteraspect:PAS_2499 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "Oxadiazon (standaard in water): massaconcentratie"@nl .
 
-csor-parameteraspect:PAS_728 a sosa:Property ;
+csor-parameteraspect:PAS_728 a sosa:Property,
+        csor:ParameterAspect ;
     rdfs:label "B t (totaal in water): massaconcentratie"@nl .
-
-matrix:afvalwater a skos:Concept ;
-    rdfs:label "Afvalwater"@nl .
 
 procedure:WAC_I_A_003 a skos:Concept,
         sosa:Procedure,
@@ -81,7 +96,8 @@ procedure:WAC_I_A_003_2024 a skos:Concept,
     prov:hadPrimarySource <https://reflabos.vito.be/2024/WAC_I_A_003.pdf> .
 
 ex:collectie-16231 a sosa:ExecutionCollection,
-        sosa:ObservationCollection ;
+        sosa:ObservationCollection,
+        wk:WaterkwaliteitObservatieVerzameling ;
     rdfs:label "Analyseresultaten staal M-AW-2024-006358-1"@nl ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasMember ex:observatie-16231-P_1017,
@@ -102,7 +118,8 @@ ex:collectie-16231 a sosa:ExecutionCollection,
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:phenomenonTime ex:tijdstip-2024-03-27 .
 
-ex:exploitatie-1498 a prov:Organization ;
+ex:exploitatie-1498 a prov:Agent,
+        prov:Organization ;
     rdfs:label "RWZI Mechelen-Noord"@nl ;
     dct:identifier "1498" .
 
@@ -113,208 +130,247 @@ ex:identificator-meetpunt-2800028 a adms:Identifier ;
     dct:creator ex:organisatie-vmm ;
     skos:notation "2800028" .
 
-ex:meetpunt-2800028 a sosa:Sampler ;
+ex:meetpunt-2800028 a geo:Feature,
+        prov:Location,
+        sosa:Sampler,
+        wk:Meetput ;
     rdfs:label "AW2800028"@nl ;
     geo:hasGeometry ex:geometrie-meetpunt-2800028 ;
     rdfs:comment "Effluent F203"@nl ;
     adms:identifier ex:identificator-meetpunt-2800028 .
 
-ex:resultaat-16231-P_1017 a sosa:Result ;
+ex:resultaat-16231-P_1017 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:numericValue 0.45 ;
     sosa:isResultOf ex:observatie-16231-P_1017 .
 
-ex:resultaat-16231-P_1100 a sosa:Result ;
+ex:resultaat-16231-P_1100 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 0.1 ;
     sosa:isResultOf ex:observatie-16231-P_1100 .
 
-ex:resultaat-16231-P_118 a sosa:Result ;
+ex:resultaat-16231-P_118 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:numericValue 0.303 ;
     sosa:isResultOf ex:observatie-16231-P_118 .
 
-ex:resultaat-16231-P_1180 a sosa:Result ;
+ex:resultaat-16231-P_1180 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:numericValue 0.3 ;
     sosa:isResultOf ex:observatie-16231-P_1180 .
 
-ex:resultaat-16231-P_1188 a sosa:Result ;
+ex:resultaat-16231-P_1188 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_1 ;
     qudt:numericValue 0.00244 ;
     sosa:isResultOf ex:observatie-16231-P_1188 .
 
-ex:resultaat-16231-P_1228 a sosa:Result ;
+ex:resultaat-16231-P_1228 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_131 ;
     qudt:numericValue 0.59 ;
     sosa:isResultOf ex:observatie-16231-P_1228 .
 
-ex:resultaat-16231-P_1238 a sosa:Result ;
+ex:resultaat-16231-P_1238 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 0.025 ;
     sosa:isResultOf ex:observatie-16231-P_1238 .
 
-ex:resultaat-16231-P_1442 a sosa:Result ;
+ex:resultaat-16231-P_1442 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_2 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 12.5 ;
     sosa:isResultOf ex:observatie-16231-P_1442 .
 
-ex:resultaat-16231-P_421 a sosa:Result ;
+ex:resultaat-16231-P_421 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_1 ;
     qudt:numericValue 0.103 ;
     sosa:isResultOf ex:observatie-16231-P_421 .
 
-ex:resultaat-16231-P_572 a sosa:Result ;
+ex:resultaat-16231-P_572 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_2 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 5.0 ;
     sosa:isResultOf ex:observatie-16231-P_572 .
 
-ex:resultaat-16231-P_595 a sosa:Result ;
+ex:resultaat-16231-P_595 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 0.05 ;
     sosa:isResultOf ex:observatie-16231-P_595 .
 
-ex:resultaat-16231-P_599 a sosa:Result ;
+ex:resultaat-16231-P_599 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 0.05 ;
     sosa:isResultOf ex:observatie-16231-P_599 .
 
-ex:resultaat-16231-P_813 a sosa:Result ;
+ex:resultaat-16231-P_813 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 0.0125 ;
     sosa:isResultOf ex:observatie-16231-P_813 .
 
-ex:resultaat-16231-P_863 a sosa:Result ;
+ex:resultaat-16231-P_863 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_2 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 5.0 ;
     sosa:isResultOf ex:observatie-16231-P_863 .
 
-ex:resultaat-16231-P_866 a sosa:Result ;
+ex:resultaat-16231-P_866 a sosa:Result,
+        wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_2 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 5.0 ;
     sosa:isResultOf ex:observatie-16231-P_866 .
 
-csor-eenheid:E_1 rdfs:label "milligram per liter"@nl .
+csor-eenheid:E_1 a csor:Eenheid ;
+    rdfs:label "milligram per liter"@nl .
+
+matrix:afvalwater a skos:Concept ;
+    rdfs:label "Afvalwater"@nl .
 
 ex:observatie-16231-P_1017 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_1017 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_1789 .
 
 ex:observatie-16231-P_1100 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_1100 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_1940 .
 
 ex:observatie-16231-P_118 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_118 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_184 .
 
 ex:observatie-16231-P_1180 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_1180 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_2076 .
 
 ex:observatie-16231-P_1188 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_1188 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_2092 .
 
 ex:observatie-16231-P_1228 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_1228 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_2163 .
 
 ex:observatie-16231-P_1238 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_1238 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_2184 .
 
 ex:observatie-16231-P_1442 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_1442 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_2499 .
 
 ex:observatie-16231-P_421 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_421 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_728 .
 
 ex:observatie-16231-P_572 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_572 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_1005 .
 
 ex:observatie-16231-P_595 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_595 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_1041 .
 
 ex:observatie-16231-P_599 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_599 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_1049 .
 
 ex:observatie-16231-P_813 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_813 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_1432 .
 
 ex:observatie-16231-P_863 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_863 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_1507 .
 
 ex:observatie-16231-P_866 a sosa:Execution,
-        sosa:Observation ;
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
     sosa:hasFeatureOfInterest ex:staal-16231 ;
     sosa:hasResult ex:resultaat-16231-P_866 ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2800028 ;
     sosa:observedProperty csor-parameteraspect:PAS_1511 .
 
-ex:organisatie-vmm a prov:Organization ;
+ex:organisatie-vmm a prov:Agent,
+        prov:Organization ;
     rdfs:label "Vlaamse Milieumaatschappij"@nl .
 
 ex:sampling-16231 a sosa:Execution,
-        sosa:Sampling ;
+        sosa:Sampling,
+        wk:Staalname ;
     prov:wasAssociatedWith ex:organisatie-vmm ;
     sosa:hasFeatureOfInterest ex:lozing-2800028 ;
     sosa:hasResult ex:staal-16231 ;
@@ -325,19 +381,24 @@ ex:sampling-16231 a sosa:Execution,
 ex:tijdstip-2024-03-27 a time:Instant ;
     time:inXSDDate "2024-03-27"^^xsd:date .
 
-csor-eenheid:E_2 rdfs:label "nanogram per liter"@nl .
+csor-eenheid:E_2 a csor:Eenheid ;
+    rdfs:label "nanogram per liter"@nl .
 
-csor-eenheid:E_4 rdfs:label "microgram per liter"@nl .
+csor-eenheid:E_4 a csor:Eenheid ;
+    rdfs:label "microgram per liter"@nl .
 
 ex:lozing-2800028 a prov:Entity,
-        sosa:FeatureOfInterest ;
+        sosa:FeatureOfInterest,
+        wk:Emissie ;
     rdfs:label "Lozing aan meetput AW2800028 (RWZI Mechelen-Noord)"@nl ;
+    dct:type matrix:afvalwater ;
     prov:wasAttributedTo ex:exploitatie-1498 ;
     sosa:hasSample ex:staal-16231 ;
     sosa:isFeatureOfInterestOf ex:sampling-16231 .
 
 ex:staal-16231 a sosa:FeatureOfInterest,
-        sosa:Sample ;
+        sosa:Sample,
+        wk:Staal ;
     rdfs:label "M-AW-2024-006358-1" ;
     dct:identifier "16231" ;
     dct:type matrix:afvalwater ;

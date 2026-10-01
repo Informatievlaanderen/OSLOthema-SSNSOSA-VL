@@ -9,6 +9,13 @@
 #     De restricties volgen de kardinaliteiten gemeten in de volledige herstelde dataset
 #     (27 239 waterlopen, 64 863 segmenten, 30 028 categorietrajecten, 2026-09-29). De pipeline
 #     zet ze om naar SHACL (OwlToShaclGenerator).
+#   - code:Vhag, code:Wlas, code:VhaCattraj ⊂ geosparql:Feature. De geometrie staat niet meer
+#     rechtstreeks op het object (geosparql:asWKT heeft als domein geosparql:Geometry, disjunct met
+#     geosparql:Feature), maar op een geosparql:Geometry via geosparql:hasGeometry (blank node).
+#     De data volgt dat sinds scripts/waterlopen_herstel.py stap 4 (2026-09-30).
+#   - code:VhaWaterloopobject als gemeenschappelijke superklasse van code:Vhag, code:Wlas en
+#     code:VhaCattraj (2026-10-01), zodat andere vocabularia naar "een VHA-waterloopobject" kunnen
+#     verwijzen zonder de drie klassen op te sommen (bv. waterkwaliteit.ttl, wk:Meetplaats).
 @prefix : <https://data.omgeving.vlaanderen.be/ns/waterlopen> .
 @prefix code: <https://data.omgeving.vlaanderen.be/ns/waterlopen#> .
 @prefix ont: <https://data.omgeving.vlaanderen.be/id/ontology/> .
@@ -188,7 +195,7 @@ code:wtrlichc rdfs:range skos:Concept .
 # ---------------------------------------------------------------------------
 # OWL-restricties (-> SHACL via OwlToShaclGenerator)
 # Eén restrictie per aspect (kardinaliteit of waardebereik), zoals OWL het vraagt.
-# Literalen met taaltag (@nl), geosparql:wktLiteral en de getypeerde qudt:length krijgen enkel
+# Literalen met taaltag (@nl) en de getypeerde qudt:length krijgen enkel
 # een kardinaliteit: de generator herkent alleen xs:-datatypes als sh:datatype.
 # Codelijst-verwijzingen (beknr, catc, beheer, strmgeb, wtrlichc) krijgen enkel een kardinaliteit,
 # geen owl:allValuesFrom skos:Concept. De pipeline valideert SHACL op het niet-geïnfereerde model
@@ -197,19 +204,29 @@ code:wtrlichc rdfs:range skos:Concept .
 # rdfs:range hierboven. code:vhazonenr krijgt geen waardebereik: de VHA-zones zijn geen codelijst.
 # ---------------------------------------------------------------------------
 
+code:VhaWaterloopobject a owl:Class ;
+    rdfs:label "VHA-waterlopen - VHA-waterloopobject"@nl ;
+    rdfs:comment "Object uit de Vlaamse Hydrografische Atlas dat een waterloop of een deel ervan voorstelt: een VHA-waterloop, een VHA-waterloopsegment of een VHA-categorietraject."@nl ;
+    rdfs:subClassOf geosparql:Feature ;
+    rdfs:isDefinedBy ont:waterlopen, : .
+
 code:Vhag a owl:Class ;
+    rdfs:subClassOf code:VhaWaterloopobject ;
     rdfs:subClassOf
         [ a owl:Restriction ; owl:onProperty qudt:length ; owl:cardinality 1 ] ,
-        [ a owl:Restriction ; owl:onProperty geosparql:asWKT ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:someValuesFrom geosparql:Geometry ] ,
+        [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty rdfs:label ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty code:naam ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty code:namen ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty code:namen ; owl:allValuesFrom xs:string ] .
 
 code:Wlas a owl:Class ;
+    rdfs:subClassOf code:VhaWaterloopobject ;
     rdfs:subClassOf
         [ a owl:Restriction ; owl:onProperty qudt:length ; owl:cardinality 1 ] ,
-        [ a owl:Restriction ; owl:onProperty geosparql:asWKT ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:someValuesFrom geosparql:Geometry ] ,
+        [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty rdfs:label ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty code:naam ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty code:vhag ; owl:cardinality 1 ] ,
@@ -232,9 +249,11 @@ code:Wlas a owl:Class ;
         [ a owl:Restriction ; owl:onProperty code:regcode1 ; owl:allValuesFrom xs:string ] .
 
 code:VhaCattraj a owl:Class ;
+    rdfs:subClassOf code:VhaWaterloopobject ;
     rdfs:subClassOf
         [ a owl:Restriction ; owl:onProperty qudt:length ; owl:cardinality 1 ] ,
-        [ a owl:Restriction ; owl:onProperty geosparql:asWKT ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:someValuesFrom geosparql:Geometry ] ,
+        [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty rdfs:label ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty code:naam ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty code:vhag ; owl:cardinality 1 ] ,

@@ -5,13 +5,6 @@ import org.apache.jena.vocabulary.{OWL, RDF, RDFS}
 
 import scala.jdk.CollectionConverters._
 
-private case class PropertyShapeSignature(
-                                           path: String,
-                                           valueKind: ValueKind,
-                                           minCount: Option[Int],
-                                           maxCount: Option[Int]
-                                         )
-
 private sealed trait ValueKind
 private case class SingleValue(uri: String, isDatatype: Boolean) extends ValueKind
 private case class OrValue(members: List[(String, Boolean)]) extends ValueKind
@@ -44,114 +37,83 @@ object OwlToShaclGenerator {
     shacl.createResource(prop.getURI)
   }
 
-  private def computeSignature(restriction: Resource): Option[PropertyShapeSignature] = {
+  // Een restrictie met expliciet owl:minCardinality 0 op een property van een klasse geldt als
+  // aanwijzing "in SHACL niet verplicht": een owl:someValuesFrom op dezelfde klasse en property
+  // krijgt dan geen impliciete sh:minCount 1. Zo kan een profiel (bv. waterkwaliteit.ttl) de
+  // existentiële restricties van een geïmporteerde ontologie (bv. csor.ttl) behouden zonder dat
+  // data die naar die concepten verwijst, de registergegevens moet dupliceren.
+  private def pathsMetMinCardinaliteitNul(restrictions: List[Resource]): Set[String] =
+    restrictions.flatMap { r =>
+      val onProp = r.getPropertyResourceValue(OWL.onProperty)
+      val nul = Option(r.getProperty(OWL.minCardinality)).map(_.getObject).exists {
+        case l: Literal => l.getInt == 0
+        case _ => false
+      }
+      if (onProp != null && onProp.isURIResource && nul) Some(onProp.getURI) else None
+    }.toSet
 
-    val onProp = restriction.getPropertyResourceValue(OWL.onProperty)
-    if (onProp == null || !onProp.isURIResource) return None
-
-    val path = onProp.getURI
-
+  private def valueKind(restriction: Resource): Option[ValueKind] = {
     val some = Option(restriction.getPropertyResourceValue(OWL.someValuesFrom))
     val all  = Option(restriction.getPropertyResourceValue(OWL.allValuesFrom))
 
-    val valueNode = some.orElse(all)
+    some.orElse(all).collect {
+      case v if v.hasProperty(OWL.unionOf) =>
+        val members =
+          v.getPropertyResourceValue(OWL.unionOf)
+            .as(classOf[RDFList])
+            .iterator().asScala
+            .collect { case r: Resource if r.isURIResource => (r.getURI, isDatatype(r)) }
+            .toList
+            .sortBy(_._1)
+        OrValue(members)
 
-    val valueKind: ValueKind =
-      valueNode match {
-        case Some(v) if v.hasProperty(OWL.unionOf) =>
-          val list =
-            v.getPropertyResourceValue(OWL.unionOf)
-              .as(classOf[RDFList])
-
-          val members =
-            list.iterator().asScala
-              .collect { case r: Resource if r.isURIResource =>
-                (r.getURI, isDatatype(r))
-              }
-              .toList
-              .sortBy(_._1)
-
-          OrValue(members)
-
-        case Some(v) if v.isURIResource =>
-          SingleValue(v.getURI, isDatatype(v))
-
-        case _ =>
-          // Geen waarde constraint
-          SingleValue("__none__", false)
-      }
-
-    def intValue(p: Property): Option[Int] =
-      Option(restriction.getProperty(p))
-        .map(_.getObject)
-        .collect { case l: Literal => l.getInt }
-
-    val min =
-      intValue(OWL.cardinality)
-        .orElse(intValue(OWL.minCardinality))
-        .orElse(
-          if (restriction.hasProperty(OWL.someValuesFrom) &&
-            !restriction.hasProperty(OWL.minCardinality) &&
-            !restriction.hasProperty(OWL.cardinality))
-            Some(1)
-          else None
-        )
-
-    val max =
-      intValue(OWL.cardinality)
-        .orElse(intValue(OWL.maxCardinality))
-
-    Some(PropertyShapeSignature(path, valueKind, min, max))
-  }
-
-  private def addClassOrDatatype(ps: Resource, value: Resource, shacl: Model): Unit = {
-    if (isDatatype(value))
-      ps.addProperty(shaclProp("datatype", shacl), value)
-    else
-      ps.addProperty(shaclProp("class", shacl), value)
-  }
-
-  private def addMinCountIfNeeded(restriction: Resource, ps: Resource, shacl: Model): Unit = {
-    if (
-      restriction.hasProperty(OWL.someValuesFrom) &&
-        !restriction.hasProperty(OWL.minCardinality) &&
-        !restriction.hasProperty(OWL.cardinality)
-    ) {
-      ps.addLiteral(shaclProp("minCount", shacl), 1)
+      case v if v.isURIResource =>
+        SingleValue(v.getURI, isDatatype(v))
     }
   }
 
-  private def addCardinality(restriction: Resource, ps: Resource, shacl: Model): Unit = {
-    def intValue(p: Property): Option[Int] =
-      Option(restriction.getProperty(p))
-        .map(_.getObject)
-        .collect { case l: Literal => l.getInt }
+  private def intValue(restriction: Resource, p: Property): Option[Int] =
+    Option(restriction.getProperty(p))
+      .map(_.getObject)
+      .collect { case l: Literal => l.getInt }
 
-    intValue(OWL.minCardinality).foreach(ps.addLiteral(shaclProp("minCount", shacl), _))
-    intValue(OWL.maxCardinality).foreach(ps.addLiteral(shaclProp("maxCount", shacl), _))
-
-    intValue(OWL.cardinality).foreach { exact =>
-      ps.addLiteral(shaclProp("minCount", shacl), exact)
-      ps.addLiteral(shaclProp("maxCount", shacl), exact)
-    }
+  private def minCount(restriction: Resource, versoepeld: Set[String]): Option[Int] = {
+    val onProp = restriction.getPropertyResourceValue(OWL.onProperty)
+    intValue(restriction, OWL.cardinality)
+      .orElse(intValue(restriction, OWL.minCardinality))
+      .orElse(
+        if (restriction.hasProperty(OWL.someValuesFrom) &&
+          !(onProp.isURIResource && versoepeld.contains(onProp.getURI)))
+          Some(1)
+        else None
+      )
+      .filter(_ > 0)   // sh:minCount 0 is nietszeggend
   }
+
+  private def maxCount(restriction: Resource): Option[Int] =
+    intValue(restriction, OWL.cardinality)
+      .orElse(intValue(restriction, OWL.maxCardinality))
+
+  // Sleutel van het pad: de property-IRI, of "^IRI" voor een owl:inverseOf-property.
+  private def padSleutel(onProp: Resource): Option[String] =
+    if (onProp.isURIResource) Some(onProp.getURI)
+    else Option(onProp.getPropertyResourceValue(OWL.inverseOf))
+      .filter(_.isURIResource)
+      .map("^" + _.getURI)
+
+  private def addClassOrDatatype(ps: Resource, uri: String, isDt: Boolean, shacl: Model): Unit =
+    ps.addProperty(shaclProp(if (isDt) "datatype" else "class", shacl), shacl.createResource(uri))
 
   // ---------------------------
   // owl:unionOf → sh:or
   // ---------------------------
 
-  private def createOrList(unionNode: Resource, shacl: Model): RDFNode = {
-    val list =
-      Option(unionNode.getPropertyResourceValue(OWL.unionOf))
-        .getOrElse(unionNode)
-        .as(classOf[RDFList])
-
-    val shapes = list.iterator().asScala.map { member =>
+  private def createOrList(members: List[(String, Boolean)], shacl: Model): RDFNode = {
+    val shapes = members.map { case (uri, isDt) =>
       val ps = shacl.createResource()
-      addClassOrDatatype(ps, member.asResource(), shacl)
+      addClassOrDatatype(ps, uri, isDt, shacl)
       ps
-    }.toList
-
+    }
     shacl.createList(shapes.iterator.asJava)
   }
 
@@ -159,41 +121,30 @@ object OwlToShaclGenerator {
   // PropertyShape generation
   // ---------------------------
 
+  // Eén property shape per pad: alle restricties van de klasse op dezelfde property worden
+  // samengevoegd. Meerdere sh:class/sh:or in één shape moeten alle gelden, net als de
+  // intersectie van de OWL-restricties; sh:minCount is het grootste minimum, sh:maxCount het
+  // kleinste maximum.
   private def generatePropertyShape(
-                                     restriction: Resource,
+                                     onProp: Resource,
+                                     restrictions: List[Resource],
                                      shacl: Model,
-                                     nodeShape: Resource
+                                     nodeShape: Resource,
+                                     versoepeld: Set[String]
                                    ): Unit = {
-
-    val onProp = restriction.getPropertyResourceValue(OWL.onProperty)
-    if (onProp == null) return
 
     val ps = shacl.createResource()
     ps.addProperty(shaclProp("path", shacl), createPath(onProp, shacl))
 
-    val some = restriction.getPropertyResourceValue(OWL.someValuesFrom)
-    val all  = restriction.getPropertyResourceValue(OWL.allValuesFrom)
-
-    // ---- someValuesFrom ----
-    if (some != null) {
-      if (some.hasProperty(OWL.unionOf)) {
-        ps.addProperty(shaclProp("or", shacl), createOrList(some, shacl))
-      } else {
-        addClassOrDatatype(ps, some, shacl)
-      }
+    restrictions.flatMap(valueKind).distinct.foreach {
+      case SingleValue(uri, isDt) => addClassOrDatatype(ps, uri, isDt, shacl)
+      case OrValue(members)       => ps.addProperty(shaclProp("or", shacl), createOrList(members, shacl))
     }
 
-    // ---- allValuesFrom ----
-    if (all != null) {
-      if (all.hasProperty(OWL.unionOf)) {
-        ps.addProperty(shaclProp("or", shacl), createOrList(all, shacl))
-      } else {
-        addClassOrDatatype(ps, all, shacl)
-      }
-    }
-
-    addMinCountIfNeeded(restriction, ps, shacl)
-    addCardinality(restriction, ps, shacl)
+    val mins = restrictions.flatMap(minCount(_, versoepeld))
+    val maxs = restrictions.flatMap(maxCount)
+    if (mins.nonEmpty) ps.addLiteral(shaclProp("minCount", shacl), mins.max)
+    if (maxs.nonEmpty) ps.addLiteral(shaclProp("maxCount", shacl), maxs.min)
 
     nodeShape.addProperty(shaclProp("property", shacl), ps)
   }
@@ -208,22 +159,27 @@ object OwlToShaclGenerator {
     ns.addProperty(RDF.`type`, shacl.createResource(SH + "NodeShape"))
     ns.addProperty(shaclProp("targetClass", shacl), cls)
 
-    val seen = scala.collection.mutable.Set[PropertyShapeSignature]()
-
-    ontology
+    val restrictions = ontology
       .listStatements(cls, RDFS.subClassOf, null)
       .asScala
       .map(_.getObject)
       .collect {
-        case r: Resource if r.hasProperty(RDF.`type`, OWL.Restriction) => r
+        case r: Resource if r.hasProperty(RDF.`type`, OWL.Restriction) &&
+          r.getPropertyResourceValue(OWL.onProperty) != null => r
       }
-      .foreach { restriction =>
-        computeSignature(restriction).foreach { sig =>
-          if (!seen.contains(sig)) {
-            generatePropertyShape(restriction, shacl, ns)
-            seen += sig
-          }
-        }
+      .toList
+    val versoepeld = pathsMetMinCardinaliteitNul(restrictions)
+
+    restrictions
+      .flatMap { r =>
+        val onProp = r.getPropertyResourceValue(OWL.onProperty)
+        padSleutel(onProp).map(k => (k, onProp, r))
+      }
+      .groupBy(_._1)
+      .toList
+      .sortBy(_._1)
+      .foreach { case (_, groep) =>
+        generatePropertyShape(groep.head._2, groep.map(_._3), shacl, ns, versoepeld)
       }
   }
 

@@ -10,10 +10,12 @@ PREFIX ex: <https://example.org/rfactor/>
 ex:KMI-6408  a                      sosa:Platform;
         a                           sosa:FeatureOfInterest;
         a                           sosa:SpatialSample;
+        a                           sosa:Sample;
         geo:hasGeometry             ex:geom-KMI-6408;
         rdfs:comment                "KMI-station KMI_6408 te Oostende. Meetperiode: 2002–2005 (4 gevalideerde jaren)."@nl;
         rdfs:label                  "Oostende"@nl;
         sosa:isFeatureOfInterestOf  ex:collectie-KMI-6408-jaarlijks;
+        sosa:isResultOf             ex:sampling-KMI-6408;
         sosa:isSampleOf             ex:vlaanderen .
 
 ex:collectie-KMI-6408-2002-15daags
@@ -4436,6 +4438,12 @@ ex:result-KMI-6408-maand-2005-m12
         qudt:hasUnit       ex:unit-rfactor;
         qudt:numericValue  24.95 .
 
+ex:sampling-KMI-6408  a            sosa:Sampling;
+        a                          sosa:Execution;
+        rdfs:label                 "Keuze van station KMI_6408 (Oostende) als deelmonster van Vlaanderen"@nl;
+        sosa:hasFeatureOfInterest  ex:vlaanderen;
+        sosa:hasResult             ex:KMI-6408 .
+
 ex:sensor-rfactor  a     sosa:Sensor;
         a                sosa:System;
         a                prov:SoftwareAgent;
@@ -4448,6 +4456,7 @@ ex:unit-rfactor  a    qudt:Unit;
         rdfs:comment  "Eenheid van de RUSLE R-factor erosiviteitsindex (geen standaard QUDT-eenheid)."@nl;
         rdfs:label    "MJ·mm/(ha·h·jaar)" .
 
-ex:vlaanderen  a      sosa:FeatureOfInterest;
-        rdfs:comment  "Studiegebied: Vlaamse regio, Belgie. Alle meetstations zijn ruimtelijke deelmonsters van dit studieobject."@nl;
-        rdfs:label    "Vlaanderen"@nl .
+ex:vlaanderen  a                    sosa:FeatureOfInterest;
+        rdfs:comment                "Studiegebied: Vlaamse regio, Belgie. Alle meetstations zijn ruimtelijke deelmonsters van dit studieobject."@nl;
+        rdfs:label                  "Vlaanderen"@nl;
+        sosa:isFeatureOfInterestOf  ex:sampling-KMI-6408 .

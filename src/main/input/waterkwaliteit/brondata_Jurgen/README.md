@@ -72,7 +72,8 @@ nieuw.
   meetpunt als `sosa:SpatialSample` (R1, R8, R11). Eén staal met meerdere parameters is een
   kandidaat voor een `sosa:ObservationCollection`.
 - **Vrachten:** vracht = concentratie × debiet. Dat is een afgeleide observatie met
-  `sosa:hasInputValue` naar de bronobservaties, niet als lid van de collectie (R7, R13). De
+  `sosa:hasInputValue` naar de bronresultaten en `sosa:relatedObservation` naar de
+  bronobservaties, niet als lid van de collectie (R7, R13). De
   periode is een jaar, dus `time:Interval` (R12).
 - **Eenheden:** meerdere eenheden, waarvan sommige met een "als"-element (`mgN/L`, `mgP/L`,
   `mgO2/L`, `ngSn/L`, `µg/kg ds`). Die hebben een QUDT-eenheid nodig, of een eenheid plus

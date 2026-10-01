@@ -84,8 +84,9 @@ ent:historische_data_2025Q1
 exec:tijdstip_voorspelling_001
   a sosa:Observation;
   p-plan:correspondsToStep step:voorspel_tijdstip;
-  sosa:usedProcedure plan:hvac_preheating;
-  prov:used ent:historische_data_2025Q1, ent:doeltemperatuur_20c, ent:doeltijdstip_0800;
+  sosa:usedProcedure step:voorspel_tijdstip;
+  sosa:hasInputValue ent:historische_data_2025Q1, ent:doeltemperatuur_20c, ent:doeltijdstip_0800;  # ⊂ prov:used
+  prov:used model:preheating_ml_model;
   sosa:hasResult ent:voorspeld_tijdstip_0530;
   sosa:madeBySensor sensor:ml_model_preheating .
 
@@ -93,8 +94,9 @@ exec:tijdstip_voorspelling_001
 exec:hvac_actuatie_001
   a sosa:Actuation;
   p-plan:correspondsToStep step:activeer_hvac;
-  sosa:usedProcedure plan:hvac_preheating;
-  prov:used ent:voorspeld_tijdstip_0530, ent:buitentemperatuur_1c, ent:bezetting_80pct;
+  sosa:usedProcedure step:activeer_hvac;
+  sosa:hasInputValue ent:voorspeld_tijdstip_0530, ent:buitentemperatuur_1c, ent:bezetting_80pct;  # ⊂ prov:used
+  sosa:relatedObservation exec:tijdstip_voorspelling_001, exec:buitentemperatuur_meting_001, exec:bezettingsvoorspelling_001;
   sosa:hasResult ent:hvac_status_aan;
   sosa:madeByActuator actuator:hvac_controller .
 ```
@@ -248,3 +250,32 @@ exec:tijdstip_voorspelling_001
 ```
 
 Deze correctie verbetert de semantische nauwkeurigheid zonder de architectuur te verstoren.
+
+## Bijwerking 2026-10-01: SSN/SOSA 2023 en inputwaarden
+
+1. **`ssn:System` → `sosa:System`** voor de warmtepomp. Die is ook `sosa:FeatureOfInterest`, want
+   ze is het studieobject van de observaties en de actuatie. Ze krijgt ook `sosa:isHostedBy`.
+2. **Stap als procedure.** De observaties en de actuatie gebruikten `plan:hvac_preheating` als
+   `sosa:usedProcedure`. Een observatie gebruikt volgens SOSA 2023 een `sosa:ObservingProcedure`,
+   een actuatie een `sosa:ActuatingProcedure`. Het overkoepelende plan is geen van beide. Nu is de
+   `usedProcedure` de stap waarmee de uitvoering correspondeert (`p-plan:correspondsToStep`).
+   `step:voorspel_tijdstip` en `step:meet_omstandigheden` zijn `sosa:ObservingProcedure`,
+   `step:activeer_hvac` is `sosa:ActuatingProcedure`.
+3. **Inputwaarden.** `prov:used` naar de entiteiten die een planvariabele invullen (`p-plan:correspondsToVariable`)
+   is vervangen door `sosa:hasInputValue`. SOSA 2023: "kent een waarde toe aan een input, gedefinieerd
+   door de Procedure, die gebruikt wordt in een Execution". In
+   `src/main/resources/ontologies/pplan-sosa.ttl` is `sosa:hasInputValue` een subproperty van
+   `prov:used`, dus `prov:used` volgt eruit. De property zegt bovendien preciezer dat het om de
+   inputwaarde voor een `sosa:hasInput` van de procedure gaat (R5, R7, R13). Het ML-model blijft
+   `prov:used`: het is geen inputvariabele van de stap, maar een artefact dat de voorspeller
+   gebruikt (R6). De actuatie verwijst daarnaast met `sosa:relatedObservation` naar de drie
+   observaties waarvan ze de resultaten gebruikt.
+4. **Waarden in QUDT** (R3): `schema:value "…"^^rdfs:Literal` + `schema:unitCode` is vervangen door
+   `qudt:numericValue "…"^^xsd:decimal` + `qudt:hasUnit`.
+5. **Eigenschappen gedeclareerd.** De vier `observeerbaar_kenmerk:*`-eigenschappen waarnaar de data
+   verwees, worden nu als `sosa:Property` gedeclareerd. De typfout `verwachte_betzetting` is
+   rechtgezet naar `verwachte_bezetting`.
+6. **Explicieter voor de SHACL-validatie op het niet-afgeleide model:**
+   - `sosa:System` op de sensoren en de actuator;
+   - `sosa:Execution` op de uitvoeringen en `sosa:ExecutionCollection` op de verzameling;
+   - de inverses `sosa:isResultOf` en `sosa:isFeatureOfInterestOf`.

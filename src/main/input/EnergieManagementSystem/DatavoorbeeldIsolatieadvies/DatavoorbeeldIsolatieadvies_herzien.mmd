@@ -73,8 +73,8 @@ flowchart RL
     Activity_classificatie -->|correspondsToStep| STEP_classificatie
     Activity_classificatie -->|madeBySystem| SYS_sensor
 
-    Activity_classificatie -->|used| I_drempel
-    Activity_classificatie -->|used| I_meting
+    Activity_classificatie -->|hasInputValue| I_drempel
+    Activity_classificatie -->|hasInputValue| I_meting
     Activity_classificatie -->|hasResult| R_klasse
 
 %% Derivatie

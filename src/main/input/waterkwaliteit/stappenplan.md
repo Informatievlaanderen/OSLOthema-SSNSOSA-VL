@@ -80,6 +80,9 @@ bevatten enkel de waarden die toevallig voorkomen.
 
 ## 3. Beslissingen vóór of tijdens de mapping
 
+> **Beslissingen worden centraal bijgehouden in `beslisdocument.md`.** Deze tabel is de
+> oorspronkelijke versie.
+
 | # | Beslissing | Voorstel | Nodig vóór | Bron |
 |---|---|---|---|---|
 | B1 | `sosa:observedProperty` = CSOR-parameteraspect? | ja | stap 1 | `codelijsten.md` §3.2 |
@@ -191,14 +194,60 @@ De kern van het voorbeeld: de rijkste structuur (staal, meetpunt, grenzen, teken
 
 #### Stap 4: vrachten (`251013`, `240426`)
 
-- **`251013` contrastmiddelen:** per type meetput en jaar staan concentratie, debiet en
-  bruto/netto vracht in de data. Dat is een volledig voorbeeld van een **afgeleide observatie**:
-  de vracht met `sosa:hasInputValue` naar de concentratie- en debietobservaties, en
-  `sosa:relatedObservation`. De vracht is geen lid van de collectie (R7, R13).
-  `observedProperty` = het parameteraspect "…: vracht".
-- **`240426` PFAS-jaarvrachten:** enkel de vracht, zonder brongegevens. Modelleren als observatie
-  met een berekeningsprocedure (`sosa:usedProcedure`) en `phenomenonTime` = jaar. De inputs zijn
-  niet beschikbaar; documenteren in `bespreking.md`.
+> **Status (2026-09-30): eerste versie klaar** in `nieuw_model/afvalwater_vrachten/` (script
+> `scripts/afvalwater_vrachten.py`). Contrastmiddelen: 380 observaties, waarvan 114 bruto
+> vrachten met `hasInputValue` naar de resultaten van concentratie en debiet (bruto = concentratie × debiet,
+> nagekeken). PFAS: 500 bruto jaarvrachten zonder inputs. Subsets en volledige sets zijn conform
+> SHACL, zonder `[VOCAB ERROR]`; samengevoegd met stap 1 en 3 ook conform.
+> - Procedure `hasInput`/`hasOutput` = CSOR kwantificeerbare aspecten.
+> - Bij PFAS staat de exploitant op de observatie (ze wisselt in de tijd).
+
+##### Ontwerpregel: wanneer observaties aan elkaar koppelen?
+
+Concentraties en debieten van dezelfde lozing in hetzelfde jaar krijgen **geen** onderlinge
+koppeling op basis van plaats en tijd alleen.
+
+- Dat verband is al af te leiden: zelfde (ultiem) FOI plus overlappende `sosa:phenomenonTime`.
+- Een expliciete link zou honderden relaties per staal opleveren zonder extra betekenis, en kan
+  uit de pas raken met wat eruit af te leiden is.
+- Een jaardebiet zegt bovendien niets over het debiet op het moment van de staalname.
+
+Een koppeling komt er **alleen waar het ene resultaat van het andere afhangt**:
+
+| Situatie | Koppeling | Waar | SOSA 2023 |
+|---|---|---|---|
+| **Berekening:** vracht = concentratie × debiet | `sosa:hasInputValue` van de vracht naar de gebruikte concentratie- en debiet**resultaten** (de waarden); `sosa:relatedObservation` naar de observaties die ze opleverden (2026-10-01: een observatie is een activiteit, geen inputwaarde) | op de **afgeleide** observatie (de vracht), niet tussen de bronnen onderling | `hasInputValue` "MUST be consistent with a hasInput definition from the corresponding Procedure": de vracht krijgt een `sosa:usedProcedure` (berekeningsprocedure) met `sosa:hasInput` voor de abstracte inputs (parameteraspect concentratie, parameteraspect debiet (vracht)). Dat is het paleo-patroon, en past bij R5. |
+| **Context voor één meting:** debiet gemeten tijdens een debietgebonden (verzamel)staalname | `sosa:relatedObservation` van de **staalname** (`sosa:Sampling`) naar de debietobservatie | op de sampling (of de collectie van het staal) | `relatedObservation`: domein Execution/ExecutionCollection (o.a. Sampling) → Observation/ObservationCollection; inverse `sosa:observationRelatedTo` |
+| Zelfde lozing en zelfde periode, zonder afhankelijkheid | geen koppeling | af te leiden via FOI + tijd | – |
+
+De vracht is **geen** `sosa:hasMember` van een collectie van bronobservaties (R13). Ze krijgt alle
+verplichte properties zelf (FOI, observedProperty, phenomenonTime, resultaat).
+
+##### Datasets
+
+- **`251013` contrastmiddelen:** per categorie lozer (bedrijven of RWZI) × type meetput
+  (collector, oppervlaktewater, riool, influent RWZI) × jaar (2014–2025) × parameter staan
+  concentratie (µg/L), debiet (m³), bruto vracht en netto vracht (mg).
+  - Dat is het volledige voorbeeld van een **afgeleide observatie** volgens de ontwerpregel. Per
+    groep en jaar zijn er een concentratie- en een debietobservatie, en twee vrachtobservaties
+    met `hasInputValue` naar hun resultaten en `relatedObservation` naar die twee.
+  - `observedProperty`: "…: massaconcentratie" en "…: vracht" van het parameteraspect, en
+    `PAS_1839` "Q (standaard in water): debiet (vracht)" voor het debiet in m³. Eenduidig
+    nagekeken (`codelijsten.md` §3.2; `nieuw_model/afvalwater_debieten/bespreking.md` §5).
+  - **FOI:** geen enkele lozing, maar een **groep van lozingen**, bv. "lozingen van bedrijven via
+    riool". Als FOI met een eigen IRI, getypeerd met categorie lozer en meetputtype. De leden
+    (de individuele lozingen) zijn niet bekend in de bron.
+  - Bruto tegenover netto vracht: nagaan wat het verschil is (V10).
+- **`240426` PFAS-jaarvrachten:** enkel de vracht per meetput en jaar (2008–2023), zonder
+  concentraties of debieten.
+  - FOI = de lozing, met **dezelfde IRI's als stap 1 en 3** (44 van de 60 meetputten uit stap 1
+    komen erin voor).
+  - Observatie met een berekeningsprocedure (`sosa:usedProcedure`) en `phenomenonTime` =
+    kalenderjaar (`time:Interval`).
+  - **Geen `hasInputValue`**: de inputs zijn niet aangeleverd. De procedure beschrijft wel welke
+    inputs nodig zijn (`sosa:hasInput`). Dat komt in `bespreking.md`.
+  - De vrachten van 2023 combineren **niet** met de jaardebieten van 2023 uit stap 3 via
+    `hasInputValue`, zolang niet bevestigd is dat de VMM precies dat debiet gebruikte (V10).
 
 ### Fase 2: normen en beoordelingen (`250124`)
 
@@ -234,6 +283,7 @@ De kern van het voorbeeld: de rijkste structuur (staal, meetpunt, grenzen, teken
 | V7 | Zijn de coördinaten in `250124` Lambert 2008? | fase 2 |
 | V8 | Volledige waardenlijsten van meetputtype, lozingswijze, DWA/RWA, soort afvalwater, positie in de zuivering | fase 3 |
 | V9 | Wat betekent databron "MNT" bij het jaardebiet (naast IMJV)? En met welke procedure wordt het debiet bepaald (kandidaat `WAC/I/1/012`)? | stap 3 |
+| V10 | Hoe berekent de VMM een vracht: welke concentraties (gemiddelde over welke stalen?) en welk debiet (het IMJV/MNT-jaardebiet?) Wat is het verschil tussen bruto en netto vracht in `251013`? | stap 4 |
 
 Voor het VHA-beheer (en niet voor de VMM-data): 133 `code:vhag`-verwijzingen in de segmenten
 verwijzen naar waterlopen die niet in de VHA-waterlopen voorkomen

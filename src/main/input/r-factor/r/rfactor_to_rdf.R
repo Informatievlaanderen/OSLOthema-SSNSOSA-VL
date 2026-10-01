@@ -145,7 +145,7 @@ infra <- lapply(seq_len(nrow(stations)), function(i) {
 
   list(
     `@id`   = paste0("ex:", sc),
-    `@type` = c("sosa:Platform", "sosa:FeatureOfInterest", "sosa:SpatialSample"),
+    `@type` = c("sosa:Platform", "sosa:FeatureOfInterest", "sosa:SpatialSample", "sosa:Sample"),
     `rdfs:label`   = list(`@value` = s$locatie, `@language` = "nl"),
     `rdfs:comment` = list(`@value` = comment, `@language` = "nl"),
     `geo:hasGeometry` = list(
@@ -157,9 +157,29 @@ infra <- lapply(seq_len(nrow(stations)), function(i) {
       )
     ),
     `sosa:isSampleOf`            = list(`@id` = "ex:vlaanderen"),
+    `sosa:isResultOf`            = list(`@id` = paste0("ex:sampling-", sc)),
     `sosa:isFeatureOfInterestOf` = list(`@id` = paste0("ex:collectie-", sc, "-jaarlijks"))
   )
 })
+
+# ─── Ruimtelijke bemonstering: keuze van het station in Vlaanderen (R8, R11) ──
+# Het station is een ruimtelijk deelmonster van Vlaanderen en het resultaat van een sosa:Sampling.
+# Zo is ook Vlaanderen het FOI van een uitvoering (SOSA: elk FeatureOfInterest is FOI van een
+# Execution); zelfde patroon als verkeersmetingen en waterkwaliteit (meetplaats).
+sampling <- lapply(seq_len(nrow(stations)), function(i) {
+  s  <- stations[i, ]
+  sc <- clean(s$station)
+  list(
+    `@id`   = paste0("ex:sampling-", sc),
+    `@type` = c("sosa:Sampling", "sosa:Execution"),
+    `rdfs:label` = list(`@value` = sprintf("Keuze van station %s (%s) als deelmonster van Vlaanderen", s$station, s$locatie), `@language` = "nl"),
+    `sosa:hasFeatureOfInterest` = list(`@id` = "ex:vlaanderen"),
+    `sosa:hasResult`            = list(`@id` = paste0("ex:", sc))
+  )
+})
+
+# Inverse op Vlaanderen (SHACL valideert het niet-afgeleide model)
+gedeeld[[1]]$`sosa:isFeatureOfInterestOf` <- lapply(sampling, function(x) list(`@id` = x[["@id"]]))
 
 # ─── Jaarlijkse observaties & collecties ─────────────────────────────────────
 message(sprintf("Jaarlijkse observaties opbouwen (%d records) ...", nrow(jaarlijks)))
@@ -314,7 +334,7 @@ obs_gem <- lapply(seq_len(nrow(view)), function(i) {
 })
 
 # ─── Samenvoegen & serialiseren ───────────────────────────────────────────────
-graph <- c(gedeeld, infra, coll_jaar, obs_jaar, coll_maand, obs_maand, coll_15d, obs_15d, obs_gem)
+graph <- c(gedeeld, infra, sampling, coll_jaar, obs_jaar, coll_maand, obs_maand, coll_15d, obs_15d, obs_gem)
 jsonld <- list(`@context` = ctx, `@graph` = graph)
 
 message(sprintf("Schrijven rfactor.jsonld (%d resources) ...", length(graph)))
@@ -341,6 +361,7 @@ graph_validatie <- Filter(function(x) {
   id %in% gedeeld_ids ||
     grepl(paste0("^ex:(", VALIDATIE_STATION,
                  "|geom-", VALIDATIE_STATION,
+                 "|sampling-", VALIDATIE_STATION,
                  "|collectie-", VALIDATIE_STATION,
                  "|obs-", VALIDATIE_STATION,
                  "|interval-", VALIDATIE_STATION,
@@ -348,6 +369,13 @@ graph_validatie <- Filter(function(x) {
                  "|result-", VALIDATIE_STATION, ")"),
           id)
 }, graph)
+
+# In de subset verwijst Vlaanderen enkel naar de bemonstering van het subset-station
+graph_validatie <- lapply(graph_validatie, function(x) {
+  if (identical(x[["@id"]], "ex:vlaanderen"))
+    x$`sosa:isFeatureOfInterestOf` <- list(`@id` = paste0("ex:sampling-", VALIDATIE_STATION))
+  x
+})
 
 message(sprintf("Validatie-subset: %d resources (station %s).", length(graph_validatie), VALIDATIE_STATION))
 jsonld_val <- list(`@context` = ctx, `@graph` = graph_validatie)

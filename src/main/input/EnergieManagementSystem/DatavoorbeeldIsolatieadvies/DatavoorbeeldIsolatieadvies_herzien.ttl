@@ -9,7 +9,6 @@
 @prefix concept:     <https://example.com/concept/> .
 @prefix sosa:        <http://www.w3.org/ns/sosa/> .
 @prefix p-plan:      <http://purl.org/net/p-plan#> .
-@prefix ssn:         <http://www.w3.org/ns/ssn/> .
 @prefix stim:        <https://example.org/stimulus/> .
 @prefix gebouw:      <https://data.vlaanderen.be/ns/gebouw#> .
 @prefix prov:        <http://www.w3.org/ns/prov#> .
@@ -63,16 +62,16 @@ var:klasse
 gebouw:stadskantoor
   a sosa:Platform , gebouw:Gebouw , sosa:FeatureOfInterest ;
   sosa:hosts sensor:temperatuur-sensor-001 ;
-  ssn:hasProperty concept:kenmerktype_warmteverliesklasse , concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies ;
+  sosa:hasProperty concept:kenmerktype_warmteverliesklasse , concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies ;
+  sosa:isFeatureOfInterestOf exec:classificatie-uitvoering-20250315 , exec:meting-001 ;
   gebouw:gebouwnaam "Stadskantoor"@nl ;
   rdfs:label "Gebouw monitoring systeem"@nl .
 
 # Sensor die gebruikt wordt
 sensor:temperatuur-sensor-001
-  a sosa:Sensor ;
+  a sosa:Sensor , sosa:System ;
   rdfs:label "Temperatuur sensor 001"@nl ;
   sosa:implements plan:warmteverlies-classificatie ;
-  ssn:implements plan:warmteverlies-classificatie ;
   sosa:observes concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies .
 
 # Deployment van de procedure
@@ -89,24 +88,25 @@ deploy:warmteverlies-classificatie-2025
 
 # Concrete uitvoering van de classificatie
 exec:classificatie-uitvoering-20250315
-  a sosa:Observation ;
+  a sosa:Observation , sosa:Execution ;
   rdfs:label "Warmteverlies classificatie uitvoering 15 maart 2025"@nl ;
   sosa:usedProcedure plan:warmteverlies-classificatie ;
   p-plan:correspondsToStep step:warmteverlies-classificatie ;
   sosa:hasFeatureOfInterest gebouw:stadskantoor ;
   sosa:observedProperty concept:kenmerktype_warmteverliesklasse ;
-  prov:used ent:drempelwaarde-001, ent:meting-001 ;
+  sosa:hasInputValue ent:drempelwaarde-001, ent:meting-001 ;   # de waarden (⊂ prov:used)
+  sosa:relatedObservation exec:meting-001 ;                   # de observatie die de meting opleverde
   sosa:hasResult ent:klasse-001 ;
   sosa:madeBySensor sensor:temperatuur-sensor-001 ;
   sosa:phenomenonTime [ a time:ProperInterval ;
                         time:hasBeginning [ time:inXSDDateTime "2025-03-15T00:00:00Z"^^xsd:dateTime ] ;
                         time:hasEnd [ time:inXSDDateTime "2025-03-15T23:59:59Z"^^xsd:dateTime ] ] ;
   sosa:resultTime "2025-03-15T23:59:59Z"^^xsd:dateTime ;
-  ssn:wasOriginatedBy stim:classificatie-stimulus-20250315 .
+  sosa:wasOriginatedBy stim:classificatie-stimulus-20250315 .
 
 # Concrete meting van warmteverlies
 exec:meting-001
-  a sosa:Observation ;
+  a sosa:Observation , sosa:Execution ;
   rdfs:label "Gemeten warmteverlies 0.415 °C/hr"@nl ;
   sosa:hasFeatureOfInterest gebouw:stadskantoor ;
   sosa:observedProperty concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies ;
@@ -116,7 +116,7 @@ exec:meting-001
                         time:hasEnd [ time:inXSDDateTime "2025-03-21T23:59:59Z"^^xsd:dateTime ] ] ;
   sosa:resultTime "2025-03-22T00:00:00Z"^^xsd:dateTime ;
   sosa:madeBySensor sensor:temperatuur-sensor-001 ;
-  ssn:wasOriginatedBy stim:warmteverlies-stimulus-20250315 .
+  sosa:wasOriginatedBy stim:warmteverlies-stimulus-20250315 .
 
 # Concrete entiteiten (instantiaties van plan variabelen)
 ent:drempelwaarde-001
@@ -129,6 +129,7 @@ ent:drempelwaarde-001
 # Concrete meting van warmteverlies
 ent:meting-001
    a qudt:QuantityValue , sosa:Result ;
+   sosa:isResultOf exec:meting-001 ;
    qudt:numericValue "0.415"^^xsd:decimal ;
    qudt:hasUnit unit:DEG_C-PER-HR ;
   p-plan:correspondsToVariable var:meting .
@@ -136,6 +137,7 @@ ent:meting-001
 # Resultaat van de classificatie
 ent:klasse-001
   a sosa:Result ;
+  sosa:isResultOf exec:classificatie-uitvoering-20250315 ;
   rdfs:label "Matige warmteverlies klasse"@nl ;
   skos:closeMatch concept:warmteverliesklasse_matig ;
   p-plan:correspondsToVariable var:klasse .
@@ -145,11 +147,11 @@ ent:klasse-001
 # *********************************************
 
 stim:warmteverlies-stimulus-20250315
-  a ssn:Stimulus ;
+  a sosa:Stimulus ;
   rdfs:label "Warmteverlies meting stimulus 15 maart 2025"@nl .
 
 stim:classificatie-stimulus-20250315
-  a ssn:Stimulus ;
+  a sosa:Stimulus ;
   rdfs:label "Warmteverlies classificatie stimulus 15 maart 2025"@nl .
 
 # *********************************************
@@ -157,11 +159,11 @@ stim:classificatie-stimulus-20250315
 # *********************************************
 
 concept:kenmerktype_warmteverliesklasse
-  a skos:Concept , sosa:ObservableProperty , sosa:Property , ssn:Property ;
+  a skos:Concept , sosa:Property ;
   skos:prefLabel "Warmteverlies klasse"@nl .
 
 concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies
-  a skos:Concept , sosa:ObservableProperty , sosa:Property , ssn:Property ;
+  a skos:Concept , sosa:Property ;
   skos:prefLabel "Gemiddeld nachtelijk warmteverlies"@nl .
 
 concept:warmteverliesklasse_matig

@@ -35,7 +35,7 @@ from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCTERMS, PROV, RDF, RDFS, SKOS, XSD
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from waterkwaliteit_gemeen import ADMS, QUDT, SOSA, TIME, Csor, decimaal  # noqa: E402
+from waterkwaliteit_gemeen import ADMS, CSOR, MATRIX, QUDT, SOSA, TIME, WK, Csor, decimaal  # noqa: E402
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 BRON = os.path.normpath(os.path.join(
@@ -71,15 +71,16 @@ def riepr_meetpunten(pad):
 
 def bouw(rijen, csor, riepr):
     g = Graph()
-    for p, ns in (("ex", EX), ("sosa", SOSA), ("qudt", QUDT), ("time", TIME), ("adms", ADMS), ("prov", PROV),
+    for p, ns in (("ex", EX), ("sosa", SOSA), ("matrix", MATRIX), ("wk", WK), ("qudt", QUDT), ("time", TIME), ("adms", ADMS), ("prov", PROV),
                   ("dct", DCTERMS), ("skos", SKOS), ("xsd", XSD), ("rdfs", RDFS),
                   ("csor-parameteraspect", "https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/"),
-                  ("csor-eenheid", "https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/"),
+                  ("csor-eenheid", "https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/"), ("csor", CSOR),
                   ("riepr-meetpunt", "https://data.mjv.omgeving.vlaanderen.be/id/meetpunt/")):
         g.bind(p, ns)
 
     vmm = EX["organisatie-vmm"]
     g.add((vmm, RDF.type, PROV.Organization))
+    g.add((vmm, RDF.type, PROV.Agent))  # AP (beslisdocument.md A15)
     g.add((vmm, RDFS.label, Literal("Vlaamse Milieumaatschappij", lang="nl")))
     for code, (label, opmerking) in DATABRONNEN.items():
         bron = EX[f"databron-{code}"]
@@ -88,10 +89,16 @@ def bouw(rijen, csor, riepr):
         if opmerking:
             g.add((bron, RDFS.comment, Literal(opmerking, lang="nl")))
 
+    afvalwater = MATRIX["afvalwater"]
+    g.add((afvalwater, RDF.type, SKOS.Concept))
+    g.add((afvalwater, RDFS.label, Literal("Afvalwater", lang="nl")))
+
     pa, eenheid = csor.parameteraspect_symbool("Q", "water", EENHEID_BRON["m³/jaar"])
     if pa is None or eenheid is None:
         sys.exit("geen eenduidig CSOR-parameteraspect voor Q (standaard in water) in m³/jr")
     g.add((pa, RDF.type, SOSA.Property))
+    g.add((pa, RDF.type, CSOR.ParameterAspect))
+    g.add((eenheid, RDF.type, CSOR.Eenheid))
     g.add((pa, RDFS.label, Literal(str(csor.label(pa)), lang="nl")))
     g.add((eenheid, RDFS.label, Literal(str(csor.label(eenheid)), lang="nl")))
 
@@ -106,6 +113,7 @@ def bouw(rijen, csor, riepr):
             g.add((t, TIME.inXSDDateTime, Literal(f"{j}-01-01T00:00:00", datatype=XSD.dateTime)))
         collectie = EX[f"collectie-jaardebieten-{jaar}"]
         g.add((collectie, RDF.type, SOSA.ObservationCollection))
+        g.add((collectie, RDF.type, WK.WaterkwaliteitObservatieVerzameling))  # AP (beslisdocument.md A15)
         g.add((collectie, RDF.type, SOSA.ExecutionCollection))
         g.add((collectie, RDFS.label, Literal(f"Jaardebieten van lozingen {jaar}", lang="nl")))
         g.add((collectie, SOSA.observedProperty, pa))
@@ -120,11 +128,13 @@ def bouw(rijen, csor, riepr):
         # --- structuur: zelfde IRI's en triples als stap 1 ---
         naam = (r["Exploitatie Naam"] or "").strip()        # 3 exploitaties zonder naam in de bron
         g.add((exploitatie, RDF.type, PROV.Organization))
+        g.add((exploitatie, RDF.type, PROV.Agent))  # AP (beslisdocument.md A15)
         if naam:
             g.add((exploitatie, RDFS.label, Literal(naam, lang="nl")))
         g.add((exploitatie, DCTERMS.identifier, Literal(str(r["Exploitatie ID"]))))
 
         g.add((meetpunt, RDF.type, SOSA.Sampler))
+        g.add((meetpunt, RDF.type, WK.Meetput))  # AP (beslisdocument.md A15)
         g.add((meetpunt, RDF.type, PROV.Location))
         g.add((meetpunt, RDFS.label, Literal(f"AW{nr}", lang="nl")))
         ident = EX[f"identificator-meetpunt-{nr}"]
@@ -135,15 +145,18 @@ def bouw(rijen, csor, riepr):
         if nr in riepr:
             g.add((meetpunt, RDFS.seeAlso, riepr[nr]))    # RIE-IEPR-meetpunt (controle-inrichting)
 
+        g.add((lozing, RDF.type, WK.Emissie))           # beslisdocument.md A14
         g.add((lozing, RDF.type, SOSA.FeatureOfInterest))
         g.add((lozing, RDF.type, PROV.Entity))
         g.add((lozing, RDFS.label, Literal(f"Lozing aan meetput AW{nr}" + (f" ({naam})" if naam else ""), lang="nl")))
         g.add((lozing, PROV.wasAttributedTo, exploitatie))
+        g.add((lozing, DCTERMS.type, afvalwater))   # de lozing is afvalwater (tijdsloos FOI)
         g.add((lozing, SOSA.isFeatureOfInterestOf, obs))
 
         # --- observatie jaardebiet ---
         g.add((EX[f"collectie-jaardebieten-{jaar}"], SOSA.hasMember, obs))
         g.add((obs, RDF.type, SOSA.Observation))
+        g.add((obs, RDF.type, WK.WaterkwaliteitObservatie))  # AP (beslisdocument.md A15)
         g.add((obs, RDF.type, SOSA.Execution))
         g.add((obs, RDFS.label, Literal(f"Jaardebiet {jaar} lozing aan meetput AW{nr}", lang="nl")))
         g.add((obs, SOSA.hasFeatureOfInterest, lozing))
@@ -156,6 +169,7 @@ def bouw(rijen, csor, riepr):
         g.add((obs, PROV.used, EX[f"databron-{databron}"]))
 
         g.add((res, RDF.type, SOSA.Result))
+        g.add((res, RDF.type, WK.Meetresultaat))  # AP (beslisdocument.md A15)
         g.add((res, SOSA.isResultOf, obs))
         g.add((res, QUDT.numericValue, decimaal(r[KOLOM_DEBIET])))
         g.add((res, QUDT.hasUnit, eenheid))

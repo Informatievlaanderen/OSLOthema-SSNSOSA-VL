@@ -1,0 +1,287 @@
+# Periodevrachten contrastmiddelen (VMM, 251013) als SSN/SOSA 2023 -- DIT IS VOORBEELDDATA
+# Gegenereerd door scripts/afvalwater_vrachten.py; niet manueel bewerken.
+# Validatie-subset: Bedrijven / RIO / 2014.
+@prefix csor: <https://data.omgeving.vlaanderen.be/ns/csor#> .
+@prefix csor-eenheid: <https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/> .
+@prefix csor-kwa: <https://data.omgeving.vlaanderen.be/id/concept/csor/kwantificeerbaaraspect/> .
+@prefix csor-parameteraspect: <https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/waterkwaliteit/afvalwater/> .
+@prefix matrix: <https://data.omgeving.vlaanderen.be/id/concept/matrix/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix time: <http://www.w3.org/2006/time#> .
+@prefix wk: <https://data.vlaanderen.be/ns/waterkwaliteit#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+csor-eenheid:E_32 a csor:Eenheid ;
+    rdfs:label "kubieke meter"@nl .
+
+csor-kwa:KWA_1 a skos:Concept,
+        csor:KwantificeerbaarAspect ;
+    rdfs:label "massaconcentratie"@nl .
+
+csor-kwa:KWA_10 a skos:Concept,
+        csor:KwantificeerbaarAspect ;
+    rdfs:label "debiet (vracht)"@nl .
+
+csor-parameteraspect:PAS_182 a sosa:Property,
+        csor:ParameterAspect ;
+    rdfs:label "Amidotriz (standaard in water): massaconcentratie"@nl .
+
+csor-parameteraspect:PAS_1839 a sosa:Property,
+        csor:ParameterAspect ;
+    rdfs:label "Q (standaard in water): debiet (vracht)"@nl .
+
+csor-parameteraspect:PAS_198 a sosa:Property,
+        csor:ParameterAspect ;
+    rdfs:label "Iopamidol (standaard in water): massaconcentratie"@nl .
+
+csor-parameteraspect:PAS_200 a sosa:Property,
+        csor:ParameterAspect ;
+    rdfs:label "Iopromide (standaard in water): massaconcentratie"@nl .
+
+matrix:afvalwater a skos:Concept ;
+    rdfs:label "Afvalwater"@nl .
+
+ex:collectie-vrachtbronnen-bedrijven-rio-2014 a sosa:ExecutionCollection,
+        sosa:ObservationCollection,
+        wk:WaterkwaliteitObservatieVerzameling ;
+    rdfs:label "Concentraties en debiet 2014, lozingen van bedrijven (Riool)"@nl ;
+    sosa:hasFeatureOfInterest ex:lozingsgroep-bedrijven-rio ;
+    sosa:hasMember ex:observatie-concentratie-bedrijven-rio-2014-P_117,
+        ex:observatie-concentratie-bedrijven-rio-2014-P_125,
+        ex:observatie-concentratie-bedrijven-rio-2014-P_126,
+        ex:observatie-debiet-bedrijven-rio-2014 ;
+    sosa:phenomenonTime ex:periode-2014 .
+
+ex:resultaat-brutovracht-bedrijven-rio-2014-P_117 a sosa:Result,
+        wk:Meetresultaat ;
+    qudt:hasUnit csor-eenheid:E_37 ;
+    qudt:numericValue 276107193.252673 ;
+    sosa:isResultOf ex:observatie-brutovracht-bedrijven-rio-2014-P_117 .
+
+ex:resultaat-brutovracht-bedrijven-rio-2014-P_125 a sosa:Result,
+        wk:Meetresultaat ;
+    qudt:hasUnit csor-eenheid:E_37 ;
+    qudt:numericValue 44064.8729770992 ;
+    sosa:isResultOf ex:observatie-brutovracht-bedrijven-rio-2014-P_125 .
+
+ex:resultaat-brutovracht-bedrijven-rio-2014-P_126 a sosa:Result,
+        wk:Meetresultaat ;
+    qudt:hasUnit csor-eenheid:E_37 ;
+    qudt:numericValue 588180005.385381 ;
+    sosa:isResultOf ex:observatie-brutovracht-bedrijven-rio-2014-P_126 .
+
+ex:resultaat-nettovracht-bedrijven-rio-2014-P_117 a sosa:Result,
+        wk:Meetresultaat ;
+    qudt:hasUnit csor-eenheid:E_37 ;
+    qudt:numericValue 276107193.252673 ;
+    sosa:isResultOf ex:observatie-nettovracht-bedrijven-rio-2014-P_117 .
+
+ex:resultaat-nettovracht-bedrijven-rio-2014-P_125 a sosa:Result,
+        wk:Meetresultaat ;
+    qudt:hasUnit csor-eenheid:E_37 ;
+    qudt:numericValue 44064.8729770992 ;
+    sosa:isResultOf ex:observatie-nettovracht-bedrijven-rio-2014-P_125 .
+
+ex:resultaat-nettovracht-bedrijven-rio-2014-P_126 a sosa:Result,
+        wk:Meetresultaat ;
+    qudt:hasUnit csor-eenheid:E_37 ;
+    qudt:numericValue 588180005.385381 ;
+    sosa:isResultOf ex:observatie-nettovracht-bedrijven-rio-2014-P_126 .
+
+ex:tijdstip-2014-01-01T000000 a time:Instant ;
+    time:inXSDDateTime "2014-01-01T00:00:00"^^xsd:dateTime .
+
+ex:tijdstip-2015-01-01T000000 a time:Instant ;
+    time:inXSDDateTime "2015-01-01T00:00:00"^^xsd:dateTime .
+
+csor-kwa:KWA_5 a skos:Concept,
+        csor:KwantificeerbaarAspect ;
+    rdfs:label "vracht"@nl .
+
+csor-parameteraspect:PAS_183 a sosa:Property,
+        csor:ParameterAspect ;
+    rdfs:label "Amidotriz (standaard in water): vracht"@nl .
+
+csor-parameteraspect:PAS_199 a sosa:Property,
+        csor:ParameterAspect ;
+    rdfs:label "Iopamidol (standaard in water): vracht"@nl .
+
+csor-parameteraspect:PAS_201 a sosa:Property,
+        csor:ParameterAspect ;
+    rdfs:label "Iopromide (standaard in water): vracht"@nl .
+
+ex:observatie-nettovracht-bedrijven-rio-2014-P_117 a sosa:Execution,
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
+    rdfs:label "Netto vracht Amidotrizoinezuur 2014, lozingen van bedrijven (Riool)"@nl ;
+    sosa:hasFeatureOfInterest ex:lozingsgroep-bedrijven-rio ;
+    sosa:hasResult ex:resultaat-nettovracht-bedrijven-rio-2014-P_117 ;
+    sosa:observedProperty csor-parameteraspect:PAS_183 ;
+    sosa:phenomenonTime ex:periode-2014 ;
+    sosa:relatedObservation ex:observatie-brutovracht-bedrijven-rio-2014-P_117 ;
+    sosa:usedProcedure ex:procedure-netto-vracht .
+
+ex:observatie-nettovracht-bedrijven-rio-2014-P_125 a sosa:Execution,
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
+    rdfs:label "Netto vracht Iopamidol 2014, lozingen van bedrijven (Riool)"@nl ;
+    sosa:hasFeatureOfInterest ex:lozingsgroep-bedrijven-rio ;
+    sosa:hasResult ex:resultaat-nettovracht-bedrijven-rio-2014-P_125 ;
+    sosa:observedProperty csor-parameteraspect:PAS_199 ;
+    sosa:phenomenonTime ex:periode-2014 ;
+    sosa:relatedObservation ex:observatie-brutovracht-bedrijven-rio-2014-P_125 ;
+    sosa:usedProcedure ex:procedure-netto-vracht .
+
+ex:observatie-nettovracht-bedrijven-rio-2014-P_126 a sosa:Execution,
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
+    rdfs:label "Netto vracht Iopromide 2014, lozingen van bedrijven (Riool)"@nl ;
+    sosa:hasFeatureOfInterest ex:lozingsgroep-bedrijven-rio ;
+    sosa:hasResult ex:resultaat-nettovracht-bedrijven-rio-2014-P_126 ;
+    sosa:observedProperty csor-parameteraspect:PAS_201 ;
+    sosa:phenomenonTime ex:periode-2014 ;
+    sosa:relatedObservation ex:observatie-brutovracht-bedrijven-rio-2014-P_126 ;
+    sosa:usedProcedure ex:procedure-netto-vracht .
+
+ex:resultaat-concentratie-bedrijven-rio-2014-P_117 a sosa:Result,
+        wk:Meetresultaat ;
+    qudt:hasUnit csor-eenheid:E_4 ;
+    qudt:numericValue 322.346767630083 ;
+    sosa:isResultOf ex:observatie-concentratie-bedrijven-rio-2014-P_117 .
+
+ex:resultaat-concentratie-bedrijven-rio-2014-P_125 a sosa:Result,
+        wk:Meetresultaat ;
+    qudt:hasUnit csor-eenheid:E_4 ;
+    qudt:numericValue 0.051444401729872 ;
+    sosa:isResultOf ex:observatie-concentratie-bedrijven-rio-2014-P_125 .
+
+ex:resultaat-concentratie-bedrijven-rio-2014-P_126 a sosa:Result,
+        wk:Meetresultaat ;
+    qudt:hasUnit csor-eenheid:E_4 ;
+    qudt:numericValue 686.682303662824 ;
+    sosa:isResultOf ex:observatie-concentratie-bedrijven-rio-2014-P_126 .
+
+csor-eenheid:E_4 a csor:Eenheid ;
+    rdfs:label "microgram per liter"@nl .
+
+ex:observatie-brutovracht-bedrijven-rio-2014-P_117 a sosa:Execution,
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
+    rdfs:label "Bruto vracht Amidotrizoinezuur 2014, lozingen van bedrijven (Riool)"@nl ;
+    sosa:hasFeatureOfInterest ex:lozingsgroep-bedrijven-rio ;
+    sosa:hasInputValue ex:resultaat-concentratie-bedrijven-rio-2014-P_117,
+        ex:resultaat-debiet-bedrijven-rio-2014 ;
+    sosa:hasResult ex:resultaat-brutovracht-bedrijven-rio-2014-P_117 ;
+    sosa:observedProperty csor-parameteraspect:PAS_183 ;
+    sosa:phenomenonTime ex:periode-2014 ;
+    sosa:relatedObservation ex:observatie-concentratie-bedrijven-rio-2014-P_117,
+        ex:observatie-debiet-bedrijven-rio-2014 ;
+    sosa:usedProcedure ex:procedure-bruto-vracht .
+
+ex:observatie-brutovracht-bedrijven-rio-2014-P_125 a sosa:Execution,
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
+    rdfs:label "Bruto vracht Iopamidol 2014, lozingen van bedrijven (Riool)"@nl ;
+    sosa:hasFeatureOfInterest ex:lozingsgroep-bedrijven-rio ;
+    sosa:hasInputValue ex:resultaat-concentratie-bedrijven-rio-2014-P_125,
+        ex:resultaat-debiet-bedrijven-rio-2014 ;
+    sosa:hasResult ex:resultaat-brutovracht-bedrijven-rio-2014-P_125 ;
+    sosa:observedProperty csor-parameteraspect:PAS_199 ;
+    sosa:phenomenonTime ex:periode-2014 ;
+    sosa:relatedObservation ex:observatie-concentratie-bedrijven-rio-2014-P_125,
+        ex:observatie-debiet-bedrijven-rio-2014 ;
+    sosa:usedProcedure ex:procedure-bruto-vracht .
+
+ex:observatie-brutovracht-bedrijven-rio-2014-P_126 a sosa:Execution,
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
+    rdfs:label "Bruto vracht Iopromide 2014, lozingen van bedrijven (Riool)"@nl ;
+    sosa:hasFeatureOfInterest ex:lozingsgroep-bedrijven-rio ;
+    sosa:hasInputValue ex:resultaat-concentratie-bedrijven-rio-2014-P_126,
+        ex:resultaat-debiet-bedrijven-rio-2014 ;
+    sosa:hasResult ex:resultaat-brutovracht-bedrijven-rio-2014-P_126 ;
+    sosa:observedProperty csor-parameteraspect:PAS_201 ;
+    sosa:phenomenonTime ex:periode-2014 ;
+    sosa:relatedObservation ex:observatie-concentratie-bedrijven-rio-2014-P_126,
+        ex:observatie-debiet-bedrijven-rio-2014 ;
+    sosa:usedProcedure ex:procedure-bruto-vracht .
+
+ex:procedure-bruto-vracht a sosa:ObservingProcedure,
+        sosa:Procedure ;
+    rdfs:label "Berekening bruto vracht: concentratie × debiet over de periode"@nl ;
+    rdfs:comment "Bruto vracht (mg) = concentratie (µg/L) × debiet (m³). Nagekeken op alle rijen van 251013. Concentratie en debiet zijn de 'OG'-waarden van de bron."@nl ;
+    sosa:hasInput csor-kwa:KWA_1,
+        csor-kwa:KWA_10 ;
+    sosa:hasOutput csor-kwa:KWA_5 .
+
+ex:procedure-netto-vracht a sosa:ObservingProcedure,
+        sosa:Procedure ;
+    rdfs:label "Berekening netto vracht"@nl ;
+    rdfs:comment "Berekeningswijze niet in de bron; in 251013 gelijk aan de bruto vracht (bestand 'geenInEx'). Te bevestigen door de VMM (stappenplan.md V10)."@nl ;
+    sosa:hasOutput csor-kwa:KWA_5 .
+
+ex:observatie-concentratie-bedrijven-rio-2014-P_117 a sosa:Execution,
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
+    sosa:hasFeatureOfInterest ex:lozingsgroep-bedrijven-rio ;
+    sosa:hasResult ex:resultaat-concentratie-bedrijven-rio-2014-P_117 ;
+    sosa:observedProperty csor-parameteraspect:PAS_182 .
+
+ex:observatie-concentratie-bedrijven-rio-2014-P_125 a sosa:Execution,
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
+    sosa:hasFeatureOfInterest ex:lozingsgroep-bedrijven-rio ;
+    sosa:hasResult ex:resultaat-concentratie-bedrijven-rio-2014-P_125 ;
+    sosa:observedProperty csor-parameteraspect:PAS_198 .
+
+ex:observatie-concentratie-bedrijven-rio-2014-P_126 a sosa:Execution,
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
+    sosa:hasFeatureOfInterest ex:lozingsgroep-bedrijven-rio ;
+    sosa:hasResult ex:resultaat-concentratie-bedrijven-rio-2014-P_126 ;
+    sosa:observedProperty csor-parameteraspect:PAS_200 .
+
+ex:resultaat-debiet-bedrijven-rio-2014 a sosa:Result,
+        wk:Meetresultaat ;
+    qudt:hasUnit csor-eenheid:E_32 ;
+    qudt:numericValue 856553.317666667 ;
+    sosa:isResultOf ex:observatie-debiet-bedrijven-rio-2014 .
+
+csor-eenheid:E_37 a csor:Eenheid ;
+    rdfs:label "milligram"@nl .
+
+ex:observatie-debiet-bedrijven-rio-2014 a sosa:Execution,
+        sosa:Observation,
+        wk:WaterkwaliteitObservatie ;
+    sosa:hasFeatureOfInterest ex:lozingsgroep-bedrijven-rio ;
+    sosa:hasResult ex:resultaat-debiet-bedrijven-rio-2014 ;
+    sosa:observedProperty csor-parameteraspect:PAS_1839 .
+
+ex:periode-2014 a time:Interval ;
+    time:hasBeginning ex:tijdstip-2014-01-01T000000 ;
+    time:hasEnd ex:tijdstip-2015-01-01T000000 .
+
+ex:lozingsgroep-bedrijven-rio a prov:Entity,
+        sosa:FeatureOfInterest,
+        wk:Emissie ;
+    rdfs:label "Lozingen van bedrijven — type meetput riool"@nl ;
+    dct:identifier "Bedrijven/RIO" ;
+    dct:type matrix:afvalwater ;
+    sosa:isFeatureOfInterestOf ex:collectie-vrachtbronnen-bedrijven-rio-2014,
+        ex:observatie-brutovracht-bedrijven-rio-2014-P_117,
+        ex:observatie-brutovracht-bedrijven-rio-2014-P_125,
+        ex:observatie-brutovracht-bedrijven-rio-2014-P_126,
+        ex:observatie-concentratie-bedrijven-rio-2014-P_117,
+        ex:observatie-concentratie-bedrijven-rio-2014-P_125,
+        ex:observatie-concentratie-bedrijven-rio-2014-P_126,
+        ex:observatie-debiet-bedrijven-rio-2014,
+        ex:observatie-nettovracht-bedrijven-rio-2014-P_117,
+        ex:observatie-nettovracht-bedrijven-rio-2014-P_125,
+        ex:observatie-nettovracht-bedrijven-rio-2014-P_126 .
+

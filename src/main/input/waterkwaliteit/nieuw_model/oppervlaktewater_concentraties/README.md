@@ -18,8 +18,8 @@ waterloop (R8, R11).
 
 | Bestand | Inhoud |
 |---|---|
-| `oppervlaktewater_concentraties.ttl` | validatie-subset: staal van 28/01/2019 13:01, 331 resultaten; 4626 triples. Door de Maven-pipeline gevalideerd. |
-| `oppervlaktewater_concentraties.trig` | volledige omzetting: 999 observaties, 3 stalen, 12 612 triples |
+| `oppervlaktewater_concentraties.ttl` | validatie-subset: staal van 28/01/2019 13:01, 14 representatieve parameters (pH, geleidbaarheid, temperatuur, zuurstof, BZV5, KjN, nitraat, fosfor, hardheid, chloride, opgelost zink en koper, en twee `<`-resultaten); 310 triples. Een volledig staal (331 resultaten) duurde minuten in de OWL-validatie van de pipeline. Door de Maven-pipeline gevalideerd. |
+| `oppervlaktewater_concentraties.trig` | volledige omzetting: 999 observaties, 3 stalen, 14 989 triples |
 | `oppervlaktewater_concentraties.mmd` | Mermaid-diagram van de subset |
 | `bespreking.md` | conceptmapping en modelleerkeuzes |
 
@@ -35,10 +35,17 @@ python3 src/main/input/waterkwaliteit/scripts/oppervlaktewater_concentraties.py 
    `water`, en het parameteraspect uit de eenheid (`../../codelijsten.md` §3.1–3.2). Het script
    stopt als dat niet eenduidig is. Voor alle 999 rijen is het eenduidig.
 3. **Waterloop:** uit `meetplaats_waterloop.csv`. Het script stopt als een meetplaats geen
-   waterloop heeft.
+   waterloop heeft. De waterloop is een `waterlopen:Vhag`. Het script neemt de volledige
+   VHA-beschrijving (label, lengte, geometrie als `geo:hasGeometry` naar een blank node) over uit `../../waterlopen/waterlopen_meetplaatsen.ttl`
+   (`../../beslisdocument.md` A15.6).
 4. De CSOR-code wordt gedeeld met stap 1 via `scripts/waterkwaliteit_gemeen.py`.
 
 ## Validatie (2026-09-30)
+
+- Applicatieprofiel (`../../beslisdocument.md` A15): observaties, verzamelingen, resultaten,
+  stalen, staalnames, meetplaatsen en meetputten zijn ook getypeerd met hun wk-klasse
+  (`wk:WaterkwaliteitObservatie`, `wk:Meetresultaat` …). De SHACL-shapes worden gegenereerd uit
+  `src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl`.
 
 - `mvn compile exec:java`: subset zonder `[VOCAB ERROR]` of `[MODEL INVALID]`, conform SHACL.
 - `shacl validate` op de volledige `.trig`: `sh:conforms true`.

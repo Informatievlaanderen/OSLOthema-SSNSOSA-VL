@@ -105,7 +105,9 @@ actuator:productielijn_controller
 exec:stillegging_20250214
   a sosa:Actuation;
   p-plan:correspondsToStep step:beslis_stillegging;
-  prov:used ent:drempel_100eur, ent:prijs_105eur;  # Correct!
+  sosa:usedProcedure plan:beslis_stillegging;
+  sosa:hasInputValue ent:drempel_100eur, ent:prijs_105eur;  # ⊂ prov:used
+  sosa:relatedObservation exec:prijs_observatie_20250214;
   sosa:hasResult ent:status_uit .
 
 # Traceerbaarheid
@@ -166,3 +168,29 @@ Het verbeterde voorbeeld toont hoe complex geneste SOSA structuren kunnen worden
 - **Betere onderhoudbaarheid** en schaalbaarheid mogelijk maakt
 
 Deze benadering is consistent met de principes die ook zijn toegepast in het warmteverlies classificatie voorbeeld en volgt de best practices voor p-plan-SSN-SOSA-PROV-O alignment.
+
+## Bijwerking 2026-10-01: SSN/SOSA 2023 en inputwaarden
+
+1. **SSN 2017-termen vervangen** door hun SOSA 2023-tegenhangers:
+   - `ssn:hasProperty` → `sosa:hasProperty`;
+   - `ssn:implements` (dubbel met `sosa:implements`) → weg;
+   - `ssn:wasOriginatedBy` → `sosa:wasOriginatedBy`;
+   - `ssn:Stimulus` → `sosa:Stimulus`;
+   - `sosa:ObservableProperty`, `sosa:ActuatableProperty` en `ssn:Property` → `sosa:Property`.
+2. **Inputwaarden.** `prov:used` naar de entiteiten die een planvariabele invullen (`p-plan:correspondsToVariable`)
+   is vervangen door `sosa:hasInputValue`. SOSA 2023: "kent een waarde toe aan een input, gedefinieerd
+   door de Procedure, die gebruikt wordt in een Execution". In
+   `src/main/resources/ontologies/pplan-sosa.ttl` is `sosa:hasInputValue` een subproperty van
+   `prov:used`, dus `prov:used` volgt eruit. De property zegt bovendien preciezer dat het om de
+   inputwaarde voor een `sosa:hasInput` van de procedure gaat (R5, R7, R13). De actuatie verwijst daarnaast
+   met `sosa:relatedObservation` naar de prijsobservatie.
+3. **Procedures.** `plan:observeer_prijs` was als `p-plan:Step` getypeerd en is nu `p-plan:Plan`:
+   het is het plan waarin `step:observeer_prijs` ontleed wordt. De prijsobservatie en de actuatie
+   krijgen hun `p-plan:correspondsToStep` en hun `sosa:usedProcedure`: het plan waarin hun stap
+   ontleed wordt. Dat volgt uit de keten `correspondsToStep ∘ isDecomposedAsPlan ⊑ usedProcedure`
+   in `pplan-sosa.ttl`.
+4. **`qudt:numericValue "…"^^rdfs:Literal` → `"…"^^xsd:decimal`.**
+5. **Explicieter voor de SHACL-validatie op het niet-afgeleide model:**
+   - `sosa:System` op de sensor en de actuator;
+   - `sosa:Execution` op de uitvoeringen;
+   - de inverses `sosa:isResultOf` en `sosa:isFeatureOfInterestOf`.

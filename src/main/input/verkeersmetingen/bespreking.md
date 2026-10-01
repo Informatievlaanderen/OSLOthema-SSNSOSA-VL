@@ -17,11 +17,11 @@ dinsdag 28 april 2026.
 | Paars licht (#c6a0f5) | sosa:ObservingProcedure | Automatische telmethode |
 | Oranje (#fe7130) | sosa:Property | Verkeersintensiteit |
 | Roze (#e54b89) | Observation / ObservationCollection | Dagsom- en uurobservaties |
-| Geel (#f8b622) | time:Interval / hasSimpleResult | Meetperiodes en telresultaten |
+| Geel (#f8b622) | time:Interval / sosa:Result | Meetperiodes en telresultaten |
 
 ## 3. Infrastructuur (blauwe nodes)
 
-**`ex:meetpunt-FMN-021` — `sosa:Platform`, `sosa:FeatureOfInterest`, `sosa:SpatialSample`**
+**`ex:meetpunt-FMN-021` — `sosa:Platform`, `sosa:FeatureOfInterest`, `sosa:SpatialSample` (+ `sosa:Sample`)**
 De fysieke locatie (hoek Mercatorstraat/Van Den Nestlei, lat 51.20910, lon 4.423123) die de
 automatische teller herbergt. Drievoudige typering:
 - `sosa:Platform`: het meetpunt draagt sensorapparatuur via `sosa:hosts`.
@@ -29,15 +29,22 @@ automatische teller herbergt. Drievoudige typering:
   de verkeersintensiteit wordt gemeten op precies dit punt.
 - `sosa:SpatialSample`: het meetpunt is een ruimtelijk monster van de bredere
   `ex:fietsroute-F1-antwerpen` via `sosa:isSampleOf`. De geometrie is vastgelegd via
-  `geo:hasGeometry` (GeoSPARQL WKT Point).
+  `geo:hasGeometry` (GeoSPARQL WKT Point). `sosa:Sample` staat er expliciet bij: de SHACL-validatie
+  gebeurt op het niet-afgeleide model en kent de superklasse anders niet.
+- Het meetpunt is het resultaat (`sosa:isResultOf`) van een ruimtelijke bemonstering:
+  `ex:sampling-meetpunt-FMN-021` (`sosa:Sampling`), de keuze van het meetpunt op de fietsroute
+  (R8, R11). Zo is ook de fietsroute het FOI van een uitvoering, zoals SOSA vraagt.
 
-**`ex:teller-FMN-021` — `sosa:Sensor`**
+**`ex:teller-FMN-021` — `sosa:Sensor` (+ `sosa:System`)**
 De automatische teller die voertuigen detecteert en telt. Implementeert één
 `sosa:ObservingProcedure` via `sosa:implements` en observeert `ex:property-verkeersintensiteit`.
+`sosa:System` staat er expliciet bij, omdat een platform enkel platformen of systemen host
+(`sosa:hosts`).
 
 **`ex:fietsroute-F1-antwerpen` — `sosa:FeatureOfInterest`**
 De bredere fietsroute is het ultimate FeatureOfInterest, bereikbaar via de sampling-keten
-`meetpunt sosa:isSampleOf fietsroute`. Ze heeft `sosa:hasProperty ex:property-verkeersintensiteit`
+`meetpunt sosa:isSampleOf fietsroute`. Ze is het FOI van de ruimtelijke bemonstering
+`ex:sampling-meetpunt-FMN-021` (`sosa:isFeatureOfInterestOf`, `sosa:hasSample`). Ze heeft `sosa:hasProperty ex:property-verkeersintensiteit`
 expliciet gedeclareerd. Omdat het meetpunt een `sosa:SpatialSample` van de fietsroute is,
 heeft het meetpunt die eigenschap ook — via de sampling-keten erft een monster de
 eigenschappen van het bestudeerde object. In het diagram is `sosa:hasProperty` daarom
@@ -47,23 +54,25 @@ weergegeven op het meetpunt (I1), het concrete punt waar de meting plaatsvindt.
 
 De `sosa:ObservationCollection` `ex:collectie-FMN-021-20260428` groepeert de **24
 uurobservaties** van 28 april 2026. Op collectieniveau staan de gedeelde metadata: sensor,
-procedure, feature of interest en observedProperty. De individuele uurobservaties voegen
-enkel hun specifieke tijdsinterval en resultaat toe.
+procedure, feature of interest en observedProperty. De individuele uurobservaties voegen hun
+specifieke tijdsinterval en resultaat toe. Ze herhalen ook het meetpunt als
+`hasFeatureOfInterest`. SOSA 2023 laat dat toe (leden hebben dezelfde waarde als de collectie),
+en de SHACL-validatie op het niet-afgeleide model kent geen collectie-erfenis.
 
-| IRI | hasSimpleResult | hasFeatureOfInterest | relatie tot collectie |
+| IRI | hasResult (waarde) | hasFeatureOfInterest | relatie tot collectie |
 |---|---|---|---|
-| `ex:obs-...-00u` | `15` | via collectie | `sosa:isMemberOf` |
-| `ex:obs-...-08u` | `291` (ochtendspits) | via collectie | `sosa:isMemberOf` |
-| `ex:obs-...-17u` | `279` (avondspits) | via collectie | `sosa:isMemberOf` |
-| `ex:obs-...-NNu` (×21) | variabel | via collectie | `sosa:isMemberOf` |
+| `ex:obs-...-00u` | `ex:resultaat-...-00u` (15) | meetpunt | `sosa:isMemberOf` |
+| `ex:obs-...-08u` | `ex:resultaat-...-08u` (291, ochtendspits) | meetpunt | `sosa:isMemberOf` |
+| `ex:obs-...-17u` | `ex:resultaat-...-17u` (279, avondspits) | meetpunt | `sosa:isMemberOf` |
+| `ex:obs-...-NNu` (×21) | `ex:resultaat-...-NNu` (variabel) | meetpunt | `sosa:isMemberOf` |
 
 De **dagobservatie** `ex:obs-...-dag` is een afgeleide observatie en maakt **geen deel uit**
 van de collectie. Ze is met de collectie verbonden via twee eigenschappen:
 
 | Eigenschap | Richting | Betekenis |
 |---|---|---|
-| `sosa:relatedObservation` | dag → collectie | associatieve koppeling aan de bronobservaties |
-| `sosa:hasInputValue` | dag → collectie | de uurcollectie is de invoer voor de dagaggregatie |
+| `sosa:relatedObservation` | dag → collectie | de bronobservaties: de 24 uurtellingen |
+| `sosa:hasInputValue` | dag → de 24 uurresultaten | de waarden die opgeteld worden tot de dagsom (2541) |
 
 De dagobservatie declareert `sosa:madeBySensor`, `sosa:usedProcedure`,
 `sosa:hasFeatureOfInterest` en `sosa:observedProperty` expliciet op zichzelf.
@@ -104,14 +113,18 @@ niet op de volledige fietsroute. De fietsroute is bereikbaar als ultimate FOI vi
 sampling-keten (`meetpunt isSampleOf fietsroute`), wat semantisch preciezer is dan de
 route direct als FOI op te geven terwijl de meting slechts op één locatie plaatsvindt.
 
-### Waarom `sosa:hasSimpleResult` voor alle observaties?
+### Waarom `sosa:hasResult` met benoemde resultaten, en niet `sosa:hasSimpleResult`?
 
-Verworpen alternatief: `qudt:QuantityValue` met `qudt:hasUnit unit:NUM` voor elk resultaat.
-Gekozen aanpak: `sosa:hasSimpleResult "NNN"^^xsd:integer` voor alle 25 observaties.
-Motivatie: de telresultaten zijn eenvoudige gehele getallen waarvan de eenheid ("voertuigen
-per periode") vastgelegd is in de omschrijving van `ex:property-verkeersintensiteit`. Er is
-geen externe referentie naar de resultaten nodig. `hasSimpleResult` houdt het bestand
-leesbaar bij een dataset van deze omvang.
+Verworpen alternatief: `sosa:hasSimpleResult "NNN"^^xsd:integer` voor alle 25 observaties.
+Gekozen aanpak: elke observatie heeft `sosa:hasResult ex:resultaat-…` (`sosa:Result` met
+`qudt:numericValue` en `qudt:hasUnit unit:NUM`).
+Motivatie: de uurresultaten zijn de inputwaarden van de dagsom (`sosa:hasInputValue`). Een
+inputwaarde is een entiteit (`sosa:hasInputValue` ⊂ `prov:used`, `pplan-sosa.ttl`), dus het
+resultaat moet een eigen resource zijn waarnaar verwezen kan worden. Een literal via
+`hasSimpleResult` kan dat niet. Dat is precies het geval waarvoor CLAUDE.md §5 de objectvorm
+voorschrijft: provenance van het resultaat. De eenheid is `unit:NUM` (een aantal). "Voertuigen
+per uur of per dag" volgt uit de property en de `phenomenonTime`. Ook de dagsom krijgt zo'n
+resultaat, zodat de stijl niet gemengd wordt (R3).
 
 ### Waarom `sosa:ObservationCollection`?
 
@@ -121,17 +134,22 @@ Motivatie: sensor, procedure, feature of interest en observedProperty zijn ident
 alle 25 observaties. Door ze op collectieniveau te plaatsen wordt herhaling vermeden en is
 de gemeenschappelijke context direct opvraagbaar (SOSA 2023 §4.3).
 
-### Waarom `sosa:hasInputValue` en `sosa:relatedObservation` op de dagobservatie?
+### Waarom `sosa:hasInputValue` naar de uurresultaten en `sosa:relatedObservation` naar de collectie?
 
-Verworpen alternatief: de dagsom als gewoon `sosa:hasMember` opnemen in de collectie, zonder
-verdere koppeling.
-Gekozen aanpak: de dagobservatie staat buiten de `hasMember`-lijst maar is via
-`sosa:isMemberOf`, `sosa:relatedObservation` en `sosa:hasInputValue` aan de collectie
-gekoppeld.
-Motivatie: de dagsom is geen directe registratie van de teller maar een aggregatie van de
-24 uurtellingen. Ze maakt geen deel uit van de collectie. `sosa:hasInputValue` maakt de
-input-afhankelijkheid expliciet: de collectie (met haar 24 leden) is de invoer voor de
-berekening. `sosa:relatedObservation` legt de associatieve band vast. Doordat de metadata
+Verworpen alternatieven: (a) de dagsom als gewoon `sosa:hasMember` opnemen in de collectie;
+(b) `sosa:hasInputValue` naar de collectie.
+Gekozen aanpak: de dagobservatie staat buiten de `hasMember`-lijst. Ze verwijst met
+`sosa:hasInputValue` naar de 24 uurresultaten (de waarden) en met `sosa:relatedObservation`
+naar de collectie (de bronobservaties).
+Motivatie: de dagsom is geen directe registratie van de teller, maar een aggregatie van de
+24 uurtellingen. Ze maakt dus geen deel uit van de collectie (R13). SOSA 2023 definieert
+`sosa:hasInputValue` als "kent een waarde toe aan een input, gedefinieerd door de Procedure, die
+gebruikt wordt in een Execution": een waarde, een `prov:Entity`. Een collectie van observaties
+is geen waarde. Met `hasInputValue` ⊂ `prov:used` (`pplan-sosa.ttl`) zou ze een entiteit worden,
+terwijl haar leden activiteiten zijn. De vorige versie van dit voorbeeld deed dat; de pipeline
+meldde het als `[MODEL INVALID]` (rechtgezet 2026-10-01). De band met de bronobservaties is
+`sosa:relatedObservation` ("relation from an Execution … to an Observation or
+ObservationCollection"). Doordat de metadata
 (sensor, procedure, FOI, property) niet via collectie-erfenis beschikbaar is, worden ze
 expliciet herhaald op de dagobservatie.
 
@@ -172,6 +190,8 @@ beslaat en geen puntmeting is.
 | `sosa:` | `http://www.w3.org/ns/sosa/` | Persistent (W3C) |
 | `time:` | `http://www.w3.org/2006/time#` | Persistent (W3C) |
 | `geo:` | `http://www.opengis.net/ont/geosparql#` | Persistent (OGC) |
+| `qudt:` | `http://qudt.org/schema/qudt/` | Persistent (QUDT) |
+| `unit:` | `http://qudt.org/vocab/unit/` | Persistent (QUDT) |
 | `xsd:` | `http://www.w3.org/2001/XMLSchema#` | Persistent (W3C) |
 | `rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` | Persistent (W3C) |
 
@@ -189,6 +209,8 @@ concepten-thesaurus voor verkeer (bijv. een OSLO-verkeersvocabulaire).
 | `sosa:hosts` | `sosa:isHostedBy` | `ex:teller-FMN-021 sosa:isHostedBy ex:meetpunt-FMN-021` |
 | `sosa:hasFeatureOfInterest` | `sosa:isFeatureOfInterestOf` | `ex:meetpunt-FMN-021 sosa:isFeatureOfInterestOf ex:collectie-FMN-021-20260428` |
 | `sosa:hasMember` | `sosa:isMemberOf` | de 24 uurobservaties: `ex:obs-...-NNu sosa:isMemberOf ex:collectie-FMN-021-20260428` |
+| `sosa:hasResult` | `sosa:isResultOf` | de 25 resultaten: `ex:resultaat-... sosa:isResultOf ex:obs-...`; het meetpunt: `sosa:isResultOf ex:sampling-meetpunt-FMN-021` |
+| `sosa:hasSample` | `sosa:isSampleOf` | `ex:fietsroute-F1-antwerpen sosa:hasSample ex:meetpunt-FMN-021` |
+| `sosa:hasFeatureOfInterest` | `sosa:isFeatureOfInterestOf` | ook `ex:fietsroute-F1-antwerpen sosa:isFeatureOfInterestOf ex:sampling-meetpunt-FMN-021` |
 
-`sosa:isSampleOf` heeft geen expliciete inverse in de TTL. Vanuit de fietsroute zijn de
-observaties bereikbaar via de keten `fietsroute ← isSampleOf ← meetpunt ← isFeatureOfInterestOf ← collectie`.
+Vanuit de fietsroute zijn de observaties bereikbaar via de keten `fietsroute ← isSampleOf ← meetpunt ← isFeatureOfInterestOf ← collectie`.

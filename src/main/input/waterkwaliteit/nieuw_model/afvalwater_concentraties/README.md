@@ -17,8 +17,8 @@ meetpunten, rapportagegrenzen (teken `<`) en de koppeling aan CSOR.
 
 | Bestand | Inhoud |
 |---|---|
-| `afvalwater_concentraties.ttl` | validatie-subset: staal `M-AW-2024-006358-1` (RWZI Mechelen-Noord, 27/03/2024), 15 resultaten, teken `<` en `=`; 266 triples. Wordt door de Maven-pipeline gevalideerd. |
-| `afvalwater_concentraties.trig` | volledige omzetting: 1998 observaties, 42 337 triples (Turtle-inhoud; `.trig` houdt het buiten de pipeline) |
+| `afvalwater_concentraties.ttl` | validatie-subset: staal `M-AW-2024-006358-1` (RWZI Mechelen-Noord, 27/03/2024), 15 resultaten, teken `<` en `=`; 325 triples. Wordt door de Maven-pipeline gevalideerd. |
+| `afvalwater_concentraties.trig` | volledige omzetting: 1998 observaties, 49 120 triples (Turtle-inhoud; `.trig` houdt het buiten de pipeline) |
 | `afvalwater_concentraties.mmd` | Mermaid-diagram van de subset |
 | `bespreking.md` | conceptmapping en modelleerkeuzes |
 
@@ -45,6 +45,11 @@ python3 src/main/input/waterkwaliteit/scripts/afvalwater_concentraties.py [--cso
    in het script).
 
 ## Validatie (2026-09-29)
+
+- Applicatieprofiel (2026-09-30, `../../beslisdocument.md` A15): observaties, verzamelingen,
+  resultaten, stalen, staalnames en meetputten zijn ook getypeerd met hun wk-klasse
+  (`wk:WaterkwaliteitObservatie`, `wk:Meetresultaat` …). De SHACL-shapes worden gegenereerd uit
+  `src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl`.
 
 - `mvn compile exec:java`: subset zonder `[VOCAB ERROR]` of `[MODEL INVALID]`, conform SHACL.
 - `shacl validate --shapes src/main/resources/generated-shapes.ttl` op de volledige `.trig`:

@@ -29,9 +29,14 @@ Bron: Vlaams Erosiemeetnet via KMI en VMM (geen publieke Linked Data-URI beschik
 ## 3. Infrastructuur (blauwe nodes)
 
 ### `ex:vlaanderen` — `sosa:FeatureOfInterest`
-Het bredere studiegebied waarvan alle meetpunten ruimtelijke deelmonsters zijn.
+Het bredere studiegebied waarvan alle meetpunten ruimtelijke deelmonsters zijn. Vlaanderen is het
+FOI van de 53 ruimtelijke bemonsteringen `ex:sampling-{station-id}` (`sosa:Sampling`): de keuze
+van elk station als deelmonster. SOSA verwacht dat elk FeatureOfInterest het FOI van een uitvoering
+is. Zonder die bemonstering was Vlaanderen enkel via `sosa:isSampleOf` bereikbaar, en faalde de
+SHACL-validatie ook na inferentie (`sosa:isFeatureOfInterestOf` minimum 1). Het patroon is
+hetzelfde als bij verkeersmetingen en de waterkwaliteitmeetplaats.
 
-### `ex:{station-id}` — `sosa:Platform + sosa:FeatureOfInterest + sosa:SpatialSample`
+### `ex:{station-id}` — `sosa:Platform + sosa:FeatureOfInterest + sosa:SpatialSample` (+ `sosa:Sample`)
 Elke van de 53 neerslagstations is drievoudig getypeerd (zie R1, R11):
 - `sosa:Platform`: herbergt de neerslagsensor
 - `sosa:FeatureOfInterest`: is zelf studieobject (erosiviteit op deze locatie)
@@ -39,7 +44,9 @@ Elke van de 53 neerslagstations is drievoudig getypeerd (zie R1, R11):
   een groter Vlaams gebied (erosiviteitszone)
 
 Geometrie: Lambert 72-coördinaten (`SRID=31370;POINT(x y)^^geo:wktLiteral`).
-Koppeling: `sosa:isSampleOf ex:vlaanderen`.
+Koppeling: `sosa:isSampleOf ex:vlaanderen`, en `sosa:isResultOf ex:sampling-{station-id}`.
+`sosa:Sample` staat er expliciet bij, omdat de SHACL-validatie het resultaat van een
+`sosa:Sampling` als `sosa:Sample` verwacht en de superklasse zonder inferentie niet kent.
 
 ### `ex:departement-omgeving` — `sosa:Platform`
 De Vlaamse overheidsdienst die de RUSLE R-factor centraal berekent op basis van de ruwe
@@ -253,4 +260,6 @@ Regels:
 | `sosa:implements` (Sensor → Procedure) | — | Niet nodig |
 | `sosa:hasMember` (Collectie → Obs) | `sosa:isMemberOf` (Obs → Collectie) | Ja, op elke observatie |
 | `sosa:hasFeatureOfInterest` (Obs → FOI) | `sosa:isFeatureOfInterestOf` (FOI → Obs) | Ja, Platform → jaarlijkse collectie |
-| `sosa:isSampleOf` (Station → Vlaanderen) | — | Eenrichtings (geen inverse in SSN/SOSA 2023) |
+| `sosa:isSampleOf` (Station → Vlaanderen) | `sosa:hasSample` (Vlaanderen → Station) | Enkel `isSampleOf`; `hasSample` is af te leiden (`owl:inverseOf`) |
+| `sosa:hasFeatureOfInterest` (Bemonstering → Vlaanderen) | `sosa:isFeatureOfInterestOf` (Vlaanderen → Bemonstering) | Ja, op beide |
+| `sosa:hasResult` (Bemonstering → Station) | `sosa:isResultOf` (Station → Bemonstering) | Ja, op beide |

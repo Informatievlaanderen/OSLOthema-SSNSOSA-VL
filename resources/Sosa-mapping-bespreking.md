@@ -183,9 +183,10 @@ de 2023-editie), maar dan voor deze vier termen, die de Excel nog met het oude `
 noteert.
 
 **Reëel gevolg:** deze exacte fout (`ssn:Stimulus`, `ssn:wasOriginatedBy`, `ssn:isProxyFor`) komt
-ook voor in al gepubliceerde datavoorbeelden — `Nigella-Lawson-Brownies/Nigella-Lawson-Brownies-simple.ttl`,
+ook voor in al gepubliceerde datavoorbeelden —
 `EnergieManagementSystem/DatavoorbeeldStilleggingProductielijn/DatavoorbeeldStilleggingProductielijn_herzien.ttl`
-en `EnergieManagementSystem/DatavoorbeeldIsolatieadvies/DatavoorbeeldIsolatieadvies_herzien.ttl`.
+en `EnergieManagementSystem/DatavoorbeeldIsolatieadvies/DatavoorbeeldIsolatieadvies_herzien.ttl`
+(`Nigella-Lawson-Brownies-simple.ttl` had dezelfde fout en is op 2026-10-01 verwijderd).
 Deze `.ttl`-bestanden riskeren een `[VOCAB ERROR]` bij de eerstvolgende `mvn compile exec:java`,
 omdat `ssn:wasOriginatedBy`/`ssn:Stimulus`/`ssn:isProxyFor` niet in `completeOntology` bestaan.
 **Dit valt buiten de scope van de Excel-correctie** en wordt hier enkel gesignaleerd — een
@@ -276,7 +277,7 @@ plek in `CLAUDE.md` zodra ze beslist zijn.
 | 6 | Herbevestig bij Digitaal Vlaanderen welke kardinaliteit voor `hasFeatureOfInterest` bedoeld is ("Exact 1" vs. "minstens 1"). | Begrippen v2 (B051, B056) + Regels (RG02) |
 | 7 | **Corrigeer `ssn:` → `sosa:`** voor `Stimulus`/`detects`/`isProxyFor`/`wasOriginatedBy` (§4.1). | Begrippen v2 (B032, B040–B042) + Begrippen v1 |
 | 8 | **Vul `sosa:Property`, `hasProcedure`/`isProcedureFor`, `hasOutput`/`outputFor` en de p-plan-relaties (`isStepOfPlan` e.a.) aan** (§4.2) — actief gebruikt in datavoorbeelden, nergens gedefinieerd. | Begrippen v2 (ontbreekt) |
-| 9 | **Herzie afzonderlijk** de `.ttl`-datavoorbeelden die `ssn:Stimulus`/`ssn:wasOriginatedBy`/`ssn:isProxyFor` gebruiken (§4.1) — buiten scope van deze Excel-correctie, apart traject via `CLAUDE.md` §8. | `Nigella-Lawson-Brownies-simple.ttl`, `EnergieManagementSystem/*_herzien.ttl` |
+| 9 | ✅ **Uitgevoerd 2026-10-01.** In de `_herzien.ttl`-datavoorbeelden zijn `ssn:Stimulus`/`ssn:wasOriginatedBy` vervangen door `sosa:Stimulus`/`sosa:wasOriginatedBy`, de SOSA 2023-tegenhangers (§4.1). De ontvangen originelen in `source/` blijven ongewijzigd. | `EnergieManagementSystem/*_herzien.ttl` |
 | 10 | **Documenteer de p-plan/sosa:Procedure-brug** (`ontologies/pplan-sosa.ttl`, §4.3) — relevant voor Keuze K06. | Begrippen v2 (B002, B003, B125) |
 
 Alle 10 punten hierboven zijn al doorgevoerd in `resources/Sosa mapping (gecorrigeerd).xlsx`

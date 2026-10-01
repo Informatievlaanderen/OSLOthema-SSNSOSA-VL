@@ -143,7 +143,8 @@ step:warmteverlies-classificatie
 
 # Execution niveau - concrete observatie met entiteiten
 exec:classificatie-uitvoering-20250315
-  prov:used ent:drempelwaarde-001, ent:meting-001 ;
+  sosa:hasInputValue ent:drempelwaarde-001, ent:meting-001 ;   # ⊂ prov:used
+  sosa:relatedObservation exec:meting-001 ;
   p-plan:correspondsToStep step:warmteverlies-classificatie .
 ```
 
@@ -160,3 +161,24 @@ Het bestaande model werkt functioneel maar kan verbeterd worden door:
 2. Betere lifecycle modellering
 3. Explicietere traceerbaarheid tussen niveaus
 4. Scheiding tussen abstracte planning en concrete uitvoering
+
+## Bijwerking 2026-10-01: SSN/SOSA 2023 en inputwaarden
+
+1. **SSN 2017-termen vervangen** door hun SOSA 2023-tegenhangers:
+   - `ssn:hasProperty` → `sosa:hasProperty`;
+   - `ssn:implements` (dubbel met `sosa:implements`) → weg;
+   - `ssn:wasOriginatedBy` → `sosa:wasOriginatedBy`;
+   - `ssn:Stimulus` → `sosa:Stimulus`;
+   - `sosa:ObservableProperty` en `ssn:Property` → `sosa:Property`.
+2. **Inputwaarden.** `prov:used` naar de entiteiten die een planvariabele invullen (`p-plan:correspondsToVariable`)
+   is vervangen door `sosa:hasInputValue`. SOSA 2023: "kent een waarde toe aan een input, gedefinieerd
+   door de Procedure, die gebruikt wordt in een Execution". In
+   `src/main/resources/ontologies/pplan-sosa.ttl` is `sosa:hasInputValue` een subproperty van
+   `prov:used`, dus `prov:used` volgt eruit. De property zegt bovendien preciezer dat het om de
+   inputwaarde voor een `sosa:hasInput` van de procedure gaat (R5, R7, R13). De classificatie verwijst
+   daarnaast met `sosa:relatedObservation` naar `exec:meting-001`, de observatie die de gemeten
+   waarde opleverde.
+3. **Explicieter voor de SHACL-validatie op het niet-afgeleide model:**
+   - `sosa:System` op de sensor;
+   - `sosa:Execution` op de observaties;
+   - de inverses `sosa:isResultOf` en `sosa:isFeatureOfInterestOf`.

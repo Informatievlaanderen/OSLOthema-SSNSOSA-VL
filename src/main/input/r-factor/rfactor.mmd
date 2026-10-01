@@ -8,6 +8,7 @@ end
 subgraph INFRA["INFRASTRUCTUUR (53 stations)"]
   VL["ex:vlaanderen\nsosa:FeatureOfInterest"]
   ST["ex:KMI-6408\nsosa:Platform\n+ sosa:FeatureOfInterest\n+ sosa:SpatialSample"]
+  SM["ex:sampling-KMI-6408\nsosa:Sampling\nkeuze van het station"]
   DEPT["ex:departement-omgeving\nsosa:Platform"]
   SENSC["ex:sensor-rfactor\nsosa:Sensor\n+ sosa:System\n+ prov:SoftwareAgent"]
 end
@@ -29,6 +30,8 @@ subgraph WAAR["WAARNEMING (voorbeeld: KMI-6408)"]
 end
 
 ST -->|"sosa:isSampleOf"| VL
+SM -->|"sosa:hasFeatureOfInterest"| VL
+SM -->|"sosa:hasResult"| ST
 DEPT -->|"sosa:hosts"| SENSC
 SENSC -->|"sosa:implements"| PK
 SENSC -->|"sosa:observes"| PROP
@@ -53,6 +56,7 @@ style PK  fill:#c6a0f5,stroke:#2E5C8A,color:#000
 style PROP fill:#fe7130,stroke:#2E5C8A,color:#000
 style VL  fill:#60c4e4,stroke:#2E5C8A,color:#000
 style ST  fill:#60c4e4,stroke:#2E5C8A,color:#000
+style SM  fill:#e54b89,stroke:#2E5C8A,color:#fff
 style DEPT fill:#60c4e4,stroke:#2E5C8A,color:#000
 style SENSC fill:#60c4e4,stroke:#2E5C8A,color:#000
 style CJ  fill:#e54b89,stroke:#2E5C8A,color:#fff

@@ -13,6 +13,10 @@ Zonder argument wordt ../nacebel/nace2025.ttl t.o.v. dit script gebruikt. Een op
 relatief pad wordt eerst t.o.v. de werkmap gezocht, en anders t.o.v. ../nacebel/.
 De uitvoer komt standaard naast het invoerbestand.
 
+Belgif publiceert dcterms:modified zonder seconden ("2026-08-24T14:50"^^xsd:dateTime), wat geen
+geldige xsd:dateTime is. Het script vult de seconden aan (":00") in het invoerbestand zelf, omdat
+de Maven-pipeline dat bestand valideert.
+
 De uitvoer krijgt standaard de extensie .trig (Turtle-inhoud), zodat de Maven-pipeline,
 die alle .ttl-bestanden onder src/main/input/ valideert, het grote bestand overslaat.
 
@@ -20,6 +24,7 @@ Vereist: rdflib.
 """
 import argparse
 import os
+import re
 import sys
 import time
 import urllib.error
@@ -30,6 +35,10 @@ from rdflib import Graph, URIRef
 from rdflib.namespace import RDF, SKOS
 
 USER_AGENT = "OSLOthema-SSNSOSA-VL/nace_ophalen"
+# xsd:dateTime zonder seconden, bv. "2026-08-24T14:50"^^xsd:dateTime
+DATETIME_ZONDER_SECONDEN = re.compile(
+    r'"(\d{4}-\d{2}-\d{2}T\d{2}:\d{2})((?:Z|[+-]\d{2}:\d{2})?)"\^\^'
+    r'(xsd:dateTime|<http://www\.w3\.org/2001/XMLSchema#dateTime>)')
 NACEBEL_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "nacebel")
 
 
@@ -40,6 +49,17 @@ def zoek_invoer(pad):
     if os.path.isfile(kandidaat):
         return os.path.normpath(kandidaat)
     sys.exit(f"Invoerbestand niet gevonden: {pad} (ook niet in {os.path.normpath(NACEBEL_DIR)})")
+
+
+def herstel_datetime(pad):
+    """Vul in `pad` de seconden aan van xsd:dateTime-literals zonder seconden (in place)."""
+    with open(pad, encoding="utf-8") as f:
+        tekst = f.read()
+    hersteld, n = DATETIME_ZONDER_SECONDEN.subn(r'"\1:00\2"^^\3', tekst)
+    if n:
+        with open(pad, "w", encoding="utf-8") as f:
+            f.write(hersteld)
+        print(f"{pad}: {n} xsd:dateTime zonder seconden aangevuld met :00", file=sys.stderr)
 
 
 def haal_op(uri, pogingen=4):
@@ -67,6 +87,7 @@ def main():
     args = ap.parse_args()
 
     invoer = zoek_invoer(args.invoer)
+    herstel_datetime(invoer)
     uitvoer = os.path.abspath(args.uitvoer or os.path.splitext(invoer)[0] + "_volledig.trig")
     os.makedirs(os.path.dirname(uitvoer), exist_ok=True)
 

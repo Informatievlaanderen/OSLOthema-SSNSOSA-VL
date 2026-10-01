@@ -99,7 +99,8 @@ precies zoals in RIE-IEPR:
 ```
 
 De vracht is concentratie × debiet. Dat wordt een afgeleide observatie met `sosa:hasInputValue`
-naar de concentratie- en debietobservaties (R7, R13). `251013` levert die drie grootheden per jaar.
+naar de concentratie- en debietresultaten en `sosa:relatedObservation` naar de observaties
+(R7, R13). `251013` levert die drie grootheden per jaar.
 
 ### 2.4 Voorstel voor concentraties per staal (`250108`)
 
@@ -145,7 +146,9 @@ vraagt een kleine uitbreiding van RIE-IEPR: FOI = Emissie **of** Sample met
 
 Een segment verwijst naar zijn waterloop (`code:vhag`), bekken (`code:beknr`), stroomgebied
 (`code:strmgeb`), categorie (`code:catc`), beheerder (`code:beheer`) en KRW-waterlichaam
-(`code:wtrlichc`). De geometrie staat als `geosparql:asWKT` in WGS84 lon/lat.
+(`code:wtrlichc`). De geometrie staat in de bron als `geosparql:asWKT` (WGS84 lon/lat) rechtstreeks
+op het object. In de herstelde kopie is elk object een `geosparql:Feature`, met een
+`geosparql:Geometry` via `geosparql:hasGeometry` (blank node; `scripts/waterlopen_herstel.py` stap 4).
 
 ### 3.2 Voorstel
 
@@ -235,6 +238,9 @@ segment krijg je het bekken rechtstreeks (`code:beknr`); een labelmapping is dan
 ---
 
 ## 4. Open beslissingen
+
+> **Beslissingen worden centraal bijgehouden in `beslisdocument.md`.** Deze tabel is de
+> oorspronkelijke versie.
 
 | # | Vraag | Voorstel |
 |---|---|---|

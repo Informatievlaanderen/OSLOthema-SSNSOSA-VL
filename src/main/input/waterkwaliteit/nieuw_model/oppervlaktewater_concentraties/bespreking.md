@@ -9,7 +9,8 @@ ruimtelijk monster van een VHA-waterloop. Bron: VMM-export
 `250114_Analyseresultaten per meetplaats_OW.xlsx`: 999 resultaten van 3 stalen uit 2019 op
 meetplaats `OW12000` (Isabellahaven, Philippine, Leopoldkanaal). De VHA-waterloop komt uit de
 herstelde waterlopen-LOD (`../../waterlopen/`). De subset toont het staal van 28 januari 2019
-13:01, met 331 resultaten.
+13:01 (331 resultaten), beperkt tot 14 representatieve parameters. Een volledig staal is te zwaar
+voor de OWL-validatie van de pipeline; de volledige set staat in de `.trig`.
 
 ## 2. Kleurlegenda
 
@@ -22,11 +23,12 @@ herstelde waterlopen-LOD (`../../waterlopen/`). De subset toont het staal van 28
 
 ## 3. Infrastructuur (blauwe nodes)
 
-- **`waterloop:2801`** (Leopoldkanaal): `sosa:FeatureOfInterest`. De VHA-waterloop is het ultieme
-  studieobject. De IRI komt uit de herstelde waterlopen-LOD (gewestcode 2801). Daar is de
-  waterloop volledig beschreven als `code:Vhag`
-  (`../../waterlopen/waterlopen_meetplaatsen.ttl`). Hier staan enkel label, `sosa:hasSample` en
-  `sosa:isFeatureOfInterestOf` (§6.3).
+- **`waterloop:2801`** (Leopoldkanaal): `waterlopen:Vhag + sosa:FeatureOfInterest`. De VHA-waterloop
+  is het ultieme studieobject; `waterlopen:Vhag ⊂ sosa:FeatureOfInterest` staat in
+  `waterkwaliteit.ttl` (`../../beslisdocument.md` A15.6). De IRI komt uit de herstelde
+  waterlopen-LOD (gewestcode 2801). De volledige VHA-beschrijving (label, lengte, geometrie,
+  notaties) is overgenomen uit `../../waterlopen/waterlopen_meetplaatsen.ttl`, met daarbij
+  `sosa:hasSample` en `sosa:isFeatureOfInterestOf` (§6.3).
 - **`ex:meetplaats-OW12000`**: **drievoudige typering** `sosa:Platform + sosa:FeatureOfInterest +
   sosa:SpatialSample` (R11), plus `sosa:Sample` expliciet (§6.6).
   - *SpatialSample*: de meetplaats is een puntmonster van de waterloop (`sosa:isSampleOf
@@ -40,7 +42,7 @@ Er is geen `sosa:hosts`: de bron vermeldt geen sensoren of staalnemers.
 
 ## 4. Observatie/Actuatie-structuur (roze nodes)
 
-Selectie uit de 331 observaties van het subset-staal (alle met `hasFeatureOfInterest` =
+Selectie uit de observaties van het subset-staal (alle met `hasFeatureOfInterest` =
 `ex:staal-OW12000-2019-01-28T130100` en `hasUltimateFeatureOfInterest` = `waterloop:2801`):
 
 | IRI | observedProperty | hasResult |
@@ -55,8 +57,8 @@ Selectie uit de 331 observaties van het subset-staal (alle met `hasFeatureOfInte
 | `ex:observatie-OW12000-2019-01-28T130100-PAS_2138` | `csor-parameteraspect:PAS_2138` TBySn (standaard in water): massaconcentratie tin | < 0.01 `E_135` ngSn/L |
 | `ex:observatie-OW12000-2019-01-28T130100-PAS_1131` | `csor-parameteraspect:PAS_1131` 1112CEa (standaard in water): massaconcentratie | < 0.125 `E_4` µg/L |
 
-In het subset-staal hebben 266 van de 331 resultaten teken `<`. In de volledige set zijn dat er
-834 van de 999.
+In het volledige staal hebben 266 van de 331 resultaten teken `<`; in de subset 2 van de 14
+(TBySn, 1112CEa). In de volledige set zijn dat er 834 van de 999.
 
 **`ex:collectie-OW12000-2019-01-28T130100`** (`sosa:ObservationCollection`) groepeert de analyses
 van één staal. Staal (FOI), waterloop (ultiem FOI) en tijdstip staan op de collectie. Daarnaast
@@ -178,6 +180,7 @@ is afgeleid uit het teken. De eenheid is de CSOR-eenheid.
 |---|---|---|
 | `ex:` | `https://example.org/waterkwaliteit/oppervlaktewater/` | tijdelijk (illustratief, R10) |
 | `waterloop:` | `https://data.omgeving.vlaanderen.be/id/waterloop/` | persistent-bedoeld (VHA-gewestcode; herstelde LOD) |
+| `waterlopen:` | `https://data.omgeving.vlaanderen.be/ns/waterlopen#` | persistent (waterlopen-vocabularium) |
 | `csor-parameteraspect:`, `csor-eenheid:` | `https://data.omgeving.vlaanderen.be/id/concept/csor/…` | persistent (CSOR) |
 | `matrix:` | `https://data.omgeving.vlaanderen.be/id/concept/matrix/` | persistent |
 | `sosa:`, `qudt:`, `time:`, `geo:`, `dct:`, `skos:`, `rdfs:`, `xsd:` | W3C/QUDT/DCMI | persistent |
