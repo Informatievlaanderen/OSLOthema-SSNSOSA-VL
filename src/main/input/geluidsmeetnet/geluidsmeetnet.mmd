@@ -1,0 +1,209 @@
+flowchart LR
+
+subgraph PROC["PROCEDURE"]
+    P1["ex:procedure-eventmeting
+    sosa:ObservingProcedure
+    detectie + meting van een event"]
+    P2["ex:procedure-energetische-sommatie
+    sosa:ObservingProcedure
+    L = 10·log10(Σ10^(SEL/10) / T)"]
+    P3["ex:procedure-lden
+    sosa:ObservingProcedure
+    Richtlijn 2002/49/EG"]
+    P4["ex:procedure-maximum
+    ex:procedure-energetisch-gemiddelde-eventduur
+    sosa:ObservingProcedure"]
+    PEV["ex:prop-LAeq · ex:prop-LAmax · ex:prop-duur
+    sosa:Property"]
+    PSEL["ex:prop-SEL
+    sosa:Property"]
+    PLN["ex:prop-Ln
+    sosa:Property"]
+    PLD["ex:prop-Ld · ex:prop-Le
+    sosa:Property"]
+    PLDEN["ex:prop-Lden
+    sosa:Property"]
+end
+
+subgraph INFRA["INFRASTRUCTUUR"]
+    I3["ex:omgeving-EBBR
+    sosa:FeatureOfInterest
+    omgeving Brussels Airport"]
+    I1["ex:meetpost-M072
+    sosa:Platform · sosa:FeatureOfInterest
+    sosa:SpatialSample"]
+    I4["ex:campagne-M072-2
+    sosa:Deployment"]
+    I2["ex:geluidsmeter-M072-2
+    sosa:Sensor"]
+    I5["ex:geluidsmeetnet-EBBR
+    sosa:System"]
+    I6["ex:aerovision-rekenmodule
+    sosa:Sensor (software)"]
+end
+
+subgraph WAAR["WAARNEMING — 29 september 2026, 07:00 → 30 september 07:00"]
+    SM["ex:sampling-meetpost-M072
+    sosa:Sampling"]
+    C0["ex:collectie-M072-2-20260929
+    sosa:ObservationCollection
+    58 eventcollecties"]
+    TD["ex:interval-20260929-dag
+    time:Interval 07:00 → 07:00"]
+
+    VL["ex:vlucht-3C71A7-20260929T231932Z
+    prov:Activity
+    BCS6TP DEP EBBR→EDDP, baan 25R"]
+    LV["ex:luchtvaartuig-3C71A7
+    prov:Entity · A333"]
+    ST["ex:geluidsevent-M072-2-20260929T232239Z
+    sosa:Stimulus"]
+
+    EC["ex:eventcollectie-M072-2-20260929T232239Z
+    sosa:ObservationCollection"]
+    TI["ex:interval-M072-2-20260929T232239Z
+    time:Interval 01:22:39 → 01:23:58"]
+    TM["ex:instant-20260929T232312Z
+    time:Instant 01:23:12"]
+    O1["ex:obs-…-LAeq
+    sosa:Observation · 57.39 dB(A)"]
+    O2["ex:obs-…-LAmax
+    sosa:Observation · 62.97 dB(A)"]
+    O3["ex:obs-…-SEL
+    sosa:Observation"]
+    R3["ex:resultaat-…-SEL
+    sosa:Result · 76.37 unit:DeciB_A"]
+    O4["ex:obs-…-duur
+    sosa:Observation · 79 unit:SEC"]
+    OVR["57 andere eventcollecties
+    (40 dag · 13 avond · 4 nacht)"]
+
+    subgraph DERIVATION["DERIVATION — dagindicatoren"]
+        DLN["ex:obs-M072-2-20260929-Ln
+        sosa:Observation"]
+        RLN["ex:resultaat-M072-2-20260929-Ln
+        sosa:Result · 35.39 dB(A)"]
+        TN["ex:interval-20260929-N
+        time:Interval 23:00 → 07:00"]
+        DLD["ex:obs-…-Ld · 42.31 / ex:obs-…-Le · 39.33
+        sosa:Observation"]
+        DLDEN["ex:obs-M072-2-20260929-Lden
+        sosa:Observation · 43.9 dB(A)"]
+        DOV["ex:obs-…-L24 · 40.45 / -SEL · 89.81
+        -LAmax · 65.28 / -LAeq-vliegtuiggeluid · 53.74"]
+    end
+end
+
+%% stijlen subgrafen
+style PROC       fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style INFRA      fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style WAAR       fill:#e7a3be,stroke:#2E5C8A,color:#000
+style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+
+%% stijlen nodes PROCEDURE
+style P1    fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style P2    fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style P3    fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style P4    fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style PEV   fill:#fe7130,stroke:#2E5C8A,color:#000
+style PSEL  fill:#fe7130,stroke:#2E5C8A,color:#000
+style PLN   fill:#fe7130,stroke:#2E5C8A,color:#000
+style PLD   fill:#fe7130,stroke:#2E5C8A,color:#000
+style PLDEN fill:#fe7130,stroke:#2E5C8A,color:#000
+
+%% stijlen nodes INFRASTRUCTUUR
+style I1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I3 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I4 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I5 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I6 fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+%% stijlen nodes WAARNEMING
+style SM  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style C0  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style TD  fill:#f8b622,stroke:#2E5C8A,color:#000
+style VL  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style LV  fill:#f8b622,stroke:#2E5C8A,color:#000
+style ST  fill:#f8b622,stroke:#2E5C8A,color:#000
+style EC  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style TI  fill:#f8b622,stroke:#2E5C8A,color:#000
+style TM  fill:#f8b622,stroke:#2E5C8A,color:#000
+style O1  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style O2  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style O3  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R3  fill:#f8b622,stroke:#2E5C8A,color:#000
+style O4  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OVR fill:#e54b89,stroke:#2E5C8A,color:#fff
+
+%% stijlen nodes DERIVATION
+style DLN   fill:#e54b89,stroke:#2E5C8A,color:#fff
+style RLN   fill:#f8b622,stroke:#2E5C8A,color:#000
+style TN    fill:#f8b622,stroke:#2E5C8A,color:#000
+style DLD   fill:#e54b89,stroke:#2E5C8A,color:#fff
+style DLDEN fill:#e54b89,stroke:#2E5C8A,color:#fff
+style DOV   fill:#e54b89,stroke:#2E5C8A,color:#fff
+
+%% relaties — infrastructuur
+I1 -->|sosa:isSampleOf| I3
+SM -->|sosa:hasFeatureOfInterest| I3
+SM -->|sosa:hasResult| I1
+I1 -->|sosa:hosts| I2
+I1 -->|sosa:inDeployment| I4
+I4 -->|sosa:deployedSystem| I2
+I5 -->|sosa:hasSubSystem| I2
+I5 -->|sosa:hasSubSystem| I6
+I2 -->|sosa:implements| P1
+I6 -->|sosa:implements| P2
+I6 -->|sosa:implements| P3
+I6 -->|sosa:implements| P4
+
+%% relaties — procedures en eigenschappen
+P1 -->|sosa:hasOutput| PEV
+P1 -->|sosa:hasOutput| PSEL
+P2 -->|sosa:hasInput| PSEL
+P2 -->|sosa:hasOutput| PLN
+P2 -->|sosa:hasOutput| PLD
+P3 -->|sosa:hasInput| PLN
+P3 -->|sosa:hasInput| PLD
+P3 -->|sosa:hasOutput| PLDEN
+
+%% relaties — bron van het event
+VL -->|prov:used| LV
+ST -->|prov:wasGeneratedBy| VL
+ST -->|sosa:isDetectedBy| I2
+
+%% relaties — dagcollectie en eventcollectie (gedeelde metadata op collectieniveau)
+C0 -->|sosa:madeBySensor| I2
+C0 -->|sosa:usedProcedure| P1
+C0 -->|sosa:hasFeatureOfInterest| I1
+C0 -->|sosa:phenomenonTime| TD
+C0 -->|sosa:hasMember| EC
+C0 -->|sosa:hasMember| OVR
+EC -->|sosa:wasOriginatedBy| ST
+EC -->|sosa:phenomenonTime| TI
+EC -->|sosa:hasMember| O1
+EC -->|sosa:hasMember| O2
+EC -->|sosa:hasMember| O3
+EC -->|sosa:hasMember| O4
+O1 -->|sosa:observedProperty| PEV
+O3 -->|sosa:observedProperty| PSEL
+O2 -->|sosa:phenomenonTime| TM
+O3 -->|sosa:hasResult| R3
+
+%% relaties — afgeleide observaties (buiten de collectie, R13)
+DLN -->|sosa:madeBySensor| I6
+DLN -->|sosa:usedProcedure| P2
+DLN -->|sosa:observedProperty| PLN
+DLN -->|sosa:hasFeatureOfInterest| I1
+DLN -->|sosa:phenomenonTime| TN
+DLN -->|sosa:hasInputValue| R3
+DLN -.->|sosa:relatedObservation| C0
+DLN -->|sosa:hasResult| RLN
+DLD -.->|sosa:relatedObservation| C0
+DOV -.->|sosa:relatedObservation| C0
+DLDEN -->|sosa:usedProcedure| P3
+DLDEN -->|sosa:observedProperty| PLDEN
+DLDEN -->|sosa:hasInputValue| RLN
+DLDEN -.->|sosa:relatedObservation| DLN
+DLDEN -.->|sosa:relatedObservation| DLD
