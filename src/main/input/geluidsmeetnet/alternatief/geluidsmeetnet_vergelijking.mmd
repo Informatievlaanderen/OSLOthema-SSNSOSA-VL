@@ -1,0 +1,84 @@
+flowchart LR
+
+subgraph HOOFD["HOOFDMODEL — FOI = meetpost, event = sosa:Stimulus"]
+    H_VL["ex:vlucht-4853D3-…
+    prov:Activity"]
+    H_EV["ex:geluidsevent-M072-2-…
+    sosa:Stimulus · prov:Entity"]
+    H_EC["ex:eventcollectie-M072-2-…
+    sosa:ObservationCollection"]
+    H_MP["ex:meetpost-M072
+    sosa:Platform · sosa:FeatureOfInterest
+    sosa:SpatialSample"]
+    H_DAG["ex:obs-M072-2-20260929-Lden
+    sosa:Observation"]
+end
+
+subgraph ALT["ALTERNATIEF A — FOI = geluidsevent als wk:Emissie"]
+    A_VL["ex:vlucht-4853D3-…
+    prov:Activity"]
+    A_EV["ex:geluidsevent-M072-2-…
+    wk:Emissie · prov:Entity
+    sosa:FeatureOfInterest"]
+    A_EC["alt:eventcollectie-M072-2-…
+    sosa:ObservationCollection"]
+    A_MP["ex:meetpost-M072
+    sosa:Platform · sosa:SpatialSample"]
+    A_DAG["Lden (dagindicator)
+    FOI blijft de meetpost"]
+end
+
+subgraph VARB["ALTERNATIEF B — emissie per vlucht, event als monster"]
+    B_VL["ex:vlucht-4853D3-…
+    prov:Activity"]
+    B_EM["ex:geluid-vlucht-4853D3-…
+    wk:Emissie · prov:Entity"]
+    B_EV["ex:geluidsevent-M072-2-…
+    sosa:Sample · sosa:FeatureOfInterest"]
+    B_EC["eventcollectie
+    sosa:ObservationCollection"]
+    B_MP["ex:meetpost-M072
+    sosa:Platform"]
+end
+
+%% stijlen subgrafen
+style HOOFD fill:#e7a3be,stroke:#2E5C8A,color:#000
+style ALT   fill:#e7a3be,stroke:#2E5C8A,color:#000
+style VARB  fill:#e7a3be,stroke:#2E5C8A,color:#000
+
+%% stijlen nodes
+style H_VL  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style H_EV  fill:#f8b622,stroke:#2E5C8A,color:#000
+style H_EC  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style H_MP  fill:#60c4e4,stroke:#2E5C8A,color:#000
+style H_DAG fill:#e54b89,stroke:#2E5C8A,color:#fff
+style A_VL  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style A_EV  fill:#f8b622,stroke:#2E5C8A,color:#000
+style A_EC  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style A_MP  fill:#60c4e4,stroke:#2E5C8A,color:#000
+style A_DAG fill:#e54b89,stroke:#2E5C8A,color:#fff
+style B_VL  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style B_EM  fill:#f8b622,stroke:#2E5C8A,color:#000
+style B_EV  fill:#f8b622,stroke:#2E5C8A,color:#000
+style B_EC  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style B_MP  fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+%% hoofdmodel
+H_EV -->|prov:wasGeneratedBy| H_VL
+H_EC -->|sosa:wasOriginatedBy| H_EV
+H_EC ==>|sosa:hasFeatureOfInterest| H_MP
+H_DAG ==>|sosa:hasFeatureOfInterest| H_MP
+
+%% alternatief A
+A_EV -->|prov:wasGeneratedBy| A_VL
+A_EC ==>|sosa:hasFeatureOfInterest| A_EV
+A_EC -->|prov:atLocation| A_MP
+A_EV -->|prov:atLocation| A_MP
+A_DAG ==>|sosa:hasFeatureOfInterest| A_MP
+
+%% alternatief B
+B_EM -->|prov:wasGeneratedBy| B_VL
+B_EV -->|sosa:isSampleOf| B_EM
+B_EC ==>|sosa:hasFeatureOfInterest| B_EV
+B_EC -->|sosa:hasUltimateFeatureOfInterest| B_EM
+B_EC -->|prov:atLocation| B_MP

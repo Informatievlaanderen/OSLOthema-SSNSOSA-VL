@@ -112,17 +112,51 @@ Alle indicatoren hebben FOI `ex:meetpost-M072` en eenheid `unit:DeciB_A`.
 
 <!-- TODO: Hoe definieert Aerovision een geluidsevent (drempelniveau in dB(A), minimale duur, eventueel een dynamische drempel boven het achtergrondniveau)? Die parameters horen als rdfs:comment of als sosa:hasInput bij ex:procedure-eventmeting. -->
 
-Eigenschappen (`sosa:Property`):
+Eigenschappen (`sosa:Property`). Elke property heeft in de TTL een symbool (`skos:notation`),
+een definitie (`skos:definition`), de formule en duiding (`skos:scopeNote`) en een bron
+(`rdfs:seeAlso`: de [Acoustic Glossary](https://www.acoustic-glossary.co.uk/leq.htm) en
+[Richtlijn 2002/49/EG](http://data.europa.eu/eli/dir/2002/49/oj)).
 
-| Property | Betekenis |
-|---|---|
-| `ex:prop-LAeq` | Equivalent continu A-gewogen geluidsdrukniveau over de duur van het event |
-| `ex:prop-LAmax` | Maximaal A-gewogen niveau binnen de phenomenonTime (event of dag) |
-| `ex:prop-SEL` | Sound Exposure Level (LAE): het niveau van 1 s met dezelfde energie als het event of de som van de events |
-| `ex:prop-duur` | Duur van het event |
-| `ex:prop-L24`, `ex:prop-Ld`, `ex:prop-Le`, `ex:prop-Ln` | LAeq van vliegtuiggeluid over etmaal / dag (07–19) / avond (19–23) / nacht (23–07) |
-| `ex:prop-Lden` | Dag-avond-nachtniveau, avond +5 dB, nacht +10 dB (Richtlijn 2002/49/EG) |
-| `ex:prop-LAeq-vliegtuiggeluid` | LAeq over de cumulatieve duur van de vliegtuiggeluidevents (Aerovision-indicator "LAeq") |
+**Begrippen vooraf.**
+- **Niveau in dB**: 10·log10 van een energieverhouding, hier de A-gewogen geluidsdruk in het
+  kwadraat ten opzichte van p0² = (20 µPa)². +3 dB is een verdubbeling van de geluidsenergie,
+  +10 dB een vertienvoudiging.
+- **A-weging**: een frequentieweging die de gevoeligheid van het menselijk oor benadert
+  (IEC 61672-1). Vandaar de eenheid `unit:DeciB_A`.
+- **Energiegemiddelde vs. energiesom**: LAeq,T is het *gemiddelde* van de energie over een
+  periode T, SEL (LAE) de *totale* energie, uitgedrukt als niveau van 1 s. Dagindicatoren worden
+  daarom niet uit de LAeq maar uit de SEL van de events berekend:
+  L = 10·log10( Σ 10^(LAE,i/10) / T ).
+- **Tijdweging**: LAeq en SEL integreren lineair, zonder tijdweging. Een maximum (LAmax) hangt
+  wel af van de exponentiële tijdweging: Fast (125 ms) of Slow (1 s).
+
+| Property | Symbool | Betekenis | T (referentieperiode) |
+|---|---|---|---|
+| `ex:prop-LAeq` | LAeq,T | Constant niveau met dezelfde energie als het event, gemiddeld over de eventduur. Omvat al het geluid op de meetpost tijdens het event, ook achtergrondgeluid. | duur van het event |
+| `ex:prop-LAmax` | LAmax (LAFmax of LASmax) | Hoogste tijdgewogen niveau binnen het event, of op dagniveau het hoogste van alle events. Geen piekniveau. | — |
+| `ex:prop-SEL` | LAE | Niveau dat in 1 s dezelfde energie bevat als het event (of alle events samen). LAE = LAeq,T + 10·log10(T/1 s). | 1 s (normering) |
+| `ex:prop-duur` | T | Duur van het event (Start → End), in s; de integratietijd van LAeq,T. | — |
+| `ex:prop-L24` | LAeq,24h | LAeq van vliegtuiggeluid over het Aerovision-etmaal. Deelniveau: enkel gecorreleerde events, stilte daartussen. | 86 400 s (07:00–07:00) |
+| `ex:prop-Ld` | Lday | Idem over de dagperiode (events met Period = D) | 43 200 s (07–19) |
+| `ex:prop-Le` | Levening | Idem over de avondperiode (Period = E) | 14 400 s (19–23) |
+| `ex:prop-Ln` | Lnight | Idem over de nachtperiode (Period = N); indicator voor slaapverstoring | 28 800 s (23–07) |
+| `ex:prop-Lden` | Lden | Etmaalniveau met +5 dB voor de avond en +10 dB voor de nacht; indicator voor hinder. Lden = 10·log10((12·10^(Ld/10) + 4·10^((Le+5)/10) + 8·10^((Ln+10)/10))/24). | etmaal |
+| `ex:prop-LAeq-vliegtuiggeluid` | LAeq (Aerovision) | Gemiddeld niveau *tijdens* vliegtuiggeluid: energie gedeeld door de cumulatieve eventduur. LAeq = L24 + 10·log10(86 400 / Σ T_i). | Σ eventduren (kolom *Duration*) |
+
+**Nagerekend op de export:**
+- Voor alle 1 818 events geldt exact LAE = LAeq,T + 10·log10(T). LAeq, SEL en duur zijn dus
+  niet onafhankelijk: elk volgt uit de twee andere. Ze blijven alle drie in het model, omdat
+  afnemers ze rechtstreeks opvragen en de dagindicatoren SEL (en duur) als input gebruiken.
+- Lden volgt exact uit Ld, Le en Ln (bv. F040-2: 55,44 dB).
+- De Aerovision-"LAeq" volgt uit L24 en de kolom *Duration* (bv. F040-2: 52,58 + 10·log10(86 400 / 8 971) = 62,42 dB).
+
+**Verschil met de END-indicatoren.** In Richtlijn 2002/49/EG zijn Lday, Levening, Lnight en
+Lden *jaargemiddelden* van *al het geluid van een bron*, als beoordeling van langdurige
+blootstelling. Hier gaat het om de waarde van **één etmaal**, berekend uit **enkel de
+gecorreleerde vliegtuigevents**. De namen zijn dezelfde, de betekenis is smaller. Dat staat in de
+`skos:scopeNote` van elke property.
+
+<!-- TODO: Welke tijdweging gebruikt Aerovision voor LAmax: Fast (LAFmax) of Slow (LASmax)? Dan kan skos:notation van ex:prop-LAmax specifiek worden. -->
 
 ## 6. Modelleer-keuzes toegelicht
 

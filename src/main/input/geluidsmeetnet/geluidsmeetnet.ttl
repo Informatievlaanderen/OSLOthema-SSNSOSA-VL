@@ -6,6 +6,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
 @prefix ex:      <https://example.org/geluidsmeetnet/> .
 
 ###############################################################################
@@ -95,43 +96,79 @@ ex:procedure-lden a sosa:ObservingProcedure , sosa:Procedure ;
     sosa:hasOutput ex:prop-Lden .
 
 ex:prop-LAeq a sosa:Property ;
-    rdfs:label "LAeq van een geluidsevent"@nl ;
-    rdfs:comment "Equivalent continu A-gewogen geluidsdrukniveau over de duur van het event."@nl .
+    rdfs:label "LAeq,T van een geluidsevent"@nl ;
+    skos:notation "LAeq,T" ;
+    skos:definition "Equivalent continu A-gewogen geluidsdrukniveau over de duur T van het event: het constante niveau dat over T dezelfde totale geluidsenergie heeft als het werkelijke, fluctuerende geluid. T is de duur van het event (ex:prop-duur)."@nl ;
+    skos:scopeNote "LAeq,T = 10·log10[ (1/T)·∫ pA²(t) dt / p0² ] dB, met pA(t) de A-gewogen geluidsdruk en p0 = 20 µPa. A-weging is een frequentieweging die de gevoeligheid van het menselijk oor benadert (IEC 61672-1). LAeq is een lineair gemiddelde van de energie; er is geen exponentiële tijdweging (Fast/Slow) bij betrokken. Een verschil van 3 dB is een verdubbeling of halvering van de geluidsenergie."@nl ,
+        "De meter registreert het volledige geluid op de meetpost tijdens het event, inclusief achtergrondgeluid; Aerovision schrijft het event daarna toe aan een vlucht. In deze export geldt voor elk van de 1 818 events exact LAE = LAeq,T + 10·log10(T / 1 s): LAeq, SEL en duur zijn dus niet onafhankelijk."@nl ;
+    rdfs:seeAlso <https://www.acoustic-glossary.co.uk/leq.htm> .
 
 ex:prop-LAmax a sosa:Property ;
     rdfs:label "LAmax"@nl ;
-    rdfs:comment "Maximaal A-gewogen geluidsdrukniveau binnen de phenomenonTime (event of dag)."@nl .
+    skos:notation "LAmax" ;
+    skos:definition "Het hoogste A-gewogen, tijdgewogen geluidsdrukniveau binnen de phenomenonTime: binnen het event, of op dagniveau het hoogste van alle events."@nl ;
+    skos:scopeNote "Een maximum veronderstelt een exponentiële tijdweging: Fast (F, tijdconstante 125 ms; LAFmax) of Slow (S, 1 s; LASmax). Lmax wordt meestal met Fast gemeten; welke weging Aerovision gebruikt, staat niet in de export. LAmax is geen piekniveau (Lpeak): dat is de hoogste momentane geluidsdruk zonder tijdweging. Op dagniveau is LAmax het maximum van de event-LAmax (procedure ex:procedure-maximum)."@nl ;
+    rdfs:seeAlso <https://www.acoustic-glossary.co.uk/time-weighting.htm> ,
+        <https://www.acoustic-glossary.co.uk/definitions-l.htm> .
 
 ex:prop-SEL a sosa:Property ;
     rdfs:label "SEL (LAE)"@nl ;
-    rdfs:comment "Sound Exposure Level: het A-gewogen niveau dat, gedurende 1 s aangehouden, dezelfde akoestische energie bevat als het event (of de som van de events binnen de phenomenonTime)."@nl .
+    skos:notation "LAE" ;
+    skos:definition "Sound Exposure Level (geluidsblootstellingsniveau): het constante A-gewogen niveau dat in één seconde dezelfde geluidsenergie bevat als het volledige event, of als alle events samen binnen de phenomenonTime."@nl ;
+    skos:scopeNote "LAE = 10·log10[ ∫ pA²(t) dt / (p0²·T0) ] dB, met p0 = 20 µPa en T0 = 1 s. Verband met LAeq: LAE = LAeq,T + 10·log10(T / T0). Anders dan LAeq is SEL geen gemiddelde maar een maat voor de totale energie: een event dat even luid maar twee keer zo lang is, heeft een SEL die 3 dB hoger ligt. Daardoor zijn SEL-waarden energetisch op te tellen: LAE,totaal = 10·log10 Σ 10^(LAE,i/10). Zo worden de dagindicatoren uit de events berekend."@nl ;
+    rdfs:seeAlso <https://www.acoustic-glossary.co.uk/sound-exposure.htm#sound-exposure-level> .
 
 ex:prop-duur a sosa:Property ;
-    rdfs:label "Duur van een geluidsevent"@nl .
+    rdfs:label "Duur van een geluidsevent"@nl ;
+    skos:notation "T" ;
+    skos:definition "De tijdsduur van het geluidsevent, van begin tot einde (kolommen Start en End van de export), in seconden. Het is de integratietijd T van LAeq,T."@nl ;
+    skos:scopeNote "Begin en einde volgen uit de detectiecriteria van Aerovision (drempelniveau, minimale duur), die niet in de export staan. Een langere duur betekent niet automatisch meer hinder: de energie zit in SEL (LAE = LAeq,T + 10·log10 T)."@nl .
 
 ex:prop-L24 a sosa:Property ;
     rdfs:label "L24"@nl ;
-    rdfs:comment "Equivalent A-gewogen geluidsniveau van vliegtuiggeluid over het etmaal (07:00–07:00)."@nl .
+    skos:notation "LAeq,24h" ;
+    skos:definition "Equivalent continu A-gewogen geluidsniveau van vliegtuiggeluid over het volledige Aerovision-etmaal (07:00–07:00, T = 86 400 s)."@nl ;
+    skos:scopeNote "L24 = 10·log10( Σ 10^(LAE,i/10) / 86 400 ), over de SEL van alle aan vluchten gekoppelde events. Het is een deelniveau: enkel de energie van vliegtuigevents telt mee, tussen de events wordt stilte verondersteld. Het is dus niet het totale omgevingsgeluid op de meetpost."@nl ;
+    rdfs:seeAlso <https://www.acoustic-glossary.co.uk/leq.htm> .
 
 ex:prop-Ld a sosa:Property ;
-    rdfs:label "Ld"@nl ;
-    rdfs:comment "Equivalent A-gewogen geluidsniveau van vliegtuiggeluid over de dagperiode (07:00–19:00)."@nl .
+    rdfs:label "Ld (Lday)"@nl ;
+    skos:notation "Lday" ;
+    skos:definition "Dagindicator: equivalent continu A-gewogen geluidsniveau van vliegtuiggeluid over de dagperiode van 12 uur (07:00–19:00, T = 43 200 s)."@nl ;
+    skos:scopeNote "Ld = 10·log10( Σ 10^(LAE,i/10) / 43 200 ), over de events van de dagperiode (Period = D). Benaming en periode volgens Richtlijn 2002/49/EG, bijlage I. Daar is Lday een gemiddelde over alle dagperiodes van een jaar; hier gaat het om één dag en enkel om vliegtuiggeluid."@nl ;
+    rdfs:seeAlso <https://www.acoustic-glossary.co.uk/definitions-l.htm#lday> ,
+        <http://data.europa.eu/eli/dir/2002/49/oj> .
 
 ex:prop-Le a sosa:Property ;
-    rdfs:label "Le"@nl ;
-    rdfs:comment "Equivalent A-gewogen geluidsniveau van vliegtuiggeluid over de avondperiode (19:00–23:00)."@nl .
+    rdfs:label "Le (Levening)"@nl ;
+    skos:notation "Levening" ;
+    skos:definition "Avondindicator: equivalent continu A-gewogen geluidsniveau van vliegtuiggeluid over de avondperiode van 4 uur (19:00–23:00, T = 14 400 s)."@nl ;
+    skos:scopeNote "Le = 10·log10( Σ 10^(LAE,i/10) / 14 400 ), over de events van de avondperiode (Period = E). Richtlijn 2002/49/EG, bijlage I; daar een jaargemiddelde, hier de waarde van één avond voor vliegtuiggeluid."@nl ;
+    rdfs:seeAlso <https://www.acoustic-glossary.co.uk/definitions-l.htm> ,
+        <http://data.europa.eu/eli/dir/2002/49/oj> .
 
 ex:prop-Ln a sosa:Property ;
-    rdfs:label "Ln"@nl ;
-    rdfs:comment "Equivalent A-gewogen geluidsniveau van vliegtuiggeluid over de nachtperiode (23:00–07:00)."@nl .
+    rdfs:label "Ln (Lnight)"@nl ;
+    skos:notation "Lnight" ;
+    skos:definition "Nachtindicator: equivalent continu A-gewogen geluidsniveau van vliegtuiggeluid over de nachtperiode van 8 uur (23:00–07:00, T = 28 800 s)."@nl ;
+    skos:scopeNote "Ln = 10·log10( Σ 10^(LAE,i/10) / 28 800 ), over de events van de nachtperiode (Period = N). Richtlijn 2002/49/EG, bijlage I, waar Lnight de indicator voor slaapverstoring is; daar een jaargemiddelde, hier de waarde van één nacht voor vliegtuiggeluid."@nl ;
+    rdfs:seeAlso <https://www.acoustic-glossary.co.uk/definitions-l.htm> ,
+        <http://data.europa.eu/eli/dir/2002/49/oj> .
 
 ex:prop-Lden a sosa:Property ;
     rdfs:label "Lden"@nl ;
-    rdfs:comment "Dag-avond-nachtniveau: gewogen combinatie van Ld, Le (+5 dB) en Ln (+10 dB)."@nl .
+    skos:notation "Lden" ;
+    skos:definition "Dag-avond-nachtniveau: equivalent A-gewogen geluidsniveau over het etmaal, waarbij het geluid in de avond met 5 dB en in de nacht met 10 dB verzwaard wordt. Het is de indicator voor algemene hinder."@nl ;
+    skos:scopeNote "Lden = 10·log10( (12·10^(Ld/10) + 4·10^((Le+5)/10) + 8·10^((Ln+10)/10)) / 24 ), Richtlijn 2002/49/EG, bijlage I. De toeslagen weerspiegelen de grotere hinder van geluid 's avonds en 's nachts. In de richtlijn is Lden een jaargemiddelde; hier gaat het om één etmaal en enkel om vliegtuiggeluid."@nl ;
+    rdfs:seeAlso <https://www.acoustic-glossary.co.uk/definitions-l.htm#lden> ,
+        <http://data.europa.eu/eli/dir/2002/49/oj> .
 
 ex:prop-LAeq-vliegtuiggeluid a sosa:Property ;
     rdfs:label "LAeq tijdens vliegtuiggeluid"@nl ;
-    rdfs:comment "Equivalent A-gewogen geluidsniveau over de cumulatieve duur van alle aan vluchten gekoppelde events (Aerovision-indicator 'LAeq')."@nl .
+    skos:notation "LAeq (Aerovision)" ;
+    skos:definition "Equivalent A-gewogen geluidsniveau gemiddeld over de cumulatieve duur van alle aan vluchten gekoppelde events, niet over het etmaal: het gemiddelde niveau tijdens de momenten waarop er vliegtuiggeluid is."@nl ;
+    skos:scopeNote "LAeq = 10·log10( Σ 10^(LAE,i/10) / Σ T_i ). Dit is de Aerovision-indicator met naam LAeq; de cumulatieve duur staat in de kolom Duration van NoiseIndicators (bv. 8 971 s voor F040-2). Niet te verwarren met LAeq,24h (L24): LAeq = L24 + 10·log10(86 400 / Σ T_i)."@nl ;
+    rdfs:seeAlso <https://www.acoustic-glossary.co.uk/leq.htm> .
 
 ###############################################################################
 ### VLUCHTEN (bron van de geluidsevents, uit de radargegevens)

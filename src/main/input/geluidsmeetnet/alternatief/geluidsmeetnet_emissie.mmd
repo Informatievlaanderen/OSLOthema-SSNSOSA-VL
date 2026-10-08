@@ -1,0 +1,110 @@
+flowchart LR
+
+subgraph PROC["PROCEDURE"]
+    P1["ex:procedure-eventmeting
+    sosa:ObservingProcedure
+    detectie + meting van een event"]
+    PEV["ex:prop-LAeq · ex:prop-LAmax
+    ex:prop-SEL · ex:prop-duur
+    sosa:Property"]
+end
+
+subgraph INFRA["INFRASTRUCTUUR"]
+    I3["ex:omgeving-EBBR
+    sosa:FeatureOfInterest
+    omgeving Brussels Airport"]
+    I1["ex:meetpost-M072
+    sosa:Platform · sosa:SpatialSample
+    (FOI van de dagindicatoren)"]
+    I2["ex:geluidsmeter-M072-2
+    sosa:Sensor"]
+    I7["ex:meetpost-F041 · -F045 · -M071
+    + geluidsmeters F041-1 · F045-1 · M071-1"]
+end
+
+subgraph WAAR["WAARNEMING — vlucht TRA15N, 29 september 2026 06:58–07:02"]
+    VL["ex:vlucht-4853D3-20260929T045809Z
+    prov:Activity
+    TRA15N DEP EBBR→LEAL, baan 25R"]
+    LV["ex:luchtvaartuig-4853D3
+    prov:Entity · B738"]
+    EM["ex:geluidsevent-M072-2-20260929T050100Z
+    wk:Emissie · prov:Entity
+    sosa:FeatureOfInterest"]
+    EMO["3 andere emissies van dezelfde vlucht
+    ex:geluidsevent-F041-1-… · -F045-1-… · -M071-1-…
+    wk:Emissie · sosa:FeatureOfInterest"]
+
+    EC["alt:eventcollectie-M072-2-20260929T050100Z
+    sosa:ObservationCollection"]
+    TI["ex:interval-M072-2-20260929T050100Z
+    time:Interval 07:01:00 → 07:02:19"]
+    TM["ex:instant-20260929T050143Z
+    time:Instant 07:01:43"]
+    O1["alt:obs-…-LAeq
+    sosa:Observation · 55.85 dB(A)"]
+    O2["alt:obs-…-LAmax
+    sosa:Observation · 62.34 dB(A)"]
+    O3["alt:obs-…-SEL
+    sosa:Observation"]
+    R3["alt:resultaat-…-SEL
+    sosa:Result · 74.83 unit:DeciB_A"]
+    O4["alt:obs-…-duur
+    sosa:Observation · 79 unit:SEC"]
+end
+
+%% stijlen subgrafen
+style PROC  fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style WAAR  fill:#e7a3be,stroke:#2E5C8A,color:#000
+
+%% stijlen nodes PROCEDURE
+style P1  fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style PEV fill:#fe7130,stroke:#2E5C8A,color:#000
+
+%% stijlen nodes INFRASTRUCTUUR
+style I1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I3 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I7 fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+%% stijlen nodes WAARNEMING
+style VL  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style LV  fill:#f8b622,stroke:#2E5C8A,color:#000
+style EM  fill:#f8b622,stroke:#2E5C8A,color:#000
+style EMO fill:#f8b622,stroke:#2E5C8A,color:#000
+style EC  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style TI  fill:#f8b622,stroke:#2E5C8A,color:#000
+style TM  fill:#f8b622,stroke:#2E5C8A,color:#000
+style O1  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style O2  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style O3  fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R3  fill:#f8b622,stroke:#2E5C8A,color:#000
+style O4  fill:#e54b89,stroke:#2E5C8A,color:#fff
+
+%% relaties — infrastructuur
+I1 -->|sosa:isSampleOf| I3
+I1 -->|sosa:hosts| I2
+I2 -->|sosa:implements| P1
+P1 -->|sosa:hasOutput| PEV
+
+%% relaties — bron: de vlucht genereert de emissies
+VL -->|prov:used| LV
+EM -->|prov:wasGeneratedBy| VL
+EMO -->|prov:wasGeneratedBy| VL
+EM -->|prov:atLocation| I1
+EMO -->|prov:atLocation| I7
+
+%% relaties — eventcollectie: de emissie is het FOI
+EC -->|sosa:hasFeatureOfInterest| EM
+EC -->|prov:atLocation| I1
+EC -->|sosa:madeBySensor| I2
+EC -->|sosa:usedProcedure| P1
+EC -->|sosa:phenomenonTime| TI
+EC -->|sosa:hasMember| O1
+EC -->|sosa:hasMember| O2
+EC -->|sosa:hasMember| O3
+EC -->|sosa:hasMember| O4
+O1 -->|sosa:observedProperty| PEV
+O2 -->|sosa:phenomenonTime| TM
+O3 -->|sosa:hasResult| R3
