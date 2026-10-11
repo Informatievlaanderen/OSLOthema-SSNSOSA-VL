@@ -1,0 +1,162 @@
+# CLAUDE.md — OSLOthema-SSNSOSA-VL
+
+## §1 — Projectidentiteit
+
+Dit is een Vlaamse overheidsproject (Informatie Vlaanderen / OSLO) dat normatieve richtlijnen
+ontwikkelt voor de toepassing van de W3C SSN/SOSA 2023-standaard op Vlaamse overheidsdomeinen.
+Het project combineert SSN/SOSA met PROV-O, P-PLAN, QUDT en OWL-TIME en documenteert concrete
+datavoorbeelden per domein. De output dient als referentie voor toepassingsprofiel-ontwikkelaars.
+
+**Modelleerregels, patronen en werkwijzen** staan in de kit
+[`milieuinfo/oslo-ld-kit`](https://github.com/milieuinfo/oslo-ld-kit) (Engelstalig), als
+git-submodule in `oslo-ld-kit/`:
+de gids (`guide/`, regels R1–R15, onderaan geïmporteerd) en de skills van de plugin `oslo-ld`
+(`oslo-ld:new-example`, `revise-mapping`, `alternative-mapping`, `map-source-data`,
+`decision-document`, `design-ontology`, `align-ontologies`). Dit bestand bevat enkel wat eigen is
+aan dit project. Een nieuwe algemene regel of les hoort in de kit, niet hier.
+
+---
+
+## §2 — Projectprofiel
+
+| Instelling | Waarde |
+|---|---|
+| Voorbeelden | `src/main/input/<domein>/` |
+| Ontologieën | `src/main/resources/` (ook geladen door `ld-vocab` en de pipeline) |
+| Documenttaal | Nederlands (README, bespreking, opdracht, beslisdocumenten) |
+| Bestandsnamen | bespreking `bespreking.md`, oefening `opdracht.md`, herziening `<naam>_herzien.ttl`, vergelijking `<naam>_vergelijking.mmd`, alternatief `alternatief/`, sectie *Verbeterpunten* in de README |
+| Sectietitels bespreking | de Nederlandse titels uit `guide/discussion-document.md` (`## 1. Wat stelt dit voorbeeld voor?` …) |
+| Labels in diagrammen | `PROCEDURE`, `INFRASTRUCTUUR`, `WAARNEMING` (plat); `PLANNING`, `DEPLOYMENT`, `EXECUTION`, `DERIVATION` |
+| Tijdzone (R12) | `Europe/Brussels`: `+01:00` in de winter, `+02:00` tijdens de zomertijd |
+| Eenhedenregister (R3) | CSOR, prefix `csor-eenheid:` (`<https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/>`), geladen uit `src/main/resources/be/vlaanderen/omgeving/data/id/conceptscheme/csor/eenheid/eenheid.ttl` |
+| Extra prefixen | per domein; gedeelde infrastructuur met een eigen prefix (bv. `htg:` voor het Herman Teirlinck-gebouw) |
+| Validatie | `mcp__ld-vocab__validate_file` (§5); de Scala-pipeline enkel voor output |
+| Bronbestanden | in `source/`, Turtle als `.trig` (§4) |
+
+---
+
+## §3 — Repository-structuur
+
+| Pad | Rol |
+|---|---|
+| `src/main/input/<domein>/` | Één directory per datavoorbeeld |
+| `src/main/resources/` | OWL-ontologieën (SSN/SOSA 2023, PROV-O, P-PLAN, QUDT, TIME, SAREF, …) |
+| `src/main/resources/generated-shapes.ttl` | Auto-gegenereerde SHACL-shapes — **nooit manueel bewerken** |
+| `src/main/cc/prefix/prefix.cc.ttl` | Prefixregister van prefix.cc voor `validate_file` (`getPrefixes.sh` om te vernieuwen) |
+| `src/main/resources/be/vlaanderen/ssnsosa/data/id/jsonld/frame.json` | JSON-LD framing-template |
+| `src/main/resources/be/vlaanderen/ssnsosa/data/id/rule/domain-range-subproperty.rules` | Jena-inferentieregels |
+| `src/main/scala/be/vlaanderen/ssnsosa/` | Scala-evaluatiepipeline |
+| `src/main/output/` | Gegenereerde output (Turtle na inferentie, JSON-LD) |
+| `oslo-ld-kit/` | Git-submodule [`milieuinfo/oslo-ld-kit`](https://github.com/milieuinfo/oslo-ld-kit): gids, skills, SHACL-regels |
+| `.mcp.json` | MCP-server `ld-vocab` ([`milieuinfo/ld-mcp`](https://github.com/milieuinfo/ld-mcp)) met de regels uit de kit |
+| `.claude/settings.json` | Marketplace `oslo-ld-kit` (GitHub) en plugin `oslo-ld` voor iedereen die het project opent |
+| `.claude/commands/nieuw-voorbeeld.md` | `/nieuw-voorbeeld`: start de skill `oslo-ld:new-example` met dit profiel |
+| `kennisinventaris.md` | Inventaris van de kennis in dit project en waar ze naartoe ging |
+
+Bestaande datavoorbeelden:
+- `grondwaterpeilmetingen/` — DOV grondwaterfiltermetingen (plat model)
+- `paleo/` — paleoklimaatdata met afgeleide observaties en niet-kalender TRS
+- `Nigella-Lawson-Brownies/` — procesmodellering met drielaags architectuur
+- `EnergieManagementSystem/` — vier HVAC/energie-scenario's met herzieningsworkflow
+- `erosiepoel/` — manuele veldmeting met ObservationCollection; incl. opdracht.md
+- `temperatuur-raam/` — drielaags met sensor+actuator, vereenvoudigd (2 metingen); incl. opdracht.md
+- `elektrisch-raam/` — drielaags met meerdere sensoren, afgeleide observatie en actuatie
+- `verkeersmetingen/` — plat model met SpatialSample, time:Interval en afgeleide dagsom; incl. opdracht.md
+- `geluidsmeetnet/` — geluidsevents en dagindicatoren rond Brussels Airport (Aerovision-CSV's, gescript);
+  alle campagnes als `.trig`, één campagne als `.ttl`-validatiesubset; `alternatief/` modelleert het
+  geluidsevent als emissie (alternatieve mapping naast het hoofdmodel)
+- `r-factor/` — neerslagerosiviteit (RUSLE R-factor) van 53 KMI/VMM-stations, jaar-, maand- en
+  15-daagse waarden; grote dataset als `.trig` met `.ttl`-subset, skolem-IRI's (R-script)
+- `waterkwaliteit/` — VMM-meetresultaten (concentraties, vrachten, debieten) met CSOR-codelijsten,
+  sampling-keten, rapportagegrens en een applicatieprofiel uit `waterkwaliteit.ttl`; gescript, met
+  `beslisdocument.md` als voorstel voor het OSLO-traject
+- `PGD_geschiktheidskaart/` — ontvangen, nog niet gemodelleerd: geschiktheidskaart voor peilgestuurde
+  drainage, afgeleid uit andere kaartlagen (mail + technische fiche)
+
+---
+
+## §4 — Bestandsset per voorbeeld
+
+```
+<naam>.ttl of .trig          primaire RDF-data
+<naam>.mmd                   Mermaid-diagram (guide/diagrams.md)
+README.md                    intent, bronbestand, transformatiepipeline
+bespreking.md                negen secties (guide/discussion-document.md)
+opdracht.md                  optioneel: trainingsexercitie (guide/exercise.md)
+bash/ of scripts/            optioneel: transformatiescripts (xsltproc, riot, SPARQL, Python, R)
+source/                      optioneel: ontvangen brondata vóór revisie
+<naam>_herzien.ttl           indien brondata modelleringfouten bevatte (skill revise-mapping)
+<naam>_vergelijking.mmd      vergelijkingsdiagram bij een significante architectuurwijziging
+alternatief/                 optioneel: tweede verdedigbare lezing (skill alternative-mapping)
+```
+
+**`.ttl` en `.trig`:** de pipeline verwerkt alle `.ttl`-bestanden recursief in `src/main/input/`,
+ook in `source/`, en slaat `.trig` over. Daarom:
+- een ontvangen bronbestand blijft in zijn oorspronkelijke formaat; Turtle als `source/<naam>.trig`
+  (geldige TriG, dus `riot` en `validate_file` lezen het nog, maar de bekende fouten geven geen
+  `[VOCAB ERROR]` in de pipeline);
+- een grote dataset staat volledig in `<naam>.trig`, met een kleine `<naam>.ttl` als
+  validatiesubset (zie `r-factor/`, `geluidsmeetnet/`, `waterkwaliteit/`);
+- grote registers (CSOR-parameters, NACE-BEL) staan niet als `.ttl` onder `src/main/input/`.
+
+---
+
+## §5 — Valideren
+
+**Eén bestand:** `mcp__ld-vocab__validate_file` (server in `.mcp.json`). Wat de meldingen betekenen
+en wat je ermee doet, staat in `guide/linked-data.md` (Validation). De server laadt
+`src/main/resources/`, genereert de SHACL-shapes zelf uit de ontologie (zelfde resultaat als
+`generated-shapes.ttl`), gebruikt de regels uit `oslo-ld-kit/rules/ssn-sosa-rules.ttl` en het
+prefixregister, en leest gewijzigde bestanden automatisch opnieuw in. Na een nieuwe jar:
+`/mcp` → `ld-vocab` → Reconnect.
+
+**Volledige pipeline**, enkel wanneer de output in `src/main/output/` of een bijgewerkt
+`generated-shapes.ttl` nodig is:
+
+```bash
+mvn compile exec:java
+```
+
+1. **OntologySorter** laadt alle `.ttl`-bestanden uit `src/main/resources/` in `completeOntology`
+   (alles), `structuralSubset` (subClassOf, subPropertyOf, inverseOf, domain, range) en
+   `disjointSubset` (disjointWith).
+2. **OwlToShaclGenerator** schrijft `src/main/resources/generated-shapes.ttl`.
+3. Per `.ttl`-bestand in `src/main/input/`: vocabulaire-check (predicaten en `rdf:type`-doelen;
+   `WARN [VOCAB ERROR]`), regelinferentie, OWL-validatie met OWLMiniReasoner
+   (`WARN [MODEL INVALID]`), SHACL tegen `generated-shapes.ttl`, JSON-LD-conversie met `frame.json`.
+
+Alle `[VOCAB ERROR]`-waarschuwingen moeten opgelost worden vóór een commit.
+
+Verschillen met `validate_file`: de pipeline controleert geen objecten (bv. eenheden) en geen
+gemunte resources, gebruikt de regels uit de kit niet, en zet `owl:AllDisjointClasses` en
+`owl:disjointUnionOf` niet om naar disjunctieparen. Dat de pipeline geen eenheden controleert, is
+een bewuste keuze: dat doet `validate_file`.
+
+---
+
+## §6 — Opzet voor een nieuwe gebruiker
+
+```bash
+git clone --recurse-submodules <url van dit project>      # of nadien: git submodule update --init
+git clone https://github.com/milieuinfo/ld-mcp.git         # naast dit project, zelfde bovenliggende map
+(cd ld-mcp && mvn package)                                  # → ld-mcp-vocab/target/ld-mcp-vocab.jar
+```
+
+- `.mcp.json` vindt de jar in `../ld-mcp/` naast het project; staat hij elders, zet dan
+  `LD_MCP_JAR` op het volledige pad van `ld-mcp-vocab.jar`.
+- Bij het openen van het project vraagt Claude Code om de marketplace `oslo-ld-kit` en de plugin
+  `oslo-ld` te installeren (`.claude/settings.json`), en om de imports hieronder te laden.
+- De kit bijwerken: `git submodule update --remote oslo-ld-kit`, nakijken, en de nieuwe versie
+  committen. Zo legt het project vast welke versie van de gids het volgt.
+
+---
+
+## §7 — Gids
+
+@oslo-ld-kit/guide/README.md
+@oslo-ld-kit/guide/linked-data.md
+@oslo-ld-kit/guide/ssn-sosa.md
+@oslo-ld-kit/guide/patterns.md
+@oslo-ld-kit/guide/discussion-document.md
+@oslo-ld-kit/guide/diagrams.md
+@oslo-ld-kit/guide/exercise.md

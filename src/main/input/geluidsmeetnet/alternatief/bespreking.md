@@ -76,7 +76,7 @@ knooppunt wijzen als `hasFeatureOfInterest`; het verschil tussen "wat de meting 
 bestudeerd wordt" verdwijnt in deze lezing. SOSA verbiedt de dubbele rol niet: wie de detectie
 expliciet wil houden, kan het type `sosa:Stimulus` naast `wk:Emissie` laten staan.
 
-## 5. Procedure en ObservableProperty
+## 5. Procedure en Property
 
 Ongewijzigd: `ex:procedure-eventmeting` (geïmplementeerd door elke geluidsmeter) met output
 `ex:prop-LAeq`, `ex:prop-LAmax`, `ex:prop-SEL`, `ex:prop-duur`. Wat verandert, is **waarvan** die

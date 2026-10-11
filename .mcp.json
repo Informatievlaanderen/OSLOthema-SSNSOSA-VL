@@ -1,0 +1,20 @@
+{
+  "mcpServers": {
+    "ld-vocab": {
+      "command": "java",
+      "args": [
+        "-jar",
+        "${LD_MCP_JAR:-../ld-mcp/ld-mcp-vocab/target/ld-mcp-vocab.jar}",
+        "--ontologies",
+        "src/main/resources",
+        "--rules",
+        "src/main/resources/be/vlaanderen/ssnsosa/data/id/rule/domain-range-subproperty.rules",
+        "--generate-shapes",
+        "--shapes",
+        "oslo-ld-kit/rules/ssn-sosa-rules.ttl",
+        "--prefix-registry",
+        "src/main/cc/prefix/prefix.cc.ttl"
+      ]
+    }
+  }
+}

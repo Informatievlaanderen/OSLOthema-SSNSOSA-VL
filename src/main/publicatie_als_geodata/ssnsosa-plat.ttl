@@ -38,7 +38,7 @@
 # ------------------------------------------------------------ #
 # ssnsosa:MeetStation
 # Triple-typing: Platform + FeatureOfInterest + SpatialSample
-# Conform R1 en R11 in CLAUDE.md: een meetstation is een locatie
+# Conform R1 en R11 in de modelleergids: een meetstation is een locatie
 # die uitrusting herbergt (Platform), het directe studieobject
 # van observaties (FeatureOfInterest), en een ruimtelijk
 # deelmonster van een groter studiegebied (SpatialSample).

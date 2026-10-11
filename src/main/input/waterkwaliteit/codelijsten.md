@@ -305,6 +305,11 @@ enkel de waarden die in deze uittreksels voorkomen.
   (`parameter.ttl` 10,5 MB, `parameteraspect.ttl` 7,5 MB). Ze gebruiken ook `csor:`-eigenschappen
   die niet in `src/main/resources/` zitten, wat `[VOCAB ERROR]`s zou geven. De datavoorbeelden
   verwijzen enkel naar de concept-IRI's.
+- **Uitzondering: de eenhedenlijst.** `eenheid.ttl` (360 eenheden, 270 KB) staat als vocabularium in
+  `src/main/resources/be/vlaanderen/omgeving/data/id/conceptscheme/csor/eenheid/`. Zo controleert
+  `validate_file` dat elke `csor-eenheid:` bestaat, en toont `lookup_term` de QUDT-mapping (R3 in de
+  modelleergids). De pipeline laadt de lijst ook, maar controleert enkel predicaten en
+  `rdf:type`-doelen, geen eenheden.
 - Is een lokaal uittreksel nodig, bijvoorbeeld alle gebruikte parameteraspecten met hun eenheid,
   voor documentatie of JSON-LD-framing? Sla het dan op als `.trig`, zoals
   `nacebel/*_volledig.trig`.

@@ -60,4 +60,4 @@ ex:Result_SedimentVolume_EM_20240901
 
 ex:Instant_20240901_09u
     a time:Instant ;
-    time:inXSDDateTime "2024-09-01T09:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2024-09-01T09:00:00+02:00"^^xsd:dateTimeStamp .

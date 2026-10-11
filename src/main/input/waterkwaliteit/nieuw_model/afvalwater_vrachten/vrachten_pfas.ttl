@@ -91,22 +91,22 @@ ex:resultaat-brutovracht-2030042-2022-PAS_2525 a sosa:Result,
     sosa:isResultOf ex:observatie-brutovracht-2030042-2022-PAS_2525 .
 
 ex:tijdstip-2009-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2009-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2009-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2010-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2010-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2010-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2017-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2017-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2017-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2018-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2018-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2018-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2022-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2022-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2022-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2023-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2023-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2023-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 csor-kwa:KWA_5 a skos:Concept,
         csor:KwantificeerbaarAspect ;

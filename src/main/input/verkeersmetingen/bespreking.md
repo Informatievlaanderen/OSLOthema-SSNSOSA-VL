@@ -77,7 +77,7 @@ van de collectie. Ze is met de collectie verbonden via twee eigenschappen:
 De dagobservatie declareert `sosa:madeBySensor`, `sosa:usedProcedure`,
 `sosa:hasFeatureOfInterest` en `sosa:observedProperty` expliciet op zichzelf.
 
-## 5. Procedure en ObservableProperty
+## 5. Procedure en Property
 
 **`ex:procedure-automatisch-tellen` — `sosa:ObservingProcedure`**
 Geïmplementeerd door `ex:teller-FMN-021` via `sosa:implements`.
@@ -121,7 +121,7 @@ Gekozen aanpak: elke observatie heeft `sosa:hasResult ex:resultaat-…` (`sosa:R
 Motivatie: de uurresultaten zijn de inputwaarden van de dagsom (`sosa:hasInputValue`). Een
 inputwaarde is een entiteit (`sosa:hasInputValue` ⊂ `prov:used`, `pplan-sosa.ttl`), dus het
 resultaat moet een eigen resource zijn waarnaar verwezen kan worden. Een literal via
-`hasSimpleResult` kan dat niet. Dat is precies het geval waarvoor CLAUDE.md §5 de objectvorm
+`hasSimpleResult` kan dat niet. Dat is precies het geval waarvoor de modelleergids (beslispunten) de objectvorm
 voorschrijft: provenance van het resultaat. De eenheid is `unit:NUM` (een aantal). "Voertuigen
 per uur of per dag" volgt uit de property en de `phenomenonTime`. Ook de dagsom krijgt zo'n
 resultaat, zodat de stijl niet gemengd wordt (R3).
@@ -169,9 +169,11 @@ Alle 25 observaties gebruiken `sosa:phenomenonTime → time:Interval` met
 
 | Observatie | phenomenonTime (begin → end) | resultTime |
 |---|---|---|
-| dagsom | `2026-04-28T00:00:00 → 2026-04-29T00:00:00` | `2026-04-28T23:59:59` |
-| uurobs NNu | `2026-04-28TNN:00:00 → 2026-04-28T(NN+1):00:00` | `2026-04-28TNN:59:59` |
-| uurobs 23u | `2026-04-28T23:00:00 → 2026-04-29T00:00:00` | `2026-04-28T23:59:59` |
+| dagsom | `2026-04-28T00:00:00+02:00 → 2026-04-29T00:00:00+02:00` | `2026-04-28T23:59:59` |
+| uurobs NNu | `2026-04-28TNN:00:00+02:00 → 2026-04-28T(NN+1):00:00+02:00` | `2026-04-28TNN:59:59` |
+| uurobs 23u | `2026-04-28T23:00:00+02:00 → 2026-04-29T00:00:00+02:00` | `2026-04-28T23:59:59` |
+
+De instants gebruiken `time:inXSDDateTimeStamp`. Geen tijdzone in de bron: Belgische lokale tijd aangenomen (R12), dus `+01:00` in de winter en `+02:00` in de zomer. Eind april is het zomertijd.
 
 Onderscheid:
 - `sosa:phenomenonTime` — de periode waarover het verkeer werd geteld (half-open interval,
@@ -197,7 +199,7 @@ beslaat en geen puntmeting is.
 
 In een productieomgeving zouden de meetpunt-IRI's gebaseerd zijn op de gezaghebbende URI
 van het telpostenbeheerssysteem (bijv. `https://data.provincie-antwerpen.be/telpost/FMN-021`).
-De ObservableProperty- en Procedure-IRI's zouden idealiter verwijzen naar een gedeelde
+De Property- en Procedure-IRI's zouden idealiter verwijzen naar een gedeelde
 concepten-thesaurus voor verkeer (bijv. een OSLO-verkeersvocabulaire).
 
 <!-- TODO: Is er een officiële URI-structuur voor Vlaamse verkeerstellingsdata? Zo ja, vervang de ex:-IRI's door productie-URIs. -->

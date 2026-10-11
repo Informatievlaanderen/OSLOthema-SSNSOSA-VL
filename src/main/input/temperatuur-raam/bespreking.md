@@ -48,7 +48,7 @@ Elke actuatie verwijst via `prov:used` naar het bijhorende temperatuurresultaat 
 data-afhankelijkheid per meetmoment aantoonbaar te maken. Beide actuaties implementeren
 dezelfde `step:raam-actuatie`-procedure, wat de herbruikbaarheid van het abstracte plan illustreert.
 
-## 5. Procedure en ObservableProperty
+## 5. Procedure en Property
 
 Elke stap (`p-plan:Step`) is tegelijk getypeerd als `sosa:Procedure` (en specifieker als
 `sosa:ObservingProcedure` of `sosa:ActuatingProcedure`) zodat `sosa:implements` geldig is.

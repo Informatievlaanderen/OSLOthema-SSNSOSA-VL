@@ -210,7 +210,7 @@ ent:doeltijdstip_0800
   a prov:Entity;
   rdfs:label "Doel tijdstip 08:00"@nl;
   p-plan:correspondsToVariable var:doeltijdstip;
-  time:inXSDDateTime "2025-04-01T08:00:00.000"^^xsd:dateTime .
+  time:inXSDDateTimeStamp "2025-04-01T08:00:00.000+02:00"^^xsd:dateTimeStamp .
 
 # Concrete observaties en actuatie
 exec:tijdstip_voorspelling_001
@@ -225,14 +225,14 @@ exec:tijdstip_voorspelling_001
   sosa:hasResult ent:voorspeld_tijdstip_0530;
   sosa:madeBySensor sensor:temperatuur_voorspeller;
   sosa:phenomenonTime [ a time:Instant;
-                          time:inXSDDateTime "2025-04-01T05:00:00.000"^^xsd:dateTime ] .
+                          time:inXSDDateTimeStamp "2025-04-01T05:00:00.000+02:00"^^xsd:dateTimeStamp ] .
 
 ent:voorspeld_tijdstip_0530
   a sosa:Result;
   sosa:isResultOf exec:tijdstip_voorspelling_001;
   rdfs:label "Voorspeld starttijdstip 05:30"@nl;
   p-plan:correspondsToVariable var:voorspeld_tijdstip;
-  time:inXSDDateTime "2025-04-01T05:30:00.000"^^xsd:dateTime .
+  time:inXSDDateTimeStamp "2025-04-01T05:30:00.000+02:00"^^xsd:dateTimeStamp .
 
 exec:buitentemperatuur_meting_001
   a sosa:Observation, sosa:Execution;
@@ -244,7 +244,7 @@ exec:buitentemperatuur_meting_001
   sosa:hasResult ent:buitentemperatuur_1c;
   sosa:madeBySensor sensor:buitentemperatuur_sensor;
   sosa:phenomenonTime [ a time:Instant;
-                          time:inXSDDateTime "2025-04-01T06:00:00.000"^^xsd:dateTime ] .
+                          time:inXSDDateTimeStamp "2025-04-01T06:00:00.000+02:00"^^xsd:dateTimeStamp ] .
 
 ent:buitentemperatuur_1c
   a sosa:Result;
@@ -263,7 +263,7 @@ exec:bezettingsvoorspelling_001
   sosa:observedProperty observeerbaar_kenmerk:verwachte_bezetting;
   sosa:hasResult ent:bezetting_80pct;
   sosa:phenomenonTime [ a time:Instant;
-                          time:inXSDDateTime "2025-04-01T08:00:00.000"^^xsd:dateTime ] .
+                          time:inXSDDateTimeStamp "2025-04-01T08:00:00.000+02:00"^^xsd:dateTimeStamp ] .
 
 ent:bezetting_80pct
   a sosa:Result;
@@ -299,7 +299,7 @@ exec:historische_data_verzameling
   rdfs:label "Historische data Q1 2025"@nl;
   sosa:phenomenonTime [ a time:ProperInterval;
                           time:hasBeginning [ a time:Instant;
-                                                time:inXSDDateTime "2025-01-01T00:00:00.000"^^xsd:dateTime ];
+                                                time:inXSDDateTimeStamp "2025-01-01T00:00:00.000+01:00"^^xsd:dateTimeStamp ];
                           time:hasEnd [ a time:Instant;
-                                          time:inXSDDateTime "2025-03-31T00:00:00.000"^^xsd:dateTime ] ];
+                                          time:inXSDDateTimeStamp "2025-03-31T00:00:00.000+02:00"^^xsd:dateTimeStamp ] ];
   sosa:hasMember exec:tijdstip_voorspelling_001, exec:buitentemperatuur_meting_001, exec:bezettingsvoorspelling_001 .

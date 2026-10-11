@@ -197,6 +197,10 @@
       "@id": "http://www.w3.org/2006/time#inXSDDateTime",
       "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
     },
+    "inXSDDateTimeStamp": {
+      "@id": "http://www.w3.org/2006/time#inXSDDateTimeStamp",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTimeStamp"
+    },
     "hasEnd": {
       "@id": "http://www.w3.org/2006/time#hasEnd",
       "@type": "@id"
@@ -296,6 +300,78 @@
     },
     "usedProcedure": {
       "@id": "http://www.w3.org/ns/sosa/usedProcedure",
+      "@type": "@id"
+    },
+    "deployedSystem": {
+      "@id": "http://www.w3.org/ns/sosa/deployedSystem",
+      "@type": "@id"
+    },
+    "hasInput": {
+      "@id": "http://www.w3.org/ns/sosa/hasInput",
+      "@type": "@id"
+    },
+    "hasInputValue": {
+      "@id": "http://www.w3.org/ns/sosa/hasInputValue",
+      "@type": "@id"
+    },
+    "hasMember": {
+      "@id": "http://www.w3.org/ns/sosa/hasMember",
+      "@type": "@id"
+    },
+    "hasOutput": {
+      "@id": "http://www.w3.org/ns/sosa/hasOutput",
+      "@type": "@id"
+    },
+    "hasProperty": {
+      "@id": "http://www.w3.org/ns/sosa/hasProperty",
+      "@type": "@id"
+    },
+    "hasSample": {
+      "@id": "http://www.w3.org/ns/sosa/hasSample",
+      "@type": "@id"
+    },
+    "hasUltimateFeatureOfInterest": {
+      "@id": "http://www.w3.org/ns/sosa/hasUltimateFeatureOfInterest",
+      "@type": "@id"
+    },
+    "hosts": {
+      "@id": "http://www.w3.org/ns/sosa/hosts",
+      "@type": "@id"
+    },
+    "inDeployment": {
+      "@id": "http://www.w3.org/ns/sosa/inDeployment",
+      "@type": "@id"
+    },
+    "isDetectedBy": {
+      "@id": "http://www.w3.org/ns/sosa/isDetectedBy",
+      "@type": "@id"
+    },
+    "isHostedBy": {
+      "@id": "http://www.w3.org/ns/sosa/isHostedBy",
+      "@type": "@id"
+    },
+    "isMemberOf": {
+      "@id": "http://www.w3.org/ns/sosa/isMemberOf",
+      "@type": "@id"
+    },
+    "isSampleOf": {
+      "@id": "http://www.w3.org/ns/sosa/isSampleOf",
+      "@type": "@id"
+    },
+    "isSubSystemOf": {
+      "@id": "http://www.w3.org/ns/sosa/isSubSystemOf",
+      "@type": "@id"
+    },
+    "observes": {
+      "@id": "http://www.w3.org/ns/sosa/observes",
+      "@type": "@id"
+    },
+    "relatedObservation": {
+      "@id": "http://www.w3.org/ns/sosa/relatedObservation",
+      "@type": "@id"
+    },
+    "wasOriginatedBy": {
+      "@id": "http://www.w3.org/ns/sosa/wasOriginatedBy",
       "@type": "@id"
     }
   },
@@ -507,6 +583,78 @@
     "@omitDefault": true
   },
   "isVariableOfPlan": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "deployedSystem": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "hasInput": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "hasInputValue": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "hasMember": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "hasOutput": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "hasProperty": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "hasSample": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "hasUltimateFeatureOfInterest": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "hosts": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "inDeployment": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "isDetectedBy": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "isHostedBy": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "isMemberOf": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "isSampleOf": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "isSubSystemOf": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "observes": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "relatedObservation": {
+    "@embed": "@never",
+    "@omitDefault": true
+  },
+  "wasOriginatedBy": {
     "@embed": "@never",
     "@omitDefault": true
   }

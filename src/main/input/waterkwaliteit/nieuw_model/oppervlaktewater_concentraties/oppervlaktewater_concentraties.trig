@@ -15990,13 +15990,13 @@ ex:sampling-meetplaats-OW12000 a sosa:Execution,
     sosa:hasResult ex:meetplaats-OW12000 .
 
 ex:tijdstip-2019-01-28T130100 a time:Instant ;
-    time:inXSDDateTime "2019-01-28T13:01:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2019-01-28T13:01:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2019-02-25T130100 a time:Instant ;
-    time:inXSDDateTime "2019-02-25T13:01:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2019-02-25T13:01:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2019-03-26T125100 a time:Instant ;
-    time:inXSDDateTime "2019-03-26T12:51:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2019-03-26T12:51:00+01:00"^^xsd:dateTimeStamp .
 
 csor-eenheid:E_100 a csor:Eenheid ;
     rdfs:label "milligram koolstof per liter"@nl .

@@ -39,7 +39,7 @@ from rdflib import Graph, Literal, Namespace
 from rdflib.namespace import DCTERMS, PROV, RDF, RDFS, SKOS, XSD
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from waterkwaliteit_gemeen import CSOR, MATRIX, QUDT, SOSA, TIME, WK, Csor, decimaal  # noqa: E402
+from waterkwaliteit_gemeen import CSOR, MATRIX, QUDT, SOSA, TIME, WK, Csor, belgische_tijd, decimaal  # noqa: E402
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 BRON = os.path.normpath(os.path.join(HIER, "..", "brondata_Jurgen"))
@@ -76,7 +76,7 @@ def periode(g, jaar):
     g.add((p, TIME.hasEnd, einde))
     for t, j in ((begin, jaar), (einde, jaar + 1)):
         g.add((t, RDF.type, TIME.Instant))
-        g.add((t, TIME.inXSDDateTime, Literal(f"{j}-01-01T00:00:00", datatype=XSD.dateTime)))
+        g.add((t, TIME.inXSDDateTimeStamp, belgische_tijd(f"{j}-01-01T00:00:00")))
     return p
 
 

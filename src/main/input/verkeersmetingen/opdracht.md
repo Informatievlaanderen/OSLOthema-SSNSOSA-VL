@@ -48,7 +48,7 @@ niet rechtstreeks geregistreerd door de teller.
 *Individueel — 10 minuten*
 
 Lees de use case en vul onderstaande vragen in. Geef waar van toepassing de bijbehorende klasse aan en maak hierbij gebruik van de volgende SOSA-klassen `FeatureOfInterest`,
-`ObservableProperty`, `Sensor`, `ObservingProcedure`, `Observation`, `ObservationCollection`, `Sample` en `Platform` .
+`Property`, `Sensor`, `ObservingProcedure`, `Observation`, `ObservationCollection`, `Sample` en `Platform` .
 
 | Vraag                                                         | Antwoord | Klasse |
 |---------------------------------------------------------------|---|---|

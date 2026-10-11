@@ -3,4 +3,5 @@
 *.xlsm
 target
 src/main/output
-.claude
+.claude/settings.local.json
+__pycache__/

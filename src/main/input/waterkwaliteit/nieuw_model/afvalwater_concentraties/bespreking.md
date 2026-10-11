@@ -70,7 +70,7 @@ oplevert: `sosa:hasResult ex:staal-16231`, `sosa:hasFeatureOfInterest ex:lozing-
 `sosa:madeBySampler ex:meetpunt-2800028`, `sosa:usedProcedure` = schepmonster en
 `prov:wasAssociatedWith` = VMM.
 
-## 5. Procedure en ObservableProperty
+## 5. Procedure en Property
 
 **SamplingProcedure.** De soort monstername verwijst naar de **jaarversie** van de
 WAC-procedure die gold in het jaar van de staalname. De versies komen uit de VITO-lijst
@@ -228,7 +228,7 @@ Eén staalname en één analyse per parameter, zonder meerstapsproces of herbrui
 
 - Eén `time:Instant` per datum (`ex:tijdstip-2024-03-27`), gedeeld door alle stalen van die dag.
   Het krijgt een IRI en geen blank node (skolem-IRI's in grote datasets).
-- De bron geeft enkel de dag, geen uur. Daarom `inXSDDate` en geen `inXSDDateTime`.
+- De bron geeft enkel de dag, geen uur. Daarom `inXSDDate` en geen `inXSDDateTimeStamp`.
 - `sosa:resultTime` (wanneer het labo het resultaat vrijgaf) staat niet in de bron en is
   weggelaten.
 - De fenomeentijd staat op de collectie en de sampling, niet op elke observatie: alle analyses

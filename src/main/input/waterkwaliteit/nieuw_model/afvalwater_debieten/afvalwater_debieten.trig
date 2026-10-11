@@ -45343,10 +45343,10 @@ ex:resultaat-jaardebiet-9991003-2023 a sosa:Result,
     sosa:isResultOf ex:observatie-jaardebiet-9991003-2023 .
 
 ex:tijdstip-2023-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2023-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2023-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2024-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2024-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2024-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:exploitatie-100371 a prov:Agent,
         prov:Organization ;

@@ -79,7 +79,7 @@
 # Alignering CSOR - SOSA (voorstel C1): een parameteraspect is wat een observatie observeert.
 csor:ParameterAspect a owl:Class ;
     rdfs:label "ParameterAspect"@nl , "Parameter aspect"@en ;
-    skos:definition "Een parameteraspect geeft de manier aan waarop de waarde van een parameter is uitgedrukt. Elk parameteraspect koppelt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect."@nl ;
+    skos:definition "Een observeerbare eigenschap: precies één grootheid (kwantificeerbaar of kwalificeerbaar aspect) van precies één parameter, bv. 'P t (totaal in water): massaconcentratie fosfor'. Het parameteraspect is wat een observatie observeert (sosa:observedProperty) en het enige CSOR-niveau dat aan de definitie van iadopt:Variable voldoet."@nl ;
     skos:scopeNote "In het waterkwaliteitsprofiel de geobserveerde eigenschap van elke waterkwaliteitobservatie (sosa:observedProperty, 1..1), bv. PAS_2163 \"P t (totaal in water): massaconcentratie fosfor\". Het parameteraspect onderscheidt concentratie, vracht en debiet van dezelfde stof (beslisdocument.md A1)."@nl ;
     rdfs:subClassOf sosa:Property ;
     rdfs:comment "Voorstel (beslisdocument.md C1): een CSOR-parameteraspect is een sosa:Property, zodat het als sosa:observedProperty gebruikt kan worden. Hoort op termijn in de CSOR-ontologie."@nl ;
@@ -87,13 +87,13 @@ csor:ParameterAspect a owl:Class ;
 
 csor:Eenheid a owl:Class ;
     rdfs:label "Eenheid"@nl , "Unit"@en ;
-    skos:definition "Een maat waarin een natuurkundige dimensie of een kwantificeerbaar aspect numeriek kan worden uitgedrukt."@nl ;
+    skos:definition "Een meeteenheid: de maat waarin de waarde van een grootheid (kwantificeerbaar aspect) numeriek uitgedrukt wordt, binnen één natuurkundige dimensie."@nl ;
     skos:scopeNote "In het waterkwaliteitsprofiel de eenheid van elk meetresultaat (qudt:hasUnit, 1..1). De QUDT-eenheid volgt via skos:exactMatch of skos:broadMatch in CSOR, zodat ook eenheden als \"milligram fosfor per liter\" uitgedrukt kunnen worden (beslisdocument.md A2)."@nl ;
     rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/csor#> .
 
 csor:KwantificeerbaarAspect a owl:Class ;
     rdfs:label "KwantificeerbaarAspect"@nl , "Quantifiable aspect"@en ;
-    skos:definition "Een kwantificeerbaar aspect duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie."@nl ;
+    skos:definition "Een grootheid: wat de numerieke waarde van een meting voorstelt (massaconcentratie, vracht, debiet, temperatuur, geleidbaarheid), met precies één natuurkundige dimensie en de eenheden die daarvoor toepasbaar zijn. In I-ADOPT een iadopt:Property."@nl ;
     skos:scopeNote "In het waterkwaliteitsprofiel de abstracte input en output van een berekeningsprocedure (sosa:hasInput, sosa:hasOutput), bv. vracht (KWA_5) = massaconcentratie (KWA_1) × debiet (KWA_10) (beslisdocument.md A7)."@nl ;
     rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/csor#> .
 
@@ -355,7 +355,7 @@ wk:Staalname a owl:Class ;
 wk:Meetplaats a owl:Class ;
     rdfs:label "Meetplaats"@nl , "Monitoring site"@en ;
     skos:definition "Plaats in of aan een waterlichaam of waterloop waar metingen en staalnames gebeuren; ruimtelijk monster van dat waterlichaam."@nl ;
-    skos:scopeNote "Vervangt wk:Meetpunt uit het AP Waterkwaliteit 2023 (een ISO spatial sampling feature). Is tegelijk sosa:SpatialSample (monster van de waterloop), sosa:Platform (draagt meetapparatuur) en sosa:FeatureOfInterest (beslisdocument.md A6; CLAUDE.md R11)."@nl ,
+    skos:scopeNote "Vervangt wk:Meetpunt uit het AP Waterkwaliteit 2023 (een ISO spatial sampling feature). Is tegelijk sosa:SpatialSample (monster van de waterloop), sosa:Platform (draagt meetapparatuur) en sosa:FeatureOfInterest (beslisdocument.md A6; modelleergids R11)."@nl ,
         "Een meetplaats is geen sosa:System: ze staat aan de geobserveerde kant, als het punt dat de waterloop vertegenwoordigt. Als systeem zou ze waarnemer van zichzelf worden. Staat er apparatuur (bv. een meetstation met continue sondes), dan is dat station een apart sosa:System of sosa:Sensor dat de meetplaats host (sosa:hosts). Anders dan de meetput, een installatie die op een lozing meet (beslisdocument.md A15.5)."@nl ,
         "De meetplaats is een geo:Feature: geo:hasGeometry heeft als domein geo:Feature."@nl ;
     rdfs:subClassOf sosa:SpatialSample , sosa:Platform , geo:Feature ;

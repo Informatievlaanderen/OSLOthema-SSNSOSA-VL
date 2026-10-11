@@ -164,9 +164,9 @@ exec:prijs_observatie_20250214
   sosa:wasOriginatedBy stim:prijs_stimulus_20250214 ;
   sosa:phenomenonTime [ a time:ProperInterval;
                         time:hasBeginning [ a time:Instant;
-                                            time:inXSDDateTime "2025-02-14T14:00:00.000"^^xsd:dateTime ];
+                                            time:inXSDDateTimeStamp "2025-02-14T14:00:00.000+01:00"^^xsd:dateTimeStamp ];
                         time:hasEnd [ a time:Instant;
-                                      time:inXSDDateTime "2025-02-14T20:00:00.000"^^xsd:dateTime ] ] .
+                                      time:inXSDDateTimeStamp "2025-02-14T20:00:00.000+01:00"^^xsd:dateTimeStamp ] ] .
 
 stim:prijs_stimulus_20250214
   a sosa:Stimulus ;

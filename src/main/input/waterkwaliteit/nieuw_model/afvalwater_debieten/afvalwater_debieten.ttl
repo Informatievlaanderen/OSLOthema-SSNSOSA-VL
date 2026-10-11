@@ -96,10 +96,10 @@ ex:resultaat-jaardebiet-2400007-2023 a sosa:Result,
     sosa:isResultOf ex:observatie-jaardebiet-2400007-2023 .
 
 ex:tijdstip-2023-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2023-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2023-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2024-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2024-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2024-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 csor-eenheid:E_50 a csor:Eenheid ;
     rdfs:label "kubieke meter per jaar"@nl .

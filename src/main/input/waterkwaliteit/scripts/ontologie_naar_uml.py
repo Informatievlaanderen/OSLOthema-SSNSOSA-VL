@@ -49,7 +49,7 @@ PREFIXEN = {
     "http://www.w3.org/2004/02/skos/core#": "skos",
     "http://www.w3.org/2001/XMLSchema#": "xsd",
 }
-# Kleur per namespace (kleurpalet uit CLAUDE.md §6)
+# Kleur per namespace (kleurpalet uit guide/diagrams.md in oslo-ld-kit)
 STIJL = {
     "wk": "fill:#e54b89,stroke:#2E5C8A,color:#fff",
     "csor": "fill:#fe7130,stroke:#2E5C8A,color:#000",
@@ -148,7 +148,7 @@ def main():
                         naam = f"{naam} {{or}} {mult}"
                         mult = f"0..{'*' if hi is None else hi}"
                     for x in b:
-                        # label zonder prefix: Mermaid aanvaardt geen ':' in een associatielabel (CLAUDE.md §6)
+                        # label zonder prefix: Mermaid aanvaardt geen ':' in een associatielabel (guide/diagrams.md)
                         associaties.append(f'    {mid(c)} --> "{mult}" {mid(x)} : {naam}')
                 else:
                     typ = " | ".join(qname(x) for x in b) or "?"

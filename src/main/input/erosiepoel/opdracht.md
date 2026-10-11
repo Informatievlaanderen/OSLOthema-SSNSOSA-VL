@@ -44,7 +44,7 @@ spoedruiming te plannen.
 *Individueel — 10 minuten*
 
 Lees de use case en vul onderstaande vragen in. Geef waar van toepassing de bijbehorende klasse aan en maak hierbij gebruik van de volgende SOSA-klassen `Platform`,
-`FeatureOfInterest`, `Sensor`, `System`, `ObservingProcedure`, `ObservableProperty`,
+`FeatureOfInterest`, `Sensor`, `System`, `ObservingProcedure`, `Property`,
 `Observation` en `Result`.
 
 | Vraag                                                  | Antwoord | Klasse |
@@ -94,7 +94,7 @@ Schrijf een Turtle-bestand met minstens:
    `sosa:phenomenonTime`, `sosa:resultTime`)
 4. Één volledige `sosa:Observation` met `sosa:observedProperty` en `sosa:hasResult`
 5. Het resultaat als `qudt:QuantityValue` met waarde 245.000 en eenheid `unit:L`
-6. Het tijdstip als `time:Instant` met `time:inXSDDateTime`
+6. Het tijdstip als `time:Instant` met `time:inXSDDateTimeStamp` (met tijdzone, bv. `+02:00`)
 
 Gebruik `https://example.org/erosiepoel/` als basis-IRI.
 

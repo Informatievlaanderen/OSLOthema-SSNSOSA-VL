@@ -4,7 +4,7 @@ Dit voorbeeld demonstreert een complete implementatie van het p-plan/SSN-SOSA-PR
 
 ## Origineel Bestand
 
-Het originele bestand (`source/DatavoorbeeldPreHeatingHvac.ttl`) beschrijft een HVAC pre-heating scenario met:
+Het originele bestand (`source/DatavoorbeeldPreHeatingHvac.trig`) beschrijft een HVAC pre-heating scenario met:
 
 1. **Observaties**:
    - Tijdstip voorspelling via machine learning model
@@ -168,7 +168,7 @@ exec:hvac_actuatie_001
 
 ## Bestanden
 
-- **Origineel**: `source/DatavoorbeeldPreHeatingHvac.ttl` (1.5 KB)
+- **Origineel**: `source/DatavoorbeeldPreHeatingHvac.trig` (1.5 KB)
 - **Herschreven**: `DatavoorbeeldPreHeatingHvac_herzien.ttl` (11 KB)
 
 De herschreven versie is significant groter vanwege de toegevoegde architectonische structuur, variabelen definitie, en complete traceerbaarheid.
@@ -195,8 +195,8 @@ Een belangrijk aspect van dit voorbeeld is de correcte modellering van tijdsaspe
 
 ```turtle
 exec:tijdstip_voorspelling_001
-  sosa:phenomenonTime [ time:inXSDDateTime "2025-04-01T05:00:00"^^xsd:dateTime ];  # Wanneer voorspeld
-  sosa:hasResult [ time:inXSDDateTime "2025-04-01T05:30:00"^^xsd:dateTime ];       # Wat voorspeld
+  sosa:phenomenonTime [ time:inXSDDateTimeStamp "2025-04-01T05:00:00+02:00"^^xsd:dateTimeStamp ];  # Wanneer voorspeld
+  sosa:hasResult [ time:inXSDDateTimeStamp "2025-04-01T05:30:00+02:00"^^xsd:dateTimeStamp ];       # Wat voorspeld
   sosa:resultTime "2025-04-01T05:00:00"^^xsd:dateTime .      # Wanneer resultaat bekend
 ```
 

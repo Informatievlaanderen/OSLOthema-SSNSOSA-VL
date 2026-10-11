@@ -52,7 +52,7 @@ Alle zes uitvoeringen zijn verbonden met hun abstracte stap via `p-plan:correspo
 Er is geen `sosa:ObservationCollection` gebruikt; de p-plan-laag legt de groepering al
 structureel vast via het plan.
 
-## 5. Procedure en ObservableProperty
+## 5. Procedure en Property
 
 Elke stap (`p-plan:Step`) is tegelijk getypeerd als `sosa:Procedure` (en specifieker als
 `sosa:ObservingProcedure` of `sosa:ActuatingProcedure`) zodat `sosa:implements` geldig is.

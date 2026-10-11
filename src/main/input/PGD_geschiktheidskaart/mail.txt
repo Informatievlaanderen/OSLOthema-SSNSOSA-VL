@@ -1,0 +1,23 @@
+Dag Yaron,
+
+
+
+Ivm de werkgroepen van het OSLO-traject, wens ik een datavoorbeeld door te geven. Mijn datavoorbeeld bevindt zich echter wat in een andere categorie dan de voorbeelden die reeds aan bod gekomen zijn. Het voorbeeld heeft namelijk betrekking op een digitale geschiktheidskaart die is opgesteld op basis van andere kaartlagen.
+
+
+
+Ikv het VLAIO OP-PEIL project werd een geschiktheidskaart voor peilgestuurde drainage opgesteld voor het Vlaams Gewest. Met deze kaart beogen we op basis van beschikbare kaartinformatie over bodemtype, hellingsgraad en grondwateraanvoer een eerste inschatting te geven van de kansen voor peilgestuurde drainage in een bepaald gebied.
+
+
+
+De kaart is gepubliceerd op https://waterradar.be/map :
+
+
+
+
+
+In bijlage bevindt zich de technische fiche met informatie over de input kaartlagen en de beoordelingscriteria van de geschiktheid voor peilgestuurde drainage.
+
+
+
+Denk je dat dit voorbeeld omgezet kan worden naar een SSN SOSA dataframework? Laat gerust weten indien er vragen zijn!

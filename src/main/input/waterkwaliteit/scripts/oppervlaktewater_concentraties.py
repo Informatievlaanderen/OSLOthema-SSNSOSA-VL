@@ -40,7 +40,7 @@ from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import DCTERMS, RDF, RDFS, SKOS, XSD
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from waterkwaliteit_gemeen import CSOR, EPSG31370, GEO, MATRIX, QUDT, SOSA, TIME, WK, Csor, decimaal  # noqa: E402
+from waterkwaliteit_gemeen import CSOR, EPSG31370, GEO, MATRIX, QUDT, SOSA, TIME, WK, Csor, belgische_tijd, decimaal  # noqa: E402
 
 HIER = os.path.dirname(os.path.abspath(__file__))
 BRONMAP = os.path.normpath(os.path.join(HIER, "..", "brondata_Jurgen", "250114_Analyseresultaten_per_meetplaats_OW"))
@@ -138,7 +138,7 @@ def bouw(rijen, meetplaatsen, koppeling, csor, vha):
                                             datatype=GEO.wktLiteral)))
 
         g.add((moment, RDF.type, TIME.Instant))
-        g.add((moment, TIME.inXSDDateTime, Literal(tijd, datatype=XSD.dateTime)))
+        g.add((moment, TIME.inXSDDateTimeStamp, belgische_tijd(tijd)))
 
         # bemonstering van het water op de meetplaats
         g.add((sampling, RDF.type, SOSA.Sampling))

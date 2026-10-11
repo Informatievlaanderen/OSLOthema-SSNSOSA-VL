@@ -60,6 +60,7 @@ Alle voorbeelden gebruiken echte VMM-brondata (`brondata_Jurgen/`), zijn conform
 | A13 | Kenmerken die in de tijd veranderen (versies van een lozing) | A | open (fase 3) | §2 |
 | A14 | `wk:Emissie` herdefiniëren als subklasse van `prov:Entity` | A | beslist (projectteam), deelpunten open | §2 |
 | A15 | Applicatieprofiel: `waterkwaliteit.ttl` als bron van de SHACL, AP-klassen, mapping van het AP 2023 | A | voorstel | §2 |
+| A16 | Parameteraspect ook als I-ADOPT-variabele; statistiek voor normen | A | voorstel | §2 |
 | V1–V10 | Vragen over de brondata | B | open | §3 |
 | C1–C5 | CSOR, VITO-lijst, VHA-waterlopen, RIE-IEPR, codelijst-rie-iepr | C | open | §4 |
 | D1–D3 | Normen en beoordelingen, waterlichamen, kenmerken | D | later | §5 |
@@ -102,8 +103,10 @@ ex:observatie-16231-P_1228 sosa:observedProperty csor-parameteraspect:PAS_2163 .
   waterkwaliteit-vocabularium importeert ze (`owl:imports`).
 - **Vraag aan CSOR (C1):** kan `csor:ParameterAspect` ⊂ `sosa:Property` in de CSOR-ontologie? In
   afwachting staat die alignering in de ontwerpversie van het waterkwaliteit-vocabularium.
+- I-ADOPT bevestigt dit niveau: het parameteraspect is het enige CSOR-niveau met precies één
+  ObjectOfInterest en één Property, en dus een `iadopt:Variable` (A16).
 
-*Detail: `codelijsten.md` §3.2; alle `bespreking.md` §5.*
+*Detail: `codelijsten.md` §3.2; `csor_iadopt.md` §6.1; alle `bespreking.md` §5.*
 
 ### A2. Eenheid: de CSOR-eenheid, met QUDT via SKOS-mapping
 
@@ -285,7 +288,7 @@ ex:procedure-bruto-vracht sosa:hasInput csor-kwa:KWA_1 , csor-kwa:KWA_10 ; sosa:
   een waarde (`wk:Meetresultaat`). Een observatie is een activiteit (`sosa:Execution ⊂
   prov:Activity`), en een activiteit als inputwaarde is betekenisloos. De band met de
   bronobservatie loopt via `sosa:relatedObservation` ("relation from an Execution … to an
-  Observation"). Dit wijkt af van het eerdere projectpatroon (paleo, R7/R13 in CLAUDE.md,
+  Observation"). Dit wijkt af van het eerdere projectpatroon (paleo, R7/R13 in de modelleergids,
   bijgewerkt 2026-10-01).
 - R5 en R13.
 - De afhankelijkheid is de betekenisvolle relatie. Links op basis van plaats en tijd zouden
@@ -607,6 +610,37 @@ in `mvn compile exec:java`, zonder `[VOCAB ERROR]` of `[MODEL INVALID]`. De vijf
 (observatie zonder resultaat, twee FOI's, niet-CSOR-eigenschap, twee waarden) geeft de verwachte
 schendingen.
 
+### A16. I-ADOPT: het parameteraspect als variabele
+
+**Vraag.** Beschrijven we de observedProperty ook volgens I-ADOPT (RDA-aanbeveling voor de
+beschrijving van variabelen), en hoe verhoudt CSOR zich daartoe?
+
+**Voorstel.**
+- `csor:ParameterAspect` ⊂ `iadopt:Variable`; kwantificeerbaar en kwalificeerbaar aspect ⊂
+  `iadopt:Property`; `csor:heeftAspect` ⊂ `iadopt:hasProperty`. Een parameteraspect is dan
+  tegelijk `sosa:Property`, `iadopt:Variable` en `skos:Concept`.
+- ObjectOfInterest, matrix en beperking worden per parameteraspect gegenereerd (variabele,
+  drager, soort waardebepaling), enkel waar de rol eenduidig is. Dat is voor 347 van de 452
+  parameteraspecten in de voorbeelden het geval.
+- Voor fase 2: een norm geldt voor een statistiek (toetswijze `MAX`/`MIN`). Die wordt een
+  I-ADOPT-variabele die het CSOR-parameteraspect hergebruikt, met een
+  `iadopt:StatisticalModifier`, in plaats van nieuwe CSOR-parameteraspecten (D1).
+
+**Verworpen alternatieven.**
+- `csor:Variabele` ⊂ `iadopt:Entity`: een deel van de variabelen is een eigenschap (`Debiet`,
+  `pH`, `Temperatuur`).
+- `csor:SoortWaardebepaling` ⊂ `iadopt:Constraint`: de helft van de waarden zijn methoden,
+  toestellen, voorbehandelingen of projecten.
+- Een `owl:propertyChainAxiom` op `iadopt:hasObjectOfInterest`: een axioma op een externe property
+  geldt voor iedereen die CSOR laadt.
+
+**Gevolg.** Geen wijziging aan de datavoorbeelden. De alignering hoort in CSOR (C1). Voorlopig
+kan ze, zoals `sosa:Property`, in `waterkwaliteit.ttl` staan. `OwlToShaclGenerator` leest de
+equivalentie en de gekwalificeerde kardinaliteit van `iadopt:Variable` niet, dus de SHACL
+verandert niet.
+
+*Detail: `csor_iadopt.md`.*
+
 ---
 
 ## 3. Deel B: vragen aan de VMM
@@ -655,6 +689,13 @@ schendingen.
   §3.5): V_378, V_403 en V_47 (chemische identificatie). Het hergebruik van V_2043–V_2240 raakt
   geen enkele gebruikte variabele.
 - Waardenlijsten van kwalificeerbare aspecten als SKOS-enumeratie (relevant voor A3).
+- **I-ADOPT** (A16, `csor_iadopt.md` §8):
+  - de klasse-alignering opnemen (I1);
+  - de variabelen typeren als stof, stofgroep, taxon, eigenschap of groepsparameter (I2);
+  - de I-ADOPT-beschrijving publiceren (I3);
+  - methoden (`GC-MS`, `LC-MS`), staalnametoestellen (`pesticiden sampler`) en projecten
+    (`MUC project`) uit de soort waardebepaling halen. Volgens I-ADOPT en SOSA horen die bij de
+    procedure of de provenance, niet bij de variabele (I4, 60 parameters).
 
 ### C2. VITO-lijst observatiemethoden (`brondata_Jurgen/Lijst_observatiemethodes_VITO-v1`)
 

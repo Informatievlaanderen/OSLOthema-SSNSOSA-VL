@@ -9,7 +9,9 @@ import collections
 import json
 import os
 import sys
+from datetime import datetime
 from decimal import Decimal
+from zoneinfo import ZoneInfo
 
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import OWL, RDF, SKOS, XSD
@@ -103,3 +105,19 @@ class Procedures:
 
 def decimaal(v):
     return Literal(Decimal(str(v)), datatype=XSD.decimal)
+
+
+BRUSSEL = ZoneInfo("Europe/Brussels")
+
+
+def belgische_tijd(lokaal):
+    """Belgische lokale tijd zonder tijdzone ("2025-01-08T08:00:00") als xsd:dateTimeStamp.
+
+    De VMM-data geeft geen tijdzone. R12 neemt Belgische tijd aan: +01:00 in de winter, +02:00
+    in de zomer. time:inXSDDateTime is in OWL-Time deprecated; time:inXSDDateTimeStamp vereist
+    een tijdzone.
+    """
+    t = datetime.fromisoformat(lokaal)
+    if t.tzinfo is not None:
+        sys.exit(f"tijdstip heeft al een tijdzone: {lokaal}")
+    return Literal(t.replace(tzinfo=BRUSSEL).isoformat(), datatype=XSD.dateTimeStamp)

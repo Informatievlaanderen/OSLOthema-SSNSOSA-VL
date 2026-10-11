@@ -69,7 +69,7 @@ zijn er **twee soorten `sosa:Sampling`**:
 - **`ex:sampling-meetplaats-OW12000`**: de ruimtelijke bemonstering (keuze van de meetplaats).
   FOI = de waterloop, resultaat = de meetplaats (§6.3).
 
-## 5. Procedure en ObservableProperty
+## 5. Procedure en Property
 
 **Procedures.** De bron vermeldt geen staalnameprocedure en geen analysemethode. Daarom heeft
 geen enkele `sosa:Sampling` of `sosa:Observation` een `sosa:usedProcedure` (§6.4). Kandidaten
@@ -166,11 +166,12 @@ is afgeleid uit het teken. De eenheid is de CSOR-eenheid.
 
 | Element | Patroon | Bron |
 |---|---|---|
-| staalname en collectie | `sosa:phenomenonTime → time:Instant → time:inXSDDateTime` | `Sample Datum Monstername` + `Sample Tijdstip Monstername` |
+| staalname en collectie | `sosa:phenomenonTime → time:Instant → time:inXSDDateTimeStamp` | `Sample Datum Monstername` + `Sample Tijdstip Monstername` |
 
-- `inXSDDateTime` en geen `inXSDDate`, omdat de bron een uur van staalname geeft.
-- Er is geen tijdzone: de bron vermeldt er geen. Het gaat vermoedelijk om lokale tijd. Met een
-  tijdzone zou `inXSDDateTimeStamp` gebruikt worden.
+- `inXSDDateTimeStamp` en geen `inXSDDate`, omdat de bron een uur van staalname geeft.
+- De bron vermeldt geen tijdzone. Volgens R12 is Belgische lokale tijd aangenomen (`+01:00` in de
+  winter, `+02:00` in de zomer); te bevestigen door de VMM. `inXSDDateTime` is in OWL-Time
+  deprecated.
 - `sosa:resultTime` staat niet in de bron.
 - De meetplaatskeuze (`ex:sampling-meetplaats-OW12000`) heeft geen tijd.
 

@@ -7,6 +7,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dc:      <http://purl.org/dc/elements/1.1/> .
 @prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix iadopt:  <https://w3id.org/iadopt/ont/> .
 
 #################################################################
 # csor.ttl — op zichzelf staande CSOR-ontologie
@@ -84,6 +85,16 @@
 #   een reële, kleine schema/data-drift, geen ontologiefout.
 # - `csor:classificatielijst` en `csor:eionetDD` zijn gedeclareerd maar hebben nul instanties in
 #   de huidige data — behouden (geen bewijs dat ze afgeschaft zijn), niet gerestricteerd.
+#
+# AANGESCHERPTE DEFINITIES EN I-ADOPT (2026-10-08, OSLOthema-SSNSOSA-VL)
+# ----------------------------------------------------------------------
+# - De rdfs:comment van de kernklassen en -properties zegt nu wat een instantie IS (de rol in een
+#   observatie), niet enkel waar ze aan hangt. Een skos:scopeNote zegt wat er NIET in hoort, met
+#   voorbeelden uit het register. De toets die die voorbeelden vond, staat in
+#   src/main/input/waterkwaliteit/scripts/csor_iadopt_toets.py, met de resultaten per element in
+#   src/main/input/waterkwaliteit/csor_iadopt/*.csv en de bespreking in csor_iadopt.md §9.
+# - De alignering met I-ADOPT (https://w3id.org/iadopt/ont/) staat als VOORSTEL in een aparte
+#   sectie onderaan (I-ADOPT-ALIGNERING). De I-ADOPT-ontologie zelf wordt niet geladen.
 #################################################################
 
 #################################
@@ -102,35 +113,39 @@ csor:
 csor:Drager
     a rdfs:Class, owl:Class ;
     rdfs:label "Drager"@nl ;
-    rdfs:comment "Een drager beschrijft het medium waarin het kenmerk geobserveerd wordt."@nl ;
+    rdfs:comment "Het medium (de matrix) waarin het ding waarover een parameter gaat zich bevindt en waarin het bemonsterd en geanalyseerd wordt: water, lucht, regen, het vaste deel van de aarde, biota, of een deeltjesfractie van lucht (PM10, PM2.5, TSP). In I-ADOPT de matrix van de variabele (iadopt:hasMatrix)."@nl ;
+    skos:scopeNote "Een drager is een medium, geen staalnametoestel, staalnamewijze of proces. Niet op zijn plaats: passiveSamplingFilter (DR_4, een staalnametoestel: sosa:Sampler). Grensgevallen: bulk depositie (DR_10) en wet-only depositie (DR_13) noemen naast de matrix (neerslag) ook de staalnamewijze; materiaal (DR_14) is geen afgebakend medium. De specifieke matrix van een staal (afvalwater, oppervlaktewater) is een kenmerk van het staal en hoort niet in de drager. Is de variabele een eigenschap (Temperatuur, pH), dan is de drager zelf het ding waarvan de eigenschap gemeten wordt (iadopt:hasObjectOfInterest)."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:subClassOf skos:Concept .
 
 csor:Eenheid
     a rdfs:Class, owl:Class ;
     rdfs:label "Eenheid"@nl ;
-    rdfs:comment "Een maat waarin een natuurkundige dimensie of een kwantificeerbaar aspect numeriek kan worden uitgedrukt."@nl ;
+    rdfs:comment "Een meeteenheid: de maat waarin de waarde van een grootheid (kwantificeerbaar aspect) numeriek uitgedrukt wordt, binnen één natuurkundige dimensie."@nl ;
+    skos:scopeNote "In de observatie staat de eenheid op het resultaat (qudt:hasUnit), niet in de geobserveerde eigenschap; ook I-ADOPT sluit eenheden uit de variabele uit. Een eenheid die een element, een matrixbasis of referentiecondities noemt (milligram stikstof per liter, mg/kg droge stof, mg/Nm³), herhaalt informatie van het aspect (csor:uitgedruktIn); CSOR koppelt zo'n eenheid met skos:broader aan haar basiseenheid."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:subClassOf skos:Concept .
 
 csor:KwalificeerbaarAspect
     a rdfs:Class, owl:Class ;
     rdfs:label "KwalificeerbaarAspect"@nl ;
-    rdfs:comment "Een kwalificeerbaar aspect drukt uit dat de waarde die aan een observatie kan worden toegekend, beperkt is tot classificaties opgenomen in een elders gepubliceerde lijst."@nl ;
+    rdfs:comment "Een kwalitatieve eigenschap: de waarde van een observatie is een klasse uit een elders gepubliceerde lijst, geen getal (bv. Aanwezigheid, Aantoonbaarheid). In I-ADOPT een iadopt:Property."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:subClassOf skos:Concept .
 
 csor:KwantificeerbaarAspect
     a rdfs:Class, owl:Class ;
     rdfs:label "KwantificeerbaarAspect"@nl ;
-    rdfs:comment "Een kwantificeerbaar aspect duidt aan wat de interpretatie is van de numerieke waarde van een meting binnen een natuurkundige dimensie."@nl ;
+    rdfs:comment "Een grootheid: wat de numerieke waarde van een meting voorstelt (massaconcentratie, vracht, debiet, temperatuur, geleidbaarheid), met precies één natuurkundige dimensie en de eenheden die daarvoor toepasbaar zijn. In I-ADOPT een iadopt:Property."@nl ;
+    skos:scopeNote "Een aspect is een grootheid, geen ding, fenomeen of toestel. Niet op zijn plaats: 'bezinkbare stoffen' (KWA_18, een ding), 'neerslag' (KWA_22, een fenomeen), 'geen' (KWA_15, benoemt geen grootheid), 'massa per filter' (KWA_103, noemt het staalnametoestel). Label, dimensie en eenheden moeten dezelfde grootheid noemen: 'debiet (vracht)' (KWA_10) heeft de dimensie volume en eenheden m³ en L; het is een volume over een periode, geen debiet (volume per tijd). Grensgeval: componenten die I-ADOPT als beperking (iadopt:Constraint) beschrijft, zitten in CSOR in het aspect: uitgedrukt als element of verbinding (dan is csor:uitgedruktIn verplicht; ontbreekt bij o.a. KWA_44, KWA_77, KWA_78, KWA_122, KWA_131, KWA_144), de basis van de matrix (per droge stof, per nat gewicht), referentiecondities (Nm³) en toxische equivalenten (TEQ)."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:subClassOf skos:Concept .
 
 csor:NatuurkundigeDimensie
     a rdfs:Class, owl:Class ;
     rdfs:label "NatuurkundigeDimensie"@nl ;
-    rdfs:comment "Een natuurkundige dimensie duidt aan welke grootheid gebruikt wordt om de observatie te doen."@nl ;
+    rdfs:comment "De soort grootheid (quantity kind) waartoe een kwantificeerbaar aspect en een eenheid behoren, bv. massaconcentratie, lengte, temperatuur. Eenheden met dezelfde dimensie zijn in elkaar om te rekenen. Komt overeen met qudt:QuantityKind."@nl ;
+    skos:scopeNote "Een dimensie is geen eenheid en geen rekeneenheid. Niet op zijn plaats: 'mol' (ND_22, een eenheid; de dimensie is hoeveelheid stof), 'inwonersequivalent' (ND_21), 'Effect eenheden' (ND_25) en 'arbitraire eenheid per volume' (ND_43). 'Geen' (ND_18) staat voor dimensieloos."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:subClassOf skos:Concept .
 
@@ -143,7 +158,8 @@ csor:OrganisatieSpecifiekeReferentie
 csor:Parameter
     a rdfs:Class, owl:Class ;
     rdfs:label "Parameter"@nl ;
-    rdfs:comment "Een parameter specificeert een soort uitspraak over een variabele door deze te koppelen aan de context waarin de observatie gebeurt (drager) en de wijze waarop de observatie gebeurt (soort waardebepaling)."@nl ;
+    rdfs:comment "Wat gemeten wordt, zonder de grootheid: de combinatie van een variabele (het ding), een drager (het medium) en een soort waardebepaling (de fractie of vorm), bv. 'fosfor, totaal, in water'. Pas het parameteraspect voegt de grootheid toe."@nl ;
+    skos:scopeNote "Een parameter is geen observeerbare eigenschap: ze mist de grootheid. Ze is daarom geen sosa:Property en geen iadopt:Variable; hoogstens een groepering van variabelen (iadopt:VariableSet). Twee parameters die enkel verschillen in analysemethode, staalnametoestel of project beschrijven hetzelfde (zie csor:SoortWaardebepaling)."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:subClassOf skos:Concept .
 
@@ -168,7 +184,8 @@ csor:ParameterAfleidingVerhouding
 csor:ParameterAspect
     a rdfs:Class, owl:Class ;
     rdfs:label "ParameterAspect"@nl ;
-    rdfs:comment "Een parameteraspect geeft de manier aan waarop de waarde van een parameter is uitgedrukt. Elk parameteraspect koppelt een parameter aan een kwantificeerbaar of kwalificeerbaar aspect."@nl ;
+    rdfs:comment "Een observeerbare eigenschap: precies één grootheid (kwantificeerbaar of kwalificeerbaar aspect) van precies één parameter, bv. 'P t (totaal in water): massaconcentratie fosfor'. Het parameteraspect is wat een observatie observeert (sosa:observedProperty) en het enige CSOR-niveau dat aan de definitie van iadopt:Variable voldoet."@nl ;
+    skos:scopeNote "Eenheid, analysemethode, staalnametoestel, project en statistiek horen niet in het parameteraspect: de eenheid staat op het resultaat, methode en toestel op de observatie (sosa:usedProcedure, sosa:madeBySensor), het project in de provenance. Het aspect moet passen bij de variabele. Niet op zijn plaats: een grootheid met een andere dimensie dan de eigenschap in de variabele, bv. 'T (standaard in water): massaconcentratie' (PAS_7189), 'pH (standaard in water): massaconcentratie' (PAS_7181), 'Vol (standaard in water): massa' (PAS_1890, een staalhoeveelheid in gram), 'FColi (standaard in water): turbiditeit' (PAS_560)."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:subClassOf skos:Concept .
 
@@ -194,14 +211,16 @@ csor:Resultaattype
 csor:SoortWaardebepaling
     a rdfs:Class, owl:Class ;
     rdfs:label "SoortWaardebepaling"@nl ;
-    rdfs:comment "De wijze waarop de observatie of waardebepaling gebeurt."@nl ;
+    rdfs:comment "De beperking die zegt welke fractie of vorm van de variabele in de drager bedoeld is, bv. opgelost, totaal, gefilterd, organisch, vrij, adsorbeerbaar; 'standaard' als er geen beperking is. In I-ADOPT een iadopt:Constraint op het ding of de matrix."@nl ;
+    skos:scopeNote "Hoe, waarmee en in welk kader gemeten wordt, hoort niet in de soort waardebepaling maar in de observatie. Niet op zijn plaats: analysemethoden (GC-MS, LC-MS: sosa:usedProcedure), staalnametoestellen (pesticiden sampler, SWB_41: sosa:Sampler), projecten (MUC, MUCd: provenance), statistieken (standaard deviatie, SWB_40: iadopt:StatisticalModifier), berekeningen (Nieuwe indexberekening, SWB_83: procedure) en ecotoxicologische eindpunten of blootstellingsduren (EC50 (48h), 72h: een eigen grootheid met een beperking). Grensgeval: voorbehandelingen (Eluaat LS10, na Zahn Wellens, extraheerbaar) bepalen welke fractie gemeten wordt, maar de test zelf is een procedure."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:subClassOf skos:Concept .
 
 csor:Variabele
     a rdfs:Class, owl:Class ;
     rdfs:label "Variabele"@nl ;
-    rdfs:comment "Een variabele beschrijft waarover een observatie of uitspraak gebeurt."@nl ;
+    rdfs:comment "Het ding waarover een parameter een uitspraak doet: een chemische stof, een stofgroep of een organisme(groep). De variabele is het onderwerp van de meting, niet de gemeten grootheid. In I-ADOPT het ObjectOfInterest (iadopt:hasObjectOfInterest)."@nl ;
+    skos:scopeNote "De grootheid hoort in het aspect, niet in de variabele. Niet op zijn plaats: (1) eigenschappen als variabele (Temperatuur, pH, Debiet, Volume, Geleidbaarheid, Windsnelheid): de eigenschap staat dan tweemaal in het parameteraspect, en het onderwerp is eigenlijk de drager; (2) meetcondities, methoden of statistieken in het label (Geleidbaarheid (20°C), Microplastics (FTIR), Zwarte koolstof - 370 nm, Maximale Temperatuur); (3) toetsen (CALUX, Microtox: een procedure) en testorganismen (Daphnia magna, Danio rerio: de context van een ecotoxicologische toets, niet het onderwerp); (4) rekenregels (= PFOStotaal - PFOS) en verhoudingen of rendementen (BZV/N-verhouding, Rendement CZV tov influentbelasting): afleidingen; (5) verzamelnamen (PCB individueel). Grensgevallen: methodegedefinieerde grootheden (BZV, CZV, Kjeldahlstikstof, Droge stof) en operationeel afgebakende fracties (Zwevende stoffen, PM10, korrelgrootte)."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:subClassOf skos:Concept .
 
@@ -244,7 +263,7 @@ csor:heeftKwantificeerbaarAspect
 csor:heeftNatuurkundigeDimensie
     a owl:ObjectProperty, rdf:Property ;
     rdfs:label "Natuurkundige dimensie"@nl ;
-    rdfs:comment "De link met de natuurkundige dimensie. Wordt zowel op csor:Eenheid als csor:KwantificeerbaarAspect gebruikt."@nl ;
+    rdfs:comment "De soort grootheid (quantity kind) van een eenheid of kwantificeerbaar aspect. Een aspect en al zijn toepasbare eenheden hebben dezelfde dimensie."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:range csor:NatuurkundigeDimensie .
 
@@ -265,7 +284,7 @@ csor:referentieEenheid
 csor:uitgedruktIn
     a owl:ObjectProperty, rdf:Property ;
     rdfs:label "Uitgedrukt in"@nl ;
-    rdfs:comment "De variabele waarin het resultaat van een kwantificeerbaar aspect uitgedrukt wordt."@nl ;
+    rdfs:comment "Het element of de verbinding waarin de hoeveelheid van de variabele uitgedrukt wordt, bv. nitraat uitgedrukt als stikstof (aspect 'massaconcentratie stikstof'). Verwijst naar een variabele, niet naar een eenheid. Verplicht wanneer het label van het aspect een element of verbinding noemt. In I-ADOPT een beperking (iadopt:Constraint) op de grootheid."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:range csor:Variabele .
 
@@ -290,7 +309,7 @@ csor:classificatielijst
 csor:heeftResultaattype
     a owl:ObjectProperty, rdf:Property ;
     rdfs:label "Resultaattype"@nl ;
-    rdfs:comment "De link met het resultaattype. Wordt gebruikt op csor:KwantificeerbaarAspect en csor:KwalificeerbaarAspect."@nl ;
+    rdfs:comment "Het soort resultaat dat een observatie van dit aspect oplevert (bv. meting). Wordt gebruikt op csor:KwantificeerbaarAspect en csor:KwalificeerbaarAspect."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:range csor:Resultaattype .
 
@@ -301,21 +320,21 @@ csor:heeftResultaattype
 csor:heeftVariabele
     a owl:ObjectProperty, rdf:Property ;
     rdfs:label "Variabele"@nl ;
-    rdfs:comment "De variabele waarover de parameter een uitspraak doet."@nl ;
+    rdfs:comment "Het ding waarover de parameter een uitspraak doet: een stof, stofgroep of organisme(groep). Komt in I-ADOPT overeen met iadopt:hasObjectOfInterest, behalve wanneer de variabele een eigenschap is (zie csor:Variabele)."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:range csor:Variabele .
 
 csor:heeftSoortWaardebepaling
     a owl:ObjectProperty, rdf:Property ;
     rdfs:label "Soort waardebepaling"@nl ;
-    rdfs:comment "De wijze waarop de observatie of waardebepaling gebeurt."@nl ;
+    rdfs:comment "De beperking tot een fractie of vorm van de variabele in de drager (opgelost, totaal, …). Komt in I-ADOPT overeen met iadopt:hasConstraint, enkel voor waarden die een fractie of vorm zijn (zie csor:SoortWaardebepaling)."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:range csor:SoortWaardebepaling .
 
 csor:heeftDrager
     a owl:ObjectProperty, rdf:Property ;
     rdfs:label "Drager"@nl ;
-    rdfs:comment "De drager of context waarin de observatie gebeurt."@nl ;
+    rdfs:comment "Het medium waarin de variabele zich bevindt (water, lucht, vaste deel van de aarde, biota). Komt in I-ADOPT overeen met iadopt:hasMatrix; is de variabele een eigenschap, dan met iadopt:hasObjectOfInterest."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:range csor:Drager .
 
@@ -383,7 +402,7 @@ csor:verkorteNotatie
 csor:heeftParameter
     a owl:ObjectProperty, rdf:Property ;
     rdfs:label "Heeft parameter"@nl ;
-    rdfs:comment "De parameter die gekoppeld is aan dit parameteraspect."@nl ;
+    rdfs:comment "De parameter (ding, medium, fractie of vorm) waarvan dit parameteraspect één grootheid beschrijft."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:range csor:Parameter .
 
@@ -406,7 +425,7 @@ csor:geldigTot
 csor:heeftAspect
     a owl:ObjectProperty, rdf:Property ;
     rdfs:label "Heeft aspect"@nl ;
-    rdfs:comment "Het aspect dat gekoppeld is aan dit parameteraspect."@nl ;
+    rdfs:comment "De grootheid van dit parameteraspect: precies één kwantificeerbaar of kwalificeerbaar aspect. De dimensie van de grootheid moet passen bij de variabele van de parameter. Voorstel: sub-property van iadopt:hasProperty (zie I-ADOPT-ALIGNERING)."@nl ;
     rdfs:isDefinedBy csor: ;
     rdfs:range [ owl:unionOf ( csor:KwantificeerbaarAspect csor:KwalificeerbaarAspect ) ] .
 
@@ -641,3 +660,61 @@ csor:omkeerbaar a owl:FunctionalProperty .
 csor:referentieEenheid a owl:FunctionalProperty .
 csor:saroadCode a owl:FunctionalProperty .
 csor:uitgedruktIn a owl:FunctionalProperty .
+
+#################################
+### I-ADOPT-ALIGNERING (VOORSTEL)
+#################################
+# Voorstel uit src/main/input/waterkwaliteit/csor_iadopt.md §7 en §9 (open punt I1). I-ADOPT 1.1.0,
+# namespace https://w3id.org/iadopt/ont/ (slash). De I-ADOPT-ontologie wordt niet geladen; deze
+# axioma's leggen geen nieuwe verplichtingen op data (OwlToShaclGenerator leest enkel restricties).
+#
+# Wel gealigneerd: de klassen waarvan ELKE instantie de I-ADOPT-rol heeft.
+#   csor:ParameterAspect ⊂ iadopt:Variable   precies één grootheid, één ding, één matrix
+#   csor:*Aspect         ⊂ iadopt:Property   de grootheid
+#   csor:heeftAspect     ⊂ iadopt:hasProperty
+# Bewust NIET gealigneerd, omdat een deel van de instanties de rol niet heeft (csor_iadopt/*.csv):
+#   csor:Variabele ⊄ iadopt:Entity             eigenschappen, toetsen, rekenregels (variabele_rol.csv)
+#   csor:SoortWaardebepaling ⊄ iadopt:Constraint  methoden, toestellen, projecten (soortwaardebepaling_rol.csv)
+#   csor:Parameter ⊄ iadopt:Variable           geen grootheid
+#   csor:heeftVariabele / heeftDrager / heeftSoortWaardebepaling: hangen aan de parameter, niet aan
+#   het parameteraspect; de I-ADOPT-componenten worden per parameteraspect gematerialiseerd
+#   (csor_iadopt.md §7.2), niet met een owl:propertyChainAxiom op een externe property.
+# De deelklassen hieronder maken de rol expliciet voor de instanties die WEL passen. Een variabele
+# of soort waardebepaling die in geen van die deelklassen past, staat niet op zijn plaats.
+
+csor:ParameterAspect rdfs:subClassOf iadopt:Variable .
+csor:KwantificeerbaarAspect rdfs:subClassOf iadopt:Property .
+csor:KwalificeerbaarAspect rdfs:subClassOf iadopt:Property .
+csor:heeftAspect rdfs:subPropertyOf iadopt:hasProperty .
+
+csor:Stof
+    a owl:Class ;
+    rdfs:label "Stof"@nl ;
+    rdfs:comment "Een variabele die één chemische stof is, herkenbaar aan een CAS-nummer of InChIKey (of een element zonder CAS-nummer). ObjectOfInterest in I-ADOPT."@nl ;
+    skos:editorialNote "Voorstel (csor_iadopt.md §9, open punt I2): nog geen klasse in het CSOR-register. In variabele_rol.csv de rol 'stof'."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf csor:Variabele, iadopt:Entity .
+
+csor:Stofgroep
+    a owl:Class ;
+    rdfs:label "Stofgroep"@nl ;
+    rdfs:comment "Een variabele die een groep of som van chemische stoffen is (bv. Som van de 43 PFAS, Xylenen (m+p)). ObjectOfInterest in I-ADOPT; een iadopt:SymmetricSystem wanneer de delen gekend zijn (veelterm-afleiding)."@nl ;
+    skos:editorialNote "Voorstel (csor_iadopt.md §9, open punt I2): nog geen klasse in het CSOR-register. In variabele_rol.csv de rol 'stofgroep'."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf csor:Variabele, iadopt:Entity .
+
+csor:Organisme
+    a owl:Class ;
+    rdfs:label "Organisme"@nl ;
+    rdfs:comment "Een variabele die een organisme of organismegroep is die zelf bestudeerd wordt (geteld, aangetoond), bv. Escherichia Coli, Dinophysis acuminata. Niet: een testorganisme in een ecotoxicologische toets. ObjectOfInterest in I-ADOPT."@nl ;
+    skos:editorialNote "Voorstel (csor_iadopt.md §9, open punt I2): nog geen klasse in het CSOR-register. In variabele_rol.csv de rol 'organisme (studieobject)'."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf csor:Variabele, iadopt:Entity .
+
+csor:FractieOfVorm
+    a owl:Class ;
+    rdfs:label "FractieOfVorm"@nl ;
+    rdfs:comment "Een soort waardebepaling die een fractie of vorm van de variabele of de drager afbakent (opgelost, totaal, gefilterd, organisch, vrij, adsorbeerbaar …). Een beperking in I-ADOPT."@nl ;
+    skos:editorialNote "Voorstel (csor_iadopt.md §9, open punt I4): nog geen klasse in het CSOR-register. In soortwaardebepaling_rol.csv de categorie 'fractie of vorm'. 'standaard' (SWB_1) is geen beperking en dus geen FractieOfVorm."@nl ;
+    rdfs:isDefinedBy csor: ;
+    rdfs:subClassOf csor:SoortWaardebepaling, iadopt:Constraint .

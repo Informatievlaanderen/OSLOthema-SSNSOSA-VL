@@ -95,10 +95,10 @@ ex:resultaat-nettovracht-bedrijven-rio-2014-P_126 a sosa:Result,
     sosa:isResultOf ex:observatie-nettovracht-bedrijven-rio-2014-P_126 .
 
 ex:tijdstip-2014-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2014-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2014-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2015-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2015-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2015-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 csor-kwa:KWA_5 a skos:Concept,
         csor:KwantificeerbaarAspect ;

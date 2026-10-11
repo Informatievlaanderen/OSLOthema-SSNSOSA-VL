@@ -42,7 +42,7 @@ De raamopener reageert telkens 5 seconden na de meting.
 *Individueel — 10 minuten*
 
 Lees de use case en vul onderstaande vragen in. Geef waar van toepassing de bijbehorende klasse aan en maak hierbij gebruik van de volgende SOSA-klassen `FeatureOfInterest`,
-`ObservableProperty`, `ActuableProperty`, `Sensor`, `Actuator`, `Observation`, `Actuation`, `Result`, `Platform`, `Plan`, `ObservingProcedure`, `ActuatingProcedure`, `Step` en `Variable`.
+`Property` (voor zowel geobserveerde als aangestuurde eigenschappen), `Sensor`, `Actuator`, `Observation`, `Actuation`, `Result`, `Platform`, `Plan`, `ObservingProcedure`, `ActuatingProcedure`, `Step` en `Variable`.
 
 | Vraag                                                                       | Antwoord | Klasse |
 |-----------------------------------------------------------------------------|---|---|

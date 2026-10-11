@@ -69,6 +69,10 @@ nagerekend (op twee campagnes na exact; zie `bespreking.md` §6) en gemodelleerd
 - Resultaten als benoemde `sosa:Result` met `qudt:numericValue` + `qudt:hasUnit unit:DeciB_A`
   (of `unit:SEC` voor de duur) — één stijl (R3).
 
+**Alternatieve mapping:** `alternatief/` legt een tweede, eveneens verdedigbare lezing voor: het
+geluidsevent als emissie en FOI, zoals de lozing in waterkwaliteit. Geen herziening; beide staan
+open voor de werkgroep (skill `alternative-mapping` in oslo-ld-kit).
+
 ## Grafische voorstelling
 
 Zie `geluidsmeetnet.mmd`. Het diagram toont één representatief event (het nachtelijke vertrek

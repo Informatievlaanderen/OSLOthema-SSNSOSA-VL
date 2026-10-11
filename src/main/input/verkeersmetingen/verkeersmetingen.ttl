@@ -129,8 +129,8 @@ ex:obs-FMN-021-20260428-dag a sosa:Observation , sosa:Execution ;
     sosa:observedProperty ex:property-verkeersintensiteit ;
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T00:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-29T00:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T00:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-29T00:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T23:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-dag .
@@ -141,8 +141,8 @@ ex:obs-FMN-021-20260428-00u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T00:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T01:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T00:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T01:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T00:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-00u ;
@@ -152,8 +152,8 @@ ex:obs-FMN-021-20260428-01u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T01:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T02:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T01:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T02:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T01:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-01u ;
@@ -163,8 +163,8 @@ ex:obs-FMN-021-20260428-02u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T02:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T03:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T02:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T03:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T02:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-02u ;
@@ -174,8 +174,8 @@ ex:obs-FMN-021-20260428-03u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T03:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T04:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T03:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T04:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T03:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-03u ;
@@ -185,8 +185,8 @@ ex:obs-FMN-021-20260428-04u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T04:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T05:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T04:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T05:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T04:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-04u ;
@@ -196,8 +196,8 @@ ex:obs-FMN-021-20260428-05u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T05:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T06:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T05:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T06:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T05:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-05u ;
@@ -207,8 +207,8 @@ ex:obs-FMN-021-20260428-06u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T06:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T07:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T06:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T07:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T06:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-06u ;
@@ -218,8 +218,8 @@ ex:obs-FMN-021-20260428-07u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T07:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T08:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T07:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T08:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T07:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-07u ;
@@ -230,8 +230,8 @@ ex:obs-FMN-021-20260428-08u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T08:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T09:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T08:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T09:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T08:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-08u ;
@@ -241,8 +241,8 @@ ex:obs-FMN-021-20260428-09u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T09:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T10:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T09:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T10:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T09:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-09u ;
@@ -252,8 +252,8 @@ ex:obs-FMN-021-20260428-10u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T10:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T11:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T10:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T11:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T10:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-10u ;
@@ -263,8 +263,8 @@ ex:obs-FMN-021-20260428-11u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T11:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T12:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T11:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T12:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T11:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-11u ;
@@ -274,8 +274,8 @@ ex:obs-FMN-021-20260428-12u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T12:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T13:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T12:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T13:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T12:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-12u ;
@@ -285,8 +285,8 @@ ex:obs-FMN-021-20260428-13u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T13:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T14:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T13:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T14:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T13:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-13u ;
@@ -296,8 +296,8 @@ ex:obs-FMN-021-20260428-14u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T14:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T15:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T14:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T15:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T14:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-14u ;
@@ -307,8 +307,8 @@ ex:obs-FMN-021-20260428-15u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T15:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T16:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T15:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T16:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T15:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-15u ;
@@ -318,8 +318,8 @@ ex:obs-FMN-021-20260428-16u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T16:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T17:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T16:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T17:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T16:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-16u ;
@@ -330,8 +330,8 @@ ex:obs-FMN-021-20260428-17u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T17:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T18:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T17:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T18:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T17:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-17u ;
@@ -341,8 +341,8 @@ ex:obs-FMN-021-20260428-18u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T18:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T19:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T18:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T19:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T18:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-18u ;
@@ -352,8 +352,8 @@ ex:obs-FMN-021-20260428-19u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T19:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T20:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T19:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T20:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T19:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-19u ;
@@ -363,8 +363,8 @@ ex:obs-FMN-021-20260428-20u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T20:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T21:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T20:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T21:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T20:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-20u ;
@@ -374,8 +374,8 @@ ex:obs-FMN-021-20260428-21u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T21:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T22:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T21:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T22:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T21:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-21u ;
@@ -385,8 +385,8 @@ ex:obs-FMN-021-20260428-22u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T22:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-28T23:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T22:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T23:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T22:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-22u ;
@@ -396,8 +396,8 @@ ex:obs-FMN-021-20260428-23u a sosa:Observation , sosa:Execution ;
     sosa:hasFeatureOfInterest ex:meetpunt-FMN-021 ;   # zelfde waarde als de collectie (SOSA 2023 §collecties)
     sosa:phenomenonTime [
         a time:Interval ;
-        time:hasBeginning [ a time:Instant ; time:inXSDDateTime "2026-04-28T23:00:00"^^xsd:dateTime ] ;
-        time:hasEnd       [ a time:Instant ; time:inXSDDateTime "2026-04-29T00:00:00"^^xsd:dateTime ]
+        time:hasBeginning [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-28T23:00:00+02:00"^^xsd:dateTimeStamp ] ;
+        time:hasEnd       [ a time:Instant ; time:inXSDDateTimeStamp "2026-04-29T00:00:00+02:00"^^xsd:dateTimeStamp ]
     ] ;
     sosa:resultTime "2026-04-28T23:59:59"^^xsd:dateTime ;
     sosa:hasResult ex:resultaat-FMN-021-20260428-23u ;

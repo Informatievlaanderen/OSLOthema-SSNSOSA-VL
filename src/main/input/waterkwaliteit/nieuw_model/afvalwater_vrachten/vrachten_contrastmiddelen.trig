@@ -1811,10 +1811,10 @@ ex:resultaat-nettovracht-rwzi-oppw-2023-P_126 a sosa:Result,
     sosa:isResultOf ex:observatie-nettovracht-rwzi-oppw-2023-P_126 .
 
 ex:tijdstip-2014-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2014-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2014-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2026-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2026-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2026-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 csor-kwa:KWA_5 a skos:Concept,
         csor:KwantificeerbaarAspect ;
@@ -3759,37 +3759,37 @@ ex:resultaat-concentratie-rwzi-oppw-2023-P_126 a sosa:Result,
     sosa:isResultOf ex:observatie-concentratie-rwzi-oppw-2023-P_126 .
 
 ex:tijdstip-2015-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2015-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2015-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2016-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2016-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2016-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2017-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2017-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2017-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2018-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2018-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2018-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2019-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2019-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2019-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2020-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2020-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2020-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2021-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2021-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2021-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2022-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2022-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2022-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2023-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2023-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2023-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2024-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2024-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2024-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2025-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2025-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2025-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:observatie-brutovracht-bedrijven-coll-2014-P_117 a sosa:Execution,
         sosa:Observation,

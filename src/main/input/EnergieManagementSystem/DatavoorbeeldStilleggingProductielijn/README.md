@@ -10,7 +10,7 @@ Het scenario beschrijft een fabriek in Kortrijk waar een houtbewerkingsproductie
 
 ### Structuur Problemen
 
-Het originele voorbeeld (`source/DatavoorbeeldStilleggingProductielijn.ttl`) vertoont verschillende architectonische problemen:
+Het originele voorbeeld (`source/DatavoorbeeldStilleggingProductielijn.trig`) vertoont verschillende architectonische problemen:
 
 1. **Gemengde Zaken (Separation of Concerns Violation)**
    - Mix van observatie (elektriciteitsprijs meting) en actuatie (productielijn uitschakelen)

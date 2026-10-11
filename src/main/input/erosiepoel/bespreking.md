@@ -52,7 +52,7 @@ De `sosa:ObservationCollection` `ex:ObsCollection_EM_20240901` heeft als gedeeld
 `sosa:resultTime`. Bij uitbreiding naar meerdere metingen per bezoek (bijv. ook troebelheid
 of waterstand) hoeven deze properties enkel op de collection te staan.
 
-## 5. Procedure en ObservableProperty
+## 5. Procedure en Property
 
 **`ex:VeldmeetProcedure`** — `sosa:ObservingProcedure`
 
@@ -102,12 +102,14 @@ observatierelatie niet formeel vast.
 
 ## 7. Tijdsmodellering
 
-Gebruikt patroon: `sosa:phenomenonTime → time:Instant → time:inXSDDateTime`
+Gebruikt patroon: `sosa:phenomenonTime → time:Instant → time:inXSDDateTimeStamp`
 
-De ochtendcontrole heeft een concreet uurstijdstip (09:00). `time:inXSDDateTime` is
+De ochtendcontrole heeft een concreet uurstijdstip (09:00). `time:inXSDDateTimeStamp` is
 gekozen boven `time:inXSDDate` omdat het tijdstip van de dag relevant is: de observatie
 vindt 's ochtends plaats, direct na een nachtelijke regenbui, en het uur kan diagnostisch
 zijn bij vergelijking met regenmeetdata.
+
+Geen tijdzone in de bron: Belgische lokale tijd aangenomen (R12), dus `+01:00` in de winter en `+02:00` in de zomer. `time:inXSDDateTime` is in OWL-Time deprecated.
 
 | Property | Waarde | Betekenis |
 |---|---|---|

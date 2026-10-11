@@ -9,6 +9,7 @@ Dit document bundelt het advies over de codelijsten en de stappen voor de volled
 | `brondata_Jurgen/README.md` | de datasets en de scope volgens de VMM |
 | `codelijsten.md` | koppeling aan CSOR, NACE-BEL en de nieuwe lijsten |
 | `featureofinterest.md` | FOI per soort meting; afstemming met RIE-IEPR en de VHA-waterlopen |
+| `csor_iadopt.md` | alignering van CSOR met de I-ADOPT-ontologie voor variabelen |
 
 *Opgesteld 2026-09-29.*
 
@@ -24,7 +25,7 @@ Dit document bundelt het advies over de codelijsten en de stappen voor de volled
    `codelijst-matrix` en `codelijst-observatieprocedure` voor matrix en staalname, NACE-BEL
    2008, RIE-IEPR voor lozingen (`riepr:Emissie`), en de herstelde VHA-waterlopen voor
    oppervlaktewater.
-3. **Projectconventies** (`CLAUDE.md`):
+3. **Projectconventies** (`CLAUDE.md` en de modelleergids in `oslo-ld-kit/guide/`):
    - SSN/SOSA 2023 zoals in de pipeline geladen (`sosa:Property`, `sosa:hasProperty`,
      `sosa:implements`);
    - `qudt:numericValue`;
@@ -110,14 +111,14 @@ bevatten enkel de waarden die toevallig voorkomen.
 ### Fase 1: resultaten
 
 Elke stap levert een datavoorbeeld in `nieuw_model/<voorbeeld>/`, met de verplichte bestandsset
-uit `CLAUDE.md` §3:
+uit `CLAUDE.md` §4:
 
 ```
 <naam>.ttl        kleine, representatieve subset, door de pipeline gevalideerd
 <naam>.trig       volledige omzetting (buiten de pipeline), indien groot
-<naam>.mmd        Mermaid-diagram (CLAUDE.md §6)
+<naam>.mmd        Mermaid-diagram (guide/diagrams.md)
 README.md         intent, bronbestand, transformatiepipeline
-bespreking.md     de 9 verplichte secties (CLAUDE.md §5)
+bespreking.md     de 9 verplichte secties (guide/discussion-document.md)
 ```
 
 De omzetting gebeurt met een script in `scripts/` (brondata-JSON → RDF), zodat ze herhaalbaar is

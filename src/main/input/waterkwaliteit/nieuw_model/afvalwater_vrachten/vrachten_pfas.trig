@@ -3909,10 +3909,10 @@ ex:resultaat-brutovracht-9990005-2010-PAS_2525 a sosa:Result,
     sosa:isResultOf ex:observatie-brutovracht-9990005-2010-PAS_2525 .
 
 ex:tijdstip-2008-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2008-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2008-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2024-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2024-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2024-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 csor-kwa:KWA_5 a skos:Concept,
         csor:KwantificeerbaarAspect ;
@@ -9269,49 +9269,49 @@ ex:observatie-brutovracht-9990005-2010-PAS_2525 a sosa:Execution,
     sosa:usedProcedure ex:procedure-bruto-vracht .
 
 ex:tijdstip-2009-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2009-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2009-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2010-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2010-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2010-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2011-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2011-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2011-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2012-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2012-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2012-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2013-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2013-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2013-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2014-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2014-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2014-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2015-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2015-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2015-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2016-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2016-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2016-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2017-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2017-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2017-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2018-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2018-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2018-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2019-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2019-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2019-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2020-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2020-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2020-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2021-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2021-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2021-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2022-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2022-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2022-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:tijdstip-2023-01-01T000000 a time:Instant ;
-    time:inXSDDateTime "2023-01-01T00:00:00"^^xsd:dateTime .
+    time:inXSDDateTimeStamp "2023-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
 ex:lozing-2030042 a prov:Entity,
         sosa:FeatureOfInterest,

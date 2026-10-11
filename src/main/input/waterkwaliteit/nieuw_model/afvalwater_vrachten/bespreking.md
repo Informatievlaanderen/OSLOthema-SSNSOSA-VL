@@ -72,7 +72,7 @@ eigenschap, fenomeentijd, procedure en resultaat.
 PFOA 2017, PFHpA 2022), elk met `usedProcedure ex:procedure-bruto-vracht`, zonder
 `hasInputValue`.
 
-## 5. Procedure en ObservableProperty
+## 5. Procedure en Property
 
 **`ex:procedure-bruto-vracht`** (`sosa:ObservingProcedure`): "concentratie × debiet over de
 periode".
@@ -202,10 +202,10 @@ DERIVATION in het diagram groepeert de afgeleide observaties; het model zelf bli
 
 | Element | Patroon |
 |---|---|
-| collectie bronobservaties, vrachten | `sosa:phenomenonTime → time:Interval (ex:periode-<jaar>) → time:hasBeginning/hasEnd → time:Instant → time:inXSDDateTime` |
+| collectie bronobservaties, vrachten | `sosa:phenomenonTime → time:Interval (ex:periode-<jaar>) → time:hasBeginning/hasEnd → time:Instant → time:inXSDDateTimeStamp` |
 
 - Dezelfde `ex:periode-<jaar>`-IRI's en triples als stap 3. Samengevoegd delen alle
-  jaarobservaties hetzelfde interval. Half-open interval (R12).
+  jaarobservaties hetzelfde interval. Half-open interval (R12), Belgische tijd (`+01:00`).
 - De vrachten hebben de fenomeentijd zelf, omdat ze geen lid zijn van de collectie. De
   bronobservaties hebben ze via de collectie.
 - Bij `251013` gaat het om een periodevracht. Dat het kalenderjaren zijn, volgt uit de kolom

@@ -96,7 +96,7 @@ Afgeleide dagindicatoren (buiten de collecties, `madeBySensor ex:aerovision-reke
 
 Alle indicatoren hebben FOI `ex:meetpost-M072` en eenheid `unit:DeciB_A`.
 
-## 5. Procedure en ObservableProperty
+## 5. Procedure en Property
 
 | Procedure | Geïmplementeerd door | Gebruikt door | hasInput → hasOutput |
 |---|---|---|---|
@@ -184,6 +184,12 @@ gecorreleerde vliegtuigevents**. De namen zijn dezelfde, de betekenis is smaller
 > aanzet tot observeren. Een geluidsevent is precies dat: een drempeloverschrijding die een
 > meting start. Het FOI blijft de meetpost, want daar wordt het geluidsniveau bepaald. Met de
 > vlucht als FOI zou de *bron* verward worden met de *plaats waar het effect gemeten wordt*.
+>
+> **Alternatieve mapping (open, voor de werkgroep):** `alternatief/` modelleert het geluidsevent
+> als emissie (`wk:Emissie`, `prov:Entity` en FOI van LAeq, LAmax en SEL), voortgebracht door de
+> vlucht, met de meetpost via `prov:atLocation`. Dat sluit aan bij de lozing in waterkwaliteit
+> (beslisdocument A5, A14). Beide lezingen zijn verdedigbaar; argumenten en discussievragen staan
+> in `alternatief/bespreking.md` §6 (skill `alternative-mapping` in oslo-ld-kit).
 
 ### Waarom de vlucht als `prov:Activity` en het event via `prov:wasGeneratedBy`?
 

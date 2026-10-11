@@ -447,7 +447,7 @@ naar `def.isotc211.org` verwijst, verwijst naar een klasse die niet meer bestaat
 
 ## 6. Aanzet tot herziening
 
-Een SOSA 2023-conforme herwerking (zie `§7` in `CLAUDE.md`) zou:
+Een SOSA 2023-conforme herwerking (zie de modelleerregels in de gids, `oslo-ld-kit/guide/ssn-sosa.md`) zou:
 
 1. **als eerste stap** alle verwijderde `def.isotc211.org`-IRI's vervangen door de
    SOSA/SSN-, OWL-Time-, QUDT- en GeoSPARQL-equivalenten uit §4.1;

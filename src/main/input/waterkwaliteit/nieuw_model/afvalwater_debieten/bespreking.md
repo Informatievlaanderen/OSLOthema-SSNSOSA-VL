@@ -47,7 +47,7 @@ Beide observaties hebben ook `prov:atLocation` (de meetput) en `prov:used` (data
 van 2023. Wat ze delen, staat op de collectie: de geobserveerde eigenschap en de fenomeentijd
 (het kalenderjaar). Het FOI verschilt per lid en staat dus op de observaties.
 
-## 5. Procedure en ObservableProperty
+## 5. Procedure en Property
 
 **Procedure.** Geen `sosa:usedProcedure`: de bron vermeldt niet hoe het debiet bepaald werd. Een
 kandidaat is `procedure:WAC_I_1_012` "Bepaling van het debiet in controle-inrichtingen voor
@@ -130,10 +130,10 @@ Zoals in stap 1 (`../afvalwater_concentraties/bespreking.md` §6.5, §6.7, §6.9
 
 | Element | Patroon |
 |---|---|
-| collectie jaardebieten | `sosa:phenomenonTime → time:Interval → time:hasBeginning/time:hasEnd → time:Instant → time:inXSDDateTime` |
+| collectie jaardebieten | `sosa:phenomenonTime → time:Interval → time:hasBeginning/time:hasEnd → time:Instant → time:inXSDDateTimeStamp` |
 
-- `ex:periode-2023`: begin `2023-01-01T00:00:00` (inclusief), einde `2024-01-01T00:00:00`
-  (exclusief, R12).
+- `ex:periode-2023`: begin `2023-01-01T00:00:00+01:00` (inclusief), einde
+  `2024-01-01T00:00:00+01:00` (exclusief, R12). Belgische tijd (R12).
 - Er is geen tijdzone: de bron vermeldt enkel het jaar.
 - `sosa:resultTime` (wanneer het IMJV ingediend of het debiet berekend werd) staat niet in de
   bron.

@@ -8,6 +8,6 @@ curl -O https://raw.githubusercontent.com/Informatievlaanderen/OSLOthema-Energie
 for i in *json ; do
   [[ -d ../${i/.json/}/source ]] || mkdir -p ../${i/.json/}/source
   mv $i ../${i/.json/}/source/${i/json/jsonld} ;
-  riot --formatted=turtle prefixen.ttl ../${i/.json/}/source/${i/json/jsonld} > ../${i/.json/}/source/${i/json/ttl} ;
+  riot --formatted=turtle prefixen.ttl ../${i/.json/}/source/${i/json/jsonld} > ../${i/.json/}/source/${i/json/trig} ;
 done
 

@@ -99,8 +99,8 @@ exec:classificatie-uitvoering-20250315
   sosa:hasResult ent:klasse-001 ;
   sosa:madeBySensor sensor:temperatuur-sensor-001 ;
   sosa:phenomenonTime [ a time:ProperInterval ;
-                        time:hasBeginning [ time:inXSDDateTime "2025-03-15T00:00:00Z"^^xsd:dateTime ] ;
-                        time:hasEnd [ time:inXSDDateTime "2025-03-15T23:59:59Z"^^xsd:dateTime ] ] ;
+                        time:hasBeginning [ time:inXSDDateTimeStamp "2025-03-15T00:00:00Z"^^xsd:dateTimeStamp ] ;
+                        time:hasEnd [ time:inXSDDateTimeStamp "2025-03-15T23:59:59Z"^^xsd:dateTimeStamp ] ] ;
   sosa:resultTime "2025-03-15T23:59:59Z"^^xsd:dateTime ;
   sosa:wasOriginatedBy stim:classificatie-stimulus-20250315 .
 
@@ -112,8 +112,8 @@ exec:meting-001
   sosa:observedProperty concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies ;
   sosa:hasResult ent:meting-001;
   sosa:phenomenonTime [ a time:ProperInterval ;
-                        time:hasBeginning [ time:inXSDDateTime "2025-03-15T00:00:00Z"^^xsd:dateTime ] ;
-                        time:hasEnd [ time:inXSDDateTime "2025-03-21T23:59:59Z"^^xsd:dateTime ] ] ;
+                        time:hasBeginning [ time:inXSDDateTimeStamp "2025-03-15T00:00:00Z"^^xsd:dateTimeStamp ] ;
+                        time:hasEnd [ time:inXSDDateTimeStamp "2025-03-21T23:59:59Z"^^xsd:dateTimeStamp ] ] ;
   sosa:resultTime "2025-03-22T00:00:00Z"^^xsd:dateTime ;
   sosa:madeBySensor sensor:temperatuur-sensor-001 ;
   sosa:wasOriginatedBy stim:warmteverlies-stimulus-20250315 .

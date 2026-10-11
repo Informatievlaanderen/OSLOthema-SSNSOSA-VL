@@ -91,7 +91,7 @@ ongeacht beheerder) en `sosa:isMemberOf` voor de bijbehorende collectie.
 
 ---
 
-## 5. Procedure en ObservableProperty
+## 5. Procedure en Property
 
 ### Procedures
 
@@ -105,7 +105,7 @@ methode, ongeacht welk meetnet de brondata levert. Het verschil tussen KMI
 ruwe neerslagdata aanlevert, niet in de berekeningsprocedure die `ex:sensor-rfactor`
 uitvoert — dat verschil hoeft dus niet als aparte procedure gemodelleerd te worden.
 
-### ObservableProperty
+### Property
 
 `ex:property-erosiviteit` — `sosa:Property`
 De erosieve kracht van neerslag, uitgedrukt in MJ·mm/(ha·h·jaar).
@@ -157,7 +157,7 @@ De R-factor is altijd een aggregaat over een periode (R12). Een jaarlijkse waard
 beschrijft het erosiviteitsklimaat van een volledig jaar; een maandelijkse waarde beslaat
 een kalendermaand; een 15-daagse waarde een vaste 15-daagse periode. Zelfs de jaarlijkse
 meting is geen puntmeting maar een integraal over 365 dagen. `time:Instant` zou semantisch
-onjuist zijn. Half-open intervallen conform CLAUDE.md-conventie: [begin, einde).
+onjuist zijn. Half-open intervallen conform R12: [begin, einde).
 
 ### Waarom `gemiddelde_waarde` als afgeleide observatie en `meest_recente_waarde` niet?
 
