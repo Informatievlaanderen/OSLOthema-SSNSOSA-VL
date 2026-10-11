@@ -1,0 +1,6 @@
+dimensie,label,probleem,n_aspecten
+ND_18,Geen,geen dimensie: gebruik 'dimensieloos',2
+ND_21,inwonersequivalent,"afgeleide rekeneenheid, geen dimensie",1
+ND_22,mol,"eenheid, geen dimensie (dimensie = hoeveelheid stof)",1
+ND_25,Effect eenheden,"toetsspecifieke rekeneenheid, geen dimensie",1
+ND_43,arbitraire eenheid per volume,"arbitraire eenheid, geen dimensie",1

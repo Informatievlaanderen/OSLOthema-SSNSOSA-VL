@@ -1,0 +1,79 @@
+soortwaardebepaling,label,categorie,plaats_iadopt_sosa,op_zijn_plaats,n_parameters,n_gebruikt_waterkwaliteit
+SWB_1,standaard,geen beperking,geen component,ja,3634,392
+SWB_2,opgelost,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,71,28
+SWB_3,totaal,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,129,28
+SWB_5,gefilterd,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,6,1
+SWB_7,multi totaal,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,68,0
+SWB_8,multi opgelost,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,68,0
+SWB_11,totaal na Zahn Wellens,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,2,0
+SWB_12,na Zahn Wellens,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,4,0
+SWB_13,chloor oxydeerbaar,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,2,0
+SWB_14,niet-chloor oxydeerbaar,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,3,0
+SWB_15,ontbindbare,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,2,0
+SWB_16,vrij,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,6,0
+SWB_17,anorganisch totaal,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,3,0
+SWB_18,organisch gefiltreerd,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,1,0
+SWB_19,organisch totaal,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,5,0
+SWB_22,vrijstelbaar in zwak zuur,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,1,0
+SWB_25,organisch,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,9,0
+SWB_26,totaal incl. oxiden,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,2,0
+SWB_27,groei-inhibitie,ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,2,0
+SWB_28,kiem-inhibitie,ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_29,EC50 (24h),ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_30,EC50 (48h),ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_31,EC50 (30m),ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_32,EC50 (72h),ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_33,EC50 (96h),ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_34,LC50 (24h),ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_35,LC50 (48h),ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,2,0
+SWB_36,LC50 (96h),ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,2,0
+SWB_37,LC50 (30m),ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_38,LC50 (72h),ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_39,warm,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,1,0
+SWB_40,standaard deviatie,statistiek,iadopt:StatisticalModifier,nee,2,0
+SWB_41,pesticiden sampler,staalnametoestel,sosa:Sampler / staalnameprocedure,nee,45,0
+SWB_42,organisch niet purgeerbaar,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,1,0
+SWB_43,organisch opgelost,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,3,1
+SWB_44,organisch niet vluchtig totaal,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,1,0
+SWB_45,organisch niet vluchtig opgelost,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,1,0
+SWB_46,organisch niet purgeerbaar MUC-project,project,"provenance van de observatie (prov:wasGeneratedBy, dct:source)",nee,1,0
+SWB_47,organisch niet purgeerbaar MUCd-project,project,"provenance van de observatie (prov:wasGeneratedBy, dct:source)",nee,1,0
+SWB_48,adsorbeerbaar,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,2,1
+SWB_49,extraheerbaar,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,3,0
+SWB_50,purgeerbaar,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,1,0
+SWB_51,vluchtig,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,4,0
+SWB_52,anorganisch,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,1,0
+SWB_53,anorganisch opgelost,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,1,0
+SWB_54,opgelost na 120h,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,1,0
+SWB_55,48h,ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_56,48h na Zahn Wellens,ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_57,24h,ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_58,72h,ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,2,0
+SWB_59,96h,ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,2,0
+SWB_60,"0,5h bac luminiscentie-inhibitie",ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_61,72h na Zahn Wellens,ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_62,96h na Zahn Wellens,ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_63,"0,5h bac lum-inh na Zahn Wellens",ecotoxicologisch eindpunt of duur,iadopt:Property (EC50/LC50) + iadopt:Constraint (blootstellingsduur),nee,1,0
+SWB_64,MUC project,project,"provenance van de observatie (prov:wasGeneratedBy, dct:source)",nee,2,0
+SWB_65,MUCd project,project,"provenance van de observatie (prov:wasGeneratedBy, dct:source)",nee,2,0
+SWB_66,MUC project totaal,project,"provenance van de observatie (prov:wasGeneratedBy, dct:source)",nee,2,0
+SWB_67,MUCd project totaal,project,"provenance van de observatie (prov:wasGeneratedBy, dct:source)",nee,2,0
+SWB_68,MUC project opgelost,project,"provenance van de observatie (prov:wasGeneratedBy, dct:source)",nee,1,0
+SWB_69,MUCd project opgelost,project,"provenance van de observatie (prov:wasGeneratedBy, dct:source)",nee,1,0
+SWB_70,verzadiging,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,2,1
+SWB_71,opgelost na Zahn Wellens,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,1,0
+SWB_72,waterdamp vluchtig,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,1,0
+SWB_75,LC-MS,analysemethode,sosa:usedProcedure op de observatie,nee,1,0
+SWB_76,GC-MS,analysemethode,sosa:usedProcedure op de observatie,nee,2,0
+SWB_77,metalen,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,1,0
+SWB_78,elementair,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,3,0
+SWB_82,enkel gasvormig,fractie of vorm,iadopt:Constraint op ObjectOfInterest of matrix,ja,68,0
+SWB_83,Nieuwe indexberekening,berekening,sosa:Procedure van een afgeleide observatie,nee,1,0
+SWB_84,Eluaat,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,8,0
+SWB_85,Eluaat LS0.1,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,9,0
+SWB_86,Eluaat LS0.2,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,9,0
+SWB_87,Eluaat LS0.5,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,9,0
+SWB_88,Eluaat LS1,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,9,0
+SWB_89,Eluaat LS10,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,266,0
+SWB_90,Eluaat LS2,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,9,0
+SWB_91,Eluaat LS5,voorbehandeling,iadopt:Constraint (de bekomen fractie); de test zelf is een sosa:Procedure,grensgeval,9,0

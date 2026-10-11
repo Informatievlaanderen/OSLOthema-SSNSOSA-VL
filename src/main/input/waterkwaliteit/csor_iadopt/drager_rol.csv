@@ -1,0 +1,12 @@
+drager,label,soort,iadopt,op_zijn_plaats,opmerking,n_parameters
+DR_1,water,matrix,iadopt:hasMatrix,ja,,1968
+DR_2,vaste deel van de aarde,matrix,iadopt:hasMatrix,ja,,1120
+DR_3,biota,matrix,iadopt:hasMatrix,ja,algemeen; het organisme(deel) staat op het staal,146
+DR_7,TSP,matrix (deeltjesfractie),"iadopt:hasMatrix, lucht als iadopt:hasContextObject",ja,,119
+DR_8,lucht,matrix,iadopt:hasMatrix,ja,,468
+DR_9,PM10,matrix (deeltjesfractie),"iadopt:hasMatrix, lucht als iadopt:hasContextObject",ja,PM10 is een matrix in lucht; ook als variabele V_1901 gebruikt (dan ObjectOfInterest),49
+DR_10,bulk depositie (precip),matrix + staalnamewijze,matrix neerslag + iadopt:Constraint of staalnameprocedure,grensgeval,'bulk' is een staalnamewijze (open collector),152
+DR_11,regen,matrix,iadopt:hasMatrix,ja,,67
+DR_12,PM2.5,matrix (deeltjesfractie),"iadopt:hasMatrix, lucht als iadopt:hasContextObject",ja,idem; ook variabele V_1902,32
+DR_13,wet-only depositie (prec),matrix + staalnamewijze,matrix neerslag + iadopt:Constraint of staalnameprocedure,grensgeval,'wet-only' is een staalnamewijze (gesloten collector),25
+DR_14,materiaal,onbepaald,geen extern koppelbare matrix,grensgeval,"welk materiaal (afval, product, bouwstof) staat nergens; nodig om de matrix te benoemen",383

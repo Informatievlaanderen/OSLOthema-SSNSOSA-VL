@@ -1,0 +1,107 @@
+aspect,label,soort,dimensie,uitgedruktIn,ingebedde_componenten,fouten,op_zijn_plaats,n_parameteraspecten,n_variabelen
+KWA_1,massaconcentratie,KWA,massaconcentratie,,,,ja,2863,1583
+KWA_2,vracht per tijd,KWA,massa per tijd,,,,ja,991,813
+KWA_3,massaverhouding,KWA,massaverhouding,,,,ja,465,372
+KWA_4,debiet,KWA,volume per tijdseenheid,,,,ja,2,2
+KWA_5,vracht,KWA,massa,,,,ja,1221,1092
+KWA_6,volume,KWA,volume,,,,ja,4,3
+KWA_7,percentage,KWA,dimensieloze verhouding,,,,ja,224,202
+KWA_8,massa,KWA,massa,,,,ja,55,54
+KWA_9,molaire concentratie,KWA,molaire concentratie,,,,ja,21,19
+KWA_10,debiet (vracht),KWA,volume,,,"label 'debiet' voor een volume over een periode (dimensie volume, eenheden m³, L): een debiet is volume per tijd",nee,2,2
+KWA_11,telling per volume,KWA,aantal per volume,,,,ja,43,43
+KWA_12,lengte,KWA,lengte,,,,ja,9,8
+KWA_13,temperatuur,KWA,temperatuur,,,,ja,9,6
+KWA_14,geleidbaarheid,KWA,elektrische geleidbaarheid per lengte,,,,ja,12,4
+KWA_15,geen,KWA,Geen,,,'geen' benoemt geen grootheid; de grootheid staat dan enkel in de variabele,nee,34,24
+KWA_16,redox potentiaal,KWA,spanning,,,,ja,1,1
+KWA_17,turbiditeit,KWA,turbiditeit,,,turbiditeit: gebruikt door variabelen die geen troebelheid zijn (zie parameteraspecten),nee,3,3
+KWA_18,bezinkbare stoffen,KWA,volumeverhouding,,,"'bezinkbare stoffen' is een ObjectOfInterest, geen grootheid",nee,1,1
+KWA_19,radio-activiteit per volume,KWA,radioactiviteit per volume,,,,ja,3,3
+KWA_20,equivalent concentratie,KWA,equivalenten per volume,,equivalent t.o.v. referentiestof,,grensgeval,5,5
+KWA_21,hardheid,KWA,Hardheid,,,,ja,6,6
+KWA_22,neerslag,KWA,lengte per tijdseenheid,,,"'neerslag' is een fenomeen, geen grootheid (de grootheid is neerslaghoogte per tijd)",nee,3,3
+KWA_23,effecteenheid,KWA,Effect eenheden,,,,ja,16,9
+KWA_24,molvracht,KWA,mol,,,"molvracht met dimensie 'mol' (een eenheid, geen dimensie; verwacht: hoeveelheid stof)",nee,1,1
+KWA_26,inwonersequivalent,KWA,inwonersequivalent,,equivalent t.o.v. referentiestof,,grensgeval,1,1
+KWA_32,massaconcentratie koolstof,KWA,massaconcentratie,Koolstof,uitgedrukt als element/verbinding,,grensgeval,11,2
+KWA_34,massaconcentratie zuurstof,KWA,massaconcentratie,Zuurstof,uitgedrukt als element/verbinding,,grensgeval,9,3
+KWA_35,massaconcentratie stikstof,KWA,massaconcentratie,Stikstof,uitgedrukt als element/verbinding,,grensgeval,23,10
+KWA_36,vracht stikstof per tijd,KWA,massa per tijd,Stikstof,uitgedrukt als element/verbinding,,grensgeval,7,7
+KWA_37,vracht stikstof,KWA,massa,Stikstof,uitgedrukt als element/verbinding,,grensgeval,13,9
+KWA_38,vracht zuurstof,KWA,massa,Zuurstof,uitgedrukt als element/verbinding,,grensgeval,5,3
+KWA_39,vracht zuurstof per tijd,KWA,massa per tijd,Zuurstof,uitgedrukt als element/verbinding,,grensgeval,2,2
+KWA_40,vracht koolstof,KWA,massa,Koolstof,uitgedrukt als element/verbinding,,grensgeval,7,1
+KWA_44,massaconcentratie ammonium,KWA,massaconcentratie,,uitgedrukt als element/verbinding (uitgedruktIn ontbreekt),uitgedruktIn ontbreekt,nee,1,1
+KWA_46,massaconcentratie chloor,KWA,massaconcentratie,Chloor,uitgedrukt als element/verbinding,,grensgeval,11,8
+KWA_48,massaconcentratie fosfor,KWA,massaconcentratie,Fosfor,uitgedrukt als element/verbinding,,grensgeval,19,8
+KWA_50,massaconcentratie tin,KWA,massaconcentratie,Tin,uitgedrukt als element/verbinding,,grensgeval,20,20
+KWA_51,massaconcentratie zwavel,KWA,massaconcentratie,Zwavel,uitgedrukt als element/verbinding,,grensgeval,7,5
+KWA_52,massaconcentratie CaCO3,KWA,massaconcentratie,,uitgedrukt als element/verbinding (uitgedruktIn ontbreekt),uitgedruktIn ontbreekt,nee,2,1
+KWA_53,massaconcentratie SiO2,KWA,massaconcentratie,,uitgedrukt als element/verbinding (uitgedruktIn ontbreekt),uitgedruktIn ontbreekt,nee,1,1
+KWA_54,vracht fosfor per tijd,KWA,massa per tijd,Fosfor,uitgedrukt als element/verbinding,,grensgeval,5,3
+KWA_55,vracht chloor per tijd,KWA,massa per tijd,Chloor,uitgedrukt als element/verbinding,,grensgeval,3,2
+KWA_56,vracht chloor,KWA,massa,Chloor,uitgedrukt als element/verbinding,,grensgeval,7,4
+KWA_57,vracht fosfor,KWA,massa,Fosfor,uitgedrukt als element/verbinding,,grensgeval,10,5
+KWA_58,vracht tin,KWA,massa,Tin,uitgedrukt als element/verbinding,,grensgeval,7,7
+KWA_59,equivalent concentratie estradiol,KWA,equivalenten per volume,,equivalent t.o.v. referentiestof,,grensgeval,1,1
+KWA_60,equivalent concentratie dexamethasone,KWA,equivalenten per volume,,equivalent t.o.v. referentiestof,,grensgeval,1,1
+KWA_61,equivalent concentratie actinomycin D,KWA,equivalenten per volume,,equivalent t.o.v. referentiestof,,grensgeval,1,1
+KWA_62,equivalent concentratie benzo(a)pyrene,KWA,equivalenten per volume,,equivalent t.o.v. referentiestof,,grensgeval,1,1
+KWA_63,equivalent concentratie nicardipine,KWA,equivalenten per volume,,equivalent t.o.v. referentiestof,,grensgeval,1,1
+KWA_65,massa WHO-TEQ per massa,KWA,massa equivalenten per massa,,equivalent t.o.v. referentiestof,,grensgeval,23,23
+KWA_66,percentage effect,KWA,dimensieloze verhouding,,,,ja,11,7
+KWA_67,percentage mortaliteit,KWA,dimensieloze verhouding,,,,ja,1,1
+KWA_68,vracht TEQ per tijd,KWA,massa equivalenten per tijd,,equivalent t.o.v. referentiestof,,grensgeval,3,3
+KWA_69,massaconcentratie nonylfenol(12)ethoxylaat,KWA,massaconcentratie,,,,ja,4,4
+KWA_70,massaconcentratie tridecylalcoholether(13)ethoxylaat,KWA,massaconcentratie,,,,ja,9,9
+KWA_71,massaconcentratie tributyltin acetate equivalent,KWA,massa equivalenten per volume,,uitgedrukt als element/verbinding (uitgedruktIn ontbreekt); equivalent t.o.v. referentiestof,uitgedruktIn ontbreekt,nee,1,1
+KWA_73,massaconcentratie (Nm³),KWA,massaconcentratie,,referentiecondities (Nm³),,grensgeval,251,250
+KWA_74,massaconcentratie TEQ (Nm³),KWA,massa equivalenten per volume,,referentiecondities (Nm³); equivalent t.o.v. referentiestof,,grensgeval,38,38
+KWA_75,debiet (Nm³),KWA,volume per tijdseenheid,,referentiecondities (Nm³),,grensgeval,1,1
+KWA_77,massaconcentratieFluor,KWA,massaconcentratie,,uitgedrukt als element/verbinding (uitgedruktIn ontbreekt),uitgedruktIn ontbreekt,nee,1,1
+KWA_78,vracht fluor,KWA,massa,,uitgedrukt als element/verbinding (uitgedruktIn ontbreekt),uitgedruktIn ontbreekt,nee,1,1
+KWA_80,ecologische kwaliteitscoëfficiënt,KWA,Geen,,,,ja,8,7
+KWA_81,massaconcentratie equivalent estradiol,KWA,massa equivalenten per volume,,equivalent t.o.v. referentiestof,,grensgeval,1,1
+KWA_82,massaconcentratie equivalent PFOA,KWA,massa equivalenten per volume,,equivalent t.o.v. referentiestof,,grensgeval,7,7
+KWA_86,massa per geproduceerde massa,KWA,massaverhouding,,per productie (emissiefactor),,grensgeval,7,7
+KWA_88,druk,KWA,druk,,,,ja,1,1
+KWA_89,mol per oppervlakte,KWA,mol per oppervlakte,,,,ja,26,17
+KWA_90,mol per oppervlakte per tijd,KWA,mol per oppervlakte per tijd,,,,ja,2,2
+KWA_92,volume per oppervlakte,KWA,volume per oppervlakte,,,,ja,2,2
+KWA_93,vermogen per oppervlakte,KWA,vermogen per oppervlakte,,,,ja,4,4
+KWA_94,hoek,KWA,hoek,,,,ja,1,1
+KWA_95,arbitraire eenheid per volume,KWA,arbitraire eenheid per volume,,,,ja,1,1
+KWA_96,massa per oppervlakte,KWA,massa per oppervlakte,,,,ja,1,1
+KWA_97,massa per oppervlakte per tijd,KWA,massa per oppervlakte per tijd,,,,ja,87,56
+KWA_98,zuurequivalenten per oppervlakte,KWA,equivalenten per oppervlakte,,equivalent t.o.v. referentiestof,,grensgeval,2,2
+KWA_99,massa stikstof per oppervlakte per tijd,KWA,massa per oppervlakte per tijd,Stikstof,uitgedrukt als element/verbinding,,grensgeval,5,3
+KWA_100,massa fosfor per oppervlakte per tijd,KWA,massa per oppervlakte per tijd,Fosfor,uitgedrukt als element/verbinding,,grensgeval,2,1
+KWA_101,massa stikstof per oppervlakte,KWA,massa per oppervlakte,Stikstof,uitgedrukt als element/verbinding,,grensgeval,1,1
+KWA_102,massa fosfor per oppervlakte,KWA,massa per oppervlakte,Fosfor,uitgedrukt als element/verbinding,,grensgeval,1,1
+KWA_103,massa per filter,KWA,massa,,,'per filter' noemt het staalnametoestel in de grootheid,nee,27,9
+KWA_105,parts per million- methaan equivalenten,KWA,dimensieloze verhouding,,equivalent t.o.v. referentiestof,,grensgeval,1,1
+KWA_106,massa TEQ per oppervlakte per tijd,KWA,massa per oppervlakte per tijd,,equivalent t.o.v. referentiestof,,grensgeval,36,36
+KWA_107,zuurequivalenten per oppervlakte per tijd,KWA,equivalenten per oppervlakte per tijd,,equivalent t.o.v. referentiestof,,grensgeval,1,1
+KWA_108,massa zwavel per oppervlakte per tijd,KWA,massa per oppervlakte per tijd,Zwavel,uitgedrukt als element/verbinding,,grensgeval,1,1
+KWA_109,massaverhouding per nat gewicht,KWA,massaverhouding,,basis van de matrix (droog/nat),,grensgeval,111,111
+KWA_110,massaverhouding per droge stof,KWA,massaverhouding,,basis van de matrix (droog/nat),,grensgeval,1168,780
+KWA_111,massaverhouding koolstof per droge stof,KWA,massaverhouding,Koolstof,uitgedrukt als element/verbinding; basis van de matrix (droog/nat),,grensgeval,6,3
+KWA_112,massaverhouding stikstof per droge stof,KWA,massaverhouding,Stikstof,uitgedrukt als element/verbinding; basis van de matrix (droog/nat),,grensgeval,4,4
+KWA_113,massaverhouding chloor per droge stof,KWA,massaverhouding,Chloor,uitgedrukt als element/verbinding; basis van de matrix (droog/nat),,grensgeval,1,1
+KWA_114,massaverhouding fosfor per droge stof,KWA,massaverhouding,Fosfor,uitgedrukt als element/verbinding; basis van de matrix (droog/nat),,grensgeval,2,2
+KWA_115,massaverhouding tin per droge stof,KWA,massaverhouding,Tin,uitgedrukt als element/verbinding; basis van de matrix (droog/nat),,grensgeval,12,12
+KWA_116,massa TEQ per massa droge stof,KWA,massa equivalenten per massa,,basis van de matrix (droog/nat); equivalent t.o.v. referentiestof,,grensgeval,13,13
+KWA_117,massa WHO-TEQ per massa nat gewicht,KWA,massa equivalenten per massa,,basis van de matrix (droog/nat); equivalent t.o.v. referentiestof,,grensgeval,30,30
+KWA_118,massa equivalent PFOA per massa droge stof,KWA,massa equivalenten per massa,,basis van de matrix (droog/nat); equivalent t.o.v. referentiestof,,grensgeval,1,1
+KWA_119,"massa equivalent 2,3,7,8-TCDD per massa droge stof",KWA,massa equivalenten per massa,,basis van de matrix (droog/nat); equivalent t.o.v. referentiestof,,grensgeval,1,1
+KWA_122,massaconcentratie P2O5,KWA,massaconcentratie,,uitgedrukt als element/verbinding (uitgedruktIn ontbreekt),uitgedruktIn ontbreekt,nee,1,1
+KWA_131,massaconcentratie koolstof (Nm³),KWA,massaconcentratie,,uitgedrukt als element/verbinding (uitgedruktIn ontbreekt); referentiecondities (Nm³),uitgedruktIn ontbreekt,nee,2,2
+KWA_132,massaconcentratie TEQ,KWA,massa equivalenten per volume,,equivalent t.o.v. referentiestof,,grensgeval,37,21
+KWA_134,percentage droge stof,KWA,dimensieloze verhouding,,basis van de matrix (droog/nat),,grensgeval,33,28
+KWA_139,Kolonievormende eenheden per volume,KWA,aantal per volume,,,,ja,1,1
+KWA_140,Kolonievormende eenheden per massa,KWA,aantal per massa,,,,ja,3,3
+KWA_144,massaverhouding stikstof,KWA,massaverhouding,,uitgedrukt als element/verbinding (uitgedruktIn ontbreekt),uitgedruktIn ontbreekt,nee,2,2
+KWA_147,massa equivalent PFOA per nat gewicht,KWA,massa equivalenten per massa,,basis van de matrix (droog/nat); equivalent t.o.v. referentiestof,,grensgeval,9,9
+KWL_1,Aantoonbaarheid,KWL,,,,,ja,2,2
+KWL_2,Aanwezigheid,KWL,,,,,ja,1,1
