@@ -13,7 +13,9 @@
         "--shapes",
         "oslo-ld-kit/rules/ssn-sosa-rules.ttl",
         "--prefix-registry",
-        "src/main/cc/prefix/prefix.cc.ttl"
+        "src/main/cc/prefix/prefix.cc.ttl",
+        "--alignments",
+        "oslo-ld-kit/registers/alignments.ttl"
       ]
     }
   }

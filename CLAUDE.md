@@ -41,7 +41,7 @@ aan dit project. Een nieuwe algemene regel of les hoort in de kit, niet hier. Wi
 | Pad | Rol |
 |---|---|
 | `src/main/input/<domein>/` | Één directory per datavoorbeeld |
-| `src/main/resources/` | OWL-ontologieën (SSN/SOSA 2023, PROV-O, P-PLAN, QUDT, TIME, SAREF, …) |
+| `src/main/resources/` | OWL-ontologieën (SSN/SOSA 2023, PROV-O, P-PLAN, QUDT, TIME, SAREF met SAREF4SYST, …), en de uitlijningsmodules `sosa-prov` en `sosa-saref` van SSN/SOSA 2023 in `org/w3/www/ns/sosa/alignments/` (uit `w3c/sdw-sosa-ssn`) |
 | `src/main/resources/generated-shapes.ttl` | Auto-gegenereerde SHACL-shapes — **nooit manueel bewerken** |
 | `src/main/cc/prefix/prefix.cc.ttl` | Prefixregister van prefix.cc voor `validate_file` (`getPrefixes.sh` om te vernieuwen) |
 | `src/main/resources/be/vlaanderen/ssnsosa/data/id/jsonld/frame.json` | JSON-LD framing-template |

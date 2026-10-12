@@ -114,11 +114,43 @@ verwijzing naar het concept.
 **Waarom geen eenheden?** Geen numerieke resultaten; R3 is niet van toepassing.
 
 **Toesteleigenschappen.** Fabrikant met `saref:hasManufacturer`, status met `adms:status` naar een
-concept (`toestelstatus:Actief`, een voorstel naar Aquafins eigen IRI-patroon; een codelijst van
+concept (de keuze van beide termen: zie *Waarom deze vocabularia?* hieronder; `toestelstatus:Actief`, een voorstel naar Aquafins eigen IRI-patroon; een codelijst van
 toestelstatussen bestaat nog niet), het toesteltype als `rdfs:comment` (`dct:type` vraagt een
 klasse). Niet overgenomen: eigenaar, leverancier, gehasht serienummer en kwaliteitslabel.
 <!-- TODO: wat betekent quality_label (A00, A01, E00)? Is het een kwaliteitskenmerk van het toestel of van zijn metingen? -->
 <!-- TODO: moeten eigenaar (Aquafin) en leverancier (ELSCOLAB) als organisatie-IRI (bv. KBO) mee in de data? -->
+
+**Waarom deze vocabularia? (R17)**
+Buiten de kern (SOSA, PROV-O, OWL-Time, GeoSPARQL, DCTERMS, RDFS) gebruikt de herziening twee
+termen: `saref:hasManufacturer` en `adms:status`. Ze zijn gekozen na een vergelijking van
+kandidaten volgens de criteria van R17 (oslo-ld-kit, `linked-data.md`), nagekeken op 12 oktober
+2026. De kandidaten komen uit de geladen ontologieën (`search_terms`) en uit LOV. Op LOV geeft
+`manufacturer` 79 treffers en `brand` 15; Nederlandse labels (`fabrikant`, `producent`) geven
+niets.
+
+*Fabrikant (bron: `brand`, "Ijinus")*
+
+| Kandidaat | Doorslaggevende criteria | Oordeel |
+|---|---|---|
+| `saref:hasManufacturer` | ETSI-standaard (11), v4.1.1 met `owl:versionIRI` (3), licentie (4), al geladen, consistent met de kern (6); het namespace geeft Turtle terug, maar de term zelf geeft 406 op elke RDF-Accept-header (1, deels); uitgelijnd met SOSA via de W3C-module `sosa-saref` van SSN/SOSA 2023 (`http://www.w3.org/ns/sosa/saref`): `sosa:Asset ⊂ saref:FeatureOfInterest`, `saref:Device ⊂ sosa:System`, `saref:Sensor ⊂ sosa:Sensor` (8). Het domein `saref:FeatureOfInterest` voegt dus niets toe wat de uitlijning niet al zegt: elke `sosa:Sensor` is er een (9). Die module is geladen (`src/main/resources/org/w3/www/ns/sosa/alignments/sosa-saref.ttl`, met SAREF4SYST v1.1.2 die ze importeert); SSN/SOSA 2023 is nog een Working Draft. Gezocht naar uitlijningen (R17, *Finding alignments*): niet in SAREF core zelf (enkel een link naar OWL-Time), niet in LOV (geen inkomende relaties), niet vanuit het SOSA-namespacedocument; gevonden in SSN/SOSA 2023 §7 en `w3c/sdw-sosa-ssn` (`ssn/rdf/ontology/alignments/`) | **gekozen** |
+| `schema:manufacturer` | geeft geen RDF bij content negotiation, enkel HTML (1); niet geladen; schema.org is volgens R17 een laatste redmiddel | verworpen |
+| `am:manufacturer` (OSLC Asset Management) | geeft JSON-LD terug (1), maar `rdfs:range am:Asset` bij een property die volgens haar commentaar "de naam van de fabrikant" bevat: formeel fout (5) | verworpen |
+| `era:manufacturer` | specifiek voor spoorwegen (10) | verworpen |
+| `dbpedia-owl:manufacturer`, `gndo:manufacturer`, … | ander domein of encyclopedisch (7, 10) | verworpen |
+| geen fabrikant opnemen | proportioneel (15), maar het verlies van een gegeven dat de bron wel levert | verworpen |
+
+*Toestelstatus (bron: `device_state`, "ACTIEF")*
+
+| Kandidaat | Doorslaggevende criteria | Oordeel |
+|---|---|---|
+| `adms:status` → concept | W3C/SEMIC (11); geeft Turtle en RDF/XML terug (1); geen domein, bereik `skos:Concept` (5); breed hergebruikt voor levenscyclusstatus in DCAT-AP en OSLO (13); de definitie spreekt over een *Asset* in de ADMS-zin (een semantisch actief zoals een vocabularium) in een workflow, niet over een fysiek toestel (7, deels) | **gekozen** |
+| `saref:State` / `saref:StateValue` | operationele toestand (aan/uit), niet de beheerstatus (7) | verworpen |
+| een eigen property per klasse, zoals `gebouw:Gebouw.status` in OSLO | vraagt een nieuw vocabularium voor één eigenschap (15) | verworpen |
+| de status als observatie | de beheerstatus is een administratief gegeven, niets wat de sensor meet (7) | verworpen |
+
+Beide keuzes hebben status *voorstel*. Kiest het OSLO-traject een toestelmodel (bv. uit OSLO of
+SEMIC), dan vervangt dat beide termen.
+<!-- TODO: bestaat er in een W3C- of OGC-model (voorkeursvolgorde 2) of in OSLO of SEMIC (voorkeursvolgorde 3) een klasse voor een meettoestel met fabrikant, model en beheerstatus? Zo ja, dan vervangt die saref:hasManufacturer (ETSI, voorkeursvolgorde 4) en adms:status (R17). -->
 
 **Gelaten waarschuwing.** R2: geen `sosa:usedProcedure`, omdat de bron geen procedure noemt (§5).
 

@@ -118,6 +118,31 @@ toont enkel de structuur. Zo samen met de duur is een overgestort volume af te l
 (2.3 m³/s × 240 s = 552 m³), als afgeleide observatie volgens R13.
 <!-- TODO: in welke eenheid levert Aquafin het debiet (m³/s, l/s, m³/h)? Is het een gemiddeld of een piekdebiet over de overstorting? -->
 
+**Waarom `wk:Emissie`? (R17)**
+`wk:Emissie` komt uit de ontwerpversie van het waterkwaliteitsvocabularium in dit project
+(`src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl`). De doorslaggevende
+reden is samenhang: hetzelfde begrip als de lozingen in `waterkwaliteit/`, binnen het lopende
+OSLO-traject (voorkeursvolgorde 3). De toetsing aan de criteria van R17 brengt wel een zwak punt
+aan het licht:
+
+- *Dereferenceerbaar (1), versiebeheer (3):* het namespace `https://data.vlaanderen.be/ns/waterkwaliteit#`
+  geeft Turtle, RDF/XML en JSON-LD terug, maar dat is de **gepubliceerde** versie (kandidaat-standaard
+  2023). Daar is `wk:Emissie` een subklasse van `gfi:GFI_Feature` (ISO 19156), niet van
+  `prov:Entity` en `sosa:FeatureOfInterest`. Wie de IRI opvraagt, krijgt dus een andere definitie
+  dan die waarmee dit voorbeeld gevalideerd is. Het ontwerp heeft geen eigen `owl:versionIRI`.
+- *Aansluiting (7) en uitlijning met de kern (8):* in het ontwerp goed (`⊂ prov:Entity`,
+  `⊂ sosa:FeatureOfInterest`).
+- *Verbintenis (9):* de restricties vragen per emissie een activiteit, een actuatie en een
+  procedure. Zie hierboven: zwaar voor een passieve overstort.
+
+Verworpen alternatieven:
+- een eigen klasse onder `alt:`: dat zou de samenhang met `waterkwaliteit/` verbreken, precies wat
+  dit alternatief wil tonen;
+- enkel `prov:Entity` en `sosa:FeatureOfInterest`, zonder `wk:Emissie`: kern-only (voorkeur 1),
+  maar dan is de emissie niet als emissie herkenbaar en niet samen met lozingen te bevragen. Dat
+  is een volwaardige tussenvorm voor de werkgroep.
+<!-- TODO: zolang het herziene waterkwaliteitsvocabularium niet gepubliceerd is, verdient het ontwerp een eigen owl:versionIRI (of een tijdelijk namespace), zodat dereferentie en validatie dezelfde definitie gebruiken. -->
+
 **Eenheden:** QUDT (`unit:SEC`, `unit:M3-PER-SEC`), zoals de standaardkeuze van R3. De
 overstortduur 240 komt overeen met de periode 14:00–14:04, dus de eenheid is seconden.
 

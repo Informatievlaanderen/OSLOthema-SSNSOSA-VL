@@ -160,6 +160,9 @@ belangrijkste fout.
    - `dct:description` en `environment:deviceName` (zelfde naam) → `rdfs:label`;
    - `dct:type "Overstortmeter"` → `rdfs:comment`: het bereik van `dct:type` is `rdfs:Class`, geen
      tekst;
+   - de vervangende termen (`saref:hasManufacturer`, `adms:status`) zijn gekozen na een
+     vergelijking volgens R17 (oslo-ld-kit, `linked-data.md`); de tabellen staan in
+     `bespreking.md` §6, *Waarom deze vocabularia?*;
    - `environment:deviceModel "Ijinus"` → `saref:hasManufacturer "Ijinus"`: het is het merk
      (`brand`), niet het model. Smart Data Models definieert `deviceModel` bovendien als een object
      met `brandName`, `manufacturerName` en `modelName`, geen tekst;
@@ -171,8 +174,8 @@ belangrijkste fout.
      JSON-LD-context van [`dataModel.Environment`](https://github.com/smart-data-models/dataModel.Environment/blob/master/context.jsonld).
      Er is echter geen RDF-definitie: de IRI's geven ook bij `Accept: text/turtle` of
      `application/ld+json` HTML terug, en de repository bevat geen `.ttl`- of OWL-bestand
-     (nagekeken op 12 oktober 2026). Zonder `rdfs:domain`, `rdfs:range` of typering zijn ze niet te
-     controleren en niet te laden in `ld-vocab` (`[VOCAB ERROR]`). Daarom zijn ze vervangen door
+     (nagekeken op 12 oktober 2026). Zonder enige RDF-beschrijving (type, label, definitie) zijn ze
+     niet te controleren en niet te laden in `ld-vocab` (`[VOCAB ERROR]`). Daarom zijn ze vervangen door
      termen uit geladen vocabularia. Technisch mag elke IRI als predicaat dienen; na JSON-LD-
      expansie zijn het dus wel RDF-properties, maar wel properties zonder definitie. Wie ze wil
      behouden, kan een kleine RDF-beschrijving (`rdf:Property`, `rdfs:label`, `rdfs:comment`,
