@@ -246,7 +246,7 @@ rule:R16-no-execution-properties-on-entities a sh:NodeShape ;
     sh:targetClass sosa:System , sosa:Sensor , sosa:Actuator , sosa:Sampler , sosa:Platform ,
         sosa:FeatureOfInterest , sosa:Sample ;
     sh:sparql [
-        sh:message "R16: {?p} describes an activity (an execution), but a system, platform or feature of interest is a prov:Entity; for the property a system handles use sosa:observes or sosa:forProperty, for what it is aimed at a sosa:Deployment." ;
+        sh:message "R16: {?p} describes an activity (an execution), but a system, platform or feature of interest is a prov:Entity; for the property a system handles use sosa:observes, sosa:actsOn or sosa:forProperty, for what it is aimed at a sosa:Deployment." ;
         sh:prefixes rule: ;
         sh:select """
             SELECT $this ?p WHERE {

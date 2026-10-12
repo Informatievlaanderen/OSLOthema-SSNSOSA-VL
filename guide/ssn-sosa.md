@@ -147,6 +147,13 @@ municipality):
   direct object of study), not to the wider area; the wider area is reachable through the sampling
   chain.
 
+**Where a feature of interest is.** Any `sosa:FeatureOfInterest` with a known position, not only
+a sample, can carry a geometry directly: `geo:hasGeometry` (domain `geo:Feature`) makes it a
+GeoSPARQL feature that can be queried spatially. Two resources at the same place may share one
+`geo:Geometry` IRI. `prov:atLocation` (range `prov:Location`) is not wrong, but it is the choice
+when the position is given by an address or a description, or by another resource that is a place
+in its own right, rather than by coordinates.
+
 ## R12 — Time
 
 **Periods.** When a measurement covers a span of time (hourly count, daily total, period
@@ -242,7 +249,8 @@ subproperty of `prov:used` (domain `prov:Activity`); `sosa:usedProcedure`, `sosa
 `prov:startedAtTime`/`prov:endedAtTime` also describe an activity. On a sensor or a platform they
 make an entity an activity. The same goes, without an OWL inconsistency but against their
 definition, for `sosa:observedProperty` and `sosa:actsOnProperty` on a sensor or actuator. Instead:
-`sosa:observes` or `sosa:forProperty` for the property a system handles; a `sosa:Deployment`
+`sosa:observes` (sensor), `sosa:actsOn` (actuator) or the general `sosa:forProperty` for the property
+a system handles; a `sosa:Deployment`
 (`sosa:deployedSystem`, `sosa:deployedOnPlatform`, `sosa:hasFeatureOfInterest`) for what it is aimed
 at; `sosa:hosts` for where it stands.
 
