@@ -217,7 +217,50 @@ emissie en immissie zijn gescheiden, en het patroon is identiek aan staal ↔ lo
 "monster" van een geluidsveld is een abstractie (er wordt niets weggenomen), en de event-sample
 is niet het resultaat van een expliciete `sosa:Sampling`. Zie `geluidsmeetnet_vergelijking.mmd`.
 
-### 6.7 Discussievragen
+### 6.7 Waarom `wk:Emissie`? (R17)
+
+`wk:Emissie` komt uit de ontwerpversie van het waterkwaliteitsvocabularium in dit project
+(`src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl`), net als in
+`overstort/alternatief/`. De doorslaggevende reden is samenhang: dit alternatief wil precies tonen
+dat een geluidsevent hetzelfde begrip kan zijn als een lozing (§6.1), binnen het lopende
+OSLO-traject (voorkeursvolgorde 3).
+
+| Criterium | Oordeel |
+|---|---|
+| Dereferenceerbaar (1), versiebeheer (3) | het namespace geeft Turtle, RDF/XML en JSON-LD terug, maar dat is de **gepubliceerde** kandidaat-standaard (2023), waarin `wk:Emissie` ⊂ `gfi:GFI_Feature` (ISO 19156) is, niet ⊂ `prov:Entity`. Het ontwerp heeft geen eigen `owl:versionIRI` |
+| Aansluiting bij het domein (7) | de definitie bakent bewust niet af wát vrijkomt en noemt "lucht, water of bodem". Geluid valt er niet uitdrukkelijk onder; dat is discussievraag 3 |
+| Uitgelijnd met de kern (8) | in het ontwerp goed: ⊂ `prov:Entity`, ⊂ `sosa:FeatureOfInterest` |
+| Verbintenis (9) | de restricties (`isResultOf some sosa:Actuation`, `wasDerivedFrom some sosa:Procedure`) zijn met `owl:minCardinality 0` niet verplicht. Dit voorbeeld gebruikt enkel `prov:wasGeneratedBy` (de vlucht). De definitie verwacht een CSOR-parameteraspect als `observedProperty` (geen restrictie); hier zijn het de eigen `ex:prop-*` |
+| Granulariteit (10) | een waterkwaliteitsvocabularium voor een geluidsbegrip: de naam belooft minder dan de definitie |
+
+Verworpen alternatieven:
+- enkel `prov:Entity` en `sosa:FeatureOfInterest` (kern, voorkeur 1): volstaat formeel, maar dan is
+  het event niet als emissie herkenbaar en niet samen met lozingen te bevragen. Dat is wat de
+  werkgroep moet afwegen;
+- een eigen klasse onder `ex:`: verbreekt de samenhang die dit alternatief wil tonen;
+- een klasse uit een ander vocabularium. In de geladen ontologieën (SOSA, PROV-O, QUDT, SAREF) is
+  er geen klasse voor een emissie. LOV (klassen op "emission", termen op "noise event") geeft
+  14 en 180 treffers, maar geen enkele is een emissie als entiteit. De twee die het dichtst komen:
+  - **PECO** (*Provenance of Emission Calculations Ontology*, `https://w3id.org/peco#`, v1.0.0,
+    CC BY 4.0). Technisch in orde: dereferenceerbaar als Turtle, RDF/XML en JSON-LD (1), w3id (2),
+    `owl:versionIRI` (3), uitgelijnd met PROV en SOSA (8). Toch verworpen:
+    - het gaat over de berekening van **koolstof**emissies; er is geen klasse voor de emissie
+      zelf, enkel `peco:EmissionGenerationActivity` (de vlucht zou dat kunnen zijn) en de
+      berekende `peco:EmissionScore` (7);
+    - het bevat axioma's over termen van anderen (5), en met een verkeerde IRI: het geeft
+      `qudt:hasQuantityKind` het domein `<https://qudt.org/schema/qudt/Quantity>` (https, een
+      niet-bestaande klasse). Geladen zou dat onze `sosa:Property`'s met `qudt:hasQuantityKind`
+      tot zo'n "Quantity" maken (9);
+    - een afgesloten onderzoeksontologie zonder hergebruik in LOV (11, 13).
+  - **CEON process** (`http://w3id.org/CEON/ontology/process/CO2Emission`): geeft op elke
+    Accept-header enkel HTML (1), is beperkt tot CO₂ in een circulaire-economiecontext, zonder
+    definitie (5, 7, 10).
+
+  De overige treffers zijn eigenschappen of scores (`s4wear:EmissionProperty`,
+  `vso:EmissionStandardValue`, `ecfo:EmissionConversionFactor`) of vals positief
+  (`dbpedia-owl:SpaceMission`, `rsctx:noiseLevel`, `era:…NoiseLevel`).
+
+### 6.8 Discussievragen
 
 1. Is wat een geluidsmeter op 2 km van het toestel registreert een emissie, of een immissie die
    een eigen klasse verdient?
