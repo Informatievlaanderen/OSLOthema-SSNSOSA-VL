@@ -4,6 +4,14 @@
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .
 @prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+# Ontology IRI: the address of this file on GitHub, the same IRI as in the register of known
+# alignments of oslo-ld-kit (registers/alignments.ttl), so that tools can tell it is loaded.
+<https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/resources/ontologies/pplan-sosa.ttl>
+    a owl:Ontology ;
+    dcterms:title "P-PLAN alignment with SOSA (OSLOthema-SSNSOSA-VL)"@en ;
+    rdfs:comment "Aligns P-PLAN with SSN/SOSA 2023: plans and steps are procedures, and property chains link variables and executions to procedures."@en .
 
 # --- Class alignment ---
 
