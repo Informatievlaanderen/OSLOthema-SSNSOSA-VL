@@ -1,0 +1,12 @@
+Bij de overstortdata van Aquafin is er mapping gemaakt van JSON naar SSN/SOSA. Het zou mooi zijn om dit als test-case mee te nemen.
+
+De originele JSON's (event en sensor) kan je hier vinden:
+https://informatievlaanderen.github.io/OSLO-mapping/water/Aquafin%20-%20Overstort%20In%20Vlaanderen/0_2_data_input
+
+De gemapte data kan je hier vinden:
+https://informatievlaanderen.github.io/OSLO-mapping/water/Aquafin%20-%20Overstort%20In%20Vlaanderen/0_4_examples_overstort#eindresultaat-overstort-event-op-de-ldes-server
+
+Merk op dat het tijdsaspect van een event "simpel" is gemapt naar start en end ipv sosa:phenomenonTime om het eindgebruikers makkelijker te maken.
+
+
+https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/issues/1

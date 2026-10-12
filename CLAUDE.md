@@ -71,6 +71,10 @@ Bestaande datavoorbeelden:
 - `waterkwaliteit/` — VMM-meetresultaten (concentraties, vrachten, debieten) met CSOR-codelijsten,
   sampling-keten, rapportagegrens en een applicatieprofiel uit `waterkwaliteit.ttl`; gescript, met
   `beslisdocument.md` als voorstel voor het OSLO-traject
+- `overstort/` — herziening van Aquafins LDES-mapping van overstortsensoren en -events (issue #1):
+  bron in `source/`, `overstort_herzien.ttl` met meetpunt als Platform+FOI, `sosa:Deployment` en
+  event als `phenomenonTime`-interval; `alternatief/` leest een overstorting als emissie (`wk:Emissie`,
+  resultaat van een `sosa:Actuation`)
 - `PGD_geschiktheidskaart/` — ontvangen, nog niet gemodelleerd: geschiktheidskaart voor peilgestuurde
   drainage, afgeleid uit andere kaartlagen (mail + technische fiche)
 

@@ -1,0 +1,20 @@
+{
+	"id":"P2050378",
+	"device_type":"Overstortmeter",
+	"name":"Overstortmeter Ijinus US LTE",
+	"owner":"AQUAFIN",
+	"brand":"Ijinus",
+	"supplier":"ELSCOLAB",
+	"serial_number":"IJA0102-00004425",
+	"device_state":"ACTIEF",
+	"lat_WGS84":51.04243219340782,
+	"long_WGS84":5.594445509825586,
+	"lat_Lambert72":193183.8663904309,
+	"long_Lambert72":235956.9331605651,
+	"measurement_location":"P_000000217952",
+	"quality_label":"A01",
+	"valid_from":"2025-04-11T13:31:56.947Z",
+	"valid_to":"9999-12-31T23:59:59.000Z",
+	"modified_at":"2025-04-11T13:31:56.947Z",
+	"is_deleted":false
+}

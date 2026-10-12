@@ -1,0 +1,112 @@
+# SPARQL CONSTRUCT-mappings van Aquafin (LDIO Workbench), overgenomen uit
+# https://informatievlaanderen.github.io/OSLO-mapping/water/Aquafin%20-%20Overstort%20In%20Vlaanderen/0_3_oslo-mapping
+# Ongewijzigd behalve de samenvoeging van de prefixen; 'purl:' is in de bron niet gedeclareerd.
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sosa: <http://www.w3.org/ns/sosa/>
+PREFIX ssn: <http://www.w3.org/ns/ssn/>
+PREFIX aquafin: <https://aquafin.be/ns#>
+PREFIX qudt: <http://qudt.org/schema/qudt/>
+PREFIX schema: <https://schema.org/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX environment: <https://smartdatamodels.org/dataModel.Environment/>
+PREFIX sdm: <https://smartdatamodels.org/>
+
+# ---------------------------------------------------------------- Event
+CONSTRUCT {
+	?event a sosa:Observation ;
+		aquafin:event_start_time ?start_timestamp_bind ;
+		aquafin:event_end_time ?end_timestamp_bind ;
+		purl:modified ?modified_at_bind ;
+		sosa:hasFeatureOfInterest ?measurement_location_bind ;
+		sosa:hasResult ?measurement_status_bind;
+		sosa:observedProperty <https://aquafin.be/id/concept/Kenmerk/Overstort> ;
+		sosa:madeBySensor ?is_observed_with_bind ;
+		aquafin:is_deleted ?is_deleted .
+}
+WHERE {
+	?s aquafin:start_timestamp ?start_timestamp .
+	?s aquafin:end_timestamp ?end_timestamp .
+	?s aquafin:modified_at ?modified_at .
+	OPTIONAL {?s aquafin:measurement_location ?measurement_location . }
+	?s aquafin:status ?status .
+	?s aquafin:is_observed_with ?is_observed_with .
+	?s aquafin:is_deleted ?is_deleted .
+
+	BIND(IRI(CONCAT("https://aquafin.be/id/concept/OverstortStatus/", ?status)) AS ?measurement_status_bind)
+	FILTER(?status != "InWerkingDroogWeer")
+
+	BIND(IRI(CONCAT("https://aquafin.be/id/event/", STRUUID())) AS ?event)
+
+	BIND(xsd:dateTime(?start_timestamp) AS ?start_timestamp_bind)
+	BIND(xsd:dateTime(?end_timestamp) AS ?end_timestamp_bind)
+	BIND(xsd:dateTime(?modified_at) AS ?modified_at_bind)
+
+	BIND(IRI(CONCAT("https://aquafin.be/id/meetpunt/", COALESCE(?measurement_location, "unknown"))) AS ?measurement_location_bind)
+	BIND(MD5(?is_observed_with) AS ?is_observed_with_bind)
+}
+
+# ---------------------------------------------------------------- Sensor
+CONSTRUCT {
+	?sensor a sosa:Sensor ;
+		dcterms:identifier ?hashed_id ;
+		environment:deviceId ?hashed_id ;
+		dcterms:description ?name ;
+		dcterms:type ?device_type ;
+		sdm:owner ?owner ;
+		schema:seller ?supplier ;
+		environment:deviceModel ?brand ;
+		schema:serialNumber ?hashed_serial_number ;
+		environment:deviceStatus ?device_state ;
+		geo:lat ?lat_WGS84 ;
+		geo:long ?long_WGS84 ;
+		aquafin:lat_Lambert72 ?lat_Lambert72 ;
+		aquafin:long_Lambert72 ?long_Lambert72 ;
+		environment:deviceName ?name ;
+		sosa:hasFeatureOfInterest ?measurement_location_name ;
+		aquafin:valid_from ?valid_from_bind ;
+		aquafin:valid_to ?valid_to_bind ;
+		aquafin:is_deleted ?is_deleted;
+		dcterms:modified ?modified_at_bind .
+}
+WHERE {
+	?s aquafin:id  ?id .
+	?s aquafin:valid_from ?valid_from .
+	?s aquafin:modified_at ?modified_at .
+	OPTIONAL { ?s aquafin:device_type ?device_type . }
+	OPTIONAL { ?s aquafin:name ?name . }
+	OPTIONAL { ?s aquafin:owner ?owner . }
+	OPTIONAL { ?s aquafin:supplier ?supplier . }
+	OPTIONAL { ?s aquafin:brand ?brand . }
+	OPTIONAL {
+		?s aquafin:serial_number ?serial_number .
+		BIND(MD5(?serial_number) AS ?hashed_serial_number)
+	}
+	OPTIONAL { ?s aquafin:device_state ?device_state . }
+	OPTIONAL { ?s aquafin:lat_WGS84 ?lat_WGS84 . }
+	OPTIONAL { ?s aquafin:long_WGS84 ?long_WGS84 . }
+	OPTIONAL { ?s aquafin:lat_Lambert72 ?lat_Lambert72 . }
+	OPTIONAL { ?s aquafin:long_Lambert72 ?long_Lambert72 . }
+	OPTIONAL {
+		?s aquafin:measurement_location ?measurement_location .
+		BIND(IRI(CONCAT("https://aquafin.be/id/meetpunt/", COALESCE(?measurement_location, "unknown"))) AS ?measurement_location_name)
+	}
+	OPTIONAL { ?s aquafin:quality_label ?quality_label . }
+	OPTIONAL { ?s aquafin:valid_to ?valid_to . }
+	OPTIONAL { ?s aquafin:is_deleted ?is_deleted . }
+
+	BIND(IRI(CONCAT("https://aquafin.be/id/sensor/", STRUUID())) AS ?sensor)
+	BIND(MD5(?id) AS ?hashed_id)
+	BIND(xsd:dateTime(?valid_from) AS ?valid_from_bind)
+	OPTIONAL {
+		?s aquafin:valid_to ?valid_to .
+		BIND(xsd:dateTime(?valid_to) AS ?valid_to_bind)
+	}
+	OPTIONAL {
+		?s aquafin:modified_at ?modified_at .
+		BIND(xsd:dateTime(?modified_at) AS ?modified_at_bind)
+	}
+}

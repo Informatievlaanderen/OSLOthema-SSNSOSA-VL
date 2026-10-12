@@ -1,0 +1,79 @@
+flowchart LR
+
+subgraph ORIG["ORIGINEEL — source/overstort.trig"]
+    OS["sensor:cfe90f61-…/2025-08-26T08:48:44…
+    sosa:Sensor · willekeurige UUID
+    geo:lat / geo:long (WGS84-vocabularium)
+    aquafin:lat_Lambert72 / long_Lambert72
+    aquafin:valid_from / valid_to / is_deleted"]
+    OM["meetpunt:P_000000599187
+    (ongetypeerd)"]
+    OO["event:4004f4ea-…/2025-08-26T08:49:13…
+    sosa:Observation
+    aquafin:event_start_time / event_end_time
+    prov:generatedAtTime ⚠ MODEL INVALID"]
+    OL["&quot;4c314f066bea53f212495cb8c1eaca0b&quot;
+    literal"]
+    OP["kenmerk:Overstort
+    (ongetypeerd)"]
+    OR["overstortstatus:NietInWerking"]
+end
+
+subgraph HERZ["HERZIEN — overstort_herzien.ttl"]
+    HM["meetpunt:P_000000599187
+    sosa:Platform · sosa:FeatureOfInterest
+    geo:hasGeometry (WGS84 + Lambert72)"]
+    HS["sensor:738d3a70cbc10bee4be120f70e377bc0
+    sosa:Sensor · IRI uit MD5(id)"]
+    HD["inzet:738d3a…-P_000000599187
+    sosa:Deployment"]
+    HM2["meetpunt:P_000000350733
+    sosa:Platform · sosa:FeatureOfInterest"]
+    HS2["sensor:4c314f066bea53f212495cb8c1eaca0b
+    sosa:Sensor"]
+    HO["event:4004f4ea-117d-4e01-9b7d-6b6af865ad52
+    sosa:Observation"]
+    HT["event:4004f4ea-…-interval
+    time:Interval (begin/einde)"]
+    HP["kenmerk:Overstort
+    sosa:Property"]
+    HR["overstortstatus:NietInWerking"]
+end
+
+style ORIG fill:#e7a3be,stroke:#2E5C8A,color:#000
+style HERZ fill:#b0d9e7,stroke:#2E5C8A,color:#000
+
+style OS fill:#60c4e4,stroke:#2E5C8A,color:#000
+style OM fill:#60c4e4,stroke:#2E5C8A,color:#000
+style OO fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OL fill:#f8b622,stroke:#2E5C8A,color:#000
+style OP fill:#fe7130,stroke:#2E5C8A,color:#000
+style OR fill:#f8b622,stroke:#2E5C8A,color:#000
+
+style HM fill:#60c4e4,stroke:#2E5C8A,color:#000
+style HS fill:#60c4e4,stroke:#2E5C8A,color:#000
+style HD fill:#60c4e4,stroke:#2E5C8A,color:#000
+style HM2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style HS2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style HO fill:#e54b89,stroke:#2E5C8A,color:#fff
+style HT fill:#f8b622,stroke:#2E5C8A,color:#000
+style HP fill:#fe7130,stroke:#2E5C8A,color:#000
+style HR fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% origineel
+OS -->|sosa:hasFeatureOfInterest ✗| OM
+OO -->|sosa:madeBySensor ✗| OL
+OO -->|sosa:observedProperty| OP
+OO -->|sosa:hasResult| OR
+
+%% herzien
+HM -->|sosa:hosts| HS
+HD -->|sosa:deployedSystem| HS
+HD -->|sosa:deployedOnPlatform| HM
+HD -->|sosa:hasFeatureOfInterest| HM
+HO -->|sosa:madeBySensor| HS2
+HO -->|sosa:hasFeatureOfInterest| HM2
+HO -->|sosa:observedProperty| HP
+HO -->|sosa:hasResult| HR
+HO -->|sosa:phenomenonTime| HT
+HS -->|sosa:observes| HP

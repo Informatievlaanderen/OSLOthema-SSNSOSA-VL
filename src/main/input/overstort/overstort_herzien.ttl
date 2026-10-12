@@ -1,0 +1,120 @@
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix geo:    <http://www.opengis.net/ont/geosparql#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix adms:   <http://www.w3.org/ns/adms#> .
+@prefix saref:  <https://saref.etsi.org/core/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix sensor:        <https://aquafin.be/id/sensor/> .
+@prefix event:         <https://aquafin.be/id/event/> .
+@prefix meetpunt:      <https://aquafin.be/id/meetpunt/> .
+@prefix inzet:         <https://aquafin.be/id/inzet/> .
+@prefix kenmerk:       <https://aquafin.be/id/concept/Kenmerk/> .
+@prefix overstortstatus: <https://aquafin.be/id/concept/OverstortStatus/> .
+@prefix toestelstatus: <https://aquafin.be/id/concept/Toestelstatus/> .
+
+# Herziene versie van de Aquafin-mapping (overstort-sensor en overstort-event-cleansed).
+# Origineel: source/overstort.trig (LDES-output) en source/overstort-mapping.rq (SPARQL CONSTRUCT).
+# De verbeterpunten staan in README.md, de modelleerkeuzes in bespreking.md.
+#
+# Dit bestand toont de toestand van de resources (zoals een LDES-client ze materialiseert),
+# zonder de versielaag: de versie-IRI's (…/<tijdstip>) met dct:isVersionOf zijn een zaak van de
+# LDES-server (zie README, verbeterpunt 9).
+#
+# De twee records in de bron horen niet bij elkaar: het event komt van een ander toestel
+# (MD5 4c314f…) op een ander meetpunt (P_000000350733) dan de beschreven sensor (MD5 738d3a…,
+# meetpunt P_000000599187). Beide worden getrouw omgezet.
+
+###############################################################################
+### INFRASTRUCTUUR
+###############################################################################
+
+# Meetpunt uit de sensorstroom: het overstortpunt (P-nummer uit de Rioolinventaris) dat het
+# toestel herbergt en waarvan de werking geobserveerd wordt.
+meetpunt:P_000000599187 a sosa:Platform , sosa:FeatureOfInterest ;
+    rdfs:label "Meetpunt P_000000599187"@nl ;
+    dct:identifier "P_000000599187" ;
+    sosa:hosts sensor:738d3a70cbc10bee4be120f70e377bc0 ;
+    sosa:inDeployment inzet:738d3a70cbc10bee4be120f70e377bc0-P_000000599187 ;
+    sosa:isFeatureOfInterestOf inzet:738d3a70cbc10bee4be120f70e377bc0-P_000000599187 ;
+    sosa:hasProperty kenmerk:Overstort ;
+    geo:hasGeometry meetpunt:P_000000599187-geometrie-wgs84 ,
+                    meetpunt:P_000000599187-geometrie-lambert72 .
+
+meetpunt:P_000000599187-geometrie-wgs84 a geo:Geometry ;
+    geo:asWKT "POINT(4.238606314746391 50.8685000001277)"^^geo:wktLiteral .
+
+meetpunt:P_000000599187-geometrie-lambert72 a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POINT(140838.5979174557 173132.5603766878)"^^geo:wktLiteral .
+
+# Overstortmeter: deterministische IRI op basis van de MD5 van het toestelnummer (bron: id),
+# zodat de eventstroom ernaar kan verwijzen (bron: is_observed_with, dezelfde MD5).
+sensor:738d3a70cbc10bee4be120f70e377bc0 a sosa:Sensor , sosa:System ;
+    rdfs:label "OSM OSgr. R. De Cuyperst. 11, S-M-Bodeg" ;
+    rdfs:comment "Overstortmeter"@nl ;
+    dct:identifier "738d3a70cbc10bee4be120f70e377bc0" ;
+    saref:hasManufacturer "Ijinus" ;
+    adms:status toestelstatus:Actief ;
+    sosa:isHostedBy meetpunt:P_000000599187 ;
+    sosa:systemDeployment inzet:738d3a70cbc10bee4be120f70e377bc0-P_000000599187 ;
+    sosa:observes kenmerk:Overstort ;
+    dct:modified "2025-06-04T16:28:58.057Z"^^xsd:dateTime .
+
+# Inzet van de overstortmeter op het meetpunt. In de bron stond sosa:hasFeatureOfInterest
+# rechtstreeks op de sensor; SOSA 2023 kent die relatie vanaf een Deployment naar haar doelwit.
+inzet:738d3a70cbc10bee4be120f70e377bc0-P_000000599187 a sosa:Deployment ;
+    rdfs:label "Inzet van overstortmeter 738d3a… op meetpunt P_000000599187"@nl ;
+    sosa:deployedSystem sensor:738d3a70cbc10bee4be120f70e377bc0 ;
+    sosa:deployedOnPlatform meetpunt:P_000000599187 ;
+    sosa:hasFeatureOfInterest meetpunt:P_000000599187 .
+
+# Meetpunt en toestel uit de eventstroom; hun beschrijving staat in de sensorstroom.
+meetpunt:P_000000350733 a sosa:Platform , sosa:FeatureOfInterest ;
+    rdfs:label "Meetpunt P_000000350733"@nl ;
+    dct:identifier "P_000000350733" ;
+    sosa:hasProperty kenmerk:Overstort ;
+    sosa:isFeatureOfInterestOf event:4004f4ea-117d-4e01-9b7d-6b6af865ad52 .
+
+sensor:4c314f066bea53f212495cb8c1eaca0b a sosa:Sensor , sosa:System ;
+    dct:identifier "4c314f066bea53f212495cb8c1eaca0b" ;
+    sosa:observes kenmerk:Overstort ;
+    sosa:madeObservation event:4004f4ea-117d-4e01-9b7d-6b6af865ad52 .
+
+###############################################################################
+### PROCEDURE EN PROPERTIES
+###############################################################################
+
+# Geen procedure: de bron vermeldt niet hoe start en einde van een event berekend worden
+# (zie bespreking, §5).
+
+kenmerk:Overstort a sosa:Property ;
+    rdfs:label "Overstort"@nl ;
+    rdfs:comment "Werking van de overstort: stort het overstortpunt over naar het oppervlaktewater, niet, of is de werking onbekend (verstoord signaal)."@nl ;
+    sosa:isPropertyOf meetpunt:P_000000599187 , meetpunt:P_000000350733 ;
+    sosa:isObservedBy sensor:738d3a70cbc10bee4be120f70e377bc0 , sensor:4c314f066bea53f212495cb8c1eaca0b .
+
+###############################################################################
+### OBSERVATIES
+###############################################################################
+
+# Eén overstortevent: een periode waarin de status van de overstort constant was.
+event:4004f4ea-117d-4e01-9b7d-6b6af865ad52 a sosa:Observation , sosa:Execution ;
+    rdfs:label "Overstortevent op P_000000350733, 18 februari 2024 20:45–20:46 UTC"@nl ;
+    sosa:hasFeatureOfInterest meetpunt:P_000000350733 ;
+    sosa:observedProperty kenmerk:Overstort ;
+    sosa:madeBySensor sensor:4c314f066bea53f212495cb8c1eaca0b ;
+    sosa:phenomenonTime event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-interval ;
+    sosa:hasResult overstortstatus:NietInWerking ;
+    dct:modified "2025-08-05T17:29:19.457Z"^^xsd:dateTime .
+
+event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-interval a time:Interval ;
+    time:hasBeginning event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-begin ;
+    time:hasEnd       event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-einde .
+
+event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-begin a time:Instant ;
+    time:inXSDDateTimeStamp "2024-02-18T20:45:00Z"^^xsd:dateTimeStamp .
+
+event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-einde a time:Instant ;
+    time:inXSDDateTimeStamp "2024-02-18T20:46:00Z"^^xsd:dateTimeStamp .

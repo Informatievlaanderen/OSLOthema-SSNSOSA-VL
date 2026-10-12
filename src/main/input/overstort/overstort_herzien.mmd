@@ -1,0 +1,78 @@
+flowchart LR
+
+subgraph PROC["PROCEDURE"]
+    PA["kenmerk:Overstort
+    sosa:Property"]
+end
+
+subgraph INFRA["INFRASTRUCTUUR"]
+    M1["meetpunt:P_000000599187
+    sosa:Platform · sosa:FeatureOfInterest"]
+    G1["meetpunt:P_000000599187-geometrie-wgs84
+    geo:Geometry · POINT(4.2386 50.8685)"]
+    G2["meetpunt:P_000000599187-geometrie-lambert72
+    geo:Geometry · EPSG:31370"]
+    S1["sensor:738d3a70cbc10bee4be120f70e377bc0
+    sosa:Sensor · Ijinus
+    adms:status toestelstatus:Actief"]
+    D1["inzet:738d3a…-P_000000599187
+    sosa:Deployment"]
+    M2["meetpunt:P_000000350733
+    sosa:Platform · sosa:FeatureOfInterest"]
+    S2["sensor:4c314f066bea53f212495cb8c1eaca0b
+    sosa:Sensor"]
+end
+
+subgraph WAAR["WAARNEMING"]
+    O1["event:4004f4ea-117d-4e01-9b7d-6b6af865ad52
+    sosa:Observation"]
+    R1["overstortstatus:NietInWerking
+    resultaat (concept)"]
+    T1["event:4004f4ea-…-interval
+    time:Interval"]
+    TB["event:4004f4ea-…-begin
+    2024-02-18T20:45:00Z"]
+    TE["event:4004f4ea-…-einde
+    2024-02-18T20:46:00Z"]
+end
+
+style PROC  fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style WAAR  fill:#e7a3be,stroke:#2E5C8A,color:#000
+
+style PA fill:#fe7130,stroke:#2E5C8A,color:#000
+style M1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style G1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style G2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style S1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style D1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style M2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style S2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style O1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style TB fill:#f8b622,stroke:#2E5C8A,color:#000
+style TE fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% infrastructuur — sensorstroom
+M1 -->|sosa:hosts| S1
+M1 -->|geo:hasGeometry| G1
+M1 -->|geo:hasGeometry| G2
+D1 -->|sosa:deployedSystem| S1
+D1 -->|sosa:deployedOnPlatform| M1
+D1 -->|sosa:hasFeatureOfInterest| M1
+S1 -->|sosa:observes| PA
+M1 -->|sosa:hasProperty| PA
+
+%% infrastructuur — eventstroom
+S2 -->|sosa:observes| PA
+M2 -->|sosa:hasProperty| PA
+
+%% observatie
+O1 -->|sosa:madeBySensor| S2
+O1 -->|sosa:hasFeatureOfInterest| M2
+O1 -->|sosa:observedProperty| PA
+O1 -->|sosa:hasResult| R1
+O1 -->|sosa:phenomenonTime| T1
+T1 -->|time:hasBeginning| TB
+T1 -->|time:hasEnd| TE

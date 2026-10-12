@@ -1,0 +1,10 @@
+{
+	"type":"Event",
+	"start_timestamp":"2025-02-18T08:31:00.000Z",
+	"end_timestamp":"2025-02-18T08:41:00.000Z",
+	"measurement_location":"P_000000181521",
+	"status":"WerkingOnbekend",
+	"is_observed_with":"P1037143",
+	"modified_at":"2025-02-18T10:21:17.979Z",
+	"is_deleted":"false"
+}

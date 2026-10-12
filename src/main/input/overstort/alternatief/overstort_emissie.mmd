@@ -1,0 +1,116 @@
+flowchart LR
+
+subgraph PROC["PROCEDURE"]
+    PR["alt:procedure-overstorten
+    sosa:ActuatingProcedure"]
+    PA["kenmerk:Overstort
+    sosa:Property"]
+    PD["alt:prop-overstortduur
+    sosa:Property"]
+    PQ["alt:prop-debiet
+    sosa:Property"]
+end
+
+subgraph INFRA["INFRASTRUCTUUR"]
+    M1["meetpunt:P_000000217952
+    sosa:Platform · sosa:FeatureOfInterest"]
+    G1["meetpunt:P_000000217952-geometrie-wgs84
+    geo:Geometry"]
+    S1["sensor:2c2491f0e1234a7200b561c65718b9b5
+    sosa:Sensor (418858)"]
+    M2["meetpunt:P_000000350733
+    sosa:Platform · sosa:FeatureOfInterest"]
+    S2["sensor:4c314f066bea53f212495cb8c1eaca0b
+    sosa:Sensor"]
+end
+
+subgraph WAAR["WAARNEMING"]
+    A1["alt:overstortwerking-P_000000217952-20240727T140000Z
+    sosa:Actuation · prov:Activity"]
+    E1["alt:overstorting-P_000000217952-20240727T140000Z
+    wk:Emissie · prov:Entity · sosa:FeatureOfInterest"]
+    C1["alt:collectie-P_000000217952-20240727T140000Z
+    sosa:ObservationCollection"]
+    T1["alt:interval-P_000000217952-20240727T140000Z
+    time:Interval 14:00–14:04Z"]
+    O1["alt:obs-…-status
+    sosa:Observation"]
+    R1["overstortstatus:InWerking"]
+    O2["alt:obs-…-overstortduur
+    sosa:Observation"]
+    R2["alt:resultaat-…-overstortduur
+    sosa:Result · 240 unit:SEC"]
+    O4["alt:obs-…-debiet
+    sosa:Observation"]
+    R4["alt:resultaat-…-debiet
+    sosa:Result · 2.3 unit:M3-PER-SEC (aangenomen)"]
+    O3["event:4004f4ea-117d-4e01-9b7d-6b6af865ad52
+    sosa:Observation (geen emissie)"]
+    R3["overstortstatus:NietInWerking"]
+    T3["event:4004f4ea-…-interval
+    time:Interval 20:45–20:46Z"]
+end
+
+style PROC  fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style WAAR  fill:#e7a3be,stroke:#2E5C8A,color:#000
+
+style PR fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style PA fill:#fe7130,stroke:#2E5C8A,color:#000
+style PD fill:#fe7130,stroke:#2E5C8A,color:#000
+style PQ fill:#fe7130,stroke:#2E5C8A,color:#000
+style O4 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R4 fill:#f8b622,stroke:#2E5C8A,color:#000
+style M1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style G1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style S1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style M2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style S2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style A1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style E1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style C1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style T1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style O1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style O2 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R2 fill:#f8b622,stroke:#2E5C8A,color:#000
+style O3 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R3 fill:#f8b622,stroke:#2E5C8A,color:#000
+style T3 fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% infrastructuur
+M1 -->|sosa:hosts| S1
+M1 -->|geo:hasGeometry| G1
+S1 -->|sosa:observes| PA
+S1 -->|sosa:observes| PD
+S1 -->|sosa:observes| PQ
+
+%% emissie
+A1 -->|sosa:hasFeatureOfInterest| M1
+A1 -->|sosa:actsOnProperty| PA
+A1 -->|sosa:usedProcedure| PR
+A1 -->|sosa:hasResult| E1
+E1 -->|prov:wasGeneratedBy| A1
+E1 -->|prov:wasDerivedFrom| PR
+E1 -->|prov:atLocation| M1
+
+%% observaties van de emissie
+C1 -->|sosa:hasFeatureOfInterest| E1
+C1 -->|sosa:madeBySensor| S1
+C1 -->|sosa:phenomenonTime| T1
+C1 -->|sosa:hasMember| O1
+C1 -->|sosa:hasMember| O2
+O1 -->|sosa:observedProperty| PA
+O1 -->|sosa:hasResult| R1
+O2 -->|sosa:observedProperty| PD
+O2 -->|sosa:hasResult| R2
+C1 -->|sosa:hasMember| O4
+O4 -->|sosa:observedProperty| PQ
+O4 -->|sosa:hasResult| R4
+
+%% event zonder overstorting: zoals het hoofdmodel
+O3 -->|sosa:hasFeatureOfInterest| M2
+O3 -->|sosa:madeBySensor| S2
+O3 -->|sosa:observedProperty| PA
+O3 -->|sosa:hasResult| R3
+O3 -->|sosa:phenomenonTime| T3

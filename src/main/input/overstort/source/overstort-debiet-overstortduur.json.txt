@@ -1,0 +1,15 @@
+{
+  "type": "Observatie",   
+  "starttijd": "2024-07-27T14:00:00Z", 
+  "eindtijd": "2024-07-27T14:04:00Z", 
+  "modifiedAt": "2024-07-28T15:00:00Z", 
+  "debiet": "2.3",  
+  "overstortduur": "240" 
+  "lat_WGS84": "50.948995878", 
+  "long_WGS84": "5.298607495000001", 
+  "lat_Lambert72": "xxx", 
+  "long_Lambert72": "yyy", 
+  "overstortstatus": "InWerking",  
+  "validatieStatus": "raw",  
+  "isWaargenomenMet": "418858" 
+}

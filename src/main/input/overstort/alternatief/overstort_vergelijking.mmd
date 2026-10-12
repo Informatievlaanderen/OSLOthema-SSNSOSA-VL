@@ -1,0 +1,61 @@
+flowchart LR
+
+subgraph HOOFD["HOOFDMODEL — studieobject = meetpunt (toegepast op record b)"]
+    HM["meetpunt:P_000000217952
+    sosa:Platform · sosa:FeatureOfInterest"]
+    HS["sensor:2c2491f0e1234a7200b561c65718b9b5
+    sosa:Sensor"]
+    HO["observatie overstortevent
+    sosa:Observation · 14:00–14:04Z"]
+    HR["overstortstatus:InWerking"]
+    HD["observaties overstortduur en debiet
+    240 s, 2.3 m³/s — studieobject meetpunt"]
+end
+
+subgraph ALT["ALTERNATIEF — studieobject = overstorting (emissie)"]
+    AA["alt:overstortwerking-P_000000217952-20240727T140000Z
+    sosa:Actuation · prov:Activity"]
+    AE["alt:overstorting-P_000000217952-20240727T140000Z
+    wk:Emissie · sosa:FeatureOfInterest"]
+    AM["meetpunt:P_000000217952
+    sosa:Platform · prov:atLocation"]
+    AC["alt:collectie-P_000000217952-20240727T140000Z
+    sosa:ObservationCollection"]
+    AR["overstortstatus:InWerking
+    (altijd, op een emissie)"]
+    AD["alt:resultaat-…-overstortduur
+    240 unit:SEC"]
+    AQ["alt:resultaat-…-debiet
+    2.3 unit:M3-PER-SEC"]
+end
+
+style HOOFD fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style ALT   fill:#e7a3be,stroke:#2E5C8A,color:#000
+
+style HM fill:#60c4e4,stroke:#2E5C8A,color:#000
+style HS fill:#60c4e4,stroke:#2E5C8A,color:#000
+style HO fill:#e54b89,stroke:#2E5C8A,color:#fff
+style HR fill:#f8b622,stroke:#2E5C8A,color:#000
+style HD fill:#e54b89,stroke:#2E5C8A,color:#fff
+style AA fill:#e54b89,stroke:#2E5C8A,color:#fff
+style AE fill:#f8b622,stroke:#2E5C8A,color:#000
+style AM fill:#60c4e4,stroke:#2E5C8A,color:#000
+style AC fill:#e54b89,stroke:#2E5C8A,color:#fff
+style AR fill:#f8b622,stroke:#2E5C8A,color:#000
+style AD fill:#f8b622,stroke:#2E5C8A,color:#000
+style AQ fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% hoofdmodel
+HM -->|sosa:hosts| HS
+HO -->|sosa:hasFeatureOfInterest| HM
+HO -->|sosa:hasResult| HR
+HD -->|sosa:hasFeatureOfInterest| HM
+
+%% alternatief
+AA -->|sosa:hasFeatureOfInterest| AM
+AA -->|sosa:hasResult| AE
+AE -->|prov:atLocation| AM
+AC -->|sosa:hasFeatureOfInterest| AE
+AC -->|status| AR
+AC -->|overstortduur| AD
+AC -->|debiet| AQ

@@ -1,0 +1,201 @@
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+@prefix unit:   <http://qudt.org/vocab/unit/> .
+@prefix geo:    <http://www.opengis.net/ont/geosparql#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix wk:     <https://data.vlaanderen.be/ns/waterkwaliteit#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+@prefix sensor:          <https://aquafin.be/id/sensor/> .
+@prefix event:           <https://aquafin.be/id/event/> .
+@prefix meetpunt:        <https://aquafin.be/id/meetpunt/> .
+@prefix kenmerk:         <https://aquafin.be/id/concept/Kenmerk/> .
+@prefix overstortstatus: <https://aquafin.be/id/concept/OverstortStatus/> .
+@prefix alt:             <https://example.org/overstort/alternatief/> .
+
+# ALTERNATIEF — een overstorting als emissie (wk:Emissie, prov:Entity) en als FeatureOfInterest.
+#
+# Geen herziening: dit staat naast ../overstort_herzien.ttl, waarin het meetpunt het
+# FeatureOfInterest is. Zelfde patroon als de lozing in ../../waterkwaliteit/ en het geluidsevent
+# in ../../geluidsmeetnet/alternatief/ (oslo-ld-kit, patterns.md: "Emission as feature of interest").
+#
+# Selectie:
+#  (a) het event uit de LDES-output (status NietInWerking, meetpunt P_000000350733), ongewijzigd
+#      t.o.v. het hoofdmodel: zonder overstorting is er geen emissie;
+#  (b) het record uit Aquafins doelmodel "Observaties JSON Debiet & Overstortduur"
+#      (../source/overstort-debiet-overstortduur.json.txt): status InWerking, 27 juli 2024
+#      14:00–14:04 UTC, overstortduur 240, debiet 2.3. Het meetpunt P_000000217952 is afgeleid uit
+#      de coördinaten, die gelijk zijn aan die van meetpunt P_000000217952 in
+#      ../source/overstort-input-voorbeelden.md. De bron geeft het debiet zonder eenheid; m³/s is
+#      voor dit voorbeeld aangenomen (illustratief, niet bevestigd door Aquafin).
+#
+# Gedeelde resources houden de IRI's van het hoofdmodel (sensor:, event:, meetpunt:, kenmerk:,
+# overstortstatus:). Wat enkel in dit alternatief bestaat, staat onder alt:.
+
+###############################################################################
+### INFRASTRUCTUUR
+###############################################################################
+
+# Meetpunt van record (b). In dit alternatief niet het FeatureOfInterest van de observaties: dat
+# is de overstorting, die hier plaatsvindt (prov:atLocation). Wel het FeatureOfInterest van de
+# werking van de overstort (de actuatie die de overstorting voortbrengt).
+meetpunt:P_000000217952 a sosa:Platform , sosa:FeatureOfInterest ;
+    rdfs:label "Meetpunt P_000000217952"@nl ;
+    dct:identifier "P_000000217952" ;
+    sosa:hosts sensor:2c2491f0e1234a7200b561c65718b9b5 ;
+    sosa:hasProperty kenmerk:Overstort ;
+    sosa:isFeatureOfInterestOf alt:overstortwerking-P_000000217952-20240727T140000Z ;
+    geo:hasGeometry meetpunt:P_000000217952-geometrie-wgs84 ,
+                    meetpunt:P_000000217952-geometrie-lambert72 .
+
+meetpunt:P_000000217952-geometrie-wgs84 a geo:Geometry ;
+    geo:asWKT "POINT(5.298607495000001 50.948995878)"^^geo:wktLiteral .
+
+meetpunt:P_000000217952-geometrie-lambert72 a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POINT(235956.9331605651 193183.8663904309)"^^geo:wktLiteral .
+
+# Meter van record (b): isWaargenomenMet 418858; IRI uit MD5("418858"), zoals in het hoofdmodel.
+sensor:2c2491f0e1234a7200b561c65718b9b5 a sosa:Sensor , sosa:System ;
+    dct:identifier "2c2491f0e1234a7200b561c65718b9b5" ;
+    sosa:isHostedBy meetpunt:P_000000217952 ;
+    sosa:observes kenmerk:Overstort , alt:prop-overstortduur , alt:prop-debiet .
+
+# Meetpunt en meter van event (a), zoals in het hoofdmodel.
+meetpunt:P_000000350733 a sosa:Platform , sosa:FeatureOfInterest ;
+    rdfs:label "Meetpunt P_000000350733"@nl ;
+    dct:identifier "P_000000350733" ;
+    sosa:hasProperty kenmerk:Overstort ;
+    sosa:isFeatureOfInterestOf event:4004f4ea-117d-4e01-9b7d-6b6af865ad52 .
+
+sensor:4c314f066bea53f212495cb8c1eaca0b a sosa:Sensor , sosa:System ;
+    dct:identifier "4c314f066bea53f212495cb8c1eaca0b" ;
+    sosa:observes kenmerk:Overstort ;
+    sosa:madeObservation event:4004f4ea-117d-4e01-9b7d-6b6af865ad52 .
+
+###############################################################################
+### PROCEDURE EN PROPERTIES
+###############################################################################
+
+kenmerk:Overstort a sosa:Property ;
+    rdfs:label "Overstort"@nl ;
+    rdfs:comment "Werking van de overstort: stort het overstortpunt over naar het oppervlaktewater, niet, of is de werking onbekend (verstoord signaal)."@nl .
+
+alt:prop-overstortduur a sosa:Property ;
+    rdfs:label "Overstortduur"@nl ;
+    rdfs:comment "Duur van een overstorting, in seconden (bron: overstortduur 240 voor 14:00–14:04)."@nl ;
+    sosa:isPropertyOf alt:overstorting-P_000000217952-20240727T140000Z .
+
+alt:prop-debiet a sosa:Property ;
+    rdfs:label "Debiet van de overstorting"@nl ;
+    rdfs:comment "Debiet van het overgestorte rioolwater over de periode van de overstorting. Eenheid aangenomen (m³/s): de bron geeft er geen."@nl ;
+    sosa:isPropertyOf alt:overstorting-P_000000217952-20240727T140000Z .
+
+# De werking van het kunstwerk: bij overbelasting van de gemengde riolering stort het overtollige
+# rioolwater over naar het oppervlaktewater. wk:Emissie vraagt een procedure waarvan de emissie
+# is afgeleid (prov:wasDerivedFrom).
+alt:procedure-overstorten a sosa:ActuatingProcedure , sosa:Procedure ;
+    rdfs:label "Overstorten van de gemengde riolering"@nl ;
+    rdfs:comment "Afvoer van overtollig rioolwater uit de gemengde riolering naar het oppervlaktewater wanneer het waterpeil de overstortdrempel overschrijdt."@nl .
+
+###############################################################################
+### EMISSIE
+###############################################################################
+
+# De overstorting: het overgestorte rioolwater, als entiteit. Tijdloos; de periode staat op de
+# observaties (sosa:phenomenonTime).
+alt:overstorting-P_000000217952-20240727T140000Z a wk:Emissie , prov:Entity , sosa:FeatureOfInterest ;
+    rdfs:label "Overstorting op meetpunt P_000000217952, 27 juli 2024 vanaf 14:00 UTC"@nl ;
+    prov:wasGeneratedBy alt:overstortwerking-P_000000217952-20240727T140000Z ;
+    sosa:isResultOf alt:overstortwerking-P_000000217952-20240727T140000Z ;
+    prov:wasDerivedFrom alt:procedure-overstorten ;
+    prov:atLocation meetpunt:P_000000217952 ;
+    sosa:hasProperty alt:prop-overstortduur , alt:prop-debiet ;
+    sosa:isFeatureOfInterestOf alt:collectie-P_000000217952-20240727T140000Z .
+
+# Het overstorten zelf: de handeling waarvan de overstorting het resultaat is. Ze werkt in op de
+# werking van het kunstwerk (kenmerk:Overstort), dezelfde property die het hoofdmodel observeert.
+# Geen sosa:madeByActuator: het kunstwerk is een passieve drempel, geen aangestuurd toestel.
+alt:overstortwerking-P_000000217952-20240727T140000Z a sosa:Actuation , sosa:Execution , prov:Activity ;
+    rdfs:label "Werking van de overstort op meetpunt P_000000217952, 27 juli 2024"@nl ;
+    sosa:hasFeatureOfInterest meetpunt:P_000000217952 ;
+    sosa:actsOnProperty kenmerk:Overstort ;
+    sosa:usedProcedure alt:procedure-overstorten ;
+    sosa:hasResult alt:overstorting-P_000000217952-20240727T140000Z ;
+    prov:atLocation meetpunt:P_000000217952 .
+
+###############################################################################
+### OBSERVATIES
+###############################################################################
+
+# (b) De observaties van de overstorting. De collectie draagt wat de leden delen.
+alt:collectie-P_000000217952-20240727T140000Z a sosa:ObservationCollection , sosa:ExecutionCollection ;
+    rdfs:label "Observaties van de overstorting op P_000000217952, 27 juli 2024 14:00–14:04 UTC"@nl ;
+    sosa:hasFeatureOfInterest alt:overstorting-P_000000217952-20240727T140000Z ;
+    sosa:madeBySensor sensor:2c2491f0e1234a7200b561c65718b9b5 ;
+    sosa:phenomenonTime alt:interval-P_000000217952-20240727T140000Z ;
+    sosa:hasMember alt:obs-P_000000217952-20240727T140000Z-status ,
+                   alt:obs-P_000000217952-20240727T140000Z-overstortduur ,
+                   alt:obs-P_000000217952-20240727T140000Z-debiet .
+
+alt:interval-P_000000217952-20240727T140000Z a time:Interval ;
+    time:hasBeginning alt:instant-P_000000217952-20240727T140000Z-begin ;
+    time:hasEnd       alt:instant-P_000000217952-20240727T140000Z-einde .
+
+alt:instant-P_000000217952-20240727T140000Z-begin a time:Instant ;
+    time:inXSDDateTimeStamp "2024-07-27T14:00:00Z"^^xsd:dateTimeStamp .
+
+alt:instant-P_000000217952-20240727T140000Z-einde a time:Instant ;
+    time:inXSDDateTimeStamp "2024-07-27T14:04:00Z"^^xsd:dateTimeStamp .
+
+# De status uit de bron. Op een emissie is ze altijd InWerking: zonder overstorting geen emissie.
+alt:obs-P_000000217952-20240727T140000Z-status a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest alt:overstorting-P_000000217952-20240727T140000Z ;
+    sosa:observedProperty kenmerk:Overstort ;
+    sosa:hasResult overstortstatus:InWerking ;
+    sosa:isMemberOf alt:collectie-P_000000217952-20240727T140000Z .
+
+alt:obs-P_000000217952-20240727T140000Z-overstortduur a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest alt:overstorting-P_000000217952-20240727T140000Z ;
+    sosa:observedProperty alt:prop-overstortduur ;
+    sosa:hasResult alt:resultaat-P_000000217952-20240727T140000Z-overstortduur ;
+    sosa:isMemberOf alt:collectie-P_000000217952-20240727T140000Z .
+
+alt:resultaat-P_000000217952-20240727T140000Z-overstortduur a sosa:Result ;
+    qudt:numericValue 240 ;
+    qudt:hasUnit unit:SEC ;
+    sosa:isResultOf alt:obs-P_000000217952-20240727T140000Z-overstortduur .
+
+alt:obs-P_000000217952-20240727T140000Z-debiet a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest alt:overstorting-P_000000217952-20240727T140000Z ;
+    sosa:observedProperty alt:prop-debiet ;
+    sosa:hasResult alt:resultaat-P_000000217952-20240727T140000Z-debiet ;
+    sosa:isMemberOf alt:collectie-P_000000217952-20240727T140000Z .
+
+alt:resultaat-P_000000217952-20240727T140000Z-debiet a sosa:Result ;
+    qudt:numericValue 2.3 ;
+    qudt:hasUnit unit:M3-PER-SEC ;      # aangenomen eenheid, zie de kop van dit bestand
+    sosa:isResultOf alt:obs-P_000000217952-20240727T140000Z-debiet .
+
+# (a) Het event uit de LDES-output, zoals in het hoofdmodel: zonder overstorting is er geen
+# emissie, dus blijft het meetpunt het FeatureOfInterest.
+event:4004f4ea-117d-4e01-9b7d-6b6af865ad52 a sosa:Observation , sosa:Execution ;
+    rdfs:label "Overstortevent op P_000000350733, 18 februari 2024 20:45–20:46 UTC"@nl ;
+    sosa:hasFeatureOfInterest meetpunt:P_000000350733 ;
+    sosa:observedProperty kenmerk:Overstort ;
+    sosa:madeBySensor sensor:4c314f066bea53f212495cb8c1eaca0b ;
+    sosa:phenomenonTime event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-interval ;
+    sosa:hasResult overstortstatus:NietInWerking ;
+    dct:modified "2025-08-05T17:29:19.457Z"^^xsd:dateTime .
+
+event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-interval a time:Interval ;
+    time:hasBeginning event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-begin ;
+    time:hasEnd       event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-einde .
+
+event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-begin a time:Instant ;
+    time:inXSDDateTimeStamp "2024-02-18T20:45:00Z"^^xsd:dateTimeStamp .
+
+event:4004f4ea-117d-4e01-9b7d-6b6af865ad52-einde a time:Instant ;
+    time:inXSDDateTimeStamp "2024-02-18T20:46:00Z"^^xsd:dateTimeStamp .
