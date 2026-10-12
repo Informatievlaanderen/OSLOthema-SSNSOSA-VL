@@ -161,14 +161,39 @@ belangrijkste fout.
    - `dct:type "Overstortmeter"` → `rdfs:comment`: het bereik van `dct:type` is `rdfs:Class`, geen
      tekst;
    - `environment:deviceModel "Ijinus"` → `saref:hasManufacturer "Ijinus"`: het is het merk
-     (`brand`), niet het model;
+     (`brand`), niet het model. Smart Data Models definieert `deviceModel` bovendien als een object
+     met `brandName`, `manufacturerName` en `modelName`, geen tekst;
    - `environment:deviceStatus "ACTIEF"` → `adms:status toestelstatus:Actief` (concept-IRI, voorstel
      naar het patroon van Aquafins eigen `…/id/concept/…`-IRI's);
-   - de Smart Data Models-namespaces (`https://smartdatamodels.org/…`) zijn geen gepubliceerde
-     RDF-vocabularia (`[VOCAB ERROR]`).
+   - de Smart Data Models-termen (`https://smartdatamodels.org/…`) bestaan: `deviceName`,
+     `deviceId`, `deviceModel`, `deviceStatus` en `owner` hebben een documentatiepagina (HTML en
+     YAML, bv. <https://smartdatamodels.org/dataModel.Environment/deviceName.yaml>) en staan in de
+     JSON-LD-context van [`dataModel.Environment`](https://github.com/smart-data-models/dataModel.Environment/blob/master/context.jsonld).
+     Er is echter geen RDF-definitie: de IRI's geven ook bij `Accept: text/turtle` of
+     `application/ld+json` HTML terug, en de repository bevat geen `.ttl`- of OWL-bestand
+     (nagekeken op 12 oktober 2026). Zonder `rdfs:domain`, `rdfs:range` of typering zijn ze niet te
+     controleren en niet te laden in `ld-vocab` (`[VOCAB ERROR]`). Daarom zijn ze vervangen door
+     termen uit geladen vocabularia. Technisch mag elke IRI als predicaat dienen; na JSON-LD-
+     expansie zijn het dus wel RDF-properties, maar wel properties zonder definitie. Wie ze wil
+     behouden, kan een kleine RDF-beschrijving (`rdf:Property`, `rdfs:label`, `rdfs:comment`,
+     `rdfs:isDefinedBy`) uit de YAML afleiden en als vocabularium laden. Twee punten om daarbij op te
+     letten:
+     - *NGSI-LD-vorm.* In de *normalized* NGSI-LD-data van Smart Data Models wijst een term als
+       `deviceId` niet rechtstreeks naar een waarde, maar naar een knoop
+       `[ a ngsi-ld:Property ; ngsi-ld:hasValue "…" ]`. Aquafin gebruikt de termen als gewone
+       datatype-property met een literal, zoals in de *keyValues*-vorm. Dat werkt, maar het is een
+       andere vorm dan die van de Smart Data Models-data zelf. Wie later naar NGSI-LD overstapt, moet
+       de mapping aanpassen.
+     - *Een IRI per domein.* Dezelfde term krijgt per domein een andere IRI; voor RDF zijn dat
+       verschillende properties. In Aquafins output komen `deviceId`, `deviceName`, `deviceModel`
+       en `deviceStatus` uit `…/dataModel.Environment/`, maar `owner` uit
+       `https://smartdatamodels.org/owner`, zonder domein. De context van `dataModel.Environment`
+       bevat bovendien zowel `deviceID` als `deviceId`, als twee verschillende IRI's voor hetzelfde
+       begrip.
 
-9. **Niet overgenomen** (geen bestaande term of betekenis onbekend; vragen in `bespreking.md`):
-   `sdm:owner "AQUAFIN"`, `schema:seller "ELSCOLAB"`, `schema:serialNumber` (MD5 van het
+9. **Niet overgenomen** (geen geschikte term met RDF-definitie, of betekenis onbekend; vragen in
+   `bespreking.md`): `sdm:owner "AQUAFIN"` (de Smart Data Models-term bestaat, maar betekent "de
+   dienst die verantwoordelijk is voor het beheer van de account" en is een lijst), `schema:seller "ELSCOLAB"`, `schema:serialNumber` (MD5 van het
    serienummer; stond niet in de LDES-output), `aquafin:quality_label`, `aquafin:valid_from`,
    `aquafin:valid_to`, `aquafin:is_deleted` (de laatste drie zijn eigenschappen van het record, zie
    punt 1).
