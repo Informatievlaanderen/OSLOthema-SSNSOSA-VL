@@ -146,7 +146,7 @@ git clone https://github.com/milieuinfo/ld-mcp.git         # naast dit project, 
 - `.mcp.json` vindt de jar in `../ld-mcp/` naast het project; staat hij elders, zet dan
   `LD_MCP_JAR` op het volledige pad van `ld-mcp-vocab.jar`.
 - Bij het openen van het project vraagt Claude Code om de imports hieronder te laden.
-- Bijwerken: `git pull`. Zijn de regels van de kit gewijzigd, dan `/mcp` → `ld-vocab` → Reconnect.
+- Bijwerken: `git pull`. `ld-vocab` leest gewijzigde regels en ontologieën zelf opnieuw in.
 - Installeer de plugin `oslo-ld` niet in dit project: de skills staan er al, en zouden dan twee
   keer bestaan, mogelijk in verschillende versies.
 
