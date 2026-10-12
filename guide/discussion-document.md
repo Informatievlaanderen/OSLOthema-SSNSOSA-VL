@@ -64,8 +64,9 @@ One subsection per non-trivial design decision, with a fixed structure:
 > Rejected alternative: … Chosen approach: … Rationale: … (with a reference to the SOSA / PROV-O
 > specification or a rule number)
 
-Cover the decision points of [`ssn-sosa.md`](ssn-sosa.md#decision-points) that apply. Also state
-here: register units and their QUDT mapping (R3), `[warning]` messages deliberately left (e.g. no
+Cover the decision points of [`ssn-sosa.md`](ssn-sosa.md#decision-points) that apply. For every
+term outside the core, add a subsection *Why this vocabulary?* with the candidates considered and
+the criteria of R17 ([`linked-data.md`](linked-data.md)) that decided. Also state here: register units and their QUDT mapping (R3), `[warning]` messages deliberately left (e.g. no
 geometry because the source has no location), and any alternative mapping, with a link to it.
 
 ## 7. Time modelling

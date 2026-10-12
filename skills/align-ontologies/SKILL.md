@@ -29,7 +29,8 @@ Worked example (OSLOthema-SSNSOSA-VL): `src/main/input/waterkwaliteit/csor_iadop
 ## Steps
 
 1. **Understand both models** from their sources (ontology files, specifications), not from
-   memory. Load them so that `lookup_term` and `search_terms` work on them.
+   memory. Load them so that `lookup_term` and `search_terms` work on them. Assess a model that is
+   new to the project on the criteria of R17 (`linked-data.md`) before aligning with it.
 2. **Compare structurally**: map each component of one model to the other (e.g. property, object of
    interest, matrix, constraint), noting where one model mixes what the other separates.
 3. **Test quantitatively with a script** over the actual data (all register entries), so that the

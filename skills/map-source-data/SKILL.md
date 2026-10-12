@@ -18,7 +18,8 @@ For a mapping of real data, larger than one illustrative example. Worked example
 2. **Reuse before inventing.** Existing registers and code lists for what is measured and in which
    unit, existing datasets for features of interest (link to their IRIs), existing ontologies for
    the domain. New code lists only for what nothing covers, and only when the mapping needs them —
-   a code list is not a prerequisite for mapping results.
+   a code list is not a prerequisite for mapping results. Choose an ontology outside the core under
+   R17 (`linked-data.md`): compare candidates, do not take the first match.
 3. **Script everything.** The conversion is a script that regenerates all output from the source
    files; a decision is changed in the script, then everything is regenerated and validated. No
    hand edits to generated Turtle.

@@ -9,9 +9,10 @@ Born in the OSLOthema-SSNSOSA-VL project; the validation server is
 
 | Path | What |
 |---|---|
-| `guide/` | the modelling guide: linked data rules, SSN/SOSA rules R1–R15, recurring patterns, discussion document, exercise, diagrams ([`guide/README.md`](guide/README.md)) |
+| `guide/` | the modelling guide: linked data rules, SSN/SOSA rules R1–R17, recurring patterns, discussion document, exercise, diagrams ([`guide/README.md`](guide/README.md)) |
 | `skills/` | workflows: `new-example`, `revise-mapping`, `alternative-mapping`, `map-source-data`, `decision-document`, `design-ontology`, `align-ontologies` |
-| `rules/ssn-sosa-rules.ttl` | the enforceable rules (R2, R3, R5, R7, R9, R11, R12, R13, R15) as SHACL, for `validate_file` |
+| `rules/ssn-sosa-rules.ttl` | the enforceable rules (R2, R3, R5, R7, R9, R11, R12, R13, R15, R16) as SHACL, for `validate_file` |
+| `registers/alignments.ttl` | known alignment modules between vocabularies (e.g. SOSA–SAREF), with the namespaces they connect; read by R17 and by `vocabulary_profile` of ld-mcp (`--alignments`) |
 | `sync.py` | copies the skills into a project's `.claude/skills/` (see below) |
 | `.claude-plugin/` | plugin manifest (`oslo-ld`) and a marketplace manifest, for using the skills outside a project |
 

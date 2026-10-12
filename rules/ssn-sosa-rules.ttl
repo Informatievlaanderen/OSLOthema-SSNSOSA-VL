@@ -11,7 +11,7 @@
 #
 # Severity: sh:Violation for "must", sh:Warning for "strongly recommended". sh:severity belongs on
 # the shape; on an sh:sparql constraint it is ignored, hence separate shapes per severity.
-# Not expressed as shapes: rules that need judgement (R1, R4, R6, R8, R10), R14 (the vocabulary
+# Not expressed as shapes: rules that need judgement (R1, R4, R6, R8, R10, R17), R14 (the vocabulary
 # check of validate_file already reports old ssn: terms as unknown, suggesting the sosa: variant),
 # and mixing result styles (R3), which cannot be decided reliably.
 
@@ -216,5 +216,45 @@ rule:R15-no-skos-between-classes a sh:NodeShape ;
                     <http://www.w3.org/2004/02/skos/core#related> <http://www.w3.org/2004/02/skos/core#exactMatch>
                     <http://www.w3.org/2004/02/skos/core#closeMatch> <http://www.w3.org/2004/02/skos/core#broadMatch>
                     <http://www.w3.org/2004/02/skos/core#narrowMatch> <http://www.w3.org/2004/02/skos/core#relatedMatch>
+                }
+            }""" ] .
+
+# ---------------------------------------------------------------- R16
+
+# Explicit types, because SHACL sees the non-inferred graph. Executions and collections on one side,
+# systems, platforms and features of interest on the other. Not checked: dct:isVersionOf and other
+# properties without a PROV domain (allowed in solution A of R16).
+
+rule:R16-no-entity-properties-on-executions a sh:NodeShape ;
+    sh:severity sh:Violation ;
+    sh:targetClass sosa:Observation , sosa:Actuation , sosa:Sampling , sosa:Execution ;
+    sh:sparql [
+        sh:message "R16: {?p} describes a prov:Entity (a record, a version), but an execution is a prov:Activity; put it on a separate record or leave it out (dct:modified as timestamp)." ;
+        sh:prefixes rule: ;
+        sh:select """
+            SELECT $this ?p WHERE {
+                $this ?p ?o .
+                VALUES ?p {
+                    prov:generatedAtTime prov:invalidatedAtTime prov:wasGeneratedBy prov:wasInvalidatedBy
+                    prov:wasAttributedTo prov:wasDerivedFrom prov:wasRevisionOf prov:wasQuotedFrom
+                    prov:hadPrimarySource prov:specializationOf prov:alternateOf
+                }
+            }""" ] .
+
+rule:R16-no-execution-properties-on-entities a sh:NodeShape ;
+    sh:severity sh:Violation ;
+    sh:targetClass sosa:System , sosa:Sensor , sosa:Actuator , sosa:Sampler , sosa:Platform ,
+        sosa:FeatureOfInterest , sosa:Sample ;
+    sh:sparql [
+        sh:message "R16: {?p} describes an activity (an execution), but a system, platform or feature of interest is a prov:Entity; for the property a system handles use sosa:observes or sosa:forProperty, for what it is aimed at a sosa:Deployment." ;
+        sh:prefixes rule: ;
+        sh:select """
+            SELECT $this ?p WHERE {
+                $this ?p ?o .
+                VALUES ?p {
+                    sosa:hasFeatureOfInterest sosa:usedProcedure sosa:hasResult sosa:hasSimpleResult
+                    sosa:observedProperty sosa:actsOnProperty sosa:phenomenonTime sosa:resultTime
+                    prov:used prov:generated prov:startedAtTime prov:endedAtTime
+                    prov:wasAssociatedWith prov:wasInformedBy
                 }
             }""" ] .

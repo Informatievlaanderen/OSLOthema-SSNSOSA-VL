@@ -18,6 +18,12 @@ Rules that hold for any RDF project. SSN/SOSA-specific rules are in [`ssn-sosa.m
   blank node is fine.
 - **Exception:** when describing an *external* dataset (one you do not own), do not invent IRIs in
   someone else's namespace; a blank node is acceptable there.
+- **Stable IRIs in pipelines.** A script or pipeline derives each IRI from a deterministic key
+  (an identifier from the source, or a hash of the fields that identify the resource), never from a
+  random value such as `STRUUID()` or `UUID()` per run. A random IRI changes at every run: other
+  resources cannot refer to it, and a version chain (`dct:isVersionOf`) points to a new base IRI
+  each time. Example: a sensor IRI `…/sensor/{MD5(device id)}`, which the observations can build
+  from the same field.
 - **Do not mint resources in a vocabulary's namespace.** A data file must not describe new
   resources in a namespace that a loaded vocabulary owns (e.g. `unit:EUR a qudt:Unit`, or a
   building in the namespace of a building ontology). Use an IRI of your own or an existing term.
@@ -66,6 +72,86 @@ and `skos:Concept`, with the hierarchy expressed only through `skos:broader`.
 - Reuse existing IRIs of external datasets; refer to IRIs that are not yet final with
   `rdfs:seeAlso`.
 
+## R17 — Choose vocabularies deliberately
+
+A term outside the core is the outcome of a comparison, not of the first search hit. Cherry-picking
+terms from whatever vocabulary happens to be loaded or found leaves the data with commitments
+nobody chose (a domain that types your sensor as something else, a namespace that disappears).
+
+**Order of preference.** Use a term from a later level only when the earlier levels cannot express
+the meaning:
+
+1. the core already loaded: SOSA/SSN, PROV-O, QUDT, OWL-Time, GeoSPARQL, SKOS, DCTERMS, RDFS;
+2. other W3C and OGC models;
+3. government vocabularies and registers: OSLO (data.vlaanderen.be), the SEMIC Core Vocabularies,
+   the registers named in the project profile;
+4. standards from other bodies (ISO, ETSI);
+5. anything else.
+
+**LOV is for exploring, not for selecting.** [Linked Open Vocabularies](https://lov.linkeddata.es)
+shows candidate terms and the contexts in which others use them. Its ranking is textual: a search
+for `Sample` puts `sp:Sample` (SPIN, a SPARQL vocabulary) level with `sosa:Sample`, and its reuse
+metrics are not reliable. A hit is a candidate, never a recommendation.
+
+**schema.org only as a last resort.** schema.org serves web markup for search engines, not data
+models, and that shows in the criteria below:
+- the term IRIs return HTML on content negotiation (1); RDF is available only as release
+  downloads;
+- `http://schema.org/` and `https://schema.org/` are both in use for the same terms (2);
+- it is not aligned with PROV-O or SOSA except through the preliminary module `sosa-sdo` of
+  SSN/SOSA 2023 (8).
+
+Prefer a term from levels 1–4; when schema.org is the only candidate, say why in the discussion.
+
+**Criteria.** Assess every candidate vocabulary on:
+
+| # | Criterion | What to check |
+|---|---|---|
+| | *Technical* | |
+| 1 | Dereferenceable as RDF | the namespace and a sample term return RDF (Turtle, RDF/XML or JSON-LD) on content negotiation; an HTML page or a JSON-LD `@context` alone is not enough (see Validation) |
+| 2 | Persistent namespace | w3id, purl or the domain of a standards body; `http` and `https` used consistently |
+| 3 | Versioned | `owl:versionIRI` or `owl:versionInfo`, a change log, withdrawn terms marked `owl:deprecated` |
+| 4 | Licence | explicit and open |
+| 5 | Formally sound | terms typed, with labels and definitions; where a domain or range is declared, it makes sense (a missing `rdfs:domain` is often a deliberate choice, as in DCTERMS and SSN/SOSA 2023, to keep a property reusable and avoid unwanted inferences); no SKOS between classes (R15); no axioms about other vocabularies' terms (`sosa:`, `prov:`, …) |
+| 6 | Consistent with the core | once loaded, the existing examples still give no `[MODEL INVALID]` (R16) |
+| | *Semantic* | |
+| 7 | Fit with the domain | judged on the *definition*, not the label; abstract vocabularies (PROV, SKOS, DCTERMS) are welcome where their definition fits |
+| 8 | Aligned with the core | `rdfs:subClassOf` / `rdfs:subPropertyOf` to SOSA or PROV, or at least nothing that conflicts with them. Search as described under *Finding alignments* below |
+| 9 | Commitment | what the domain, range and inferences of the one term you need add to the data, read together with the alignment (8): e.g. the domain of `saref:hasManufacturer` makes the subject a `saref:FeatureOfInterest`, which the SOSA–SAREF alignment already makes every `sosa:System` |
+| 10 | Granularity | not tied to one project or application |
+| | *Governance* | |
+| 11 | Publisher | a standards body, a government or an active community, rather than a finished research project |
+| 12 | Maintenance | recent release, an issue tracker that is used |
+| 13 | Adoption | used in the target community (OSLO, SEMIC, INSPIRE, datasets) |
+| 14 | Labels in the project language | present, or possible to add |
+| | *Proportion* | |
+| 15 | Worth it | one term from a large vocabulary must be worth the commitments it brings; when in doubt, add no vocabulary |
+
+**Finding alignments.** An alignment is a statement about two vocabularies and may be published by
+either, or by neither: the SOSA–SAREF alignment is a separate module of SSN/SOSA 2023
+(`http://www.w3.org/ns/sosa/saref`), not part of SAREF; the SOSA namespace document does not point
+to it, and LOV does not record it. Absence in the candidate is therefore not absence. Search, in
+this order:
+
+1. the register of known alignments, [`../registers/alignments.ttl`](../registers/alignments.ttl);
+2. the candidate itself (links to the core);
+3. the specification and repository of each core vocabulary (for SSN/SOSA 2023: chapter 7 and
+   `ssn/rdf/ontology/alignments/` in `w3c/sdw-sosa-ssn`);
+4. the candidate's own extension modules and documentation;
+5. a code search for files that use both namespaces (e.g. `gh search code` on both namespace IRIs).
+
+State in the discussion (§6) where you searched and what you found, so that a missing alignment is
+an established absence, not an oversight. Load a module the mapping relies on, together with what it
+imports, and validate all examples again. Add every alignment found to the register.
+
+**Way of working.** A vocabulary is used only after it is loaded in the project's ontology
+directory, with its source and version, and after `validate_file` on all examples is still
+consistent.
+
+**Account for it.** For every term outside the core, the discussion (§6) has a subsection *Why this
+vocabulary?*: the candidates considered (including LOV hits), the assessment on the criteria that
+decided, and the rejected alternatives. That makes cherry-picking visible.
+
 ## Ontologies and application profiles
 
 **One source.** Write the ontology and the constraints of the application profile in one OWL file;
@@ -110,7 +196,7 @@ change.
 |---|---|
 | `[VOCAB ERROR]` | a term does not exist in the loaded ontologies. Fix every one. Kinds: `Unknown property` / `Unknown class`; `Unknown resource` (another IRI in a vocabulary namespace, e.g. a non-existent unit); `Resource minted in a vocabulary namespace` (R10). A hint `Did you mean <http://…>?` means the IRI differs only in `http`/`https` or `#`/`/` from an existing term: take the suggested IRI, usually by fixing the `@prefix`. A hint that a namespace is "a known vocabulary, but not loaded" means the term may exist: load that ontology before deciding. |
 | `[INFERENCE]` | number of triples inferred by the domain/range/subproperty rules |
-| `[MODEL INVALID]` | OWL inconsistency after inference, typically a resource in two disjoint classes (e.g. `prov:Activity` and `prov:Entity`). Investigate: a real modelling error or a false positive of the OWL Mini reasoner. |
+| `[MODEL INVALID]` | OWL inconsistency after inference, typically a resource in two disjoint classes (e.g. `prov:Activity` and `prov:Entity`, see R16 in [`ssn-sosa.md`](ssn-sosa.md)). Investigate: a real modelling error or a false positive of the OWL Mini reasoner. |
 | `[SHACL] n violation(s), m warning(s)` | messages beginning with a rule number (`R2: …`) come from the rules file; fix every violation; a `[warning]` ("strongly recommended") may stay when the source lacks the information, documented in the discussion. Other messages come from the shapes generated from the ontology. |
 
 **SHACL validates the non-inferred graph.** Subclass inference does not happen before SHACL, so a
@@ -124,6 +210,16 @@ superclasses explicitly in the data.
   server's prefixes may differ.
 - Check domain and range: does the subject fit the domain and the object the range?
 - A term marked `owl:DeprecatedProperty`/`owl:DeprecatedClass` is not used; take its replacement.
+- **A documented IRI is not yet a vocabulary.** Some term sets publish an IRI per term with an HTML
+  page or a JSON-LD `@context`, but no RDF description at all (no `rdf:Property`, label or definition;
+  content negotiation returns HTML). Example: Smart Data Models
+  (`https://smartdatamodels.org/dataModel.Environment/deviceName`). After JSON-LD expansion such an
+  IRI is an RDF predicate, but it cannot be checked, so `validate_file` reports it as unknown.
+  Replace it with a term from a published vocabulary, or derive a small RDF description (type,
+  label, comment, `rdfs:isDefinedBy`) from the documentation and load that as a vocabulary. Watch
+  for two things: the same term may have a different IRI per domain, and NGSI-LD data in
+  *normalized* form puts the value in a node (`[ a ngsi-ld:Property ; ngsi-ld:hasValue … ]`), not
+  directly on the predicate.
 - **Existence does not prove correctness:** `qudt:value` exists, but `qudt:numericValue` is the
   right term (R3).
 - Find terms with `search_terms` (by local name or label, also individuals such as units).
