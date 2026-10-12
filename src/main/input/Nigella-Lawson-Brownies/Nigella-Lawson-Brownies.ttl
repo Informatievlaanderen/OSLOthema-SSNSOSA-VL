@@ -515,7 +515,7 @@ exec:homogenising-2026-02-10 a prov:Activity ;
     prov:wasAssociatedWith inst:whisk-geert ;
 .
 
-exec:melting-2026-02-10 a sosa:Actuation ;
+exec:melting-2026-02-10 a sosa:Actuation , sosa:Execution ;
     rdfs:label "Heating"@en ;
     rdfs:label "Verwarmen"@nl ;
     p-plan:correspondsToStep step:melting ;
@@ -530,7 +530,7 @@ exec:melting-2026-02-10 a sosa:Actuation ;
 .
 
 
-exec:mixing-2026-02-10 a sosa:Actuation ;
+exec:mixing-2026-02-10 a sosa:Actuation , sosa:Execution ;
     rdfs:label "Mixing"@en ;
     rdfs:label "Mengen"@nl ;
     p-plan:correspondsToStep step:mixing ;
@@ -543,7 +543,7 @@ exec:mixing-2026-02-10 a sosa:Actuation ;
     sosa:madeByActuator inst:kitchen-robot-geert ;
 .
 
-exec:chopping-2026-02-10 a sosa:Actuation ;
+exec:chopping-2026-02-10 a sosa:Actuation , sosa:Execution ;
     rdfs:label "Chopping walnuts."@en ;
     rdfs:label "Walnoten hakken."@nl ;
     p-plan:correspondsToStep step:chopping ;
@@ -556,7 +556,7 @@ exec:chopping-2026-02-10 a sosa:Actuation ;
     sosa:madeByActuator inst:chopping-system-geert ;
 .
 
-exec:baking-2026-02-10 a sosa:Actuation ;
+exec:baking-2026-02-10 a sosa:Actuation , sosa:Execution ;
     rdfs:label "Baking"@en ;
     rdfs:label "Bakken"@nl ;
     p-plan:correspondsToStep step:baking ;
@@ -569,7 +569,7 @@ exec:baking-2026-02-10 a sosa:Actuation ;
     sosa:madeByActuator inst:oven-geert ;
 .
 
-exec:check_when_brownies_are_done a sosa:Observation ;
+exec:check_when_brownies_are_done a sosa:Observation , sosa:Execution ;
     rdfs:label "Check when brownies are done."@en ;
     rdfs:label "Controleer wanneer de brownies klaar zijn."@nl ;
     p-plan:correspondsToStep step:bake_until_light_brown_top ;
@@ -674,6 +674,7 @@ ent:eggs_001
 
 ent:walnuts_001
     a prov:Entity, sosa:FeatureOfInterest ;
+    sosa:isFeatureOfInterestOf exec:chopping-2026-02-10 ;
     rdfs:label "Walnuts"@en ;
     rdfs:label "Walnoten"@nl ;
     sosa:hasProperty prop:state-walnuts ;
@@ -691,6 +692,7 @@ ent:walnuts_001
 
 ent:melted-mixture_001
     a prov:Entity, sosa:Result ;
+    sosa:isResultOf exec:melting-2026-02-10 ;
     rdfs:label "Melted butter-chocolate"@en ;
     rdfs:label "Gesmolten boter-chocolade"@nl ;
     dct:type intermediateproduct:melted-mixture ;
@@ -699,6 +701,7 @@ ent:melted-mixture_001
 
 ent:chopped-walnuts_001
     a prov:Entity, sosa:Result ;
+    sosa:isResultOf exec:chopping-2026-02-10 ;
     rdfs:label "Chopped walnuts"@en ;
     rdfs:label "Gehakte walnoten"@nl ;
     dct:type intermediateproduct:chopped-walnuts ;
@@ -707,6 +710,8 @@ ent:chopped-walnuts_001
 
 ent:batter_001
     a prov:Entity, sosa:Result, sosa:FeatureOfInterest ;
+    sosa:isResultOf exec:mixing-2026-02-10 ;
+    sosa:isFeatureOfInterestOf exec:baking-2026-02-10 ;
     sosa:hasProperty prop:state-batter ;
     rdfs:label "Brownie batter"@en ;
     rdfs:label "Browniebeslag"@nl ;
@@ -722,6 +727,8 @@ ent:batter_001
 
 ent:brownies_001
     a prov:Entity, sosa:Result, sosa:FeatureOfInterest ;
+    sosa:isResultOf exec:baking-2026-02-10 ;
+    sosa:isFeatureOfInterestOf exec:check_when_brownies_are_done ;
     rdfs:label "Brownies"@en ;
     rdfs:label "Brownies"@nl ;
     sosa:hasProperty parameter:the_colour_of_the_top_of_the_brownie ;
@@ -735,6 +742,7 @@ ent:brownies_001
 
 ent:colour_001
     a sosa:Result ;
+    sosa:isResultOf exec:check_when_brownies_are_done ;
     rdfs:label "Colour of Brownies"@en ;
     rdfs:label "Kleur van de brownies"@nl ;
     dct:type colour:light-brown ;

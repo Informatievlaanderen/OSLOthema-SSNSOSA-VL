@@ -109,7 +109,7 @@ prop:raam-stand a sosa:Property ;
 
 # --- Stap 1: Temperatuursmeting ---
 
-exec:temp-obs-20250427 a sosa:Observation ;
+exec:temp-obs-20250427 a sosa:Observation , sosa:Execution ;
     rdfs:label "Temperatuursmeting Zaal 01.16 op 2025-04-27T09:00Z"@nl ;
     p-plan:correspondsToStep step:temp-meting ;
     sosa:usedProcedure step:temp-meting ;
@@ -131,7 +131,7 @@ ent:result-temp-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
 # --- Stap 2: Raamstandbepaling en actuatie ---
 # 22.3 °C > 20 °C → raam volledig open (100 %)
 
-exec:raam-actuatie-20250427 a sosa:Actuation ;
+exec:raam-actuatie-20250427 a sosa:Actuation , sosa:Execution ;
     rdfs:label "Raamopening Zaal 01.16 op 2025-04-27T09:00:05Z (T=22.3°C > 20°C drempel)"@nl ;
     p-plan:correspondsToStep step:raam-actuatie ;
     sosa:usedProcedure step:raam-actuatie ;
@@ -151,7 +151,7 @@ ent:result-raam-stand-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
 
 # --- Stap 1 (tweede meting): Temperatuursmeting ---
 
-exec:temp-obs-20250427T1000 a sosa:Observation ;
+exec:temp-obs-20250427T1000 a sosa:Observation , sosa:Execution ;
     rdfs:label "Temperatuursmeting Zaal 01.16 op 2025-04-27T10:00Z"@nl ;
     p-plan:correspondsToStep step:temp-meting ;
     sosa:usedProcedure step:temp-meting ;
@@ -173,7 +173,7 @@ ent:result-temp-20250427T1000 a qudt:QuantityValue, prov:Entity, sosa:Result ;
 # --- Stap 2 (tweede actuatie): Raamstandbepaling en sluiting ---
 # 17.5 °C < 18 °C → raam volledig dicht (0 %)
 
-exec:raam-actuatie-20250427T1005 a sosa:Actuation ;
+exec:raam-actuatie-20250427T1005 a sosa:Actuation , sosa:Execution ;
     rdfs:label "Raamafsluiting Zaal 01.16 op 2025-04-27T10:00:05Z (T=17.5°C < 18°C drempel)"@nl ;
     p-plan:correspondsToStep step:raam-actuatie ;
     sosa:usedProcedure step:raam-actuatie ;

@@ -6,3 +6,6 @@ src/main/output
 .claude/settings.local.json
 __pycache__/
 tools/
+
+# Lokale notitie (vergelijking met het SDS-artikel), niet in versiebeheer
+src/main/input/Nigella-Lawson-Brownies/sds-vergelijking.md

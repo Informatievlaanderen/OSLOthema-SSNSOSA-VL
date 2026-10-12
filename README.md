@@ -68,7 +68,7 @@ modelleerkeuzes in negen vaste secties toelicht. Sommige voorbeelden hebben daar
 |---|---|---|---|
 | [`grondwaterpeilmetingen`](src/main/input/grondwaterpeilmetingen/) | DOV-grondwaterfiltermetingen | Plat model | bespreking |
 | [`paleo`](src/main/input/paleo/) | Paleoklimaatdata met afgeleide observaties en een niet-kalender tijdreferentiesysteem | Plat model met afgeleide observaties | |
-| [`Nigella-Lawson-Brownies`](src/main/input/Nigella-Lawson-Brownies/) | Procesmodellering als demonstratie van de p‑plan/SSN‑SOSA‑PROV‑O-alignering | Drielaags (Planning/Deployment/Execution) | bespreking |
+| [`Nigella-Lawson-Brownies`](src/main/input/Nigella-Lawson-Brownies/) | Procesmodellering als demonstratie van de p‑plan/SSN‑SOSA‑PROV‑O-alignering | Drielaags (Planning/Deployment/Execution) | |
 | [`EnergieManagementSystem`](src/main/input/EnergieManagementSystem/) | Vier HVAC/energiescenario's | Drielaags | herzieningen |
 | [`erosiepoel`](src/main/input/erosiepoel/) | Manuele veldmeting met ObservationCollection | Plat model | bespreking, oefening |
 | [`temperatuur-raam`](src/main/input/temperatuur-raam/) | Sensor en actuator, vereenvoudigd (2 metingen) | Drielaags | bespreking, oefening |
