@@ -1,0 +1,220 @@
+# Modelling rules of the guide (guide/ssn-sosa.md, guide/linked-data.md) as SHACL shapes.
+#
+# Use: ld-vocab --shapes <kit>/rules/ssn-sosa-rules.ttl; validate_file combines them with the
+# shapes generated from the ontology. Every message starts with the rule number.
+#
+# SHACL validates the non-inferred graph (guide/linked-data.md, Validation). Therefore:
+# - no sh:class on superclasses (a sosa:ObservingProcedure is not a sosa:Procedure here); the rules
+#   check what is forbidden instead;
+# - members of a sosa:ObservationCollection inherit properties from the collection (SOSA 2023):
+#   R2 also looks at the enclosing collections.
+#
+# Severity: sh:Violation for "must", sh:Warning for "strongly recommended". sh:severity belongs on
+# the shape; on an sh:sparql constraint it is ignored, hence separate shapes per severity.
+# Not expressed as shapes: rules that need judgement (R1, R4, R6, R8, R10), R14 (the vocabulary
+# check of validate_file already reports old ssn: terms as unknown, suggesting the sosa: variant),
+# and mixing result styles (R3), which cannot be decided reliably.
+
+@prefix sh:     <http://www.w3.org/ns/shacl#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix geo:    <http://www.opengis.net/ont/geosparql#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix rule:   <https://example.org/oslo-ld-kit/rules#> .
+
+rule: a owl:Ontology ;
+    rdfs:label "SSN/SOSA modelling rules as SHACL"@en ;
+    sh:declare
+        [ sh:prefix "sosa" ; sh:namespace "http://www.w3.org/ns/sosa/"^^xsd:anyURI ] ,
+        [ sh:prefix "prov" ; sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ] ,
+        [ sh:prefix "rdf" ; sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ] ,
+        [ sh:prefix "owl" ; sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ] ,
+        [ sh:prefix "rdfs" ; sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ] .
+
+# ---------------------------------------------------------------- R2
+
+rule:R2-observation a sh:NodeShape ;
+    sh:severity sh:Violation ;
+    sh:targetClass sosa:Observation ;
+    sh:sparql [
+        sh:message "R2: a sosa:Observation needs sosa:observedProperty (itself or through a collection it is a member of)." ;
+        sh:prefixes rule: ;
+        sh:select """
+            SELECT $this WHERE {
+                FILTER NOT EXISTS { $this sosa:observedProperty ?p }
+                FILTER NOT EXISTS { ?c sosa:hasMember+ $this . ?c sosa:observedProperty ?q }
+            }""" ] ;
+    sh:sparql [
+        sh:message "R2: a sosa:Observation needs sosa:hasFeatureOfInterest (itself or through a collection it is a member of)." ;
+        sh:prefixes rule: ;
+        sh:select """
+            SELECT $this WHERE {
+                FILTER NOT EXISTS { $this sosa:hasFeatureOfInterest ?f }
+                FILTER NOT EXISTS { ?c sosa:hasMember+ $this . ?c sosa:hasFeatureOfInterest ?g }
+            }""" ] ;
+    sh:sparql [
+        sh:message "R2: a sosa:Observation needs sosa:hasResult or sosa:hasSimpleResult." ;
+        sh:prefixes rule: ;
+        sh:select """
+            SELECT $this WHERE {
+                FILTER NOT EXISTS { $this sosa:hasResult ?r }
+                FILTER NOT EXISTS { $this sosa:hasSimpleResult ?s }
+            }""" ] .
+
+rule:R2-observation-recommended a sh:NodeShape ;
+    sh:severity sh:Warning ;
+    sh:targetClass sosa:Observation ;
+    sh:sparql [
+        sh:message "R2: sosa:usedProcedure is strongly recommended (on the observation or its collection)." ;
+        sh:prefixes rule: ;
+        sh:select """
+            SELECT $this WHERE {
+                FILTER NOT EXISTS { $this sosa:usedProcedure ?p }
+                FILTER NOT EXISTS { ?c sosa:hasMember+ $this . ?c sosa:usedProcedure ?q }
+            }""" ] ;
+    sh:sparql [
+        sh:message "R2: sosa:madeBySensor is strongly recommended (on the observation or its collection)." ;
+        sh:prefixes rule: ;
+        sh:select """
+            SELECT $this WHERE {
+                FILTER NOT EXISTS { $this sosa:madeBySensor ?s }
+                FILTER NOT EXISTS { ?c sosa:hasMember+ $this . ?c sosa:madeBySensor ?t }
+            }""" ] .
+
+# ---------------------------------------------------------------- R3
+
+rule:R3-no-qudt-value a sh:NodeShape ;
+    sh:targetSubjectsOf qudt:value ;
+    sh:property [
+        sh:path qudt:value ;
+        sh:maxCount 0 ;
+        sh:severity sh:Violation ;
+        sh:message "R3: use qudt:numericValue for a numeric value, not qudt:value." ] .
+
+# ---------------------------------------------------------------- R5
+
+rule:R5-no-hasInput-on-executions a sh:NodeShape ;
+    sh:severity sh:Violation ;
+    sh:targetSubjectsOf sosa:hasInput ;
+    sh:sparql [
+        sh:message "R5: sosa:hasInput belongs on a sosa:Procedure; on an observation, actuation or activity use prov:used or sosa:hasInputValue." ;
+        sh:prefixes rule: ;
+        sh:select """
+            SELECT $this WHERE {
+                $this rdf:type ?t .
+                VALUES ?t { sosa:Observation sosa:Actuation sosa:Sampling sosa:Execution prov:Activity }
+            }""" ] .
+
+# ---------------------------------------------------------------- R7, R13
+
+rule:R7-input-value-is-not-an-activity a sh:NodeShape ;
+    sh:severity sh:Violation ;
+    sh:targetObjectsOf sosa:hasInputValue ;
+    sh:sparql [
+        sh:message "R7: sosa:hasInputValue points to a value (a result), not to an observation, collection or activity; use sosa:relatedObservation for those." ;
+        sh:prefixes rule: ;
+        sh:select """
+            SELECT $this WHERE {
+                $this rdf:type ?t .
+                VALUES ?t { sosa:Observation sosa:ObservationCollection sosa:Actuation sosa:Execution prov:Activity }
+            }""" ] .
+
+rule:R13-derived-not-in-source-collection a sh:NodeShape ;
+    sh:severity sh:Violation ;
+    sh:targetSubjectsOf sosa:hasInputValue , sosa:relatedObservation ;
+    sh:sparql [
+        sh:message "R13: a derived observation is not a member (sosa:hasMember) of the collection of its source observations." ;
+        sh:prefixes rule: ;
+        sh:select """
+            SELECT $this WHERE {
+                ?c sosa:hasMember $this , ?source .
+                FILTER (?source != $this)
+                { $this sosa:relatedObservation ?source }
+                UNION
+                { $this sosa:hasInputValue ?r . ?source sosa:hasResult ?r }
+            }""" ] .
+
+# ---------------------------------------------------------------- R9
+
+rule:R9-trs a sh:NodeShape ;
+    sh:targetClass time:TRS ;
+    sh:property [
+        sh:path skos:prefLabel ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "R9: give a time:TRS a skos:prefLabel." ] ;
+    sh:property [
+        sh:path skos:definition ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "R9: give a time:TRS a skos:definition." ] .
+
+# ---------------------------------------------------------------- R11
+
+rule:R11-spatial-sample a sh:NodeShape ;
+    sh:targetClass sosa:SpatialSample ;
+    sh:property [
+        sh:path sosa:isSampleOf ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "R11: a sosa:SpatialSample is a sample of a larger object of study: sosa:isSampleOf is missing." ] ;
+    sh:property [
+        sh:path geo:hasGeometry ;
+        sh:minCount 1 ;
+        sh:severity sh:Warning ;
+        sh:message "R11: give a sosa:SpatialSample a geometry (geo:hasGeometry)." ] .
+
+# ---------------------------------------------------------------- R12
+
+rule:R12-interval a sh:NodeShape ;
+    sh:targetClass time:Interval ;
+    sh:property [
+        sh:path time:hasBeginning ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "R12: a time:Interval has a beginning (time:hasBeginning)." ] ;
+    sh:property [
+        sh:path time:hasEnd ;
+        sh:minCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "R12: a time:Interval has an end (time:hasEnd)." ] .
+
+rule:R12-no-inXSDDateTime a sh:NodeShape ;
+    sh:targetSubjectsOf time:inXSDDateTime ;
+    sh:property [
+        sh:path time:inXSDDateTime ;
+        sh:maxCount 0 ;
+        sh:severity sh:Violation ;
+        sh:message "R12: time:inXSDDateTime is deprecated; use time:inXSDDateTimeStamp with a time zone (none in the source: the project's local time zone)." ] .
+
+rule:R12-datetimestamp a sh:NodeShape ;
+    sh:targetSubjectsOf time:inXSDDateTimeStamp ;
+    sh:property [
+        sh:path time:inXSDDateTimeStamp ;
+        sh:datatype xsd:dateTimeStamp ;
+        sh:severity sh:Violation ;
+        sh:message "R12: the value of time:inXSDDateTimeStamp is an xsd:dateTimeStamp, with a time zone." ] .
+
+# ---------------------------------------------------------------- R15
+
+rule:R15-no-skos-between-classes a sh:NodeShape ;
+    sh:severity sh:Violation ;
+    sh:targetClass owl:Class , rdfs:Class ;
+    sh:sparql [
+        sh:message "R15: no SKOS relations between classes ({?p}); use rdfs:subClassOf or OWL axioms (at most rdfs:seeAlso)." ;
+        sh:prefixes rule: ;
+        sh:select """
+            SELECT $this ?p WHERE {
+                $this ?p ?o .
+                VALUES ?p {
+                    <http://www.w3.org/2004/02/skos/core#broader> <http://www.w3.org/2004/02/skos/core#narrower>
+                    <http://www.w3.org/2004/02/skos/core#related> <http://www.w3.org/2004/02/skos/core#exactMatch>
+                    <http://www.w3.org/2004/02/skos/core#closeMatch> <http://www.w3.org/2004/02/skos/core#broadMatch>
+                    <http://www.w3.org/2004/02/skos/core#narrowMatch> <http://www.w3.org/2004/02/skos/core#relatedMatch>
+                }
+            }""" ] .
