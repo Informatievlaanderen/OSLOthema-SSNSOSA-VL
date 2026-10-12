@@ -50,7 +50,7 @@ aan dit project. Een nieuwe algemene regel of les hoort in de kit, niet hier. Wi
 | `src/main/output/` | Gegenereerde output (Turtle na inferentie, JSON-LD) |
 | `oslo-ld-kit/` | Git-subtree van [`milieuinfo/oslo-ld-kit`](https://github.com/milieuinfo/oslo-ld-kit): gids, skills, SHACL-regels — niet hier wijzigen |
 | `.claude/skills/` | Skills uit de kit, gekopieerd door `oslo-ld-kit/sync.py` (versie in `.oslo-ld-kit.json`) — niet hier wijzigen |
-| `.mcp.json` | MCP-server `ld-vocab` ([`milieuinfo/ld-mcp`](https://github.com/milieuinfo/ld-mcp)) met de regels uit de kit |
+| `.mcp.json` | MCP-server `ld-vocab` ([`milieuinfo/ld-mcp`](https://github.com/milieuinfo/ld-mcp)) met de regels uit de kit; jar in `tools/` (§6) |
 | `.claude/commands/nieuw-voorbeeld.md` | `/nieuw-voorbeeld`: start de skill `new-example` met dit profiel |
 | `kennisinventaris.md` | Inventaris van de kennis in dit project en waar ze naartoe ging |
 
@@ -137,14 +137,20 @@ een bewuste keuze: dat doet `validate_file`.
 
 ## §6 — Opzet voor een nieuwe gebruiker
 
-```bash
-git clone <url van dit project>                            # de kit en de skills zitten erin
-git clone https://github.com/milieuinfo/ld-mcp.git         # naast dit project, zelfde bovenliggende map
-(cd ld-mcp && mvn package)                                  # → ld-mcp-vocab/target/ld-mcp-vocab.jar
-```
+1. **Java 21 of later** installeren, bv. [Eclipse Temurin](https://adoptium.net) (installatieprogramma
+   voor Windows, macOS en Linux); controleren met `java -version`.
+2. **Het project** ophalen: `git clone <url van dit project>`. De kit en de skills zitten erin.
+3. **De validatieserver** downloaden:
+   [`ld-mcp-vocab.jar`](https://github.com/milieuinfo/ld-mcp/releases/latest/download/ld-mcp-vocab.jar)
+   en opslaan als `tools/ld-mcp-vocab.jar` in het project (map aanmaken; `tools/` staat in
+   `.gitignore`). Claude kan dat ook doen:
+   `curl -L --create-dirs -o tools/ld-mcp-vocab.jar https://github.com/milieuinfo/ld-mcp/releases/latest/download/ld-mcp-vocab.jar`.
+   Een nieuwere versie: opnieuw downloaden, dan `/mcp` → `ld-vocab` → Reconnect.
 
-- `.mcp.json` vindt de jar in `../ld-mcp/` naast het project; staat hij elders, zet dan
-  `LD_MCP_JAR` op het volledige pad van `ld-mcp-vocab.jar`.
+Wie ld-mcp zelf ontwikkelt (clone van [`milieuinfo/ld-mcp`](https://github.com/milieuinfo/ld-mcp),
+`mvn package`), zet `LD_MCP_JAR` op het volledige pad van `ld-mcp-vocab/target/ld-mcp-vocab.jar`,
+of legt in `tools/` een symbolische link naar die jar.
+
 - Bij het openen van het project vraagt Claude Code om de imports hieronder te laden.
 - Bijwerken: `git pull`. `ld-vocab` leest gewijzigde regels en ontologieën zelf opnieuw in.
 - Installeer de plugin `oslo-ld` niet in dit project: de skills staan er al, en zouden dan twee

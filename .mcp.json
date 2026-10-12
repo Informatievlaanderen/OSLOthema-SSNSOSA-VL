@@ -4,7 +4,7 @@
       "command": "java",
       "args": [
         "-jar",
-        "${LD_MCP_JAR:-../ld-mcp/ld-mcp-vocab/target/ld-mcp-vocab.jar}",
+        "${LD_MCP_JAR:-tools/ld-mcp-vocab.jar}",
         "--ontologies",
         "src/main/resources",
         "--rules",
