@@ -1,0 +1,14 @@
+{
+  "name": "oslo-ld-kit",
+  "owner": {
+    "name": "gezever"
+  },
+  "description": "OSLO linked data kit: SSN/SOSA modelling guide, skills and SHACL rules.",
+  "plugins": [
+    {
+      "name": "oslo-ld",
+      "source": "./",
+      "description": "Modelling guide, skills and SHACL rules for SSN/SOSA linked data examples (OSLO, Flanders)."
+    }
+  ]
+}
