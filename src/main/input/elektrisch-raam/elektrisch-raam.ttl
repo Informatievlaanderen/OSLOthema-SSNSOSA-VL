@@ -208,7 +208,7 @@ prop:raam-stand a sosa:Property ;
 
 # --- Stap 1: Temperatuursmeting ---
 
-exec:temp-obs-20250427 a sosa:Observation ;
+exec:temp-obs-20250427 a sosa:Observation , sosa:Execution ;
     rdfs:label "Temperatuursmeting Zaal 01.16 op 2025-04-27T09:00Z"@nl ;
     p-plan:correspondsToStep step:temp-meting ;
     sosa:usedProcedure step:temp-meting ;
@@ -229,7 +229,7 @@ ent:result-temp-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
 
 # --- Stap 2: Windsnelheidsmeting ---
 
-exec:wind-obs-20250427 a sosa:Observation ;
+exec:wind-obs-20250427 a sosa:Observation , sosa:Execution ;
     rdfs:label "Windsnelheidsmeting Buitengevel op 2025-04-27T09:00Z"@nl ;
     p-plan:correspondsToStep step:wind-meting ;
     sosa:usedProcedure step:wind-meting ;
@@ -247,7 +247,7 @@ ent:result-wind-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
 
 # --- Stap 3: Lichtintensiteitsmeting ---
 
-exec:licht-obs-20250427 a sosa:Observation ;
+exec:licht-obs-20250427 a sosa:Observation , sosa:Execution ;
     rdfs:label "Lichtintensiteitsmeting Buitengevel op 2025-04-27T09:00Z"@nl ;
     p-plan:correspondsToStep step:licht-meting ;
     sosa:usedProcedure step:licht-meting ;
@@ -265,7 +265,7 @@ ent:result-licht-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
 
 # --- Stap 4: Regendetectie ---
 
-exec:regen-obs-20250427 a sosa:Observation ;
+exec:regen-obs-20250427 a sosa:Observation , sosa:Execution ;
     rdfs:label "Regendetectie Buitengevel op 2025-04-27T09:00Z"@nl ;
     p-plan:correspondsToStep step:regen-detectie ;
     sosa:usedProcedure step:regen-detectie ;
@@ -284,7 +284,7 @@ ent:result-regen-20250427 a prov:Entity, sosa:Result ;
 # Berekening: afwijking = gemeten temperatuur - ideale temperatuur (20°C)
 # Positieve afwijking = te warm, negatieve afwijking = te koud
 
-exec:afwijking-obs-20250427 a sosa:Observation ;
+exec:afwijking-obs-20250427 a sosa:Observation , sosa:Execution ;
     rdfs:label "Berekening temperatuursafwijking op 2025-04-27T09:00:05Z"@nl ;
     p-plan:correspondsToStep step:afwijking-berekening ;
     sosa:usedProcedure step:afwijking-berekening ;
@@ -305,7 +305,7 @@ ent:result-afwijking-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
 # omgekeerd evenredig met windsnelheid en regendetectie.
 # Sluiten als regen=true, windsnelheid > drempel, of temp-afwijking < -2°C.
 
-exec:raam-actuatie-20250427 a sosa:Actuation ;
+exec:raam-actuatie-20250427 a sosa:Actuation , sosa:Execution ;
     rdfs:label "Instelling raamstand Zaal 01.16 op 2025-04-27T09:00:10Z"@nl ;
     p-plan:correspondsToStep step:raam-stand-bepaling ;
     sosa:usedProcedure step:raam-stand-bepaling ;
