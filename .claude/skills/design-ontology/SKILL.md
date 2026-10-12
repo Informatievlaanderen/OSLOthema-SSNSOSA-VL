@@ -38,7 +38,8 @@ A14–A15 in `src/main/input/waterkwaliteit/beslisdocument.md`. Rules:
    `owl:unionOf` for a choice of types, `owl:minCardinality 0` to make an inherited
    `someValuesFrom` optional.
 3. **Check every term** with `lookup_term` (reused classes and properties exist, are not
-   deprecated, and their domain and range fit).
+   deprecated, and their domain and range fit). A reused term from a vocabulary outside the core is
+   chosen under R17 (`linked-data.md`), with the candidates considered.
 4. **Validate the examples** against the generated shapes with `validate_file`; every violation
    either shows an error in an example or a restriction that is too strict.
 5. **Validate the ontology itself** with `validate_file` too: rule R15 (no SKOS between classes)

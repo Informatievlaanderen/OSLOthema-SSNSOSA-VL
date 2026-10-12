@@ -23,7 +23,9 @@ File names come from the project profile in `CLAUDE.md` (Dutch OSLO projects: `<
    rule messages (R-numbers) are the first list of problems. Then read it against the guide for
    what validation cannot see: class choice (R1), required properties (R2), units (R3), `hasInput`
    versus `prov:used` (R5), derived observations (R7, R13), IRIs and blank nodes (R10), time (R12),
-   old SSN terms (R14), `http`/`https` in prefixes.
+   old SSN terms (R14), record metadata on an observation or execution properties on a sensor
+   (R16), random IRIs from a pipeline (R10), terms from vocabularies that fail R17 (e.g. no RDF
+   definition), `http`/`https` in prefixes.
 3. **Write the revised file** with the corrected modelling, following the skill `new-example`
    step 2b (vocabulary check with full IRIs).
 4. **Document the improvements** in the README, section *Improvements* (Dutch: *Verbeterpunten*):

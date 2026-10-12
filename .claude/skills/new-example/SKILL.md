@@ -66,7 +66,7 @@ For a three-layer model add `### PLANNING` (`p-plan:Plan`, `p-plan:Step`, `p-pla
 Apply the rules of [`ssn-sosa.md`](../../../oslo-ld-kit/guide/ssn-sosa.md) and
 [`linked-data.md`](../../../oslo-ld-kit/guide/linked-data.md); in particular R2 (required properties), R3
 (`qudt:numericValue`, one unit source), R5, R7 and R13 (derived observations), R10 (IRIs), R11
-(spatial samples), R12 (time zone) and R14 (SSN/SOSA 2023 terms). Check
+(spatial samples), R12 (time zone), R14 (SSN/SOSA 2023 terms) and R16 (activities and entities). Check
 [`patterns.md`](../../../oslo-ld-kit/guide/patterns.md): does a recurring pattern fit?
 
 **Vocabulary check with the `ld-vocab` MCP server**, before writing the file:
@@ -74,6 +74,9 @@ Apply the rules of [`ssn-sosa.md`](../../../oslo-ld-kit/guide/ssn-sosa.md) and
   IRI** written out with the file's own prefixes. Example terms (`ex:`, `plan:`, …) need no check.
 - Check domain and range. Take the suggestion when a term does not exist (e.g. the `sosa:` variant
   of an `ssn:` term), or search with `search_terms`. Never invent a term.
+- A meaning the loaded vocabularies cannot express is not settled by the first hit found elsewhere
+  (LOV, a search engine): compare candidates under R17 (`linked-data.md`) and account for the
+  choice in §6 of the discussion.
 - Deprecated terms are not used; tell the user and take the replacement (e.g.
   `time:inXSDDateTime` → `time:inXSDDateTimeStamp`, R12).
 - Units according to question 6: QUDT via `search_terms` (`metre` → `unit:M`); a register unit via
