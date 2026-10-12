@@ -189,6 +189,10 @@ In de lijn van waterkwaliteit (A14.8) zouden dit CSOR-parameteraspecten moeten w
 > de meetpost). Maar de emissie bestaat in deze lezing alleen *op* die meetpost: zonder plaats is
 > "SEL 74.83" betekenisloos. Dat `prov:atLocation` op de emissie nodig is, is zelf een aanwijzing
 > voor argument 6.3.1: het is een effect op een plaats.
+> **Waarom geen `geo:hasGeometry`?** Een FOI met gekende coördinaten krijgt bij voorkeur zelf een
+> geometrie (R11, *Where a feature of interest is*), zoals de overstorting in
+> `overstort/alternatief/`. De Aerovision-export geeft de meetposten echter geen coördinaten:
+> de plaats is enkel een benoemde resource, en dan is `prov:atLocation` de juiste keuze.
 
 ### 6.6 Tussenvorm: alternatief B — één emissie per vlucht, het event als monster
 
@@ -247,6 +251,7 @@ F045-1 verklaart (`../bespreking.md` §6).
 | `time:` | `http://www.w3.org/2006/time#` | Persistent (W3C) |
 | `qudt:` | `http://qudt.org/schema/qudt/` | Persistent (QUDT) |
 | `unit:` | `http://qudt.org/vocab/unit/` | Persistent (QUDT) |
+| `quantitykind:` | `http://qudt.org/vocab/quantitykind/` | Persistent (QUDT) |
 | `dcterms:` | `http://purl.org/dc/terms/` | Persistent (DCMI) |
 | `wk:` | `https://data.vlaanderen.be/ns/waterkwaliteit#` | Persistent (OSLO), ontwerpversie |
 | `xsd:`, `rdfs:` | W3C | Persistent |

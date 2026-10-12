@@ -57,6 +57,7 @@ PREFIXEN = """@prefix sosa:    <http://www.w3.org/ns/sosa/> .
 @prefix time:    <http://www.w3.org/2006/time#> .
 @prefix qudt:    <http://qudt.org/schema/qudt/> .
 @prefix unit:    <http://qudt.org/vocab/unit/> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
@@ -136,6 +137,7 @@ def statisch(campagnes):
 
 ex:omgeving-EBBR a sosa:FeatureOfInterest ;
     rdfs:label "Omgeving van Brussels Airport (EBBR)"@nl ;
+    rdfs:seeAlso <http://www.wikidata.org/entity/Q28934> ;
     rdfs:comment "Het gebied rond de luchthaven waarin vliegtuiggeluid wordt opgevolgd. De meetposten zijn ruimtelijke monsters van dit gebied."@nl ;
     sosa:hasSample """ + " , ".join(f"ex:meetpost-{m}" for m in meetposten) + """ ;
     sosa:isFeatureOfInterestOf """ + " , ".join(f"ex:sampling-meetpost-{m}" for m in meetposten) + """ .
@@ -222,6 +224,7 @@ ex:procedure-lden a sosa:ObservingProcedure , sosa:Procedure ;
     sosa:hasOutput ex:prop-Lden .
 
 ex:prop-LAeq a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundPressureLevel ;
     rdfs:label "LAeq,T van een geluidsevent"@nl ;
     skos:notation "LAeq,T" ;
     skos:definition "Equivalent continu A-gewogen geluidsdrukniveau over de duur T van het event: het constante niveau dat over T dezelfde totale geluidsenergie heeft als het werkelijke, fluctuerende geluid. T is de duur van het event (ex:prop-duur)."@nl ;
@@ -230,6 +233,7 @@ ex:prop-LAeq a sosa:Property ;
     rdfs:seeAlso <https://www.acoustic-glossary.co.uk/leq.htm> .
 
 ex:prop-LAmax a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundPressureLevel ;
     rdfs:label "LAmax"@nl ;
     skos:notation "LAmax" ;
     skos:definition "Het hoogste A-gewogen, tijdgewogen geluidsdrukniveau binnen de phenomenonTime: binnen het event, of op dagniveau het hoogste van alle events."@nl ;
@@ -238,6 +242,7 @@ ex:prop-LAmax a sosa:Property ;
         <https://www.acoustic-glossary.co.uk/definitions-l.htm> .
 
 ex:prop-SEL a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundExposureLevel ;
     rdfs:label "SEL (LAE)"@nl ;
     skos:notation "LAE" ;
     skos:definition "Sound Exposure Level (geluidsblootstellingsniveau): het constante A-gewogen niveau dat in één seconde dezelfde geluidsenergie bevat als het volledige event, of als alle events samen binnen de phenomenonTime."@nl ;
@@ -245,12 +250,14 @@ ex:prop-SEL a sosa:Property ;
     rdfs:seeAlso <https://www.acoustic-glossary.co.uk/sound-exposure.htm#sound-exposure-level> .
 
 ex:prop-duur a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:Time ;
     rdfs:label "Duur van een geluidsevent"@nl ;
     skos:notation "T" ;
     skos:definition "De tijdsduur van het geluidsevent, van begin tot einde (kolommen Start en End van de export), in seconden. Het is de integratietijd T van LAeq,T."@nl ;
     skos:scopeNote "Begin en einde volgen uit de detectiecriteria van Aerovision (drempelniveau, minimale duur), die niet in de export staan. Een langere duur betekent niet automatisch meer hinder: de energie zit in SEL (LAE = LAeq,T + 10·log10 T)."@nl .
 
 ex:prop-L24 a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundPressureLevel ;
     rdfs:label "L24"@nl ;
     skos:notation "LAeq,24h" ;
     skos:definition "Equivalent continu A-gewogen geluidsniveau van vliegtuiggeluid over het volledige Aerovision-etmaal (07:00–07:00, T = 86 400 s)."@nl ;
@@ -258,6 +265,7 @@ ex:prop-L24 a sosa:Property ;
     rdfs:seeAlso <https://www.acoustic-glossary.co.uk/leq.htm> .
 
 ex:prop-Ld a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundPressureLevel ;
     rdfs:label "Ld (Lday)"@nl ;
     skos:notation "Lday" ;
     skos:definition "Dagindicator: equivalent continu A-gewogen geluidsniveau van vliegtuiggeluid over de dagperiode van 12 uur (07:00–19:00, T = 43 200 s)."@nl ;
@@ -266,6 +274,7 @@ ex:prop-Ld a sosa:Property ;
         <http://data.europa.eu/eli/dir/2002/49/oj> .
 
 ex:prop-Le a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundPressureLevel ;
     rdfs:label "Le (Levening)"@nl ;
     skos:notation "Levening" ;
     skos:definition "Avondindicator: equivalent continu A-gewogen geluidsniveau van vliegtuiggeluid over de avondperiode van 4 uur (19:00–23:00, T = 14 400 s)."@nl ;
@@ -274,6 +283,7 @@ ex:prop-Le a sosa:Property ;
         <http://data.europa.eu/eli/dir/2002/49/oj> .
 
 ex:prop-Ln a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundPressureLevel ;
     rdfs:label "Ln (Lnight)"@nl ;
     skos:notation "Lnight" ;
     skos:definition "Nachtindicator: equivalent continu A-gewogen geluidsniveau van vliegtuiggeluid over de nachtperiode van 8 uur (23:00–07:00, T = 28 800 s)."@nl ;
@@ -282,6 +292,7 @@ ex:prop-Ln a sosa:Property ;
         <http://data.europa.eu/eli/dir/2002/49/oj> .
 
 ex:prop-Lden a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundPressureLevel ;
     rdfs:label "Lden"@nl ;
     skos:notation "Lden" ;
     skos:definition "Dag-avond-nachtniveau: equivalent A-gewogen geluidsniveau over het etmaal, waarbij het geluid in de avond met 5 dB en in de nacht met 10 dB verzwaard wordt. Het is de indicator voor algemene hinder."@nl ;
@@ -290,6 +301,7 @@ ex:prop-Lden a sosa:Property ;
         <http://data.europa.eu/eli/dir/2002/49/oj> .
 
 ex:prop-LAeq-vliegtuiggeluid a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundPressureLevel ;
     rdfs:label "LAeq tijdens vliegtuiggeluid"@nl ;
     skos:notation "LAeq (Aerovision)" ;
     skos:definition "Equivalent A-gewogen geluidsniveau gemiddeld over de cumulatieve duur van alle aan vluchten gekoppelde events, niet over het etmaal: het gemiddelde niveau tijdens de momenten waarop er vliegtuiggeluid is."@nl ;

@@ -3,6 +3,7 @@
 @prefix time:    <http://www.w3.org/2006/time#> .
 @prefix qudt:    <http://qudt.org/schema/qudt/> .
 @prefix unit:    <http://qudt.org/vocab/unit/> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
@@ -26,6 +27,7 @@
 
 ex:omgeving-EBBR a sosa:FeatureOfInterest ;
     rdfs:label "Omgeving van Brussels Airport (EBBR)"@nl ;
+    rdfs:seeAlso <http://www.wikidata.org/entity/Q28934> ;
     sosa:hasSample ex:meetpost-F041 , ex:meetpost-F045 , ex:meetpost-M071 , ex:meetpost-M072 ;
     sosa:isFeatureOfInterestOf ex:sampling-meetpost-F041 , ex:sampling-meetpost-F045 ,
         ex:sampling-meetpost-M071 , ex:sampling-meetpost-M072 .
@@ -144,6 +146,7 @@ ex:procedure-eventmeting a sosa:ObservingProcedure , sosa:Procedure ;
     sosa:hasOutput ex:prop-LAeq , ex:prop-LAmax , ex:prop-SEL , ex:prop-duur .
 
 ex:prop-LAeq a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundPressureLevel ;
     rdfs:label "LAeq,T van een geluidsevent"@nl ;
     skos:notation "LAeq,T" ;
     skos:definition "Equivalent continu A-gewogen geluidsdrukniveau over de duur T van het event: het constante niveau dat over T dezelfde totale geluidsenergie heeft als het werkelijke, fluctuerende geluid. T is de duur van het event (ex:prop-duur)."@nl ;
@@ -152,6 +155,7 @@ ex:prop-LAeq a sosa:Property ;
     rdfs:seeAlso <https://www.acoustic-glossary.co.uk/leq.htm> .
 
 ex:prop-LAmax a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundPressureLevel ;
     rdfs:label "LAmax"@nl ;
     skos:notation "LAmax" ;
     skos:definition "Het hoogste A-gewogen, tijdgewogen geluidsdrukniveau binnen de phenomenonTime: binnen het event, of op dagniveau het hoogste van alle events."@nl ;
@@ -160,6 +164,7 @@ ex:prop-LAmax a sosa:Property ;
         <https://www.acoustic-glossary.co.uk/definitions-l.htm> .
 
 ex:prop-SEL a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:SoundExposureLevel ;
     rdfs:label "SEL (LAE)"@nl ;
     skos:notation "LAE" ;
     skos:definition "Sound Exposure Level (geluidsblootstellingsniveau): het constante A-gewogen niveau dat in één seconde dezelfde geluidsenergie bevat als het volledige event, of als alle events samen binnen de phenomenonTime."@nl ;
@@ -167,6 +172,7 @@ ex:prop-SEL a sosa:Property ;
     rdfs:seeAlso <https://www.acoustic-glossary.co.uk/sound-exposure.htm#sound-exposure-level> .
 
 ex:prop-duur a sosa:Property ;
+    qudt:hasQuantityKind quantitykind:Time ;
     rdfs:label "Duur van een geluidsevent"@nl ;
     skos:notation "T" ;
     skos:definition "De tijdsduur van het geluidsevent, van begin tot einde (kolommen Start en End van de export), in seconden. Het is de integratietijd T van LAeq,T."@nl ;

@@ -274,6 +274,29 @@ afgekapt worden. De `hasInputValue`-lijst bevat voor die campagnes het volledige
 > **Motivatie:** de volledige set maakt de OWL- en SHACL-validatie onwerkbaar traag. Beide
 > bestanden komen uit hetzelfde script, dus de subset is representatief voor de structuur.
 
+### Waarom deze vocabularia? (R17)
+
+Het voorbeeld gebruikt enkel de kern (SOSA, PROV-O, OWL-Time, QUDT, DCTERMS, SKOS, RDFS). De
+domeinbegrippen zijn eigen `ex:`-IRI's. Per begrip is nagegaan of er een externe term bestaat
+(LOV, de geladen ontologieën, EU-codelijsten, Wikidata):
+
+| Begrip | Kandidaten | Oordeel (R17-criteria) | Keuze |
+|---|---|---|---|
+| Geluidsindicatoren (LAeq, LAmax, SEL, L24, Ld, Le, Ln, Lden, duur) | QUDT `quantitykind:SoundPressureLevel`, `SoundExposureLevel`, `Time` (kern, geladen) | een grootheid, geen indicator: Lden of Ln is veel specifieker (7), dus geen vervanging van de eigen properties. Wel een anker: `qudt:hasQuantityKind` heeft geen domein en past op een `sosa:Property` (9) | eigen `ex:prop-*`, met `qudt:hasQuantityKind` naar de QUDT-grootheid |
+| | LOV (`noise`): `rsctx:NoiseLevel`, `sdc:Noise`, `era:passByNoiseLevel`, … | software-, statistiek- en spoorwegcontext (7, 10) | verworpen |
+| | INSPIRE-codelijst `NoiseSourceTypeValue` (Human Health) | leeg, verwijst naar een EIONET-codelijst | niet bruikbaar |
+| | EIONET Data Dictionary | niet gevonden: de SPARQL-endpoint geeft 404 | open (TODO) |
+| Luchtvaartuig, vlucht | NASA ATM-ontologie (`eqp:Aircraft`, `atm:Flight`) | niet dereferenceerbaar als RDF (1): time-out of 404 | verworpen |
+| | `schema:Flight` | enkel als laatste redmiddel (R17); de kern volstaat | verworpen |
+| | `dbpedia-owl:Aircraft`, `tio:Flight`, `holy:Aircraft` | encyclopedisch of projectgebonden (10, 11) | verworpen |
+| | `prov:Entity`, `prov:Activity` (kern) | volstaat: de vlucht genereert het event (`prov:wasGeneratedBy`) | gekozen |
+| Luchthaven | Wikidata `Q28934` (Brussels Airport, ICAO `EBBR` via `P239`) | bestaande IRI van een externe dataset; `ex:omgeving-EBBR` is de *omgeving*, niet de luchthaven, dus geen `owl:sameAs` | `rdfs:seeAlso` op `ex:omgeving-EBBR` |
+
+Alignering: QUDT en Wikidata worden enkel als waarde of verwijzing gebruikt; er komt geen klasse
+of property van buiten de kern bij, dus geen alignering nodig.
+
+<!-- TODO: bestaat er een EIONET-codelijst voor geluidsindicatoren (Lden, Lnight) of geluidsbronnen (aircraft) met dereferenceerbare IRI's? Zo ja: skos:exactMatch van de register-concepten, niet in de data (zie Code lists and registers). -->
+
 ## 7. Tijdsmodellering
 
 | Element | Patroon |
@@ -305,8 +328,10 @@ afgekapt worden. De `hasInputValue`-lijst bevat voor die campagnes het volledige
 | `time:` | `http://www.w3.org/2006/time#` | Persistent (W3C) |
 | `qudt:` | `http://qudt.org/schema/qudt/` | Persistent (QUDT) |
 | `unit:` | `http://qudt.org/vocab/unit/` | Persistent (QUDT) |
+| `quantitykind:` | `http://qudt.org/vocab/quantitykind/` | Persistent (QUDT) |
 | `dcterms:` | `http://purl.org/dc/terms/` | Persistent (DCMI) |
 | `xsd:`, `rdfs:` | W3C | Persistent |
+| (geen prefix) | `http://www.wikidata.org/entity/` | Persistent (Wikidata), enkel als `rdfs:seeAlso` |
 | `ex:` | `https://example.org/geluidsmeetnet/` | Tijdelijk (illustratief) |
 
 IRI-patronen (alle deterministisch, geen blank nodes):
