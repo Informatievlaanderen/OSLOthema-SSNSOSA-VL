@@ -6,7 +6,7 @@ Een discussievoorstel naast het hoofdmodel (`../overstort_herzien.ttl`), geen he
 hoofdmodel is het **meetpunt** (het overstortpunt) het studieobject: een event is een observatie
 van de werking van de overstort op die plaats. Hier is een overstorting een **emissie**:
 `wk:Emissie`, `prov:Entity` en `sosa:FeatureOfInterest`, het resultaat van de werking van de
-overstort (`sosa:Actuation`), op het meetpunt (`prov:atLocation`). Dat is hetzelfde patroon als
+overstort (`sosa:Actuation`), met dezelfde geometrie als het meetpunt (`geo:hasGeometry`). Dat is hetzelfde patroon als
 de lozing in `../../waterkwaliteit/` (beslisdocument A5, A14) en het geluidsevent in
 `../../geluidsmeetnet/alternatief/` (oslo-ld-kit, `patterns.md`: *Emission as feature of
 interest*).
@@ -50,7 +50,7 @@ statussen een observatie op het meetpunt, zoals in het hoofdmodel.
 |---|---|---|
 | Studieobject van een event met overstorting | meetpunt (`sosa:Platform`, `sosa:FeatureOfInterest`) | overstorting (`wk:Emissie`, `prov:Entity`, `sosa:FeatureOfInterest`) |
 | Studieobject van een event zonder overstorting | meetpunt | meetpunt (ongewijzigd) |
-| Meetpunt → event met overstorting | `sosa:hasFeatureOfInterest` | `prov:atLocation` (van de emissie) |
+| Meetpunt → event met overstorting | `sosa:hasFeatureOfInterest` | geen rechtstreekse relatie: de emissie deelt de geometrie van het meetpunt (`geo:hasGeometry`), de actuatie heeft het meetpunt als FOI |
 | Werking van de overstort | geobserveerde property (`kenmerk:Overstort`) | ook een `sosa:Actuation` op het meetpunt met de emissie als resultaat |
 | Status `InWerking` | informatief resultaat | redundant: een emissie bestaat enkel bij een overstorting |
 | Overstortduur, debiet | observaties van het meetpunt | observaties van de emissie |

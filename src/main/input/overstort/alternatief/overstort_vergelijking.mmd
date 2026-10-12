@@ -18,7 +18,7 @@ subgraph ALT["ALTERNATIEF — studieobject = overstorting (emissie)"]
     AE["alt:overstorting-P_000000217952-20240727T140000Z
     wk:Emissie · sosa:FeatureOfInterest"]
     AM["meetpunt:P_000000217952
-    sosa:Platform · prov:atLocation"]
+    sosa:Platform · FOI van de actuatie"]
     AC["alt:collectie-P_000000217952-20240727T140000Z
     sosa:ObservationCollection"]
     AR["overstortstatus:InWerking
@@ -54,7 +54,7 @@ HD -->|sosa:hasFeatureOfInterest| HM
 %% alternatief
 AA -->|sosa:hasFeatureOfInterest| AM
 AA -->|sosa:hasResult| AE
-AE -->|prov:atLocation| AM
+AE -.->|zelfde geo:Geometry| AM
 AC -->|sosa:hasFeatureOfInterest| AE
 AC -->|status| AR
 AC -->|overstortduur| AD

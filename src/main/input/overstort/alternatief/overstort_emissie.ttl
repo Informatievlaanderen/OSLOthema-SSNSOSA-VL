@@ -40,8 +40,8 @@
 ###############################################################################
 
 # Meetpunt van record (b). In dit alternatief niet het FeatureOfInterest van de observaties: dat
-# is de overstorting, die hier plaatsvindt (prov:atLocation). Wel het FeatureOfInterest van de
-# werking van de overstort (de actuatie die de overstorting voortbrengt).
+# is de overstorting, die hier plaatsvindt en daarom dezelfde geometrieën deelt. Wel het
+# FeatureOfInterest van de werking van de overstort (de actuatie die de overstorting voortbrengt).
 meetpunt:P_000000217952 a sosa:Platform , sosa:FeatureOfInterest ;
     rdfs:label "Meetpunt P_000000217952"@nl ;
     dct:identifier "P_000000217952" ;
@@ -105,13 +105,15 @@ alt:procedure-overstorten a sosa:ActuatingProcedure , sosa:Procedure ;
 ###############################################################################
 
 # De overstorting: het overgestorte rioolwater, als entiteit. Tijdloos; de periode staat op de
-# observaties (sosa:phenomenonTime).
+# observaties (sosa:phenomenonTime). De plaats is een geometrie (geo:hasGeometry, R11), gedeeld
+# met het meetpunt: de coördinaten zijn bekend, dus geen omweg via prov:atLocation.
 alt:overstorting-P_000000217952-20240727T140000Z a wk:Emissie , prov:Entity , sosa:FeatureOfInterest ;
     rdfs:label "Overstorting op meetpunt P_000000217952, 27 juli 2024 vanaf 14:00 UTC"@nl ;
     prov:wasGeneratedBy alt:overstortwerking-P_000000217952-20240727T140000Z ;
     sosa:isResultOf alt:overstortwerking-P_000000217952-20240727T140000Z ;
     prov:wasDerivedFrom alt:procedure-overstorten ;
-    prov:atLocation meetpunt:P_000000217952 ;
+    geo:hasGeometry meetpunt:P_000000217952-geometrie-wgs84 ,
+                    meetpunt:P_000000217952-geometrie-lambert72 ;
     sosa:hasProperty alt:prop-overstortduur , alt:prop-debiet ;
     sosa:isFeatureOfInterestOf alt:collectie-P_000000217952-20240727T140000Z .
 

@@ -93,7 +93,7 @@ rioleringsstelsel of de ontvangende waterloop), zoals de meetpunten in `verkeers
 gaat over de werking van dit ene kunstwerk, niet over een eigenschap van een groter gebied waarvan
 het meetpunt een steekproef is. Wie de overstort ziet als lozing in een waterloop, kiest het patroon
 *Emissie als studieobject* (`patterns.md`), zoals de lozingen in `waterkwaliteit/`: dan is een
-overstorting een `prov:Entity` en het meetpunt de plaats (`prov:atLocation`).
+overstorting een `prov:Entity` met de geometrie van het meetpunt (`geo:hasGeometry`).
 
 **Alternatief: de overstorting als emissie.** Die lezing is uitgewerkt in
 [`alternatief/`](alternatief/README.md) (status: voorstel). Daar is een overstorting een

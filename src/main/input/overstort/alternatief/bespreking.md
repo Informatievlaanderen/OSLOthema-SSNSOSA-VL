@@ -28,8 +28,9 @@ De emissie is oranje: in dit patroon is ze een entiteit, het resultaat van de ac
 ## 3. Infrastructuur (blauwe nodes)
 
 - **`meetpunt:P_000000217952`**: `sosa:Platform` dat de meter van record (b) herbergt, en
-  `sosa:FeatureOfInterest` van de *actuatie*, niet van de observaties. Wat hier gebeurt, staat via
-  `prov:atLocation` op de emissie en de actuatie. Er zijn twee geometrieën: WGS84 en Lambert 72.
+  `sosa:FeatureOfInterest` van de *actuatie*, niet van de observaties. Er zijn twee geometrieën:
+  WGS84 en Lambert 72. De emissie verwijst naar dezelfde twee (`geo:hasGeometry`); de actuatie
+  verwijst naar het meetpunt met `prov:atLocation`.
 - **`sensor:2c2491f0e1234a7200b561c65718b9b5`**: de meter van record (b) (`isWaargenomenMet`
   418858). De IRI komt uit de MD5 van het toestelnummer, zoals in het hoofdmodel.
 - **`meetpunt:P_000000350733`** en **`sensor:4c314f…`**: dezelfde als in het hoofdmodel, voor
@@ -71,7 +72,13 @@ Voor de observaties is er geen procedure, net als in het hoofdmodel: de R2-waars
 **Waarom de overstorting als studieobject?**
 Hoofdmodel: het meetpunt is het studieobject, een event observeert de werking van het kunstwerk.
 Alternatief: de overstorting is een `wk:Emissie` en het studieobject van haar observaties. De
-periode staat op `sosa:phenomenonTime`, de plaats op `prov:atLocation`.
+periode staat op `sosa:phenomenonTime`. De plaats is een geometrie op de emissie zelf
+(`geo:hasGeometry`, R11 *Where a feature of interest is*), gedeeld met het meetpunt: de
+coördinaten zijn bekend, dus een omweg via `prov:atLocation` is niet nodig. Dat maakt de emissie
+een `geo:Feature`, ruimtelijk te bevragen zonder via het meetpunt te gaan. `prov:atLocation` zou
+niet fout zijn, maar past beter als de plaats enkel als adres of omschrijving bekend is (zoals de
+meetposten in `geluidsmeetnet/alternatief/`). Op de actuatie, een activiteit en geen feature,
+blijft `prov:atLocation` naar het meetpunt.
 
 *Voor het alternatief:*
 - Het volgt het patroon van de lozing in `waterkwaliteit/` en van het geluidsevent in
