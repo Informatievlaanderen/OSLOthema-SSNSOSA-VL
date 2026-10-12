@@ -53,9 +53,12 @@ maintainer of the project deals with the kit.
    local time zone, unit registry, extra prefixes, validation (see
    [`guide/README.md`](guide/README.md#project-profile)).
 
-5. **Configure validation** with [ld-mcp](https://github.com/milieuinfo/ld-mcp) (`ld-vocab`), built
-   with `mvn package`. In the project's `.mcp.json`, with paths relative to the project and the jar
-   from an environment variable (defaulting to a clone of ld-mcp next to the project):
+5. **Configure validation** with [ld-mcp](https://github.com/milieuinfo/ld-mcp) (`ld-vocab`). Users
+   need Java 21 and the jar, downloaded from
+   [the latest release](https://github.com/milieuinfo/ld-mcp/releases/latest/download/ld-mcp-vocab.jar)
+   into `tools/` in the project (add `tools/` to `.gitignore`); no Maven. In the project's
+   `.mcp.json`, with paths relative to the project and the jar from an environment variable
+   (developers of ld-mcp point `LD_MCP_JAR` at their own build):
 
    ```json
    {
@@ -63,15 +66,22 @@ maintainer of the project deals with the kit.
        "ld-vocab": {
          "command": "java",
          "args": [
-           "-jar", "${LD_MCP_JAR:-../ld-mcp/ld-mcp-vocab/target/ld-mcp-vocab.jar}",
+           "-jar", "${LD_MCP_JAR:-tools/ld-mcp-vocab.jar}",
            "--ontologies", "src/main/resources",
            "--generate-shapes",
-           "--shapes", "oslo-ld-kit/rules/ssn-sosa-rules.ttl"
+           "--shapes", "oslo-ld-kit/rules/ssn-sosa-rules.ttl",
+           "--prefix-registry", "src/main/cc/prefix/prefix.cc.ttl"
          ]
        }
      }
    }
    ```
+
+   `--prefix-registry` is optional: a download of
+   [prefix.cc/popular/all.file.ttl](http://prefix.cc/popular/all.file.ttl), kept outside the
+   ontology directory, so that `validate_file` can tell a known but unloaded vocabulary from a typo.
+   Add `--rules <file>` for a Jena rules file if the project has one (see the
+   [ld-mcp README](https://github.com/milieuinfo/ld-mcp#ld-mcp-vocab)).
 
 ## Keeping it up to date
 
@@ -92,8 +102,8 @@ git add .claude/skills && git commit -m "oslo-ld-kit <version>"
 ```
 
 Review the changes to the guide and the rules (`git show` of the squash commit), and validate the
-project's examples again. Users of the project receive the update with `git pull`; when the rules
-changed, `/mcp` → `ld-vocab` → Reconnect reloads them.
+project's examples again. Users of the project receive the update with `git pull`; `ld-vocab` reloads
+changed rules by itself on the next tool call.
 
 **Without a project:** the repository is also a Claude Code plugin (`oslo-ld`), for using the
 skills elsewhere: `claude plugin marketplace add milieuinfo/oslo-ld-kit` and
