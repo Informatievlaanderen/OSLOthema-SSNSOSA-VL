@@ -39,7 +39,7 @@ jobs:
         with:
           json_schema: source/schemas/configuration.json
           json_extension: json
-          base_dir: target
+          base_dir: target/config
           comment: true
           use_gitignore: false
           json_exclude_regex: 'configuration\.json$'
