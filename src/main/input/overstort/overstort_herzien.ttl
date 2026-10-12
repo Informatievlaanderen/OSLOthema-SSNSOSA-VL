@@ -21,7 +21,8 @@
 #
 # Dit bestand toont de toestand van de resources (zoals een LDES-client ze materialiseert),
 # zonder de versielaag: de versie-IRI's (…/<tijdstip>) met dct:isVersionOf zijn een zaak van de
-# LDES-server (zie README, verbeterpunt 9).
+# LDES-server. Dit bestand volgt oplossing A uit README, verbeterpunt 1: dct:modified op de
+# observatie en de sensor, geen prov:generatedAtTime.
 #
 # De twee records in de bron horen niet bij elkaar: het event komt van een ander toestel
 # (MD5 4c314f…) op een ander meetpunt (P_000000350733) dan de beschreven sensor (MD5 738d3a…,

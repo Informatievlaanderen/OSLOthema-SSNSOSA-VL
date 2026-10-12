@@ -72,13 +72,55 @@ Valideren met `mcp__ld-vocab__validate_file` op `src/main/input/overstort/overst
 ## Verbeterpunten
 
 Diagnose van `source/overstort.trig` met `validate_file`: 16 `[VOCAB ERROR]`, 2 `[MODEL INVALID]`,
-3 SHACL-schendingen en 1 waarschuwing. Elk punt: origineel → herzien → motivatie.
+3 SHACL-schendingen en 1 waarschuwing. Elk punt: origineel → herzien → motivatie. Punt 1 is de
+belangrijkste fout.
 
-1. **Sensor als literal.** `sosa:madeBySensor "4c314f…"` (MD5 als tekst) → `sosa:madeBySensor
+1. **Record en observatie zijn één resource.** De LDES-member
+   `event:4004f4ea-…/2025-08-26T08:49:13.965604961` is het *dataobject*: de versie van het record
+   die de LDIO-pipeline op 26 augustus 2025 aanmaakte. Toch is hij getypeerd als
+   `sosa:Observation`, de *meting* die op 18 februari 2024 van 20:45 tot 20:46 liep. Daardoor
+   komen de eigenschappen van het record op de observatie terecht: `prov:generatedAtTime`,
+   `dct:isVersionOf`, `dct:modified` en `aquafin:is_deleted`. Een `sosa:Observation` is een
+   `prov:Activity` (`sosa:Execution ⊂ prov:Activity`), terwijl het domein van
+   `prov:generatedAtTime` `prov:Entity` is. PROV-O verklaart die twee klassen disjunct, dus geeft
+   de bron een `[MODEL INVALID]`.
+
+   Hetzelfde geldt voor de sensorstroom: `valid_from`, `valid_to`, `is_deleted`, `modified_at` en
+   `prov:generatedAtTime` beschrijven de versie van het record, niet het toestel. Voor de sensor
+   geeft dat geen inconsistentie: een `sosa:Sensor` is een `prov:Entity` (`sosa:System ⊂
+   prov:Entity`). De verwarring is er wel.
+
+   Twee oplossingen:
+
+   - **A. Pragmatisch: de observatie blijft de LDES-member.** Op de observatie staat geen
+     `prov:generatedAtTime` meer. Als `ldes:timestampPath` dient `dct:modified`, dat geen domein
+     heeft, en `dct:isVersionOf` blijft voor de versieketen.
+     - *Voor:* het werkt met de versiematerialisatie van LDES (een client krijgt observaties), de
+       mapping verandert weinig, en er is geen inconsistentie meer.
+     - *Tegen:* record en observatie blijven één resource. `dct:modified` en `dct:isVersionOf` op
+       een activiteit zijn strikt genomen even fout, alleen merkt een redeneerder het niet.
+   - **B. Strikt: een apart record als LDES-member.** De member is een `prov:Entity` (het record),
+     met `prov:generatedAtTime`, `dct:modified` en `dct:isVersionOf` naar de basis-IRI van het
+     record. Het verwijst naar de observatie, bv. met `foaf:primaryTopic` (zoals een
+     `dcat:CatalogRecord` naar wat het beschrijft). Niet met `prov:wasDerivedFrom`: het bereik
+     daarvan is `prov:Entity`, en dat brengt dezelfde botsing terug. De observatie draagt dan enkel eigenschappen van de meting
+     (`sosa:phenomenonTime`, `sosa:hasResult`, `sosa:madeBySensor`, …).
+     - *Voor:* elke eigenschap staat op het juiste object, en de provenance van het record (wanneer
+       en door welke pipeline het gemaakt is) is expliciet.
+     - *Tegen:* versiematerialisatie levert records op, geen observaties, en een client moet één
+       stap verder navigeren. Het is ook een extra resource per event, en de observatie zelf krijgt
+       geen versies: een herberekend event wordt een nieuw record over dezelfde of een nieuwe
+       observatie.
+
+   `overstort_herzien.ttl` volgt voorlopig A: de toestand na materialisatie, met `dct:modified` op
+   de observatie en de sensor, zonder versielaag.
+   <!-- TODO: keuze tussen A en B voorleggen aan Aquafin en de werkgroep. Bij B: welke relatie van record naar observatie (foaf:primaryTopic, dct:subject, …)? -->
+
+2. **Sensor als literal.** `sosa:madeBySensor "4c314f…"` (MD5 als tekst) → `sosa:madeBySensor
    sensor:4c314f066bea53f212495cb8c1eaca0b` → `sosa:madeBySensor` is een objectrelatie naar een
    `sosa:Sensor` (SHACL-schending). Met een literal is het event niet aan de sensorstroom te koppelen.
 
-2. **Willekeurige IRI's.** Sensor- en event-IRI's uit `STRUUID()` → sensor-IRI uit de MD5 van het
+3. **Willekeurige IRI's.** Sensor- en event-IRI's uit `STRUUID()` → sensor-IRI uit de MD5 van het
    toestelnummer, `https://aquafin.be/id/sensor/{MD5(id)}` → een IRI die bij elke run verandert,
    kan niet als doel van een verwijzing dienen en breekt de versieketen (`dct:isVersionOf` wijst
    telkens naar een nieuwe basis-IRI) (R10). De eventstroom levert al dezelfde MD5
@@ -86,32 +128,34 @@ Diagnose van `source/overstort.trig` met `validate_file`: 16 `[VOCAB ERROR]`, 2 
    deterministische sleutel nodig, bv. MD5(toestel + meetpunt + start); de bron geeft die niet,
    daarom houdt de herziening de bestaande UUID (zie bespreking, §8).
 
-3. **Periode van het event.** `aquafin:event_start_time` / `aquafin:event_end_time` →
+4. **Periode van het event.** `aquafin:event_start_time` / `aquafin:event_end_time` →
    `sosa:phenomenonTime → time:Interval → time:hasBeginning / time:hasEnd → time:Instant →
    time:inXSDDateTimeStamp` → R12: een event met een duur is een interval; de eigen properties
    bestaan in geen geladen vocabularium (`[VOCAB ERROR]`) en zijn voor geen enkele SOSA-client
    vindbaar. De vereenvoudiging voor eindgebruikers (issue #1) is besproken in `bespreking.md` §6
    en §7.
 
-4. **Feature of interest op de sensor.** `sensor sosa:hasFeatureOfInterest meetpunt` →
+5. **Feature of interest op de sensor.** `sensor sosa:hasFeatureOfInterest meetpunt` →
    `meetpunt sosa:hosts sensor` plus een `sosa:Deployment` met `sosa:deployedSystem`,
    `sosa:deployedOnPlatform` en `sosa:hasFeatureOfInterest meetpunt` → in SOSA 2023 gaat
-   `sosa:hasFeatureOfInterest` van een Execution of een Deployment naar haar doelwit; als
-   deelproperty van `prov:used` maakt ze de sensor een `prov:Activity`, wat met
-   `prov:generatedAtTime` (→ `prov:Entity`) het `[MODEL INVALID]` gaf.
+   `sosa:hasFeatureOfInterest` van een Execution of een Deployment naar haar doelwit. Ze is een
+   deelproperty van `prov:used`, waarvan het domein `prov:Activity` is, dus maakt ze de sensor een
+   activiteit. Een `sosa:Sensor` is als `sosa:System` ook een `prov:Entity`: dat is het tweede
+   `[MODEL INVALID]`. Het staat los van `prov:generatedAtTime` (punt 1), en een sensor met enkel
+   `sosa:hasFeatureOfInterest` geeft dezelfde fout.
 
-5. **Ongetypeerde meetpunten en property.** `meetpunt:…` en `kenmerk:Overstort` zonder type →
+6. **Ongetypeerde meetpunten en property.** `meetpunt:…` en `kenmerk:Overstort` zonder type →
    `sosa:Platform, sosa:FeatureOfInterest` respectievelijk `sosa:Property` → SHACL verwacht die
    klassen bij `hasFeatureOfInterest` en `observedProperty`; SHACL valideert de niet-afgeleide graaf.
 
-6. **Coördinaten.** `geo:lat` / `geo:long` (W3C WGS84-vocabularium, niet geladen) en
+7. **Coördinaten.** `geo:lat` / `geo:long` (W3C WGS84-vocabularium, niet geladen) en
    `aquafin:lat_Lambert72` / `long_Lambert72` op de sensor → twee `geo:Geometry` met `geo:asWKT` op
    het meetpunt: `POINT(lon lat)` in WGS84 en een WKT met de CRS-IRI van Lambert 72 (EPSG:31370) →
    R11 en het prefixgebruik uit `linked-data.md`: `geo:` is GeoSPARQL. In Lambert 72 is
    `long_Lambert72` de x en `lat_Lambert72` de y. De documentatie verwisselt ook *lengte* en
    *breedte* bij de WGS84-velden. De locatie hoort bij het meetpunt, het toestel staat daar.
 
-7. **Dubbele en ongeldige toesteleigenschappen.**
+8. **Dubbele en ongeldige toesteleigenschappen.**
    - `dct:identifier` en `environment:deviceId` (zelfde MD5) → enkel `dct:identifier`;
    - `dct:description` en `environment:deviceName` (zelfde naam) → `rdfs:label`;
    - `dct:type "Overstortmeter"` → `rdfs:comment`: het bereik van `dct:type` is `rdfs:Class`, geen
@@ -123,17 +167,11 @@ Diagnose van `source/overstort.trig` met `validate_file`: 16 `[VOCAB ERROR]`, 2 
    - de Smart Data Models-namespaces (`https://smartdatamodels.org/…`) zijn geen gepubliceerde
      RDF-vocabularia (`[VOCAB ERROR]`).
 
-8. **Niet overgenomen** (geen bestaande term of betekenis onbekend; vragen in `bespreking.md`):
+9. **Niet overgenomen** (geen bestaande term of betekenis onbekend; vragen in `bespreking.md`):
    `sdm:owner "AQUAFIN"`, `schema:seller "ELSCOLAB"`, `schema:serialNumber` (MD5 van het
    serienummer; stond niet in de LDES-output), `aquafin:quality_label`, `aquafin:valid_from`,
-   `aquafin:valid_to`, `aquafin:is_deleted`.
-
-9. **Versionering op de observatie.** `prov:generatedAtTime` op de versie van een
-   `sosa:Observation` → enkel `dct:modified` (de wijzigingsdatum uit de bron) → `sosa:Observation`
-   is een `prov:Activity`, `prov:generatedAtTime` maakt er een `prov:Entity` van; die klassen zijn
-   disjunct (`[MODEL INVALID]`). Gebruik op de LDES-stroom `dct:modified` als `ldes:timestampPath`.
-   `valid_from`/`valid_to` en `is_deleted` zijn eigenschappen van een *versie*, niet van het toestel
-   of het event: de LDES-versieketen drukt ze al uit.
+   `aquafin:valid_to`, `aquafin:is_deleted` (de laatste drie zijn eigenschappen van het record, zie
+   punt 1).
 
 10. **Fouten in de mapping zelf** (`source/overstort-mapping.rq`): de prefix `purl:` is niet
     gedeclareerd (`purl:modified`); de JSON-LD-context gebruikt `https://qudt.org/…` in plaats van
