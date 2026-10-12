@@ -5,10 +5,9 @@ allowed-tools: Skill, mcp__ld-vocab__lookup_term, mcp__ld-vocab__search_terms, m
 
 # Nieuw SSN/SOSA Datavoorbeeld aanmaken
 
-Volg de skill **`oslo-ld:new-example`** (plugin `oslo-ld`, kit in de submodule `oslo-ld-kit/`). Is de plugin
-niet geïnstalleerd, lees en volg dan `oslo-ld-kit/skills/new-example/SKILL.md`. Kiest de
-gebruiker bij vraag 4 een herziening of een alternatief, volg dan `oslo-ld:revise-mapping`
-respectievelijk `oslo-ld:alternative-mapping` (`oslo-ld-kit/skills/…/SKILL.md`).
+Volg de skill **`new-example`** (`.claude/skills/new-example/SKILL.md`, uit de kit in
+`oslo-ld-kit/`). Kiest de gebruiker bij vraag 4 een herziening of een alternatief, volg dan
+`revise-mapping` respectievelijk `alternative-mapping`.
 
 Gebruik het **projectprofiel** uit `CLAUDE.md` §2 en de bestandsset uit §4:
 

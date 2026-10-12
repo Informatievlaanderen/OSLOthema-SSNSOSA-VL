@@ -9,11 +9,12 @@ datavoorbeelden per domein. De output dient als referentie voor toepassingsprofi
 
 **Modelleerregels, patronen en werkwijzen** staan in de kit
 [`milieuinfo/oslo-ld-kit`](https://github.com/milieuinfo/oslo-ld-kit) (Engelstalig), als
-git-submodule in `oslo-ld-kit/`:
-de gids (`guide/`, regels R1–R15, onderaan geïmporteerd) en de skills van de plugin `oslo-ld`
-(`oslo-ld:new-example`, `revise-mapping`, `alternative-mapping`, `map-source-data`,
+git-subtree in `oslo-ld-kit/`:
+de gids (`guide/`, regels R1–R15, onderaan geïmporteerd) en de skills, gekopieerd naar
+`.claude/skills/` (`new-example`, `revise-mapping`, `alternative-mapping`, `map-source-data`,
 `decision-document`, `design-ontology`, `align-ontologies`). Dit bestand bevat enkel wat eigen is
-aan dit project. Een nieuwe algemene regel of les hoort in de kit, niet hier.
+aan dit project. Een nieuwe algemene regel of les hoort in de kit, niet hier. Wijzig nooit
+`oslo-ld-kit/` of de gekopieerde skills in dit project, maar de repo van de kit (§6).
 
 ---
 
@@ -47,10 +48,10 @@ aan dit project. Een nieuwe algemene regel of les hoort in de kit, niet hier.
 | `src/main/resources/be/vlaanderen/ssnsosa/data/id/rule/domain-range-subproperty.rules` | Jena-inferentieregels |
 | `src/main/scala/be/vlaanderen/ssnsosa/` | Scala-evaluatiepipeline |
 | `src/main/output/` | Gegenereerde output (Turtle na inferentie, JSON-LD) |
-| `oslo-ld-kit/` | Git-submodule [`milieuinfo/oslo-ld-kit`](https://github.com/milieuinfo/oslo-ld-kit): gids, skills, SHACL-regels |
+| `oslo-ld-kit/` | Git-subtree van [`milieuinfo/oslo-ld-kit`](https://github.com/milieuinfo/oslo-ld-kit): gids, skills, SHACL-regels — niet hier wijzigen |
+| `.claude/skills/` | Skills uit de kit, gekopieerd door `oslo-ld-kit/sync.py` (versie in `.oslo-ld-kit.json`) — niet hier wijzigen |
 | `.mcp.json` | MCP-server `ld-vocab` ([`milieuinfo/ld-mcp`](https://github.com/milieuinfo/ld-mcp)) met de regels uit de kit |
-| `.claude/settings.json` | Marketplace `oslo-ld-kit` (GitHub) en plugin `oslo-ld` voor iedereen die het project opent |
-| `.claude/commands/nieuw-voorbeeld.md` | `/nieuw-voorbeeld`: start de skill `oslo-ld:new-example` met dit profiel |
+| `.claude/commands/nieuw-voorbeeld.md` | `/nieuw-voorbeeld`: start de skill `new-example` met dit profiel |
 | `kennisinventaris.md` | Inventaris van de kennis in dit project en waar ze naartoe ging |
 
 Bestaande datavoorbeelden:
@@ -137,17 +138,29 @@ een bewuste keuze: dat doet `validate_file`.
 ## §6 — Opzet voor een nieuwe gebruiker
 
 ```bash
-git clone --recurse-submodules <url van dit project>      # of nadien: git submodule update --init
+git clone <url van dit project>                            # de kit en de skills zitten erin
 git clone https://github.com/milieuinfo/ld-mcp.git         # naast dit project, zelfde bovenliggende map
 (cd ld-mcp && mvn package)                                  # → ld-mcp-vocab/target/ld-mcp-vocab.jar
 ```
 
 - `.mcp.json` vindt de jar in `../ld-mcp/` naast het project; staat hij elders, zet dan
   `LD_MCP_JAR` op het volledige pad van `ld-mcp-vocab.jar`.
-- Bij het openen van het project vraagt Claude Code om de marketplace `oslo-ld-kit` en de plugin
-  `oslo-ld` te installeren (`.claude/settings.json`), en om de imports hieronder te laden.
-- De kit bijwerken: `git submodule update --remote oslo-ld-kit`, nakijken, en de nieuwe versie
-  committen. Zo legt het project vast welke versie van de gids het volgt.
+- Bij het openen van het project vraagt Claude Code om de imports hieronder te laden.
+- Bijwerken: `git pull`. Zijn de regels van de kit gewijzigd, dan `/mcp` → `ld-vocab` → Reconnect.
+- Installeer de plugin `oslo-ld` niet in dit project: de skills staan er al, en zouden dan twee
+  keer bestaan, mogelijk in verschillende versies.
+
+**De kit bijwerken** (enkel wie het project onderhoudt; werkboom zonder openstaande wijzigingen):
+
+```bash
+git subtree pull --prefix oslo-ld-kit https://github.com/milieuinfo/oslo-ld-kit.git main --squash
+python oslo-ld-kit/sync.py
+git add .claude/skills && git commit -m "oslo-ld-kit <versie>"
+```
+
+Kijk de wijzigingen aan gids en regels na en valideer de voorbeelden opnieuw. Een wijziging aan de
+kit zelf gebeurt in de repo van de kit (README van de kit, *Keeping it up to date*), nooit in
+`oslo-ld-kit/` of `.claude/skills/` hier: die worden bij de volgende update overschreven.
 
 ---
 

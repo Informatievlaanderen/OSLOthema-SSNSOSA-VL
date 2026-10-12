@@ -10,7 +10,7 @@ Bronnen: `CLAUDE.md`, `.claude/commands/nieuw-voorbeeld.md`, de waterkwaliteit-d
 
 Stand: 2026-10-11.
 
-**Resultaat (2026-10-11):** de kennis staat in de kit `~/git/oslo-ld-kit` (plugin `oslo-ld`,
+**Resultaat (2026-10-11):** de kennis staat in de kit [`milieuinfo/oslo-ld-kit`](https://github.com/milieuinfo/oslo-ld-kit) (in dit project als subtree `oslo-ld-kit/`, skills in `.claude/skills/`;
 Brits Engels): de gids (`guide/`: linked data met R10/R15, SSN/SOSA met R1–R9 en R11–R14,
 patronen, discussiedocument, oefening, diagrammen), zeven skills (W1–W6 en W10; W7–W9 zijn
 onderdelen van de gids) en het SHACL-regelbestand (`rules/ssn-sosa-rules.ttl`). `CLAUDE.md` van dit
