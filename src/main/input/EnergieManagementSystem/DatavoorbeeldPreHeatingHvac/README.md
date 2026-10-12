@@ -158,6 +158,10 @@ exec:hvac_actuatie_001
 
 **Motivatie**: Duidelijk maken welke componenten welke stappen uitvoeren.
 
+Het gebouw heet `platform:belpaire`, niet `gebouw:belpaire`: `gebouw:` is de namespace van het
+OSLO-vocabularium Gebouw, en daarin maakt een datavoorbeeld geen eigen resources aan (R10). Het
+blijft wel getypeerd als `gebouw:Gebouw`.
+
 ## Voordelen van de Herschreven Versie
 
 1. **Herbruikbaarheid**: Abstracte procedure kan hergebruikt worden in verschillende gebouwen

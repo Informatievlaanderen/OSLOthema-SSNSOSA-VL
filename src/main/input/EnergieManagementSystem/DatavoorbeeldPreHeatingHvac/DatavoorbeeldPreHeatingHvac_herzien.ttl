@@ -115,7 +115,7 @@ var:activeringsresultaat
 
 # Het gebouw en HVAC systeem
 # Platform (gebouw automatiseringssysteem)
-gebouw:belpaire
+platform:belpaire
   a sosa:Platform, gebouw:Gebouw ;
   rdfs:label "Belpaire Gebouw Automatiseringssysteem"@nl;
   sosa:hosts sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, actuator:hvac_controller, device:warmtepomp_belpaire ;
@@ -135,7 +135,7 @@ model:preheating_ml_model
 device:warmtepomp_belpaire
   a sosa:System, sosa:FeatureOfInterest ;
   rdfs:label "Warmtepomp Belpaire"@nl ;
-  sosa:isHostedBy gebouw:belpaire ;
+  sosa:isHostedBy platform:belpaire ;
   sosa:isFeatureOfInterestOf exec:tijdstip_voorspelling_001, exec:buitentemperatuur_meting_001,
                              exec:bezettingsvoorspelling_001, exec:hvac_actuatie_001 ;
   dct:type energiebrontype:warmtepomp_elektriciteit, toesteltype:HVAC_verwarming;
@@ -167,7 +167,7 @@ deploy:hvac_preheating_2025
   a sosa:Deployment;
   rdfs:label "HVAC pre-heating implementatie 2025"@nl;
   sosa:implements plan:hvac_preheating;
-  sosa:deployedOnPlatform gebouw:belpaire;
+  sosa:deployedOnPlatform platform:belpaire;
   sosa:deployedAsset sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, actuator:hvac_controller, device:warmtepomp_belpaire;
   sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
 
