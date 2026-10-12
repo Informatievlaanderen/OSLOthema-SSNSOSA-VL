@@ -160,7 +160,7 @@ actuator:hvac_controller
   a sosa:Actuator, sosa:System;
   rdfs:label "HVAC controller"@nl;
   sosa:implements step:activeer_hvac;
-  sosa:actsOnProperty observeerbaar_kenmerk:toestelstatus .
+  sosa:actsOn observeerbaar_kenmerk:toestelstatus .   # actuator → property (R16); sosa:actsOnProperty hoort op de actuatie
 
 # Deployment
 deploy:hvac_preheating_2025
