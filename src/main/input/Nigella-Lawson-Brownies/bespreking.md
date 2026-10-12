@@ -175,8 +175,8 @@ Enkel de kern en p-plan: SOSA, PROV-O, OWL-Time, QUDT, DCTERMS, SKOS, RDFS. p-pl
 niveau 1 van R17, maar is een uitbreiding van PROV-O die al geladen is en die dit voorbeeld juist
 wil demonstreren. De uitlijning met PROV-O zit in p-plan zelf (`p-plan:Plan ⊂ prov:Plan`,
 `p-plan:Entity ⊂ prov:Entity`), die met SOSA in de projectmodule `pplan-sosa.ttl` (zie hierboven).
-Die module staat nog niet in het register van uitlijningen van de kit
-(`registers/alignments.ttl`). De codelijsten (ingrediënten, producten, kleuren) zijn eigen
+Die module staat in het register van uitlijningen van de kit (`registers/alignments.ttl`, sinds
+0.3.2). De codelijsten (ingrediënten, producten, kleuren) zijn eigen
 SKOS-concepten onder `https://example.org/concept/`.
 
 ### Open punten
