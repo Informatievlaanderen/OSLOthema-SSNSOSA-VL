@@ -21,13 +21,16 @@ The *used in* column names data examples in OSLOthema-SSNSOSA-VL (`src/main/inpu
 ```turtle
 ex:discharge-2400006 a prov:Entity , sosa:FeatureOfInterest ;
     prov:wasGeneratedBy ex:company-activity ;      # or a flight, a production run, …
-    prov:atLocation ex:sampling-well-2400006 .
+    geo:hasGeometry ex:geom-sampling-well-2400006 . # or prov:atLocation, see below
 ex:observation-… sosa:hasFeatureOfInterest ex:discharge-2400006 .
 ```
 
 The emission (a discharge, a noise event) is a `prov:Entity` and the feature of interest; the
-activity that caused it is a `prov:Activity` (`prov:wasGeneratedBy`); where it was measured is a
-location (`prov:atLocation`), not the feature of interest. The emission is timeless: the period
+activity that caused it is a `prov:Activity` (`prov:wasGeneratedBy`); where it was measured is not
+the feature of interest. Give the emission a position with `geo:hasGeometry` when coordinates are
+known (it may share the measuring point's `geo:Geometry`); `prov:atLocation` to the measuring point
+is not wrong, and is the choice when the place is only known by an address, a description or a
+resource without coordinates (R11, *Where a feature of interest is*). The emission is timeless: the period
 lies on the observation's `sosa:phenomenonTime`, and the matrix (waste water, surface water) is a
 property of the feature of interest.
 
