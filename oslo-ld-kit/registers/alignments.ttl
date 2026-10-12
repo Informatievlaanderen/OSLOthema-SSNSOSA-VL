@@ -1,0 +1,102 @@
+# Register of known alignments between vocabularies (guide/linked-data.md, R17, criterion 8).
+#
+# An alignment may live in neither of the two vocabularies it connects, e.g. the SOSA-SAREF
+# alignment is a separate module of SSN/SOSA 2023, not part of SAREF, and LOV does not record it.
+# Add every alignment a project finds, so that the next project does not have to discover it again.
+#
+# One entry per alignment module: the module is an owl:Ontology; dcterms:references lists the
+# namespaces it connects (as IRIs, matched as prefixes by tools such as ld-mcp vocabulary_profile);
+# dcterms:source is the RDF file, rdfs:seeAlso the documentation, rdfs:comment the status.
+# Only DCTERMS, OWL and RDFS are used: they dereference as RDF (R17, criterion 1); VoID and VOAF
+# currently do not.
+#
+# Not listed, because there is no RDF module: the alignment with the OGC SensorThings API
+# (https://www.w3.org/TR/vocab-ssn-2023/#STA-alignment), which is a mapping table only.
+#
+# This file describes the modules; it is not an ontology to load. Load a module itself (its
+# dcterms:source) when a mapping relies on it.
+
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+<http://www.w3.org/ns/sosa/prov/> a owl:Ontology ;
+    dcterms:title "SOSA alignment with PROV"@en ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/prov> ;
+    dcterms:references
+        <http://www.w3.org/ns/sosa/> ,
+        <http://www.w3.org/ns/prov#> ;
+    dcterms:source <https://github.com/w3c/sdw-sosa-ssn/blob/gh-pages/ssn/rdf/ontology/alignments/sosa-prov.ttl> ;
+    rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn-2023/#PROV-alignment> ;
+    rdfs:comment "Part of SSN/SOSA 2023 (W3C Working Draft, 2026-10-07). Most axioms are also in the SOSA 2023 core; new here: sosa:Deployment rdfs:subClassOf prov:Activity."@en .
+
+<http://www.w3.org/ns/sosa/saref> a owl:Ontology ;
+    dcterms:title "SOSA alignment with SAREF"@en ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/saref> ;
+    dcterms:references
+        <http://www.w3.org/ns/sosa/> ,
+        <https://saref.etsi.org/core/> ,
+        <https://saref.etsi.org/saref4syst/> ;
+    dcterms:source <https://github.com/w3c/sdw-sosa-ssn/blob/gh-pages/ssn/rdf/ontology/alignments/sosa-saref.ttl> ;
+    rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn-2023/#SAREF-alignment> ;
+    rdfs:comment "Part of SSN/SOSA 2023 (W3C Working Draft, 2026-10-07). Aligns SOSA with SAREF core v4.1.1 and SAREF4SYST v1.1.2, e.g. sosa:Asset rdfs:subClassOf saref:FeatureOfInterest, saref:Device rdfs:subClassOf sosa:System."@en .
+
+<http://www.w3.org/ns/sosa/oboe> a owl:Ontology ;
+    dcterms:title "SOSA alignment with OBOE"@en ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/oboe> ;
+    dcterms:references
+        <http://www.w3.org/ns/sosa/> ,
+        <http://ecoinformatics.org/oboe/oboe.1.0/oboe-core.owl#> ;
+    dcterms:source <https://github.com/w3c/sdw-sosa-ssn/blob/gh-pages/ssn/rdf/ontology/alignments/sosa-oboe.ttl> ;
+    rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn-2023/#OBOE-alignment> ;
+    rdfs:comment "Part of SSN/SOSA 2023 (W3C Working Draft, 2026-10-07)."@en .
+
+<http://www.w3.org/ns/sosa/dul> a owl:Ontology ;
+    dcterms:title "SOSA alignment with DOLCE+DnS Ultralite"@en ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/dul> ;
+    dcterms:references
+        <http://www.w3.org/ns/sosa/> ,
+        <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> ;
+    dcterms:source <https://github.com/w3c/sdw-sosa-ssn/blob/gh-pages/ssn/rdf/ontology/alignments/sosa-dul.ttl> ;
+    rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn-2023/#DUL-alignment> ;
+    rdfs:comment "Part of SSN/SOSA 2023 (W3C Working Draft, 2026-10-07)."@en .
+
+<http://www.w3.org/ns/sosa/dolce> a owl:Ontology ;
+    dcterms:title "SOSA alignment with DOLCE"@en ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/dolce> ;
+    dcterms:references
+        <http://www.w3.org/ns/sosa/> ,
+        <https://w3id.org/DOLCE/OWL/DOLCEbasic#> ;
+    dcterms:source <https://github.com/w3c/sdw-sosa-ssn/blob/gh-pages/ssn/rdf/ontology/alignments/sosa-dolce.ttl> ;
+    rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn-2023/#DOLCE-alignment> ;
+    rdfs:comment "Part of SSN/SOSA 2023 (W3C Working Draft, 2026-10-07)."@en .
+
+<http://www.w3.org/ns/sosa/bfo> a owl:Ontology ;
+    dcterms:title "SOSA alignment with BFO and the Common Core Ontologies"@en ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/bfo> ;
+    dcterms:references
+        <http://www.w3.org/ns/sosa/> ,
+        <http://purl.obolibrary.org/obo/> ,
+        <https://www.commoncoreontologies.org/> ;
+    dcterms:source <https://github.com/w3c/sdw-sosa-ssn/blob/gh-pages/ssn/rdf/ontology/alignments/sosa-bfo.ttl> ;
+    rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn-2023/#BFO-alignment> ;
+    rdfs:comment "Part of SSN/SOSA 2023 (W3C Working Draft, 2026-10-07)."@en .
+
+<http://www.w3.org/ns/sosa/ido> a owl:Ontology ;
+    dcterms:title "SOSA alignment with ISO 23726-3 Industrial Data Ontology (IDO)"@en ;
+    owl:versionIRI <http://www.w3.org/ns/sosa/2023/ido> ;
+    dcterms:references
+        <http://www.w3.org/ns/sosa/> ,
+        <http://rds.posccaesar.org/ontology/lis14/rdl/> ,
+        <http://rds.posccaesar.org/ontology/lis14/ont/core/> ;
+    dcterms:source <https://github.com/w3c/sdw-sosa-ssn/blob/gh-pages/ssn/rdf/ontology/alignments/sosa-ido.ttl> ;
+    rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn-2023/#IDO-alignment> ;
+    rdfs:comment "Part of SSN/SOSA 2023 (W3C Working Draft, 2026-10-07)."@en .
+
+<https://example.org/sosa-sdo-mapping> a owl:Ontology ;
+    dcterms:title "SOSA alignment with schema.org (preliminary)"@en ;
+    dcterms:references
+        <http://www.w3.org/ns/sosa/> ,
+        <https://schema.org/> ;
+    dcterms:source <https://github.com/w3c/sdw-sosa-ssn/blob/gh-pages/ssn/rdf/ontology/alignments/sosa-sdo.ttl> ;
+    rdfs:comment "Preliminary module of SSN/SOSA 2023, still with an example.org ontology IRI."@en .

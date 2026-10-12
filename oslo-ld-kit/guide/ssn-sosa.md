@@ -1,9 +1,9 @@
 # SSN/SOSA 2023 modelling rules
 
 Rules for observation, actuation and sampling data with W3C SSN/SOSA 2023, PROV-O, P-PLAN, QUDT
-and OWL-Time. General linked data rules (IRIs, R10; SKOS, R15; validation) are in
+and OWL-Time. General linked data rules (IRIs, R10; SKOS, R15; choosing vocabularies, R17; validation) are in
 [`linked-data.md`](linked-data.md). Rules that can be checked automatically are also shapes in
-`../rules/ssn-sosa-rules.ttl` (R2, R3, R5, R7, R9, R11, R12, R13, R15).
+`../rules/ssn-sosa-rules.ttl` (R2, R3, R5, R7, R9, R11, R12, R13, R15, R16).
 
 ## Prefixes
 
@@ -211,6 +211,41 @@ use the old form, which gives an unknown-term error:
 Remove `@prefix ssn:` when no other `ssn:` terms remain. When in doubt, `lookup_term` suggests the
 `sosa:` variant of an old term.
 
+## R16 — Keep activities and entities apart
+
+SSN/SOSA 2023 builds on PROV-O: a `sosa:Execution` (observation, actuation, sampling) is a
+`prov:Activity`; a `sosa:System` (sensor, actuator, sampler), a `sosa:Platform` and a
+`sosa:FeatureOfInterest` are `prov:Entity`. PROV-O declares the two classes disjoint, so a property
+whose domain belongs to the other side makes the resource inconsistent (`[MODEL INVALID]`). Two
+mistakes recur:
+
+**1. Record metadata on an observation.** A published data object (an LDES member, a version, a
+database row) is not the observation it describes. The observation is the act of observing during
+its `sosa:phenomenonTime`; the record was generated later by a pipeline. Properties of the record
+(`prov:generatedAtTime`, `prov:invalidatedAtTime`, `prov:wasGeneratedBy`, `prov:wasAttributedTo`,
+`prov:wasDerivedFrom`, `prov:wasRevisionOf`; and in spirit also `dct:isVersionOf`, validity periods
+and deletion flags) do not belong on a `sosa:Observation`. Two solutions:
+
+- **A. The observation is the published resource.** Keep only properties without a PROV domain,
+  e.g. `dct:modified` as `ldes:timestampPath` and `dct:isVersionOf` for the version chain; no
+  `prov:generatedAtTime`. Consistent and compatible with LDES version materialisation (a client
+  receives observations), but record and observation still coincide.
+- **B. A separate record.** The published resource is a `prov:Entity` that carries the record
+  properties and points to the observation, e.g. with `foaf:primaryTopic`. Not with
+  `prov:wasDerivedFrom`, whose range is `prov:Entity`. Every property sits on the right object, but
+  version materialisation yields records, not observations.
+
+Choose consciously and state the choice in the discussion (§6).
+
+**2. Execution properties on a system or platform.** `sosa:hasFeatureOfInterest` is a
+subproperty of `prov:used` (domain `prov:Activity`); `sosa:usedProcedure`, `sosa:hasResult` and
+`prov:startedAtTime`/`prov:endedAtTime` also describe an activity. On a sensor or a platform they
+make an entity an activity. The same goes, without an OWL inconsistency but against their
+definition, for `sosa:observedProperty` and `sosa:actsOnProperty` on a sensor or actuator. Instead:
+`sosa:observes` or `sosa:forProperty` for the property a system handles; a `sosa:Deployment`
+(`sosa:deployedSystem`, `sosa:deployedOnPlatform`, `sosa:hasFeatureOfInterest`) for what it is aimed
+at; `sosa:hosts` for where it stands.
+
 ## Decision points
 
 Every example's discussion (§6) explains its non-trivial choices. These recur:
@@ -226,4 +261,6 @@ Every example's discussion (§6) explains its non-trivial choices. These recur:
 - `time:Instant` versus `time:Interval` for `sosa:phenomenonTime` (R12);
 - a derived observation versus an ordinary collection member (R7, R13);
 - QUDT unit versus register unit (R3);
+- the observation itself or a separate record as the published resource (R16);
+- which vocabulary for a term outside the core (R17, in [`linked-data.md`](linked-data.md));
 - which recurring pattern to follow, or why not (see [`patterns.md`](patterns.md)).
