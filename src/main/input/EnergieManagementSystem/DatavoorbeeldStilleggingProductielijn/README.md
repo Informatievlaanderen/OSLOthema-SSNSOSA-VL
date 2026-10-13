@@ -194,3 +194,13 @@ Deze benadering is consistent met de principes die ook zijn toegepast in het war
    - `sosa:System` op de sensor en de actuator;
    - `sosa:Execution` op de uitvoeringen;
    - de inverses `sosa:isResultOf` en `sosa:isFeatureOfInterestOf`.
+
+## Bijwerking 2026-10-13: eigen IRI's voor fabriek en eenheid
+
+1. **De fabriek heet `platform:fabriek_kortrijk`, niet `gebouw:fabriek_kortrijk`.** `gebouw:` is de
+   namespace van het OSLO-vocabularium Gebouw, en daarin maakt een datavoorbeeld geen eigen
+   resources aan (R10). Ze blijft wel getypeerd als `gebouw:Gebouw`.
+2. **Lokale eenheid `eenheid:EUR-PER-MegaW-HR`.** `unit:EUR-PER-MegaW-HR` bestaat niet in QUDT (wel
+   `unit:CCY_EUR-PER-KiloW-HR`). De lokale eenheid is beschreven naar het model van die QUDT-eenheid
+   (grootheid `quantitykind:CostPerEnergy`, dezelfde dimensievector, omrekenfactor 1000 keer
+   kleiner); de vraag aan QUDT of de omrekening naar €/kWh staat als TODO in de Turtle.

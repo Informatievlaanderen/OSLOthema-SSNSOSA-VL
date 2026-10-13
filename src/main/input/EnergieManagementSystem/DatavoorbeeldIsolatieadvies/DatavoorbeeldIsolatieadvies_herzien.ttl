@@ -59,7 +59,7 @@ var:klasse
 
 # Het gebouw dat geobserveerd wordt
 # Platform waar de meting plaatsvindt
-gebouw:stadskantoor
+platform:stadskantoor
   a sosa:Platform , gebouw:Gebouw , sosa:FeatureOfInterest ;
   sosa:hosts sensor:temperatuur-sensor-001 ;
   sosa:hasProperty concept:kenmerktype_warmteverliesklasse , concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies ;
@@ -78,7 +78,7 @@ sensor:temperatuur-sensor-001
 deploy:warmteverlies-classificatie-2025
   a sosa:Deployment ;
   rdfs:label "Warmteverlies classificatie implementatie 2025"@nl ;
-  sosa:deployedOnPlatform gebouw:stadskantoor ;
+  sosa:deployedOnPlatform platform:stadskantoor ;
   sosa:deployedAsset sensor:temperatuur-sensor-001 ;
   sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
 
@@ -92,7 +92,7 @@ exec:classificatie-uitvoering-20250315
   rdfs:label "Warmteverlies classificatie uitvoering 15 maart 2025"@nl ;
   sosa:usedProcedure plan:warmteverlies-classificatie ;
   p-plan:correspondsToStep step:warmteverlies-classificatie ;
-  sosa:hasFeatureOfInterest gebouw:stadskantoor ;
+  sosa:hasFeatureOfInterest platform:stadskantoor ;
   sosa:observedProperty concept:kenmerktype_warmteverliesklasse ;
   sosa:hasInputValue ent:drempelwaarde-001, ent:meting-001 ;   # de waarden (⊂ prov:used)
   sosa:relatedObservation exec:meting-001 ;                   # de observatie die de meting opleverde
@@ -108,7 +108,7 @@ exec:classificatie-uitvoering-20250315
 exec:meting-001
   a sosa:Observation , sosa:Execution ;
   rdfs:label "Gemeten warmteverlies 0.415 °C/hr"@nl ;
-  sosa:hasFeatureOfInterest gebouw:stadskantoor ;
+  sosa:hasFeatureOfInterest platform:stadskantoor ;
   sosa:observedProperty concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies ;
   sosa:hasResult ent:meting-001;
   sosa:phenomenonTime [ a time:ProperInterval ;

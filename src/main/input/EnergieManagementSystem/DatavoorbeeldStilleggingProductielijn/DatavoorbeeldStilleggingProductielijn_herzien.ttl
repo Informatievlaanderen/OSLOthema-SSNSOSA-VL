@@ -116,7 +116,7 @@ observeerbaar_kenmerk:toestelstatus
 # Platform (fabriek automatiseringssysteem)
 # Het gebouw en productielijn
 
-gebouw:fabriek_kortrijk
+platform:fabriek_kortrijk
   a sosa:Platform, gebouw:Gebouw, sosa:FeatureOfInterest;
   rdfs:label "Fabriek Automatiseringssysteem"@nl;
   dct:type <https://example.com/concept/domeinobjecttype/productielijn_houtbewerking>;
@@ -145,7 +145,7 @@ actuator:productielijn_controller
 deploy:productielijn_2025
   a sosa:Deployment;
   rdfs:label "Productielijn aansturing implementatie 2025"@nl;
-  sosa:deployedOnPlatform gebouw:fabriek_kortrijk;
+  sosa:deployedOnPlatform platform:fabriek_kortrijk;
   sosa:deployedAsset sensor:elektriciteitsprijs_sensor, actuator:productielijn_controller;
   sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
 
@@ -159,7 +159,7 @@ exec:prijs_observatie_20250214
   p-plan:correspondsToStep step:observeer_prijs;
   sosa:usedProcedure plan:observeer_prijs;
   rdfs:label "Elektriciteitsprijs observatie 14 feb 2025"@nl;
-  sosa:hasFeatureOfInterest gebouw:fabriek_kortrijk;
+  sosa:hasFeatureOfInterest platform:fabriek_kortrijk;
   sosa:observedProperty observeerbaar_kenmerk:day_ahead_elektriciteitsprijs;
   sosa:hasResult ent:prijs_105eur;
   sosa:madeBySensor sensor:elektriciteitsprijs_sensor;
@@ -181,7 +181,7 @@ exec:stillegging_20250214
   rdfs:label "Productielijn stillegging 14 feb 2025"@nl;
   p-plan:correspondsToStep step:beslis_stillegging;
   sosa:usedProcedure plan:beslis_stillegging;
-  sosa:hasFeatureOfInterest gebouw:fabriek_kortrijk;
+  sosa:hasFeatureOfInterest platform:fabriek_kortrijk;
   sosa:actsOnProperty observeerbaar_kenmerk:toestelstatus;
   sosa:hasInputValue ent:drempel_100eur, ent:max_8hr, ent:min_4hr, ent:prijs_105eur;   # de waarden (⊂ prov:used)
   sosa:relatedObservation exec:prijs_observatie_20250214;                              # de observatie die de prijs opleverde

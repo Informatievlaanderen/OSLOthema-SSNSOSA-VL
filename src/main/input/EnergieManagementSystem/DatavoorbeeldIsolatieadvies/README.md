@@ -59,6 +59,11 @@ Input observatie van gemiddeld nachtelijk warmteverlies:
 - Gebruik `p-plan:correspondsToStep` voor stap traceerbaarheid
 - Gebruik `prov:wasDerivedFrom` voor data afhankelijkheden
 
+### 6. Eigen IRI voor het gebouw
+Het gebouw heet `platform:stadskantoor`, niet `gebouw:stadskantoor`: `gebouw:` is de namespace van
+het OSLO-vocabularium Gebouw, en daarin maakt een datavoorbeeld geen eigen resources aan (R10). Het
+blijft wel getypeerd als `gebouw:Gebouw`.
+
 ## Voorgestelde Architectuur
 
 ```turtle
