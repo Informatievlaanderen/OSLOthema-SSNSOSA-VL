@@ -19,8 +19,9 @@ File names come from the project profile in `CLAUDE.md` (Dutch OSLO projects: `<
    `.jsonld`). Store Turtle so that the project's bulk validation skips it but RDF tools still read
    it (OSLO projects: `source/<name>.trig`; Turtle is valid TriG). A Turtle version derived from
    another format (e.g. with `riot`) is stored the same way. Never edit the original.
-2. **Diagnose.** Run `validate_file` on the original: the `[VOCAB ERROR]`, `[MODEL INVALID]` and
-   rule messages (R-numbers) are the first list of problems. Then read it against the guide for
+2. **Diagnose.** Run `validate_file` on the original: the `[error]` and `[suspect]` findings under
+   `[VOCAB]`, the `[DISJOINTNESS]` violations and the rule messages (R-numbers) are the first list of
+   problems. Then read it against the guide for
    what validation cannot see: class choice (R1), required properties (R2), units (R3), `hasInput`
    versus `prov:used` (R5), derived observations (R7, R13), IRIs and blank nodes (R10), time (R12),
    old SSN terms (R14), record metadata on an observation or execution properties on a sensor
@@ -35,8 +36,8 @@ File names come from the project profile in `CLAUDE.md` (Dutch OSLO projects: `<
    focused on what differs ([`diagrams.md`](../../../oslo-ld-kit/guide/diagrams.md)).
 6. **Discussion document** describing the corrected version
    ([`discussion-document.md`](../../../oslo-ld-kit/guide/discussion-document.md)).
-7. **Validate** the revised file with `validate_file`; every `[VOCAB ERROR]` and rule violation must
-   be fixed.
+7. **Validate** the revised file with `validate_file`; every `[error]` under `[VOCAB]` and every
+   rule violation must be fixed.
 
 ## Synthetic revision
 

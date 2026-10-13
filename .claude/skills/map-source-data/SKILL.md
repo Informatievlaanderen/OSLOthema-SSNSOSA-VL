@@ -29,7 +29,7 @@ For a mapping of real data, larger than one illustrative example. Worked example
    validation) and a small representative subset that is validated (guide: Large datasets),
    selected by a variable in the script.
 5. **Project conventions apply** (guide): SSN/SOSA 2023 terms (R14), `qudt:numericValue` (R3),
-   skolem IRIs for nested resources (R10), time zone (R12), every `[VOCAB ERROR]` fixed.
+   skolem IRIs for nested resources (R10), time zone (R12), every `[error]` under `[VOCAB]` fixed.
 
 ## Steps
 
