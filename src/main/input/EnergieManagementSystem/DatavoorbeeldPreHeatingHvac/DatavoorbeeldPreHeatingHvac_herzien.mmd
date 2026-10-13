@@ -8,6 +8,7 @@ flowchart RL
 
         STEP_voorspel([Step: Voorspel tijdstip])
         STEP_meet([Step: Meet omstandigheden])
+        STEP_bezetting([Step: Voorspel bezetting])
         STEP_activeer([Step: Activeer HVAC])
 
         V_historisch([var:historische-data])
@@ -16,6 +17,7 @@ flowchart RL
         V_voorspeld([var:voorspeld-tijdstip])
         V_buitentemp([var:buitentemperatuur])
         V_bezetting([var:verwachte-bezetting])
+        V_badgelogs([var:badgelogs])
         V_resultaat([var:activeringsresultaat])
     end
 
@@ -23,6 +25,7 @@ flowchart RL
     style PLAN0 fill:#7f59ae,stroke:#2E5C8A,color:#000
     style STEP_voorspel fill:#7f59ae,stroke:#2E5C8A,color:#000
     style STEP_meet fill:#7f59ae,stroke:#2E5C8A,color:#000
+    style STEP_bezetting fill:#7f59ae,stroke:#2E5C8A,color:#000
     style STEP_activeer fill:#7f59ae,stroke:#2E5C8A,color:#000
 
     style V_historisch fill:#fe7130,stroke:#2E5C8A,color:#000
@@ -31,11 +34,13 @@ flowchart RL
     style V_voorspeld fill:#fe7130,stroke:#2E5C8A,color:#000
     style V_buitentemp fill:#fe7130,stroke:#2E5C8A,color:#000
     style V_bezetting fill:#fe7130,stroke:#2E5C8A,color:#000
+    style V_badgelogs fill:#fe7130,stroke:#2E5C8A,color:#000
     style V_resultaat fill:#fe7130,stroke:#2E5C8A,color:#000
 
 %% Plan structuur
     PLAN0 -->|hasStep| STEP_voorspel
     PLAN0 -->|hasStep| STEP_meet
+    PLAN0 -->|hasStep| STEP_bezetting
     PLAN0 -->|hasStep| STEP_activeer
 
     V_historisch -->|isInputVarOf| STEP_voorspel
@@ -44,7 +49,8 @@ flowchart RL
     V_voorspeld -->|isOutputVarOf| STEP_voorspel
 
     V_buitentemp -->|isOutputVarOf| STEP_meet
-    V_bezetting -->|isOutputVarOf| STEP_meet
+    V_badgelogs -->|isInputVarOf| STEP_bezetting
+    V_bezetting -->|isOutputVarOf| STEP_bezetting
 
     V_voorspeld -->|isInputVarOf| STEP_activeer
     V_buitentemp -->|isInputVarOf| STEP_activeer
@@ -62,6 +68,7 @@ flowchart RL
 
         SYS_voorspeller([System: Temperatuur voorspeller])
         SYS_temp_sensor([System: Buitentemperatuur sensor])
+        SYS_bezetting([System: Bezettingsvoorspeller])
         SYS_hvac([System: HVAC controller])
 
     end
@@ -71,16 +78,19 @@ flowchart RL
     style Deployment fill:#60c4e4,stroke:#2E5C8A,color:#000
     style SYS_voorspeller fill:#60c4e4,stroke:#2E5C8A,color:#000
     style SYS_temp_sensor fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style SYS_bezetting fill:#60c4e4,stroke:#2E5C8A,color:#000
     style SYS_hvac fill:#60c4e4,stroke:#2E5C8A,color:#000
     style MODEL_ml fill:#f8b622,stroke:#2E5C8A,color:#000
 
     Deployment -->|deployedOnPlatform| Platform
     Deployment -->|deployedAsset| SYS_voorspeller
     Deployment -->|deployedAsset| SYS_temp_sensor
+    Deployment -->|deployedAsset| SYS_bezetting
     Deployment -->|deployedAsset| SYS_hvac
 
     SYS_voorspeller -->|implements| STEP_voorspel
     SYS_temp_sensor -->|implements| STEP_meet
+    SYS_bezetting -->|implements| STEP_bezetting
     SYS_hvac -->|implements| STEP_activeer
 
 
@@ -89,7 +99,8 @@ flowchart RL
 %% =====================================================
 subgraph EXECUTION["EXECUTION — 1 April 2025"]
 Activity_voorspel([Activity: Tijdstip voorspelling])
-Activity_meet([Activity: Omstandigheden meting])
+Activity_meet([Activity: Buitentemperatuur meting])
+Activity_bezetting([Activity: Bezettingsvoorspelling])
 Activity_activeer([Activity: HVAC activatie])
 Activity_train_model([Activity: Train model])
 
@@ -111,6 +122,7 @@ style EXECUTION fill:#e7a3be,stroke:#2E5C8A,color:#000
 style Activity_voorspel fill:#e54b89,stroke:#2E5C8A,color:#000
 style Activity_train_model fill:#e54b89,stroke:#2E5C8A,color:#000
 style Activity_meet fill:#e54b89,stroke:#2E5C8A,color:#000
+style Activity_bezetting fill:#e54b89,stroke:#2E5C8A,color:#000
 style Activity_activeer fill:#e54b89,stroke:#2E5C8A,color:#000
 
 style I_historisch fill:#f8b622,stroke:#2E5C8A,color:#000
@@ -125,10 +137,12 @@ style Collection_observatieverzameling fill:#f8b622,stroke:#2E5C8A,color:#000
 %% Activity relaties
 Activity_voorspel -->|correspondsToStep| STEP_voorspel
 Activity_meet -->|correspondsToStep| STEP_meet
+Activity_bezetting -->|correspondsToStep| STEP_bezetting
 Activity_activeer -->|correspondsToStep| STEP_activeer
 
 Activity_voorspel -->|madeBySystem| SYS_voorspeller
 Activity_meet -->|madeBySystem| SYS_temp_sensor
+Activity_bezetting -->|madeBySensor| SYS_bezetting
 Activity_activeer -->|madeBySystem| SYS_hvac
 
 Activity_voorspel -->|hasInputValue| I_historisch
@@ -140,7 +154,7 @@ Activity_voorspel -->|hasResult| T_voorspeld
 Activity_train_model -->|hasResult| MODEL_ml
 
 Activity_meet -->|hasResult| T_buitentemp
-Activity_meet -->|hasResult| T_bezetting
+Activity_bezetting -->|hasResult| T_bezetting
 
 Activity_activeer -->|hasInputValue| T_voorspeld
 Activity_activeer -->|hasInputValue| T_buitentemp

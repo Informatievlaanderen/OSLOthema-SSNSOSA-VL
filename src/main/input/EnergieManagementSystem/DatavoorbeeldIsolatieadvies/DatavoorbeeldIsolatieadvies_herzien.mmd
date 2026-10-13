@@ -5,9 +5,11 @@ flowchart RL
 %% =====================================================
     subgraph PLANNING["PLANNING"]
         PLAN0([Plan: Warmteverlies Classificatie])
+        PLAN_berekening([Plan: Berekening nachtelijk warmteverlies])
 
         STEP_classificatie([Step: Warmteverlies classificatie])
 
+        V_nacht([var:nachtelijke-metingen])
         V_drempel([var:drempelwaarde])
         V_meting([var:gemeten-warmteverlies])
         V_klasse([var:warmteverlies-klasse])
@@ -16,6 +18,8 @@ flowchart RL
     style PLANNING fill:#b8a2d4,stroke:#2E5C8A,color:#000
     style PLAN0 fill:#7f59ae,stroke:#2E5C8A,color:#000
     style STEP_classificatie fill:#7f59ae,stroke:#2E5C8A,color:#000
+    style PLAN_berekening fill:#7f59ae,stroke:#2E5C8A,color:#000
+    style V_nacht fill:#fe7130,stroke:#2E5C8A,color:#000
 
     style V_drempel fill:#fe7130,stroke:#2E5C8A,color:#000
     style V_meting fill:#fe7130,stroke:#2E5C8A,color:#000
@@ -27,6 +31,8 @@ flowchart RL
     V_drempel -->|isInputVarOf| STEP_classificatie
     V_meting -->|isInputVarOf| STEP_classificatie
     V_klasse -->|isOutputVarOf| STEP_classificatie
+    V_nacht -->|inputFor| PLAN_berekening
+    V_meting -->|outputFor| PLAN_berekening
 
 %% =====================================================
 %% DEPLOYMENT
@@ -47,12 +53,14 @@ flowchart RL
     Deployment -->|deployedAsset| SYS_sensor
 
     SYS_sensor -->|implements| STEP_classificatie
+    SYS_sensor -->|implements| PLAN_berekening
 
 %% =====================================================
 %% EXECUTION
 %% =====================================================
     subgraph EXECUTION["EXECUTION — 15 Maart 2025"]
         Activity_classificatie([Activity: Warmteverlies classificatie])
+        Activity_meting([Observation: Gemiddeld nachtelijk warmteverlies])
 
         subgraph DERIVATION["DERIVATION — 15 Maart 2025"]
             I_drempel([Entity: Drempel 0.4°C/hr])
@@ -64,6 +72,7 @@ flowchart RL
     style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
     style EXECUTION fill:#e7a3be,stroke:#2E5C8A,color:#000
     style Activity_classificatie fill:#e54b89,stroke:#2E5C8A,color:#000
+    style Activity_meting fill:#e54b89,stroke:#2E5C8A,color:#000
 
     style I_drempel fill:#f8b622,stroke:#2E5C8A,color:#000
     style I_meting fill:#f8b622,stroke:#2E5C8A,color:#000
@@ -76,6 +85,11 @@ flowchart RL
     Activity_classificatie -->|hasInputValue| I_drempel
     Activity_classificatie -->|hasInputValue| I_meting
     Activity_classificatie -->|hasResult| R_klasse
+
+    Activity_meting -->|usedProcedure| PLAN_berekening
+    Activity_meting -->|madeBySensor| SYS_sensor
+    Activity_meting -->|hasResult| I_meting
+    Activity_classificatie -.->|relatedObservation| Activity_meting
 
 %% Derivatie
     R_klasse -->|wasDerivedFrom| I_drempel

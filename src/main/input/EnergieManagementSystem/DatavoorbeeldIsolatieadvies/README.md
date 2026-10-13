@@ -64,6 +64,16 @@ Het gebouw heet `platform:stadskantoor`, niet `gebouw:stadskantoor`: `gebouw:` i
 het OSLO-vocabularium Gebouw, en daarin maakt een datavoorbeeld geen eigen resources aan (R10). Het
 blijft wel getypeerd als `gebouw:Gebouw`.
 
+### 7. Procedure van de meting
+De bron geeft ook de gemiddelde nachtelijke meting een procedure (`_:b7`), met als input een
+nachtelijke meting (`_:b8`, 0,44 °C/h) die zelf uit een tijdreeksobservatie (`_:b14`) komt. De
+herziening nam die procedure eerst niet over. Nu gebruikt `exec:meting-001` het plan
+`plan:warmteverlies-berekening`, met de inputvariabele `var:nachtelijke-metingen` en als output
+`var:meting`, dezelfde variabele die de classificatie als input heeft. De sensor implementeert beide
+plannen. De nachtelijke meting en de tijdreeks zelf staan er (nog) niet in: ze zouden als afgeleide
+observaties met `sosa:hasInputValue` naar hun resultaten kunnen volgen (R7, R13); deze herziening
+beperkt zich tot de procedure, die R2 sterk aanbeveelt.
+
 ## Voorgestelde Architectuur
 
 ```turtle

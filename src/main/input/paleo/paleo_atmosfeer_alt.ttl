@@ -62,6 +62,8 @@ ex:C14Observatie a sosa:Observation , sosa:Execution ;
    sosa:hasFeatureOfInterest ex:IjsBel ;
    sosa:hasUltimateFeatureOfInterest ex:AardAtmosfeer ;
    sosa:hasResult ex:ResultaatC14Observatie ;
+   sosa:usedProcedure ex:ProcedureC14Datering ;
+   sosa:madeBySensor ex:AMS ;
    sosa:resultTime "2026-02-01T14:15:00+00:00"^^xsd:dateTime ;
 .
 
@@ -70,6 +72,8 @@ ex:CO2Observatie a sosa:Observation , sosa:Execution ;
    sosa:hasFeatureOfInterest ex:IjsBel ;
    sosa:hasUltimateFeatureOfInterest ex:AardAtmosfeer ;
    sosa:hasResult ex:ResultaatCO2Observatie ;
+   sosa:usedProcedure ex:ProcedureCO2Meting ;
+   sosa:madeBySensor ex:Laserspectrometer ;
    sosa:resultTime "2026-02-01T14:16:00+00:00"^^xsd:dateTime ;
 .
 
@@ -89,6 +93,7 @@ ex:PaleoCO2Observatie a sosa:Observation , sosa:Execution ;
   ] ;
   sosa:resultTime "2026-02-01T14:16:00+00:00"^^xsd:dateTime ;
   sosa:usedProcedure ex:ProcedurePaleoCO2Contentratie ;
+  sosa:madeBySensor ex:PaleoReconstructie ;
   ## prov:used naar de resultaten volgt uit sosa:hasInputValue ⊂ prov:used (pplan-sosa.ttl)
   sosa:hasInputValue ex:ResultaatC14Observatie, ex:ResultaatCO2Observatie ;
 .
@@ -121,6 +126,36 @@ ex:VariabeleCO2Observatie a p-plan:Variable ;
 
 ex:VariabeleC14Observatie a p-plan:Variable ;
    rdfs:label "C14 ouderdomsbepaling" ;
+.
+
+## Procedures en sensoren (illustratief): welke methode en welk toestel elk resultaat opleverden (R2).
+ex:ProcedureC14Datering a sosa:ObservingProcedure , sosa:Procedure ;
+   rdfs:label "Radiokoolstofdatering"@nl ;
+   dcterms:description "Bepaling van de C14-leeftijd: het aandeel 14C in de koolstof van het monster wordt gemeten met versnellermassaspectrometrie en omgerekend naar jaren voor 1950."@nl ;
+.
+
+ex:ProcedureCO2Meting a sosa:ObservingProcedure , sosa:Procedure ;
+   rdfs:label "CO2-meting in ijskernlucht"@nl ;
+   dcterms:description "De lucht uit de luchtbel wordt droog geëxtraheerd (het ijs wordt onder vacuüm vermalen) en de CO2-concentratie wordt gemeten met laserabsorptiespectroscopie."@nl ;
+.
+
+ex:AMS a sosa:Sensor , sosa:System ;
+   rdfs:label "Versnellermassaspectrometer (AMS)"@nl ;
+   sosa:implements ex:ProcedureC14Datering ;
+   sosa:observes ex:C14Leeftijd ;
+.
+
+ex:Laserspectrometer a sosa:Sensor , sosa:System ;
+   rdfs:label "Laserabsorptiespectrometer"@nl ;
+   sosa:implements ex:ProcedureCO2Meting ;
+   sosa:observes ex:CO2Concentratie ;
+.
+
+## De afgeleide observatie wordt gemaakt door software die de twee resultaten combineert.
+ex:PaleoReconstructie a sosa:Sensor , sosa:System ;
+   rdfs:label "Reconstructiemodel paleo-atmosfeer"@nl ;
+   sosa:implements ex:ProcedurePaleoCO2Contentratie ;
+   sosa:observes ex:CO2Concentratie ;
 .
 
 ex:C14Leeftijd a sosa:Property ; ## p-plan:Variable?

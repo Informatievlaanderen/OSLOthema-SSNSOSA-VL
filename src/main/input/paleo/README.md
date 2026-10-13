@@ -5,6 +5,13 @@ De concentratie van CO₂ kan worden gemeten in luchtbellen in ijskernen, waarva
 ## Bemonsteringsketen
 Beide alternatieven delen dezelfde bemonsteringsketen (R8): `IjsBel isSampleOf IjsKern isSampleOf AardKorst`. Elk monster is het resultaat van een `sosa:Sampling`: de boring van de ijskern (FOI de aardkorst) en de extractie van de luchtbel (FOI de ijskern). Zo is elk studieobject in de keten het FOI van een uitvoering, zoals SOSA vraagt. Alle FOI's dragen ook de inverse `sosa:isFeatureOfInterestOf`, omdat de SHACL-validatie op het niet-afgeleide model gebeurt.
 
+## Procedures en sensoren
+Elke observatie heeft een procedure en een sensor (R2), in beide alternatieven dezelfde. Ze zijn
+illustratief: radiokoolstofdatering met een versnellermassaspectrometer (`ex:AMS`) voor de
+C14-leeftijd, droge extractie en laserabsorptiespectroscopie (`ex:Laserspectrometer`) voor de
+CO2-concentratie in de luchtbel, en een reconstructiemodel (`ex:PaleoReconstructie`, software als
+`sosa:Sensor`) dat de afgeleide observatie maakt volgens `ex:ProcedurePaleoCO2Contentratie`.
+
 ## Alternatief 1
 In dit voorbeeld krijgt de uiteindelijke observatie de **resultaten** van de 2 oorspronkelijke observaties als inputwaarden (`sosa:hasInputValue`). Ze verwijst naar de oorspronkelijke observaties zelf met `sosa:relatedObservation`. Er zijn geen p-plan-variabelen: de procedure beschrijft haar inputs enkel in tekst.
 
@@ -84,6 +91,23 @@ PR["`**ProcedurePaleoCO2Contentratie**
 *(sosa:Procedure)*`"]
 
 P -->|usedProcedure| PR
+
+%% Procedures en sensoren van de oorspronkelijke observaties
+PC14["`**ProcedureC14Datering**
+*(sosa:Procedure)*`"]
+PCO2["`**ProcedureCO2Meting**
+*(sosa:Procedure)*`"]
+SAMS["`**AMS**
+*(sosa:Sensor)*`"]
+SLAS["`**Laserspectrometer**
+*(sosa:Sensor)*`"]
+SREC["`**PaleoReconstructie**
+*(sosa:Sensor)*`"]
+O1 -->|usedProcedure| PC14
+O2 -->|usedProcedure| PCO2
+O1 -->|madeBySensor| SAMS
+O2 -->|madeBySensor| SLAS
+P -->|madeBySensor| SREC
 ```
 
 ## Alternatief 2
@@ -183,6 +207,23 @@ PR -->|hasInput| P1
 P1 -->|isVariableOfPlan| PR
 PR -->|hasInput| P2
 P2 -->|isVariableOfPlan| PR
+
+%% Procedures en sensoren
+PC14["`**ProcedureC14Datering**
+*(sosa:Procedure)*`"]
+PCO2["`**ProcedureCO2Meting**
+*(sosa:Procedure)*`"]
+SAMS["`**AMS**
+*(sosa:Sensor)*`"]
+SLAS["`**Laserspectrometer**
+*(sosa:Sensor)*`"]
+SREC["`**PaleoReconstructie**
+*(sosa:Sensor)*`"]
+O1 -->|usedProcedure| PC14
+O2 -->|usedProcedure| PCO2
+O1 -->|madeBySensor| SAMS
+O2 -->|madeBySensor| SLAS
+P -->|madeBySensor| SREC
 
 ```
 

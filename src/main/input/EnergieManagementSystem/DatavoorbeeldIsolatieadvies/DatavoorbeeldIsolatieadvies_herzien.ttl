@@ -30,6 +30,16 @@ plan:warmteverlies-classificatie
   sosa:hasInput var:drempelwaarde, var:meting ;
   sosa:hasOutput var:klasse .
 
+# Abstracte procedure voor de berekening van het gemiddelde nachtelijke warmteverlies. De bron
+# (source/, procedure _:b7) berekent het uit nachtelijke metingen (_:b8, 0,44 °C/h op 15 maart),
+# die zelf uit een tijdreeksobservatie (_:b14) komen. Die tussenstappen staan hier enkel als
+# inputvariabele: de bron geeft er geen tijdreeks of procedure van.
+plan:warmteverlies-berekening
+  a sosa:Procedure , sosa:ObservingProcedure ;
+  rdfs:label "Berekening gemiddeld nachtelijk warmteverlies"@nl ;
+  sosa:hasInput var:nachtelijke-metingen ;
+  sosa:hasOutput var:meting .
+
 # Abstracte stap voor warmteverlies classificatie
 step:warmteverlies-classificatie
   a p-plan:Step , sosa:ObservingProcedure ;
@@ -46,7 +56,13 @@ var:drempelwaarde
 var:meting
   a p-plan:Variable ;
   rdfs:label "Gemeten warmteverlies"@nl ;
-  sosa:inputFor plan:warmteverlies-classificatie .
+  sosa:inputFor plan:warmteverlies-classificatie ;
+  sosa:outputFor plan:warmteverlies-berekening .
+
+var:nachtelijke-metingen
+  a p-plan:Variable ;
+  rdfs:label "Nachtelijke warmteverliesmetingen"@nl ;
+  sosa:inputFor plan:warmteverlies-berekening .
 
 var:klasse
   a p-plan:Variable ;
@@ -71,7 +87,7 @@ platform:stadskantoor
 sensor:temperatuur-sensor-001
   a sosa:Sensor , sosa:System ;
   rdfs:label "Temperatuur sensor 001"@nl ;
-  sosa:implements plan:warmteverlies-classificatie ;
+  sosa:implements plan:warmteverlies-classificatie , plan:warmteverlies-berekening ;
   sosa:observes concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies .
 
 # Deployment van de procedure
@@ -110,6 +126,7 @@ exec:meting-001
   rdfs:label "Gemeten warmteverlies 0.415 °C/hr"@nl ;
   sosa:hasFeatureOfInterest platform:stadskantoor ;
   sosa:observedProperty concept:kenmerktype_gemiddeld_nachtelijk_warmteverlies ;
+  sosa:usedProcedure plan:warmteverlies-berekening ;
   sosa:hasResult ent:meting-001;
   sosa:phenomenonTime [ a time:ProperInterval ;
                         time:hasBeginning [ time:inXSDDateTimeStamp "2025-03-15T00:00:00Z"^^xsd:dateTimeStamp ] ;

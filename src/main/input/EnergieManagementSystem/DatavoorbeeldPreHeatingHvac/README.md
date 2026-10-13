@@ -283,3 +283,19 @@ Deze correctie verbetert de semantische nauwkeurigheid zonder de architectuur te
    - `sosa:System` op de sensoren en de actuator;
    - `sosa:Execution` op de uitvoeringen en `sosa:ExecutionCollection` op de verzameling;
    - de inverses `sosa:isResultOf` en `sosa:isFeatureOfInterestOf`.
+
+## Bijwerking 2026-10-13: eigen stap voor de bezettingsvoorspelling
+
+De herziening had de bezettingsvoorspelling en de buitentemperatuurmeting samengevoegd in
+`step:meet_omstandigheden`. De bron geeft ze elk een eigen procedure: de bezetting
+`voorspelling_volgens_badgelogs`, de buitentemperatuur `online_opvraging`. Een voorspelling is
+bovendien geen meting. Daarom:
+
+1. **Eigen stap** `step:voorspel_bezetting` (procedure "voorspelling volgens badgelogs"), met de
+   inputvariabele `var:badgelogs` en de outputvariabele `var:verwachte_bezetting`.
+   `step:meet_omstandigheden` heeft enkel nog `var:buitentemperatuur` als output.
+2. **Bezettingsvoorspeller.** `sensor:bezettingsvoorspeller` implementeert die stap en is de
+   `sosa:madeBySensor` van de voorspelling (R2). De bron noemt dat systeem niet; het volgt uit de
+   procedure: iets voert de voorspelling uit. Het staat op het platform en in de deployment, zoals
+   de andere systemen. Welke badgelogs het gebruikte, zegt de bron niet; daarom is er geen
+   concrete inputwaarde.

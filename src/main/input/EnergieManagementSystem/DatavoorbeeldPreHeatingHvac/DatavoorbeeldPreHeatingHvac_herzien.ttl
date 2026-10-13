@@ -56,7 +56,16 @@ step:meet_omstandigheden
   a p-plan:Step, sosa:ObservingProcedure, sosa:Procedure;
   rdfs:label "Meet huidige omstandigheden"@nl;
   p-plan:isStepOfPlan plan:hvac_preheating;
-  sosa:hasOutput var:buitentemperatuur, var:verwachte_bezetting .
+  sosa:hasOutput var:buitentemperatuur .
+
+# De bron geeft de bezettingsvoorspelling een eigen procedure (voorspelling volgens badgelogs),
+# verschillend van die van de buitentemperatuur (online opvraging).
+step:voorspel_bezetting
+  a p-plan:Step, sosa:ObservingProcedure, sosa:Procedure;
+  rdfs:label "Voorspel bezetting volgens badgelogs"@nl;
+  p-plan:isStepOfPlan plan:hvac_preheating;
+  sosa:hasInput var:badgelogs;
+  sosa:hasOutput var:verwachte_bezetting .
 
 step:activeer_hvac
   a p-plan:Step, sosa:ActuatingProcedure, sosa:Procedure;
@@ -64,6 +73,11 @@ step:activeer_hvac
   p-plan:isStepOfPlan plan:hvac_preheating;
   sosa:hasInput var:voorspeld_tijdstip, var:buitentemperatuur, var:verwachte_bezetting;
   sosa:hasOutput var:activeringsresultaat .
+
+var:badgelogs
+  a p-plan:Variable;
+  rdfs:label "Badgelogs"@nl;
+  p-plan:isInputVarOf step:voorspel_bezetting .
 
 # Variabelen op plan niveau
 var:historische_data
@@ -99,7 +113,7 @@ var:buitentemperatuur
 var:verwachte_bezetting
   a p-plan:Variable;
   rdfs:label "Verwachte bezetting"@nl;
-  p-plan:isOutputVarOf step:meet_omstandigheden;
+  p-plan:isOutputVarOf step:voorspel_bezetting;
   sosa:outputFor plan:hvac_preheating .
 
 var:activeringsresultaat
@@ -118,7 +132,7 @@ var:activeringsresultaat
 platform:belpaire
   a sosa:Platform, gebouw:Gebouw ;
   rdfs:label "Belpaire Gebouw Automatiseringssysteem"@nl;
-  sosa:hosts sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, actuator:hvac_controller, device:warmtepomp_belpaire ;
+  sosa:hosts sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, sensor:bezettingsvoorspeller, actuator:hvac_controller, device:warmtepomp_belpaire ;
   gebouw:gebouwnaam "Belpaire Gebouw"@nl;
   locn:address [ a locn:Address; locn:fullAddress "Simon Bolivarlaan 17, 1030 Schaarbeek"@nl ] .
 
@@ -155,6 +169,14 @@ sensor:buitentemperatuur_sensor
   sosa:implements step:meet_omstandigheden;
   sosa:observes observeerbaar_kenmerk:buitentemperatuur .
 
+# Het systeem dat de bezetting voorspelt. De bron noemt het niet; het volgt uit de procedure
+# (voorspelling volgens badgelogs): iets voert die voorspelling uit (R2: madeBySensor).
+sensor:bezettingsvoorspeller
+  a sosa:Sensor, sosa:System;
+  rdfs:label "Bezettingsvoorspeller"@nl;
+  sosa:implements step:voorspel_bezetting;
+  sosa:observes observeerbaar_kenmerk:verwachte_bezetting .
+
 # Actuator
 actuator:hvac_controller
   a sosa:Actuator, sosa:System;
@@ -168,7 +190,7 @@ deploy:hvac_preheating_2025
   rdfs:label "HVAC pre-heating implementatie 2025"@nl;
   sosa:implements plan:hvac_preheating;
   sosa:deployedOnPlatform platform:belpaire;
-  sosa:deployedAsset sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, actuator:hvac_controller, device:warmtepomp_belpaire;
+  sosa:deployedAsset sensor:temperatuur_voorspeller, sensor:buitentemperatuur_sensor, sensor:bezettingsvoorspeller, actuator:hvac_controller, device:warmtepomp_belpaire;
   sosa:startTime "2025-01-01T00:00:00Z"^^xsd:dateTime .
 
 # Geobserveerde en aangestuurde eigenschappen
@@ -257,11 +279,12 @@ ent:buitentemperatuur_1c
 exec:bezettingsvoorspelling_001
   a sosa:Observation, sosa:Execution;
   rdfs:label "Bezettingsvoorspelling 1 april 2025"@nl;
-  p-plan:correspondsToStep step:meet_omstandigheden;
-  sosa:usedProcedure step:meet_omstandigheden;
+  p-plan:correspondsToStep step:voorspel_bezetting;
+  sosa:usedProcedure step:voorspel_bezetting;
   sosa:hasFeatureOfInterest device:warmtepomp_belpaire;
   sosa:observedProperty observeerbaar_kenmerk:verwachte_bezetting;
   sosa:hasResult ent:bezetting_80pct;
+  sosa:madeBySensor sensor:bezettingsvoorspeller;
   sosa:phenomenonTime [ a time:Instant;
                           time:inXSDDateTimeStamp "2025-04-01T08:00:00.000+02:00"^^xsd:dateTimeStamp ] .
 
