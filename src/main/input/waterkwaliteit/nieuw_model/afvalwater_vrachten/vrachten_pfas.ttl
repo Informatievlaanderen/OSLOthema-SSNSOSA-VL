@@ -17,10 +17,12 @@
 @prefix wk: <https://data.vlaanderen.be/ns/waterkwaliteit#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-csor-eenheid:E_32 a csor:Eenheid ;
+csor-eenheid:E_32 a qudt:Unit,
+        csor:Eenheid ;
     rdfs:label "kubieke meter"@nl .
 
-csor-eenheid:E_4 a csor:Eenheid ;
+csor-eenheid:E_4 a qudt:Unit,
+        csor:Eenheid ;
     rdfs:label "microgram per liter"@nl .
 
 csor-parameteraspect:PAS_1839 a sosa:Property,
@@ -72,19 +74,19 @@ ex:periode-2022 a time:Interval ;
     time:hasBeginning ex:tijdstip-2022-01-01T000000 ;
     time:hasEnd ex:tijdstip-2023-01-01T000000 .
 
-ex:resultaat-brutovracht-2030042-2009-PAS_2521 a sosa:Result,
+ex:resultaat-brutovracht-2030042-2009-PAS_2521 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_37 ;
     qudt:numericValue 2799.02 ;
     sosa:isResultOf ex:observatie-brutovracht-2030042-2009-PAS_2521 .
 
-ex:resultaat-brutovracht-2030042-2017-PAS_2529 a sosa:Result,
+ex:resultaat-brutovracht-2030042-2017-PAS_2529 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_37 ;
     qudt:numericValue 364.385283 ;
     sosa:isResultOf ex:observatie-brutovracht-2030042-2017-PAS_2529 .
 
-ex:resultaat-brutovracht-2030042-2022-PAS_2525 a sosa:Result,
+ex:resultaat-brutovracht-2030042-2022-PAS_2525 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_37 ;
     qudt:numericValue 0.0 ;
@@ -142,7 +144,8 @@ ex:observatie-brutovracht-2030042-2022-PAS_2525 a sosa:Execution,
     sosa:phenomenonTime ex:periode-2022 ;
     sosa:usedProcedure ex:procedure-bruto-vracht .
 
-csor-eenheid:E_37 a csor:Eenheid ;
+csor-eenheid:E_37 a qudt:Unit,
+        csor:Eenheid ;
     rdfs:label "milligram"@nl .
 
 ex:lozing-2030042 a prov:Entity,

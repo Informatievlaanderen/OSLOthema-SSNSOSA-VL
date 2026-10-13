@@ -106,7 +106,7 @@ studieobject. De argumenten voor en tegen en de discussievragen staan in
 De status is een codelijstwaarde, geen getal met eenheid; `sosa:hasSimpleResult` vraagt een literal.
 `sosa:hasResult` naar de concept-IRI houdt de verwijzing naar de codelijst. Na inferentie is het
 concept ook een resultaat van de observatie (`sosa:isResultOf`), en kan het resultaat van veel
-events zijn. Wie per event een eigen resultaatobject wil, gebruikt een `sosa:Result` met een
+events zijn. Wie per event een eigen resultaatobject wil, gebruikt een `qudt:QuantityValue` met een
 verwijzing naar het concept.
 <!-- TODO: welke codelijst is de referentie voor de overstortstatus: https://aquafin.be/id/concept/OverstortStatus/ (de mapping) of https://data.vlaanderen.be/id/concept/OverstortStatus/ (het doelmodel voor de overstorthoogte)? Is een van beide gepubliceerd? -->
 <!-- TODO: waarom filtert de mapping events met status InWerkingDroogWeer weg? Een overstorting bij droog weer is net een belangrijke afwijking. -->

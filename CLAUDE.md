@@ -108,12 +108,39 @@ ook in `source/`, en slaat `.trig` over. Daarom:
 
 ## §5 — Valideren
 
-**Eén bestand:** `mcp__ld-vocab__validate_file` (server in `.mcp.json`). Wat de meldingen betekenen
-en wat je ermee doet, staat in `guide/linked-data.md` (Validation). De server laadt
-`src/main/resources/`, genereert de SHACL-shapes zelf uit de ontologie (zelfde resultaat als
-`generated-shapes.ttl`), gebruikt de regels uit `oslo-ld-kit/rules/ssn-sosa-rules.ttl` en het
-prefixregister, en leest gewijzigde bestanden automatisch opnieuw in. Na een nieuwe jar:
-`/mcp` → `ld-vocab` → Reconnect.
+**Eén bestand:** `mcp__ld-vocab__validate_file` (server in `.mcp.json`, ld-mcp 0.4.0 of later). Wat
+de meldingen betekenen en wat je ermee doet, staat in `guide/linked-data.md` (Validation) en in de
+README van ld-mcp. De server laadt `src/main/resources/`, genereert de SHACL-shapes zelf uit de
+ontologie (een profiellezing van de OWL-restricties, niet meer hetzelfde als `generated-shapes.ttl`
+van de pipeline, zie de verschillen hieronder), gebruikt de regels uit
+`oslo-ld-kit/rules/ssn-sosa-rules.ttl` en het prefixregister, en leest gewijzigde bestanden
+automatisch opnieuw in. Na een nieuwe jar: `/mcp` → `ld-vocab` → Reconnect.
+
+Het rapport:
+
+| Marker | Betekenis |
+|---|---|
+| `[VOCAB] n error(s), m suspect, k hint(s)` | termen, rollen, datatypes, verouderde termen en gemunte resources; elke regel begint met `[error]`, `[suspect]` of `[hint]` |
+| `[INFERENCE]` | aantal triples afgeleid met de regels uit `domain-range-subproperty.rules` |
+| `[DISJOINTNESS]` | klassedisjunctie na inferentie, met de klassehiërarchie; geen volledige OWL-consistentie |
+| `[SHACL] … (a of n shapes applied to k focus node(s); graph: …)` | SHACL op de data plus de klassehiërarchie en de types van verwezen termen (geen afgeleide triples); de dekking zegt hoeveel shapes de data raakten |
+
+Alle `[error]`-meldingen (onder `[VOCAB]`, `[DISJOINTNESS]` en de SHACL-violations) worden opgelost
+vóór een commit; `[suspect]`-meldingen en SHACL-warnings worden nagekeken, en als ze bewust blijven
+staan, vermeld in de bespreking (§6).
+
+**Alle voorbeelden in één keer**, zonder MCP-client (exitcode 0 zonder fouten, 1 bij fouten, 2 bij
+een configuratie- of parsefout):
+
+```bash
+java -jar tools/ld-mcp-vocab.jar validate --ontologies src/main/resources \
+    --rules src/main/resources/be/vlaanderen/ssnsosa/data/id/rule/domain-range-subproperty.rules \
+    --generate-shapes --shapes oslo-ld-kit/rules/ssn-sosa-rules.ttl \
+    --prefix-registry src/main/cc/prefix/prefix.cc.ttl --extensions ttl src/main/input
+```
+
+`--extensions ttl` volgt de pipeline: zonder die optie valideert het ook de `.jsonld`-bestanden,
+waaronder de volledige `r-factor/rfactor.jsonld` (34 MB).
 
 **Volledige pipeline**, enkel wanneer de output in `src/main/output/` of een bijgewerkt
 `generated-shapes.ttl` nodig is:
@@ -130,12 +157,21 @@ mvn compile exec:java
    `WARN [VOCAB ERROR]`), regelinferentie, OWL-validatie met OWLMiniReasoner
    (`WARN [MODEL INVALID]`), SHACL tegen `generated-shapes.ttl`, JSON-LD-conversie met `frame.json`.
 
-Alle `[VOCAB ERROR]`-waarschuwingen moeten opgelost worden vóór een commit.
+Alle `[VOCAB ERROR]`-waarschuwingen van de pipeline moeten opgelost worden vóór een commit.
 
-Verschillen met `validate_file`: de pipeline controleert geen objecten (bv. eenheden) en geen
-gemunte resources, gebruikt de regels uit de kit niet, en zet `owl:AllDisjointClasses` en
-`owl:disjointUnionOf` niet om naar disjunctieparen. Dat de pipeline geen eenheden controleert, is
-een bewuste keuze: dat doet `validate_file`.
+Verschillen met `validate_file`, die gelden zolang de pipeline bestaat:
+- de pipeline controleert geen objecten (bv. eenheden), gemunte resources, datatypes, rollen of
+  verouderde termen, en gebruikt de regels uit de kit niet. Dat de pipeline geen eenheden
+  controleert, is een bewuste keuze: dat doet `validate_file`;
+- de pipeline zet `owl:AllDisjointClasses` en `owl:disjointUnionOf` niet om naar disjunctieparen,
+  en ziet de klassehiërarchie niet zonder regels;
+- de pipeline valideert SHACL op de letterlijke data; `validate_file` ziet ook de klassehiërarchie
+  en de types van verwezen termen;
+- `generated-shapes.ttl` (`OwlToShaclGenerator`) vertaalt `owl:someValuesFrom C` als `sh:class C`
+  op alle waarden plus `sh:minCount 1`; ld-mcp als "minstens één waarde is een C", en vertaalt ook
+  gekwalificeerde cardinaliteiten, `owl:hasValue` en restricties in `owl:intersectionOf`. De
+  shapes van ld-mcp zelf schrijven: `java -jar tools/ld-mcp-vocab.jar generate-shapes
+  --ontologies src/main/resources --prefix-registry src/main/cc/prefix/prefix.cc.ttl --out <bestand>`.
 
 ---
 

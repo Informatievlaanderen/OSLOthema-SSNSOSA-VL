@@ -28,7 +28,7 @@ Plat SSN/SOSA-model met `sosa:ObservationCollection` (details in `bespreking.md`
   `ex:property-verkeersintensiteit` (aantal passerende lichte voertuigen in de gemeten periode).
 - De **fietsroute F1** is het ultieme `sosa:FeatureOfInterest`, bereikbaar via `sosa:isSampleOf`.
 - Een `sosa:ObservationCollection` groepeert de 24 uurtellingen van dinsdag 28 april 2026, elk
-  met een `time:Interval` (R12) en een benoemd `sosa:Result`.
+  met een `time:Interval` (R12) en een benoemde `qudt:QuantityValue`.
 - De **dagsom** (2541) is een afgeleide observatie buiten de collectie (R13): `sosa:hasInputValue`
   naar de 24 uurresultaten, `sosa:relatedObservation` naar de collectie.
 

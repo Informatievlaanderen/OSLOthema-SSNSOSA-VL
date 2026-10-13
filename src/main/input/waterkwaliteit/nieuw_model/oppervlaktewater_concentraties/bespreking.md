@@ -19,7 +19,7 @@ voor de OWL-validatie van de pipeline; de volledige set staat in de `.trig`.
 | Blauw (#60c4e4) | `sosa:Platform` · `sosa:SpatialSample` · `sosa:FeatureOfInterest` | meetplaats, VHA-waterloop |
 | Oranje (#fe7130) | `sosa:Property` | CSOR-parameteraspect: wat er gemeten wordt |
 | Roze (#e54b89) | `sosa:Sampling`, `sosa:ObservationCollection`, `sosa:Observation` | keuze van de meetplaats, staalname, analyses van één staal |
-| Geel-oranje (#f8b622) | `sosa:Sample`, `sosa:Result`, `time:Instant` | staal, meetwaarde, tijdstip |
+| Geel-oranje (#f8b622) | `sosa:Sample`, `qudt:QuantityValue`, `time:Instant` | staal, meetwaarde, tijdstip |
 
 ## 3. Infrastructuur (blauwe nodes)
 
@@ -200,7 +200,7 @@ parametercode heeft.
 | Paar | Waarom |
 |---|---|
 | `sosa:hasSample` ↔ `sosa:isSampleOf` (waterloop → meetplaats → staal) | de keten in beide richtingen doorlopen: alle meetplaatsen van een waterloop, alle stalen van een meetplaats |
-| `sosa:hasResult` ↔ `sosa:isResultOf` (sampling → staal/meetplaats; observatie → resultaat) | `isResultOf` is verplicht op `sosa:Result` en aanwezig op `sosa:Sample` (SHACL) |
+| `sosa:hasResult` ↔ `sosa:isResultOf` (sampling → staal/meetplaats; observatie → resultaat) | `isResultOf` staat op elk resultaat en op het staal, voor het zoekpad terug naar observatie en staalname; op het resultaat niet meer verplicht sinds het een `qudt:QuantityValue` is en geen `sosa:Result` (R3) |
 | `sosa:hasFeatureOfInterest` ↔ `sosa:isFeatureOfInterestOf` (waterloop, meetplaats, staal) | `isFeatureOfInterestOf` is verplicht op `sosa:FeatureOfInterest` (SHACL) |
 
 `sosa:hasMember` staat enkel op de collectie.

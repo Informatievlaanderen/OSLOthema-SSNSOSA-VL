@@ -48,14 +48,14 @@ O1["`**C14Observatie**
 R1["`**ResultaatC14Observatie**
 -value = 7530
 -unit = YR
-*(sosa:Result)*`"]
+*(qudt:QuantityValue)*`"]
 O2["`**CO2Observatie**
 -observedProperty = CO2Concentratie
 *(sosa:Observation)*`"]
 R2["`**ResultaatCO2Observatie**
 -value = 240
 -unit = PPM
-*(sosa:Result)*`"]
+*(qudt:QuantityValue)*`"]
 
 O1 -->|hasResult| R1
 O2 -->|hasResult| R2
@@ -130,13 +130,13 @@ O1["`**C14Observatie**
 *(sosa:Observation)*`"]
 R1["`-value = 7530
 -unit = YR
-*(sosa:Result)*`"]
+*(qudt:QuantityValue)*`"]
 O2["`**CO2Observatie**
 -observedProperty = CO2Concentratie
 *(sosa:Observation)*`"]
 R2["`-value = 240
 -unit = PPM
-*(sosa:Result)*`"]
+*(qudt:QuantityValue)*`"]
 
 %% Derived Paleo Observation
 P["`**PaleoCO2Observatie**

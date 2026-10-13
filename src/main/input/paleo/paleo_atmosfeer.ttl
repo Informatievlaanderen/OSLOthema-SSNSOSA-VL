@@ -63,7 +63,7 @@ ex:C14Observatie a sosa:Observation , sosa:Execution ;
   sosa:resultTime "2026-02-01T14:15:00+00:00"^^xsd:dateTime ;
 .
 
-ex:ResultaatC14Observatie a sosa:Result , qudt:QuantityValue ;
+ex:ResultaatC14Observatie a qudt:QuantityValue ;
   sosa:isResultOf ex:C14Observatie ;
   qudt:hasUnit unit:YR ;
   qudt:numericValue 7530.0 ;
@@ -77,7 +77,7 @@ ex:CO2Observatie a sosa:Observation , sosa:Execution ;
   sosa:resultTime "2026-02-01T14:16:00+00:00"^^xsd:dateTime ;
 .
 
-ex:ResultaatCO2Observatie a sosa:Result , qudt:QuantityValue ;
+ex:ResultaatCO2Observatie a qudt:QuantityValue ;
   sosa:isResultOf ex:CO2Observatie ;
   qudt:hasUnit unit:PPM ;
   qudt:numericValue 240.0 ;

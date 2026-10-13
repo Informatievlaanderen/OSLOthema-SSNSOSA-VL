@@ -98,7 +98,7 @@ class Koppeling:
         if pa is None or eenheid is None:
             sys.exit(f"geen eenduidig CSOR-parameteraspect voor {wat}")
         self._extern(pa, (SOSA.Property, CSOR.ParameterAspect))
-        self._extern(eenheid, (CSOR.Eenheid,))
+        self._extern(eenheid, (CSOR.Eenheid, QUDT.Unit))  # qudt:Unit: bereik van qudt:hasUnit, expliciet voor SHACL
         return pa, eenheid
 
     def kwa(self, pa):
@@ -131,7 +131,7 @@ def procedures(g, k, concentratie_pa, debiet_pa, vracht_pa):
 
 
 def resultaat(g, res, obs, waarde, eenheid):
-    g.add((res, RDF.type, SOSA.Result))
+    g.add((res, RDF.type, QUDT.QuantityValue))  # niet sosa:Result: deprecated in SSN/SOSA 2023 (R3)
     g.add((res, RDF.type, WK.Meetresultaat))  # AP (beslisdocument.md A15)
     g.add((res, SOSA.isResultOf, obs))
     g.add((res, QUDT.numericValue, decimaal(waarde)))

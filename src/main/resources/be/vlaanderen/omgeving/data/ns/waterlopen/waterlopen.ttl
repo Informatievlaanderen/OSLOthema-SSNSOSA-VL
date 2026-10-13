@@ -16,6 +16,12 @@
 #   - code:VhaWaterloopobject als gemeenschappelijke superklasse van code:Vhag, code:Wlas en
 #     code:VhaCattraj (2026-10-01), zodat andere vocabularia naar "een VHA-waterloopobject" kunnen
 #     verwijzen zonder de drie klassen op te sommen (bv. waterkwaliteit.ttl, wk:Meetplaats).
+#   - De lengte staat in code:lengte (in meter, xs:decimal) in plaats van qudt:length met unit:M als
+#     datatype: qudt:length is in QUDT de lengte van een datastructuur (bereik xsd:integer), en een
+#     eenheid is geen datatype. Notaties (skos:notation) krijgen een datatype per codesysteem
+#     (code:uidnNotatie, code:vhasNotatie, code:vhagNotatie, code:oidnNotatie) in plaats van de
+#     gelijknamige property. De data volgt dat sinds scripts/waterlopen_herstel.py stap 5
+#     (2026-10-13). Beide horen op termijn in shapefile_to_rdf.
 @prefix : <https://data.omgeving.vlaanderen.be/ns/waterlopen> .
 @prefix code: <https://data.omgeving.vlaanderen.be/ns/waterlopen#> .
 @prefix ont: <https://data.omgeving.vlaanderen.be/id/ontology/> .
@@ -95,7 +101,7 @@ code:lblgeo a rdf:Property ;
 
 code:lengte a rdf:Property ;
     rdfs:label "Lengte"@nl ;
-    rdfs:comment "Lengte"@nl ;
+    rdfs:comment "Lengte, in meter."@nl ;
     rdfs:isDefinedBy ont:waterlopen,
         : ;
     rdfs:range xs:decimal .
@@ -192,11 +198,33 @@ code:beheer rdfs:range skos:Concept .
 code:strmgeb rdfs:range skos:Concept .
 code:wtrlichc rdfs:range skos:Concept .
 
+# Datatypes van de notaties (skos:notation "…"^^code:…Notatie): één per codesysteem, zoals SKOS
+# het aanraadt. Niet de gelijknamige properties: een property is geen datatype.
+code:uidnNotatie a rdfs:Datatype ;
+    rdfs:label "Notatie versie-identificator"@nl ;
+    rdfs:comment "Datatype van een notatie die een verschijningsvorm identificeert (attribuut UIDN)."@nl ;
+    rdfs:isDefinedBy ont:waterlopen, : .
+
+code:vhasNotatie a rdfs:Datatype ;
+    rdfs:label "Notatie identificator VHA-waterloopsegment"@nl ;
+    rdfs:comment "Datatype van een notatie die een VHA-waterloopsegment identificeert (attribuut VHAS)."@nl ;
+    rdfs:isDefinedBy ont:waterlopen, : .
+
+code:vhagNotatie a rdfs:Datatype ;
+    rdfs:label "Notatie gewestcode VHA-waterloop"@nl ;
+    rdfs:comment "Datatype van een notatie die een VHA-waterloop identificeert met zijn gewestcode (attribuut VHAG)."@nl ;
+    rdfs:isDefinedBy ont:waterlopen, : .
+
+code:oidnNotatie a rdfs:Datatype ;
+    rdfs:label "Notatie objectidentificator"@nl ;
+    rdfs:comment "Datatype van een notatie met het objectnummer uit de bron (attribuut OIDN)."@nl ;
+    rdfs:isDefinedBy ont:waterlopen, : .
+
 # ---------------------------------------------------------------------------
 # OWL-restricties (-> SHACL via OwlToShaclGenerator)
 # Eén restrictie per aspect (kardinaliteit of waardebereik), zoals OWL het vraagt.
-# Literalen met taaltag (@nl) en de getypeerde qudt:length krijgen enkel
-# een kardinaliteit: de generator herkent alleen xs:-datatypes als sh:datatype.
+# Literalen met taaltag (@nl) krijgen enkel een kardinaliteit; code:lengte een kardinaliteit en
+# owl:allValuesFrom xs:decimal.
 # Codelijst-verwijzingen (beknr, catc, beheer, strmgeb, wtrlichc) krijgen enkel een kardinaliteit,
 # geen owl:allValuesFrom skos:Concept. De pipeline valideert SHACL op het niet-geïnfereerde model
 # (TurtleTransformer.processModel), dus sh:class slaagt enkel als de data het concept zelf typeert.
@@ -213,7 +241,8 @@ code:VhaWaterloopobject a owl:Class ;
 code:Vhag a owl:Class ;
     rdfs:subClassOf code:VhaWaterloopobject ;
     rdfs:subClassOf
-        [ a owl:Restriction ; owl:onProperty qudt:length ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:lengte ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:lengte ; owl:allValuesFrom xs:decimal ] ,
         [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:someValuesFrom geosparql:Geometry ] ,
         [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty rdfs:label ; owl:maxCardinality 1 ] ,
@@ -224,7 +253,8 @@ code:Vhag a owl:Class ;
 code:Wlas a owl:Class ;
     rdfs:subClassOf code:VhaWaterloopobject ;
     rdfs:subClassOf
-        [ a owl:Restriction ; owl:onProperty qudt:length ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:lengte ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:lengte ; owl:allValuesFrom xs:decimal ] ,
         [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:someValuesFrom geosparql:Geometry ] ,
         [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty rdfs:label ; owl:maxCardinality 1 ] ,
@@ -251,7 +281,8 @@ code:Wlas a owl:Class ;
 code:VhaCattraj a owl:Class ;
     rdfs:subClassOf code:VhaWaterloopobject ;
     rdfs:subClassOf
-        [ a owl:Restriction ; owl:onProperty qudt:length ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:lengte ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty code:lengte ; owl:allValuesFrom xs:decimal ] ,
         [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:someValuesFrom geosparql:Geometry ] ,
         [ a owl:Restriction ; owl:onProperty geosparql:hasGeometry ; owl:maxCardinality 1 ] ,
         [ a owl:Restriction ; owl:onProperty rdfs:label ; owl:maxCardinality 1 ] ,

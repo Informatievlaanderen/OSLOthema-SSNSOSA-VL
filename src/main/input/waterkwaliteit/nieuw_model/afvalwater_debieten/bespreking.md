@@ -17,7 +17,7 @@ of uit de bron "MNT". Dit voorbeeld modelleert het jaardebiet 2023 als één SSN
 | Blauw (#60c4e4) | `sosa:Sampler`/`prov:Location`, `sosa:FeatureOfInterest`, `prov:Organization` | meetput, lozing, exploitatie; RIE-IEPR-meetpunt |
 | Oranje (#fe7130) | `sosa:Property` | CSOR-parameteraspect "Q (standaard in water): debiet" |
 | Roze (#e54b89) | `sosa:ObservationCollection`, `sosa:Observation` | jaardebieten 2023, jaardebiet van één lozing |
-| Geel-oranje (#f8b622) | `sosa:Result`, `time:Interval`, `prov:Entity` (databron) | debiet, kalenderjaar, IMJV/MNT |
+| Geel-oranje (#f8b622) | `qudt:QuantityValue`, `time:Interval`, `prov:Entity` (databron) | debiet, kalenderjaar, IMJV/MNT |
 
 ## 3. Infrastructuur (blauwe nodes)
 
@@ -160,6 +160,6 @@ Zoals in stap 1 (`../afvalwater_concentraties/bespreking.md` §6.5, §6.7, §6.9
 | Paar | Waarom |
 |---|---|
 | `sosa:hasFeatureOfInterest` ↔ `sosa:isFeatureOfInterestOf` (lozing) | alle observaties van een lozing, over stap 1 en 3 heen; `isFeatureOfInterestOf` is verplicht (SHACL) |
-| `sosa:hasResult` ↔ `sosa:isResultOf` | `isResultOf` is verplicht op `sosa:Result` (SHACL) |
+| `sosa:hasResult` ↔ `sosa:isResultOf` | `isResultOf` staat op elk resultaat, voor het zoekpad van resultaat naar observatie; niet meer verplicht sinds het resultaat een `qudt:QuantityValue` is en geen `sosa:Result` (R3) |
 
 `sosa:hasMember` staat enkel op de collectie.

@@ -236,7 +236,7 @@ DERIVATION in het diagram groepeert de afgeleide observaties; het model zelf bli
 | Paar | Waarom |
 |---|---|
 | `sosa:hasFeatureOfInterest` ↔ `sosa:isFeatureOfInterestOf` | alle observaties van een groep of lozing, over stap 1, 3 en 4 heen; `isFeatureOfInterestOf` is verplicht (SHACL) |
-| `sosa:hasResult` ↔ `sosa:isResultOf` | `isResultOf` is verplicht op `sosa:Result` (SHACL) |
+| `sosa:hasResult` ↔ `sosa:isResultOf` | `isResultOf` staat op elk resultaat, voor het zoekpad van resultaat naar observatie; niet meer verplicht sinds het resultaat een `qudt:QuantityValue` is en geen `sosa:Result` (R3) |
 
 `sosa:hasInputValue` en `sosa:relatedObservation` hebben bewust geen inverse in de data: de
 richting (van afgeleide naar bronresultaat en bronobservatie, van netto naar bruto) is de

@@ -691,7 +691,7 @@ ent:walnuts_001
 # ------------------------------------------------------------------------------------------------------------
 
 ent:melted-mixture_001
-    a prov:Entity, sosa:Result ;
+    a prov:Entity ;
     sosa:isResultOf exec:melting-2026-02-10 ;
     rdfs:label "Melted butter-chocolate"@en ;
     rdfs:label "Gesmolten boter-chocolade"@nl ;
@@ -700,7 +700,7 @@ ent:melted-mixture_001
     p-plan:correspondsToVariable var:melted-mixture .
 
 ent:chopped-walnuts_001
-    a prov:Entity, sosa:Result ;
+    a prov:Entity ;
     sosa:isResultOf exec:chopping-2026-02-10 ;
     rdfs:label "Chopped walnuts"@en ;
     rdfs:label "Gehakte walnoten"@nl ;
@@ -709,7 +709,7 @@ ent:chopped-walnuts_001
     p-plan:correspondsToVariable var:chopped-walnuts .
 
 ent:batter_001
-    a prov:Entity, sosa:Result, sosa:FeatureOfInterest ;
+    a prov:Entity, sosa:FeatureOfInterest ;
     sosa:isResultOf exec:mixing-2026-02-10 ;
     sosa:isFeatureOfInterestOf exec:baking-2026-02-10 ;
     sosa:hasProperty prop:state-batter ;
@@ -726,7 +726,7 @@ ent:batter_001
 # ----------------------------------------------------------------------------------------------
 
 ent:brownies_001
-    a prov:Entity, sosa:Result, sosa:FeatureOfInterest ;
+    a prov:Entity, sosa:FeatureOfInterest ;
     sosa:isResultOf exec:baking-2026-02-10 ;
     sosa:isFeatureOfInterestOf exec:check_when_brownies_are_done ;
     rdfs:label "Brownies"@en ;
@@ -741,7 +741,7 @@ ent:brownies_001
 # ----------------------------------------------------------------------------------------------
 
 ent:colour_001
-    a sosa:Result ;
+    a prov:Entity ;
     sosa:isResultOf exec:check_when_brownies_are_done ;
     rdfs:label "Colour of Brownies"@en ;
     rdfs:label "Kleur van de brownies"@nl ;

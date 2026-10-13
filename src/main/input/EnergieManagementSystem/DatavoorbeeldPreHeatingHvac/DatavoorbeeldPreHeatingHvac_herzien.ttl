@@ -228,7 +228,7 @@ exec:tijdstip_voorspelling_001
                           time:inXSDDateTimeStamp "2025-04-01T05:00:00.000+02:00"^^xsd:dateTimeStamp ] .
 
 ent:voorspeld_tijdstip_0530
-  a sosa:Result;
+  a prov:Entity;
   sosa:isResultOf exec:tijdstip_voorspelling_001;
   rdfs:label "Voorspeld starttijdstip 05:30"@nl;
   p-plan:correspondsToVariable var:voorspeld_tijdstip;
@@ -247,7 +247,7 @@ exec:buitentemperatuur_meting_001
                           time:inXSDDateTimeStamp "2025-04-01T06:00:00.000+02:00"^^xsd:dateTimeStamp ] .
 
 ent:buitentemperatuur_1c
-  a sosa:Result;
+  a qudt:QuantityValue;
   sosa:isResultOf exec:buitentemperatuur_meting_001;
   rdfs:label "Buitentemperatuur 1°C"@nl;
   p-plan:correspondsToVariable var:buitentemperatuur;
@@ -266,7 +266,7 @@ exec:bezettingsvoorspelling_001
                           time:inXSDDateTimeStamp "2025-04-01T08:00:00.000+02:00"^^xsd:dateTimeStamp ] .
 
 ent:bezetting_80pct
-  a sosa:Result;
+  a qudt:QuantityValue;
   sosa:isResultOf exec:bezettingsvoorspelling_001;
   rdfs:label "Verwachte bezetting 80%"@nl;
   p-plan:correspondsToVariable var:verwachte_bezetting;
@@ -288,7 +288,7 @@ exec:hvac_actuatie_001
   sosa:resultTime "2025-04-01T05:30:00.000"^^xsd:dateTime  .
 
 ent:hvac_status_aan
-  a sosa:Result;
+  a prov:Entity;
   sosa:isResultOf exec:hvac_actuatie_001;
   rdfs:label "HVAC status: AAN"@nl;
   p-plan:correspondsToVariable var:activeringsresultaat .

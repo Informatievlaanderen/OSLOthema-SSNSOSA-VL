@@ -7,8 +7,8 @@ andere waterloop uit of bij niets. Zie ../featureofinterest.md §3.4.
 
 Herstel:
 1. vhag: subject waterloop:<oidn> -> waterloop:<vhag>. De zelfverwijzing `code:vhag` wordt
-   `skos:notation "<vhag>"^^code:vhag`, en het oude nummer blijft bewaard als
-   `skos:notation "<oidn>"^^code:oidn`.
+   `skos:notation "<vhag>"^^code:vhagNotatie`, en het oude nummer blijft bewaard als
+   `skos:notation "<oidn>"^^code:oidnNotatie` (zie stap 5).
 2. wlas: code:vhazonenr krijgt een eigen namespace
    (…/id/waterloop/vhazone/<nr>) in plaats van waterloop:<nr>.
 3. wlas en vhacattraj: code:vhag verwijst al naar de gewestcode en blijft ongewijzigd.
@@ -16,6 +16,14 @@ Herstel:
    domein van geosparql:asWKT is geo:Geometry, dat disjunct is met geo:Feature. Het object wordt
    daarom `a geo:Feature ; geo:hasGeometry [ a geo:Geometry ; geo:asWKT … ]` (blank node),
    zoals GeoSPARQL het bedoelt (../beslisdocument.md C3).
+5. vhag, wlas en vhacattraj: twee typefouten uit de conversie.
+   - `qudt:length "<v>"^^unit:M` wordt `code:lengte "<v>"^^xs:decimal`. qudt:length is in QUDT de
+     lengte van een datastructuur (owl:DatatypeProperty, bereik xsd:integer), niet die van een
+     waterloop, en een eenheid is geen datatype. code:lengte (in meter) staat al in het vocabularium.
+   - Notaties krijgen een eigen datatype per codesysteem (SKOS-conventie): `^^code:uidn` wordt
+     `^^code:uidnNotatie`, en zo ook vhas, vhag en oidn. code:uidn enz. zijn properties, geen
+     datatypes; de datatypes staan in waterlopen.ttl.
+   Beide horen op termijn in shapefile_to_rdf zelf.
 
 Invoer: de originele vhag, wlas en vhacattraj (.ttl of .trig), standaard uit
 ~/git/shapefile_to_rdf/rdf. Al herstelde bestanden worden geweigerd.
@@ -44,6 +52,30 @@ P_VHAG = f"<{CODE}vhag>"
 P_VHAZONENR = f"<{CODE}vhazonenr>"
 GEO = "http://www.opengis.net/ont/geosparql#"
 P_WKT = f"<{GEO}asWKT>"
+P_QUDT_LENGTH = "<http://qudt.org/schema/qudt/length>"
+P_LENGTE = f"<{CODE}lengte>"
+XSD_DECIMAL = "<http://www.w3.org/2001/XMLSchema#decimal>"
+UNIT_M = "<http://qudt.org/vocab/unit/M>"
+NOTATIES = ("uidn", "vhas", "vhag", "oidn")
+LITERAL = re.compile(r'^("(?:[^"\\]|\\.)*")\^\^(<[^>]*>)$')
+
+
+def literalen(p, o):
+    """Stap 5: qudt:length met een eenheid als datatype wordt code:lengte (xs:decimal); een notatie
+    met een property als datatype krijgt het notatie-datatype van zijn codesysteem."""
+    m = LITERAL.match(o)
+    if not m:
+        return p, o
+    waarde, dt = m.groups()
+    if p == P_QUDT_LENGTH:
+        if dt != UNIT_M:
+            sys.exit(f"qudt:length met onverwacht datatype {dt}: herstel afgebroken")
+        return P_LENGTE, f"{waarde}^^{XSD_DECIMAL}"
+    if p == SKOS_NOTATION:
+        for code in NOTATIES:
+            if dt == f"<{CODE}{code}>":
+                return p, f"{waarde}^^<{CODE}{code}Notatie>"
+    return p, o
 P_HASGEOMETRY = f"<{GEO}hasGeometry>"
 
 PREFIXEN = f"""@prefix code: <{CODE}> .
@@ -75,6 +107,7 @@ class Geometrieen:
         self.naam, self.n = naam, 0
 
     def schrijf(self, f, s, p, o):
+        p, o = literalen(p, o)
         if p != P_WKT or s.startswith("_:"):
             f.write(f"{s} {p} {o} .\n")
             return
@@ -147,8 +180,8 @@ def herstel_vhag(pad, werkmap):
             if p == P_VHAG:
                 code = o[len("<" + WATERLOOP):-1]
                 oidn = s[len("<" + WATERLOOP):-1]
-                f.write(f'{ns} {SKOS_NOTATION} "{code}"^^<{CODE}vhag> .\n')
-                f.write(f'{ns} {SKOS_NOTATION} "{oidn}"^^<{CODE}oidn> .\n')
+                f.write(f'{ns} {SKOS_NOTATION} "{code}"^^<{CODE}vhagNotatie> .\n')
+                f.write(f'{ns} {SKOS_NOTATION} "{oidn}"^^<{CODE}oidnNotatie> .\n')
             else:
                 geom.schrijf(f, ns, p, o)
     print(f"vhag: {len(nieuw)} waterlopen hernoemd naar hun gewestcode; {geom.n} geometrieën als geo:Geometry",

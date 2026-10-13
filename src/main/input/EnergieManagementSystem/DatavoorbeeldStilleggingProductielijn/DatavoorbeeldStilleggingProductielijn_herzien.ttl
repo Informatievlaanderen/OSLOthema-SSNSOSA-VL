@@ -209,14 +209,14 @@ ent:min_4hr
   qudt:hasUnit unit:HR .
 
 ent:prijs_105eur
-  a sosa:Result;
+  a qudt:QuantityValue;
   sosa:isResultOf exec:prijs_observatie_20250214;
   rdfs:label "Elektriciteitsprijs 105 EUR/MWh"@nl;
   qudt:numericValue "105"^^xsd:decimal;
   qudt:hasUnit unit:EUR-PER-MegaW-HR .
 
 ent:status_uit
-  a sosa:Result;
+  a prov:Entity;
   sosa:isResultOf exec:stillegging_20250214;
   rdfs:label "Productielijn status: UIT"@nl;
   p-plan:correspondsToVariable var:toestel_status;

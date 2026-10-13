@@ -179,7 +179,7 @@ def bouw(rijen, csor, procedures):
             ontbrekend[(code, r["Eenheid"])] += 1
             continue
         extern(pa, (SOSA.Property, CSOR.ParameterAspect), csor.label(pa))
-        extern(eenheid, (CSOR.Eenheid,), csor.label(eenheid))
+        extern(eenheid, (CSOR.Eenheid, QUDT.Unit), csor.label(eenheid))  # qudt:Unit: bereik van qudt:hasUnit, expliciet voor SHACL
         g.add((obs, RDF.type, SOSA.Observation))
         g.add((obs, RDF.type, WK.WaterkwaliteitObservatie))  # AP (beslisdocument.md A15)
         g.add((obs, RDF.type, SOSA.Execution))
@@ -188,7 +188,7 @@ def bouw(rijen, csor, procedures):
         g.add((obs, SOSA.observedProperty, pa))
         g.add((obs, SOSA.hasResult, res))
 
-        g.add((res, RDF.type, SOSA.Result))
+        g.add((res, RDF.type, QUDT.QuantityValue))  # niet sosa:Result: deprecated in SSN/SOSA 2023 (R3)
         g.add((res, RDF.type, WK.Meetresultaat))  # AP (beslisdocument.md A15)
         g.add((res, SOSA.isResultOf, obs))
         g.add((res, QUDT.hasUnit, eenheid))

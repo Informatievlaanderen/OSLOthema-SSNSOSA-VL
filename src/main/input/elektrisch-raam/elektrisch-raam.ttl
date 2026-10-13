@@ -222,7 +222,7 @@ exec:temp-obs-20250427 a sosa:Observation , sosa:Execution ;
 exec:instant-20250427T0900 a time:Instant ;
     time:inXSDDateTimeStamp "2025-04-27T09:00:00Z"^^xsd:dateTimeStamp .
 
-ent:result-temp-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+ent:result-temp-20250427 a qudt:QuantityValue, prov:Entity ;
     qudt:numericValue "22.3"^^xsd:decimal ;
     qudt:hasUnit unit:DEG_C ;
     p-plan:correspondsToVariable var:temperatuur .
@@ -240,7 +240,7 @@ exec:wind-obs-20250427 a sosa:Observation , sosa:Execution ;
     sosa:phenomenonTime exec:instant-20250427T0900 ;
     sosa:hasResult ent:result-wind-20250427 .
 
-ent:result-wind-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+ent:result-wind-20250427 a qudt:QuantityValue, prov:Entity ;
     qudt:numericValue "3.5"^^xsd:decimal ;
     qudt:hasUnit unit:M-PER-SEC ;
     p-plan:correspondsToVariable var:windsnelheid .
@@ -258,7 +258,7 @@ exec:licht-obs-20250427 a sosa:Observation , sosa:Execution ;
     sosa:phenomenonTime exec:instant-20250427T0900 ;
     sosa:hasResult ent:result-licht-20250427 .
 
-ent:result-licht-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+ent:result-licht-20250427 a qudt:QuantityValue, prov:Entity ;
     qudt:numericValue "450"^^xsd:decimal ;
     qudt:hasUnit unit:LUX ;
     p-plan:correspondsToVariable var:lichtintensiteit .
@@ -276,7 +276,7 @@ exec:regen-obs-20250427 a sosa:Observation , sosa:Execution ;
     sosa:phenomenonTime exec:instant-20250427T0900 ;
     sosa:hasResult ent:result-regen-20250427 .
 
-ent:result-regen-20250427 a prov:Entity, sosa:Result ;
+ent:result-regen-20250427 a prov:Entity ;
     rdf:value "false"^^xsd:boolean ;
     p-plan:correspondsToVariable var:regen-aanwezigheid .
 
@@ -295,7 +295,7 @@ exec:afwijking-obs-20250427 a sosa:Observation , sosa:Execution ;
     prov:used ent:result-temp-20250427 ;
     sosa:hasResult ent:result-afwijking-20250427 .
 
-ent:result-afwijking-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+ent:result-afwijking-20250427 a qudt:QuantityValue, prov:Entity ;
     qudt:numericValue "2.3"^^xsd:decimal ;
     qudt:hasUnit unit:DEG_C ;
     p-plan:correspondsToVariable var:temp-afwijking .
@@ -320,7 +320,7 @@ exec:raam-actuatie-20250427 a sosa:Actuation , sosa:Execution ;
     prov:used ent:result-regen-20250427 ;
     sosa:hasResult ent:result-raam-stand-20250427 .
 
-ent:result-raam-stand-20250427 a qudt:QuantityValue, prov:Entity, sosa:Result ;
+ent:result-raam-stand-20250427 a qudt:QuantityValue, prov:Entity ;
     qudt:numericValue "45"^^xsd:decimal ;
     qudt:hasUnit unit:PERCENT ;
     p-plan:correspondsToVariable var:raam-stand .

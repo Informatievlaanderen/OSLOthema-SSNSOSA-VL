@@ -83,13 +83,13 @@ ex:periode-2023 a time:Interval ;
     time:hasBeginning ex:tijdstip-2023-01-01T000000 ;
     time:hasEnd ex:tijdstip-2024-01-01T000000 .
 
-ex:resultaat-jaardebiet-2400006-2023 a sosa:Result,
+ex:resultaat-jaardebiet-2400006-2023 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_50 ;
     qudt:numericValue 244378.0 ;
     sosa:isResultOf ex:observatie-jaardebiet-2400006-2023 .
 
-ex:resultaat-jaardebiet-2400007-2023 a sosa:Result,
+ex:resultaat-jaardebiet-2400007-2023 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_50 ;
     qudt:numericValue 27784.0 ;
@@ -101,7 +101,8 @@ ex:tijdstip-2023-01-01T000000 a time:Instant ;
 ex:tijdstip-2024-01-01T000000 a time:Instant ;
     time:inXSDDateTimeStamp "2024-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
 
-csor-eenheid:E_50 a csor:Eenheid ;
+csor-eenheid:E_50 a qudt:Unit,
+        csor:Eenheid ;
     rdfs:label "kubieke meter per jaar"@nl .
 
 matrix:afvalwater a skos:Concept ;

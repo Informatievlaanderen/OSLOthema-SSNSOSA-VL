@@ -21,7 +21,7 @@ doelmodel *Observaties Debiet & Overstortduur*
 | Paars (#c6a0f5) | `sosa:ActuatingProcedure` | het overstorten als werking van het kunstwerk |
 | Oranje-rood (#fe7130) | `sosa:Property` | werking van de overstort, overstortduur |
 | Roze (#e54b89) | `sosa:Actuation` / `sosa:Observation` / `sosa:ObservationCollection` | werking van de overstort, observaties |
-| Oranje (#f8b622) | `wk:Emissie` / `sosa:Result` / `time:Interval` | de overstorting, resultaten, periode |
+| Oranje (#f8b622) | `wk:Emissie` / `qudt:QuantityValue` / `time:Interval` | de overstorting, resultaten, periode |
 
 De emissie is oranje: in dit patroon is ze een entiteit, het resultaat van de actuatie.
 

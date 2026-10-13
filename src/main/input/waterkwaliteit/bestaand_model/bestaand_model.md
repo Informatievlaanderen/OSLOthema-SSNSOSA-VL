@@ -407,7 +407,7 @@ naar het waterlichaam.
 Voor tijd wordt ISO 19108 (`TM_Object`, `TM_Instant`, `TM_Period`) gebruikt in plaats van
 `time:Instant`/`time:Interval`. Resultaten zijn een ongespecificeerde `iso19103:Measure`, zonder
 vastgelegde properties voor waarde en eenheid. Vergelijk met `qudt:QuantityValue` of een
-`sosa:Result` met `qudt:numericValue` en `qudt:hasUnit` (R3).
+`qudt:QuantityValue` met `qudt:numericValue` en `qudt:hasUnit` (R3).
 
 ### 4.8 Te strikte of dubbele agent-modellering
 

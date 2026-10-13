@@ -33,7 +33,7 @@ een event gaf.
 | Paars licht (#c6a0f5) | sosa:ObservingProcedure | Eventmeting |
 | Oranje (#fe7130) | sosa:Property | LAeq, LAmax, SEL, duur |
 | Roze (#e54b89) | Observation / ObservationCollection / prov:Activity | Eventmetingen, de vlucht |
-| Geel (#f8b622) | wk:Emissie / prov:Entity / sosa:Result / time:Interval / time:Instant | **De geluidsemissies** (FOI), het luchtvaartuig, meetwaarden, tijden |
+| Geel (#f8b622) | wk:Emissie / prov:Entity / qudt:QuantityValue / time:Interval / time:Instant | **De geluidsemissies** (FOI), het luchtvaartuig, meetwaarden, tijden |
 
 De emissie staat in het geel, zoals een `sosa:Sample` of een lozing: het is een entiteit die uit
 een activiteit voortkomt, geen infrastructuur.

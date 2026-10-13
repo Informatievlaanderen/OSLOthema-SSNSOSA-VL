@@ -23,6 +23,9 @@ classDiagram
     class prov_Location["prov:Location"] {
         <<extern>>
     }
+    class qudt_QuantityValue["qudt:QuantityValue"] {
+        <<extern>>
+    }
     class sosa_FeatureOfInterest["sosa:FeatureOfInterest"] {
         <<extern>>
     }
@@ -36,9 +39,6 @@ classDiagram
         <<extern>>
     }
     class sosa_Property["sosa:Property"] {
-        <<extern>>
-    }
-    class sosa_Result["sosa:Result"] {
         <<extern>>
     }
     class sosa_Sample["sosa:Sample"] {
@@ -122,7 +122,7 @@ classDiagram
     geo_Feature <|-- wk_Meetput
     prov_Location <|-- wk_Meetput
     sosa_Sampler <|-- wk_Meetput
-    sosa_Result <|-- wk_Meetresultaat
+    qudt_QuantityValue <|-- wk_Meetresultaat
     sosa_Sample <|-- wk_Staal
     sosa_Sampling <|-- wk_Staalname
     sosa_Observation <|-- wk_WaterkwaliteitObservatie
@@ -159,12 +159,12 @@ classDiagram
     style geo_Feature fill:#eeeeee,stroke:#2E5C8A,color:#000
     style prov_Entity fill:#eeeeee,stroke:#2E5C8A,color:#000
     style prov_Location fill:#eeeeee,stroke:#2E5C8A,color:#000
+    style qudt_QuantityValue fill:#eeeeee,stroke:#2E5C8A,color:#000
     style sosa_FeatureOfInterest fill:#eeeeee,stroke:#2E5C8A,color:#000
     style sosa_Observation fill:#eeeeee,stroke:#2E5C8A,color:#000
     style sosa_ObservationCollection fill:#eeeeee,stroke:#2E5C8A,color:#000
     style sosa_Platform fill:#eeeeee,stroke:#2E5C8A,color:#000
     style sosa_Property fill:#eeeeee,stroke:#2E5C8A,color:#000
-    style sosa_Result fill:#eeeeee,stroke:#2E5C8A,color:#000
     style sosa_Sample fill:#eeeeee,stroke:#2E5C8A,color:#000
     style sosa_SampleCollection fill:#eeeeee,stroke:#2E5C8A,color:#000
     style sosa_Sampler fill:#eeeeee,stroke:#2E5C8A,color:#000

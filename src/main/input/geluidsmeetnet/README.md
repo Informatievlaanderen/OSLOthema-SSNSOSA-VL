@@ -66,7 +66,7 @@ nagerekend (op twee campagnes na exact; zie `bespreking.md` §6) en gemodelleerd
   **Aerovision-rekenmodule** (`sosa:Sensor`, software), buiten de collectie, met
   `sosa:hasInputValue` naar de event-resultaten en `sosa:relatedObservation` naar de dagcollectie.
   Lden is een afgeleide van afgeleiden: input Ld, Le en Ln.
-- Resultaten als benoemde `sosa:Result` met `qudt:numericValue` + `qudt:hasUnit unit:DeciB_A`
+- Resultaten als benoemde `qudt:QuantityValue` met `qudt:numericValue` + `qudt:hasUnit unit:DeciB_A`
   (of `unit:SEC` voor de duur) — één stijl (R3).
 
 **Alternatieve mapping:** `alternatief/` legt een tweede, eveneens verdedigbare lezing voor: het

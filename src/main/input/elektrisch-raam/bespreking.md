@@ -113,13 +113,15 @@ Motivatie: regel R5 verbiedt `sosa:hasInput` op execution-niveau. `sosa:hasInput
 abstracte inputtypes op procedure-nodes. De concrete entiteits-referentie hoort op
 `prov:used` (PROV-O spec).
 
-### Waarom het regenresultaat als `prov:Entity, sosa:Result` zonder QUDT?
+### Waarom het regenresultaat als `prov:Entity` zonder QUDT?
 
 Verworpen alternatief: `sosa:hasSimpleResult false` op de observatie.
 Gekozen aanpak: benoemd IRI-entiteit `ent:result-regen-20250427` met `rdf:value "false"^^xsd:boolean`.
 Motivatie: ook het regenresultaat moet gerefereerd worden via `prov:used` door de actuatie
 (`exec:raam-actuatie-20250427`). Een benoemd entiteit is daarvoor noodzakelijk. QUDT is
-niet van toepassing op booleaanse waarden; `rdf:value` is hier de correcte modellering.
+niet van toepassing op booleaanse waarden; `rdf:value` is hier de correcte modellering. Het
+resultaat is geen `sosa:Result` meer: die klasse is in SSN/SOSA 2023 `owl:deprecated`, en elk
+resultaat is via `sosa:hasResult` (⊂ `prov:generated`) al een `prov:Entity` (R3).
 
 ## 7. Tijdsmodellering
 

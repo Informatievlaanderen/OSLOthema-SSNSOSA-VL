@@ -35,7 +35,7 @@ flowchart LR
     subgraph WAAR["WAARNEMING"]
         Observation(["sosa:Observation<br/>"])
         ObsCollection(["sosa:ObservationCollection<br/>---<br/>resultTime: date"])
-        Result(["sosa:Result<br/>---<br/>value: decimal / string / int<br/>hasUnit"])
+        Result(["qudt:QuantityValue (met hasUnit)<br/>of prov:Entity<br/>---<br/>value: decimal / string / int"])
         Instant(["time:Instant<br/>---<br/>inXSDDate: date"])
     end
 

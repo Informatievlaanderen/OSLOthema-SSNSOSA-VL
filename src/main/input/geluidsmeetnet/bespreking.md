@@ -19,7 +19,7 @@ vliegtuiggeluid**: L24, Ld, Le, Ln, Lden, LAeq, LAmax en SEL. De gevalideerde su
 | Paars licht (#c6a0f5) | sosa:ObservingProcedure | Eventmeting en de rekenregels voor de dagindicatoren |
 | Oranje (#fe7130) | sosa:Property | Akoestische grootheden (LAeq, LAmax, SEL, duur, Ld, Le, Ln, Lden, …) |
 | Roze (#e54b89) | Observation / ObservationCollection / Sampling / prov:Activity | Eventmetingen, dagindicatoren, keuze van de meetpost, vlucht |
-| Geel (#f8b622) | sosa:Result / time:Interval / time:Instant / sosa:Stimulus / prov:Entity | Meetwaarden, tijden, het geluidsevent, het luchtvaartuig |
+| Geel (#f8b622) | qudt:QuantityValue / time:Interval / time:Instant / sosa:Stimulus / prov:Entity | Meetwaarden, tijden, het geluidsevent, het luchtvaartuig |
 | Lichtgeel (#f8e1ad, subgraaf) | DERIVATION | Afgeleide dagindicatoren |
 
 ## 3. Infrastructuur (blauwe nodes)
@@ -221,7 +221,7 @@ gecorreleerde vliegtuigevents**. De namen zijn dezelfde, de betekenis is smaller
 ### Waarom `sosa:hasResult` met benoemde resultaten, en niet `sosa:hasSimpleResult`?
 
 > **Verworpen alternatief:** `sosa:hasSimpleResult "62.97"^^xsd:decimal`.
-> **Gekozen aanpak:** `sosa:Result` met `qudt:numericValue` en `qudt:hasUnit unit:DeciB_A`
+> **Gekozen aanpak:** `qudt:QuantityValue` met `qudt:numericValue` en `qudt:hasUnit unit:DeciB_A`
 > (of `unit:SEC`), met skolem-IRI `ex:resultaat-<obs-id>`.
 > **Motivatie:** de eenheid moet expliciet zijn, en vooral: `sosa:hasInputValue` van de
 > dagindicatoren moet naar de *waarde* van een event verwijzen. Dat kan enkel als die waarde een

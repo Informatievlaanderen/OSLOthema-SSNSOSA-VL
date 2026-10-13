@@ -17,7 +17,7 @@ dinsdag 28 april 2026.
 | Paars licht (#c6a0f5) | sosa:ObservingProcedure | Automatische telmethode |
 | Oranje (#fe7130) | sosa:Property | Verkeersintensiteit |
 | Roze (#e54b89) | Observation / ObservationCollection | Dagsom- en uurobservaties |
-| Geel (#f8b622) | time:Interval / sosa:Result | Meetperiodes en telresultaten |
+| Geel (#f8b622) | time:Interval / qudt:QuantityValue | Meetperiodes en telresultaten |
 
 ## 3. Infrastructuur (blauwe nodes)
 
@@ -116,7 +116,7 @@ route direct als FOI op te geven terwijl de meting slechts op één locatie plaa
 ### Waarom `sosa:hasResult` met benoemde resultaten, en niet `sosa:hasSimpleResult`?
 
 Verworpen alternatief: `sosa:hasSimpleResult "NNN"^^xsd:integer` voor alle 25 observaties.
-Gekozen aanpak: elke observatie heeft `sosa:hasResult ex:resultaat-…` (`sosa:Result` met
+Gekozen aanpak: elke observatie heeft `sosa:hasResult ex:resultaat-…` (`qudt:QuantityValue` met
 `qudt:numericValue` en `qudt:hasUnit unit:NUM`).
 Motivatie: de uurresultaten zijn de inputwaarden van de dagsom (`sosa:hasInputValue`). Een
 inputwaarde is een entiteit (`sosa:hasInputValue` ⊂ `prov:used`, `pplan-sosa.ttl`), dus het

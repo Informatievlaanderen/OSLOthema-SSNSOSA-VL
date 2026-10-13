@@ -19,7 +19,8 @@
 @prefix wk: <https://data.vlaanderen.be/ns/waterkwaliteit#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-csor-eenheid:E_131 a csor:Eenheid ;
+csor-eenheid:E_131 a qudt:Unit,
+        csor:Eenheid ;
     rdfs:label "milligram fosfor per liter"@nl .
 
 csor-parameteraspect:PAS_1005 a sosa:Property,
@@ -139,106 +140,107 @@ ex:meetpunt-2800028 a geo:Feature,
     rdfs:comment "Effluent F203"@nl ;
     adms:identifier ex:identificator-meetpunt-2800028 .
 
-ex:resultaat-16231-P_1017 a sosa:Result,
+ex:resultaat-16231-P_1017 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:numericValue 0.45 ;
     sosa:isResultOf ex:observatie-16231-P_1017 .
 
-ex:resultaat-16231-P_1100 a sosa:Result,
+ex:resultaat-16231-P_1100 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 0.1 ;
     sosa:isResultOf ex:observatie-16231-P_1100 .
 
-ex:resultaat-16231-P_118 a sosa:Result,
+ex:resultaat-16231-P_118 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:numericValue 0.303 ;
     sosa:isResultOf ex:observatie-16231-P_118 .
 
-ex:resultaat-16231-P_1180 a sosa:Result,
+ex:resultaat-16231-P_1180 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:numericValue 0.3 ;
     sosa:isResultOf ex:observatie-16231-P_1180 .
 
-ex:resultaat-16231-P_1188 a sosa:Result,
+ex:resultaat-16231-P_1188 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_1 ;
     qudt:numericValue 0.00244 ;
     sosa:isResultOf ex:observatie-16231-P_1188 .
 
-ex:resultaat-16231-P_1228 a sosa:Result,
+ex:resultaat-16231-P_1228 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_131 ;
     qudt:numericValue 0.59 ;
     sosa:isResultOf ex:observatie-16231-P_1228 .
 
-ex:resultaat-16231-P_1238 a sosa:Result,
+ex:resultaat-16231-P_1238 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 0.025 ;
     sosa:isResultOf ex:observatie-16231-P_1238 .
 
-ex:resultaat-16231-P_1442 a sosa:Result,
+ex:resultaat-16231-P_1442 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_2 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 12.5 ;
     sosa:isResultOf ex:observatie-16231-P_1442 .
 
-ex:resultaat-16231-P_421 a sosa:Result,
+ex:resultaat-16231-P_421 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_1 ;
     qudt:numericValue 0.103 ;
     sosa:isResultOf ex:observatie-16231-P_421 .
 
-ex:resultaat-16231-P_572 a sosa:Result,
+ex:resultaat-16231-P_572 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_2 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 5.0 ;
     sosa:isResultOf ex:observatie-16231-P_572 .
 
-ex:resultaat-16231-P_595 a sosa:Result,
+ex:resultaat-16231-P_595 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 0.05 ;
     sosa:isResultOf ex:observatie-16231-P_595 .
 
-ex:resultaat-16231-P_599 a sosa:Result,
+ex:resultaat-16231-P_599 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 0.05 ;
     sosa:isResultOf ex:observatie-16231-P_599 .
 
-ex:resultaat-16231-P_813 a sosa:Result,
+ex:resultaat-16231-P_813 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 0.0125 ;
     sosa:isResultOf ex:observatie-16231-P_813 .
 
-ex:resultaat-16231-P_863 a sosa:Result,
+ex:resultaat-16231-P_863 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_2 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 5.0 ;
     sosa:isResultOf ex:observatie-16231-P_863 .
 
-ex:resultaat-16231-P_866 a sosa:Result,
+ex:resultaat-16231-P_866 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_2 ;
     qudt:lowerBound 0.0 ;
     qudt:upperBound 5.0 ;
     sosa:isResultOf ex:observatie-16231-P_866 .
 
-csor-eenheid:E_1 a csor:Eenheid ;
+csor-eenheid:E_1 a qudt:Unit,
+        csor:Eenheid ;
     rdfs:label "milligram per liter"@nl .
 
 matrix:afvalwater a skos:Concept ;
@@ -381,10 +383,12 @@ ex:sampling-16231 a sosa:Execution,
 ex:tijdstip-2024-03-27 a time:Instant ;
     time:inXSDDate "2024-03-27"^^xsd:date .
 
-csor-eenheid:E_2 a csor:Eenheid ;
+csor-eenheid:E_2 a qudt:Unit,
+        csor:Eenheid ;
     rdfs:label "nanogram per liter"@nl .
 
-csor-eenheid:E_4 a csor:Eenheid ;
+csor-eenheid:E_4 a qudt:Unit,
+        csor:Eenheid ;
     rdfs:label "microgram per liter"@nl .
 
 ex:lozing-2800028 a prov:Entity,

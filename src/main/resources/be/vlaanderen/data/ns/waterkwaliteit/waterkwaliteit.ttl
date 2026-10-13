@@ -11,14 +11,14 @@
 # - wk:Emissie ⊂ sosa:FeatureOfInterest : voorstel A14.1
 # - gegenereerd door een activiteit, resultaat van een actuatie, afgeleid van een proces:
 #   A14.7 (projectteam). Als OWL-restricties met owl:minCardinality 0: ze definiëren de klasse,
-#   maar worden niet verplicht in de SHACL (OwlToShaclGenerator), zodat data zonder gekende
+#   maar worden niet verplicht in de SHACL (generator van ld-mcp), zodat data zonder gekende
 #   activiteit of proces (VMM-brondata) geldig blijft.
 # - riepr:Emissie ⊂ wk:Emissie           : voorstel A14.2; hoort in riepr.ttl, niet hier
 # - csor:ParameterAspect ⊂ sosa:Property : voorstel C1 (beslisdocument.md); hoort op termijn in CSOR
 # - CSOR-restricties met owl:minCardinality 0: de existentiële restricties uit csor.ttl voor de drie
 #   CSOR-klassen die de voorbeelden gebruiken, herhaald met owl:minCardinality 0. Semantisch
 #   verandert dat niets (OWL-restricties tellen samen op); voor de SHACL-generator
-#   (OwlToShaclGenerator) betekent het "niet verplicht in de data". De voorbeelden verwijzen naar
+#   (generator van ld-mcp) betekent het "niet verplicht in de data". De voorbeelden verwijzen naar
 #   CSOR-concepten zonder de registergegevens (heeftParameter, heeftAspect, dimensie …) te
 #   dupliceren; de volledigheid bewaakt CSOR zelf.
 # - CSOR-ontologie (klassen en properties): owl:imports, bestand
@@ -28,13 +28,16 @@
 #
 # APPLICATIEPROFIEL (beslisdocument.md A15)
 # Dit bestand is ook de bron van het applicatieprofiel dat het AP Waterkwaliteit (kandidaatstandaard
-# 2023-06-01) vervangt: OwlToShaclGenerator zet de OWL-restricties op de wk-klassen om naar
-# src/main/resources/generated-shapes.ttl. Omzettingsregels van de generator:
-#   owl:someValuesFrom C              -> sh:class C (of sh:datatype) + sh:minCount 1
+# 2023-06-01) vervangt: de generator van ld-mcp (validate_file, of de CLI `generate-shapes`) zet de
+# OWL-restricties op de wk-klassen om naar SHACL. Omzettingsregels (ld-mcp 0.4):
+#   owl:someValuesFrom C              -> minstens één waarde is een C (sh:qualifiedValueShape,
+#                                        sh:qualifiedMinCount 1); andere waarden blijven toegelaten
 #   owl:allValuesFrom C               -> sh:class C (of sh:datatype), niet verplicht
-#   owl:maxCardinality n              -> sh:maxCount n
+#   owl:(min|max)Cardinality n        -> sh:minCount / sh:maxCount n
 #   owl:unionOf ( A B )               -> sh:or ( [sh:class A] [sh:class B] )
-#   owl:minCardinality 0 op property  -> een someValuesFrom op dezelfde property wordt niet verplicht
+#   owl:minCardinality 0 op property  -> heft elke ondergrens op dezelfde klasse en property op
+#                                        (someValuesFrom, minimumkardinaliteit); maxima en
+#                                        waardebeperkingen blijven
 # De AP-beperkingen staan op eigen wk-subklassen van de SOSA-klassen, niet op de SOSA-klassen zelf:
 # restricties op sosa:Observation zouden voor alle data gelden (ook voor de andere voorbeelden in
 # dit project en voor elk ander profiel dat SOSA gebruikt). SHACL valideert het niet-afgeleide
@@ -185,6 +188,32 @@ csor:KwantificeerbaarAspect rdfs:subClassOf
     [ a owl:Restriction ; owl:onProperty csor:kwantificeerbaarAspectType ;
       owl:someValuesFrom xsd:string ; owl:minCardinality "0"^^xsd:nonNegativeInteger ] .
 
+# ---------------------------------------------------------------------------
+# SOSA- en QUDT-restricties, niet verplicht in de data van dit project (owl:minCardinality 0)
+# ---------------------------------------------------------------------------
+# SSN/SOSA 2023 zegt dat elk feature of interest isFeatureOfInterestOf some (Deployment ⊔ Execution
+# ⊔ ExecutionCollection). Een referentielijst (de VHA-waterlopen in waterlopen_meetplaatsen.ttl)
+# beschrijft studieobjecten die niet allemaal geobserveerd zijn. De versoepeling moet op
+# sosa:FeatureOfInterest zelf staan: de conventie van de generator (ld-mcp) heft een restrictie enkel
+# op voor dezelfde klasse. Ze geldt dus voor elk feature of interest in de data van dit project.
+
+sosa:FeatureOfInterest rdfs:subClassOf
+    [ a owl:Restriction ; owl:onProperty sosa:isFeatureOfInterestOf ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ] .
+
+# QUDT-restricties, niet verplicht in de data van dit project (owl:minCardinality 0)
+# Een eenheid uit een register (CSOR) is een qudt:Unit: dat volgt uit het bereik van qudt:hasUnit, en
+# de data typeert ze ook zo (R3). CSOR beschrijft de dimensie van een eenheid met een eigen model
+# (csor:heeftNatuurkundigeDimensie, csor:heeftKwantificeerbaarAspect), niet met
+# qudt:hasQuantityKind en qudt:hasDimensionVector. Ook hier moet de versoepeling op de klasse zelf
+# staan, en geldt ze dus voor elke eenheid in de data van dit project.
+
+qudt:Unit rdfs:subClassOf
+    [ a owl:Restriction ; owl:onProperty qudt:hasQuantityKind ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ] ,
+    [ a owl:Restriction ; owl:onProperty qudt:hasDimensionVector ;
+      owl:minCardinality "0"^^xsd:nonNegativeInteger ] .
+
 # ===========================================================================
 # APPLICATIEPROFIEL: klassen en restricties (beslisdocument.md A15)
 # ===========================================================================
@@ -287,7 +316,8 @@ wk:Meetresultaat a owl:Class ;
     rdfs:label "Meetresultaat"@nl , "Measurement result"@en ;
     skos:definition "Kwantitatief resultaat van een waterkwaliteitobservatie: een waarde of een begrensd interval, met een CSOR-eenheid."@nl ;
     skos:scopeNote "Een gemeten waarde staat in qudt:numericValue. Een resultaat onder de rapportagegrens (teken <) staat als qudt:upperBound, eventueel met qudt:lowerBound 0 (beslisdocument.md A3). Minstens één van beide hoort aanwezig te zijn; die keuze tussen properties drukt de generator niet uit."@nl ;
-    rdfs:subClassOf sosa:Result ;
+    rdfs:subClassOf qudt:QuantityValue ;
+    rdfs:comment "Superklasse qudt:QuantityValue, niet sosa:Result: SSN/SOSA 2023 verklaart sosa:Result owl:deprecated (w3c/sdw-sosa-ssn #113, #163; R3 van oslo-ld-kit). Een resultaat is via het bereik van sosa:hasResult (subproperty van prov:generated) hoe dan ook een prov:Entity."@nl ;
     rdfs:subClassOf
     [ a owl:Restriction ;
       rdfs:comment "De CSOR-eenheid; de QUDT-eenheid volgt via de SKOS-mapping in CSOR (beslisdocument.md A2)."@nl ;

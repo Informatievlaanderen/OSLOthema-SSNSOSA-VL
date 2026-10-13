@@ -17,6 +17,7 @@
                 xmlns:filter="https://www.dov.vlaanderen.be/data/filter/"
                 xmlns:dct="http://purl.org/dc/terms/"
                 xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+                xmlns:prov="http://www.w3.org/ns/prov#"
                 exclude-result-prefixes="xsl">
 
     <xsl:output method="xml" indent="yes"/>
@@ -165,7 +166,7 @@
                     </sosa:hasFeatureOfInterest>
                     <sosa:hasResult>
                         <rdf:Description>
-                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+                            <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
                             <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
                                 <xsl:value-of select="diepte_tov_referentiepunt"/>
                             </rdf:value>
@@ -208,7 +209,7 @@
                     </sosa:hasFeatureOfInterest>
                     <sosa:hasResult>
                         <rdf:Description>
-                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+                            <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
                             <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
                                 <xsl:value-of select="peil_mtaw"/>
                             </rdf:value>
@@ -251,7 +252,7 @@
                     </sosa:hasFeatureOfInterest>
                     <sosa:hasResult>
                         <rdf:Description>
-                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
                             <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">
                                 <xsl:value-of select="filtertoestand"/>
                             </rdf:value>
@@ -290,7 +291,7 @@
                     </sosa:hasFeatureOfInterest>
                     <sosa:hasResult>
                         <rdf:Description>
-                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
                             <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
                                 <xsl:value-of select="filterstatus"/>
                             </rdf:value>
@@ -329,7 +330,7 @@
                     </sosa:hasFeatureOfInterest>
                     <sosa:hasResult>
                         <rdf:Description>
-                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Result"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/prov#Entity"/>
                             <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
                                 <xsl:value-of select="zoet"/>
                             </rdf:value>

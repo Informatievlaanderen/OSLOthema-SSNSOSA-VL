@@ -128,7 +128,7 @@ ent:drempelwaarde-001
 
 # Concrete meting van warmteverlies
 ent:meting-001
-   a qudt:QuantityValue , sosa:Result ;
+   a qudt:QuantityValue ;
    sosa:isResultOf exec:meting-001 ;
    qudt:numericValue "0.415"^^xsd:decimal ;
    qudt:hasUnit unit:DEG_C-PER-HR ;
@@ -136,7 +136,7 @@ ent:meting-001
 
 # Resultaat van de classificatie
 ent:klasse-001
-  a sosa:Result ;
+  a prov:Entity ;
   sosa:isResultOf exec:classificatie-uitvoering-20250315 ;
   rdfs:label "Matige warmteverlies klasse"@nl ;
   skos:closeMatch concept:warmteverliesklasse_matig ;

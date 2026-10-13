@@ -490,7 +490,7 @@ data het profiel volgt. *Te beslissen in de werkgroep.*
 |---|---|---|
 | `wk:WaterkwaliteitObservatie` | `sosa:Observation` | FOI 1..1; `observedProperty` 1..1 → `csor:ParameterAspect`; `hasResult` 1..1 → `wk:Meetresultaat`; `phenomenonTime` 0..1 → Instant ∪ Interval; `resultTime` 0..1; `usedProcedure` 0..1; `madeBySensor` 0..* (aanbevolen); `hasInputValue`, `relatedObservation` → `sosa:Observation`; `prov:used` → `prov:Entity`; `prov:atLocation` → `prov:Location` |
 | `wk:WaterkwaliteitObservatieVerzameling` | `sosa:ObservationCollection` | `hasMember` 1..* → `wk:WaterkwaliteitObservatie`; FOI, ultiem FOI, `observedProperty`, `phenomenonTime` elk 0..1 |
-| `wk:Meetresultaat` | `sosa:Result` | `qudt:hasUnit` 1..1 → `csor:Eenheid`; `numericValue`, `lowerBound`, `upperBound` 0..1 `xsd:decimal` |
+| `wk:Meetresultaat` | `qudt:QuantityValue` | `qudt:hasUnit` 1..1 → `csor:Eenheid`; `numericValue`, `lowerBound`, `upperBound` 0..1 `xsd:decimal` |
 | `wk:Staal` | `sosa:Sample` | `isSampleOf` 1..*; `isResultOf` 1..1 → `sosa:Sampling`; `dct:type` → `skos:Concept` (matrix) |
 | `wk:Staalname` | `sosa:Sampling` | FOI 1..1; `hasResult` 1..* → `wk:Staal`; `madeBySampler` 0..1; `usedProcedure` 0..1 → `sosa:SamplingProcedure` |
 | `wk:Meetplaats` | `sosa:SpatialSample`, `sosa:Platform`, `geo:Feature` | `isSampleOf` 1..* → `waterlopen:VhaWaterloopobject` (A15.6); `geo:hasGeometry` 1..1 |
@@ -728,6 +728,16 @@ verandert niet.
     `geo:Geometry`.
   - *Validatie:* de drie bestanden samen zijn conform, op de 133 gekende verwijzingen naar
     ontbrekende waterlopen na.
+  - *Nog te doen:* de bron (`shapefile_to_rdf`) moet volgen.
+- **Lengte en notaties als literalen.** De bron schrijft de lengte als `qudt:length "…"^^unit:M`:
+  `qudt:length` is een schema-property van QUDT (bereik `xsd:integer`, de lengte van een
+  datatype) en `unit:M` is een eenheid, geen datatype. De notaties (`skos:notation`) gebruiken de
+  gelijknamige property (bv. `code:vhag`) als datatype. In dit project hersteld:
+  - *Data:* `scripts/waterlopen_herstel.py` stap 5 schrijft `code:lengte "…"^^xsd:decimal` (in
+    meter) en geeft de notaties de datatypes `code:uidnNotatie`, `code:vhasNotatie`,
+    `code:vhagNotatie` en `code:oidnNotatie`.
+  - *Vocabularium:* in `waterlopen.ttl` vervangt `code:lengte` (1..1, `xsd:decimal`) de restricties
+    op `qudt:length`; de vier notatiedatatypes zijn toegevoegd.
   - *Nog te doen:* de bron (`shapefile_to_rdf`) moet volgen.
 - De superklasse `code:VhaWaterloopobject` (in de kopie toegevoegd) en de alignering
   `code:VhaWaterloopobject` ⊂ `sosa:FeatureOfInterest` in het vocabularium opnemen (A15.6).

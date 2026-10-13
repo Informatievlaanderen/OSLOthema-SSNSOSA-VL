@@ -239,7 +239,7 @@ alt:obs-F041-1-20260929T045911Z-LAeq a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-F041-1-20260929T045911Z-LAeq ;
     sosa:isMemberOf alt:eventcollectie-F041-1-20260929T045911Z .
 
-alt:resultaat-F041-1-20260929T045911Z-LAeq a sosa:Result ;
+alt:resultaat-F041-1-20260929T045911Z-LAeq a qudt:QuantityValue ;
     qudt:numericValue 58.047638 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-F041-1-20260929T045911Z-LAeq .
@@ -251,7 +251,7 @@ alt:obs-F041-1-20260929T045911Z-LAmax a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-F041-1-20260929T045911Z-LAmax ;
     sosa:isMemberOf alt:eventcollectie-F041-1-20260929T045911Z .
 
-alt:resultaat-F041-1-20260929T045911Z-LAmax a sosa:Result ;
+alt:resultaat-F041-1-20260929T045911Z-LAmax a qudt:QuantityValue ;
     qudt:numericValue 65.13 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-F041-1-20260929T045911Z-LAmax .
@@ -263,7 +263,7 @@ alt:obs-F041-1-20260929T045911Z-SEL a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-F041-1-20260929T045911Z-SEL ;
     sosa:isMemberOf alt:eventcollectie-F041-1-20260929T045911Z .
 
-alt:resultaat-F041-1-20260929T045911Z-SEL a sosa:Result ;
+alt:resultaat-F041-1-20260929T045911Z-SEL a qudt:QuantityValue ;
     qudt:numericValue 78.17601 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-F041-1-20260929T045911Z-SEL .
@@ -275,7 +275,7 @@ alt:obs-F041-1-20260929T045911Z-duur a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-F041-1-20260929T045911Z-duur ;
     sosa:isMemberOf alt:eventcollectie-F041-1-20260929T045911Z .
 
-alt:resultaat-F041-1-20260929T045911Z-duur a sosa:Result ;
+alt:resultaat-F041-1-20260929T045911Z-duur a qudt:QuantityValue ;
     qudt:numericValue 103 ;
     qudt:hasUnit unit:SEC ;
     sosa:isResultOf alt:obs-F041-1-20260929T045911Z-duur .
@@ -318,7 +318,7 @@ alt:obs-F045-1-20260929T045946Z-LAeq a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-F045-1-20260929T045946Z-LAeq ;
     sosa:isMemberOf alt:eventcollectie-F045-1-20260929T045946Z .
 
-alt:resultaat-F045-1-20260929T045946Z-LAeq a sosa:Result ;
+alt:resultaat-F045-1-20260929T045946Z-LAeq a qudt:QuantityValue ;
     qudt:numericValue 54.927795 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-F045-1-20260929T045946Z-LAeq .
@@ -330,7 +330,7 @@ alt:obs-F045-1-20260929T045946Z-LAmax a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-F045-1-20260929T045946Z-LAmax ;
     sosa:isMemberOf alt:eventcollectie-F045-1-20260929T045946Z .
 
-alt:resultaat-F045-1-20260929T045946Z-LAmax a sosa:Result ;
+alt:resultaat-F045-1-20260929T045946Z-LAmax a qudt:QuantityValue ;
     qudt:numericValue 62.85 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-F045-1-20260929T045946Z-LAmax .
@@ -342,7 +342,7 @@ alt:obs-F045-1-20260929T045946Z-SEL a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-F045-1-20260929T045946Z-SEL ;
     sosa:isMemberOf alt:eventcollectie-F045-1-20260929T045946Z .
 
-alt:resultaat-F045-1-20260929T045946Z-SEL a sosa:Result ;
+alt:resultaat-F045-1-20260929T045946Z-SEL a qudt:QuantityValue ;
     qudt:numericValue 74.01264 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-F045-1-20260929T045946Z-SEL .
@@ -354,7 +354,7 @@ alt:obs-F045-1-20260929T045946Z-duur a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-F045-1-20260929T045946Z-duur ;
     sosa:isMemberOf alt:eventcollectie-F045-1-20260929T045946Z .
 
-alt:resultaat-F045-1-20260929T045946Z-duur a sosa:Result ;
+alt:resultaat-F045-1-20260929T045946Z-duur a qudt:QuantityValue ;
     qudt:numericValue 81 ;
     qudt:hasUnit unit:SEC ;
     sosa:isResultOf alt:obs-F045-1-20260929T045946Z-duur .
@@ -397,7 +397,7 @@ alt:obs-M071-1-20260929T050018Z-LAeq a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-M071-1-20260929T050018Z-LAeq ;
     sosa:isMemberOf alt:eventcollectie-M071-1-20260929T050018Z .
 
-alt:resultaat-M071-1-20260929T050018Z-LAeq a sosa:Result ;
+alt:resultaat-M071-1-20260929T050018Z-LAeq a qudt:QuantityValue ;
     qudt:numericValue 57.865246 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-M071-1-20260929T050018Z-LAeq .
@@ -409,7 +409,7 @@ alt:obs-M071-1-20260929T050018Z-LAmax a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-M071-1-20260929T050018Z-LAmax ;
     sosa:isMemberOf alt:eventcollectie-M071-1-20260929T050018Z .
 
-alt:resultaat-M071-1-20260929T050018Z-LAmax a sosa:Result ;
+alt:resultaat-M071-1-20260929T050018Z-LAmax a qudt:QuantityValue ;
     qudt:numericValue 64.13 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-M071-1-20260929T050018Z-LAmax .
@@ -421,7 +421,7 @@ alt:obs-M071-1-20260929T050018Z-SEL a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-M071-1-20260929T050018Z-SEL ;
     sosa:isMemberOf alt:eventcollectie-M071-1-20260929T050018Z .
 
-alt:resultaat-M071-1-20260929T050018Z-SEL a sosa:Result ;
+alt:resultaat-M071-1-20260929T050018Z-SEL a qudt:QuantityValue ;
     qudt:numericValue 77.90846 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-M071-1-20260929T050018Z-SEL .
@@ -433,7 +433,7 @@ alt:obs-M071-1-20260929T050018Z-duur a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-M071-1-20260929T050018Z-duur ;
     sosa:isMemberOf alt:eventcollectie-M071-1-20260929T050018Z .
 
-alt:resultaat-M071-1-20260929T050018Z-duur a sosa:Result ;
+alt:resultaat-M071-1-20260929T050018Z-duur a qudt:QuantityValue ;
     qudt:numericValue 101 ;
     qudt:hasUnit unit:SEC ;
     sosa:isResultOf alt:obs-M071-1-20260929T050018Z-duur .
@@ -476,7 +476,7 @@ alt:obs-M072-2-20260929T050100Z-LAeq a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-M072-2-20260929T050100Z-LAeq ;
     sosa:isMemberOf alt:eventcollectie-M072-2-20260929T050100Z .
 
-alt:resultaat-M072-2-20260929T050100Z-LAeq a sosa:Result ;
+alt:resultaat-M072-2-20260929T050100Z-LAeq a qudt:QuantityValue ;
     qudt:numericValue 55.849304 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-M072-2-20260929T050100Z-LAeq .
@@ -488,7 +488,7 @@ alt:obs-M072-2-20260929T050100Z-LAmax a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-M072-2-20260929T050100Z-LAmax ;
     sosa:isMemberOf alt:eventcollectie-M072-2-20260929T050100Z .
 
-alt:resultaat-M072-2-20260929T050100Z-LAmax a sosa:Result ;
+alt:resultaat-M072-2-20260929T050100Z-LAmax a qudt:QuantityValue ;
     qudt:numericValue 62.34 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-M072-2-20260929T050100Z-LAmax .
@@ -500,7 +500,7 @@ alt:obs-M072-2-20260929T050100Z-SEL a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-M072-2-20260929T050100Z-SEL ;
     sosa:isMemberOf alt:eventcollectie-M072-2-20260929T050100Z .
 
-alt:resultaat-M072-2-20260929T050100Z-SEL a sosa:Result ;
+alt:resultaat-M072-2-20260929T050100Z-SEL a qudt:QuantityValue ;
     qudt:numericValue 74.82558 ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf alt:obs-M072-2-20260929T050100Z-SEL .
@@ -512,7 +512,7 @@ alt:obs-M072-2-20260929T050100Z-duur a sosa:Observation , sosa:Execution ;
     sosa:hasResult alt:resultaat-M072-2-20260929T050100Z-duur ;
     sosa:isMemberOf alt:eventcollectie-M072-2-20260929T050100Z .
 
-alt:resultaat-M072-2-20260929T050100Z-duur a sosa:Result ;
+alt:resultaat-M072-2-20260929T050100Z-duur a qudt:QuantityValue ;
     qudt:numericValue 79 ;
     qudt:hasUnit unit:SEC ;
     sosa:isResultOf alt:obs-M072-2-20260929T050100Z-duur .

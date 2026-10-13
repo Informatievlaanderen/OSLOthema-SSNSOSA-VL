@@ -399,7 +399,7 @@ def genereer(campagnes, events, indicatoren, vluchten):
     sosa:hasResult ex:resultaat-{k}-{p} ;
     sosa:isMemberOf {e['coll']} .
 
-ex:resultaat-{k}-{p} a sosa:Result ;
+ex:resultaat-{k}-{p} a qudt:QuantityValue ;
     qudt:numericValue {r[kolom]} ;
     qudt:hasUnit {eenheid} ;
     sosa:isResultOf ex:obs-{k}-{p} .""")
@@ -432,7 +432,7 @@ ex:resultaat-{k}-{p} a sosa:Result ;
             regels.append(f"    sosa:hasResult ex:resultaat-{c}-{DATUM}-{prop} .")
             u.blok("\n".join(regels) + f"""
 
-ex:resultaat-{c}-{DATUM}-{prop} a sosa:Result ;
+ex:resultaat-{c}-{DATUM}-{prop} a qudt:QuantityValue ;
     qudt:numericValue {ind[naam]['Value']} ;
     qudt:hasUnit unit:DeciB_A ;
     sosa:isResultOf {obs} .""")

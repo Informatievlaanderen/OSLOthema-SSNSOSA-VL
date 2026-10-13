@@ -69,8 +69,9 @@ ex:peilmeting_2006-10-20  a sosa:ObservationCollection
 | `…peil_mtaw` | `ex:peil_mtaw` | `ex:peillint_methode` | `7.53 m` | put |
 | `…diepte_tov_referentiepunt` | `ex:diepte_tov_referentiepunt` | `ex:peillint_methode` | `2.25 m` | put |
 
-Elk resultaat is een apart object van het type `sosa:Result`. Voor meetwaarden met een eenheid
-(peil en diepte) wordt `qudt:hasUnit unit:Meter` meegegeven.
+Elk resultaat is een apart object: een `qudt:QuantityValue` voor meetwaarden met een eenheid (peil
+en diepte, met `qudt:hasUnit unit:Meter`), een `prov:Entity` voor de andere (smaak, filterstatus,
+filtertoestand). Niet `sosa:Result`: dat is in SSN/SOSA 2023 `owl:deprecated` (R3).
 
 ---
 
@@ -86,12 +87,13 @@ voor iedere observatie alle relaties en eigenschappen redundant herhaald worden.
 
 ### Resultaat als apart object
 
-In plaats van een eenvoudige waarde is elk resultaat een `sosa:Result`-object. Dit maakt het
-mogelijk om naast de waarde ook eenheid, onzekerheid of provenance toe te voegen:
+In plaats van een eenvoudige waarde is elk resultaat een object (een `qudt:QuantityValue` als er
+een eenheid is). Dit maakt het mogelijk om naast de waarde ook eenheid, onzekerheid of provenance
+toe te voegen:
 
 ```turtle
 sosa:hasResult [
-    a sosa:Result ;
+    a qudt:QuantityValue ;
     rdf:value 7.53 ;
     qudt:hasUnit unit:Meter
 ]

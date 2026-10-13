@@ -112,7 +112,7 @@ Elk voorbeeld toont patronen die een nieuw project als referentie kan opvragen.
 
 | Voorbeeld | Patronen |
 |---|---|
-| `grondwaterpeilmetingen` | plat model, blank-node `sosa:Result`, persistente DOV-IRI's |
+| `grondwaterpeilmetingen` | plat model, blank-node resultaten (`qudt:QuantityValue` / `prov:Entity`), persistente DOV-IRI's |
 | `paleo` | `qudt:QuantityValue` met IRI, niet-kalender TRS (BP), afgeleide observaties |
 | `Nigella-Lawson-Brownies` | drielaags procesmodel |
 | `EnergieManagementSystem` | herzieningsworkflow, vier scenario's (bron is overgenomen; niet als norm gebruiken) |

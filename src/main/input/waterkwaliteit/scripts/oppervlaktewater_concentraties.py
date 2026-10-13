@@ -172,7 +172,7 @@ def bouw(rijen, meetplaatsen, koppeling, csor, vha):
         if pa is None or eenheid is None:
             ontbrekend[(r["Parameter Symbool"], r["Eenheid"])] += 1
             continue
-        for iri, typen in ((pa, (SOSA.Property, CSOR.ParameterAspect)), (eenheid, (CSOR.Eenheid,))):
+        for iri, typen in ((pa, (SOSA.Property, CSOR.ParameterAspect)), (eenheid, (CSOR.Eenheid, QUDT.Unit))):
             if iri not in gezien:
                 gezien.add(iri)
                 for typ in typen:
@@ -188,7 +188,7 @@ def bouw(rijen, meetplaatsen, koppeling, csor, vha):
         g.add((obs, SOSA.hasUltimateFeatureOfInterest, waterloop))
         g.add((obs, SOSA.observedProperty, pa))
         g.add((obs, SOSA.hasResult, res))
-        g.add((res, RDF.type, SOSA.Result))
+        g.add((res, RDF.type, QUDT.QuantityValue))  # niet sosa:Result: deprecated in SSN/SOSA 2023 (R3)
         g.add((res, RDF.type, WK.Meetresultaat))  # AP (beslisdocument.md A15)
         g.add((res, SOSA.isResultOf, obs))
         g.add((res, QUDT.hasUnit, eenheid))

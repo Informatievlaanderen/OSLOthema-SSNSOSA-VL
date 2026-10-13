@@ -410,127 +410,127 @@ ex:obs-FMN-021-20260428-23u a sosa:Observation , sosa:Execution ;
 # (sosa:hasInputValue), en een inputwaarde is een entiteit (hasInputValue ⊂ prov:used, pplan-sosa.ttl).
 # Eenheid unit:NUM (aantal); "voertuigen per uur/dag" volgt uit de property en de phenomenonTime.
 
-ex:resultaat-FMN-021-20260428-dag a sosa:Result ;
+ex:resultaat-FMN-021-20260428-dag a qudt:QuantityValue ;
     qudt:numericValue 2541 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-dag .
 
-ex:resultaat-FMN-021-20260428-00u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-00u a qudt:QuantityValue ;
     qudt:numericValue 15 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-00u .
 
-ex:resultaat-FMN-021-20260428-01u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-01u a qudt:QuantityValue ;
     qudt:numericValue 9 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-01u .
 
-ex:resultaat-FMN-021-20260428-02u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-02u a qudt:QuantityValue ;
     qudt:numericValue 6 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-02u .
 
-ex:resultaat-FMN-021-20260428-03u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-03u a qudt:QuantityValue ;
     qudt:numericValue 6 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-03u .
 
-ex:resultaat-FMN-021-20260428-04u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-04u a qudt:QuantityValue ;
     qudt:numericValue 9 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-04u .
 
-ex:resultaat-FMN-021-20260428-05u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-05u a qudt:QuantityValue ;
     qudt:numericValue 20 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-05u .
 
-ex:resultaat-FMN-021-20260428-06u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-06u a qudt:QuantityValue ;
     qudt:numericValue 49 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-06u .
 
-ex:resultaat-FMN-021-20260428-07u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-07u a qudt:QuantityValue ;
     qudt:numericValue 134 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-07u .
 
-ex:resultaat-FMN-021-20260428-08u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-08u a qudt:QuantityValue ;
     qudt:numericValue 291 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-08u .
 
-ex:resultaat-FMN-021-20260428-09u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-09u a qudt:QuantityValue ;
     qudt:numericValue 148 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-09u .
 
-ex:resultaat-FMN-021-20260428-10u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-10u a qudt:QuantityValue ;
     qudt:numericValue 102 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-10u .
 
-ex:resultaat-FMN-021-20260428-11u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-11u a qudt:QuantityValue ;
     qudt:numericValue 93 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-11u .
 
-ex:resultaat-FMN-021-20260428-12u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-12u a qudt:QuantityValue ;
     qudt:numericValue 128 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-12u .
 
-ex:resultaat-FMN-021-20260428-13u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-13u a qudt:QuantityValue ;
     qudt:numericValue 125 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-13u .
 
-ex:resultaat-FMN-021-20260428-14u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-14u a qudt:QuantityValue ;
     qudt:numericValue 119 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-14u .
 
-ex:resultaat-FMN-021-20260428-15u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-15u a qudt:QuantityValue ;
     qudt:numericValue 151 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-15u .
 
-ex:resultaat-FMN-021-20260428-16u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-16u a qudt:QuantityValue ;
     qudt:numericValue 239 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-16u .
 
-ex:resultaat-FMN-021-20260428-17u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-17u a qudt:QuantityValue ;
     qudt:numericValue 279 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-17u .
 
-ex:resultaat-FMN-021-20260428-18u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-18u a qudt:QuantityValue ;
     qudt:numericValue 204 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-18u .
 
-ex:resultaat-FMN-021-20260428-19u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-19u a qudt:QuantityValue ;
     qudt:numericValue 128 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-19u .
 
-ex:resultaat-FMN-021-20260428-20u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-20u a qudt:QuantityValue ;
     qudt:numericValue 90 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-20u .
 
-ex:resultaat-FMN-021-20260428-21u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-21u a qudt:QuantityValue ;
     qudt:numericValue 79 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-21u .
 
-ex:resultaat-FMN-021-20260428-22u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-22u a qudt:QuantityValue ;
     qudt:numericValue 76 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-22u .
 
-ex:resultaat-FMN-021-20260428-23u a sosa:Result ;
+ex:resultaat-FMN-021-20260428-23u a qudt:QuantityValue ;
     qudt:numericValue 41 ;
     qudt:hasUnit unit:NUM ;
     sosa:isResultOf ex:obs-FMN-021-20260428-23u .

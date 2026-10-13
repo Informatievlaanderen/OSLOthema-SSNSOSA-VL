@@ -18,7 +18,7 @@ stalen, 60 meetpunten, 325 parameters. De validatie-subset (`afvalwater_concentr
 | Paars (#c6a0f5) | `sosa:SamplingProcedure` | soort monstername (WAC-compendium) |
 | Oranje (#fe7130) | `sosa:Property` | CSOR-parameteraspect: wat er gemeten wordt |
 | Roze (#e54b89) | `sosa:Sampling`, `sosa:ObservationCollection`, `sosa:Observation` | staalname, analyses van één staal |
-| Geel-oranje (#f8b622) | `sosa:Sample`, `sosa:Result`, `time:Instant` | staal, meetwaarde, datum |
+| Geel-oranje (#f8b622) | `sosa:Sample`, `qudt:QuantityValue`, `time:Instant` | staal, meetwaarde, datum |
 
 ## 3. Infrastructuur (blauwe nodes)
 
@@ -270,7 +270,7 @@ observaties).
 | Paar | Waarom |
 |---|---|
 | `sosa:hasResult` (sampling → staal) ↔ `sosa:isResultOf` (staal → sampling) | vanuit het staal de staalname vinden; `isResultOf` is verplicht op `sosa:Sample` (SHACL) |
-| `sosa:hasResult` (observatie → resultaat) ↔ `sosa:isResultOf` | `isResultOf` is verplicht op `sosa:Result` (SHACL) |
+| `sosa:hasResult` (observatie → resultaat) ↔ `sosa:isResultOf` | `isResultOf` staat op elk resultaat, voor het zoekpad van resultaat naar observatie; niet meer verplicht sinds het resultaat een `qudt:QuantityValue` is en geen `sosa:Result` (R3) |
 | `sosa:hasSample` (lozing → staal) ↔ `sosa:isSampleOf` | alle stalen van een lozing vinden |
 | `sosa:hasFeatureOfInterest` ↔ `sosa:isFeatureOfInterestOf` (lozing → sampling, staal → collectie) | `isFeatureOfInterestOf` is verplicht op `sosa:FeatureOfInterest` (SHACL) |
 

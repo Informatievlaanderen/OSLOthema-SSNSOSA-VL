@@ -99,6 +99,7 @@ def bouw(rijen, csor, riepr):
     g.add((pa, RDF.type, SOSA.Property))
     g.add((pa, RDF.type, CSOR.ParameterAspect))
     g.add((eenheid, RDF.type, CSOR.Eenheid))
+    g.add((eenheid, RDF.type, QUDT.Unit))  # bereik van qudt:hasUnit, expliciet voor SHACL
     g.add((pa, RDFS.label, Literal(str(csor.label(pa)), lang="nl")))
     g.add((eenheid, RDFS.label, Literal(str(csor.label(eenheid)), lang="nl")))
 
@@ -168,7 +169,7 @@ def bouw(rijen, csor, riepr):
             sys.exit(f"onbekende databron {databron!r} bij meetput {nr}")
         g.add((obs, PROV.used, EX[f"databron-{databron}"]))
 
-        g.add((res, RDF.type, SOSA.Result))
+        g.add((res, RDF.type, QUDT.QuantityValue))  # niet sosa:Result: deprecated in SSN/SOSA 2023 (R3)
         g.add((res, RDF.type, WK.Meetresultaat))  # AP (beslisdocument.md A15)
         g.add((res, SOSA.isResultOf, obs))
         g.add((res, QUDT.numericValue, decimaal(r[KOLOM_DEBIET])))

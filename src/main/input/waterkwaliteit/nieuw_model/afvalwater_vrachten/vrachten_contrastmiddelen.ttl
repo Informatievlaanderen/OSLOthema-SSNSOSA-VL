@@ -17,7 +17,8 @@
 @prefix wk: <https://data.vlaanderen.be/ns/waterkwaliteit#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-csor-eenheid:E_32 a csor:Eenheid ;
+csor-eenheid:E_32 a qudt:Unit,
+        csor:Eenheid ;
     rdfs:label "kubieke meter"@nl .
 
 csor-kwa:KWA_1 a skos:Concept,
@@ -58,37 +59,37 @@ ex:collectie-vrachtbronnen-bedrijven-rio-2014 a sosa:ExecutionCollection,
         ex:observatie-debiet-bedrijven-rio-2014 ;
     sosa:phenomenonTime ex:periode-2014 .
 
-ex:resultaat-brutovracht-bedrijven-rio-2014-P_117 a sosa:Result,
+ex:resultaat-brutovracht-bedrijven-rio-2014-P_117 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_37 ;
     qudt:numericValue 276107193.252673 ;
     sosa:isResultOf ex:observatie-brutovracht-bedrijven-rio-2014-P_117 .
 
-ex:resultaat-brutovracht-bedrijven-rio-2014-P_125 a sosa:Result,
+ex:resultaat-brutovracht-bedrijven-rio-2014-P_125 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_37 ;
     qudt:numericValue 44064.8729770992 ;
     sosa:isResultOf ex:observatie-brutovracht-bedrijven-rio-2014-P_125 .
 
-ex:resultaat-brutovracht-bedrijven-rio-2014-P_126 a sosa:Result,
+ex:resultaat-brutovracht-bedrijven-rio-2014-P_126 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_37 ;
     qudt:numericValue 588180005.385381 ;
     sosa:isResultOf ex:observatie-brutovracht-bedrijven-rio-2014-P_126 .
 
-ex:resultaat-nettovracht-bedrijven-rio-2014-P_117 a sosa:Result,
+ex:resultaat-nettovracht-bedrijven-rio-2014-P_117 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_37 ;
     qudt:numericValue 276107193.252673 ;
     sosa:isResultOf ex:observatie-nettovracht-bedrijven-rio-2014-P_117 .
 
-ex:resultaat-nettovracht-bedrijven-rio-2014-P_125 a sosa:Result,
+ex:resultaat-nettovracht-bedrijven-rio-2014-P_125 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_37 ;
     qudt:numericValue 44064.8729770992 ;
     sosa:isResultOf ex:observatie-nettovracht-bedrijven-rio-2014-P_125 .
 
-ex:resultaat-nettovracht-bedrijven-rio-2014-P_126 a sosa:Result,
+ex:resultaat-nettovracht-bedrijven-rio-2014-P_126 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_37 ;
     qudt:numericValue 588180005.385381 ;
@@ -149,25 +150,26 @@ ex:observatie-nettovracht-bedrijven-rio-2014-P_126 a sosa:Execution,
     sosa:relatedObservation ex:observatie-brutovracht-bedrijven-rio-2014-P_126 ;
     sosa:usedProcedure ex:procedure-netto-vracht .
 
-ex:resultaat-concentratie-bedrijven-rio-2014-P_117 a sosa:Result,
+ex:resultaat-concentratie-bedrijven-rio-2014-P_117 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:numericValue 322.346767630083 ;
     sosa:isResultOf ex:observatie-concentratie-bedrijven-rio-2014-P_117 .
 
-ex:resultaat-concentratie-bedrijven-rio-2014-P_125 a sosa:Result,
+ex:resultaat-concentratie-bedrijven-rio-2014-P_125 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:numericValue 0.051444401729872 ;
     sosa:isResultOf ex:observatie-concentratie-bedrijven-rio-2014-P_125 .
 
-ex:resultaat-concentratie-bedrijven-rio-2014-P_126 a sosa:Result,
+ex:resultaat-concentratie-bedrijven-rio-2014-P_126 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_4 ;
     qudt:numericValue 686.682303662824 ;
     sosa:isResultOf ex:observatie-concentratie-bedrijven-rio-2014-P_126 .
 
-csor-eenheid:E_4 a csor:Eenheid ;
+csor-eenheid:E_4 a qudt:Unit,
+        csor:Eenheid ;
     rdfs:label "microgram per liter"@nl .
 
 ex:observatie-brutovracht-bedrijven-rio-2014-P_117 a sosa:Execution,
@@ -247,13 +249,14 @@ ex:observatie-concentratie-bedrijven-rio-2014-P_126 a sosa:Execution,
     sosa:hasResult ex:resultaat-concentratie-bedrijven-rio-2014-P_126 ;
     sosa:observedProperty csor-parameteraspect:PAS_200 .
 
-ex:resultaat-debiet-bedrijven-rio-2014 a sosa:Result,
+ex:resultaat-debiet-bedrijven-rio-2014 a qudt:QuantityValue,
         wk:Meetresultaat ;
     qudt:hasUnit csor-eenheid:E_32 ;
     qudt:numericValue 856553.317666667 ;
     sosa:isResultOf ex:observatie-debiet-bedrijven-rio-2014 .
 
-csor-eenheid:E_37 a csor:Eenheid ;
+csor-eenheid:E_37 a qudt:Unit,
+        csor:Eenheid ;
     rdfs:label "milligram"@nl .
 
 ex:observatie-debiet-bedrijven-rio-2014 a sosa:Execution,
