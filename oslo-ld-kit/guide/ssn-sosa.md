@@ -254,6 +254,14 @@ a system handles; a `sosa:Deployment`
 (`sosa:deployedSystem`, `sosa:deployedOnPlatform`, `sosa:hasFeatureOfInterest`) for what it is aimed
 at; `sosa:hosts` for where it stands.
 
+**3. The wrong thing as a result.** `sosa:hasResult` is a subproperty of `prov:generated` (domain
+`prov:Activity`, range `prov:Entity`), so the result of an observation or actuation may be any
+`prov:Entity`, but nothing that PROV-O declares disjoint with it: not another observation or any
+other execution or activity (for a derived observation, point `sosa:relatedObservation` at the
+source observation and `sosa:hasInputValue` at its result, R7), and not a PROV instantaneous event
+(`prov:Generation`, `prov:Usage`, …). Nor a literal: `sosa:hasResult` is an object property; a bare
+value goes in `sosa:hasSimpleResult`. The result of a sampling is a `sosa:Sample`.
+
 ## Decision points
 
 Every example's discussion (§6) explains its non-trivial choices. These recur:
