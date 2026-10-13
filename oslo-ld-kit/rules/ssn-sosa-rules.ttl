@@ -3,9 +3,10 @@
 # Use: ld-vocab --shapes <kit>/rules/ssn-sosa-rules.ttl; validate_file combines them with the
 # shapes generated from the ontology. Every message starts with the rule number.
 #
-# SHACL validates the non-inferred graph (guide/linked-data.md, Validation). Therefore:
-# - no sh:class on superclasses (a sosa:ObservingProcedure is not a sosa:Procedure here); the rules
-#   check what is forbidden instead;
+# ld-mcp 0.4.0 lets SHACL see the class hierarchy (guide/linked-data.md, Validation), but other
+# SHACL engines see only the asserted data. Therefore, so that the rules hold everywhere:
+# - no sh:class on superclasses (without the hierarchy a sosa:ObservingProcedure is not a
+#   sosa:Procedure); the rules check what is forbidden instead, listing the classes;
 # - members of a sosa:ObservationCollection inherit properties from the collection (SOSA 2023):
 #   R2 also looks at the enclosing collections.
 #

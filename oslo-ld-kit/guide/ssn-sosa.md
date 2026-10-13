@@ -63,10 +63,16 @@ the collection instead.
 
 ## R3 — Result with a unit
 
-For a numeric result with a physical unit, use either a `qudt:QuantityValue` with `qudt:hasUnit`
-and `qudt:numericValue` when the result must be referable from outside, or a `sosa:Result` (blank
-node in small examples, skolem IRI in large ones, R10) with `qudt:numericValue` and `qudt:hasUnit`
-for local results. Do not mix the two styles within one example.
+For a numeric result with a physical unit, the object of `sosa:hasResult` is a `qudt:QuantityValue`
+with `qudt:numericValue` and `qudt:hasUnit`: a blank node in small examples, an IRI when the result
+must be referable from outside or in large datasets (a skolem IRI, R10).
+
+Do not type the result `sosa:Result`: SSN/SOSA 2023 declares it `owl:deprecated`
+(w3c/sdw-sosa-ssn #113, #163), and it adds nothing. `sosa:hasResult` is a subproperty of
+`prov:generated` (range `prov:Entity`), so any result is a `prov:Entity` already, and so not an
+activity, an instantaneous event or a literal (R16). A profile that needs a class of its own for its
+results makes it a subclass of `qudt:QuantityValue`; the data types both (as for other reused classes,
+see *Ontologies and application profiles* in [`linked-data.md`](linked-data.md)).
 
 The numeric value is always in `qudt:numericValue`, never in `qudt:value`. `qudt:value` exists (so
 the vocabulary check does not flag it), but it is not the QUDT pattern for a numeric measurement.
@@ -80,8 +86,16 @@ the vocabulary check does not flag it), but it is not the QUDT pattern for a num
     `skos:exactMatch`/`broadMatch` to QUDT; mention that mapping in the discussion (§6);
   - do **not** add SKOS mappings to the data: they are statements about the register's concepts,
     in its namespace. A missing mapping is a point for the register's maintainers;
-  - through the range of `qudt:hasUnit`, a register unit becomes a `qudt:Unit` after inference.
-    That is expected, not an error.
+  - every value of `qudt:hasUnit` is a `qudt:Unit` (its range, and `allValuesFrom` on
+    `qudt:Quantifiable`). Inference makes a register unit one, but SHACL sees only the asserted
+    graph (*Validation* in [`linked-data.md`](linked-data.md)): when the data describes the unit
+    (types it with the register's class), type it `qudt:Unit` as well, e.g.
+    `csor-eenheid:… a csor:Eenheid , qudt:Unit`. A unit the data only refers to needs no typing;
+  - QUDT requires a `qudt:hasQuantityKind` and a `qudt:hasDimensionVector` on every `qudt:Unit`,
+    which a register unit usually lacks. Do not add them to the data (they belong in the register);
+    relax them in the profile's ontology with `owl:minCardinality 0` on `qudt:Unit` for both
+    properties, which makes them not required in the generated SHACL (see *Ontologies and
+    application profiles* in [`linked-data.md`](linked-data.md)).
 
 A value below the reporting limit ("< 0.0125 µg/L") has no `qudt:numericValue`: give the interval
 with `qudt:lowerBound` and `qudt:upperBound` (see [`patterns.md`](patterns.md)).
@@ -223,7 +237,8 @@ Remove `@prefix ssn:` when no other `ssn:` terms remain. When in doubt, `lookup_
 SSN/SOSA 2023 builds on PROV-O: a `sosa:Execution` (observation, actuation, sampling) is a
 `prov:Activity`; a `sosa:System` (sensor, actuator, sampler), a `sosa:Platform` and a
 `sosa:FeatureOfInterest` are `prov:Entity`. PROV-O declares the two classes disjoint, so a property
-whose domain belongs to the other side makes the resource inconsistent (`[MODEL INVALID]`). Two
+whose domain belongs to the other side makes the resource inconsistent (`[DISJOINTNESS]` in the
+report of `validate_file`, with `--rules`). Two
 mistakes recur:
 
 **1. Record metadata on an observation.** A published data object (an LDES member, a version, a
@@ -266,8 +281,8 @@ value goes in `sosa:hasSimpleResult`. The result of a sampling is a `sosa:Sample
 
 Every example's discussion (§6) explains its non-trivial choices. These recur:
 
-- `sosa:hasSimpleResult` versus `sosa:hasResult` with a separate result (use the result object when
-  a unit, uncertainty or provenance is needed);
+- `sosa:hasSimpleResult` versus `sosa:hasResult` with a separate result, a `qudt:QuantityValue` (use
+  the result object when a unit, uncertainty or provenance is needed; R3);
 - `sosa:ObservationCollection` versus loose observations (use a collection for shared metadata);
 - flat versus three-layer model (R4);
 - `sosa:hasInput` versus `prov:used` (R5);

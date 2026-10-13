@@ -1,6 +1,6 @@
 {
   "name": "oslo-ld",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Modelling guide, skills and SHACL rules for SSN/SOSA linked data examples (OSLO, Flanders): new examples, revisions, alternative mappings, source data mapping, decision documents, ontology design and alignment.",
   "author": {
     "name": "gezever"
