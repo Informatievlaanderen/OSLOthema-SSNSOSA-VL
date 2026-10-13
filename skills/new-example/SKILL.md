@@ -53,7 +53,7 @@ A skeleton in blocks separated by `###` comment headers:
 # sosa:ObservingProcedure / sosa:ActuatingProcedure, sosa:Property
 
 ### OBSERVATIONS / ACTUATIONS
-# sosa:Observation, sosa:ObservationCollection, sosa:Actuation, sosa:Result
+# sosa:Observation, sosa:ObservationCollection, sosa:Actuation, qudt:QuantityValue (results, R3)
 ```
 
 For a three-layer model add `### PLANNING` (`p-plan:Plan`, `p-plan:Step`, `p-plan:Variable`),
@@ -107,10 +107,10 @@ alternative mapping in the final report.
 ## Step 3 — Validate
 
 Run `validate_file` on every new Turtle file and act on the report (see
-[`linked-data.md`](../../guide/linked-data.md#validation)): fix every `[VOCAB ERROR]` and every rule
-violation; investigate `[MODEL INVALID]`; report the remaining SHACL messages; a rule `[warning]`
-may stay when the source lacks the information, documented in §6. Repeat until there is no
-`[VOCAB ERROR]` left. Run the project's own pipeline only when the project profile says it is
+[`linked-data.md`](../../guide/linked-data.md#validation)): fix every `[error]` under `[VOCAB]`,
+every `[DISJOINTNESS]` violation and every SHACL violation; check every `[suspect]`; a rule
+`[warning]` may stay when the source lacks the information, documented in §6. Repeat until no
+`[error]` is left. Run the project's own pipeline only when the project profile says it is
 needed (e.g. for generated output).
 
 ## Step 4 — Final report
@@ -124,7 +124,7 @@ Created:
   [x / n/a] exercise
 
 Units: [QUDT / register <name>, N units without a QUDT mapping / n/a]
-Validation: [ok / N [VOCAB ERROR] fixed; open [MODEL INVALID] / SHACL messages / warnings kept]
+Validation: [ok / N errors fixed; suspects checked; SHACL warnings kept, with the reason]
 Pipeline: [not needed / run because …]
 
 Discussion sections:
