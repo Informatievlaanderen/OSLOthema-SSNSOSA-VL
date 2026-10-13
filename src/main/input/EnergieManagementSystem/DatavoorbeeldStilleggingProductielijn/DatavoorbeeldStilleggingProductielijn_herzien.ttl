@@ -28,6 +28,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix stim: <https://example.org/stimulus/> .
+@prefix eenheid: <https://example.org/eenheid/> .
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix qkdv: <http://qudt.org/vocab/dimensionvector/> .
 
 # *******************************************
 # PLANNING NIVEAU - Abstracte procedure definitie
@@ -192,7 +195,19 @@ ent:drempel_100eur
   rdfs:label "Elektriciteitsprijs drempel 100 EUR/MWh"@nl;
   p-plan:correspondsToVariable var:elektriciteitsprijs_drempel;
   qudt:numericValue "100"^^xsd:decimal;
-  qudt:hasUnit unit:EUR-PER-MegaW-HR .
+  qudt:hasUnit eenheid:EUR-PER-MegaW-HR .
+
+# Lokale eenheid: QUDT heeft geen euro per megawattuur (wel unit:CCY_EUR-PER-KiloW-HR).
+# TODO: euro per megawattuur bij QUDT aanvragen (unit:CCY_EUR-PER-MegaW-HR) en deze lokale eenheid
+# dan vervangen; of de prijzen omrekenen naar unit:CCY_EUR-PER-KiloW-HR (100 EUR/MWh = 0,1 EUR/kWh)?
+eenheid:EUR-PER-MegaW-HR
+  a qudt:Unit;
+  rdfs:label "euro per megawattuur"@nl, "euro per megawatt hour"@en;
+  skos:definition "Prijs van elektrische energie: een bedrag in euro per megawattuur (1 MWh = 3,6 GJ)."@nl;
+  qudt:symbol "€/MWh";
+  qudt:hasQuantityKind quantitykind:CostPerEnergy;
+  qudt:hasDimensionVector qkdv:A0E0L-2I0M-1H0T2D0;
+  qudt:conversionMultiplier "0.0000000002777777777777777777777777777777778"^^xsd:decimal.
 
 ent:max_8hr
   a prov:Entity;
@@ -213,7 +228,7 @@ ent:prijs_105eur
   sosa:isResultOf exec:prijs_observatie_20250214;
   rdfs:label "Elektriciteitsprijs 105 EUR/MWh"@nl;
   qudt:numericValue "105"^^xsd:decimal;
-  qudt:hasUnit unit:EUR-PER-MegaW-HR .
+  qudt:hasUnit eenheid:EUR-PER-MegaW-HR .
 
 ent:status_uit
   a prov:Entity;
