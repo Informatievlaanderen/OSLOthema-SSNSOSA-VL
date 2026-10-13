@@ -258,3 +258,26 @@ rule:R16-no-execution-properties-on-entities a sh:NodeShape ;
                     prov:wasAssociatedWith prov:wasInformedBy
                 }
             }""" ] .
+
+# The result of an execution: sosa:hasResult is a subproperty of prov:generated (range prov:Entity),
+# so the object is a prov:Entity. Not a literal (that is sosa:hasSimpleResult), and nothing that is
+# disjoint with prov:Entity: an activity (every execution is one) or a PROV instantaneous event.
+# The classes are listed one by one, as SHACL sees the non-inferred graph. A result that is an
+# activity only through inference (e.g. the subject of prov:used) is found by the disjointness check
+# of validate_file with --rules, not here.
+
+rule:R16-result-is-not-a-literal a sh:NodeShape ;
+    sh:severity sh:Violation ;
+    sh:targetObjectsOf sosa:hasResult ;
+    sh:nodeKind sh:BlankNodeOrIRI ;
+    sh:message "R16: the object of sosa:hasResult is a prov:Entity, not a literal; for a bare value use sosa:hasSimpleResult, for a value with a unit a result node (R3)." .
+
+rule:R16-result-is-not-an-activity a sh:NodeShape ;
+    sh:severity sh:Violation ;
+    sh:targetObjectsOf sosa:hasResult ;
+    sh:not [ sh:or (
+        [ sh:class sosa:Execution ] [ sh:class sosa:Observation ] [ sh:class sosa:Actuation ]
+        [ sh:class sosa:Sampling ] [ sh:class prov:Activity ]
+        [ sh:class prov:InstantaneousEvent ] [ sh:class prov:Generation ] [ sh:class prov:Usage ]
+        [ sh:class prov:Start ] [ sh:class prov:End ] [ sh:class prov:Invalidation ] ) ] ;
+    sh:message "R16: the object of sosa:hasResult is a prov:Entity, but this is an execution, another prov:Activity or a PROV instantaneous event; link a source observation with sosa:relatedObservation and its result with sosa:hasInputValue (R7)." .
