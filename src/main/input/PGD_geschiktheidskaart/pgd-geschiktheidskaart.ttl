@@ -1,0 +1,382 @@
+@prefix plan:   <https://example.org/pgd-geschiktheidskaart/plan/> .
+@prefix step:   <https://example.org/pgd-geschiktheidskaart/step/> .
+@prefix var:    <https://example.org/pgd-geschiktheidskaart/var/> .
+@prefix exec:   <https://example.org/pgd-geschiktheidskaart/exec/> .
+@prefix ent:    <https://example.org/pgd-geschiktheidskaart/ent/> .
+@prefix inst:   <https://example.org/pgd-geschiktheidskaart/inst/> .
+@prefix prop:   <https://example.org/pgd-geschiktheidskaart/prop/> .
+@prefix geb:    <https://example.org/pgd-geschiktheidskaart/gebied/> .
+@prefix cl:     <https://example.org/pgd-geschiktheidskaart/concept/> .
+
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+@prefix unit:   <http://qudt.org/vocab/unit/> .
+@prefix geo:    <http://www.opengis.net/ont/geosparql#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Geschiktheidskaart voor peilgestuurde drainage (PGD), VLAIO OP-PEIL, versie augustus 2024.
+# Bron: technische fiche WP1 (BDB) en dataset op Zenodo (DOI 10.5281/zenodo.17803699).
+# Eén illustratieve rastercel van 100 m x 100 m in Binnen-Vlaanderen; de waarden zijn niet
+# uit het echte raster gelezen.
+
+
+# *********************************************
+# PLANNING
+# *********************************************
+
+# Twee QGIS-modellen, één per regio. Ze delen de stappen voor de helling en de samengestelde
+# score; de factoren waterdoorlaatbaarheid en grondwateraanvoer worden per regio uit andere
+# kaartlagen afgeleid.
+
+plan:pgd-binnen-vlaanderen a p-plan:Plan , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "PGD-geschiktheid Binnen-Vlaanderen (QGIS-model PGDv082024_binVla.model3)"@nl .
+
+plan:pgd-polders a p-plan:Plan , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "PGD-geschiktheid poldergebieden (QGIS-model PGDv082024_polders.model3)"@nl .
+
+# --- Stappen Binnen-Vlaanderen ---
+
+step:score-waterdoorlaatbaarheid-binvla a p-plan:Step , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Score waterdoorlaatbaarheid uit de bodemtextuurletter van de Bodemkaart"@nl ;
+    rdfs:comment "Zandige bodems (Z, S, S-Z) 3; lemige bodems (P, L, A, G, …) 2; kleiige bodems (U, E, V, …) 1; n.v.t. 0."@nl ;
+    p-plan:isStepOfPlan plan:pgd-binnen-vlaanderen ;
+    sosa:hasInput var:bodemtextuur ;
+    sosa:hasOutput var:score-waterdoorlaatbaarheid .
+
+step:score-grondwateraanvoer-binvla a p-plan:Step , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Score grondwateraanvoer uit de drainageklasse van de Bodemkaart"@nl ;
+    rdfs:comment "e, f, g, F 3; h, i, d, G, I 2; c, D 1; a, b, A, B 0."@nl ;
+    p-plan:isStepOfPlan plan:pgd-binnen-vlaanderen ;
+    sosa:hasInput var:drainageklasse ;
+    sosa:hasOutput var:score-grondwateraanvoer .
+
+# --- Stappen poldergebieden ---
+
+step:score-waterdoorlaatbaarheid-polders a p-plan:Step , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Score waterdoorlaatbaarheid uit TOPSOIL-lagen 2A.1 en 2B"@nl ;
+    rdfs:comment "2A.1 = 1 en 2B = 1: 3; 2A.1 = 1 of 2B = 1: 2; 2A.1 = 0 en 2B = 0: 1; n.v.t. 0."@nl ;
+    p-plan:isStepOfPlan plan:pgd-polders ;
+    sosa:hasInput var:topsoil-2a1 , var:topsoil-2b ;
+    sosa:hasOutput var:score-waterdoorlaatbaarheid .
+
+step:score-grondwateraanvoer-polders a p-plan:Step , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Score grondwateraanvoer uit TOPSOIL-laag 2D (kwel of wegzijging)"@nl ;
+    rdfs:comment "Kwel (2D = 1 of 3) 3; wegzijging (2D = 0 of 2) 1."@nl ;
+    p-plan:isStepOfPlan plan:pgd-polders ;
+    sosa:hasInput var:topsoil-2d ;
+    sosa:hasOutput var:score-grondwateraanvoer .
+
+# --- Gedeelde stappen ---
+
+step:score-helling a p-plan:Step , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Score helling uit de hellingskaart (DHMV II, 100 m)"@nl ;
+    rdfs:comment "Klassen min <= waarde < max: 0-0,5 % 3; 0,5-1 % 2; 1-2 % 1; >= 2 % 0."@nl ;
+    p-plan:isStepOfPlan plan:pgd-binnen-vlaanderen , plan:pgd-polders ;
+    sosa:hasInput var:helling ;
+    sosa:hasOutput var:score-helling .
+
+step:samengestelde-score a p-plan:Step , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Mate van kansrijkheid uit de drie factorscores (beslissingsmodel)"@nl ;
+    rdfs:comment "Zeer kansrijk: alle factoren 3. Kansrijk: twee factoren 3 en één 2. Mogelijk kansrijk: minstens twee factoren 2 en geen 0. Weinig kansrijk: minstens twee factoren 1, of minstens één factor 0."@nl ;
+    p-plan:isStepOfPlan plan:pgd-binnen-vlaanderen , plan:pgd-polders ;
+    p-plan:isPrecededBy step:score-waterdoorlaatbaarheid-binvla , step:score-grondwateraanvoer-binvla ,
+        step:score-waterdoorlaatbaarheid-polders , step:score-grondwateraanvoer-polders , step:score-helling ;
+    sosa:hasInput var:score-waterdoorlaatbaarheid , var:score-grondwateraanvoer , var:score-helling ;
+    sosa:hasOutput var:kansrijkheid .
+
+# --- Variabelen ---
+
+var:bodemtextuur a p-plan:Variable ;
+    rdfs:label "Bodemtextuurletter(combinatie) volgens de Bodemkaart van België"@nl ;
+    p-plan:isVariableOfPlan plan:pgd-binnen-vlaanderen ;
+    p-plan:isInputVarOf step:score-waterdoorlaatbaarheid-binvla .
+
+var:drainageklasse a p-plan:Variable ;
+    rdfs:label "Drainageklasse (letter) volgens de Bodemkaart van België"@nl ;
+    p-plan:isVariableOfPlan plan:pgd-binnen-vlaanderen ;
+    p-plan:isInputVarOf step:score-grondwateraanvoer-binvla .
+
+var:topsoil-2a1 a p-plan:Variable ;
+    rdfs:label "TOPSOIL 2A.1: klei of veen in de bovenste 1,5 m (0) of overwegend zand (1)"@nl ;
+    p-plan:isVariableOfPlan plan:pgd-polders ;
+    p-plan:isInputVarOf step:score-waterdoorlaatbaarheid-polders .
+
+var:topsoil-2b a p-plan:Variable ;
+    rdfs:label "TOPSOIL 2B: klei of veen (0) of zand (1) in de bovenste meter"@nl ;
+    p-plan:isVariableOfPlan plan:pgd-polders ;
+    p-plan:isInputVarOf step:score-waterdoorlaatbaarheid-polders .
+
+var:topsoil-2d a p-plan:Variable ;
+    rdfs:label "TOPSOIL 2D: wegzijging (0, 2) of kwel (1, 3)"@nl ;
+    p-plan:isVariableOfPlan plan:pgd-polders ;
+    p-plan:isInputVarOf step:score-grondwateraanvoer-polders .
+
+var:helling a p-plan:Variable ;
+    rdfs:label "Helling in procent (hellingskaart, 100 m)"@nl ;
+    p-plan:isVariableOfPlan plan:pgd-binnen-vlaanderen , plan:pgd-polders ;
+    p-plan:isInputVarOf step:score-helling .
+
+var:score-waterdoorlaatbaarheid a p-plan:Variable ;
+    rdfs:label "Score waterdoorlaatbaarheid bodem (0-3)"@nl ;
+    p-plan:isVariableOfPlan plan:pgd-binnen-vlaanderen , plan:pgd-polders ;
+    p-plan:isOutputVarOf step:score-waterdoorlaatbaarheid-binvla , step:score-waterdoorlaatbaarheid-polders ;
+    p-plan:isInputVarOf step:samengestelde-score .
+
+var:score-grondwateraanvoer a p-plan:Variable ;
+    rdfs:label "Score grondwateraanvoer (0-3)"@nl ;
+    p-plan:isVariableOfPlan plan:pgd-binnen-vlaanderen , plan:pgd-polders ;
+    p-plan:isOutputVarOf step:score-grondwateraanvoer-binvla , step:score-grondwateraanvoer-polders ;
+    p-plan:isInputVarOf step:samengestelde-score .
+
+var:score-helling a p-plan:Variable ;
+    rdfs:label "Score helling (0-3)"@nl ;
+    p-plan:isVariableOfPlan plan:pgd-binnen-vlaanderen , plan:pgd-polders ;
+    p-plan:isOutputVarOf step:score-helling ;
+    p-plan:isInputVarOf step:samengestelde-score .
+
+var:kansrijkheid a p-plan:Variable ;
+    rdfs:label "Mate van kansrijkheid voor PGD (1-4)"@nl ;
+    p-plan:isVariableOfPlan plan:pgd-binnen-vlaanderen , plan:pgd-polders ;
+    p-plan:isOutputVarOf step:samengestelde-score .
+
+
+# *********************************************
+# CODELIJSTEN
+# *********************************************
+
+# Geen bestaand register gevonden voor deze klassen; ze komen letterlijk uit de technische fiche.
+
+cl:factorscore a skos:ConceptScheme ;
+    skos:prefLabel "Beoordeling van een PGD-factor"@nl .
+
+cl:factorscore-goed a skos:Concept ;
+    skos:inScheme cl:factorscore ; skos:notation "3" ; skos:prefLabel "goed"@nl .
+cl:factorscore-voldoende a skos:Concept ;
+    skos:inScheme cl:factorscore ; skos:notation "2" ; skos:prefLabel "voldoende"@nl .
+cl:factorscore-matig a skos:Concept ;
+    skos:inScheme cl:factorscore ; skos:notation "1" ; skos:prefLabel "matig"@nl .
+cl:factorscore-slecht a skos:Concept ;
+    skos:inScheme cl:factorscore ; skos:notation "0" ; skos:prefLabel "slecht"@nl .
+
+cl:kansrijkheid a skos:ConceptScheme ;
+    skos:prefLabel "Mate van kansrijkheid voor peilgestuurde drainage"@nl .
+
+cl:kansrijkheid-zeer-kansrijk a skos:Concept ;
+    skos:inScheme cl:kansrijkheid ; skos:notation "4" ; skos:prefLabel "zeer kansrijk"@nl .
+cl:kansrijkheid-kansrijk a skos:Concept ;
+    skos:inScheme cl:kansrijkheid ; skos:notation "3" ; skos:prefLabel "kansrijk"@nl .
+cl:kansrijkheid-mogelijk-kansrijk a skos:Concept ;
+    skos:inScheme cl:kansrijkheid ; skos:notation "2" ; skos:prefLabel "mogelijk kansrijk"@nl .
+cl:kansrijkheid-weinig-kansrijk a skos:Concept ;
+    skos:inScheme cl:kansrijkheid ; skos:notation "1" ; skos:prefLabel "weinig kansrijk"@nl .
+
+
+# *********************************************
+# DEPLOYMENT
+# *********************************************
+
+# --- Systemen: de QGIS-modellen ---
+
+inst:qgis-model-pgd-binvla a sosa:Sensor , sosa:System ;
+    rdfs:label "QGIS-model PGDv082024_binVla.model3"@nl ;
+    sosa:implements plan:pgd-binnen-vlaanderen , step:score-waterdoorlaatbaarheid-binvla ,
+        step:score-grondwateraanvoer-binvla , step:score-helling , step:samengestelde-score ;
+    rdfs:seeAlso <https://doi.org/10.5281/zenodo.17803699> .
+
+inst:qgis-model-pgd-polders a sosa:Sensor , sosa:System ;
+    rdfs:label "QGIS-model PGDv082024_polders.model3"@nl ;
+    sosa:implements plan:pgd-polders , step:score-waterdoorlaatbaarheid-polders ,
+        step:score-grondwateraanvoer-polders , step:score-helling , step:samengestelde-score ;
+    rdfs:seeAlso <https://doi.org/10.5281/zenodo.17803699> .
+
+# --- Gebieden ---
+
+geb:vlaams-gewest a sosa:FeatureOfInterest ;
+    rdfs:label "Vlaams Gewest"@nl ;
+    sosa:hasSample geb:binnen-vlaanderen .
+
+geb:binnen-vlaanderen a sosa:SpatialSample , sosa:Sample , sosa:FeatureOfInterest ;
+    rdfs:label "Binnen-Vlaanderen (Vlaams Gewest zonder Kustpolders, Meetjesland en Antwerpse haven)"@nl ;
+    rdfs:comment "Afgebakend door Zone_BinVlaanderen2.shp; de geometrie zit in de dataset op Zenodo."@nl ;
+    sosa:isSampleOf geb:vlaams-gewest ;
+    sosa:hasSample geb:cel-200000-210000 .
+
+# Een rastercel van 100 m x 100 m, benoemd naar haar linkeronderhoek in Lambert 72 (EPSG:31370).
+geb:cel-200000-210000 a sosa:SpatialSample , sosa:Sample , sosa:FeatureOfInterest ;
+    rdfs:label "Rastercel 100 m (X 200000-200100, Y 210000-210100, Lambert 72)"@nl ;
+    sosa:isSampleOf geb:binnen-vlaanderen ;
+    geo:hasGeometry geb:geom-cel-200000-210000 ;
+    sosa:hasProperty prop:score-waterdoorlaatbaarheid , prop:score-grondwateraanvoer ,
+        prop:score-helling , prop:pgd-kansrijkheid .
+
+geb:geom-cel-200000-210000 a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POLYGON((200000 210000, 200100 210000, 200100 210100, 200000 210100, 200000 210000))"^^geo:wktLiteral .
+
+# --- Inzet en datasets ---
+
+exec:inzet-pgd-binvla-v082024 a sosa:Deployment , prov:Activity ;
+    rdfs:label "Uitvoering van het QGIS-model voor Binnen-Vlaanderen, versie augustus 2024"@nl ;
+    sosa:deployedSystem inst:qgis-model-pgd-binvla ;
+    sosa:hasFeatureOfInterest geb:binnen-vlaanderen ;
+    prov:used ent:bodemkaart-joined-042024 , ent:hellingskaart-100m .
+
+ent:bodemkaart-joined-042024 a prov:Entity ;
+    rdfs:label "Bodemkaart_2_0_joined_042024.shp: Bodemkaart van België met aangepaste attributentabel"@nl ;
+    rdfs:seeAlso <https://www.dov.vlaanderen.be> .
+
+ent:hellingskaart-100m a prov:Entity ;
+    rdfs:label "Slope_100m.tif: helling in procent, 100 m, berekend uit het DTM van DHMV II"@nl ;
+    prov:wasDerivedFrom ent:dhmv2-dtm .
+
+ent:dhmv2-dtm a prov:Entity ;
+    rdfs:label "Digitaal Hoogtemodel Vlaanderen II, DTM, raster 1 m (Digitaal Vlaanderen, 2014)"@nl ;
+    rdfs:seeAlso <https://www.metadata.vlaanderen.be> .
+
+ent:pgd-stack-binvla-v082024 a prov:Entity ;
+    rdfs:label "PGDv082024_stack_binVla.tif: band 1 kansrijkheid, band 2-4 factorscores"@nl ;
+    prov:wasGeneratedBy exec:inzet-pgd-binvla-v082024 ;
+    dct:issued "2024-08"^^xsd:gYearMonth ;
+    dct:isPartOf <https://doi.org/10.5281/zenodo.17803699> .
+
+
+# *********************************************
+# PROPERTIES
+# *********************************************
+
+prop:score-waterdoorlaatbaarheid a sosa:Property ;
+    rdfs:label "Waterdoorlaatbaarheid van de bodem, als score voor PGD"@nl .
+
+prop:score-grondwateraanvoer a sosa:Property ;
+    rdfs:label "Grondwateraanvoer (kwel), als score voor PGD"@nl .
+
+prop:score-helling a sosa:Property ;
+    rdfs:label "Helling, als score voor PGD"@nl .
+
+prop:pgd-kansrijkheid a sosa:Property ;
+    rdfs:label "Geschiktheid of kansrijkheid voor peilgestuurde drainage"@nl .
+
+
+# *********************************************
+# EXECUTION
+# *********************************************
+
+# --- Inputwaarden voor de cel, uit de kaartlagen ---
+
+ent:bodemtextuur-cel-200000-210000 a prov:Entity ;
+    rdfs:label "Bodemtextuur S (lemig zand) voor de rastercel"@nl ;
+    rdf:value "S" ;
+    p-plan:correspondsToVariable var:bodemtextuur ;
+    prov:wasDerivedFrom ent:bodemkaart-joined-042024 .
+
+ent:drainageklasse-cel-200000-210000 a prov:Entity ;
+    rdfs:label "Drainageklasse d (matig natte grond) voor de rastercel"@nl ;
+    rdf:value "d" ;
+    p-plan:correspondsToVariable var:drainageklasse ;
+    prov:wasDerivedFrom ent:bodemkaart-joined-042024 .
+
+ent:helling-cel-200000-210000 a qudt:QuantityValue , prov:Entity ;
+    rdfs:label "Helling 0,3 % voor de rastercel"@nl ;
+    qudt:numericValue "0.3"^^xsd:decimal ;
+    qudt:hasUnit unit:PERCENT ;
+    p-plan:correspondsToVariable var:helling ;
+    prov:wasDerivedFrom ent:hellingskaart-100m .
+
+# --- Factor waterdoorlaatbaarheid (band 2) ---
+
+exec:obs-waterdoorlaatbaarheid-cel-200000-210000 a sosa:Observation ;
+    rdfs:label "Score waterdoorlaatbaarheid voor rastercel 200000-210000"@nl ;
+    p-plan:correspondsToStep step:score-waterdoorlaatbaarheid-binvla ;
+    sosa:usedProcedure step:score-waterdoorlaatbaarheid-binvla ;
+    sosa:madeBySensor inst:qgis-model-pgd-binvla ;
+    sosa:observedProperty prop:score-waterdoorlaatbaarheid ;
+    sosa:hasFeatureOfInterest geb:cel-200000-210000 ;
+    sosa:hasUltimateFeatureOfInterest geb:vlaams-gewest ;
+    sosa:hasInputValue ent:bodemtextuur-cel-200000-210000 ;
+    sosa:hasResult ent:score-waterdoorlaatbaarheid-cel-200000-210000 .
+
+ent:score-waterdoorlaatbaarheid-cel-200000-210000 a prov:Entity ;
+    rdf:value cl:factorscore-goed ;
+    p-plan:correspondsToVariable var:score-waterdoorlaatbaarheid ;
+    dct:isPartOf ent:pgd-stack-binvla-v082024 .
+
+# --- Factor grondwateraanvoer (band 3) ---
+
+exec:obs-grondwateraanvoer-cel-200000-210000 a sosa:Observation ;
+    rdfs:label "Score grondwateraanvoer voor rastercel 200000-210000"@nl ;
+    p-plan:correspondsToStep step:score-grondwateraanvoer-binvla ;
+    sosa:usedProcedure step:score-grondwateraanvoer-binvla ;
+    sosa:madeBySensor inst:qgis-model-pgd-binvla ;
+    sosa:observedProperty prop:score-grondwateraanvoer ;
+    sosa:hasFeatureOfInterest geb:cel-200000-210000 ;
+    sosa:hasUltimateFeatureOfInterest geb:vlaams-gewest ;
+    sosa:hasInputValue ent:drainageklasse-cel-200000-210000 ;
+    sosa:hasResult ent:score-grondwateraanvoer-cel-200000-210000 .
+
+ent:score-grondwateraanvoer-cel-200000-210000 a prov:Entity ;
+    rdf:value cl:factorscore-voldoende ;
+    p-plan:correspondsToVariable var:score-grondwateraanvoer ;
+    dct:isPartOf ent:pgd-stack-binvla-v082024 .
+
+# --- Factor helling (band 4) ---
+
+exec:obs-helling-cel-200000-210000 a sosa:Observation ;
+    rdfs:label "Score helling voor rastercel 200000-210000"@nl ;
+    p-plan:correspondsToStep step:score-helling ;
+    sosa:usedProcedure step:score-helling ;
+    sosa:madeBySensor inst:qgis-model-pgd-binvla ;
+    sosa:observedProperty prop:score-helling ;
+    sosa:hasFeatureOfInterest geb:cel-200000-210000 ;
+    sosa:hasUltimateFeatureOfInterest geb:vlaams-gewest ;
+    sosa:hasInputValue ent:helling-cel-200000-210000 ;
+    sosa:hasResult ent:score-helling-cel-200000-210000 .
+
+ent:score-helling-cel-200000-210000 a prov:Entity ;
+    rdf:value cl:factorscore-goed ;
+    p-plan:correspondsToVariable var:score-helling ;
+    dct:isPartOf ent:pgd-stack-binvla-v082024 .
+
+# --- Samengestelde score (band 1): afgeleid uit de drie factorscores (R7, R13) ---
+# Twee factoren goed (3) en één voldoende (2): kansrijk (3).
+
+exec:obs-kansrijkheid-cel-200000-210000 a sosa:Observation ;
+    rdfs:label "Mate van kansrijkheid voor PGD, rastercel 200000-210000"@nl ;
+    p-plan:correspondsToStep step:samengestelde-score ;
+    sosa:usedProcedure step:samengestelde-score ;
+    sosa:madeBySensor inst:qgis-model-pgd-binvla ;
+    sosa:observedProperty prop:pgd-kansrijkheid ;
+    sosa:hasFeatureOfInterest geb:cel-200000-210000 ;
+    sosa:hasUltimateFeatureOfInterest geb:vlaams-gewest ;
+    sosa:hasInputValue ent:score-waterdoorlaatbaarheid-cel-200000-210000 ,
+        ent:score-grondwateraanvoer-cel-200000-210000 ,
+        ent:score-helling-cel-200000-210000 ;
+    sosa:relatedObservation exec:obs-waterdoorlaatbaarheid-cel-200000-210000 ,
+        exec:obs-grondwateraanvoer-cel-200000-210000 ,
+        exec:obs-helling-cel-200000-210000 ;
+    sosa:hasResult ent:kansrijkheid-cel-200000-210000 .
+
+ent:kansrijkheid-cel-200000-210000 a prov:Entity ;
+    rdf:value cl:kansrijkheid-kansrijk ;
+    p-plan:correspondsToVariable var:kansrijkheid ;
+    dct:isPartOf ent:pgd-stack-binvla-v082024 .
+
+
+# *********************************************
+# INVERSE RELATIES
+# *********************************************
+
+geb:cel-200000-210000
+    sosa:isFeatureOfInterestOf exec:obs-waterdoorlaatbaarheid-cel-200000-210000 ,
+        exec:obs-grondwateraanvoer-cel-200000-210000 ,
+        exec:obs-helling-cel-200000-210000 ,
+        exec:obs-kansrijkheid-cel-200000-210000 .
+
+ent:score-waterdoorlaatbaarheid-cel-200000-210000 sosa:isResultOf exec:obs-waterdoorlaatbaarheid-cel-200000-210000 .
+ent:score-grondwateraanvoer-cel-200000-210000     sosa:isResultOf exec:obs-grondwateraanvoer-cel-200000-210000 .
+ent:score-helling-cel-200000-210000               sosa:isResultOf exec:obs-helling-cel-200000-210000 .
+ent:kansrijkheid-cel-200000-210000                sosa:isResultOf exec:obs-kansrijkheid-cel-200000-210000 .

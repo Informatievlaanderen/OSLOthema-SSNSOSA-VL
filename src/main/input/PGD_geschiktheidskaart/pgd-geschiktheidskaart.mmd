@@ -1,0 +1,201 @@
+flowchart RL
+
+subgraph PLANNING["PLANNING"]
+    PlanBin["plan:pgd-binnen-vlaanderen\na p-plan:Plan"]
+    PlanPol["plan:pgd-polders\na p-plan:Plan"]
+    StapWdBin["step:score-waterdoorlaatbaarheid-binvla\na p-plan:Step"]
+    StapGwBin["step:score-grondwateraanvoer-binvla\na p-plan:Step"]
+    StapWdPol["step:score-waterdoorlaatbaarheid-polders\na p-plan:Step"]
+    StapGwPol["step:score-grondwateraanvoer-polders\na p-plan:Step"]
+    StapHel["step:score-helling\na p-plan:Step"]
+    StapSam["step:samengestelde-score\na p-plan:Step"]
+    VarText["var:bodemtextuur"]
+    VarDrain["var:drainageklasse"]
+    VarTs2a1["var:topsoil-2a1"]
+    VarTs2b["var:topsoil-2b"]
+    VarTs2d["var:topsoil-2d"]
+    VarHel["var:helling"]
+    VarScWd["var:score-waterdoorlaatbaarheid"]
+    VarScGw["var:score-grondwateraanvoer"]
+    VarScHel["var:score-helling"]
+    VarKans["var:kansrijkheid"]
+end
+
+subgraph DEPLOYMENT["DEPLOYMENT"]
+    ModelBin["inst:qgis-model-pgd-binvla\na sosa:Sensor"]
+    ModelPol["inst:qgis-model-pgd-polders\na sosa:Sensor"]
+    Inzet["exec:inzet-pgd-binvla-v082024\na sosa:Deployment"]
+    Gewest["geb:vlaams-gewest\na sosa:FeatureOfInterest"]
+    BinVla["geb:binnen-vlaanderen\na sosa:SpatialSample"]
+    Cel["geb:cel-200000-210000\na sosa:SpatialSample"]
+    Bodemkaart["ent:bodemkaart-joined-042024\na prov:Entity"]
+    Hellingskaart["ent:hellingskaart-100m\na prov:Entity"]
+    Dtm["ent:dhmv2-dtm\na prov:Entity"]
+    Stack["ent:pgd-stack-binvla-v082024\na prov:Entity"]
+    PropWd["prop:score-waterdoorlaatbaarheid"]
+    PropGw["prop:score-grondwateraanvoer"]
+    PropHel["prop:score-helling"]
+    PropKans["prop:pgd-kansrijkheid"]
+end
+
+subgraph EXECUTION["EXECUTION"]
+    InText["ent:bodemtextuur-cel-200000-210000\nS"]
+    InDrain["ent:drainageklasse-cel-200000-210000\nd"]
+    InHel["ent:helling-cel-200000-210000\n0.3 %"]
+    ObsWd["exec:obs-waterdoorlaatbaarheid-cel-200000-210000\na sosa:Observation"]
+    ObsGw["exec:obs-grondwateraanvoer-cel-200000-210000\na sosa:Observation"]
+    ObsHel["exec:obs-helling-cel-200000-210000\na sosa:Observation"]
+    ResWd["ent:score-waterdoorlaatbaarheid-cel-200000-210000\ngoed (3)"]
+    ResGw["ent:score-grondwateraanvoer-cel-200000-210000\nvoldoende (2)"]
+    ResHel["ent:score-helling-cel-200000-210000\ngoed (3)"]
+    subgraph DERIVATION["DERIVATION"]
+        ObsKans["exec:obs-kansrijkheid-cel-200000-210000\na sosa:Observation"]
+        ResKans["ent:kansrijkheid-cel-200000-210000\nkansrijk (3)"]
+    end
+end
+
+%% Stijlen subgrafen
+style PLANNING fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style DEPLOYMENT fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style EXECUTION fill:#e7a3be,stroke:#2E5C8A,color:#000
+style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+
+%% Stijlen planning-nodes
+style PlanBin fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style PlanPol fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapWdBin fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapGwBin fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapWdPol fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapGwPol fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapHel fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style StapSam fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style VarText fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarDrain fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarTs2a1 fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarTs2b fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarTs2d fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarHel fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarScWd fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarScGw fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarScHel fill:#fe7130,stroke:#2E5C8A,color:#000
+style VarKans fill:#fe7130,stroke:#2E5C8A,color:#000
+
+%% Stijlen deployment-nodes
+style ModelBin fill:#60c4e4,stroke:#2E5C8A,color:#000
+style ModelPol fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Inzet fill:#e54b89,stroke:#2E5C8A,color:#fff
+style Gewest fill:#60c4e4,stroke:#2E5C8A,color:#000
+style BinVla fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Cel fill:#60c4e4,stroke:#2E5C8A,color:#000
+style Bodemkaart fill:#f8b622,stroke:#2E5C8A,color:#000
+style Hellingskaart fill:#f8b622,stroke:#2E5C8A,color:#000
+style Dtm fill:#f8b622,stroke:#2E5C8A,color:#000
+style Stack fill:#f8b622,stroke:#2E5C8A,color:#000
+style PropWd fill:#fe7130,stroke:#2E5C8A,color:#000
+style PropGw fill:#fe7130,stroke:#2E5C8A,color:#000
+style PropHel fill:#fe7130,stroke:#2E5C8A,color:#000
+style PropKans fill:#fe7130,stroke:#2E5C8A,color:#000
+
+%% Stijlen execution-nodes
+style InText fill:#f8b622,stroke:#2E5C8A,color:#000
+style InDrain fill:#f8b622,stroke:#2E5C8A,color:#000
+style InHel fill:#f8b622,stroke:#2E5C8A,color:#000
+style ObsWd fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ObsGw fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ObsHel fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ResWd fill:#f8b622,stroke:#2E5C8A,color:#000
+style ResGw fill:#f8b622,stroke:#2E5C8A,color:#000
+style ResHel fill:#f8b622,stroke:#2E5C8A,color:#000
+style ObsKans fill:#e54b89,stroke:#2E5C8A,color:#fff
+style ResKans fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% Planning-relaties
+StapWdBin -->|isStepOfPlan| PlanBin
+StapGwBin -->|isStepOfPlan| PlanBin
+StapWdPol -->|isStepOfPlan| PlanPol
+StapGwPol -->|isStepOfPlan| PlanPol
+StapHel -->|isStepOfPlan| PlanBin
+StapHel -->|isStepOfPlan| PlanPol
+StapSam -->|isStepOfPlan| PlanBin
+StapSam -->|isStepOfPlan| PlanPol
+StapSam -.->|isPrecededBy| StapWdBin
+StapSam -.->|isPrecededBy| StapGwBin
+StapSam -.->|isPrecededBy| StapWdPol
+StapSam -.->|isPrecededBy| StapGwPol
+StapSam -.->|isPrecededBy| StapHel
+VarText -.->|isInputVarOf| StapWdBin
+VarDrain -.->|isInputVarOf| StapGwBin
+VarTs2a1 -.->|isInputVarOf| StapWdPol
+VarTs2b -.->|isInputVarOf| StapWdPol
+VarTs2d -.->|isInputVarOf| StapGwPol
+VarHel -.->|isInputVarOf| StapHel
+VarScWd -->|isOutputVarOf| StapWdBin
+VarScWd -->|isOutputVarOf| StapWdPol
+VarScGw -->|isOutputVarOf| StapGwBin
+VarScGw -->|isOutputVarOf| StapGwPol
+VarScHel -->|isOutputVarOf| StapHel
+VarScWd -.->|isInputVarOf| StapSam
+VarScGw -.->|isInputVarOf| StapSam
+VarScHel -.->|isInputVarOf| StapSam
+VarKans -->|isOutputVarOf| StapSam
+
+%% Deployment-relaties
+ModelBin -->|implements| PlanBin
+ModelPol -->|implements| PlanPol
+Inzet -->|deployedSystem| ModelBin
+Inzet -->|hasFeatureOfInterest| BinVla
+Inzet -->|prov:used| Bodemkaart
+Inzet -->|prov:used| Hellingskaart
+Hellingskaart -->|wasDerivedFrom| Dtm
+Stack -->|wasGeneratedBy| Inzet
+BinVla -->|isSampleOf| Gewest
+Cel -->|isSampleOf| BinVla
+Cel -->|hasProperty| PropWd
+Cel -->|hasProperty| PropGw
+Cel -->|hasProperty| PropHel
+Cel -->|hasProperty| PropKans
+
+%% Execution-relaties
+InText -->|wasDerivedFrom| Bodemkaart
+InDrain -->|wasDerivedFrom| Bodemkaart
+InHel -->|wasDerivedFrom| Hellingskaart
+InText -->|correspondsToVariable| VarText
+InDrain -->|correspondsToVariable| VarDrain
+InHel -->|correspondsToVariable| VarHel
+ObsWd -->|hasInputValue| InText
+ObsGw -->|hasInputValue| InDrain
+ObsHel -->|hasInputValue| InHel
+ObsWd -->|correspondsToStep| StapWdBin
+ObsGw -->|correspondsToStep| StapGwBin
+ObsHel -->|correspondsToStep| StapHel
+ObsWd -->|madeBySensor| ModelBin
+ObsGw -->|madeBySensor| ModelBin
+ObsHel -->|madeBySensor| ModelBin
+ObsWd -->|hasFeatureOfInterest| Cel
+ObsGw -->|hasFeatureOfInterest| Cel
+ObsHel -->|hasFeatureOfInterest| Cel
+ObsWd -->|observedProperty| PropWd
+ObsGw -->|observedProperty| PropGw
+ObsHel -->|observedProperty| PropHel
+ObsWd -->|hasResult| ResWd
+ObsGw -->|hasResult| ResGw
+ObsHel -->|hasResult| ResHel
+ResWd -->|correspondsToVariable| VarScWd
+ResGw -->|correspondsToVariable| VarScGw
+ResHel -->|correspondsToVariable| VarScHel
+ObsKans -->|hasInputValue| ResWd
+ObsKans -->|hasInputValue| ResGw
+ObsKans -->|hasInputValue| ResHel
+ObsKans -.->|relatedObservation| ObsWd
+ObsKans -.->|relatedObservation| ObsGw
+ObsKans -.->|relatedObservation| ObsHel
+ObsKans -->|correspondsToStep| StapSam
+ObsKans -->|madeBySensor| ModelBin
+ObsKans -->|hasFeatureOfInterest| Cel
+ObsKans -->|observedProperty| PropKans
+ObsKans -->|hasResult| ResKans
+ResKans -->|correspondsToVariable| VarKans
+ResWd -->|isPartOf| Stack
+ResGw -->|isPartOf| Stack
+ResHel -->|isPartOf| Stack
+ResKans -->|isPartOf| Stack
