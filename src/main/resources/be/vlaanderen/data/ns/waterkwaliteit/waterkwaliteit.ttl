@@ -270,9 +270,8 @@ wk:WaterkwaliteitObservatie a owl:Class ;
     [ a owl:Restriction ; owl:onProperty sosa:resultTime ; owl:allValuesFrom xsd:dateTime ] ,
     [ a owl:Restriction ; owl:onProperty sosa:resultTime ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
     [ a owl:Restriction ;
-      rdfs:comment "De observatiemethode, bij voorkeur een jaarversie uit het compendium (beslisdocument.md A10)."@nl ;
+      rdfs:comment "De observatiemethode, bij voorkeur een jaarversie uit het compendium (beslisdocument.md A10). Geen maximumkardinaliteit: sosa:usedProcedure is afgeleid uit property chains (sosa-prov, pplan-sosa.ttl) en dus geen simple property, en die mag in OWL 2 DL niet in een cardinaliteitsrestrictie staan (ontologies/pplan-sosa-bespreking.md §5)."@nl ;
       owl:onProperty sosa:usedProcedure ; owl:allValuesFrom sosa:Procedure ] ,
-    [ a owl:Restriction ; owl:onProperty sosa:usedProcedure ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
     [ a owl:Restriction ;
       rdfs:comment "Aanbevolen, niet verplicht: het labo of de sensor (verplicht 1..1 in het AP 2023)."@nl ;
       owl:onProperty sosa:madeBySensor ; owl:allValuesFrom sosa:Sensor ] ,
@@ -371,9 +370,8 @@ wk:Staalname a owl:Class ;
       owl:onProperty sosa:madeBySampler ; owl:allValuesFrom sosa:Sampler ] ,
     [ a owl:Restriction ; owl:onProperty sosa:madeBySampler ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
     [ a owl:Restriction ;
-      rdfs:comment "De staalnameprocedure, bij voorkeur een jaarversie uit het compendium."@nl ;
+      rdfs:comment "De staalnameprocedure, bij voorkeur een jaarversie uit het compendium. Geen maximumkardinaliteit, om dezelfde reden als bij wk:WaterkwaliteitObservatie."@nl ;
       owl:onProperty sosa:usedProcedure ; owl:allValuesFrom sosa:SamplingProcedure ] ,
-    [ a owl:Restriction ; owl:onProperty sosa:usedProcedure ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
     [ a owl:Restriction ; owl:onProperty sosa:phenomenonTime ;
       owl:allValuesFrom [ a owl:Class ; owl:unionOf ( time:Instant time:Interval ) ] ] ,
     [ a owl:Restriction ; owl:onProperty sosa:phenomenonTime ; owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,

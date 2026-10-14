@@ -46,10 +46,13 @@ sosa:hasInputValue
 sosa:usedProcedure
     rdfs:comment           "An execution uses the procedure for which its input value is an input variable (counterpart of the hasResult chain below)."@en ;
     owl:propertyChainAxiom ( sosa:hasInputValue p-plan:correspondsToVariable sosa:inputFor ) ;
+
     rdfs:comment           "An execution that corresponds to a step uses the plan to which that step is decomposed."@en ;
     owl:propertyChainAxiom ( p-plan:correspondsToStep p-plan:isDecomposedAsPlan ) ;
+
     rdfs:comment           "An execution uses the procedure for which its result is an output variable."@en ;
     owl:propertyChainAxiom ( sosa:hasResult p-plan:correspondsToVariable sosa:outputFor ) ;
+
     rdfs:comment           "An execution uses the procedure for which its feature of interest is an input variable. Note: may infer a parent plan rather than the most specific procedure when the feature of interest corresponds to a variable of an enclosing plan."@en ;
     owl:propertyChainAxiom ( sosa:hasFeatureOfInterest p-plan:correspondsToVariable sosa:inputFor ) .
 
