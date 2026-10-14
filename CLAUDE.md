@@ -75,8 +75,9 @@ Bestaande datavoorbeelden:
   bron in `source/`, `overstort_herzien.ttl` met meetpunt als Platform+FOI, `sosa:Deployment` en
   event als `phenomenonTime`-interval; `alternatief/` leest een overstorting als emissie (`wk:Emissie`,
   resultaat van een `sosa:Actuation`)
-- `PGD_geschiktheidskaart/` — ontvangen, nog niet gemodelleerd: geschiktheidskaart voor peilgestuurde
-  drainage, afgeleid uit andere kaartlagen (mail + technische fiche)
+- `PGD_geschiktheidskaart/` — geschiktheidskaart voor peilgestuurde drainage (OP-PEIL), afgeleid uit
+  andere kaartlagen: drielaags met twee QGIS-modellen als plan en sensor, één rastercel als
+  `sosa:SpatialSample`, drie factorscores en een afgeleide kansrijkheid (SKOS-codelijsten)
 
 ---
 
