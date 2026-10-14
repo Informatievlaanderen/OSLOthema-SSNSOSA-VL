@@ -94,14 +94,14 @@ classDiagram
     class wk_Staalname["wk:Staalname"] {
         +prov:wasAssociatedWith : prov:Agent [0..*]
         +sosa:phenomenonTime : time:Instant | time:Interval [0..1]
-        +sosa:usedProcedure : sosa:SamplingProcedure [0..1]
+        +sosa:usedProcedure : sosa:SamplingProcedure [0..*]
     }
     class wk_WaterkwaliteitObservatie["wk:WaterkwaliteitObservatie"] {
         +prov:wasAssociatedWith : prov:Agent [0..*]
         +sosa:madeBySensor : sosa:Sensor [0..*]
         +sosa:phenomenonTime : time:Instant | time:Interval [0..1]
         +sosa:resultTime : xsd:dateTime [0..1]
-        +sosa:usedProcedure : sosa:Procedure [0..1]
+        +sosa:usedProcedure : sosa:Procedure [0..*]
     }
     class wk_WaterkwaliteitObservatieVerzameling["wk:WaterkwaliteitObservatieVerzameling"] {
         +sosa:phenomenonTime : time:Instant | time:Interval [0..1]

@@ -334,6 +334,15 @@ sosa:Sensor` verwacht). Open: moet de VMM-data dat onderscheid leveren (C4)?
 - De staalname verwijst naar de **jaarversie** van de compendiumprocedure die gold in het jaar van
   de staalname: `procedure:WAC_I_A_003_2024`, met `dct:isVersionOf` naar `WAC_I_A_003`.
 - Een berekening heeft een eigen `sosa:ObservingProcedure` met `hasInput`/`hasOutput` (A7).
+- **Geen maximum op `sosa:usedProcedure`** (2026-10-14). De ontologie zette `owl:maxCardinality 1`
+  op `usedProcedure` voor `wk:WaterkwaliteitObservatie` en `wk:Staalname`. `sosa:usedProcedure`
+  wordt echter afgeleid uit property chains (`sosa-prov`: `sp:executionAssociation ∘ sp:hadProcedure`;
+  `pplan-sosa.ttl`: via `p-plan:correspondsToStep` en `p-plan:correspondsToVariable`). Zo'n property
+  is in OWL 2 DL niet *simple* en mag niet in een cardinaliteitsrestrictie staan; met een
+  redeneerder zou een uitvoering bovendien zowel haar stap als het omvattende plan als procedure
+  krijgen. De restrictie is daarom weg; `owl:allValuesFrom` blijft. Wie één procedure per
+  observatie wil, legt dat vast als SHACL-regel op de gegeven data, niet in de ontologie.
+  Zie `src/main/resources/ontologies/pplan-sosa-bespreking.md` §5.
 
 **Te beslissen.**
 - Is de jaarversie het juiste niveau, of volstaat de hoofdprocedure?
@@ -488,11 +497,11 @@ data het profiel volgt. *Te beslissen in de werkgroep.*
 
 | Klasse | Superklassen | Kernbeperkingen |
 |---|---|---|
-| `wk:WaterkwaliteitObservatie` | `sosa:Observation` | FOI 1..1; `observedProperty` 1..1 → `csor:ParameterAspect`; `hasResult` 1..1 → `wk:Meetresultaat`; `phenomenonTime` 0..1 → Instant ∪ Interval; `resultTime` 0..1; `usedProcedure` 0..1; `madeBySensor` 0..* (aanbevolen); `hasInputValue`, `relatedObservation` → `sosa:Observation`; `prov:used` → `prov:Entity`; `prov:atLocation` → `prov:Location` |
+| `wk:WaterkwaliteitObservatie` | `sosa:Observation` | FOI 1..1; `observedProperty` 1..1 → `csor:ParameterAspect`; `hasResult` 1..1 → `wk:Meetresultaat`; `phenomenonTime` 0..1 → Instant ∪ Interval; `resultTime` 0..1; `usedProcedure` 0..* (A10); `madeBySensor` 0..* (aanbevolen); `hasInputValue`, `relatedObservation` → `sosa:Observation`; `prov:used` → `prov:Entity`; `prov:atLocation` → `prov:Location` |
 | `wk:WaterkwaliteitObservatieVerzameling` | `sosa:ObservationCollection` | `hasMember` 1..* → `wk:WaterkwaliteitObservatie`; FOI, ultiem FOI, `observedProperty`, `phenomenonTime` elk 0..1 |
 | `wk:Meetresultaat` | `qudt:QuantityValue` | `qudt:hasUnit` 1..1 → `csor:Eenheid`; `numericValue`, `lowerBound`, `upperBound` 0..1 `xsd:decimal` |
 | `wk:Staal` | `sosa:Sample` | `isSampleOf` 1..*; `isResultOf` 1..1 → `sosa:Sampling`; `dct:type` → `skos:Concept` (matrix) |
-| `wk:Staalname` | `sosa:Sampling` | FOI 1..1; `hasResult` 1..* → `wk:Staal`; `madeBySampler` 0..1; `usedProcedure` 0..1 → `sosa:SamplingProcedure` |
+| `wk:Staalname` | `sosa:Sampling` | FOI 1..1; `hasResult` 1..* → `wk:Staal`; `madeBySampler` 0..1; `usedProcedure` 0..* → `sosa:SamplingProcedure` (A10) |
 | `wk:Meetplaats` | `sosa:SpatialSample`, `sosa:Platform`, `geo:Feature` | `isSampleOf` 1..* → `waterlopen:VhaWaterloopobject` (A15.6); `geo:hasGeometry` 1..1 |
 | `wk:Meetput` | `sosa:Sampler`, `prov:Location`, `geo:Feature` | `adms:identifier`; `geo:hasGeometry` 0..1 |
 | `wk:Meetnet` | `sosa:SampleCollection` | `hasMember` 1..* → `wk:Meetplaats` (nog niet in de voorbeelden) |
@@ -776,7 +785,7 @@ valideren, zijn vooral **administratieve toevoegingen** nodig (C4.2). De inhoude
 | RIE-IEPR (`riepr.ttl`) | Dit voorstel | Oordeel |
 |---|---|---|
 | `riepr:Emissie` ⊂ `prov:Entity`, `sosa:FeatureOfInterest`; tijdsloos (geen versiesegment in de IRI) | `ex:lozing-<nr>`: exact die twee types, tijdsloos (A5) | zelfde concept en superklassen |
-| `riepr:Observatie` ⊂ `sosa:Observation`: `hasFeatureOfInterest` exact 1, `hasResult` exact 1, `observedProperty`/`usedProcedure`/`phenomenonTime`/`resultTime` hoogstens 1 | idem | past op alle kardinaliteiten |
+| `riepr:Observatie` ⊂ `sosa:Observation`: `hasFeatureOfInterest` exact 1, `hasResult` exact 1, `observedProperty`/`usedProcedure`/`phenomenonTime`/`resultTime` hoogstens 1 | idem, behalve `usedProcedure`: 0..* (A10) | past: RIE-IEPR-data voldoet; omgekeerd voldoet data met twee procedures niet aan `riepr.ttl` |
 | `riepr:ObservatieVerzameling` ⊂ `sosa:ObservationCollection`: `hasMember` minstens 1, `hasFeatureOfInterest` exact 1 | collectie per staal of per jaar | past |
 | `riepr:Resultaat` ⊂ `sosa:Result` met eigen IRI; `qudt:numericValue` (decimal) en `qudt:hasUnit` hoogstens 1 | `ex:resultaat-…` met eigen IRI | past. Resultaten onder de rapportagegrens (A3: grenzen, zonder `numericValue`) zijn toegelaten, want `numericValue` is optioneel. |
 | `phenomenonTime` als `time:TemporalEntity` (instant of interval) | `time:Instant`, `time:Interval` | past |
