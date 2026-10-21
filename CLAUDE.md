@@ -78,6 +78,10 @@ Bestaande datavoorbeelden:
 - `PGD_geschiktheidskaart/` — geschiktheidskaart voor peilgestuurde drainage (OP-PEIL), afgeleid uit
   andere kaartlagen: drielaags met twee QGIS-modellen als plan en sensor, één rastercel als
   `sosa:SpatialSample`, drie factorscores en een afgeleide kansrijkheid (SKOS-codelijsten)
+- `vlarem_rubrieken/` — hoeveelheden in de criteria van een VLAREM-rubriek (geen SSN/SOSA): herziening
+  van twee ontvangen varianten; criterium op de rubriekversie, grenzen met operator en een
+  `qudt:QuantityValue` per eenheid (ontwerpvocabularium `vlarem:` en lijst vergelijkingsoperatoren in
+  `src/main/resources/`); `alternatief/` geeft één bereik per eenheid (`qudt:minExclusive` …)
 
 ---
 
