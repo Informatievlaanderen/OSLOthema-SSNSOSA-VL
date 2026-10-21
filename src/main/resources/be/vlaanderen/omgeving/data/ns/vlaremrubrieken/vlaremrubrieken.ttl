@@ -1,0 +1,85 @@
+# VLAREM-rubrieken: criteria en grenzen. ONTWERPVERSIE (niet gepubliceerd).
+# Opgesteld 2026-10-21 in OSLOthema-SSNSOSA-VL, zie src/main/input/vlarem_rubrieken/.
+#
+# De namespace komt uit het ontvangen voorbeeld (source/hoeveelheden_alt1.trig en _alt2.trig);
+# op 2026-10-21 gaf <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken> een 404. Dit bestand
+# declareert enkel de termen die de voorbeelden gebruiken, zodat validate_file ze kan nakijken.
+#
+# Een rubriek is een skos:Concept in de lijst <https://data.omgeving.vlaanderen.be/id/conceptscheme/vlaremrubrieken>.
+# Een criterium hangt aan een versie van een rubriek en bundelt de grenzen voor één kenmerk
+# (bv. de opslagcapaciteit). Een grens heeft een vergelijkingsoperator (lijst
+# <https://data.omgeving.vlaanderen.be/id/conceptscheme/vergelijkingsoperator>) en één of meer
+# waarden (qudt:QuantityValue), elk in een eigen eenheid: alternatieve uitdrukkingen van dezelfde
+# grens ("50 l of 50 kg").
+#
+# Geen rdfs:domain op de properties (zoals DCTERMS en SSN/SOSA 2023): de properties blijven
+# herbruikbaar en leiden geen types af. De beperkingen staan als OWL-restricties op de eigen
+# klassen; de SHACL wordt daaruit gegenereerd (ld-mcp).
+#
+# Niet uitgedrukt (de generator kan het niet): dat vlarem:hasMin een operator GT of GE heeft en
+# vlarem:hasMax een operator LT of LE; dat de alternatieve waarden van één grens elk een andere
+# eenheid hebben; dat een criterium minstens één grens heeft. Dat laatste is een keuze tussen
+# properties: vlarem:hasConstraint in het hoofdmodel, qudt:quantityValue (een bereik per eenheid)
+# in src/main/input/vlarem_rubrieken/alternatief/. Een restrictie op één van beide zou het andere
+# model ongeldig maken zolang de werkgroep niet gekozen heeft.
+
+@prefix vlarem: <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken#> .
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+
+<https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken> a owl:Ontology ;
+    rdfs:label "VLAREM-rubrieken: criteria en grenzen (ontwerpversie)"@nl ;
+    rdfs:comment "Ontwerpversie van het vocabularium voor de kwantitatieve criteria van VLAREM-rubrieken. Niet gepubliceerd."@nl ;
+    owl:imports <https://data.omgeving.vlaanderen.be/id/conceptscheme/vergelijkingsoperator> .
+
+### KLASSEN
+
+vlarem:Criterium a owl:Class ;
+    rdfs:label "criterium"@nl ;
+    skos:definition "Voorwaarde van een versie van een VLAREM-rubriek over één kenmerk (bv. de opslagcapaciteit), uitgedrukt als een ondergrens, een bovengrens of beide. Een inrichting valt onder de rubriek als ze aan de criteria voldoet."@nl ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken> .
+
+vlarem:CriteriumConstraint a owl:Class ;
+    rdfs:label "criteriumgrens"@nl ;
+    skos:definition "Ondergrens of bovengrens van een criterium: een vergelijkingsoperator en één of meer waarden. Meerdere waarden zijn alternatieve uitdrukkingen van dezelfde grens, elk in een andere eenheid (bv. 5000 l of 5000 kg)."@nl ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken> ;
+    rdfs:subClassOf
+        [ a owl:Restriction ; owl:onProperty vlarem:operator ; owl:cardinality 1 ] ,
+        [ a owl:Restriction ; owl:onProperty vlarem:operator ; owl:allValuesFrom skos:Concept ] ,
+        [ a owl:Restriction ; owl:onProperty qudt:quantityValue ; owl:someValuesFrom qudt:QuantityValue ] .
+
+### PROPERTIES
+
+vlarem:hasCriterium a owl:ObjectProperty ;
+    rdfs:label "heeft criterium"@nl ;
+    skos:definition "Verbindt een (versie van een) VLAREM-rubriek met een criterium dat bepaalt of een inrichting onder de rubriek valt."@nl ;
+    rdfs:range vlarem:Criterium ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken> .
+
+vlarem:hasConstraint a owl:ObjectProperty ;
+    rdfs:label "heeft grens"@nl ;
+    skos:definition "Verbindt een criterium met een van zijn grenzen."@nl ;
+    rdfs:subPropertyOf dct:hasPart ;
+    rdfs:range vlarem:CriteriumConstraint ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken> .
+
+vlarem:hasMin a owl:ObjectProperty ;
+    rdfs:label "heeft ondergrens"@nl ;
+    skos:definition "Verbindt een criterium met zijn ondergrens (operator GT of GE)."@nl ;
+    rdfs:subPropertyOf vlarem:hasConstraint ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken> .
+
+vlarem:hasMax a owl:ObjectProperty ;
+    rdfs:label "heeft bovengrens"@nl ;
+    skos:definition "Verbindt een criterium met zijn bovengrens (operator LT of LE)."@nl ;
+    rdfs:subPropertyOf vlarem:hasConstraint ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken> .
+
+vlarem:operator a owl:ObjectProperty ;
+    rdfs:label "operator"@nl ;
+    skos:definition "De vergelijkingsoperator van een grens, een concept uit de lijst vergelijkingsoperatoren: een waarde voldoet als ze in die verhouding staat tot de grenswaarde."@nl ;
+    rdfs:range skos:Concept ;
+    rdfs:isDefinedBy <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken> .
