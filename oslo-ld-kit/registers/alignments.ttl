@@ -28,7 +28,7 @@
         <http://www.w3.org/ns/prov#> ;
     dcterms:source <https://github.com/w3c/sdw-sosa-ssn/blob/gh-pages/ssn/rdf/ontology/alignments/sosa-prov.ttl> ;
     rdfs:seeAlso <https://www.w3.org/TR/vocab-ssn-2023/#PROV-alignment> ;
-    rdfs:comment "Part of SSN/SOSA 2023 (W3C Working Draft, 2026-10-07). Most axioms are also in the SOSA 2023 core; new here: sosa:Deployment rdfs:subClassOf prov:Activity."@en .
+    rdfs:comment "Part of SSN/SOSA 2023 (W3C Working Draft, 2026-10-07). Most axioms are also in the SOSA 2023 core; new here: sosa:Deployment rdfs:subClassOf prov:Activity. Since 2026-10-21 also sosa:hasInputValue rdfs:subPropertyOf prov:used, the counterpart of sosa:hasResult rdfs:subPropertyOf prov:generated (w3c/sdw-sosa-ssn#556, PR #563)."@en .
 
 <http://www.w3.org/ns/sosa/saref> a owl:Ontology ;
     dcterms:title "SOSA alignment with SAREF"@en ;
@@ -108,4 +108,4 @@
         <http://www.w3.org/ns/sosa/> ,
         <http://www.w3.org/ns/prov#> ;
     dcterms:source <https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/resources/ontologies/pplan-sosa.ttl> ;
-    rdfs:comment "Project module of OSLOthema-SSNSOSA-VL; its ontology IRI is the address of the file on GitHub. p-plan:Plan, p-plan:Step and p-plan:MultiStep rdfs:subClassOf sosa:Procedure; sosa:inputFor and sosa:outputFor as property chains over p-plan:isInputVarOf / isOutputVarOf and p-plan:isStepOfPlan; property chains that infer sosa:usedProcedure from p-plan:correspondsToStep and correspondsToVariable. It also states sosa:hasInputValue rdfs:subPropertyOf prov:used, an axiom about two core vocabularies."@en .
+    rdfs:comment "Project module of OSLOthema-SSNSOSA-VL; its ontology IRI is the address of the file on GitHub. p-plan:Plan, p-plan:Step and p-plan:MultiStep rdfs:subClassOf sosa:Procedure; sosa:inputFor and sosa:outputFor as property chains over p-plan:isInputVarOf / isOutputVarOf and p-plan:isStepOfPlan; property chains that infer sosa:usedProcedure from p-plan:correspondsToStep and correspondsToVariable. Until 2026-10-21 it also stated sosa:hasInputValue rdfs:subPropertyOf prov:used; that axiom is now in sosa-prov (w3c/sdw-sosa-ssn#556)."@en .

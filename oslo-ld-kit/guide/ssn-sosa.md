@@ -133,7 +133,10 @@ When an observation's result depends on earlier observations, point `sosa:hasInp
 **results** of the source observations (the values), and `sosa:relatedObservation` at the source
 observations themselves. Never `sosa:hasInputValue` to an observation: SOSA 2023 defines it as
 "assigns a value to an input defined by the Procedure", and an observation is an activity
-(`sosa:Execution ⊂ prov:Activity`), not a value. In a three-layer model, prefer concrete entities
+(`sosa:Execution ⊂ prov:Activity`), not a value. The PROV alignment of SSN/SOSA 2023 (`sosa-prov`)
+makes this checkable: `sosa:hasInputValue` is a subproperty of `prov:used` (range `prov:Entity`),
+the counterpart of `sosa:hasResult ⊂ prov:generated` (w3c/sdw-sosa-ssn#556), so an observation as
+input value is a `[DISJOINTNESS]` violation (R16). In a three-layer model, prefer concrete entities
 with `p-plan:correspondsToVariable` at execution level.
 
 ## R8 — Sampling chains
