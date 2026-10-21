@@ -1,0 +1,42 @@
+# Alternatief naast ../vlarem_rubrieken.ttl: hetzelfde criterium van VLAREM-rubriek 17.4, maar
+# gegroepeerd per eenheid in plaats van per grens. Elke alternatieve uitdrukking is één bereik,
+# een qudt:QuantityValue met een ondergrens en een bovengrens, zoals het patroon Rapportagegrens
+# (oslo-ld-kit/guide/patterns.md, waterkwaliteit). Of een grens inclusief is, zeggen de
+# QUDT-subproperties van qudt:lowerBound en qudt:upperBound (minExclusive, maxExclusive, …).
+# Geen operatorlijst, geen grensknopen. Zie README.md en bespreking.md in deze map.
+
+@prefix vlarem: <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken#> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+@prefix unit:   <http://qudt.org/vocab/unit/> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+### RUBRIEK (gedeeld met het hoofdmodel)
+
+<https://data.omgeving.vlaanderen.be/id/concept/vlaremrubrieken/3333/2017-02-23>
+    vlarem:hasCriterium <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01> .
+
+### CRITERIUM (gedeeld met het hoofdmodel)
+# Meerdere waarden van qudt:quantityValue zijn alternatieven: 50–5000 l of 50–5000 kg.
+
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01>
+    a vlarem:Criterium ;
+    rdfs:label "Opslag van gevaarlijke stoffen"@nl ;
+    qudt:quantityValue
+        <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/bereik/L> ,
+        <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/bereik/KiloGM> .
+
+### BEREIKEN (verschillend van het hoofdmodel)
+
+# meer dan 50 l en minder dan 5000 l
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/bereik/L>
+    a qudt:QuantityValue ;
+    qudt:minExclusive 50.0 ;
+    qudt:maxExclusive 5000.0 ;
+    qudt:hasUnit unit:L .
+
+# meer dan 50 kg en minder dan 5000 kg
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/bereik/KiloGM>
+    a qudt:QuantityValue ;
+    qudt:minExclusive 50.0 ;
+    qudt:maxExclusive 5000.0 ;
+    qudt:hasUnit unit:KiloGM .

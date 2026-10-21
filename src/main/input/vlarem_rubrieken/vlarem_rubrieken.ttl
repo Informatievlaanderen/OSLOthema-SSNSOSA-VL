@@ -1,0 +1,69 @@
+# VLAREM-rubriek 17.4 (versie 2017-02-23): het criterium "opslag van gevaarlijke stoffen" met
+# een ondergrens en een bovengrens, elk in liter en in kilogram.
+# Herziening van source/hoeveelheden_alt1.trig en source/hoeveelheden_alt2.trig; zie README.md,
+# sectie Verbeterpunten, en bespreking.md. Alternatief: alternatief/vlarem_rubrieken_bereik.ttl.
+#
+# Geen SSN/SOSA: een criterium is normatieve informatie bij een rubriek, geen waarneming.
+
+@prefix vlarem:   <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken#> .
+@prefix operator: <https://data.omgeving.vlaanderen.be/id/concept/vergelijkingsoperator/> .
+@prefix qudt:     <http://qudt.org/schema/qudt/> .
+@prefix unit:     <http://qudt.org/vocab/unit/> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+
+### RUBRIEK
+# De rubriek (skos:Concept) en haar versies staan in het register
+# <https://data.omgeving.vlaanderen.be/id/conceptscheme/vlaremrubrieken>; dit bestand herhaalt ze
+# niet. Het criterium hangt aan de versie waarvoor het geldt.
+
+<https://data.omgeving.vlaanderen.be/id/concept/vlaremrubrieken/3333/2017-02-23>
+    vlarem:hasCriterium <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01> .
+
+### CRITERIUM
+
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01>
+    a vlarem:Criterium ;
+    rdfs:label "Opslag van gevaarlijke stoffen"@nl ;
+    vlarem:hasMin <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/min> ;
+    vlarem:hasMax <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/max> .
+
+### GRENZEN
+# Elke grens: één operator, en per alternatieve eenheid één qudt:QuantityValue (R3). De grootheid
+# (volume, massa) volgt uit de eenheid: QUDT geeft unit:L qudt:hasQuantityKind quantitykind:Volume
+# en unit:KiloGM qudt:hasQuantityKind quantitykind:Mass.
+
+# meer dan 50 l of 50 kg
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/min>
+    a vlarem:CriteriumConstraint ;
+    vlarem:operator operator:GT ;
+    qudt:quantityValue
+        <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/min/L> ,
+        <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/min/KiloGM> .
+
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/min/L>
+    a qudt:QuantityValue ;
+    qudt:numericValue 50.0 ;
+    qudt:hasUnit unit:L .
+
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/min/KiloGM>
+    a qudt:QuantityValue ;
+    qudt:numericValue 50.0 ;
+    qudt:hasUnit unit:KiloGM .
+
+# minder dan 5000 l of 5000 kg
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/max>
+    a vlarem:CriteriumConstraint ;
+    vlarem:operator operator:LT ;
+    qudt:quantityValue
+        <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/max/L> ,
+        <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/max/KiloGM> .
+
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/max/L>
+    a qudt:QuantityValue ;
+    qudt:numericValue 5000.0 ;
+    qudt:hasUnit unit:L .
+
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/max/KiloGM>
+    a qudt:QuantityValue ;
+    qudt:numericValue 5000.0 ;
+    qudt:hasUnit unit:KiloGM .

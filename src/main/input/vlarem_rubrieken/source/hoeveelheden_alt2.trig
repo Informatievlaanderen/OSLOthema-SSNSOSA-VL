@@ -1,0 +1,62 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix schema: <http://schema.org/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vlarem: <https://data.omgeving.vlaanderen.be/ns/vlaremrubrieken#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+
+<https://data.omgeving.vlaanderen.be/id/concept/vlaremrubrieken/3333>
+    a skos:Concept ;
+    rdfs:label "Rubriek 17.4."@nl ;
+    pav:hasCurrentVersion <https://data.omgeving.vlaanderen.be/id/concept/vlaremrubrieken/3333/2017-02-23> ;
+    pav:hasVersion <https://data.omgeving.vlaanderen.be/id/concept/vlaremrubrieken/3333/2015-06-01>, <https://data.omgeving.vlaanderen.be/id/concept/vlaremrubrieken/3333/2017-02-23>, <https://data.omgeving.vlaanderen.be/id/concept/vlaremrubrieken/3333/2009-03-01>, <https://data.omgeving.vlaanderen.be/id/concept/vlaremrubrieken/3333/1995-08-01>, <https://data.omgeving.vlaanderen.be/id/concept/vlaremrubrieken/3333/1999-05-01> ;
+    vlarem:hasCriterium <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01> .
+
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01>
+    a vlarem:Criterium ; ## Bundelt grenswaarden van een bepaald kenmerk van een objectofinterest
+    dc:subject "Maximale opslag van gevaarlijke stoffen" ; ## Optioneel, de parameter / objectOfInterest waarvan bepaald kenmerk wordt ingedeeld/begrensd
+    ## dcterms:subject  _:subject_code    ## idealiter een code die het subject aanduidt
+    vlarem:hasMax <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/max> ; ## < vlarem:hasConstraint < dcterms:hasPart,
+    vlarem:hasMin <https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/min> . ## < vlarem:hasConstraint < dcterms:hasPart
+
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/max>
+    a vlarem:CriteriumConstraint ;
+    dcterms:type _:LT ; ## constraint type: i.e min, max operatoren (LT, LE, GT, GE)
+    qudt:hasQuantityKind _:volume, _:massa ; ## Optioneel, (alternatieve) grootheden (kwantitatieve eigenschappen) waarin constraint waarde is uitgedrukt
+    qudt:quantityValue  ## waarde en eenheid
+        [
+            a qudt:QuantityValue ;
+            qudt:value 5000 ;
+            qudt:hasUnit "_:liter" ;
+            schema:unitText "liter" ;
+        ],
+        [
+            a qudt:QuantityValue ;
+            qudt:value 5000 ;
+            qudt:hasUnit "_:kg" ;
+            schema:unitText "kg" ;
+        ] .
+
+<https://data.omgeving.vlaanderen.be/id/criterium/vlaremrubrieken/3333/2017-02-23/01/min>
+    a vlarem:CriteriumConstraint ;
+    dcterms:type _:GT ; ## constraint type: i.e min, max operatoren (LT, LE, GT, GE)
+    qudt:hasQuantityKind _:volume, _:massa ; ## Optioneel, (alternatieve) grootheden (kwantitatieve eigenschappen) waarin constraint waarde is uitgedrukt
+    qudt:quantityValue
+        [
+            a qudt:QuantityValue ;
+            qudt:value 50 ;
+            qudt:hasUnit "_:liter" ;
+            schema:unitText "liter" ;
+        ],
+        [
+            a qudt:QuantityValue ;
+            qudt:value 50 ;
+            qudt:hasUnit "_:kg" ;
+            schema:unitText "kg" ;
+        ] .

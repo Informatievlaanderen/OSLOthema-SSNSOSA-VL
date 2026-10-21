@@ -1,0 +1,47 @@
+flowchart LR
+    subgraph HOOFD["HOOFDMODEL: PER GRENS (../vlarem_rubrieken.ttl)"]
+        hcrit["…/3333/2017-02-23/01<br/>vlarem:Criterium"]
+        hmin["…/01/min<br/>vlarem:CriteriumConstraint"]
+        hmax["…/01/max<br/>vlarem:CriteriumConstraint"]
+        hopGT["operator:GT"]
+        hopLT["operator:LT"]
+        hminL["…/01/min/L<br/>50 unit:L"]
+        hminKg["…/01/min/KiloGM<br/>50 unit:KiloGM"]
+        hmaxL["…/01/max/L<br/>5000 unit:L"]
+        hmaxKg["…/01/max/KiloGM<br/>5000 unit:KiloGM"]
+    end
+
+    subgraph ALT["ALTERNATIEF: PER EENHEID (vlarem_rubrieken_bereik.ttl)"]
+        acrit["…/3333/2017-02-23/01<br/>vlarem:Criterium"]
+        aL["…/01/bereik/L<br/>minExclusive 50<br/>maxExclusive 5000<br/>unit:L"]
+        aKg["…/01/bereik/KiloGM<br/>minExclusive 50<br/>maxExclusive 5000<br/>unit:KiloGM"]
+    end
+
+    hcrit -->|vlarem:hasMin| hmin
+    hcrit -->|vlarem:hasMax| hmax
+    hmin -->|vlarem:operator| hopGT
+    hmax -->|vlarem:operator| hopLT
+    hmin -->|qudt:quantityValue| hminL
+    hmin -->|qudt:quantityValue| hminKg
+    hmax -->|qudt:quantityValue| hmaxL
+    hmax -->|qudt:quantityValue| hmaxKg
+
+    acrit -->|qudt:quantityValue| aL
+    acrit -->|qudt:quantityValue| aKg
+
+    hcrit -.-|zelfde IRI| acrit
+
+    style HOOFD fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style ALT fill:#f8e1ad,stroke:#2E5C8A,color:#000
+    style hcrit fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style hmin fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style hmax fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style hopGT fill:#fe7130,stroke:#2E5C8A,color:#000
+    style hopLT fill:#fe7130,stroke:#2E5C8A,color:#000
+    style hminL fill:#f8b622,stroke:#2E5C8A,color:#000
+    style hminKg fill:#f8b622,stroke:#2E5C8A,color:#000
+    style hmaxL fill:#f8b622,stroke:#2E5C8A,color:#000
+    style hmaxKg fill:#f8b622,stroke:#2E5C8A,color:#000
+    style acrit fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style aL fill:#f8b622,stroke:#2E5C8A,color:#000
+    style aKg fill:#f8b622,stroke:#2E5C8A,color:#000

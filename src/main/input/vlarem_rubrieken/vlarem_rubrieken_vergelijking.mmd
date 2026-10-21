@@ -1,0 +1,52 @@
+flowchart LR
+    subgraph ALT1["ONTVANGEN VARIANT 1 (source/hoeveelheden_alt1.trig)"]
+        a1rub["…/vlaremrubrieken/3333<br/>skos:Concept"]
+        a1crit["…/01<br/>vlarem:Criterium<br/>dc:subject (literal)"]
+        a1max["…/01/max<br/>vlarem:CriteriumConstraint<br/>dcterms:type _:LT"]
+        a1kw["…/01/max/volume<br/>vlarem:CriteriumKwantiteit<br/>qudt:hasQuantityKind _:volume"]
+        a1val["[ ] qudt:QuantityValue<br/>qudt:value 5000<br/>qudt:hasUnit #quot;_:liter#quot;"]
+    end
+
+    subgraph ALT2["ONTVANGEN VARIANT 2 (source/hoeveelheden_alt2.trig)"]
+        a2rub["…/vlaremrubrieken/3333<br/>skos:Concept"]
+        a2max["…/01/max<br/>vlarem:CriteriumConstraint<br/>dcterms:type _:LT<br/>qudt:hasQuantityKind _:volume, _:massa"]
+        a2val["[ ] qudt:QuantityValue<br/>qudt:value 5000<br/>qudt:hasUnit #quot;_:liter#quot;"]
+    end
+
+    subgraph HERZIEN["HERZIEN (vlarem_rubrieken.ttl)"]
+        hversie["…/vlaremrubrieken/3333/2017-02-23<br/>versie van de rubriek"]
+        hcrit["…/3333/2017-02-23/01<br/>vlarem:Criterium<br/>rdfs:label"]
+        hmax["…/01/max<br/>vlarem:CriteriumConstraint"]
+        hop["operator:LT<br/>skos:Concept"]
+        hval["…/01/max/L<br/>qudt:QuantityValue<br/>qudt:numericValue 5000.0<br/>qudt:hasUnit unit:L"]
+    end
+
+    a1rub -->|vlarem:hasCriterium| a1crit
+    a1crit -->|vlarem:hasMax| a1max
+    a1max -->|vlarem:alternatieveKwantiteit| a1kw
+    a1kw -->|qudt:quantityValue| a1val
+
+    a2rub -->|"vlarem:hasCriterium … hasMax"| a2max
+    a2max -->|qudt:quantityValue| a2val
+
+    hversie -->|vlarem:hasCriterium| hcrit
+    hcrit -->|vlarem:hasMax| hmax
+    hmax -->|vlarem:operator| hop
+    hmax -->|qudt:quantityValue| hval
+
+    style ALT1 fill:#e7a3be,stroke:#2E5C8A,color:#000
+    style ALT2 fill:#e7a3be,stroke:#2E5C8A,color:#000
+    style HERZIEN fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style a1rub fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style a1crit fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style a1max fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style a1kw fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style a1val fill:#f8b622,stroke:#2E5C8A,color:#000
+    style a2rub fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style a2max fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style a2val fill:#f8b622,stroke:#2E5C8A,color:#000
+    style hversie fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style hcrit fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style hmax fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style hop fill:#fe7130,stroke:#2E5C8A,color:#000
+    style hval fill:#f8b622,stroke:#2E5C8A,color:#000

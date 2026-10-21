@@ -1,0 +1,43 @@
+flowchart LR
+    subgraph REGISTER["REGISTER"]
+        versie["…/vlaremrubrieken/3333/2017-02-23<br/>rubriek 17.4, versie 2017-02-23"]
+        opGT["operator:GT<br/>skos:Concept, groter dan"]
+        opLT["operator:LT<br/>skos:Concept, kleiner dan"]
+    end
+
+    subgraph CRITERIUM["CRITERIUM"]
+        crit["…/3333/2017-02-23/01<br/>vlarem:Criterium<br/>Opslag van gevaarlijke stoffen"]
+        min["…/01/min<br/>vlarem:CriteriumConstraint"]
+        max["…/01/max<br/>vlarem:CriteriumConstraint"]
+    end
+
+    subgraph WAARDEN["WAARDEN"]
+        minL["…/01/min/L<br/>qudt:QuantityValue<br/>50 unit:L"]
+        minKg["…/01/min/KiloGM<br/>qudt:QuantityValue<br/>50 unit:KiloGM"]
+        maxL["…/01/max/L<br/>qudt:QuantityValue<br/>5000 unit:L"]
+        maxKg["…/01/max/KiloGM<br/>qudt:QuantityValue<br/>5000 unit:KiloGM"]
+    end
+
+    versie -->|vlarem:hasCriterium| crit
+    crit -->|vlarem:hasMin| min
+    crit -->|vlarem:hasMax| max
+    min -->|vlarem:operator| opGT
+    max -->|vlarem:operator| opLT
+    min -->|qudt:quantityValue| minL
+    min -->|qudt:quantityValue| minKg
+    max -->|qudt:quantityValue| maxL
+    max -->|qudt:quantityValue| maxKg
+
+    style REGISTER fill:#b0d9e7,stroke:#2E5C8A,color:#000
+    style CRITERIUM fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style WAARDEN fill:#f8e1ad,stroke:#2E5C8A,color:#000
+    style versie fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style opGT fill:#fe7130,stroke:#2E5C8A,color:#000
+    style opLT fill:#fe7130,stroke:#2E5C8A,color:#000
+    style crit fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style min fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style max fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style minL fill:#f8b622,stroke:#2E5C8A,color:#000
+    style minKg fill:#f8b622,stroke:#2E5C8A,color:#000
+    style maxL fill:#f8b622,stroke:#2E5C8A,color:#000
+    style maxKg fill:#f8b622,stroke:#2E5C8A,color:#000

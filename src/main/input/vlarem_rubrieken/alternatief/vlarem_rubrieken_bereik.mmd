@@ -1,0 +1,25 @@
+flowchart LR
+    subgraph REGISTER["REGISTER"]
+        versie["…/vlaremrubrieken/3333/2017-02-23<br/>rubriek 17.4, versie 2017-02-23"]
+    end
+
+    subgraph CRITERIUM["CRITERIUM"]
+        crit["…/3333/2017-02-23/01<br/>vlarem:Criterium<br/>Opslag van gevaarlijke stoffen"]
+    end
+
+    subgraph WAARDEN["WAARDEN"]
+        bereikL["…/01/bereik/L<br/>qudt:QuantityValue<br/>minExclusive 50, maxExclusive 5000<br/>unit:L"]
+        bereikKg["…/01/bereik/KiloGM<br/>qudt:QuantityValue<br/>minExclusive 50, maxExclusive 5000<br/>unit:KiloGM"]
+    end
+
+    versie -->|vlarem:hasCriterium| crit
+    crit -->|qudt:quantityValue| bereikL
+    crit -->|qudt:quantityValue| bereikKg
+
+    style REGISTER fill:#b0d9e7,stroke:#2E5C8A,color:#000
+    style CRITERIUM fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style WAARDEN fill:#f8e1ad,stroke:#2E5C8A,color:#000
+    style versie fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style crit fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style bereikL fill:#f8b622,stroke:#2E5C8A,color:#000
+    style bereikKg fill:#f8b622,stroke:#2E5C8A,color:#000
