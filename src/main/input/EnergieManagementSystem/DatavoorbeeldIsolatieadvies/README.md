@@ -188,8 +188,8 @@ Het bestaande model werkt functioneel maar kan verbeterd worden door:
 2. **Inputwaarden.** `prov:used` naar de entiteiten die een planvariabele invullen (`p-plan:correspondsToVariable`)
    is vervangen door `sosa:hasInputValue`. SOSA 2023: "kent een waarde toe aan een input, gedefinieerd
    door de Procedure, die gebruikt wordt in een Execution". In
-   `src/main/resources/ontologies/pplan-sosa.ttl` is `sosa:hasInputValue` een subproperty van
-   `prov:used`, dus `prov:used` volgt eruit. De property zegt bovendien preciezer dat het om de
+   de PROV-uitlijning `sosa-prov` van SSN/SOSA 2023 is `sosa:hasInputValue` een subproperty van
+   `prov:used` (w3c/sdw-sosa-ssn#556), dus `prov:used` volgt eruit. De property zegt bovendien preciezer dat het om de
    inputwaarde voor een `sosa:hasInput` van de procedure gaat (R5, R7, R13). De classificatie verwijst
    daarnaast met `sosa:relatedObservation` naar `exec:meting-001`, de observatie die de gemeten
    waarde opleverde.

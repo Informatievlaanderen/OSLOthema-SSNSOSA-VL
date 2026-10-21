@@ -3,7 +3,6 @@
 @prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix owl:    <http://www.w3.org/2002/07/owl#> .
-@prefix prov:   <http://www.w3.org/ns/prov#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 # Ontology IRI: the address of this file on GitHub, the same IRI as in the register of known
@@ -38,10 +37,9 @@ sosa:outputFor
     rdfs:comment           "A variable that is output of a step is output for the plan containing that step."@en ;
     owl:propertyChainAxiom ( p-plan:isOutputVarOf p-plan:isStepOfPlan ) .
 
-sosa:hasInputValue
-    rdfs:subPropertyOf     prov:used ;
-    rdfs:comment           "An input value is an entity used by the execution: the counterpart of sosa:hasResult (rdfs:subPropertyOf prov:generated). SOSA 2023: assigns a value to an input defined by the Procedure that is used in an Execution. A value is a prov:Entity, never an execution (sosa:Execution is a prov:Activity, disjoint with prov:Entity)."@en ,
-                           "Een inputwaarde is een entiteit die de uitvoering gebruikt: de tegenhanger van sosa:hasResult (subproperty van prov:generated). SOSA 2023: kent een waarde toe aan een input, gedefinieerd door de Procedure, die gebruikt wordt in een Execution. Een waarde is een prov:Entity, nooit een uitvoering."@nl .
+# sosa:hasInputValue rdfs:subPropertyOf prov:used (formerly A4 of this module) is in the W3C module
+# sosa-prov since 2026-10-21 (w3c/sdw-sosa-ssn#556, PR #563), next to
+# sosa:hasResult rdfs:subPropertyOf prov:generated.
 
 sosa:usedProcedure
     rdfs:comment           "An execution uses the procedure for which its input value is an input variable (counterpart of the hasResult chain below)."@en ;

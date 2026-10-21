@@ -21,7 +21,7 @@ voorbeelden. Een Engelse versie staat in [`pplan-sosa-discussion.md`](pplan-sosa
 | A1 | `p-plan:Plan`, `p-plan:Step`, `p-plan:MultiStep` `rdfs:subClassOf sosa:Procedure` | §2 |
 | A2 | `sosa:inputFor ⊒ p-plan:isInputVarOf ∘ p-plan:isStepOfPlan` (chain) | §4 |
 | A3 | `sosa:outputFor ⊒ p-plan:isOutputVarOf ∘ p-plan:isStepOfPlan` (chain) | §4 |
-| A4 | `sosa:hasInputValue rdfs:subPropertyOf prov:used` | §3 |
+| A4 | ~~`sosa:hasInputValue rdfs:subPropertyOf prov:used`~~: sinds 2026-10-21 in `sosa-prov` | §3 |
 | A5 | `sosa:usedProcedure ⊒ sosa:hasInputValue ∘ p-plan:correspondsToVariable ∘ sosa:inputFor` | §4 |
 | A6 | `sosa:usedProcedure ⊒ p-plan:correspondsToStep ∘ p-plan:isDecomposedAsPlan` | §4 |
 | A7 | `sosa:usedProcedure ⊒ sosa:hasResult ∘ p-plan:correspondsToVariable ∘ sosa:outputFor` | §4 |
@@ -47,6 +47,12 @@ onschuldig. Wat het dubbele karakter betekent voor `sosa:usedProcedure`, staat i
 ---
 
 ## 3. `sosa:hasInputValue ⊂ prov:used` (A4)
+
+> **Opgenomen in `sosa-prov`.** De W3C-werkgroep heeft dit axioma op 2026-10-21 aanvaard en in de
+> uitlijningsmodule `sosa-prov` opgenomen (w3c/sdw-sosa-ssn#556, PR #563), naast
+> `sosa:hasResult rdfs:subPropertyOf prov:generated`. Het staat daarom niet meer in
+> `pplan-sosa.ttl`; het nummer A4 blijft behouden. Deze sectie bewaart de argumentatie zoals ze in
+> het issue voorgelegd werd; §3.1 en §3.2 beschrijven de toestand vóór de opname.
 
 ### 3.1 Wat SOSA 2023 zelf zegt
 
@@ -76,7 +82,7 @@ uitvoering hetzelfde paar. Eén cel van die tabel is leeg:
 | procedure (het type) | `sosa:hasInput` / `sosa:inputFor` | `sosa:hasOutput` / `sosa:outputFor` |
 | uitvoering (de waarde) | `sosa:hasInputValue` | `sosa:hasResult` |
 | PROV-O (activiteit ↔ entiteit) | `prov:used` | `prov:generated` |
-| uitlijning in SOSA 2023 | — (dit project: `hasInputValue ⊂ prov:used`) | `hasResult ⊂ prov:generated` |
+| uitlijning in SOSA 2023 | — (sinds 2026-10-21: `hasInputValue ⊂ prov:used`) | `hasResult ⊂ prov:generated` |
 
 Dat de twee properties op uitvoeringsniveau elkaars spiegelbeeld zijn, zegt SOSA zelf, in bijna
 dezelfde woorden:
@@ -148,14 +154,16 @@ duidelijkheid ook controleerbaar is.
 
 ### 3.4 Status
 
-A4 is een axioma over twee kernvocabularia (SOSA en PROV-O) dat geen van beide publiceert. Dat is
-wat R17 (criterium 5) bij een *kandidaat*-vocabularium afkeurt; hier gebeurt het bewust, in een
-projectmodule die als uitlijning geregistreerd is, en het voegt enkel de inclusie toe die het
-schema van §3.2 vervolledigt. Het hoort uiteindelijk in `sosa-prov`, naast
-`hasResult ⊂ prov:generated`. Omdat die module niet-normatief is, valt de vraag buiten de stop op
-normatieve wijzigingen die de werkgroep begin 2025 afsprak (w3c/sdw-sosa-ssn#283).
-
-<!-- TODO: is er al een issue in w3c/sdw-sosa-ssn om sosa:hasInputValue rdfs:subPropertyOf prov:used op te nemen naast sosa:hasResult rdfs:subPropertyOf prov:generated? Zo niet, er een indienen met §3.2 als kern. -->
+A4 was een axioma over twee kernvocabularia (SOSA en PROV-O) dat geen van beide publiceerde. Dat is
+wat R17 (criterium 5) bij een *kandidaat*-vocabularium afkeurt; hier gebeurde het bewust, in een
+projectmodule die als uitlijning geregistreerd is, en het voegde enkel de inclusie toe die het
+schema van §3.2 vervolledigt. Het werd voorgesteld voor `sosa-prov` (w3c/sdw-sosa-ssn#556, met
+§3.2 als kern); omdat die module niet-normatief is, viel het buiten de stop op normatieve
+wijzigingen die de werkgroep begin 2025 afsprak (w3c/sdw-sosa-ssn#283). De werkgroep aanvaardde
+het en voegde het op 2026-10-21 toe aan `sosa-prov` en aan het hoofdstuk *PROV Alignment* van de
+specificatie (PR #563). De kopie in `org/w3/www/ns/sosa/alignments/sosa-prov.ttl` is bijgewerkt
+tot die versie, en het axioma is uit `pplan-sosa.ttl` verwijderd: het is nu een uitlijning van
+SOSA zelf, geen projectkeuze meer.
 
 ---
 
@@ -211,7 +219,7 @@ property die twee SOSA-properties van verschillende niveaus (`sosa:hasInputValue
 koppelt; zonder die link blijven de plan- en de uitvoeringslaag twee losse grafen.
 
 De types sluiten aan: het domein van `correspondsToVariable` is `p-plan:Entity ⊂ prov:Entity`, en
-het bereik van `prov:used` (A4) en `prov:generated` (`sosa-prov`) is `prov:Entity`. De
+het bereik van `prov:used` en `prov:generated` (beide via `sosa-prov`) is `prov:Entity`. De
 inputwaarde krijgt dus langs twee wegen hetzelfde type, nooit een tegenstrijdig. Evenzo is het
 domein van `p-plan:correspondsToStep` `p-plan:Activity ⊂ prov:Activity`, net als
 `sosa:Execution`.
@@ -312,7 +320,7 @@ typeert.
 
 1. **De ketens worden in dit project niet uitgevoerd.** De Jena-regels
    (`domain-range-subproperty.rules`) kennen domein, bereik, subproperty, subklasse en inverse, geen
-   `owl:propertyChainAxiom`; `validate_file` gebruikt dezelfde regels. A4 werkt dus wel (subproperty:
+   `owl:propertyChainAxiom`; `validate_file` gebruikt dezelfde regels. A4 (nu in `sosa-prov`) werkt dus wel (subproperty:
    `prov:used` wordt afgeleid, de disjunctiecontrole vangt een observatie als inputwaarde), A2, A3 en
    A5–A8 niet. Daarom geven de voorbeelden `sosa:usedProcedure` (en in de EMS-voorbeelden
    `sosa:inputFor`) expliciet. De ketens zijn documentatie van de bedoeling en worden pas actief
@@ -347,7 +355,7 @@ typeert.
   `prov:Entity`, en dus nooit een `prov:Activity` of een van haar SOSA-subklassen (observatie,
   actuatie, bemonstering, deployment). Het volgt ook uit de SOSA-definitie (een
   *waarde*), uit de analogie met `hasFeatureOfInterest ⊂ prov:used` en uit P-PLAN. Het is het axioma dat in de praktijk werkt: het maakt de fout "observatie als
-  inputwaarde" zichtbaar (R7, R13, R16). Kandidaat om voor te stellen voor `sosa-prov`.
+  inputwaarde" zichtbaar (R7, R13, R16). Sinds 2026-10-21 opgenomen in `sosa-prov` (w3c/sdw-sosa-ssn#556).
 - **`p-plan:correspondsToVariable`** verbindt het uitvoeringsniveau (`hasInputValue`, `hasResult`,
   `hasFeatureOfInterest`) met het procedureniveau (`inputFor`, `outputFor`) en maakt van SOSA's
   proza-eis ("consistent with a hasInput definition") een opvraagbare en afleidbare relatie.

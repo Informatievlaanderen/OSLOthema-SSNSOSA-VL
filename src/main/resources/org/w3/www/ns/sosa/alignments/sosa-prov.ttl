@@ -1,4 +1,5 @@
-# SSN/SOSA 2023 alignment module sosa-prov, uit w3c/sdw-sosa-ssn (ssn/rdf/ontology/alignments/sosa-prov.ttl, commit 918fdd5, 2026-10-07).
+# SSN/SOSA 2023 alignment module sosa-prov, uit w3c/sdw-sosa-ssn (ssn/rdf/ontology/alignments/sosa-prov.ttl, commit 83889eb, 2026-10-21:
+# sosa:hasInputValue rdfs:subPropertyOf prov:used, w3c/sdw-sosa-ssn#556, PR #563).
 # Ongewijzigd. Bron: https://github.com/w3c/sdw-sosa-ssn
 # baseURI: http://www.w3.org/ns/sosa/prov
 # imports: http://www.w3.org/ns/prov-o#
@@ -64,6 +65,9 @@ sosa:Property
   rdfs:subClassOf prov:Entity ;
 .
 sosa:hasFeatureOfInterest
+  rdfs:subPropertyOf prov:used ;
+.
+sosa:hasInputValue
   rdfs:subPropertyOf prov:used ;
 .
 sosa:hasResult

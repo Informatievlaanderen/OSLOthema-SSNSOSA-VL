@@ -94,7 +94,7 @@ ex:PaleoCO2Observatie a sosa:Observation , sosa:Execution ;
   sosa:resultTime "2026-02-01T14:16:00+00:00"^^xsd:dateTime ;
   sosa:usedProcedure ex:ProcedurePaleoCO2Contentratie ;
   sosa:madeBySensor ex:PaleoReconstructie ;
-  ## prov:used naar de resultaten volgt uit sosa:hasInputValue ⊂ prov:used (pplan-sosa.ttl)
+  ## prov:used naar de resultaten volgt uit sosa:hasInputValue ⊂ prov:used (sosa-prov)
   sosa:hasInputValue ex:ResultaatC14Observatie, ex:ResultaatCO2Observatie ;
 .
 

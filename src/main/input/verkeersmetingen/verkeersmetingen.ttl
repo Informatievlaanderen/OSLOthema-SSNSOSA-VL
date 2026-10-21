@@ -407,7 +407,7 @@ ex:obs-FMN-021-20260428-23u a sosa:Observation , sosa:Execution ;
 ### RESULTATEN
 ###############################################################################
 # Benoemde resultaten (geen sosa:hasSimpleResult): de uurresultaten zijn de inputwaarden van de dagsom
-# (sosa:hasInputValue), en een inputwaarde is een entiteit (hasInputValue ⊂ prov:used, pplan-sosa.ttl).
+# (sosa:hasInputValue), en een inputwaarde is een entiteit (hasInputValue ⊂ prov:used, sosa-prov).
 # Eenheid unit:NUM (aantal); "voertuigen per uur/dag" volgt uit de property en de phenomenonTime.
 
 ex:resultaat-FMN-021-20260428-dag a qudt:QuantityValue ;

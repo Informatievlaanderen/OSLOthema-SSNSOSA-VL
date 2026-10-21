@@ -119,7 +119,7 @@ Verworpen alternatief: `sosa:hasSimpleResult "NNN"^^xsd:integer` voor alle 25 ob
 Gekozen aanpak: elke observatie heeft `sosa:hasResult ex:resultaat-…` (`qudt:QuantityValue` met
 `qudt:numericValue` en `qudt:hasUnit unit:NUM`).
 Motivatie: de uurresultaten zijn de inputwaarden van de dagsom (`sosa:hasInputValue`). Een
-inputwaarde is een entiteit (`sosa:hasInputValue` ⊂ `prov:used`, `pplan-sosa.ttl`), dus het
+inputwaarde is een entiteit (`sosa:hasInputValue` ⊂ `prov:used`, `sosa-prov`), dus het
 resultaat moet een eigen resource zijn waarnaar verwezen kan worden. Een literal via
 `hasSimpleResult` kan dat niet. Dat is precies het geval waarvoor de modelleergids (beslispunten) de objectvorm
 voorschrijft: provenance van het resultaat. De eenheid is `unit:NUM` (een aantal). "Voertuigen
@@ -145,7 +145,7 @@ Motivatie: de dagsom is geen directe registratie van de teller, maar een aggrega
 24 uurtellingen. Ze maakt dus geen deel uit van de collectie (R13). SOSA 2023 definieert
 `sosa:hasInputValue` als "kent een waarde toe aan een input, gedefinieerd door de Procedure, die
 gebruikt wordt in een Execution": een waarde, een `prov:Entity`. Een collectie van observaties
-is geen waarde. Met `hasInputValue` ⊂ `prov:used` (`pplan-sosa.ttl`) zou ze een entiteit worden,
+is geen waarde. Met `hasInputValue` ⊂ `prov:used` (`sosa-prov`) zou ze een entiteit worden,
 terwijl haar leden activiteiten zijn. De vorige versie van dit voorbeeld deed dat; de pipeline
 meldde het als `[MODEL INVALID]` (rechtgezet 2026-10-01). De band met de bronobservaties is
 `sosa:relatedObservation` ("relation from an Execution … to an Observation or

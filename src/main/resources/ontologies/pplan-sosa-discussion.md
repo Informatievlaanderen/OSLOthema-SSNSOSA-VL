@@ -21,7 +21,7 @@ three-layer examples. A Dutch version is in [`pplan-sosa-bespreking.md`](pplan-s
 | A1 | `p-plan:Plan`, `p-plan:Step`, `p-plan:MultiStep` `rdfs:subClassOf sosa:Procedure` | §2 |
 | A2 | `sosa:inputFor ⊒ p-plan:isInputVarOf ∘ p-plan:isStepOfPlan` (chain) | §4 |
 | A3 | `sosa:outputFor ⊒ p-plan:isOutputVarOf ∘ p-plan:isStepOfPlan` (chain) | §4 |
-| A4 | `sosa:hasInputValue rdfs:subPropertyOf prov:used` | §3 |
+| A4 | ~~`sosa:hasInputValue rdfs:subPropertyOf prov:used`~~: in `sosa-prov` since 2026-10-21 | §3 |
 | A5 | `sosa:usedProcedure ⊒ sosa:hasInputValue ∘ p-plan:correspondsToVariable ∘ sosa:inputFor` | §4 |
 | A6 | `sosa:usedProcedure ⊒ p-plan:correspondsToStep ∘ p-plan:isDecomposedAsPlan` | §4 |
 | A7 | `sosa:usedProcedure ⊒ sosa:hasResult ∘ p-plan:correspondsToVariable ∘ sosa:outputFor` | §4 |
@@ -47,6 +47,12 @@ this double nature means for `sosa:usedProcedure` is discussed in §4.4.
 ---
 
 ## 3. `sosa:hasInputValue ⊂ prov:used` (A4)
+
+> **Adopted in `sosa-prov`.** The W3C working group accepted this axiom on 2026-10-21 and added it
+> to the alignment module `sosa-prov` (w3c/sdw-sosa-ssn#556, PR #563), next to
+> `sosa:hasResult rdfs:subPropertyOf prov:generated`. It is therefore no longer in
+> `pplan-sosa.ttl`; the number A4 is kept. This section keeps the argument as it was put forward
+> in the issue; §3.1 and §3.2 describe the situation before the adoption.
 
 ### 3.1 What SOSA 2023 itself says
 
@@ -76,7 +82,7 @@ execution. One cell of that table is empty:
 | procedure (the type) | `sosa:hasInput` / `sosa:inputFor` | `sosa:hasOutput` / `sosa:outputFor` |
 | execution (the value) | `sosa:hasInputValue` | `sosa:hasResult` |
 | PROV-O (activity ↔ entity) | `prov:used` | `prov:generated` |
-| alignment in SOSA 2023 | — (this project: `hasInputValue ⊂ prov:used`) | `hasResult ⊂ prov:generated` |
+| alignment in SOSA 2023 | — (since 2026-10-21: `hasInputValue ⊂ prov:used`) | `hasResult ⊂ prov:generated` |
 
 SOSA itself says, in almost the same words, that the two execution-level properties mirror each
 other:
@@ -147,14 +153,16 @@ that this clarity can also be checked.
 
 ### 3.4 Status
 
-A4 is an axiom about two core vocabularies (SOSA and PROV-O) that neither of them publishes. That
-is what R17 (criterion 5) rejects in a *candidate* vocabulary; here it is done deliberately, in a
-project module registered as an alignment, and it adds only the inclusion that completes the
-scheme of §3.2. It ultimately belongs in `sosa-prov`, next to `hasResult ⊂ prov:generated`. As that
-module is non-normative, the request falls outside the freeze on normative changes the working
-group agreed at the beginning of 2025 (w3c/sdw-sosa-ssn#283).
-
-<!-- TODO: is there already an issue in w3c/sdw-sosa-ssn proposing sosa:hasInputValue rdfs:subPropertyOf prov:used alongside sosa:hasResult rdfs:subPropertyOf prov:generated? If not, file one with §3.2 as its core. -->
+A4 was an axiom about two core vocabularies (SOSA and PROV-O) that neither of them published. That
+is what R17 (criterion 5) rejects in a *candidate* vocabulary; here it was done deliberately, in a
+project module registered as an alignment, and it added only the inclusion that completes the
+scheme of §3.2. It was proposed for `sosa-prov` (w3c/sdw-sosa-ssn#556, with §3.2 as its core); as
+that module is non-normative, it fell outside the freeze on normative changes the working group
+agreed at the beginning of 2025 (w3c/sdw-sosa-ssn#283). The working group accepted it and added it
+on 2026-10-21 to `sosa-prov` and to the *PROV Alignment* chapter of the specification (PR #563).
+The copy in `org/w3/www/ns/sosa/alignments/sosa-prov.ttl` has been updated to that version, and the
+axiom has been removed from `pplan-sosa.ttl`: it is now an alignment of SOSA itself, no longer a
+project choice.
 
 ---
 
@@ -211,7 +219,7 @@ property that links two SOSA properties at different levels (`sosa:hasInputValue
 that link the planning and execution layers remain two disconnected graphs.
 
 The types fit together: the domain of `correspondsToVariable` is `p-plan:Entity ⊂ prov:Entity`,
-and the range of `prov:used` (A4) and `prov:generated` (`sosa-prov`) is `prov:Entity`. The input
+and the range of `prov:used` and `prov:generated` (both through `sosa-prov`) is `prov:Entity`. The input
 value therefore receives the same type by two routes, never a conflicting one. Likewise, the domain
 of `p-plan:correspondsToStep` is `p-plan:Activity ⊂ prov:Activity`, as is `sosa:Execution`.
 
@@ -311,7 +319,7 @@ explicitly.
 
 1. **The chains are not executed in this project.** The Jena rules
    (`domain-range-subproperty.rules`) cover domain, range, subproperty, subclass and inverse, not
-   `owl:propertyChainAxiom`; `validate_file` uses the same rules. A4 therefore does take effect
+   `owl:propertyChainAxiom`; `validate_file` uses the same rules. A4 (now in `sosa-prov`) therefore does take effect
    (subproperty: `prov:used` is inferred, and the disjointness check catches an observation used as
    an input value), but A2, A3 and A5–A8 do not. That is why the examples assert
    `sosa:usedProcedure` (and, in the EMS examples, `sosa:inputFor`) explicitly. The chains document
@@ -347,7 +355,7 @@ explicitly.
   never a `prov:Activity` or one of its SOSA subclasses (observation, actuation, sampling,
   deployment). It also follows from the SOSA definition (a *value*),
   from the analogy with `hasFeatureOfInterest ⊂ prov:used` and from P-PLAN. It is the axiom that works in practice: it exposes the mistake "observation as
-  input value" (R7, R13, R16). A candidate to propose for `sosa-prov`.
+  input value" (R7, R13, R16). Adopted in `sosa-prov` on 2026-10-21 (w3c/sdw-sosa-ssn#556).
 - **`p-plan:correspondsToVariable`** connects the execution level (`hasInputValue`, `hasResult`,
   `hasFeatureOfInterest`) with the procedure level (`inputFor`, `outputFor`) and turns SOSA's prose
   requirement ("consistent with a hasInput definition") into a relation that can be queried and
