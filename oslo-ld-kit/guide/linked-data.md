@@ -157,7 +157,7 @@ decided, and the rejected alternatives. That makes cherry-picking visible.
 **One source.** Write the ontology and the constraints of the application profile in one OWL file;
 generate the SHACL from its restrictions. No hand-maintained SHACL beside it.
 
-| OWL restriction | Generated SHACL (ld-mcp 0.4.0) |
+| OWL restriction | Generated SHACL (ld-mcp 0.4.1) |
 |---|---|
 | `owl:someValuesFrom C` | at least one value is a C: a property shape of its own with `sh:qualifiedValueShape [ sh:class C ]` and `sh:qualifiedMinCount 1` (other values may be anything) |
 | `owl:allValuesFrom C` | `sh:class C` (or `sh:datatype`, `sh:nodeKind sh:Literal` for `rdfs:Literal`) on every value, not required |
