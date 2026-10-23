@@ -97,46 +97,6 @@
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
-         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/kaart/</loc>
-         <lastmod>2026-10-23</lastmod>
-    </url>
-    <url>
-         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/kaart/alignment-vinden/</loc>
-         <lastmod>2026-10-23</lastmod>
-    </url>
-    <url>
-         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/kaart/pplan-sosa/</loc>
-         <lastmod>2026-10-23</lastmod>
-    </url>
-    <url>
-         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/kaart/register-iadopt/</loc>
-         <lastmod>2026-10-23</lastmod>
-    </url>
-    <url>
-         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/kaart/register-qudt/</loc>
-         <lastmod>2026-10-23</lastmod>
-    </url>
-    <url>
-         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/kaart/sosa-geosparql/</loc>
-         <lastmod>2026-10-23</lastmod>
-    </url>
-    <url>
-         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/kaart/sosa-prov/</loc>
-         <lastmod>2026-10-23</lastmod>
-    </url>
-    <url>
-         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/kaart/sosa-qudt/</loc>
-         <lastmod>2026-10-23</lastmod>
-    </url>
-    <url>
-         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/kaart/sosa-saref/</loc>
-         <lastmod>2026-10-23</lastmod>
-    </url>
-    <url>
-         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/kaart/sosa-time/</loc>
-         <lastmod>2026-10-23</lastmod>
-    </url>
-    <url>
          <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/modelleren/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
@@ -294,6 +254,46 @@
     </url>
     <url>
          <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/regels/r17/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/samenhang/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/samenhang/alignment-vinden/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/samenhang/pplan-sosa/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/samenhang/register-iadopt/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/samenhang/register-qudt/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/samenhang/sosa-geosparql/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/samenhang/sosa-prov/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/samenhang/sosa-qudt/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/samenhang/sosa-saref/</loc>
+         <lastmod>2026-10-23</lastmod>
+    </url>
+    <url>
+         <loc>https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/samenhang/sosa-time/</loc>
          <lastmod>2026-10-23</lastmod>
     </url>
     <url>
