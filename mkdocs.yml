@@ -1,0 +1,185 @@
+site_name: SSN/SOSA in Vlaanderen
+site_description: >-
+  Referentiewerk over het modelleren van waarnemingen, herkomst, plannen, grootheden, plaats en
+  tijd met SOSA, PROV-O, P-PLAN, QUDT, GeoSPARQL en OWL-Time.
+site_url: https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/
+repo_url: https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL
+repo_name: OSLOthema-SSNSOSA-VL
+edit_uri: edit/main/docs/
+copyright: Informatie Vlaanderen — OSLO
+
+docs_dir: docs
+exclude_docs: |
+  /requirements.txt
+  /_hooks/
+
+validation:
+  nav:
+    omitted_files: warn
+  links:
+    unrecognized_links: warn
+    anchors: warn
+
+theme:
+  name: material
+  language: nl
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-7
+        name: Donker thema
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: pink
+      toggle:
+        icon: material/brightness-4
+        name: Licht thema
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/extra.css
+
+hooks:
+  - docs/_hooks/kit.py
+
+plugins:
+  - search:
+      lang: nl
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets:
+      base_path: [".", ".cache"]
+      check_paths: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+
+nav:
+  - Start:
+      - index.md
+      - Leeswijzer: start/leeswijzer.md
+      - Over dit werk: start/over.md
+  - I. Waarom:
+      - inleiding/index.md
+      - De stapel vocabularia: inleiding/stapel.md
+      - Plaats binnen OSLO: inleiding/oslo.md
+  - II. De kaart:
+      - kaart/index.md
+      - SOSA en PROV-O: kaart/sosa-prov.md
+      - P-PLAN en SOSA: kaart/pplan-sosa.md
+      - SOSA en QUDT: kaart/sosa-qudt.md
+      - SOSA en GeoSPARQL: kaart/sosa-geosparql.md
+      - SOSA en OWL-Time: kaart/sosa-time.md
+      - Register en QUDT: kaart/register-qudt.md
+      - Register en I-ADOPT: kaart/register-iadopt.md
+      - SOSA en SAREF: kaart/sosa-saref.md
+      - Een alignment vinden en beoordelen: kaart/alignment-vinden.md
+  - III. Modelleren:
+      - modelleren/index.md
+      - Wat bestudeer ik?: modelleren/studieobject.md
+      - Wie of wat meet of handelt?: modelleren/systemen.md
+      - Wat is het resultaat?: modelleren/resultaat.md
+      - Wanneer?: modelleren/tijd.md
+      - Waar?: modelleren/plaats.md
+      - Hoe is het berekend?: modelleren/afgeleid.md
+      - Volgens welk plan?: modelleren/plan.md
+      - Waarneming of record?: modelleren/record.md
+      - Codelijsten en registers: modelleren/codelijsten.md
+      - IRI's: modelleren/iris.md
+  - IV. Regels:
+      - regels/index.md
+      - R1 Infrastructuurklasse: regels/r01.md
+      - R2 Verplichte eigenschappen: regels/r02.md
+      - R3 Resultaat met eenheid: regels/r03.md
+      - R4 Drielaags model: regels/r04.md
+      - R5 hasInput en prov:used: regels/r05.md
+      - R6 ML-model als artefact: regels/r06.md
+      - R7 Afgeleide waarnemingen: regels/r07.md
+      - R8 Bemonsteringsketens: regels/r08.md
+      - R9 Niet-kalendertijd: regels/r09.md
+      - R10 IRI's: regels/r10.md
+      - R11 Ruimtelijk monster: regels/r11.md
+      - R12 Tijd: regels/r12.md
+      - R13 Afgeleid en geaggregeerd: regels/r13.md
+      - R14 Termen van SSN/SOSA 2023: regels/r14.md
+      - R15 Geen SKOS tussen klassen: regels/r15.md
+      - R16 Activiteit of entiteit: regels/r16.md
+      - R17 Vocabularia kiezen: regels/r17.md
+  - V. Patronen:
+      - patronen/index.md
+      - Emissie als studieobject: patronen/emissie.md
+      - Stimulus: patronen/stimulus.md
+      - Monster en uiteindelijk studieobject: patronen/monster.md
+      - Ruimtelijk monster: patronen/ruimtelijk-monster.md
+      - Afgeleide waarneming: patronen/afgeleide-waarneming.md
+      - Rapportagegrens: patronen/rapportagegrens.md
+  - VI. Werkwijze:
+      - werkwijze/index.md
+      - De bespreking in negen vragen: werkwijze/bespreking.md
+      - Diagrammen: werkwijze/diagrammen.md
+      - Een mapping herzien: werkwijze/herzien.md
+      - Een alternatief uitwerken: werkwijze/alternatief.md
+      - Brondata in fases mappen: werkwijze/brondata.md
+      - Ontologie en toepassingsprofiel: werkwijze/ontologie.md
+      - Ontologieën aligneren: werkwijze/aligneren.md
+      - Het beslisdocument: werkwijze/beslisdocument.md
+  - VII. Casussen:
+      - casussen/index.md
+      - Erosiepoel: casussen/erosiepoel.md
+      - Verkeersmetingen: casussen/verkeersmetingen.md
+      - Temperatuur en raam: casussen/temperatuur-raam.md
+      - Elektrisch raam: casussen/elektrisch-raam.md
+      - Paleoklimaat: casussen/paleo.md
+      - Grondwaterpeilmetingen: casussen/grondwaterpeilmetingen.md
+      - R-factor: casussen/r-factor.md
+      - Geluidsmeetnet: casussen/geluidsmeetnet.md
+      - Waterkwaliteit: casussen/waterkwaliteit.md
+      - Overstort: casussen/overstort.md
+      - Geschiktheidskaart PGD: casussen/pgd.md
+      - Brownies: casussen/brownies.md
+      - Energiemanagement: casussen/ems.md
+      - VLAREM-rubrieken: casussen/vlarem.md
+  - VIII. Oefenen:
+      - oefenen/index.md
+      - Erosiepoel: oefenen/erosiepoel.md
+      - Temperatuur en raam: oefenen/temperatuur-raam.md
+      - Verkeersmetingen: oefenen/verkeersmetingen.md
+  - Bijlagen:
+      - Woordenlijst: bijlagen/woordenlijst.md
+      - Prefixen: bijlagen/prefixen.md
+      - Geladen vocabularia: bijlagen/vocabularia.md
+      - Hulpmiddelen: bijlagen/hulpmiddelen.md
+      - Bronnen: bijlagen/bronnen.md

@@ -44,6 +44,7 @@ aan dit project. Een nieuwe algemene regel of les hoort in de kit, niet hier. Wi
 | `src/main/resources/` | OWL-ontologieën (SSN/SOSA 2023, PROV-O, P-PLAN, QUDT, TIME, SAREF met SAREF4SYST, …), en de uitlijningsmodules `sosa-prov` en `sosa-saref` van SSN/SOSA 2023 in `org/w3/www/ns/sosa/alignments/` (uit `w3c/sdw-sosa-ssn`) |
 | `src/main/cc/prefix/prefix.cc.ttl` | Prefixregister van prefix.cc voor `validate_file` (`getPrefixes.sh` om te vernieuwen) |
 | `src/main/resources/be/vlaanderen/ssnsosa/data/id/rule/domain-range-subproperty.rules` | Jena-inferentieregels voor `validate_file` (`--rules`) |
+| `docs/`, `mkdocs.yml` | Referentiewerk *SSN/SOSA in Vlaanderen* (MkDocs, Nederlands), gepubliceerd op gh-pages door `.github/workflows/docs.yml`. Regelteksten en patronen komen uit de kit (hook `docs/_hooks/kit.py`, controleert ook dat elke regel en elk patroon een pagina heeft); Turtle en diagrammen van de casussen worden ingevoegd, niet gekopieerd. Een nieuw datavoorbeeld krijgt een pagina in `docs/casussen/`, een rij in de matrix van `docs/casussen/index.md` en een plaats in `nav` van `mkdocs.yml` |
 | `oslo-ld-kit/` | Git-subtree van [`milieuinfo/oslo-ld-kit`](https://github.com/milieuinfo/oslo-ld-kit): gids, skills, SHACL-regels — niet hier wijzigen |
 | `.claude/skills/` | Skills uit de kit, gekopieerd door `oslo-ld-kit/sync.py` (versie in `.oslo-ld-kit.json`) — niet hier wijzigen |
 | `.mcp.json` | MCP-server `ld-vocab` ([`milieuinfo/ld-mcp`](https://github.com/milieuinfo/ld-mcp)) met de regels uit de kit; jar in `tools/` (§6) |
@@ -78,6 +79,9 @@ Bestaande datavoorbeelden:
   van twee ontvangen varianten; criterium op de rubriekversie, grenzen met operator en een
   `qudt:QuantityValue` per eenheid (ontwerpvocabularium `vlarem:` en lijst vergelijkingsoperatoren in
   `src/main/resources/`); `alternatief/` geeft één bereik per eenheid (`qudt:minExclusive` …)
+- `rdf-memory/` — geheugen van een AI-agent (turtle-recall, geen SSN/SOSA): herziening van één item
+  als `oa:Annotation` met PROV-herkomst, DQV-scores, tags als SKOS-begrippen en toegang via Web Access
+  Control (OA, DQV en WAC in `src/main/resources/org/w3/www/ns/`); gepseudonimiseerd
 
 ---
 

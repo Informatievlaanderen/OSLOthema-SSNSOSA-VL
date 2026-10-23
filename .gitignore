@@ -9,3 +9,7 @@ tools/
 
 # Lokale notitie (vergelijking met het SDS-artikel), niet in versiebeheer
 src/main/input/Nigella-Lawson-Brownies/sds-vergelijking.md
+
+# Referentiewerk (MkDocs): build-uitvoer en uittreksels uit de kit
+site/
+.cache/

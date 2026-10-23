@@ -96,6 +96,23 @@ De sub-scenario's van EnergieManagementSystem:
 dataset staat volledig in `<naam>.trig` met een kleine `<naam>.ttl` als validatiesubset
 (`geluidsmeetnet`, `r-factor`, `waterkwaliteit`).
 
+## Referentiewerk
+
+Het referentiewerk **SSN/SOSA in Vlaanderen** legt uit hoe je data uitdrukt met SOSA, PROV-O,
+P-PLAN, QUDT, GeoSPARQL en OWL-Time: de alignments tussen die vocabularia, de regels die eruit
+volgen, de patronen, een werkwijze in stappen, de datavoorbeelden als casussen en oefeningen. Het
+wordt gepubliceerd op <https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/>; de bron staat
+in `docs/` (MkDocs). Lokaal bekijken:
+
+```bash
+pip install -r docs/requirements.txt
+mkdocs serve
+```
+
+De regelteksten en patronen komen bij het bouwen uit `oslo-ld-kit/guide/`, de Turtle en de
+diagrammen van de casussen rechtstreeks uit `src/main/input/`. De workflow
+`.github/workflows/docs.yml` valideert eerst alle voorbeelden en publiceert daarna op `gh-pages`.
+
 ## Modelleerregels
 
 De modelleerregels (R1–R15), de terugkerende patronen en de werkwijzen staan in de kit
@@ -117,6 +134,7 @@ src/main/input/<domein>/     Datavoorbeelden per domein (Turtle, Mermaid, README
 src/main/resources/          OWL-ontologieën (SSN/SOSA 2023, PROV-O, p-plan, QUDT, OWL-Time,
                              GeoSPARQL, SAREF, waterkwaliteit, CSOR-eenheden, …) en de
                              SSN/SOSA-uitlijningen sosa-prov en sosa-saref
+docs/, mkdocs.yml            Referentiewerk (MkDocs), gepubliceerd op gh-pages
 oslo-ld-kit/                 Gids, regels en skills (git-subtree)
 .claude/                     Skills en het commando /nieuw-voorbeeld voor Claude Code
 CLAUDE.md                    Projectprofiel voor Claude Code

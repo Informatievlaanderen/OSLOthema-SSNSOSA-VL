@@ -1,0 +1,63 @@
+name: Referentiewerk publiceren
+
+# Valideert alle datavoorbeelden en publiceert daarna het referentiewerk (MkDocs) op gh-pages.
+# Faalt de validatie, dan wordt de site niet bijgewerkt.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "mkdocs.yml"
+      - "src/main/input/**"
+      - "src/main/resources/**"
+      - "oslo-ld-kit/**"
+      - ".github/workflows/docs.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: docs
+  cancel-in-progress: true
+
+jobs:
+  publiceren:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Java 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+
+      - name: Validatieserver ophalen
+        run: >
+          curl -fsSL --create-dirs -o tools/ld-mcp-vocab.jar
+          https://github.com/milieuinfo/ld-mcp/releases/latest/download/ld-mcp-vocab.jar
+
+      - name: Alle datavoorbeelden valideren
+        run: >
+          java -jar tools/ld-mcp-vocab.jar validate --ontologies src/main/resources
+          --rules src/main/resources/be/vlaanderen/ssnsosa/data/id/rule/domain-range-subproperty.rules
+          --generate-shapes --shapes oslo-ld-kit/rules/ssn-sosa-rules.ttl
+          --prefix-registry src/main/cc/prefix/prefix.cc.ttl --extensions ttl src/main/input
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: MkDocs installeren
+        run: pip install -r docs/requirements.txt
+
+      - name: Bouwen en publiceren
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdocs gh-deploy --strict --force
