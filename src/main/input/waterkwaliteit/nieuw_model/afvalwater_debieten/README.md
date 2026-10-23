@@ -48,7 +48,7 @@ python3 src/main/input/waterkwaliteit/scripts/afvalwater_debieten.py [--csor ~/g
   (`wk:WaterkwaliteitObservatie`, `wk:Meetresultaat` …). De SHACL-shapes worden gegenereerd uit
   `src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl`.
 
-- `mvn compile exec:java`: subset zonder `[VOCAB ERROR]` of `[MODEL INVALID]`, conform SHACL.
+- `validate_file`: subset zonder `[error]`, zonder SHACL-violations.
 - `shacl validate` op de volledige `.trig`: `sh:conforms true`.
 - **Samengevoegd met stap 1** (`afvalwater_concentraties.trig` + `afvalwater_debieten.trig`):
   `sh:conforms true`, geen enkele resource met twee labels. 59 lozingen hebben zowel

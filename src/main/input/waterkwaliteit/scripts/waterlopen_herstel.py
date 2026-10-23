@@ -27,7 +27,7 @@ Herstel:
 
 Invoer: de originele vhag, wlas en vhacattraj (.ttl of .trig), standaard uit
 ~/git/shapefile_to_rdf/rdf. Al herstelde bestanden worden geweigerd.
-Uitvoer: <naam>.trig (Turtle-inhoud) in ../waterlopen, buiten de Maven-validatie.
+Uitvoer: <naam>.trig (Turtle-inhoud) in ../waterlopen, buiten de bulkvalidatie.
 
 Gebruik (vanuit om het even welke werkmap):
     python3 scripts/waterlopen_herstel.py                    # ~/git/shapefile_to_rdf/rdf -> ../waterlopen

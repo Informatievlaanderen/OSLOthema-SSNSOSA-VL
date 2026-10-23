@@ -4,7 +4,7 @@
 Invoer  : brondata/<datum>_EBBR_NoiseEvents.csv
           brondata/<datum>_EBBR_NoiseIndicators_Aeronautic_ByDay.csv
           brondata/<datum>_EBBR_Flights.csv
-Uitvoer : geluidsmeetnet.trig  — alle meetcampagnes (uitgesloten van de mvn-pipeline)
+Uitvoer : geluidsmeetnet.trig  — alle meetcampagnes (uitgesloten van de bulkvalidatie)
           geluidsmeetnet.ttl   — validatie-subset: enkel VALIDATIE_CAMPAGNE
 
 Gebruik : python3 scripts/geluidsmeetnet_to_rdf.py   (vanuit src/main/input/geluidsmeetnet/)

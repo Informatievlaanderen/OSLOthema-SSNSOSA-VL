@@ -34,13 +34,7 @@ extern gerefereerd kunnen worden.
 
 Zie `elektrisch-raam.mmd` voor het Mermaid-diagram.
 
-## Outputbestanden
-
-- `src/main/output/elektrisch-raam/elektrisch-raam.ttl` — Turtle na inferentie
-- `src/main/output/elektrisch-raam/elektrisch-raam.jsonld` — JSON-LD na framing
-
 ## Gebruik
 
-```bash
-mvn compile exec:java
-```
+Valideren: `mcp__ld-vocab__validate_file` op `src/main/input/elektrisch-raam/elektrisch-raam.ttl`, of alle voorbeelden
+samen met het commando in de README van de repository.

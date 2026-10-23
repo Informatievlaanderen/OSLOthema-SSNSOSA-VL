@@ -19,7 +19,6 @@ Gebruik het **projectprofiel** uit `CLAUDE.md` §2 en de bestandsset uit §4:
 - Bronbestanden in `source/`, Turtle als `source/<naam>.trig`.
 - Tijdzone zonder bronvermelding: `Europe/Brussels` (R12).
 - Eenhedenregister bij vraag 6: CSOR (`csor-eenheid:`).
-- Valideren met `mcp__ld-vocab__validate_file`; de pipeline (`mvn compile exec:java`) enkel als
-  de output in `src/main/output/` nodig is.
+- Valideren met `mcp__ld-vocab__validate_file`.
 
 Schrijf het eindrapport van stap 4 in het Nederlands.

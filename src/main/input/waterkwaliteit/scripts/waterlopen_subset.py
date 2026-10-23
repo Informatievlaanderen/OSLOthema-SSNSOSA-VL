@@ -16,7 +16,7 @@ Uitvoer (in ../waterlopen):
 - meetplaats_waterloop.csv: één rij per meetplaats met segment, waterloop, afstand, controle.
 - waterlopen_meetplaatsen.ttl: alle triples van de gekoppelde segmenten en hun waterlopen, met hun
   geometrie (geo:hasGeometry naar een blank node, zie waterlopen_herstel.py stap 4).
-  Die zijn klein genoeg voor de Maven-validatie (bewust .ttl).
+  Die zijn klein genoeg voor de bulkvalidatie (bewust .ttl).
 
 Gebruik (vanuit om het even welke werkmap):
     uv run --with pyproj --with shapely python scripts/waterlopen_subset.py

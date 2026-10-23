@@ -340,7 +340,7 @@ jsonld <- list(`@context` = ctx, `@graph` = graph)
 message(sprintf("Schrijven rfactor.jsonld (%d resources) ...", length(graph)))
 write_json(jsonld, "rfactor.jsonld", auto_unbox = TRUE, pretty = FALSE)
 
-# ─── Volledige dataset → rfactor.trig (uitgesloten van mvn-validatie) ─────────
+# ─── Volledige dataset → rfactor.trig (uitgesloten van de bulkvalidatie) ──
 message("Converteren naar rfactor.trig (volledige dataset, ~44 MB) ...")
 ret <- system("riot --output=turtle rfactor.jsonld > rfactor.trig")
 if (ret != 0) stop("riot-conversie (trig) mislukt.")
@@ -348,7 +348,7 @@ message(sprintf("rfactor.trig aangemaakt (%.1f MB).", file.size("rfactor.trig") 
 
 # ─── Validatie-subset → rfactor.ttl (1 station: KMI_6408) ────────────────────
 # Bevat alle drie aggregatieniveaus + gemiddelde voor KMI_6408.
-# Dit bestand wordt wél meegenomen in mvn compile exec:java.
+# Dit bestand wordt wél meegenomen in de bulkvalidatie (--extensions ttl).
 VALIDATIE_STATION <- "KMI-6408"
 
 gedeeld_ids <- c("ex:vlaanderen", "ex:procedure-rfactor",

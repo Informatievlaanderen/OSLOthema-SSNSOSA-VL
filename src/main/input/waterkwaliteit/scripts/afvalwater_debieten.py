@@ -7,7 +7,7 @@ Invoer:
   via vmm:lozingspuntCode
 
 Uitvoer (../nieuw_model/afvalwater_debieten/):
-- afvalwater_debieten.trig  alle 1555 jaardebieten (Turtle-inhoud, buiten de Maven-validatie)
+- afvalwater_debieten.trig  alle 1555 jaardebieten (Turtle-inhoud, buiten de bulkvalidatie)
 - afvalwater_debieten.ttl   AGC Glass Mol (meetputten SUBSET_MEETPUTTEN) als validatie-subset
 
 Model (zie bespreking.md in de uitvoermap):

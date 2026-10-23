@@ -33,7 +33,7 @@ maandelijkse_rfactor.csv─┤  (vanuit r-factor/ directory)
         ▼
    rfactor.jsonld        (JSON-LD intermediair, ~34 MB)
         │
-        ├─► rfactor.trig (volledige dataset, ~42 MB — uitgesloten van mvn-validatie)
+        ├─► rfactor.trig (volledige dataset, ~42 MB — uitgesloten van de bulkvalidatie)
         │
         └─► rfactor.ttl  (validatie-subset: station KMI_6408, ~185 KB)
 ```
@@ -50,11 +50,11 @@ Apache Jena `riot` op PATH.
 
 Het script genereert twee Turtle-bestanden:
 - **`rfactor.trig`** — volledige dataset (alle 53 stations, alle jaren). De `.trig`-extensie
-  zorgt ervoor dat dit bestand niet meegenomen wordt in `mvn compile exec:java`
-  (de pipeline verwerkt alleen `.ttl`-bestanden).
+  zorgt ervoor dat dit bestand niet meegenomen wordt in de validatie van alle voorbeelden
+  (`--extensions ttl`, zie de README van de repository).
 - **`rfactor.ttl`** — validatie-subset met één station (KMI_6408, jaren 2002–2005),
   alle drie aggregatieniveaus en de gemiddelde observatie. Dit bestand wordt wél
-  gevalideerd door de pipeline.
+  gevalideerd.
 
 Om een ander station als validatie-subset te kiezen, pas `VALIDATIE_STATION` aan in
 `r/rfactor_to_rdf.R`.
@@ -88,5 +88,5 @@ Alle geneste resources (`time:Interval`, `time:Instant`, `qudt:QuantityValue`,
 | Bestand | Formaat | Grootte | Opmerking |
 |---|---|---|---|
 | `rfactor.jsonld` | JSON-LD | ~34 MB | Intermediair, volledig |
-| `rfactor.trig` | Turtle (TriG-extensie) | ~42 MB | Volledige dataset, niet gevalideerd door pipeline |
+| `rfactor.trig` | Turtle (TriG-extensie) | ~42 MB | Volledige dataset, niet gevalideerd |
 | `rfactor.ttl` | Turtle | ~185 KB | Validatie-subset (1 station), wél gevalideerd |

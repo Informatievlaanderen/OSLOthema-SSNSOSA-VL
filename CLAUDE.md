@@ -23,7 +23,7 @@ aan dit project. Een nieuwe algemene regel of les hoort in de kit, niet hier. Wi
 | Instelling | Waarde |
 |---|---|
 | Voorbeelden | `src/main/input/<domein>/` |
-| Ontologieën | `src/main/resources/` (ook geladen door `ld-vocab` en de pipeline) |
+| Ontologieën | `src/main/resources/` (geladen door `ld-vocab`) |
 | Documenttaal | Nederlands (README, bespreking, opdracht, beslisdocumenten) |
 | Bestandsnamen | bespreking `bespreking.md`, oefening `opdracht.md`, herziening `<naam>_herzien.ttl`, vergelijking `<naam>_vergelijking.mmd`, alternatief `alternatief/`, sectie *Verbeterpunten* in de README |
 | Sectietitels bespreking | de Nederlandse titels uit `guide/discussion-document.md` (`## 1. Wat stelt dit voorbeeld voor?` …) |
@@ -31,7 +31,7 @@ aan dit project. Een nieuwe algemene regel of les hoort in de kit, niet hier. Wi
 | Tijdzone (R12) | `Europe/Brussels`: `+01:00` in de winter, `+02:00` tijdens de zomertijd |
 | Eenhedenregister (R3) | CSOR, prefix `csor-eenheid:` (`<https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/>`), geladen uit `src/main/resources/be/vlaanderen/omgeving/data/id/conceptscheme/csor/eenheid/eenheid.ttl` |
 | Extra prefixen | per domein; gedeelde infrastructuur met een eigen prefix (bv. `htg:` voor het Herman Teirlinck-gebouw) |
-| Validatie | `mcp__ld-vocab__validate_file` (§5); de Scala-pipeline enkel voor output |
+| Validatie | `mcp__ld-vocab__validate_file` (§5) |
 | Bronbestanden | in `source/`, Turtle als `.trig` (§4) |
 
 ---
@@ -42,12 +42,8 @@ aan dit project. Een nieuwe algemene regel of les hoort in de kit, niet hier. Wi
 |---|---|
 | `src/main/input/<domein>/` | Één directory per datavoorbeeld |
 | `src/main/resources/` | OWL-ontologieën (SSN/SOSA 2023, PROV-O, P-PLAN, QUDT, TIME, SAREF met SAREF4SYST, …), en de uitlijningsmodules `sosa-prov` en `sosa-saref` van SSN/SOSA 2023 in `org/w3/www/ns/sosa/alignments/` (uit `w3c/sdw-sosa-ssn`) |
-| `src/main/resources/generated-shapes.ttl` | Auto-gegenereerde SHACL-shapes — **nooit manueel bewerken** |
 | `src/main/cc/prefix/prefix.cc.ttl` | Prefixregister van prefix.cc voor `validate_file` (`getPrefixes.sh` om te vernieuwen) |
-| `src/main/resources/be/vlaanderen/ssnsosa/data/id/jsonld/frame.json` | JSON-LD framing-template |
-| `src/main/resources/be/vlaanderen/ssnsosa/data/id/rule/domain-range-subproperty.rules` | Jena-inferentieregels |
-| `src/main/scala/be/vlaanderen/ssnsosa/` | Scala-evaluatiepipeline |
-| `src/main/output/` | Gegenereerde output (Turtle na inferentie, JSON-LD) |
+| `src/main/resources/be/vlaanderen/ssnsosa/data/id/rule/domain-range-subproperty.rules` | Jena-inferentieregels voor `validate_file` (`--rules`) |
 | `oslo-ld-kit/` | Git-subtree van [`milieuinfo/oslo-ld-kit`](https://github.com/milieuinfo/oslo-ld-kit): gids, skills, SHACL-regels — niet hier wijzigen |
 | `.claude/skills/` | Skills uit de kit, gekopieerd door `oslo-ld-kit/sync.py` (versie in `.oslo-ld-kit.json`) — niet hier wijzigen |
 | `.mcp.json` | MCP-server `ld-vocab` ([`milieuinfo/ld-mcp`](https://github.com/milieuinfo/ld-mcp)) met de regels uit de kit; jar in `tools/` (§6) |
@@ -100,11 +96,11 @@ source/                      optioneel: ontvangen brondata vóór revisie
 alternatief/                 optioneel: tweede verdedigbare lezing (skill alternative-mapping)
 ```
 
-**`.ttl` en `.trig`:** de pipeline verwerkt alle `.ttl`-bestanden recursief in `src/main/input/`,
-ook in `source/`, en slaat `.trig` over. Daarom:
+**`.ttl` en `.trig`:** de bulkvalidatie (§5) verwerkt alle `.ttl`-bestanden recursief in
+`src/main/input/`, ook in `source/`, en slaat `.trig` over. Daarom:
 - een ontvangen bronbestand blijft in zijn oorspronkelijke formaat; Turtle als `source/<naam>.trig`
-  (geldige TriG, dus `riot` en `validate_file` lezen het nog, maar de bekende fouten geven geen
-  `[VOCAB ERROR]` in de pipeline);
+  (geldige TriG, dus `riot` en `validate_file` lezen het nog, maar de bekende fouten laten de
+  bulkvalidatie niet falen);
 - een grote dataset staat volledig in `<naam>.trig`, met een kleine `<naam>.ttl` als
   validatiesubset (zie `r-factor/`, `geluidsmeetnet/`, `waterkwaliteit/`);
 - grote registers (CSOR-parameters, NACE-BEL) staan niet als `.ttl` onder `src/main/input/`.
@@ -116,8 +112,7 @@ ook in `source/`, en slaat `.trig` over. Daarom:
 **Eén bestand:** `mcp__ld-vocab__validate_file` (server in `.mcp.json`, ld-mcp 0.4.0 of later). Wat
 de meldingen betekenen en wat je ermee doet, staat in `guide/linked-data.md` (Validation) en in de
 README van ld-mcp. De server laadt `src/main/resources/`, genereert de SHACL-shapes zelf uit de
-ontologie (een profiellezing van de OWL-restricties, niet meer hetzelfde als `generated-shapes.ttl`
-van de pipeline, zie de verschillen hieronder), gebruikt de regels uit
+ontologie (een profiellezing van de OWL-restricties, zie `guide/linked-data.md`), gebruikt de regels uit
 `oslo-ld-kit/rules/ssn-sosa-rules.ttl` en het prefixregister, en leest gewijzigde bestanden
 automatisch opnieuw in. Na een nieuwe jar: `/mcp` → `ld-vocab` → Reconnect.
 
@@ -144,39 +139,12 @@ java -jar tools/ld-mcp-vocab.jar validate --ontologies src/main/resources \
     --prefix-registry src/main/cc/prefix/prefix.cc.ttl --extensions ttl src/main/input
 ```
 
-`--extensions ttl` volgt de pipeline: zonder die optie valideert het ook de `.jsonld`-bestanden,
-waaronder de volledige `r-factor/rfactor.jsonld` (34 MB).
+`--extensions ttl` slaat de `.trig`-bestanden over (§4) en de `.jsonld`-bestanden, waaronder de
+volledige `r-factor/rfactor.jsonld` (34 MB).
 
-**Volledige pipeline**, enkel wanneer de output in `src/main/output/` of een bijgewerkt
-`generated-shapes.ttl` nodig is:
-
-```bash
-mvn compile exec:java
-```
-
-1. **OntologySorter** laadt alle `.ttl`-bestanden uit `src/main/resources/` in `completeOntology`
-   (alles), `structuralSubset` (subClassOf, subPropertyOf, inverseOf, domain, range) en
-   `disjointSubset` (disjointWith).
-2. **OwlToShaclGenerator** schrijft `src/main/resources/generated-shapes.ttl`.
-3. Per `.ttl`-bestand in `src/main/input/`: vocabulaire-check (predicaten en `rdf:type`-doelen;
-   `WARN [VOCAB ERROR]`), regelinferentie, OWL-validatie met OWLMiniReasoner
-   (`WARN [MODEL INVALID]`), SHACL tegen `generated-shapes.ttl`, JSON-LD-conversie met `frame.json`.
-
-Alle `[VOCAB ERROR]`-waarschuwingen van de pipeline moeten opgelost worden vóór een commit.
-
-Verschillen met `validate_file`, die gelden zolang de pipeline bestaat:
-- de pipeline controleert geen objecten (bv. eenheden), gemunte resources, datatypes, rollen of
-  verouderde termen, en gebruikt de regels uit de kit niet. Dat de pipeline geen eenheden
-  controleert, is een bewuste keuze: dat doet `validate_file`;
-- de pipeline zet `owl:AllDisjointClasses` en `owl:disjointUnionOf` niet om naar disjunctieparen,
-  en ziet de klassehiërarchie niet zonder regels;
-- de pipeline valideert SHACL op de letterlijke data; `validate_file` ziet ook de klassehiërarchie
-  en de types van verwezen termen;
-- `generated-shapes.ttl` (`OwlToShaclGenerator`) vertaalt `owl:someValuesFrom C` als `sh:class C`
-  op alle waarden plus `sh:minCount 1`; ld-mcp als "minstens één waarde is een C", en vertaalt ook
-  gekwalificeerde cardinaliteiten, `owl:hasValue` en restricties in `owl:intersectionOf`. De
-  shapes van ld-mcp zelf schrijven: `java -jar tools/ld-mcp-vocab.jar generate-shapes
-  --ontologies src/main/resources --prefix-registry src/main/cc/prefix/prefix.cc.ttl --out <bestand>`.
+De shapes die ld-mcp uit de ontologie genereert, kan je ook wegschrijven, bv. om ze met een andere
+SHACL-engine te gebruiken: `java -jar tools/ld-mcp-vocab.jar generate-shapes --ontologies
+src/main/resources --prefix-registry src/main/cc/prefix/prefix.cc.ttl --out <bestand>`.
 
 ---
 

@@ -7,7 +7,7 @@ Invoer:
 - CSOR-codelijsten in ~/git/csor (via waterkwaliteit_gemeen.Csor)
 
 Uitvoer (../nieuw_model/oppervlaktewater_concentraties/):
-- oppervlaktewater_concentraties.trig  alle resultaten (Turtle-inhoud, buiten de Maven-validatie)
+- oppervlaktewater_concentraties.trig  alle resultaten (Turtle-inhoud, buiten de bulkvalidatie)
 - oppervlaktewater_concentraties.ttl   één staal (SUBSET_STAAL) als validatie-subset
 
 Model (zie bespreking.md in de uitvoermap), R8/R11:
@@ -50,7 +50,7 @@ WATERLOPEN = Namespace("https://data.omgeving.vlaanderen.be/ns/waterlopen#")
 UIT = os.path.normpath(os.path.join(HIER, "..", "nieuw_model", "oppervlaktewater_concentraties"))
 NAAM = "oppervlaktewater_concentraties"
 SUBSET_STAAL = ("OW12000", "2019-01-28", "13:01:00")
-# Een volledig staal (331 resultaten) is te zwaar voor de OWL-validatie van de pipeline (minuten per
+# Een volledig staal (331 resultaten) is te zwaar voor de OWL-validatie van de vroegere Maven-pipeline (minuten per
 # bestand). De subset beperkt zich tot representatieve parameters: alle soorten eenheden en grootheden,
 # en twee resultaten onder de rapportagegrens.
 SUBSET_PARAMETERS = {"pH", "EC 20", "T", "O2 verz", "BZV5", "KjN", "NO3-", "P t", "H t", "Cl-",

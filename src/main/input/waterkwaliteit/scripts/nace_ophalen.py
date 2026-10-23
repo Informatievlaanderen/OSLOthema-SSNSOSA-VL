@@ -15,9 +15,9 @@ De uitvoer komt standaard naast het invoerbestand.
 
 Belgif publiceert dcterms:modified zonder seconden ("2026-08-24T14:50"^^xsd:dateTime), wat geen
 geldige xsd:dateTime is. Het script vult de seconden aan (":00") in het invoerbestand zelf, omdat
-de Maven-pipeline dat bestand valideert.
+de bulkvalidatie dat bestand valideert.
 
-De uitvoer krijgt standaard de extensie .trig (Turtle-inhoud), zodat de Maven-pipeline,
+De uitvoer krijgt standaard de extensie .trig (Turtle-inhoud), zodat de bulkvalidatie,
 die alle .ttl-bestanden onder src/main/input/ valideert, het grote bestand overslaat.
 
 Vereist: rdflib.

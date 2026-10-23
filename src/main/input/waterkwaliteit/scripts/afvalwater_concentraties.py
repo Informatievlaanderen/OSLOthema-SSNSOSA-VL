@@ -8,7 +8,7 @@ Invoer:
   staalname (bv. WAC_I_A_003_2024), met dct:isVersionOf naar de hoofdprocedure.
 
 Uitvoer (../nieuw_model/afvalwater_concentraties/):
-- afvalwater_concentraties.trig  alle 1998 resultaten (Turtle-inhoud, buiten de Maven-validatie)
+- afvalwater_concentraties.trig  alle 1998 resultaten (Turtle-inhoud, buiten de bulkvalidatie)
 - afvalwater_concentraties.ttl   één staal (SUBSET_STAAL) als validatie-subset
 
 Model (zie bespreking.md in de uitvoermap):
@@ -19,7 +19,7 @@ Model (zie bespreking.md in de uitvoermap):
              qudt:hasUnit -> CSOR-eenheid
 
 Afgeleide supertypes (sosa:Execution, sosa:ExecutionCollection, sosa:FeatureOfInterest op het
-staal) worden expliciet toegevoegd: de pipeline valideert SHACL op het niet-geïnfereerde model.
+staal) worden expliciet toegevoegd: SHACL ziet geen afgeleide types (enkel de klassehiërarchie).
 
 Gebruik (vanuit om het even welke werkmap):
     python3 scripts/afvalwater_concentraties.py [--csor ~/git/csor]

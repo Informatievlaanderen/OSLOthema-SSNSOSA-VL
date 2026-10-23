@@ -17,8 +17,8 @@ meetpunten, rapportagegrenzen (teken `<`) en de koppeling aan CSOR.
 
 | Bestand | Inhoud |
 |---|---|
-| `afvalwater_concentraties.ttl` | validatie-subset: staal `M-AW-2024-006358-1` (RWZI Mechelen-Noord, 27/03/2024), 15 resultaten, teken `<` en `=`; 325 triples. Wordt door de Maven-pipeline gevalideerd. |
-| `afvalwater_concentraties.trig` | volledige omzetting: 1998 observaties, 49 120 triples (Turtle-inhoud; `.trig` houdt het buiten de pipeline) |
+| `afvalwater_concentraties.ttl` | validatie-subset: staal `M-AW-2024-006358-1` (RWZI Mechelen-Noord, 27/03/2024), 15 resultaten, teken `<` en `=`; 325 triples. Wordt door de bulkvalidatie gevalideerd. |
+| `afvalwater_concentraties.trig` | volledige omzetting: 1998 observaties, 49 120 triples (Turtle-inhoud; `.trig` houdt het buiten de bulkvalidatie) |
 | `afvalwater_concentraties.mmd` | Mermaid-diagram van de subset |
 | `bespreking.md` | conceptmapping en modelleerkeuzes |
 
@@ -51,8 +51,8 @@ python3 src/main/input/waterkwaliteit/scripts/afvalwater_concentraties.py [--cso
   (`wk:WaterkwaliteitObservatie`, `wk:Meetresultaat` …). De SHACL-shapes worden gegenereerd uit
   `src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl`.
 
-- `mvn compile exec:java`: subset zonder `[VOCAB ERROR]` of `[MODEL INVALID]`, conform SHACL.
-- `shacl validate --shapes src/main/resources/generated-shapes.ttl` op de volledige `.trig`:
+- `validate_file`: subset zonder `[error]`, zonder SHACL-violations.
+- `shacl validate` op de volledige `.trig`, met de shapes van de vroegere Maven-pipeline:
   `sh:conforms true`.
 - Steekproef: voor alle 15 resultaten van het subset-staal kloppen parameteraspect en eenheid met
   de bron (bv. `P t` in `mgP/L` → "P t (totaal in water): massaconcentratie fosfor", eenheid

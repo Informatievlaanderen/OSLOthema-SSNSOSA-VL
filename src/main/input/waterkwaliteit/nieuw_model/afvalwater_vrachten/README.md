@@ -60,8 +60,7 @@ KWA_10 debiet (vracht), KWA_5 vracht.
   (`wk:WaterkwaliteitObservatie`, `wk:Meetresultaat` …). De SHACL-shapes worden gegenereerd uit
   `src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl`.
 
-- `mvn compile exec:java`: beide subsets zonder `[VOCAB ERROR]` of `[MODEL INVALID]`, conform
-  SHACL.
+- `validate_file`: beide subsets zonder `[error]`, zonder SHACL-violations.
 - `shacl validate` op beide volledige `.trig`-bestanden: `sh:conforms true`.
 - **Samengevoegd met stap 1 en 3** (alle vier de `.trig`-bestanden): `sh:conforms true`, geen
   enkele resource met twee labels. Van de 1619 lozingen hebben er 43 alle drie de soorten

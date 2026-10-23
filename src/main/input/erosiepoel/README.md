@@ -54,10 +54,8 @@ Vergeleken met het ontvangen bronbestand zijn de volgende fouten gecorrigeerd:
 ## Outputbestanden
 
 - `erosiepoel.ttl` — gecorrigeerde primaire RDF-data
-- `src/main/output/erosiepoel/erosiepoel.jsonld` — gegenereerde JSON-LD
 
 ## Gebruik
 
-```bash
-mvn compile exec:java
-```
+Valideren: `mcp__ld-vocab__validate_file` op `src/main/input/erosiepoel/erosiepoel.ttl`, of alle voorbeelden
+samen met het commando in de README van de repository.

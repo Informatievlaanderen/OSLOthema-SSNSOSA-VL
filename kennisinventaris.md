@@ -14,7 +14,7 @@ Stand: 2026-10-11.
 Brits Engels): de gids (`guide/`: linked data met R10/R15, SSN/SOSA met R1–R9 en R11–R14,
 patronen, discussiedocument, oefening, diagrammen), zeven skills (W1–W6 en W10; W7–W9 zijn
 onderdelen van de gids) en het SHACL-regelbestand (`rules/ssn-sosa-rules.ttl`). `CLAUDE.md` van dit
-project is dun: projectprofiel, structuur, bestandsset, validatie en pipeline, plus imports van de
+project is dun: projectprofiel, structuur, bestandsset en validatie, plus imports van de
 gids. Wat hieronder "CM" heet, staat nu in de gids.
 
 ## Legende
@@ -54,7 +54,7 @@ SP = `stappenplan.md`, CL = `codelijsten.md`, CI = `csor_iadopt.md`, GH = Claude
 | L6 | Geen SKOS-relaties tussen klassen; SKOS-documentatieproperties (`skos:definition`, `scopeNote`) mogen wel | GH | **SHACL** | geldt voor ontologieën, niet voor data: vraagt een ontologie-lint (zie §7) |
 | L7 | Codelijsten als SKOS; bestaande registers hergebruiken vóór nieuwe lijsten | SP §1, CL, BD A11 | GIDS | |
 | L8 | Bestaande IRI's hergebruiken; nog niet finale externe IRI's via `rdfs:seeAlso` | BD A12 | GIDS | |
-| L9 | Grote dataset: volledige versie apart, kleine representatieve subset om te valideren | GH | GIDS | het `.trig`-trucje zelf is PROJ (pipeline) |
+| L9 | Grote dataset: volledige versie apart, kleine representatieve subset om te valideren | GH | GIDS | het `.trig`-trucje zelf is PROJ (bulkvalidatie) |
 | L10 | **Applicatieprofiel uit één bron**: OWL-restricties → gegenereerde SHACL, geen handgeschreven SHACL | BD A15 | GIDS + **MCP** ✔ | generator zit in de server |
 | L11 | AP-beperkingen op **eigen subklassen**, nooit op hergebruikte klassen (anders gelden ze voor alle data) | BD A15 | GIDS | belangrijke, niet-evidente regel |
 | L12 | SHACL valideert het niet-afgeleide model: data typeert de superklassen expliciet | BD A15, GH | GIDS | verklaart "Or at focusNode"-meldingen |
@@ -152,8 +152,8 @@ Externe afhankelijkheden die een nieuw project moet kennen: `~/git/csor`, `~/git
 
 ## 6. Blijft in dit project (PROJ)
 
-- CM §2 (paden), §3 (bestandsset, `source/`-opmerking), §4 (Scala-pipeline, `generated-shapes.ttl` nooit bewerken).
-- `.trig` om de pipeline te omzeilen (de techniek; het principe is L9).
+- CM §2 (paden), §3 (bestandsset, `source/`-opmerking), §4 (Scala-pipeline, `generated-shapes.ttl` nooit bewerken; pipeline geschrapt op 2026-10-23, vervangen door ld-mcp).
+- `.trig` om de bulkvalidatie te omzeilen (de techniek; het principe is L9).
 - EMS-bronnen zijn overgenomen en niet normatief (GH).
 - Waterkwaliteit-scope en betrokken personen (GH).
 

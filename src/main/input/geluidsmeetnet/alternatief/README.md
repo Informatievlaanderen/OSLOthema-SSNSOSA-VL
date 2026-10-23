@@ -29,7 +29,7 @@ niet volledigheid. Wordt het alternatief aangenomen, dan volstaat een kleine aan
 
 | Bestand | Inhoud |
 |---|---|
-| `geluidsmeetnet_emissie.ttl` | Alternatief A: vlucht TRA15N, 4 emissies, 4 eventcollecties, 16 observaties (≈450 triples). Door de pipeline gevalideerd. |
+| `geluidsmeetnet_emissie.ttl` | Alternatief A: vlucht TRA15N, 4 emissies, 4 eventcollecties, 16 observaties (≈450 triples). Door de bulkvalidatie gevalideerd. |
 | `geluidsmeetnet_emissie.mmd` | Diagram van alternatief A, uitgewerkt voor het event op M072 |
 | `geluidsmeetnet_vergelijking.mmd` | Hoofdmodel, alternatief A en alternatief B naast elkaar, toegespitst op het FOI |
 | `bespreking.md` | De negen secties, met de argumenten in §6 |
@@ -48,6 +48,5 @@ niet volledigheid. Wordt het alternatief aangenomen, dan volstaat een kleine aan
 
 ## Gebruik
 
-```bash
-mvn compile exec:java      # vanuit de root; valideert ook alternatief/geluidsmeetnet_emissie.ttl
-```
+Valideren: `mcp__ld-vocab__validate_file` op `src/main/input/geluidsmeetnet/alternatief/geluidsmeetnet_emissie.ttl`, of alle voorbeelden
+samen met het commando in de README van de repository.

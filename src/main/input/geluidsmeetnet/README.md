@@ -34,7 +34,7 @@ brondata/*.csv ──► scripts/geluidsmeetnet_to_rdf.py ──► geluidsmeetn
    radarplot in UTC). 1 811 van de 1 818 events vinden zo hun vlucht in `Flights`; de 7 overige
    vluchten (radarspoor vóór 07:00) worden opgebouwd uit de vluchtkolommen van `NoiseEvents`.
 4. **Generatie**: één `.trig` met de volledige dataset (≈145 000 triples; Turtle-syntaxis, maar
-   via de extensie uitgesloten van de pipeline) en één `.ttl` met campagne `M072-2` (58 events,
+   via de extensie uitgesloten van de bulkvalidatie) en één `.ttl` met campagne `M072-2` (58 events,
    ≈5 400 triples) als gevalideerde subset. De subset wordt gekozen met `VALIDATIE_CAMPAGNE` in
    het script.
 
@@ -80,15 +80,15 @@ BCS6TP om 01:23) en de afleiding van Ln en Lden; de overige 57 events zijn samen
 
 ## Outputbestanden
 
-- `geluidsmeetnet.ttl` — validatie-subset (campagne M072-2), door de pipeline verwerkt
-- `geluidsmeetnet.trig` — volledige dataset (13 campagnes), niet door de pipeline verwerkt
-- `src/main/output/turtle/geluidsmeetnet/geluidsmeetnet.ttl` — subset na inferentie
+- `geluidsmeetnet.ttl` — validatie-subset (campagne M072-2), door de bulkvalidatie verwerkt
+- `geluidsmeetnet.trig` — volledige dataset (13 campagnes), niet door de bulkvalidatie verwerkt
 
 ## Gebruik
 
 ```bash
 cd src/main/input/geluidsmeetnet
 python3 scripts/geluidsmeetnet_to_rdf.py      # genereert .ttl en .trig
-cd ../../../..
-mvn compile exec:java                         # validatie (vocabulaire, OWL, SHACL, JSON-LD)
 ```
+
+Valideren: `mcp__ld-vocab__validate_file` op `src/main/input/geluidsmeetnet/geluidsmeetnet.ttl`, of alle voorbeelden
+samen met het commando in de README van de repository.

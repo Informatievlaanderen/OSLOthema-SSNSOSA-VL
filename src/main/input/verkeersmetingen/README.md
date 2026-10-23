@@ -36,15 +36,7 @@ Plat SSN/SOSA-model met `sosa:ObservationCollection` (details in `bespreking.md`
 
 Zie `verkeersmetingen.mmd` voor het Mermaid-diagram.
 
-## Outputbestanden
-
-Na uitvoering van de pipeline:
-
-- `src/main/output/verkeersmetingen/verkeersmetingen.ttl` — Turtle na inferentie
-- `src/main/output/verkeersmetingen/verkeersmetingen.jsonld` — JSON-LD na framing
-
 ## Gebruik
 
-```bash
-mvn compile exec:java
-```
+Valideren: `mcp__ld-vocab__validate_file` op `src/main/input/verkeersmetingen/verkeersmetingen.ttl`, of alle voorbeelden
+samen met het commando in de README van de repository.

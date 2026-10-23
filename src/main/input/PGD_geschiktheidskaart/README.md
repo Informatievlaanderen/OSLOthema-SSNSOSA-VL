@@ -39,11 +39,6 @@ score (R4b), en de herkomst van elke cel moet tot het plan te herleiden zijn (R4
 
 Zie `pgd-geschiktheidskaart.mmd`.
 
-## Outputbestanden
-
-- `src/main/output/PGD_geschiktheidskaart/pgd-geschiktheidskaart.ttl` — Turtle na inferentie
-- `src/main/output/PGD_geschiktheidskaart/pgd-geschiktheidskaart.jsonld` — JSON-LD na framing
-
 ## Gebruik
 
 Valideren: `mcp__ld-vocab__validate_file` op
@@ -56,5 +51,3 @@ java -jar tools/ld-mcp-vocab.jar validate --ontologies src/main/resources \
     --prefix-registry src/main/cc/prefix/prefix.cc.ttl --extensions ttl \
     src/main/input/PGD_geschiktheidskaart
 ```
-
-Output genereren: `mvn compile exec:java`.

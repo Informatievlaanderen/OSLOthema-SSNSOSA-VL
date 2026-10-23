@@ -91,8 +91,8 @@ De sub-scenario's van EnergieManagementSystem:
 | [`DatavoorbeeldSGerealiseerdeBesparing`](src/main/input/EnergieManagementSystem/DatavoorbeeldSGerealiseerdeBesparing/) | Gerealiseerde energiebesparing |
 | [`DatavoorbeeldStilleggingProductielijn`](src/main/input/EnergieManagementSystem/DatavoorbeeldStilleggingProductielijn/) | Stillegging van een productielijn op basis van elektriciteitsprijzen |
 
-**`.ttl` en `.trig`.** De pipeline verwerkt alle `.ttl`-bestanden onder `src/main/input/` en slaat
-`.trig` over. Ontvangen bronbestanden in Turtle staan daarom als `source/<naam>.trig`, en een grote
+**`.ttl` en `.trig`.** De validatie van alle voorbeelden samen verwerkt de `.ttl`-bestanden onder
+`src/main/input/` en slaat `.trig` over. Ontvangen bronbestanden in Turtle staan daarom als `source/<naam>.trig`, en een grote
 dataset staat volledig in `<naam>.trig` met een kleine `<naam>.ttl` als validatiesubset
 (`geluidsmeetnet`, `r-factor`, `waterkwaliteit`).
 
@@ -117,8 +117,6 @@ src/main/input/<domein>/     Datavoorbeelden per domein (Turtle, Mermaid, README
 src/main/resources/          OWL-ontologieën (SSN/SOSA 2023, PROV-O, p-plan, QUDT, OWL-Time,
                              GeoSPARQL, SAREF, waterkwaliteit, CSOR-eenheden, …) en de
                              SSN/SOSA-uitlijningen sosa-prov en sosa-saref
-src/main/output/             Gegenereerde output na inferentie (Turtle, JSON-LD); niet in git
-src/main/scala/              Scala-evaluatiepipeline
 oslo-ld-kit/                 Gids, regels en skills (git-subtree)
 .claude/                     Skills en het commando /nieuw-voorbeeld voor Claude Code
 CLAUDE.md                    Projectprofiel voor Claude Code
@@ -132,7 +130,7 @@ CLAUDE.md                    Projectprofiel voor Claude Code
 
 - of elke term bestaat in de geladen ontologieën;
 - domein-, bereik- en subproperty-inferentie;
-- OWL-consistentie;
+- disjunctie van klassen (bv. een observatie die ook een `prov:Entity` zou zijn);
 - SHACL, met de shapes uit de ontologieën en de regels uit de kit.
 
 De server staat in `.mcp.json` en verwacht de jar in `tools/`:
@@ -144,11 +142,13 @@ curl -L --create-dirs -o tools/ld-mcp-vocab.jar \
 
 Dat vraagt Java 21 of later.
 
-**De volledige pipeline** is enkel nodig voor de output in `src/main/output/` of een bijgewerkte
-`src/main/resources/generated-shapes.ttl`:
+**Alle voorbeelden samen** valideer je met dezelfde jar, zonder MCP-client:
 
 ```bash
-mvn compile exec:java
+java -jar tools/ld-mcp-vocab.jar validate --ontologies src/main/resources \
+    --rules src/main/resources/be/vlaanderen/ssnsosa/data/id/rule/domain-range-subproperty.rules \
+    --generate-shapes --shapes oslo-ld-kit/rules/ssn-sosa-rules.ttl \
+    --prefix-registry src/main/cc/prefix/prefix.cc.ttl --extensions ttl src/main/input
 ```
 
 ## Issues

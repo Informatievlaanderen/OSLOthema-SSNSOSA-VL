@@ -22,7 +22,7 @@ hoeveelheden: een minimum, een maximum of beide, soms in alternatieve eenheden (
 | `source/hoeveelheden_alt2.trig` | variant 2: de grens draagt de grootheden en de waarden zelf |
 
 De twee varianten zijn ontvangen als `.ttl` en hernoemd naar `.trig` (geldige TriG, inhoud
-ongewijzigd), zodat de pipeline ze niet valideert (CLAUDE.md §4).
+ongewijzigd), zodat de bulkvalidatie ze overslaat (CLAUDE.md §4).
 
 ## Transformatie
 

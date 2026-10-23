@@ -30,13 +30,7 @@ afgeleide observatie nodig: de drempellogica zit volledig in de `step:raam-actua
 
 Zie `temperatuur-raam.mmd` voor het Mermaid-diagram.
 
-## Outputbestanden
-
-- `src/main/output/temperatuur-raam/temperatuur-raam.ttl` — Turtle na inferentie
-- `src/main/output/temperatuur-raam/temperatuur-raam.jsonld` — JSON-LD na framing
-
 ## Gebruik
 
-```bash
-mvn compile exec:java
-```
+Valideren: `mcp__ld-vocab__validate_file` op `src/main/input/temperatuur-raam/temperatuur-raam.ttl`, of alle voorbeelden
+samen met het commando in de README van de repository.

@@ -18,7 +18,7 @@ waterloop (R8, R11).
 
 | Bestand | Inhoud |
 |---|---|
-| `oppervlaktewater_concentraties.ttl` | validatie-subset: staal van 28/01/2019 13:01, 14 representatieve parameters (pH, geleidbaarheid, temperatuur, zuurstof, BZV5, KjN, nitraat, fosfor, hardheid, chloride, opgelost zink en koper, en twee `<`-resultaten); 310 triples. Een volledig staal (331 resultaten) duurde minuten in de OWL-validatie van de pipeline. Door de Maven-pipeline gevalideerd. |
+| `oppervlaktewater_concentraties.ttl` | validatie-subset: staal van 28/01/2019 13:01, 14 representatieve parameters (pH, geleidbaarheid, temperatuur, zuurstof, BZV5, KjN, nitraat, fosfor, hardheid, chloride, opgelost zink en koper, en twee `<`-resultaten); 310 triples. Een volledig staal (331 resultaten) duurde minuten in de OWL-validatie van de vroegere Maven-pipeline. Door de bulkvalidatie gevalideerd. |
 | `oppervlaktewater_concentraties.trig` | volledige omzetting: 999 observaties, 3 stalen, 14 989 triples |
 | `oppervlaktewater_concentraties.mmd` | Mermaid-diagram van de subset |
 | `bespreking.md` | conceptmapping en modelleerkeuzes |
@@ -47,7 +47,7 @@ python3 src/main/input/waterkwaliteit/scripts/oppervlaktewater_concentraties.py 
   (`wk:WaterkwaliteitObservatie`, `wk:Meetresultaat` …). De SHACL-shapes worden gegenereerd uit
   `src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl`.
 
-- `mvn compile exec:java`: subset zonder `[VOCAB ERROR]` of `[MODEL INVALID]`, conform SHACL.
+- `validate_file`: subset zonder `[error]`, zonder SHACL-violations.
 - `shacl validate` op de volledige `.trig`: `sh:conforms true`.
 - 834 resultaten met teken `<` (`qudt:upperBound`) en 165 met `=` (`qudt:numericValue`), zoals
   in de bron.
