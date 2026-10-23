@@ -21,7 +21,7 @@ moet eerst uitzoeken dat ze hetzelfde bedoelen. Wie een nieuwe dataset ontwerpt,
 over vragen die al beantwoord zijn: is een meetpunt een plaats of een toestel? Hoort de eenheid
 bij de waarde of bij de eigenschap? Is een berekend gemiddelde een meting?
 
-## Het antwoord: een gedeelde, afgestemde stapel
+## Het antwoord: gedeelde, op elkaar afgestemde kernvocabularia
 
 Voor elk van die vragen bestaat een open standaard, door W3C of OGC gepubliceerd en internationaal
 gebruikt:
@@ -44,7 +44,7 @@ die verbanden uit.
 
 ## Waarom een reflex, en niet een keuze per project
 
-Een *reflex* betekent: je begint met deze stapel, en je zoekt pas verder wanneer ze een betekenis
+Een *reflex* betekent: je begint met deze kernvocabularia, en je zoekt pas verder wanneer ze een betekenis
 niet kan uitdrukken. Daar zijn vier redenen voor.
 
 1. **De vragen zijn al beantwoord.** Of een meetpunt een plaats of een toestel is, of een
@@ -59,25 +59,25 @@ niet kan uitdrukken. Daar zijn vier redenen voor.
 3. **Datasets worden combineerbaar.** Een fietstelling, een waterstaal en een geluidsevent
    beantwoorden dezelfde query: *geef alle waarnemingen van studieobjecten binnen deze gemeente in
    april, met hun eenheid*. Over domeinen heen, zonder vertaaltabel.
-4. **Keuzes worden uitlegbaar.** Een model dat de stapel volgt, legt een keuze uit met een
+4. **Keuzes worden uitlegbaar.** Een model dat de kernvocabularia volgt, legt een keuze uit met een
    verwijzing naar een definitie of een axioma, niet met een voorkeur. Dat maakt een bespreking in
    een werkgroep korter.
 
 ## Wanneer verder zoeken
 
-De stapel dekt niet alles. Een verontreinigende stof, een bedrijfsactiviteit, een VLAREM-rubriek
+De kernvocabularia dekken niet alles. Een verontreinigende stof, een bedrijfsactiviteit, een VLAREM-rubriek
 of een waterloop is geen begrip van SOSA. Dan zoek je verder, in een vaste volgorde: eerst andere
 W3C- en OGC-modellen, dan Vlaamse en Europese overheidsvocabularia en registers (OSLO, SEMIC,
 CSOR), dan normen van andere instanties, en pas dan iets anders. Elke term buiten de kern is het
 resultaat van een vergelijking, niet van de eerste zoekhit. Regel [R17](../regels/r17.md) en het
 hoofdstuk [Een alignment vinden en beoordelen](../kaart/alignment-vinden.md) beschrijven hoe.
 
-Ook wanneer je verder zoekt, blijft de stapel het geraamte. Een stof wordt dan een studieobject of
+Ook wanneer je verder zoekt, blijven de kernvocabularia het geraamte. Een stof wordt dan een studieobject of
 een eigenschap in een SOSA-waarneming; een waterloop wordt het uiteindelijke studieobject van een
 meetplaats. De nieuwe term vult een plaats in het model in, hij vervangt het model niet.
 
 ## Verder
 
-- [De stapel vocabularia](stapel.md): elk vocabularium in één pagina, met wat het wel en niet doet.
+- [De kernvocabularia](kernvocabularia.md): elk vocabularium in één pagina, met wat het wel en niet doet.
 - [Plaats binnen OSLO](oslo.md): hoe dit werk zich verhoudt tot de OSLO-standaarden, de registers
   en Europese afspraken.

@@ -8,7 +8,7 @@ en oefeningen (VIII). Je hoeft het niet van voor naar achter te lezen.
 
 | Je bent … | Lees eerst | Dan |
 |---|---|---|
-| **nieuw in linked data voor waarnemingen** | [I. Waarom](../inleiding/index.md), [De stapel](../inleiding/stapel.md) | [Casus erosiepoel](../casussen/erosiepoel.md), [III. Modelleren](../modelleren/index.md), [Oefening erosiepoel](../oefenen/erosiepoel.md) |
+| **nieuw in linked data voor waarnemingen** | [I. Waarom](../inleiding/index.md), [De kernvocabularia](../inleiding/kernvocabularia.md) | [Casus erosiepoel](../casussen/erosiepoel.md), [III. Modelleren](../modelleren/index.md), [Oefening erosiepoel](../oefenen/erosiepoel.md) |
 | **modelleerder met een concrete dataset** | [III. Modelleren](../modelleren/index.md), [Werkwijze](../werkwijze/index.md) | de [patronen](../patronen/index.md), de casus die het dichtst bij je domein ligt ([overzicht](../casussen/index.md)) |
 | **ontoloog** | [II. De kaart](../kaart/index.md), [Een alignment vinden en beoordelen](../kaart/alignment-vinden.md) | [R15](../regels/r15.md), [R16](../regels/r16.md), [R17](../regels/r17.md), [Ontologie en toepassingsprofiel](../werkwijze/ontologie.md) |
 | **data-architect** | [Plaats binnen OSLO](../inleiding/oslo.md), [R17](../regels/r17.md) | [Waarneming of record?](../modelleren/record.md), [IRI's](../modelleren/iris.md), [Codelijsten en registers](../modelleren/codelijsten.md) |

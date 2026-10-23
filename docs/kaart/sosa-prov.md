@@ -103,7 +103,7 @@ ex:labo-toestel   a prov:Agent .
 ```
 
 Een herkomsttool die enkel PROV-O kent, vindt nu wie het resultaat maakte en wat daarvoor
-gebruikt werd. Dat is het eerste voordeel van de stapel: SOSA-data is *ook* herkomstdata.
+gebruikt werd. Dat is het eerste voordeel van de kernvocabularia samen: SOSA-data is *ook* herkomstdata.
 
 ### Ketens van berekeningen volgen
 

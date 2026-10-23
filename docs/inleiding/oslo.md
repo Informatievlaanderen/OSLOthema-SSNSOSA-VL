@@ -33,7 +33,7 @@ voor de werkgroep.
 
 ## Registers
 
-Vlaanderen beheert registers die de stapel aanvullen. Ze worden **hergebruikt, niet gekopieerd**:
+Vlaanderen beheert registers die de kernvocabularia aanvullen. Ze worden **hergebruikt, niet gekopieerd**:
 data verwijst naar de begrippen van het register, het breidt ze niet uit.
 
 | Register | Wat | Gebruik in dit werk |

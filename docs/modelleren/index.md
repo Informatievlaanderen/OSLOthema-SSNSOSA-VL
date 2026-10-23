@@ -1,7 +1,7 @@
 # III. Modelleren per vraag
 
 Een modelleerder vertrekt niet van een vocabularium, maar van een dataset en een paar vragen. Dit
-hoofdstuk volgt die vragen. Elke pagina geeft het antwoord van de stapel, de keuzes die
+hoofdstuk volgt die vragen. Elke pagina geeft het antwoord van de kernvocabularia, de keuzes die
 verdedigbaar zijn, en hoe je kiest.
 
 ## De vragen

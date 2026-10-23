@@ -1,6 +1,10 @@
-# De stapel vocabularia
+# De kernvocabularia
 
-Zes vocabularia vormen de kern. Per vocabularium: waarvoor het dient, de begrippen die je het
+Zes vocabularia vormen de kern voor waarnemingen en hun context: SOSA/SSN, PROV-O, P-PLAN, QUDT,
+GeoSPARQL en OWL-Time. Op P-PLAN na vormen ze, samen met de algemene vocabularia SKOS, DCTERMS
+en RDFS ([onderaan](#naast-de-kern)), wat regel [R17](../regels/r17.md) *de kern* noemt: wat je
+eerst gebruikt, vóór je verder zoekt. P-PLAN hoort erbij zodra een proces een plan in stappen
+heeft ([R4](../regels/r04.md)). Per vocabularium: waarvoor het dient, de begrippen die je het
 meest nodig hebt, en wat het uitdrukkelijk *niet* doet. Dat laatste is even belangrijk: veel
 fouten ontstaan doordat een vocabularium gebruikt wordt voor iets waarvoor een ander bedoeld is.
 
