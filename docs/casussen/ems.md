@@ -34,7 +34,7 @@ zonder die scheiding.
   ([R6](../regels/r06.md)).
 - **De warmtepomp is systeem en studieobject**: de actuatie werkt erop in.
 - **MultiSteps**: in Isolatieadvies en Stillegging gebruikt een uitvoering het definitieplan van
-  haar stap ([P-PLAN en SOSA](../kaart/pplan-sosa.md#3-welke-procedure-de-stap-of-het-definitieplan)).
+  haar stap ([P-PLAN en SOSA](../samenhang/pplan-sosa.md#3-welke-procedure-de-stap-of-het-definitieplan)).
 
 !!! note "Overgenomen bronmodellen"
     De ontvangen versies staan ongewijzigd in `source/` van elk scenario. Ze zijn niet normatief;

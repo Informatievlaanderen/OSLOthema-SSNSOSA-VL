@@ -35,7 +35,7 @@ Tot 2026-10-01 verwees de dagsom met `sosa:hasInputValue` naar de **collectie**.
 draagt `sosa:hasFeatureOfInterest` (⊂ `prov:used`, domein `prov:Activity`) en werd daardoor een
 activiteit; als inputwaarde werd ze ook een entiteit. De validatie meldde de tegenspraak. Samen
 met dezelfde fout in [paleo](paleo.md) leidde dit tot het voorstel om `sosa:hasInputValue ⊂
-prov:used` in de W3C-module op te nemen ([SOSA en PROV-O](../kaart/sosa-prov.md#5-inputwaarde-en-resultaat-een-spiegel)).
+prov:used` in de W3C-module op te nemen ([SOSA en PROV-O](../samenhang/sosa-prov.md#5-inputwaarde-en-resultaat-een-spiegel)).
 
 ## Diagram
 

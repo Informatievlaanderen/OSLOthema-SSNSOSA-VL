@@ -27,7 +27,7 @@ ex:waarneming-jaardebiet sosa:hasFeatureOfInterest ex:lozing-2400006 ;
   de emissie ook toegeschreven worden aan een agent: in de waterkwaliteitsdata is de lozing
   `prov:wasAttributedTo` de exploitatie uit RIE-IEPR.
 
-## Waarom het past in de kaart
+## Waarom het samenhangt met de kernvocabularia
 
 De emissie is een entiteit, de activiteit die haar veroorzaakt een activiteit, en
 `prov:wasGeneratedBy` verbindt ze, precies zoals PROV-O het bedoelt. Een herkomstquery vindt van

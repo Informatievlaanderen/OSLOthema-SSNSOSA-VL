@@ -38,7 +38,7 @@ ex:analyse-ptot a sosa:Observation ;
     sosa:hasUltimateFeatureOfInterest ex:lozing-2400006 .
 ```
 
-## Waarom het past in de kaart
+## Waarom het samenhangt met de kernvocabularia
 
 - `sosa:isSampleOf ⊂ prov:wasDerivedFrom`: het monster is afgeleid van wat het vertegenwoordigt;
   de monsterketen is herkomst.

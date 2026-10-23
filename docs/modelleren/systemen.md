@@ -52,7 +52,7 @@ ex:campagne-M072-2 a sosa:Deployment ;
     sosa:hasFeatureOfInterest ex:meetpost-M072 .
 ```
 
-Een inzet is een `prov:Activity` ([SOSA en PROV-O](../kaart/sosa-prov.md)): ze loopt over een
+Een inzet is een `prov:Activity` ([SOSA en PROV-O](../samenhang/sosa-prov.md)): ze loopt over een
 periode. Een meetcampagne is daar een goed voorbeeld van.
 
 ## Wat niet op een systeem hoort

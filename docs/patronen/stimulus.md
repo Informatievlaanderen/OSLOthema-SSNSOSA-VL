@@ -22,7 +22,7 @@ ex:eventcollectie-0123 a sosa:ObservationCollection ;
 - het studieobject is de meetpost;
 - de bron (de vlucht) genereert de stimulus.
 
-## Waarom het past in de kaart
+## Waarom het samenhangt met de kernvocabularia
 
 Het volgt de sensorketen van SOSA zelf: stimulus → sensor → waarneming. De stimulus is een
 entiteit gegenereerd door een activiteit (de vlucht), dus de herkomst van een meetwaarde tot de

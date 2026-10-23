@@ -7,7 +7,7 @@ verwijdervlag. De waarneming heeft dat niet. Zij is het meten, tijdens haar feno
 
 ## Waarom het ertoe doet
 
-Een waarneming is een `prov:Activity` ([SOSA en PROV-O](../kaart/sosa-prov.md)). Een record is een
+Een waarneming is een `prov:Activity` ([SOSA en PROV-O](../samenhang/sosa-prov.md)). Een record is een
 ding dat door een pipeline gegenereerd werd: een `prov:Entity`. Wie de eigenschappen van het record
 op de waarneming zet, maakt ze tot entiteit.
 

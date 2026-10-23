@@ -21,12 +21,12 @@ systemen die stappen uitvoeren, en een afleidingsketen van grondstof tot eindpro
 - **Drie lagen**: het recept is een plan met stappen (smelten, hakken, mengen, bakken), het
   keukengerei wordt ingezet in één keuken, en één uitvoering (10 februari 2026) is gedocumenteerd
   ([R4](../regels/r04.md)).
-- **Een plan is ook een procedure** (`p-plan:Plan ⊂ sosa:Procedure`, [P-PLAN en SOSA](../kaart/pplan-sosa.md)).
+- **Een plan is ook een procedure** (`p-plan:Plan ⊂ sosa:Procedure`, [P-PLAN en SOSA](../samenhang/pplan-sosa.md)).
 - **Een stap én een deelplan**: elke stap (`step:melting`) is uitgewerkt in een eigen plan
   (`plan:melting`), verbonden met `p-plan:isDecomposedAsPlan`. Bewust twee resources en geen
   `p-plan:MultiStep` in één: zo blijft het onderscheid tussen de plaats in het recept en de
   uitgewerkte instructies zichtbaar. De uitvoering gebruikt het deelplan, de herbruikbare definitie
-  ([Welke procedure?](../kaart/pplan-sosa.md#3-welke-procedure-de-stap-of-het-definitieplan)).
+  ([Welke procedure?](../samenhang/pplan-sosa.md#3-welke-procedure-de-stap-of-het-definitieplan)).
 - **Het keukengerei als systeem dat handelt**: elk stuk gerei implementeert een stap, is de agent
   van zijn deelactiviteit (`prov:wasAssociatedWith`) en handelt namens de kok
   (`prov:actedOnBehalfOf`). Verworpen: de kok als enige agent en het gerei als gebruikte entiteit.

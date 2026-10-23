@@ -1,4 +1,4 @@
-# II. De kaart: hoe de vocabularia op elkaar aansluiten
+# II. Samenhang: hoe de vocabularia op elkaar aansluiten
 
 Zes vocabularia naast elkaar zijn nog geen model. Ze worden er een door **alignments**: uitspraken
 die een begrip van het ene vocabularium verbinden met een begrip van het andere. *Een waarneming
@@ -6,7 +6,7 @@ is een PROV-activiteit.* *Het resultaat van een waarneming wordt door die waarne
 *Een stap uit een plan is een procedure.* Dit hoofdstuk is het hart van het werk: wie de
 alignments begrijpt, begrijpt waarom de [regels](../regels/index.md) zijn wat ze zijn.
 
-## De kaart
+## Overzicht
 
 ```mermaid
 flowchart LR

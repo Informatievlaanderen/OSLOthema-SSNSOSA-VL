@@ -94,7 +94,7 @@ van studieobjecten". Kies ze op het niveau dat waarnemingen vergelijkbaar maakt:
 - **zonder eenheid**: "temperatuur", niet "temperatuur in °C";
 - **zonder methode of toestel**: die horen bij de procedure en de sensor;
 - **uit een register** waar er een is (een CSOR-parameteraspect), anders als `sosa:Property` met
-  een eigen IRI ([Register en I-ADOPT](../kaart/register-iadopt.md)).
+  een eigen IRI ([Register en I-ADOPT](../samenhang/register-iadopt.md)).
 
 !!! valkuil "Verouderde klassen voor de eigenschap"
     `sosa:ObservableProperty` en `sosa:ActuatableProperty` bestaan in SSN/SOSA 2023 niet meer als

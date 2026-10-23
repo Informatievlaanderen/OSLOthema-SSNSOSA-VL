@@ -16,12 +16,12 @@ ex:collectie-staal-0128 a sosa:ObservationCollection ;
     sosa:hasUltimateFeatureOfInterest ex:waterloop-VHA-6030069 .
 ```
 
-## Waarom het past in de kaart
+## Waarom het samenhangt met de kernvocabularia
 
 - **SOSA** heeft er een eigen klasse voor: een deelverzameling van een studieobject, gedefinieerd
   door haar plaats en vorm.
 - **GeoSPARQL**: de geometrie maakt het meetpunt een `geo:Feature`, ruimtelijk bevraagbaar
-  ([SOSA en GeoSPARQL](../kaart/sosa-geosparql.md)).
+  ([SOSA en GeoSPARQL](../samenhang/sosa-geosparql.md)).
 - **PROV-O**: `sosa:isSampleOf ⊂ prov:wasDerivedFrom`.
 - Het **uiteindelijke studieobject** (de route, de waterloop) is vaak een resource uit een register
   (de VHA), waarnaar de data verwijst zonder ze te beschrijven.

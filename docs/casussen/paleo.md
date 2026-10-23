@@ -34,14 +34,14 @@ een reconstructiemodel combineert ze tot de concentratie in de atmosfeer op die 
 | inputwaarden | de twee resultaten | idem |
 | procedure | beschrijft haar inputs in tekst | heeft inputvariabelen (`sosa:hasInput`) |
 | koppeling waarde → variabele | — | `p-plan:correspondsToVariable` |
-| wat het oplevert | eenvoud | de gebruikte procedure is afleidbaar ([P-PLAN en SOSA](../kaart/pplan-sosa.md)) |
+| wat het oplevert | eenvoud | de gebruikte procedure is afleidbaar ([P-PLAN en SOSA](../samenhang/pplan-sosa.md)) |
 
 ## De fout die rechtgezet werd
 
 De vorige versie van alternatief 1 gaf de **bronwaarnemingen** als inputwaarde. Een waarneming is
 een activiteit; met `sosa:hasInputValue ⊂ prov:used` wordt ze ook een entiteit, en PROV-O
 verklaart die twee disjunct. Rechtgezet op 2026-10-01, en mee de aanleiding voor de opname van
-het axioma in de W3C-module ([SOSA en PROV-O](../kaart/sosa-prov.md#5-inputwaarde-en-resultaat-een-spiegel)).
+het axioma in de W3C-module ([SOSA en PROV-O](../samenhang/sosa-prov.md#5-inputwaarde-en-resultaat-een-spiegel)).
 
 ```turtle
 # fout                                          # juist

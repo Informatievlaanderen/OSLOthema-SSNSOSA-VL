@@ -39,7 +39,7 @@ Het belangrijkste is niet dat die standaarden bestaan, maar dat ze **op elkaar a
 SSN/SOSA 2023 publiceert zelf een uitlijning met PROV-O: een waarneming *is* een PROV-activiteit,
 een sensor *is* een PROV-entiteit of -agent, het resultaat *wordt gegenereerd* door de
 waarneming. Wie SOSA gebruikt, krijgt de herkomstvragen van PROV-O er dus gratis bij. Dat is wat
-we bedoelen met één model in plaats van zes vocabularia. Hoofdstuk [II](../kaart/index.md) werkt
+we bedoelen met één model in plaats van zes vocabularia. Hoofdstuk [II](../samenhang/index.md) werkt
 die verbanden uit.
 
 ## Waarom een reflex, en niet een keuze per project
@@ -70,7 +70,7 @@ of een waterloop is geen begrip van SOSA. Dan zoek je verder, in een vaste volgo
 W3C- en OGC-modellen, dan Vlaamse en Europese overheidsvocabularia en registers (OSLO, SEMIC,
 CSOR), dan normen van andere instanties, en pas dan iets anders. Elke term buiten de kern is het
 resultaat van een vergelijking, niet van de eerste zoekhit. Regel [R17](../regels/r17.md) en het
-hoofdstuk [Een alignment vinden en beoordelen](../kaart/alignment-vinden.md) beschrijven hoe.
+hoofdstuk [Een alignment vinden en beoordelen](../samenhang/alignment-vinden.md) beschrijven hoe.
 
 Ook wanneer je verder zoekt, blijven de kernvocabularia het geraamte. Een stof wordt dan een studieobject of
 een eigenschap in een SOSA-waarneming; een waterloop wordt het uiteindelijke studieobject van een

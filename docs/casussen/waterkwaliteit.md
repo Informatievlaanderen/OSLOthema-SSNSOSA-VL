@@ -33,9 +33,9 @@ erin voor.
 
 - **De eigenschap is een CSOR-parameteraspect** (`csor:ParameterAspect ⊂ sosa:Property`), niet de
   parameter en niet de stof; een analyse tegen I-ADOPT bevestigt dat niveau (beslispunt A1,
-  [Register en I-ADOPT](../kaart/register-iadopt.md)).
+  [Register en I-ADOPT](../samenhang/register-iadopt.md)).
 - **De eenheid is een CSOR-eenheid**, met de mapping naar QUDT in het register, niet in de data
-  (A2, [Register en QUDT](../kaart/register-qudt.md)).
+  (A2, [Register en QUDT](../samenhang/register-qudt.md)).
 - **Onder de rapportagegrens**: `qudt:lowerBound` en `qudt:upperBound`, geen `numericValue` (A3,
   [Rapportagegrens](../patronen/rapportagegrens.md)).
 - **Het staal is het studieobject van een concentratie, de lozing het uiteindelijke** (A4,
@@ -57,7 +57,7 @@ erin voor.
 `waterkwaliteit.ttl` zette `owl:maxCardinality 1` op `sosa:usedProcedure`. Omdat die eigenschap
 een keten van eigenschappen heeft (in `sosa-prov`), mag dat in OWL 2 DL niet. De restrictie is op
 2026-10-14 verwijderd; een profiel dat één procedure wil, doet dat met SHACL
-([P-PLAN en SOSA](../kaart/pplan-sosa.md#4-wat-de-ketens-nog-niet-doen)).
+([P-PLAN en SOSA](../samenhang/pplan-sosa.md#4-wat-de-ketens-nog-niet-doen)).
 
 ## Diagram: concentraties afvalwater
 

@@ -104,7 +104,7 @@ gebruikt wanneer een proces meerdere stappen heeft, dezelfde werkwijze op meerde
 draait, of traceerbaarheid naar een plan vereist is ([R4](../regels/r04.md)).
 
 **Doet niet:** sensoren, eigenschappen, studieobjecten. Daarvoor is SOSA; de module
-[P-PLAN en SOSA](../kaart/pplan-sosa.md) verbindt beide.
+[P-PLAN en SOSA](../samenhang/pplan-sosa.md) verbindt beide.
 
 ## QUDT
 
@@ -118,7 +118,7 @@ raden: de meter is `unit:M`, milligram per liter `unit:MilliGM-PER-L`.
 
 **Doet niet:** grootheden die aan een stof gebonden zijn ("mg P/L"), of lokale eenheden van een
 domein. Daarvoor bestaat in Vlaanderen het eenhedenregister van CSOR, met een mapping naar QUDT
-([Register en QUDT](../kaart/register-qudt.md)).
+([Register en QUDT](../samenhang/register-qudt.md)).
 
 ## GeoSPARQL
 

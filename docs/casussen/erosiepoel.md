@@ -32,7 +32,7 @@ typisch voorkomen.
 | `ep:Erosiepoel` (enkel domeinklasse) | `sosa:Platform`, `sosa:FeatureOfInterest` | de SOSA-rol moet expliciet zijn ([R1](../regels/r01.md)) |
 | `sosa:ObservableProperty` | `sosa:Property` | term van SSN/SOSA 2023 ([R14](../regels/r14.md)) |
 | `qudt:unit` | `qudt:hasUnit` | `qudt:unit` bestaat niet ([R3](../regels/r03.md)) |
-| `prov:startedAtTime`/`prov:endedAtTime` | `sosa:phenomenonTime`, `sosa:resultTime` | PROV-tijden zeggen wanneer de activiteit liep, niet wanneer het verschijnsel plaatsvond ([SOSA en OWL-Time](../kaart/sosa-time.md)) |
+| `prov:startedAtTime`/`prov:endedAtTime` | `sosa:phenomenonTime`, `sosa:resultTime` | PROV-tijden zeggen wanneer de activiteit liep, niet wanneer het verschijnsel plaatsvond ([SOSA en OWL-Time](../samenhang/sosa-time.md)) |
 | geen sensor | `ex:Waarnemer_X a sosa:Sensor` | nodig voor `sosa:madeBySensor` en `sosa:implements` |
 | geen collectie | `sosa:ObservationCollection` | gedeelde context, uitbreidbaar |
 | geen procedure | `ex:VeldmeetProcedure a sosa:ObservingProcedure` | sterk aanbevolen, voor reproduceerbaarheid |

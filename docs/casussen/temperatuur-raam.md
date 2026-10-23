@@ -20,7 +20,7 @@ de drie criteria van [R4](../regels/r04.md).
 - **Een plan met twee stappen**: `step:temp-meting` (de waarneming) en `step:raam-actuatie` (de
   actuatie), met de temperatuur als variabele tussen beide ([Volgens welk plan?](../modelleren/plan.md)).
 - **Elke stap is een procedure**: de thermometer implementeert de meetstap, de raamopener de
-  actuatiestap (`p-plan:Step ⊂ sosa:Procedure`, [P-PLAN en SOSA](../kaart/pplan-sosa.md)).
+  actuatiestap (`p-plan:Step ⊂ sosa:Procedure`, [P-PLAN en SOSA](../samenhang/pplan-sosa.md)).
 - **Geen afgeleide waarneming**: de drempellogica (hysterese tussen 18 en 20 °C) zit in de
   procedure van de actuatie.
 - **Benoemde resultaten** met `p-plan:correspondsToVariable`, zodat de actuatie naar de gemeten

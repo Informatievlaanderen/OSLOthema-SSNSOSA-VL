@@ -2,8 +2,7 @@
 
 Vroeg of laat kan de kern een betekenis niet uitdrukken: de fabrikant van een toestel, de status
 van een meetpunt, een bedrijfsactiviteit, een waterloop. Dan komt er een term uit een ander
-vocabularium bij. Dit hoofdstuk beschrijft hoe je die kiest zonder de samenhang van de kaart te
-breken: eerst zoeken naar wat er is, dan beoordelen, dan verantwoorden. De normatieve versie is
+vocabularium bij. Dit hoofdstuk beschrijft hoe je die kiest zonder de samenhang te breken: eerst zoeken naar wat er is, dan beoordelen, dan verantwoorden. De normatieve versie is
 regel [R17](../regels/r17.md).
 
 ## 1. De volgorde van voorkeur

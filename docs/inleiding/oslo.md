@@ -38,7 +38,7 @@ data verwijst naar de begrippen van het register, het breidt ze niet uit.
 
 | Register | Wat | Gebruik in dit werk |
 |---|---|---|
-| **CSOR** (Departement Omgeving) | codelijsten voor omgevingsmetingen: parameters en parameteraspecten, eenheden, dragers (matrices), procedures | waargenomen eigenschap en eenheid in waterkwaliteitsdata ([Register en QUDT](../kaart/register-qudt.md)) |
+| **CSOR** (Departement Omgeving) | codelijsten voor omgevingsmetingen: parameters en parameteraspecten, eenheden, dragers (matrices), procedures | waargenomen eigenschap en eenheid in waterkwaliteitsdata ([Register en QUDT](../samenhang/register-qudt.md)) |
 | **VHA** (Vlaamse Hydrografische Atlas) | waterlopen en segmenten | uiteindelijk studieobject van een meetplaats oppervlaktewater |
 | **RIE-IEPR** | inrichtingen, exploitanten, emissiepunten | de lozing en het bedrijf achter een afvalwaterstaal |
 | **VLAREM-indelingslijst** | rubrieken van hinderlijke inrichtingen | de casus [VLAREM-rubrieken](../casussen/vlarem.md) |
@@ -56,7 +56,7 @@ register, niet iets om in de data op te lossen ([Codelijsten en registers](../mo
   OSLO-basisvocabularia. Ze komen in beeld wanneer een studieobject een organisatie, adres of
   locatie is.
 - **I-ADOPT** (RDA) ontleedt een variabele in eigenschap, object, matrix en beperking. Het helpt
-  om de waargenomen eigenschap te structureren ([Register en I-ADOPT](../kaart/register-iadopt.md)).
+  om de waargenomen eigenschap te structureren ([Register en I-ADOPT](../samenhang/register-iadopt.md)).
 
 ## Verhouding tot de kit
 

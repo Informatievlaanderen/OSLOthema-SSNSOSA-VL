@@ -74,7 +74,7 @@ flowchart LR
     style sys fill:#60c4e4,stroke:#2E5C8A,color:#000
 ```
 
-De figuur is de kaart in het klein: links wat *gebeurt*, rechts wat *is*. Elke SOSA-eigenschap
+De figuur is de samenhang in het klein: links wat *gebeurt*, rechts wat *is*. Elke SOSA-eigenschap
 die een uitvoering met iets verbindt, wordt een PROV-relatie van een activiteit naar een entiteit.
 
 ## 2. Wat eruit volgt

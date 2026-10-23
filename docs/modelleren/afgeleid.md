@@ -63,7 +63,7 @@ Omdat het de waarden zijn die gebruikt worden. SOSA definieert `sosa:hasInputVal
 *waarde* toe aan een input, gedefinieerd door de procedure". De uitlijning met PROV-O maakt het
 formeel: `sosa:hasInputValue ⊂ prov:used`, met als bereik `prov:Entity`. Een waarneming is een
 `prov:Activity`, en die twee zijn disjunct. Een waarneming als inputwaarde maakt het model dus
-**inconsistent** ([SOSA en PROV-O](../kaart/sosa-prov.md#3-welke-fouten-aantoonbaar-worden)).
+**inconsistent** ([SOSA en PROV-O](../samenhang/sosa-prov.md#3-welke-fouten-aantoonbaar-worden)).
 
 !!! valkuil "Twee voorbeelden die het fout deden"
     In [paleo](../casussen/paleo.md) en [verkeersmetingen](../casussen/verkeersmetingen.md)

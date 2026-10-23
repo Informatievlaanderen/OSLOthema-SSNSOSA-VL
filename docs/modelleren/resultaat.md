@@ -1,7 +1,7 @@
 # Wat is het resultaat?
 
 Het resultaat is wat de waarneming opleverde: een getal met een eenheid, een code, een tekst, een
-monster. Het hoofdstuk [SOSA en QUDT](../kaart/sosa-qudt.md) legt uit waarom het patroon is wat
+monster. Het hoofdstuk [SOSA en QUDT](../samenhang/sosa-qudt.md) legt uit waarom het patroon is wat
 het is; deze pagina helpt kiezen.
 
 ## Kiezen
@@ -43,7 +43,7 @@ ex:resultaat-1 a qudt:QuantityValue ;
 ```
 
 Het getal in `qudt:numericValue`, de eenheid in `qudt:hasUnit`, uit QUDT of uit een register
-([R3](../regels/r03.md), [Register en QUDT](../kaart/register-qudt.md)). Een blanco knoop
+([R3](../regels/r03.md), [Register en QUDT](../samenhang/register-qudt.md)). Een blanco knoop
 volstaat in een klein voorbeeld; een IRI wanneer het resultaat inputwaarde wordt of van buitenaf
 aanspreekbaar moet zijn.
 

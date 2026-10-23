@@ -22,7 +22,7 @@ Het vraagt Java 21 of later; de jar staat op de
 |---|---|---|
 | `[VOCAB]` | bestaat elke term in het vocabularium dat hij noemt? juiste rol (klasse of eigenschap), datatype, niet verouderd, niet gemunt in een vreemde namespace? | elke `[error]` oplossen; elke `[suspect]` nakijken (vaak `http`/`https` of `#`/`/` in een prefix) |
 | `[INFERENCE]` | afleidingen uit domein, bereik en subproperties | (informatief) |
-| `[DISJOINTNESS]` | na afleiding: een resource in twee disjuncte klassen, zoals activiteit en entiteit | oplossen; hier wordt de [kaart](../kaart/index.md) een controle |
+| `[DISJOINTNESS]` | na afleiding: een resource in twee disjuncte klassen, zoals activiteit en entiteit | oplossen; hier wordt de [samenhang](../samenhang/index.md) een controle |
 | `[SHACL]` | de regels van de kit (R2, R3, R5, R7 …) en de vormen die uit de OWL-restricties gegenereerd worden | elke schending oplossen; een `[warning]` mag blijven als de bron de informatie niet heeft, vermeld in de bespreking |
 
 ### Een voorbeeld
@@ -72,7 +72,7 @@ Wat het zegt:
 1. **`qudt:unit` bestaat niet** ([R3](../regels/r03.md)).
 2. **De uurtelling is tegelijk activiteit en entiteit.** Ze is een waarneming (activiteit), en via
    `sosa:hasInputValue ⊂ prov:used` ook een entiteit. Dat is de alignment
-   [SOSA en PROV-O](../kaart/sosa-prov.md) aan het werk. De regel R7 zegt het in mensentaal.
+   [SOSA en PROV-O](../samenhang/sosa-prov.md) aan het werk. De regel R7 zegt het in mensentaal.
 3. **Het meetpunt en de eigenschap hebben geen type.** SHACL ziet enkel wat er staat (plus de
    klassehiërarchie), niet wat een redeneerder zou afleiden. Type het studieobject en de eigenschap
    daarom expliciet. Zo blijft de data ook geldig voor een validator die niets afleidt.

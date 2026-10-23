@@ -3,7 +3,7 @@
 Past een register op een ander model? Kan een domeinvocabularium op SOSA aansluiten? Zo'n vraag
 verdient een analyse met cijfers, niet een indruk op basis van drie voorbeelden. Het uitgewerkte
 voorbeeld is de alignment van het CSOR-parameterregister met I-ADOPT
-([Register en I-ADOPT](../kaart/register-iadopt.md)).
+([Register en I-ADOPT](../samenhang/register-iadopt.md)).
 
 ## Opbouw van de analyse
 
@@ -42,4 +42,4 @@ voorbeeld is de alignment van het CSOR-parameterregister met I-ADOPT
 - Elke uitspraak over een model is nagekeken in zijn bron.
 - Wat de beheerders van het andere model moeten veranderen, wordt een concreet verzoek
   (beslisdocument, deel C).
-- Een gevonden alignment komt in het [register van alignments](../kaart/alignment-vinden.md#het-register-van-gekende-alignments).
+- Een gevonden alignment komt in het [register van alignments](../samenhang/alignment-vinden.md#het-register-van-gekende-alignments).

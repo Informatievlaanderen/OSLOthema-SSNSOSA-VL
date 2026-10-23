@@ -59,7 +59,7 @@ context van het profiel. Documenteer die apart.
     `owl:maxCardinality 1` op `sosa:usedProcedure` lijkt onschuldig, maar de eigenschap heeft een
     keten van eigenschappen (in `sosa-prov`), en in OWL 2 DL mag zo'n eigenschap niet in een
     kardinaliteitsrestrictie. Wil een profiel één procedure, dan met SHACL op de gegeven data
-    ([P-PLAN en SOSA](../kaart/pplan-sosa.md#4-wat-de-ketens-nog-niet-doen)).
+    ([P-PLAN en SOSA](../samenhang/pplan-sosa.md#4-wat-de-ketens-nog-niet-doen)).
 
 ## Stappen
 

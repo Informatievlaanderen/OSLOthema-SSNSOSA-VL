@@ -1,6 +1,6 @@
 # Waar?
 
-Het hoofdstuk [SOSA en GeoSPARQL](../kaart/sosa-geosparql.md) beschrijft het model; deze pagina
+Het hoofdstuk [SOSA en GeoSPARQL](../samenhang/sosa-geosparql.md) beschrijft het model; deze pagina
 geeft de beslissingen.
 
 ## 1. Wat heeft een plaats?

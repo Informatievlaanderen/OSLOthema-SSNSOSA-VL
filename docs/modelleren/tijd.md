@@ -1,6 +1,6 @@
 # Wanneer?
 
-Het hoofdstuk [SOSA en OWL-Time](../kaart/sosa-time.md) beschrijft het model; deze pagina geeft
+Het hoofdstuk [SOSA en OWL-Time](../samenhang/sosa-time.md) beschrijft het model; deze pagina geeft
 de beslissingen in volgorde.
 
 ## 1. Welke tijd geeft de bron?

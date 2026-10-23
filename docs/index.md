@@ -18,11 +18,11 @@ een goed model komt.
 
     [:octicons-arrow-right-24: Naar de inleiding](inleiding/index.md)
 
--   **II. De kaart**
+-   **II. Samenhang**
 
     Hoe de vocabularia op elkaar aansluiten: de alignments, axioma per axioma, met wat eruit volgt.
 
-    [:octicons-arrow-right-24: Naar de kaart](kaart/index.md)
+    [:octicons-arrow-right-24: Naar de samenhang](samenhang/index.md)
 
 -   **III. Modelleren**
 
@@ -114,7 +114,7 @@ een activiteit is die het studieobject *gebruikt* en het resultaat *genereert*; 
 resultaat uit als getal met eenheid; OWL-Time geeft de periode, GeoSPARQL de plaats. Voor een
 proces in meerdere stappen komt P-PLAN erbij. De haakjes tonen de alignments: zonder die
 verbanden zijn het zes losse vocabularia, met die verbanden één model. Hoofdstuk
-[II. De kaart](kaart/index.md) werkt ze uit.
+[II. Samenhang](samenhang/index.md) werkt ze uit.
 
 ## Voor wie
 

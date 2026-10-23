@@ -65,7 +65,7 @@ dwingt keuzes af die in tekst verborgen blijven.
 
 Alles wat de kern kan uitdrukken, drukt de kern uit. Voor wat overblijft: zoek in de volgorde van
 [R17](../regels/r17.md), zoek alignments, beoordeel op de criteria, en noteer de vergelijking
-([Een alignment vinden en beoordelen](../kaart/alignment-vinden.md)). Zoek ook naar registers
+([Een alignment vinden en beoordelen](../samenhang/alignment-vinden.md)). Zoek ook naar registers
 voor eigenschappen, eenheden en studieobjecten ([Codelijsten en registers](../modelleren/codelijsten.md)).
 
 !!! hulpmiddel "Termen opzoeken"
@@ -103,7 +103,7 @@ Toets het model op drie niveaus:
 1. **Bestaan de termen?** Elke term bestaat in het vocabularium dat hij noemt, met de juiste
    schrijfwijze, `http`/`https` en `#`/`/`.
 2. **Is het consistent?** Na afleiding met domein, bereik en subklassen: geen resource die
-   tegelijk activiteit en entiteit is, of feature en geometrie ([II. De kaart](../kaart/index.md)).
+   tegelijk activiteit en entiteit is, of feature en geometrie ([II. Samenhang](../samenhang/index.md)).
 3. **Voldoet het aan de regels en het profiel?** Verplichte eigenschappen aanwezig, juiste types
    ([IV. Regels](../regels/index.md)).
 

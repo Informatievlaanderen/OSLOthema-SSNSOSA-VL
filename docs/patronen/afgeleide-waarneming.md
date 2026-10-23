@@ -21,12 +21,12 @@ ex:lden a sosa:Observation ;
 Lden is hier een afgeleide van afgeleiden: Ld, Le en Ln zijn zelf berekend uit de events van de
 dag.
 
-## Waarom het past in de kaart
+## Waarom het samenhangt met de kernvocabularia
 
 `sosa:hasInputValue ⊂ prov:used` en `sosa:hasResult ⊂ prov:generated`: de berekening is een
 PROV-keten *activiteit genereert entiteit, die door de volgende activiteit gebruikt wordt*. Een
 waarneming als inputwaarde zou een activiteit tot entiteit maken: inconsistent
-([SOSA en PROV-O](../kaart/sosa-prov.md)).
+([SOSA en PROV-O](../samenhang/sosa-prov.md)).
 
 ## Gebruikt in
 

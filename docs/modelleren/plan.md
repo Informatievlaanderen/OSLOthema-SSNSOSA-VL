@@ -84,7 +84,7 @@ flowchart RL
     style actu fill:#e54b89,stroke:#2E5C8A,color:#fff
 ```
 
-Een stap is zelf een procedure (`p-plan:Step ⊂ sosa:Procedure`, [P-PLAN en SOSA](../kaart/pplan-sosa.md)):
+Een stap is zelf een procedure (`p-plan:Step ⊂ sosa:Procedure`, [P-PLAN en SOSA](../samenhang/pplan-sosa.md)):
 de sensor implementeert de stap, de waarneming gebruikt de stap. De waarde die de waarneming
 oplevert, vult een variabele in, die input is voor de volgende stap.
 

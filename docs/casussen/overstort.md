@@ -14,7 +14,7 @@ alternatieve lezing.*
 
 Een echte mapping van een echte publicatie, door een organisatie die het goed wilde doen. Ze
 bevat de fouten die in productiemappings het vaakst voorkomen, en die enkel zichtbaar worden met
-de [alignment van SOSA met PROV-O](../kaart/sosa-prov.md): record en waarneming door elkaar, en
+de [alignment van SOSA met PROV-O](../samenhang/sosa-prov.md): record en waarneming door elkaar, en
 uitvoeringseigenschappen op een sensor. Ze toont ook hoe je vocabularia kiest
 ([R17](../regels/r17.md)).
 

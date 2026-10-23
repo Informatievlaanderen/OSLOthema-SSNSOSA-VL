@@ -33,7 +33,7 @@ QGIS-model is en de "metingen" andere kaartlagen.
   ([R13](../regels/r13.md)).
 - **Scores en kansrijkheid uit twee kleine SKOS-codelijsten**; de helling als
   `qudt:QuantityValue` met een QUDT-eenheid.
-- **Een stap in twee plannen** levert via de ketens van [P-PLAN en SOSA](../kaart/pplan-sosa.md)
+- **Een stap in twee plannen** levert via de ketens van [P-PLAN en SOSA](../samenhang/pplan-sosa.md)
   twee procedures op; daarom staat `sosa:usedProcedure` expliciet op de stap.
 
 ## Diagram

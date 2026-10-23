@@ -96,17 +96,17 @@ nav:
       - inleiding/index.md
       - De kernvocabularia: inleiding/kernvocabularia.md
       - Plaats binnen OSLO: inleiding/oslo.md
-  - II. De kaart:
-      - kaart/index.md
-      - SOSA en PROV-O: kaart/sosa-prov.md
-      - P-PLAN en SOSA: kaart/pplan-sosa.md
-      - SOSA en QUDT: kaart/sosa-qudt.md
-      - SOSA en GeoSPARQL: kaart/sosa-geosparql.md
-      - SOSA en OWL-Time: kaart/sosa-time.md
-      - Register en QUDT: kaart/register-qudt.md
-      - Register en I-ADOPT: kaart/register-iadopt.md
-      - SOSA en SAREF: kaart/sosa-saref.md
-      - Een alignment vinden en beoordelen: kaart/alignment-vinden.md
+  - II. Samenhang:
+      - samenhang/index.md
+      - SOSA en PROV-O: samenhang/sosa-prov.md
+      - P-PLAN en SOSA: samenhang/pplan-sosa.md
+      - SOSA en QUDT: samenhang/sosa-qudt.md
+      - SOSA en GeoSPARQL: samenhang/sosa-geosparql.md
+      - SOSA en OWL-Time: samenhang/sosa-time.md
+      - Register en QUDT: samenhang/register-qudt.md
+      - Register en I-ADOPT: samenhang/register-iadopt.md
+      - SOSA en SAREF: samenhang/sosa-saref.md
+      - Een alignment vinden en beoordelen: samenhang/alignment-vinden.md
   - III. Modelleren:
       - modelleren/index.md
       - Wat bestudeer ik?: modelleren/studieobject.md
