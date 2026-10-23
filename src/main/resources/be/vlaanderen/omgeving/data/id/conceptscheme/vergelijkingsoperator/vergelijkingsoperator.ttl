@@ -1,0 +1,42 @@
+# Vergelijkingsoperatoren: ONTWERPVERSIE (niet gepubliceerd).
+# Opgesteld 2026-10-21 in OSLOthema-SSNSOSA-VL voor src/main/input/vlarem_rubrieken/. De codes
+# LT, LE, GT en GE komen uit het ontvangen voorbeeld (dcterms:type _:LT …). Een klein register,
+# hier als vocabularium geladen zodat validate_file de verwijzingen kan nakijken.
+
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix operator: <https://data.omgeving.vlaanderen.be/id/concept/vergelijkingsoperator/> .
+
+<https://data.omgeving.vlaanderen.be/id/conceptscheme/vergelijkingsoperator> a skos:ConceptScheme , owl:Ontology ;
+    skos:prefLabel "Vergelijkingsoperatoren"@nl ;
+    skos:definition "Operatoren waarmee een grens zegt hoe een waarde zich tot de grenswaarde moet verhouden."@nl ;
+    skos:hasTopConcept operator:LT , operator:LE , operator:GT , operator:GE .
+
+operator:LT a skos:Concept ;
+    skos:inScheme <https://data.omgeving.vlaanderen.be/id/conceptscheme/vergelijkingsoperator> ;
+    skos:topConceptOf <https://data.omgeving.vlaanderen.be/id/conceptscheme/vergelijkingsoperator> ;
+    skos:notation "LT" , "<" ;
+    skos:prefLabel "kleiner dan"@nl ;
+    skos:definition "De waarde is strikt kleiner dan de grenswaarde; de grenswaarde zelf voldoet niet."@nl .
+
+operator:LE a skos:Concept ;
+    skos:inScheme <https://data.omgeving.vlaanderen.be/id/conceptscheme/vergelijkingsoperator> ;
+    skos:topConceptOf <https://data.omgeving.vlaanderen.be/id/conceptscheme/vergelijkingsoperator> ;
+    skos:notation "LE" , "≤" ;
+    skos:prefLabel "kleiner dan of gelijk aan"@nl ;
+    skos:definition "De waarde is kleiner dan of gelijk aan de grenswaarde."@nl .
+
+operator:GT a skos:Concept ;
+    skos:inScheme <https://data.omgeving.vlaanderen.be/id/conceptscheme/vergelijkingsoperator> ;
+    skos:topConceptOf <https://data.omgeving.vlaanderen.be/id/conceptscheme/vergelijkingsoperator> ;
+    skos:notation "GT" , ">" ;
+    skos:prefLabel "groter dan"@nl ;
+    skos:definition "De waarde is strikt groter dan de grenswaarde; de grenswaarde zelf voldoet niet."@nl .
+
+operator:GE a skos:Concept ;
+    skos:inScheme <https://data.omgeving.vlaanderen.be/id/conceptscheme/vergelijkingsoperator> ;
+    skos:topConceptOf <https://data.omgeving.vlaanderen.be/id/conceptscheme/vergelijkingsoperator> ;
+    skos:notation "GE" , "≥" ;
+    skos:prefLabel "groter dan of gelijk aan"@nl ;
+    skos:definition "De waarde is groter dan of gelijk aan de grenswaarde."@nl .
