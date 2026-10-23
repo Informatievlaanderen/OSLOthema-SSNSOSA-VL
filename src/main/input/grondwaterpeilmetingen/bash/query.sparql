@@ -12,7 +12,7 @@ WHERE {
     ?observatie sosa:observedProperty ?property ;
         sosa:usedProcedure?procedure ;
         sosa:hasResult ?result .
-    ?result rdf:value ?waarde .
+    ?result rdf:value|qudt:numericValue ?waarde .
     OPTIONAL { ?result qudt:hasUnit ?eenheid . }
 }
 

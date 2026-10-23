@@ -18,7 +18,7 @@ In dit voorbeeld krijgt de uiteindelijke observatie de **resultaten** van de 2 o
 #### Waarom niet `hasInputValue` naar de observaties?
 SOSA 2023 definieert `sosa:hasInputValue` als "kent een waarde toe aan een input, gedefinieerd door de Procedure, die gebruikt wordt in een Execution". Een inputwaarde is dus een waarde, een `prov:Entity`: de tegenhanger van `sosa:hasResult` (⊂ `prov:generated`). De PROV-uitlijning `sosa-prov` van SSN/SOSA 2023 maakt `sosa:hasInputValue` daarom een subproperty van `prov:used` (w3c/sdw-sosa-ssn#556).
 
-Een observatie is een activiteit (`sosa:Execution` ⊂ `prov:Activity`), en `prov:Activity` is disjunct met `prov:Entity`. Een observatie als inputwaarde maakt het model dus inconsistent. De pipeline meldt dat als `[MODEL INVALID]`. De vorige versie van dit alternatief deed precies dat; ze is op 2026-10-01 rechtgezet.
+Een observatie is een activiteit (`sosa:Execution` ⊂ `prov:Activity`), en `prov:Activity` is disjunct met `prov:Entity`. Een observatie als inputwaarde maakt het model dus inconsistent. `validate_file` meldt dat onder `[DISJOINTNESS]`, en de regel R7 als SHACL-schending. De vorige versie van dit alternatief deed precies dat; ze is op 2026-10-01 rechtgezet.
 
 ```mermaid
 %%flowchart TD

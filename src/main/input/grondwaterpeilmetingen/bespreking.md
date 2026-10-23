@@ -33,7 +33,8 @@ De fysieke infrastructuur wordt uitgedrukt met drie SOSA-klassen:
 - `sosa:FeatureOfInterest`: de put *is zelf ook onderwerp van meting* (peil en diepte worden ten
   opzichte van de put gemeten)
 
-**`filter:2005-007247`** — het grondwaterfilter — is een `sosa:System` met drie sub-systemen:
+**`filter:2005-007247`** — het grondwaterfilter — is een `sosa:System` met drie sub-systemen, en
+ook een `sosa:FeatureOfInterest`: filterstatus en filtertoestand zijn waarnemingen over de filter:
 - `/zandvang` (van 26 m tot 27 m)
 - `/filter` (van 24 m tot 26 m, materiaal: pvc)
 - `/stijgbuis` (van 0 m tot 24 m, materiaal: pvc)
@@ -42,7 +43,7 @@ Al deze sub-systemen zijn verbonden via `sosa:hasSubSystem` / `sosa:isSubSystemO
 
 **`agent:Beheerder`** — de medewerker die de metingen uitvoert — is gemodelleerd als `sosa:Sensor`.
 Dat klinkt technisch, maar SOSA staat dit toe: een persoon die systematisch meetprocedures toepast,
-vervult de rol van sensor. Via `ssn:implements` is vastgelegd welke procedures de beheerder uitvoert.
+vervult de rol van sensor. Via `sosa:implements` is vastgelegd welke procedures de beheerder uitvoert.
 
 ---
 
@@ -70,7 +71,7 @@ ex:peilmeting_2006-10-20  a sosa:ObservationCollection
 | `…diepte_tov_referentiepunt` | `ex:diepte_tov_referentiepunt` | `ex:peillint_methode` | `2.25 m` | put |
 
 Elk resultaat is een apart object: een `qudt:QuantityValue` voor meetwaarden met een eenheid (peil
-en diepte, met `qudt:hasUnit unit:Meter`), een `prov:Entity` voor de andere (smaak, filterstatus,
+en diepte, met `qudt:numericValue` en `qudt:hasUnit unit:M`), een `prov:Entity` met `rdf:value` voor de andere (smaak, filterstatus,
 filtertoestand). Niet `sosa:Result`: dat is in SSN/SOSA 2023 `owl:deprecated` (R3).
 
 ---
@@ -94,15 +95,15 @@ toe te voegen:
 ```turtle
 sosa:hasResult [
     a qudt:QuantityValue ;
-    rdf:value 7.53 ;
-    qudt:hasUnit unit:Meter
+    qudt:numericValue 7.53 ;
+    qudt:hasUnit unit:M
 ]
 ```
 
 ### Procedures als herbruikbare objecten
 
 `ex:smaaktest`, `ex:visuele_controle`, `ex:visueel_methode` en `ex:peillint_methode` zijn getypeerd
-als `sosa:ObservingProcedure`. Ze worden door de beheerder geïmplementeerd (`ssn:implements`) en
+als `sosa:ObservingProcedure`. Ze worden door de beheerder geïmplementeerd (`sosa:implements`) en
 door elke observatie gebruikt (`sosa:usedProcedure`). Zo kunnen meerdere metingen naar dezelfde
 gestandaardiseerde procedure verwijzen.
 

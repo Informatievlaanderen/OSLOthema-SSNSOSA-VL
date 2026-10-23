@@ -22,7 +22,7 @@ beslissen of beantwoorden:
 
 **Na een beslissing:** de omzetting is volledig gescript (`scripts/`). Een beslissing wordt dus in
 het betreffende script aangepast. Daarna worden alle voorbeelden opnieuw gegenereerd en
-gevalideerd (`mvn compile exec:java`, `shacl validate`).
+gevalideerd (`validate_file` van ld-mcp, of de bulkvalidatie uit de README van de repository).
 
 Dit document vervangt de beslissingstabellen in `stappenplan.md` §3, `codelijsten.md` §6 en
 `featureofinterest.md` §4, en neemt de huidige toestand van de voorbeelden als voorstel.
@@ -466,19 +466,19 @@ Open bij deze keten:
 
 **Doel.** `src/main/resources/be/vlaanderen/data/ns/waterkwaliteit/waterkwaliteit.ttl` bevat de
 nieuwe waterkwaliteitontologie en is tegelijk de bron van het applicatieprofiel dat het AP
-Waterkwaliteit (kandidaatstandaard 2023-06-01) vervangt. De pipeline (`OwlToShaclGenerator`)
-zet de OWL-restricties om naar SHACL in `src/main/resources/generated-shapes.ttl`. Er is geen
-apart, met de hand onderhouden SHACL-bestand.
+Waterkwaliteit (kandidaatstandaard 2023-06-01) vervangt. De generator van ld-mcp (`validate_file`,
+of de CLI `generate-shapes` om ze naar een bestand te schrijven) zet de OWL-restricties om naar
+SHACL. Er is geen apart, met de hand onderhouden SHACL-bestand.
 
 **Omzetting OWL → SHACL.**
 
 | OWL-restrictie | SHACL |
 |---|---|
-| `owl:someValuesFrom C` | `sh:class C` (of `sh:datatype`) + `sh:minCount 1` |
+| `owl:someValuesFrom C` | minstens één waarde is een C (`sh:qualifiedValueShape`, `sh:qualifiedMinCount 1`); andere waarden blijven toegelaten |
 | `owl:allValuesFrom C` | `sh:class C` (of `sh:datatype`), niet verplicht |
 | `owl:maxCardinality n` | `sh:maxCount n` |
 | `owl:unionOf ( A B )` als waarde | `sh:or ( [sh:class A] [sh:class B] )` |
-| `owl:minCardinality 0` op een property | een `someValuesFrom` op die property wordt niet verplicht (C1) |
+| `owl:minCardinality 0` op een property | heft elke ondergrens op dezelfde klasse en property op (`someValuesFrom`, minimumkardinaliteit); maxima en waardebeperkingen blijven (C1) |
 
 Alle restricties van een klasse op hetzelfde pad worden samengevoegd tot **één** property shape
 (grootste minimum, kleinste maximum, alle waardebeperkingen). Het AP 2023 had per eigenschap twee
@@ -497,7 +497,7 @@ data het profiel volgt. *Te beslissen in de werkgroep.*
 
 | Klasse | Superklassen | Kernbeperkingen |
 |---|---|---|
-| `wk:WaterkwaliteitObservatie` | `sosa:Observation` | FOI 1..1; `observedProperty` 1..1 → `csor:ParameterAspect`; `hasResult` 1..1 → `wk:Meetresultaat`; `phenomenonTime` 0..1 → Instant ∪ Interval; `resultTime` 0..1; `usedProcedure` 0..* (A10); `madeBySensor` 0..* (aanbevolen); `hasInputValue`, `relatedObservation` → `sosa:Observation`; `prov:used` → `prov:Entity`; `prov:atLocation` → `prov:Location` |
+| `wk:WaterkwaliteitObservatie` | `sosa:Observation` | FOI 1..1; `observedProperty` 1..1 → `csor:ParameterAspect`; `hasResult` 1..1 → `wk:Meetresultaat`; `phenomenonTime` 0..1 → Instant ∪ Interval; `resultTime` 0..1; `usedProcedure` 0..* (A10); `madeBySensor` 0..* (aanbevolen); `hasInputValue` → `wk:Meetresultaat`; `relatedObservation` → `sosa:Observation`; `prov:used` → `prov:Entity`; `prov:atLocation` → `prov:Location` |
 | `wk:WaterkwaliteitObservatieVerzameling` | `sosa:ObservationCollection` | `hasMember` 1..* → `wk:WaterkwaliteitObservatie`; FOI, ultiem FOI, `observedProperty`, `phenomenonTime` elk 0..1 |
 | `wk:Meetresultaat` | `qudt:QuantityValue` | `qudt:hasUnit` 1..1 → `csor:Eenheid`; `numericValue`, `lowerBound`, `upperBound` 0..1 `xsd:decimal` |
 | `wk:Staal` | `sosa:Sample` | `isSampleOf` 1..*; `isResultOf` 1..1 → `sosa:Sampling`; `dct:type` → `skos:Concept` (matrix) |
@@ -619,6 +619,9 @@ in `mvn compile exec:java`, zonder `[VOCAB ERROR]` of `[MODEL INVALID]`. De vijf
 (observatie zonder resultaat, twee FOI's, niet-CSOR-eigenschap, twee waarden) geeft de verwachte
 schendingen.
 
+**Hervalidatie (2026-10-23).** Met ld-mcp (`validate_file` en de bulkvalidatie, met de shapes die
+ld-mcp uit `waterkwaliteit.ttl` genereert): alle subsets zonder fouten.
+
 ### A16. I-ADOPT: het parameteraspect als variabele
 
 **Vraag.** Beschrijven we de observedProperty ook volgens I-ADOPT (RDA-aanbeveling voor de
@@ -644,9 +647,11 @@ beschrijving van variabelen), en hoe verhoudt CSOR zich daartoe?
   geldt voor iedereen die CSOR laadt.
 
 **Gevolg.** Geen wijziging aan de datavoorbeelden. De alignering hoort in CSOR (C1). Voorlopig
-kan ze, zoals `sosa:Property`, in `waterkwaliteit.ttl` staan. `OwlToShaclGenerator` leest de
-equivalentie en de gekwalificeerde kardinaliteit van `iadopt:Variable` niet, dus de SHACL
-verandert niet.
+kan ze, zoals `sosa:Property`, in `waterkwaliteit.ttl` staan. Let op: dit punt is geschreven voor
+de vroegere `OwlToShaclGenerator`, die de equivalentie en de gekwalificeerde kardinaliteit van
+`iadopt:Variable` niet las. De generator van ld-mcp vertaalt gekwalificeerde kardinaliteiten en
+restricties binnen `owl:equivalentClass` wél: wie de alignering in `waterkwaliteit.ttl` zet, moet
+nagaan welke verplichtingen dat aan elk parameteraspect oplegt.
 
 *Detail: `csor_iadopt.md`.*
 
@@ -682,9 +687,9 @@ verandert niet.
   - de restrictie op PubChem-`compound` (zonder bereik) is weggelaten.
 
   `waterkwaliteit.ttl` herhaalt de existentiële restricties voor `csor:ParameterAspect`,
-  `csor:Eenheid` en `csor:KwantificeerbaarAspect` met `owl:minCardinality 0`. `OwlToShaclGenerator`
-  leest dat als "niet verplicht in de data": `someValuesFrom` krijgt dan geen `sh:minCount 1`, de
-  klassecontrole blijft. Zo verwijzen de voorbeelden naar CSOR-concepten zonder registergegevens
+  `csor:Eenheid` en `csor:KwantificeerbaarAspect` met `owl:minCardinality 0`. De generator van
+  ld-mcp leest dat als "niet verplicht in de data": de ondergrens van `someValuesFrom` vervalt, en
+  daarmee ook de klassecontrole ervan (wie die wil behouden, voegt een `owl:allValuesFrom` toe). Zo verwijzen de voorbeelden naar CSOR-concepten zonder registergegevens
   te dupliceren. **Voorstel aan CSOR:** deze omzetting overnemen, en volledigheidscontroles van
   het register in de SHACL-profielen per codelijst (`csor-*-ap-constraints.ttl`) houden.
 - Kan `csor:ParameterAspect` ⊂ `sosa:Property` (A1) en `csor:Eenheid` ⊂ `qudt:Unit` (A2) in de

@@ -51,13 +51,13 @@ flowchart LR
 %% =====================================================
     Platform -->|geo:hasGeometry| Geom
     Platform -->|sosa:hosts| System
-    Platform -->|ssn:hasProperty| Prop
+    Platform -->|sosa:hasProperty| Prop
 
 
     System -->|sosa:isHostedBy| Platform
     System -->|sosa:hasSubSystem| System
 
-    Sensor -->|ssn:implements| Procedure
+    Sensor -->|sosa:implements| Procedure
 
 %% =====================================================
 %% RELATIES – OBSERVATION

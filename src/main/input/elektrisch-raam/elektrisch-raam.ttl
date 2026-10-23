@@ -49,7 +49,8 @@ step:regen-detectie a p-plan:Step, sosa:Procedure, sosa:ObservingProcedure ;
 step:afwijking-berekening a p-plan:Step, sosa:Procedure, sosa:ObservingProcedure ;
     rdfs:label "Stap 5a: Berekening temperatuursafwijking t.o.v. 20°C"@nl ;
     p-plan:isStepOfPlan plan:raambesturing ;
-    p-plan:isPrecededBy step:temp-meting .
+    p-plan:isPrecededBy step:temp-meting ;
+    sosa:hasInput var:temperatuur .
 
 # Stap 5b — actuatie: raamstand bepalen en elektrische opener aansturen
 step:raam-stand-bepaling a p-plan:Step, sosa:Procedure, sosa:ActuatingProcedure ;
@@ -58,7 +59,8 @@ step:raam-stand-bepaling a p-plan:Step, sosa:Procedure, sosa:ActuatingProcedure 
     p-plan:isPrecededBy step:afwijking-berekening ;
     p-plan:isPrecededBy step:wind-meting ;
     p-plan:isPrecededBy step:licht-meting ;
-    p-plan:isPrecededBy step:regen-detectie .
+    p-plan:isPrecededBy step:regen-detectie ;
+    sosa:hasInput var:temp-afwijking , var:windsnelheid , var:lichtintensiteit , var:regen-aanwezigheid .
 
 # Variabelen
 
@@ -292,7 +294,7 @@ exec:afwijking-obs-20250427 a sosa:Observation , sosa:Execution ;
     sosa:observedProperty prop:temp-afwijking ;
     sosa:hasFeatureOfInterest htg:zaal-0116 ;
     sosa:resultTime "2025-04-27T09:00:05Z"^^xsd:dateTime ;
-    prov:used ent:result-temp-20250427 ;
+    sosa:hasInputValue ent:result-temp-20250427 ;
     sosa:hasResult ent:result-afwijking-20250427 .
 
 ent:result-afwijking-20250427 a qudt:QuantityValue, prov:Entity ;
@@ -314,10 +316,10 @@ exec:raam-actuatie-20250427 a sosa:Actuation , sosa:Execution ;
     sosa:hasFeatureOfInterest htg:raam-zaal-0116 ;
     sosa:resultTime "2025-04-27T09:00:10Z"^^xsd:dateTime ;
     sosa:phenomenonTime exec:instant-20250427T0900 ;
-    prov:used ent:result-afwijking-20250427 ;
-    prov:used ent:result-wind-20250427 ;
-    prov:used ent:result-licht-20250427 ;
-    prov:used ent:result-regen-20250427 ;
+    sosa:hasInputValue ent:result-afwijking-20250427 ;
+    sosa:hasInputValue ent:result-wind-20250427 ;
+    sosa:hasInputValue ent:result-licht-20250427 ;
+    sosa:hasInputValue ent:result-regen-20250427 ;
     sosa:hasResult ent:result-raam-stand-20250427 .
 
 ent:result-raam-stand-20250427 a qudt:QuantityValue, prov:Entity ;

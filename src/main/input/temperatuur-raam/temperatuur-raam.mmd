@@ -110,8 +110,8 @@ RaamAct1 -->|hasResult| ResultRaam1
 RaamAct2 -->|hasResult| ResultRaam2
 
 %% Derivation-relaties
-RaamAct1 -->|prov:used| ResultTemp1
-RaamAct2 -->|prov:used| ResultTemp2
+RaamAct1 -->|sosa:hasInputValue| ResultTemp1
+RaamAct2 -->|sosa:hasInputValue| ResultTemp2
 
 %% Result → variabele
 ResultTemp1 -->|correspondsToVariable| VarTemp

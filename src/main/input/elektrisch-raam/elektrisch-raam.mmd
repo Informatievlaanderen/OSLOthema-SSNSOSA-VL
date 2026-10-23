@@ -193,11 +193,11 @@ AfwObs -->|hasResult| ResultAfw
 RaamAct -->|hasResult| ResultRaam
 
 %% Derivation-relaties
-AfwObs -->|prov:used| ResultTemp
-RaamAct -->|prov:used| ResultAfw
-RaamAct -->|prov:used| ResultWind
-RaamAct -->|prov:used| ResultLicht
-RaamAct -->|prov:used| ResultRegen
+AfwObs -->|sosa:hasInputValue| ResultTemp
+RaamAct -->|sosa:hasInputValue| ResultAfw
+RaamAct -->|sosa:hasInputValue| ResultWind
+RaamAct -->|sosa:hasInputValue| ResultLicht
+RaamAct -->|sosa:hasInputValue| ResultRegen
 
 %% Result → variable
 ResultTemp -->|correspondsToVariable| VarTemp

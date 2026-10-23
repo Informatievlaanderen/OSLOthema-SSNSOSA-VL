@@ -76,7 +76,7 @@ Teken een diagram met de volgende drie lagen:
 - **EXECUTION** — de concrete metingen, actuaties en hun resultaten
 
 Gebruik pijlen om relaties te tonen en label elke pijl met de bijhorende property
-(bijv. `sosa:hasFeatureOfInterest`, `sosa:observedProperty`, `sosa:actsOnProperty`, `sosa:usedProcedure`, `p-plan:correspondsToStep`, `sosa:madeBySensor`, `sosa:madeByActuator`, `sosa:implements`, `sosa:hasProperty`, `sosa:hosts`, `sosa:hasResult`, `p-plan:correspondsToVariable`, `p-plan:isStepOfPlan`, `p-plan:isInputVarOf`, `p-plan:isOutputVarOf`,`prov:used`, `prov:wasInformedBy`).
+(bijv. `sosa:hasFeatureOfInterest`, `sosa:observedProperty`, `sosa:actsOnProperty`, `sosa:usedProcedure`, `p-plan:correspondsToStep`, `sosa:madeBySensor`, `sosa:madeByActuator`, `sosa:implements`, `sosa:hasProperty`, `sosa:hosts`, `sosa:hasResult`, `p-plan:correspondsToVariable`, `p-plan:isStepOfPlan`, `p-plan:isInputVarOf`, `p-plan:isOutputVarOf`, `sosa:hasInput`, `sosa:hasInputValue`, `prov:wasInformedBy`).
 
 Beantwoord bij het tekenen:
 

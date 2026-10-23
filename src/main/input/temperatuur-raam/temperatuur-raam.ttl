@@ -34,7 +34,8 @@ step:temp-meting a p-plan:Step, sosa:Procedure, sosa:ObservingProcedure ;
 step:raam-actuatie a p-plan:Step, sosa:Procedure, sosa:ActuatingProcedure ;
     rdfs:label "Stap 2: Raamstand bepalen o.b.v. temperatuurdrempel"@nl ;
     p-plan:isStepOfPlan plan:raambesturing ;
-    p-plan:isPrecededBy step:temp-meting .
+    p-plan:isPrecededBy step:temp-meting ;
+    sosa:hasInput var:temperatuur .
 
 # Variabelen
 var:temperatuur a p-plan:Variable ;
@@ -140,7 +141,7 @@ exec:raam-actuatie-20250427 a sosa:Actuation , sosa:Execution ;
     sosa:hasFeatureOfInterest htg:raam-zaal-0116 ;
     sosa:resultTime "2025-04-27T09:00:05Z"^^xsd:dateTime ;
     sosa:phenomenonTime exec:instant-20250427T0900 ;
-    prov:used ent:result-temp-20250427 ;
+    sosa:hasInputValue ent:result-temp-20250427 ;
     sosa:hasResult ent:result-raam-stand-20250427 .
 
 ent:result-raam-stand-20250427 a qudt:QuantityValue, prov:Entity ;
@@ -182,7 +183,7 @@ exec:raam-actuatie-20250427T1005 a sosa:Actuation , sosa:Execution ;
     sosa:hasFeatureOfInterest htg:raam-zaal-0116 ;
     sosa:resultTime "2025-04-27T10:00:05Z"^^xsd:dateTime ;
     sosa:phenomenonTime exec:instant-20250427T1000 ;
-    prov:used ent:result-temp-20250427T1000 ;
+    sosa:hasInputValue ent:result-temp-20250427T1000 ;
     sosa:hasResult ent:result-raam-stand-20250427T1005 .
 
 ent:result-raam-stand-20250427T1005 a qudt:QuantityValue, prov:Entity ;

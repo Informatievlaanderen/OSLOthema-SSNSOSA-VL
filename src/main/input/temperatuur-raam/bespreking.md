@@ -44,7 +44,7 @@ het ding dat geactueerd wordt, maar herbergt zelf geen sensoren.
 | `exec:raam-actuatie-20250427T1005` | `prop:raam-stand` | `step:raam-actuatie` | `ent:result-raam-stand-20250427T1005` (0 %) | `htg:raam-zaal-0116` |
 
 Alle vier uitvoeringen zijn verbonden met hun abstracte stap via `p-plan:correspondsToStep`.
-Elke actuatie verwijst via `prov:used` naar het bijhorende temperatuurresultaat om de
+Elke actuatie verwijst via `sosa:hasInputValue` naar het bijhorende temperatuurresultaat om de
 data-afhankelijkheid per meetmoment aantoonbaar te maken. Beide actuaties implementeren
 dezelfde `step:raam-actuatie`-procedure, wat de herbruikbaarheid van het abstracte plan illustreert.
 
@@ -84,26 +84,31 @@ Verworpen alternatief: een tussenstap die berekent of de drempel overschreden is
 `step:afwijking-berekening` in `elektrisch-raam`).
 Gekozen aanpak: de drempellogica (> 20 °C of < 18 °C) is opgenomen in de procedure
 `step:raam-actuatie` zelf; de actuatie gebruikt direct het temperatuurresultaat via
-`prov:used`.
+`sosa:hasInputValue`.
 Motivatie: bij een enkelvoudige drempelconditie voegt een extra afgeleide observatie
 alleen complexiteit toe zonder extra informatiewaarde. De data-afhankelijkheid is via
-`prov:used` reeds volledig traceerbaar.
+`sosa:hasInputValue` (⊂ `prov:used`) reeds volledig traceerbaar.
 
 ### Waarom `sosa:hasResult` (IRI-entiteiten) en niet `sosa:hasSimpleResult`?
 
 Verworpen alternatief: `sosa:hasSimpleResult "22.3"^^xsd:decimal` op de observatie.
 Gekozen aanpak: benoemde `qudt:QuantityValue, prov:Entity`-entiteiten met eigen IRI.
-Motivatie: het temperatuurresultaat wordt extern gerefereerd via `prov:used` door de
+Motivatie: het temperatuurresultaat wordt extern gerefereerd via `sosa:hasInputValue` door de
 actuatie. Een blank node of `sosa:hasSimpleResult` laat geen externe referentie toe (R3).
 Het raamstandresultaat volgt dezelfde stijl voor consistentie binnen het voorbeeld.
 
-### Waarom `prov:used` en niet `sosa:hasInput` voor de actuatie?
+### Waarom `sosa:hasInputValue` op de actuatie, en `sosa:hasInput` op de stap?
 
-Verworpen alternatief: `sosa:hasInput ent:result-temp-20250427` op de actuatie.
-Gekozen aanpak: `prov:used ent:result-temp-20250427` op `exec:raam-actuatie-20250427`.
-Motivatie: regel R5 verbiedt `sosa:hasInput` op execution-niveau. `sosa:hasInput` beschrijft
-abstracte inputtypes op procedure-nodes; `prov:used` verwijst op execution-niveau naar
-concrete entiteiten (PROV-O spec).
+Verworpen alternatieven: `sosa:hasInput ent:result-temp-20250427` op de actuatie; `prov:used
+ent:result-temp-20250427`.
+Gekozen aanpak: `sosa:hasInputValue ent:result-temp-20250427` op `exec:raam-actuatie-20250427`, en
+`sosa:hasInput var:temperatuur` op `step:raam-actuatie`.
+Motivatie: `sosa:hasInput` beschrijft het abstracte inputtype op de procedure, niet de concrete
+waarde op de uitvoering (R5). Op uitvoeringsniveau is `sosa:hasInputValue` de waarde voor een
+input van de procedure; het resultaat vult de inputvariabele `var:temperatuur` in
+(`p-plan:correspondsToVariable`). `sosa:hasInputValue` is een subproperty van `prov:used`
+(`sosa-prov`), dus PROV-queries vinden de afhankelijkheid nog altijd; `prov:used` alleen is
+minder precies (R13).
 
 ## 7. Tijdsmodellering
 

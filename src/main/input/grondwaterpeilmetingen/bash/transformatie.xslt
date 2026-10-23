@@ -3,13 +3,12 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                 xmlns:sosa="http://www.w3.org/ns/sosa/"
-                xmlns:ssn="http://www.w3.org/ns/ssn/"
                 xmlns:time="http://www.w3.org/2006/time#"
                 xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
                 xmlns:gml="http://www.opengis.net/gml/3.2"
                 xmlns:ex="http://example.org/"
                 xmlns:geo="http://www.opengis.net/ont/geosparql#"
-                xmlns:unit="http://qudt.org/vocab/unit#"
+                xmlns:unit="http://qudt.org/vocab/unit/"
                 xmlns:agent="http://example.org/agent/"
                 xmlns:qudt="http://qudt.org/schema/qudt/"
                 xmlns:ns4="http://kern.schemas.dov.vlaanderen.be"
@@ -27,29 +26,19 @@
     <xsl:template match="/">
         <rdf:RDF>
             <rdf:Description rdf:about="http://example.org/peil_mtaw">
-                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
                 <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Property"/>
-                <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
             </rdf:Description>
             <rdf:Description rdf:about="http://example.org/diepte_tov_referentiepunt">
-                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
                 <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Property"/>
-                <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
             </rdf:Description>
             <rdf:Description rdf:about="http://example.org/filtertoestand">
-                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
                 <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Property"/>
-                <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
             </rdf:Description>
             <rdf:Description rdf:about="http://example.org/filterstatus">
-                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
                 <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Property"/>
-                <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
             </rdf:Description>
             <rdf:Description rdf:about="http://example.org/zoet">
-                <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservableProperty"/>
                 <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Property"/>
-                <rdf:type rdf:resource="http://www.w3.org/ns/ssn/Property"/>
             </rdf:Description>
             <xsl:apply-templates select="/ns4:dov-schema/grondwaterlocatie"/>
             <xsl:apply-templates select="/ns4:dov-schema/filter"/>
@@ -63,6 +52,7 @@
                 <xsl:value-of select="/ns4:dov-schema/filter/dataidentifier/uri"/>
             </xsl:attribute>
             <rdf:type rdf:resource="http://www.w3.org/ns/sosa/System"/>
+            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
             <sosa:isHostedBy>
                 <rdf:Description>
                     <xsl:attribute name="rdf:about">
@@ -167,10 +157,10 @@
                     <sosa:hasResult>
                         <rdf:Description>
                             <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
-                            <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
+                            <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
                                 <xsl:value-of select="diepte_tov_referentiepunt"/>
-                            </rdf:value>
-                            <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit#Meter"/>
+                            </qudt:numericValue>
+                            <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/M"/>
                             <sosa:isResultOf>
                                 <xsl:attribute name="rdf:resource">
                                     <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'diepte_tov_referentiepunt')"/>
@@ -184,7 +174,7 @@
                             <xsl:attribute name="rdf:about">
                                 <xsl:value-of select="translate(concat('http://example.org/', methode, '_methode'), ' ', '')"/>
                             </xsl:attribute>
-                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservingProcedure"/>
                         </rdf:Description>
                     </sosa:usedProcedure>
                 </rdf:Description>
@@ -210,10 +200,10 @@
                     <sosa:hasResult>
                         <rdf:Description>
                             <rdf:type rdf:resource="http://qudt.org/schema/qudt/QuantityValue"/>
-                            <rdf:value rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
+                            <qudt:numericValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">
                                 <xsl:value-of select="peil_mtaw"/>
-                            </rdf:value>
-                            <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit#Meter"/>
+                            </qudt:numericValue>
+                            <qudt:hasUnit rdf:resource="http://qudt.org/vocab/unit/M"/>
                             <sosa:isResultOf>
                                 <xsl:attribute name="rdf:resource">
                                     <xsl:value-of select="concat('http://example.org/peilmeting_', datum, 'peil_mtaw')"/>
@@ -227,7 +217,7 @@
                             <xsl:attribute name="rdf:about">
                                 <xsl:value-of select="translate(concat('http://example.org/', methode, '_methode'), ' ', '')"/>
                             </xsl:attribute>
-                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservingProcedure"/>
                         </rdf:Description>
                     </sosa:usedProcedure>
                 </rdf:Description>
@@ -266,7 +256,7 @@
                     <sosa:observedProperty rdf:resource="http://example.org/filtertoestand"/>
                     <sosa:usedProcedure>
                         <rdf:Description rdf:about="http://example.org/visueel_methode">
-                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservingProcedure"/>
                         </rdf:Description>
                     </sosa:usedProcedure>
                 </rdf:Description>
@@ -305,7 +295,7 @@
                     <sosa:observedProperty rdf:resource="http://example.org/filterstatus"/>
                     <sosa:usedProcedure>
                         <rdf:Description rdf:about="http://example.org/visuele_controle">
-                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservingProcedure"/>
                         </rdf:Description>
                     </sosa:usedProcedure>
                 </rdf:Description>
@@ -344,7 +334,7 @@
                     <sosa:observedProperty rdf:resource="http://example.org/zoet"/>
                     <sosa:usedProcedure>
                         <rdf:Description rdf:about="http://example.org/smaaktest">
-                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Procedure"/>
+                            <rdf:type rdf:resource="http://www.w3.org/ns/sosa/ObservingProcedure"/>
                         </rdf:Description>
                     </sosa:usedProcedure>
                 </rdf:Description>
@@ -355,6 +345,14 @@
                         <xsl:value-of select="concat('http://example.org/agent/', translate(opmeter/naam, ' ', ''))"/>
                     </xsl:attribute>
                     <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Sensor"/>
+                    <sosa:implements>
+                        <xsl:attribute name="rdf:resource">
+                            <xsl:value-of select="translate(concat('http://example.org/', methode, '_methode'), ' ', '')"/>
+                        </xsl:attribute>
+                    </sosa:implements>
+                    <sosa:implements rdf:resource="http://example.org/visueel_methode"/>
+                    <sosa:implements rdf:resource="http://example.org/visuele_controle"/>
+                    <sosa:implements rdf:resource="http://example.org/smaaktest"/>
                     <rdfs:label>
                         <xsl:value-of select="opmeter/naam"/>
                     </rdfs:label>
@@ -390,11 +388,11 @@
             </xsl:attribute>
             <rdf:type rdf:resource="http://www.w3.org/ns/sosa/Platform"/>
             <rdf:type rdf:resource="http://www.w3.org/ns/sosa/FeatureOfInterest"/>
-            <ssn:hasProperty rdf:resource="http://example.org/peil_mtaw"/>
-            <ssn:hasProperty rdf:resource="http://example.org/diepte_tov_referentiepunt"/>
-            <ssn:hasProperty rdf:resource="http://example.org/filtertoestand"/>
-            <ssn:hasProperty rdf:resource="http://example.org/filterstatus"/>
-            <ssn:hasProperty rdf:resource="http://example.org/zoet"/>
+            <sosa:hasProperty rdf:resource="http://example.org/peil_mtaw"/>
+            <sosa:hasProperty rdf:resource="http://example.org/diepte_tov_referentiepunt"/>
+            <sosa:hasProperty rdf:resource="http://example.org/filtertoestand"/>
+            <sosa:hasProperty rdf:resource="http://example.org/filterstatus"/>
+            <sosa:hasProperty rdf:resource="http://example.org/zoet"/>
             <geo:hasGeometry>
                 <rdf:Description>
                     <rdf:type rdf:resource="http://www.opengis.net/ont/geosparql#Geometry"/>

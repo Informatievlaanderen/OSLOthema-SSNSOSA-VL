@@ -93,7 +93,7 @@ besturingsplan is vereist. Dit voldoet aan de drie criteria van R4.
 Verworpen alternatief: `sosa:hasSimpleResult "22.3"^^xsd:decimal` op de observatie.
 Gekozen aanpak: benoemde `qudt:QuantityValue, prov:Entity`-entiteiten met eigen IRI.
 Motivatie: de resultaten moeten extern gerefereerd worden via `p-plan:correspondsToVariable`
-en via `prov:used` vanuit de afgeleide observatie en de actuatie. Blank nodes of
+en via `sosa:hasInputValue` vanuit de afgeleide observatie en de actuatie. Blank nodes of
 `sosa:hasSimpleResult` laten geen externe referentie toe (R3).
 
 ### Waarom `inst:besturings-eenheid` als `sosa:Sensor`?
@@ -105,19 +105,23 @@ op basis van berekening. In SSN/SOSA is elk systeem dat observaties produceert e
 ook als de waarde berekend is (R1). De `sosa:Sensor`-typering laat `sosa:madeBySensor` en
 `sosa:implements` toe op correcte wijze.
 
-### Waarom `prov:used` en niet `sosa:hasInput` voor de afgeleide observatie?
+### Waarom `sosa:hasInputValue` voor de afgeleide observatie en de actuatie?
 
-Verworpen alternatief: `sosa:hasInput ent:result-temp-20250427` op de observatie.
-Gekozen aanpak: `prov:used ent:result-temp-20250427` op `exec:afwijking-obs-20250427`.
-Motivatie: regel R5 verbiedt `sosa:hasInput` op execution-niveau. `sosa:hasInput` beschrijft
-abstracte inputtypes op procedure-nodes. De concrete entiteits-referentie hoort op
-`prov:used` (PROV-O spec).
+Verworpen alternatieven: `sosa:hasInput ent:result-temp-20250427` op de observatie; `prov:used`.
+Gekozen aanpak: `sosa:hasInputValue` naar de resultaten op `exec:afwijking-obs-20250427` en op de
+actuatie, en `sosa:hasInput` naar de inputvariabelen op `step:afwijking-berekening` en
+`step:raam-stand-bepaling`.
+Motivatie: `sosa:hasInput` beschrijft het abstracte inputtype op de procedure (R5); op
+uitvoeringsniveau is `sosa:hasInputValue` de waarde voor die input, en elk resultaat vult een
+inputvariabele in (`p-plan:correspondsToVariable`). In een drielaags model is dat de vorm die R13
+vraagt; `prov:used` blijft voor wat geen inputvariabele van de stap is. Omdat
+`sosa:hasInputValue ⊂ prov:used` (`sosa-prov`), blijft de PROV-afhankelijkheid afleidbaar.
 
 ### Waarom het regenresultaat als `prov:Entity` zonder QUDT?
 
 Verworpen alternatief: `sosa:hasSimpleResult false` op de observatie.
 Gekozen aanpak: benoemd IRI-entiteit `ent:result-regen-20250427` met `rdf:value "false"^^xsd:boolean`.
-Motivatie: ook het regenresultaat moet gerefereerd worden via `prov:used` door de actuatie
+Motivatie: ook het regenresultaat moet gerefereerd worden via `sosa:hasInputValue` door de actuatie
 (`exec:raam-actuatie-20250427`). Een benoemd entiteit is daarvoor noodzakelijk. QUDT is
 niet van toepassing op booleaanse waarden; `rdf:value` is hier de correcte modellering. Het
 resultaat is geen `sosa:Result` meer: die klasse is in SSN/SOSA 2023 `owl:deprecated`, en elk
@@ -164,7 +168,7 @@ Onderscheid:
 
 Geen blank nodes voor extern gerefereerde resources (R10). Het regenresultaat
 (`ent:result-regen-20250427`) heeft een IRI ondanks de eenvoudige booleaanse waarde,
-omdat het via `prov:used` gerefereerd moet worden.
+omdat het via `sosa:hasInputValue` gerefereerd moet worden.
 
 ## 9. Inverse relaties
 
