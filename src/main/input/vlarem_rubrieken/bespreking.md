@@ -125,6 +125,11 @@ geladen vocabularia is geen lijst van vergelijkingsoperatoren gevonden; QUDT hee
 `qudt:minExclusive`, `qudt:maxInclusive` … als properties, en die gebruikt het alternatief. De
 lijst is een ontwerpversie in `src/main/resources/be/vlaanderen/omgeving/data/id/conceptscheme/vergelijkingsoperator/`.
 
+<!-- TODO: bestaat er buiten de geladen vocabularia een lijst van vergelijkingsoperatoren die
+herbruikt kan worden (R17)? De zoekopdracht in LOV ("greater than or equal") gaf op 2026-10-21 geen
+antwoord (time-out van de server); gezocht is enkel in src/main/resources. -->
+
+
 De operator maakt de richting van `vlarem:hasMin` en `vlarem:hasMax` dubbel: een ondergrens heeft
 GT of GE, een bovengrens LT of LE. Die samenhang staat in de definities van de properties, maar de
 gegenereerde SHACL controleert hem niet.
