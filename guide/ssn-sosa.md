@@ -117,14 +117,24 @@ observation.
 
 A machine learning model is a `prov:Entity` (optionally also `it6:MachineLearningModel`), generated
 by a training `prov:Activity`. The software component that uses the model to make predictions is
-the `sosa:Sensor`; link them with `sosa:uses` on the sensor.
+the `sosa:Sensor`. Each prediction (an observation or actuation) refers to the model with
+`prov:used`: the model is not a value for an input of the procedure, so not `sosa:hasInputValue`
+(R5, R13). SSN/SOSA 2023 has no property that links a sensor to a model it uses (there is no
+`sosa:uses`).
 
 ```turtle
 model:my_ml_model a it6:MachineLearningModel, prov:Entity ;
   prov:wasGeneratedBy [ a prov:Activity ; prov:used ent:training_data ] .
 
 sensor:predictor a sosa:Sensor ;
-  sosa:uses model:my_ml_model .
+  sosa:implements step:predict .
+
+exec:prediction_001 a sosa:Observation ;
+  sosa:madeBySensor sensor:predictor ;
+  sosa:usedProcedure step:predict ;
+  prov:used model:my_ml_model ;
+  sosa:hasInputValue ent:historical_data ;
+  sosa:hasResult ent:predicted_time .
 ```
 
 ## R7 — Derived observations
