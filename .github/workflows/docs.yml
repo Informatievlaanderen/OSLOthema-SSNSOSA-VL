@@ -36,10 +36,18 @@ jobs:
           distribution: temurin
           java-version: "21"
 
+      # Vaste versie: een nieuwe release van ld-mcp breekt de publicatie niet ongemerkt.
+      # Opwaarderen = LD_MCP_VERSION aanpassen, nadat alle voorbeelden ermee valideren.
       - name: Validatieserver ophalen
-        run: >
-          curl -fsSL --create-dirs -o tools/ld-mcp-vocab.jar
-          https://github.com/milieuinfo/ld-mcp/releases/latest/download/ld-mcp-vocab.jar
+        env:
+          LD_MCP_VERSION: "0.4.1"
+        run: |
+          base=https://github.com/milieuinfo/ld-mcp/releases/download/v${LD_MCP_VERSION}
+          mkdir -p tools
+          cd tools
+          curl -fsSLO "$base/ld-mcp-vocab.jar"
+          curl -fsSLO "$base/ld-mcp-vocab.jar.sha256"
+          sha256sum -c ld-mcp-vocab.jar.sha256
 
       - name: Alle datavoorbeelden valideren
         run: >

@@ -113,7 +113,7 @@ alternatief/                 optioneel: tweede verdedigbare lezing (skill altern
 
 ## §5 — Valideren
 
-**Eén bestand:** `mcp__ld-vocab__validate_file` (server in `.mcp.json`, ld-mcp 0.4.0 of later). Wat
+**Eén bestand:** `mcp__ld-vocab__validate_file` (server in `.mcp.json`, ld-mcp 0.4.1 of later; de workflow `docs.yml` gebruikt een vaste versie). Wat
 de meldingen betekenen en wat je ermee doet, staat in `guide/linked-data.md` (Validation) en in de
 README van ld-mcp. De server laadt `src/main/resources/`, genereert de SHACL-shapes zelf uit de
 ontologie (een profiellezing van de OWL-restricties, zie `guide/linked-data.md`), gebruikt de regels uit
