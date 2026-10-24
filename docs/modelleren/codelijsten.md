@@ -4,6 +4,49 @@ Veel waarden komen uit een lijst: een eigenschap, een eenheid, een status, een k
 procedure, een matrix. In linked data is zo'n lijst een **SKOS-begrippenschema**, en elke waarde
 een **begrip** met een eigen IRI.
 
+## Een abstracte kern, businesstaal erbij
+
+SOSA, PROV-O en P-PLAN zijn bewust abstract. Ze kennen systemen, entiteiten, activiteiten,
+procedures, stappen en variabelen, maar geen schouwen, lozingen of brownies. Dat is geen gemis:
+precies daardoor passen ze op elk domein, en sluiten de domeinen op elkaar aan. Een vraag als
+"welke waarnemingen hangen af van deze meting?" werkt in waterkwaliteit en in verkeer op dezelfde
+manier, omdat beide dezelfde abstracte structuur gebruiken ([II. Samenhang](../samenhang/index.md)).
+
+De businesstaal komt er pas bij, en op twee manieren:
+
+- **in een codelijst**, als begrippen waarnaar de data verwijst. Dat is de gewone weg: het model
+  blijft abstract, en de lijst kan groeien zonder dat het model verandert;
+- **in een eigen ontologie**, als subklassen met eigen regels. Dat is de uitzondering, voor soorten
+  die meer moeten dan een naam dragen ([Typeren: begrip of klasse?](#typeren-begrip-of-klasse)).
+
+Waar de businesstaal terechtkomt, bepaalt wat er in de codelijsten staat. Wat in de ontologie als
+klasse staat, hoort niet nog eens als begrip in een lijst.
+
+## Waar begrippen in het model staan
+
+Een begrip uit een codelijst kan op drie plaatsen staan:
+
+- als **type**: `dct:type` zegt wat voor iets een resource is (een lozingspunt, een geleide
+  emissie, een ingrediënt);
+- als **waarde van een rol**: het begrip *is* de eigenschap, de eenheid of de procedure
+  (`sosa:observedProperty`, `qudt:hasUnit`, `sosa:usedProcedure`);
+- als **resultaat**: de uitkomst van een waarneming is zelf een begrip (een score, een klasse).
+
+Over de lagen heen, met voorbeelden uit de casussen:
+
+| Laag | Resource | Type (`dct:type`) | Waarde van een rol | Resultaat |
+|---|---|---|---|---|
+| plan | stap, procedure | soort proces zonder eigen regels: hoofdactiviteit, transport (voorzien in de ontologie van [RIE-IEPR](../casussen/riepr.md)); bepalingsmethode *berekend* op een procedure (RIE-IEPR) | | |
+| plan | variabele | soort ingrediënt: `ingredient:butter` op `var:butter` ([Brownies](../casussen/brownies.md)) | | |
+| inzet | systeem, platform | installatietype, emissiepunttype (RIE-IEPR); toesteltype en energiebron van een warmtepomp ([Energiemanagement](../casussen/ems.md)); meetputtype (voorstel bij [Waterkwaliteit](../casussen/waterkwaliteit.md)) | | |
+| studieobject | emissie, staal | emissietype `riepr-emissie:geleide` (RIE-IEPR); matrix `matrix:afvalwater` (Waterkwaliteit) | | |
+| uitvoering | waarneming | | eigenschap: een CSOR-parameteraspect (Waterkwaliteit, RIE-IEPR); procedure: een analysemethode, `procedure:WAC_I_A_003_2024` (Waterkwaliteit) | |
+| uitvoering | resultaat | | eenheid: `qudt:hasUnit csor-eenheid:…` (Waterkwaliteit) | score of kansrijkheid: `rdf:value cl:kansrijkheid-kansrijk` ([Geschiktheidskaart PGD](../casussen/pgd.md)) |
+
+Het patroon: **typen** staan vooral in plan, inzet en studieobject, waar dingen benoemd worden;
+**rollen en resultaten** in de uitvoering, waar ze gemeten worden. Een activiteit krijgt zelden
+een `dct:type`: wat ze doet, zegt haar procedure.
+
 ## Eerst hergebruiken
 
 1. **Bestaat er een register?** Vlaanderen beheert er veel: CSOR (parameters, eenheden, dragers),
@@ -62,9 +105,8 @@ SKOS-documentatie-eigenschappen (`skos:definition`, `skos:scopeNote`, `skos:note
 
 ## Typeren: begrip of klasse?
 
-De kernvocabularia zijn abstract: een systeem, een entiteit, een stap. De businesstaal (schouw,
-huis, gaswasser, lozingspunt) komt erbij als **begrip**, met `dct:type` naar een codelijst, of als
-**klasse**, een eigen subklasse met `rdf:type`. Vaak volstaat een begrip. Een klasse is nodig
+De businesstaal (schouw, huis, gaswasser, lozingspunt) komt erbij als **begrip**, met `dct:type`
+naar een codelijst, of als **klasse**, een eigen subklasse met `rdf:type`. Vaak volstaat een begrip. Een klasse is nodig
 zodra de soort eigen regels heeft: eigen eigenschappen, kardinaliteiten, of een eis zoals *een
 emissieproces wordt uitgevoerd door een emissiepunt* ([R18](../regels/r18.md)).
 
