@@ -32,7 +32,7 @@ een goed model komt.
 
 -   **IV. Regels**
 
-    Zeventien regels, elk met het waarom, een goed en een fout voorbeeld.
+    Achtien regels, elk met het waarom, een goed en een fout voorbeeld.
 
     [:octicons-arrow-right-24: Naar de regels](regels/index.md)
 
