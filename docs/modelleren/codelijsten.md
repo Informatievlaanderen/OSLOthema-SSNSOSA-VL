@@ -53,7 +53,12 @@ een `dct:type`: wat ze doet, zegt haar procedure.
    VHA (waterlopen), RIE-IEPR (inrichtingen), de VLAREM-indelingslijst, NACE-BEL
    (bedrijfsactiviteiten). Europese en internationale lijsten (QUDT-eenheden, INSPIRE-codelijsten)
    komen daarna. Verwijs naar hun begrippen.
-2. **Pas dan een nieuwe lijst**, enkel voor waarden die geen register dekt, en enkel wanneer de
+2. **Past het register bij je model?** Een register is opgesteld voor een bepaald model. Toets
+   zijn granulariteit aan je klassen: bevat het soorten die jouw model als subklasse heeft, dan
+   gebruik je die begrippen niet als type, enkel de fijnere ([Typeren: begrip of
+   klasse?](#typeren-begrip-of-klasse)). Een register met de verkeerde granulariteit is een vraag
+   aan de beheerder, geen reden om het te kopiëren.
+3. **Pas dan een nieuwe lijst**, enkel voor waarden die geen register dekt, en enkel wanneer de
    mapping ze echt nodig heeft. Een codelijst is geen voorwaarde om resultaten te kunnen mappen.
 
 ```turtle
@@ -62,6 +67,11 @@ ex:resultaat qudt:hasUnit csor-eenheid:E_131 .
 ```
 
 ## Een nieuwe lijst
+
+**Eerst het model, dan de lijst.** Welke begrippen een lijst nodig heeft, hangt af van welke soorten
+het model al als klasse kent. Stel de lijst dus op nadat de klassen vastliggen, en onderhoud
+ontologie en lijst samen: een nieuwe subklasse kan begrippen overbodig maken, een klasse die
+vervalt kan er nieuwe vragen.
 
 ```turtle
 score:kansrijkheid a skos:ConceptScheme ;
@@ -106,8 +116,8 @@ SKOS-documentatie-eigenschappen (`skos:definition`, `skos:scopeNote`, `skos:note
 ## Typeren: begrip of klasse?
 
 De businesstaal (schouw, huis, gaswasser, lozingspunt) komt erbij als **begrip**, met `dct:type`
-naar een codelijst, of als **klasse**, een eigen subklasse met `rdf:type`. Vaak volstaat een begrip. Een klasse is nodig
-zodra de soort eigen regels heeft: eigen eigenschappen, kardinaliteiten, of een eis zoals *een
+naar een codelijst, of als **klasse**, een eigen subklasse met `rdf:type`. Vaak volstaat een
+begrip. Een klasse is nodig zodra de soort eigen regels heeft: eigen eigenschappen, kardinaliteiten, of een eis zoals *een
 emissieproces wordt uitgevoerd door een emissiepunt* ([R18](../regels/r18.md)).
 
 Die keuze bepaalt de inhoud van de codelijst:
@@ -128,8 +138,27 @@ ex:lozingspunt-LP01 a riepr:Emissiepunt , sosa:System ;
 ```
 
 Een regel die aan een waarde van `dct:type` hangt, of een ontologie die begrippen uit een codelijst
-kopieert om er regels aan te hangen, wijst op een begrip dat een klasse had moeten zijn. De
-casus [RIE-IEPR](../casussen/riepr.md) toont beide, en de herziening.
+kopieert om er regels aan te hangen, wijst op een begrip dat een klasse had moeten zijn.
+
+### Voorbeeld: de soorten processen van RIE-IEPR
+
+De codelijst `procedure_type` van RIE-IEPR heeft zeven begrippen. Welke ervan het model nodig
+heeft, hangt af van hoe het model processen typeert:
+
+| Begrip in `procedure_type` | Ontvangen model: één klasse `riepr:Proces`, soort via `dct:type` | Herzien model: subklassen voor soorten met eigen regels |
+|---|---|---|
+| emissie | begrip (met een regel eraan gehangen) | klasse `riepr:Emissieproces`, uitgevoerd door een emissiepunt |
+| verwerking | begrip (idem) | klasse `riepr:Verwerkingsproces`, uitgevoerd door een installatie |
+| onttrekking | begrip (idem) | klasse `riepr:Onttrekkingsproces`, uitgevoerd door een onttrekkingspunt |
+| meting | begrip (idem) | klasse `riepr:Meetproces`, uitgevoerd door een meetpunt |
+| uitwissel | begrip (idem) | klasse `riepr:Uitwisselproces`, uitgevoerd door een uitwisselpunt |
+| hoofdactiviteit | begrip | begrip (`dct:type`) |
+| transport | begrip | begrip (`dct:type`) |
+
+Het ontvangen model had alle zeven nodig, en hing aan vijf ervan toch een regel, in axioma's die
+niet gecontroleerd werden. Het herziene model heeft er twee nodig. De andere vijf zeggen nu
+hetzelfde als de klassen; of ze in de lijst blijven, voor andere gebruikers, is een vraag aan de
+beheerder van de lijst ([casus RIE-IEPR](../casussen/riepr.md)).
 
 ## Een eigenschap als begrip
 

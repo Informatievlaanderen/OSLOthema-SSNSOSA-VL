@@ -83,6 +83,11 @@ Bestaande datavoorbeelden:
   `riepr.ttl` (origineel in `source/riepr.trig`): drielaags met processen als plan en stappen, de
   exploitatie als `sosa:Deployment` met `prov:hadPlan`, de lozing als FOI en de jaarvracht als
   afgeleide observatie; RIE-IEPR-codelijst geladen in `src/main/resources/`; incl. opdracht.md
+- `riepr/` — herziening van de RIE-IEPR-export van een integraal milieujaarverslag (AGC Glass Mol,
+  2021) en van de ontologie `riepr.ttl` (in `src/main/resources/`): drielaags met processen als
+  plan en stappen, de exploitatie als `sosa:Deployment` met `prov:hadPlan`, de lozing als emissie
+  en een afgeleide jaarvracht; soorten processen als subklassen van `riepr:Proces`, installatie- en
+  emissiepunttypes als `dct:type` (R18); incl. opdracht.md
 - `rdf-memory/` — geheugen van een AI-agent (turtle-recall, geen SSN/SOSA): herziening van één item
   als `oa:Annotation` met PROV-herkomst, DQV-scores, tags als SKOS-begrippen en toegang via Web Access
   Control (OA, DQV en WAC in `src/main/resources/org/w3/www/ns/`); gepseudonimiseerd
