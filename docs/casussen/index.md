@@ -1,6 +1,6 @@
 # VII. Casussen
 
-Veertien uitgewerkte voorbeelden uit Vlaamse domeinen. Elke casus toont de vraag, de keuzes, de
+Vijftien uitgewerkte voorbeelden uit Vlaamse domeinen. Elke casus toont de vraag, de keuzes, de
 valkuilen en de alignments die ze gebruikt, met het diagram en de Turtle rechtstreeks uit de
 repository. De volledige README en bespreking staan op GitHub; de casuspagina is de leeswijzer
 erbij.
@@ -29,6 +29,7 @@ Daarna, naar interesse:
 | [Geschiktheidskaart PGD](pgd.md) | een kaartlaag als waarneming; QGIS-modellen als plan en sensor |
 | [Brownies](brownies.md) | het volledige drielaagse patroon met deelplannen, uitgelegd met een recept |
 | [Energiemanagement](ems.md) | HVAC-scenario's, een ML-model als artefact, herzieningen |
+| [RIE-IEPR](riepr.md) | een productiemodel en zijn ontologie herzien: drielaags, SSN-termen van vóór 2023, een berekende vracht |
 | [VLAREM-rubrieken](vlarem.md) | QUDT en SKOS buiten SSN/SOSA: een norm is geen waarneming |
 
 ## Matrix
@@ -48,4 +49,5 @@ Daarna, naar interesse:
 | [pgd](pgd.md) | drielaags | ruimtelijk monster, afgeleide | R4, R11, R13 | P-PLAN, PROV, QUDT | — | |
 | [brownies](brownies.md) | drielaags | — | R4, R5 | P-PLAN, PROV | — | |
 | [ems](ems.md) | drielaags | — | R5, R6, R16 | P-PLAN, PROV, SAREF | herzieningen | |
+| [riepr](riepr.md) | drielaags | emissie, afgeleide | R3, R4, R7, R13, R14, R16 | P-PLAN, PROV, QUDT, register–QUDT | herziening (data en ontologie) | ✔ |
 | [vlarem](vlarem.md) | geen SOSA | — | R3, R15, R17 | QUDT | herziening, alternatief | |

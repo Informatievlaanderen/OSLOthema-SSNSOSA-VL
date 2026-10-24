@@ -1,0 +1,169 @@
+flowchart RL
+
+subgraph PLANNING["PLANNING"]
+    PLAN["proces:01787986000160_2021
+    riepr:Proces · p-plan:Plan"]
+    S19105["proces:…_activiteit_19105
+    etslijn 2 · verwerking"]
+    S13179["proces:…_zuivering_13179
+    gaswasser · verwerking"]
+    S13005["proces:…_uitstoot_13005
+    emissie"]
+    S323["proces:…_activiteit_323
+    vlakglas · verwerking"]
+    S2400006["proces:…_lozing_2400006
+    LP01 · emissie"]
+    V_ROOK["var:…_activiteit_19105_rookgas"]
+    V_ROOKZ["var:…_zuivering_13179_rookgas"]
+    V_PW["var:…_activiteit_323_proceswater"]
+    V_AW["var:…_lozing_2400006_afvalwater"]
+    P_VR["concept/vrachtberekening
+    sosa:ObservingProcedure"]
+end
+
+subgraph DEPLOYMENT["DEPLOYMENT"]
+    EXPLT["exploitant/0413638187
+    riepr:Exploitant"]
+    LOC["exploitatie/01787986000160
+    riepr:Exploitatielocatie · sosa:Platform"]
+    DEP["exploitatie/…/jaar/2021
+    riepr:Exploitatie · sosa:Deployment"]
+    I19105["activiteit/19105
+    riepr:Installatie"]
+    I13179["zuiveringsapparaat/13179
+    riepr:Installatie · luchtzuivering"]
+    EP13005["emissiepunt/…/13005/jaar/2021
+    riepr:Emissiepunt · sosa:FeatureOfInterest"]
+    MP13005["meetpunt/…/13005/jaar/2021
+    riepr:Meetpunt"]
+    I323["activiteit/323
+    riepr:Installatie"]
+    LP2400006["lozingspunt/…/2400006/jaar/2021
+    riepr:Emissiepunt · lozingspunt"]
+    MP2400006["meetpunt/…/2400006/jaar/2021
+    riepr:Meetpunt"]
+end
+
+subgraph EXECUTION["EXECUTION"]
+    LOZING["lozing/…/2400006/2021
+    riepr:Emissie · sosa:FeatureOfInterest"]
+    O_Q["…/2021/debiet/bf7bed…
+    jaardebiet · PAS_1838"]
+    R_Q["336735 m³/jaar
+    csor-eenheid:E_50"]
+    O_C["…/HCHKCACWOHOZIP…/2021/concentratie
+    zink · PAS_861"]
+    R_C["0,00474 mg/L
+    csor-eenheid:E_1"]
+    O_DIA["…/13005/jaar/2021/imjv#diameter"]
+    R_DIA["0,22 m"]
+    O_HGT["…/13005/jaar/2021/imjv#hoogte"]
+    R_HGT["6,5 m"]
+    JAAR["tijd/jaar/2021
+    time:Interval"]
+    subgraph DERIVATION["DERIVATION"]
+        O_V["…/HCHKCACWOHOZIP…/2021
+        jaarvracht zink · PAS_863"]
+        R_V["1,59612 kg/jaar
+        csor-eenheid:E_12"]
+    end
+end
+
+style PLANNING fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style DEPLOYMENT fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style EXECUTION fill:#e7a3be,stroke:#2E5C8A,color:#000
+style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+
+style PLAN fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style S19105 fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style S13179 fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style S13005 fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style S323 fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style S2400006 fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style V_ROOK fill:#fe7130,stroke:#2E5C8A,color:#000
+style V_ROOKZ fill:#fe7130,stroke:#2E5C8A,color:#000
+style V_PW fill:#fe7130,stroke:#2E5C8A,color:#000
+style V_AW fill:#fe7130,stroke:#2E5C8A,color:#000
+style P_VR fill:#c6a0f5,stroke:#2E5C8A,color:#000
+
+style EXPLT fill:#60c4e4,stroke:#2E5C8A,color:#000
+style LOC fill:#60c4e4,stroke:#2E5C8A,color:#000
+style DEP fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I19105 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I13179 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style EP13005 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style MP13005 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style I323 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style LP2400006 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style MP2400006 fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+style LOZING fill:#f8b622,stroke:#2E5C8A,color:#000
+style O_Q fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R_Q fill:#f8b622,stroke:#2E5C8A,color:#000
+style O_C fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R_C fill:#f8b622,stroke:#2E5C8A,color:#000
+style O_DIA fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R_DIA fill:#f8b622,stroke:#2E5C8A,color:#000
+style O_HGT fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R_HGT fill:#f8b622,stroke:#2E5C8A,color:#000
+style JAAR fill:#f8b622,stroke:#2E5C8A,color:#000
+style O_V fill:#e54b89,stroke:#2E5C8A,color:#fff
+style R_V fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% planning
+S19105 -->|isStepOfPlan| PLAN
+S13179 -->|isStepOfPlan| PLAN
+S13005 -->|isStepOfPlan| PLAN
+S323 -->|isStepOfPlan| PLAN
+S2400006 -->|isStepOfPlan| PLAN
+S13179 -.->|isPrecededBy| S19105
+S13005 -.->|isPrecededBy| S13179
+S2400006 -.->|isPrecededBy| S323
+S19105 -->|hasOutputVar| V_ROOK
+S13179 -->|hasInputVar| V_ROOK
+S13179 -->|hasOutputVar| V_ROOKZ
+S13005 -->|hasInputVar| V_ROOKZ
+S323 -->|hasOutputVar| V_PW
+S2400006 -->|hasInputVar| V_PW
+S2400006 -->|hasOutputVar| V_AW
+
+%% deployment
+LOC -->|prov:wasAttributedTo| EXPLT
+DEP -->|sosa:deployedOnPlatform| LOC
+DEP -->|prov:wasAssociatedWith| EXPLT
+DEP -->|prov:hadPlan via associatie| PLAN
+I19105 -->|sosa:isHostedBy| LOC
+I323 -->|sosa:isHostedBy| LOC
+I19105 -->|sosa:hasSubSystem| EP13005
+EP13005 -->|sosa:hasSubSystem| I13179
+EP13005 -->|sosa:hasSubSystem| MP13005
+I323 -->|sosa:hasSubSystem| LP2400006
+LP2400006 -->|sosa:hasSubSystem| MP2400006
+I19105 -->|sosa:implements| S19105
+I13179 -->|sosa:implements| S13179
+EP13005 -->|sosa:implements| S13005
+I323 -->|sosa:implements| S323
+LP2400006 -->|sosa:implements| S2400006
+
+%% execution
+LOZING -->|correspondsToVariable| V_AW
+LOZING -->|prov:wasDerivedFrom| S2400006
+LOZING -->|prov:wasAttributedTo| LP2400006
+O_Q -->|sosa:hasFeatureOfInterest| LOZING
+O_C -->|sosa:hasFeatureOfInterest| LOZING
+O_V -->|sosa:hasFeatureOfInterest| LOZING
+O_Q -->|sosa:hasResult| R_Q
+O_C -->|sosa:hasResult| R_C
+O_V -->|sosa:hasResult| R_V
+O_V -->|sosa:hasInputValue| R_C
+O_V -->|sosa:hasInputValue| R_Q
+O_V -->|sosa:relatedObservation| O_C
+O_V -->|sosa:relatedObservation| O_Q
+O_V -->|sosa:usedProcedure| P_VR
+O_Q -->|sosa:phenomenonTime| JAAR
+O_C -->|sosa:phenomenonTime| JAAR
+O_V -->|sosa:phenomenonTime| JAAR
+O_DIA -->|sosa:hasFeatureOfInterest| EP13005
+O_HGT -->|sosa:hasFeatureOfInterest| EP13005
+O_DIA -->|sosa:hasResult| R_DIA
+O_HGT -->|sosa:hasResult| R_HGT

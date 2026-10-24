@@ -1,0 +1,2794 @@
+@prefix concept: <https://data.omgeving.vlaanderen.be/id/concept/rie-iepr/>.
+@prefix collectie: <https://data.omgeving.vlaanderen.be/id/collection/rie-iepr/>.
+@prefix aangifte-status: <https://data.omgeving.vlaanderen.be/id/concept/riepr/aangifte-status/>.
+@prefix aangifte: <https://data.omgeving.vlaanderen.be/id/concept/riepr/aangifte-type/>.
+@prefix bandbreedte: <https://data.omgeving.vlaanderen.be/id/concept/riepr/norm_bandbreedte/>.
+@prefix bepalingsmethode: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-bepalingsmethode/>.
+@prefix bepalingsmethodeclassificatie: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-bepalingsmethodeclassificatie/>.
+@prefix bestemming: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-bestemmingstype/>.
+@prefix contextueel: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-contextueel/>.
+@prefix debiet: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-debiet-type/>.
+@prefix emissie: <https://data.omgeving.vlaanderen.be/id/concept/riepr/emissie-type/>.
+@prefix emissiepunt-eigenschappen: <https://data.omgeving.vlaanderen.be/id/concept/riepr/emissiepunt-eigenschappen/>.
+@prefix emissiepunt-selectiemogelijkheden: <https://data.omgeving.vlaanderen.be/id/concept/riepr/emissiepunt-eigenschappen-selectiemogelijkheden/>.
+@prefix emissiepunt: <https://data.omgeving.vlaanderen.be/id/concept/riepr/emissiepunt-type/>.
+@prefix filter: <https://data.omgeving.vlaanderen.be/id/concept/riepr/filter-type/>.
+@prefix filter-eigenschappen: <https://data.omgeving.vlaanderen.be/id/concept/riepr/filter-eigenschappen/>.
+@prefix grondstoffen: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-grondstoffen/>.
+@prefix grondwater: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-grondwater/>.
+@prefix installatie-eigenschappen: <https://data.omgeving.vlaanderen.be/id/concept/riepr/installatie-eigenschappen/>.
+@prefix installatie-selectiemogelijkheden: <https://data.omgeving.vlaanderen.be/id/concept/riepr/installatie-eigenschappen-selectiemogelijkheden/>.
+@prefix installatie: <https://data.omgeving.vlaanderen.be/id/concept/riepr/installatie-type/>.
+@prefix lozingsplaats: <https://data.omgeving.vlaanderen.be/id/concept/riepr/lozingspunt-lozingsplaats/>.
+@prefix lucht: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-lucht/>.
+@prefix meetfrequentie: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-meetfrequentie/>.
+@prefix meetinstrument: <https://data.omgeving.vlaanderen.be/id/concept/riepr/meetinstrument-type/>.
+@prefix meetpunt-eigenschappen: <https://data.omgeving.vlaanderen.be/id/concept/riepr/meetpunt-eigenschappen/>.
+@prefix meetpunt-selectiemogelijkheden: <https://data.omgeving.vlaanderen.be/id/concept/riepr/meetpunt-eigenschappen-selectiemogelijkheden/>.
+@prefix meetpunt: <https://data.omgeving.vlaanderen.be/id/concept/riepr/meetpunt-type/>.
+@prefix onttrekkingspunt-eigenschappen: <https://data.omgeving.vlaanderen.be/id/concept/riepr/onttrekkingspunt-eigenschappen/>.
+@prefix onttrekkingspunt: <https://data.omgeving.vlaanderen.be/id/concept/riepr/onttrekkingspunt-type/>.
+@prefix peilmethode: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-peilmethode/>.
+@prefix pomptoestand: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-pomptoestand/>.
+@prefix procedure: <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/>.
+@prefix procesvariabele: <https://data.omgeving.vlaanderen.be/id/concept/riepr/procesvariabele-type/>.
+@prefix rubriek: <https://data.omgeving.vlaanderen.be/id/concept/riepr/rubriek-type/>.
+@prefix status-type: <https://data.omgeving.vlaanderen.be/id/concept/riepr/status-type/>.
+@prefix techniekmonstername: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-techniekmonstername/>.
+@prefix thema: <https://data.omgeving.vlaanderen.be/id/concept/riepr/thema-type/>.
+@prefix toepassingswijze: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-toepassingswijze/>.
+@prefix toestand-indicator: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-toestand-indicator/>.
+@prefix uitwisselpunt-eigenschappen: <https://data.omgeving.vlaanderen.be/id/concept/riepr/uitwisselpunt-eigenschappen/>.
+@prefix uitwisselpunt: <https://data.omgeving.vlaanderen.be/id/concept/riepr/uitwisselpunt-type/>.
+@prefix water: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-water/>.
+@prefix zelfcontrole-lucht: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-zelfcontrole-lucht/>.
+@prefix zelfcontrole-water: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-zelfcontrole-water/>.
+@prefix csor: <https://data.omgeving.vlaanderen.be/id/conceptscheme/csor/>.
+@prefix csor_eenheid: <https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/>.
+@prefix csor_variabele: <https://data.omgeving.vlaanderen.be/id/concept/csor/variabele/>.
+@prefix csor_drager: <https://data.omgeving.vlaanderen.be/id/concept/csor/drager/>.
+@prefix csor_kwantificeerbaaraspect: <https://data.omgeving.vlaanderen.be/id/concept/csor/kwantificeerbaaraspect/>.
+@prefix csor_soortwaardebepaling: <https://data.omgeving.vlaanderen.be/id/concept/csor/soortwaardebepaling/>.
+@prefix access_right: <http://publications.europa.eu/resource/authority/access-right/>.
+@prefix adms: <http://www.w3.org/ns/adms#>.
+@prefix agent: <https://data.riepr.omgeving.vlaanderen.be/id/agent/>.
+@prefix assettype: <http://purl.org/adms/assettype/>.
+@prefix conceptscheme-alg: <https://data.omgeving.vlaanderen.be/id/conceptscheme/>.
+@prefix conceptscheme: <https://data.omgeving.vlaanderen.be/id/conceptscheme/riepr/>.
+@prefix country: <http://publications.europa.eu/resource/authority/country/>.
+@prefix datasets: <https://datasets.omgeving.vlaanderen.be/>.
+@prefix datatheme_be: <http://vocab.belgif.be/auth/datatheme/>.
+@prefix datatheme_eu: <http://publications.europa.eu/resource/authority/data-theme/>.
+@prefix dbo: <http://dbpedia.org/ontology/>.
+@prefix dcat: <http://www.w3.org/ns/dcat#>.
+@prefix dc: <http://purl.org/dc/elements/1.1/>.
+@prefix dcmitype: <http://purl.org/dc/dcmitype/>.
+@prefix dcterms: <http://purl.org/dc/terms/>.
+@prefix dr: <https://data.omgeving.vlaanderen.be/id/concept/drager/>.
+@prefix eurovoc: <http://eurovoc.europa.eu/>.
+@prefix file_type: <http://publications.europa.eu/resource/authority/file-type/>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix formats: <http://www.w3.org/ns/formats/>.
+@prefix frequency: <http://publications.europa.eu/resource/authority/frequency/>.
+@prefix gemet: <http://www.eionet.europa.eu/gemet/concept/>.
+@prefix gml: <http://www.opengis.net/ont/gml#>.
+@prefix gsp: <http://www.opengis.net/ont/geosparql#>.
+@prefix iioa: <https://data.riepr.omgeving.vlaanderen.be/id/iioa/>.
+@prefix platform: <https://data.riepr.omgeving.vlaanderen.be/id/platform/>.
+@prefix licence: <http://data.vlaanderen.be/id/licentie/modellicentie-gratis-hergebruik/>.
+@prefix locn: <http://www.w3.org/ns/locn#>.
+@prefix riepr: <https://data.riepr.omgeving.vlaanderen.be/ns/riepr#>.
+@prefix riepr-vocab: <https://data.riepr.omgeving.vlaanderen.be/ns/vocab#>.
+@prefix metadata: <https://data.omgeving.vlaanderen.be/ns/metadata#>.
+@prefix observatie: <https://data.riepr.omgeving.vlaanderen.be/id/observation/>.
+@prefix omg_catalog_doc: <https://data.omgeving.vlaanderen.be/doc/catalog/>.
+@prefix omg_catalog: <https://data.omgeving.vlaanderen.be/id/catalog/>.
+@prefix omg_collection: <https://data.omgeving.vlaanderen.be/id/collection/>.
+@prefix omg_dataservice: <https://data.omgeving.vlaanderen.be/id/dataservice/>.
+@prefix omg_dataset_doc: <https://data.omgeving.vlaanderen.be/doc/dataset/>.
+@prefix omg_dataset: <https://data.omgeving.vlaanderen.be/id/dataset/>.
+@prefix omg_distribution_doc: <https://data.omgeving.vlaanderen.be/doc/distribution/>.
+@prefix omg_distribution: <https://data.omgeving.vlaanderen.be/id/distribution/>.
+@prefix omg_graphcollection: <https://data.omgeving.vlaanderen.be/id/graphcollection/>.
+@prefix omg_graph: <https://data.omgeving.vlaanderen.be/id/graph/>.
+@prefix omg: <https://data.vlaanderen.be/ns/omgevingsvergunning#>.
+@prefix omg_id: <https://data.omgeving.vlaanderen.be/id/>.
+@prefix omg_named_graph: <https://data.omgeving.vlaanderen.be/id/namedgraph/>.
+@prefix omg_ontology: <https://data.omgeving.vlaanderen.be/id/ontology/>.
+@prefix omg_package: <https://data.omgeving.vlaanderen.be/id/package/>.
+@prefix omg_periodoftime: <https://data.omgeving.vlaanderen.be/id/periodoftime/>.
+@prefix omg_service: <https://data.omgeving.vlaanderen.be/id/service/>.
+@prefix omg_vcard: <https://data.omgeving.vlaanderen.be/id/vcard/>.
+@prefix org: <http://www.w3.org/ns/org#>.
+@prefix ovo: <http://data.vlaanderen.be/id/organisatie/>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix observatieprocedure: <https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/>.
+@prefix property: <https://id.erfgoed.net/property/>.
+@prefix provenancestatement: <https://data.omgeving.vlaanderen.be/id/provenancestatement/dataset/>.
+@prefix prov: <http://www.w3.org/ns/prov#>.
+@prefix qb: <http://purl.org/linked-data/cube#>.
+@prefix quantitykind: <http://qudt.org/vocab/quantitykind/>.
+@prefix qudt: <http://qudt.org/schema/qudt/>.
+@prefix qudt-schema: <https://qudt.org/schema/qudt/>.
+@prefix qudt-unit: <https://qudt.org/vocab/unit/>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix rechtspers: <https://data.cbb.omgeving.vlaanderen.be/id/concept/orgrechtspersoonlijkheid/>.
+@prefix refnis2025: <http://vocab.belgif.be/auth/refnis2025/>.
+@prefix repo: <https://repo.omgeving.vlaanderen.be/artifactory/release/>.
+@prefix rov: <http://www.w3.org/ns/regorg#>.
+@prefix schema: <https://schema.org/>.
+@prefix sdmx-attribute: <http://purl.org/linked-data/sdmx/2009/attribute#>.
+@prefix sdmx-dimension: <http://purl.org/linked-data/sdmx/2009/dimension#>.
+@prefix sdmx-measure: <http://purl.org/linked-data/sdmx/2009/measure#>.
+@prefix sh: <http://www.w3.org/ns/shacl#>.
+@prefix site: <https://data.riepr.omgeving.vlaanderen.be/id/site/>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+@prefix sosa: <http://www.w3.org/ns/sosa/>.
+@prefix spdx: <http://spdx.org/rdf/terms#>.
+@prefix ssd: <http://www.w3.org/ns/sparql-service-description#>.
+@prefix ssn: <http://www.w3.org/ns/ssn/>.
+@prefix ssn-system: <http://www.w3.org/ns/ssn/systems/>.
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix unit: <http://qudt.org/vocab/unit/>.
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#>.
+@prefix vlarem-klasse: <https://data.omgeving.vlaanderen.be/id/concept/vlarem-klasse/>.
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix wise: <http://dd.eionet.europa.eu/vocabulary/wise/ObservedProperty/>.
+@prefix xkos: <http://rdf-vocabulary.ddialliance.org/xkos#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+qudt:numericResult a rdfs:Resource.
+qudt:numericValue a rdfs:Resource.
+qudt:standardUncertainty a rdfs:Resource.
+rdfs:comment a rdfs:Resource.
+rdfs:label a rdfs:Resource.
+rdfs:value a rdfs:Resource.
+time:hasDuration a rdfs:Resource.
+rov:registration a rdfs:Resource.
+sosa:hasFeatureOfInterest a rdfs:Resource.
+sosa:hasResult a rdfs:Resource.
+sosa:madeBySensor a rdfs:Resource.
+sosa:observedProperty a rdfs:Resource.
+sosa:phenomenonTime a rdfs:Resource.
+sosa:resultTime a rdfs:Resource.
+sosa:usedProcedure a rdfs:Resource.
+collectie:operationeel_parameters_grondwater a skos:Collection;
+    skos:member csor_variabele:V_246, csor_variabele:V_247, csor_variabele:V_251, csor_variabele:V_321, csor_variabele:V_329, csor_variabele:V_337;
+    skos:prefLabel "Parameters grondwaterkwaliteit"@nl.
+collectie:operationeel_stoffen_lucht a skos:Collection;
+    skos:member csor_variabele:V_1057, csor_variabele:V_1060, csor_variabele:V_1685, csor_variabele:V_1686, csor_variabele:V_1901, csor_variabele:V_1919;
+    skos:prefLabel "Verontreinigende stoffen en broeikasgassen (lucht)"@nl.
+collectie:operationeel_stoffen_water a skos:Collection;
+    skos:member csor_variabele:V_231, csor_variabele:V_316, csor_variabele:V_333, csor_variabele:V_351, csor_variabele:V_424, csor_variabele:V_46;
+    skos:prefLabel "Verontreinigende stoffen (water)"@nl.
+collectie:opslagcapaciteit_eenheden a skos:Collection;
+    skos:definition "De eenheden waarin de geïnstalleerde opslag- of overslagcapaciteit uitgedrukt kan worden."@nl;
+    skos:member csor_eenheid:E_32, csor_eenheid:E_33, csor_eenheid:E_41, csor_eenheid:E_83;
+    skos:note "De eenheden waarin de geïnstalleerde opslag- of overslagcapaciteit uitgedrukt kan worden."@nl;
+    skos:prefLabel "Verzameling van CSOR eenheden"@nl.
+collectie:productiecapaciteit_eenheden a skos:Collection;
+    skos:definition "De eenheden waarin de geïnstalleerde productiecapaciteit uitgedrukt kan worden."@nl;
+    skos:member csor_eenheid:E_15;
+    skos:note "De eenheden waarin de geïnstalleerde productiecapaciteit uitgedrukt kan worden."@nl;
+    skos:prefLabel "Verzameling van CSOR eenheden"@nl.
+collectie:vermogen_eenheden a skos:Collection;
+    skos:member csor_eenheid:E_92;
+    skos:prefLabel "Verzameling van CSOR eenheden"@nl.
+collectie:verwijderingsrendement_stoffen a skos:Collection;
+    skos:member csor_variabele:V_1096, csor_variabele:V_2217;
+    skos:prefLabel "Verzameling van CSOR stoffen"@nl.
+aangifte-status:concept a skos:Concept;
+    rdfs:seeAlso <http://purl.org/adms/status/UnderDevelopment>;
+    skos:inScheme conceptscheme:aangifte_status;
+    skos:notation "AANGIFTE_STATUS_CONCEPT";
+    skos:prefLabel "Status concept"@nl;
+    skos:topConceptOf conceptscheme:aangifte_status;
+    riepr-vocab:relevantDataType <http://www.w3.org/ns/adms#>.
+aangifte-status:gefaald a skos:Concept;
+    skos:inScheme conceptscheme:aangifte_status;
+    skos:notation "AANGIFTE_STATUS_GEFAALD";
+    skos:prefLabel "Gefaald"@nl;
+    skos:topConceptOf conceptscheme:aangifte_status.
+aangifte-status:ingediend a skos:Concept;
+    rdfs:seeAlso <http://purl.org/adms/status/Completed>;
+    skos:inScheme conceptscheme:aangifte_status;
+    skos:notation "AANGIFTE_STATUS_INGEDIEND";
+    skos:prefLabel "Ingediend"@nl;
+    skos:topConceptOf conceptscheme:aangifte_status;
+    riepr-vocab:relevantDataType <http://www.w3.org/ns/adms#>.
+aangifte-status:ingetrokken a skos:Concept;
+    rdfs:seeAlso <http://purl.org/adms/status/Withdrawn>;
+    skos:inScheme conceptscheme:aangifte_status;
+    skos:notation "AANGIFTE_STATUS_INGETROKKEN";
+    skos:prefLabel "Ingetrokken"@nl;
+    skos:topConceptOf conceptscheme:aangifte_status;
+    riepr-vocab:relevantDataType <http://www.w3.org/ns/adms#>.
+aangifte:operationeel a skos:Concept;
+    skos:inScheme conceptscheme:aangifte_type;
+    skos:notation "OPERATIONELE_GEGEVENS";
+    skos:prefLabel "Operationeel"@nl;
+    skos:topConceptOf conceptscheme:aangifte_type.
+aangifte:structuur a skos:Concept;
+    skos:inScheme conceptscheme:aangifte_type;
+    skos:notation "VASTE_GEGEVENS";
+    skos:prefLabel "Structuur"@nl;
+    skos:topConceptOf conceptscheme:aangifte_type.
+emissie:abnormale a skos:Concept;
+    skos:inScheme conceptscheme:emissie_type;
+    skos:notation "EMISSIE_ABNORMALE";
+    skos:prefLabel "Abnormale emissie"@nl;
+    skos:topConceptOf conceptscheme:emissie_type.
+emissie:geleide a skos:Concept;
+    skos:inScheme conceptscheme:emissie_type;
+    skos:notation "EMISSIE_GELEIDE";
+    skos:prefLabel "Geleide emissie"@nl;
+    skos:topConceptOf conceptscheme:emissie_type.
+emissie:niet-geleide-fakkel a skos:Concept;
+    skos:broader emissie:niet-geleide;
+    skos:broaderTransitive emissie:niet-geleide;
+    skos:inScheme conceptscheme:emissie_type;
+    skos:notation "EMISSIE_NIET_GELEIDE_FAKKEL";
+    skos:prefLabel "Fakkel"@nl;
+    skos:semanticRelation emissie:niet-geleide;
+    skos:topConceptOf conceptscheme:emissie_type;
+    riepr-vocab:relevantRiepr installatie:fakkel.
+emissie:niet-geleide-lekverlies a skos:Concept;
+    skos:broader emissie:niet-geleide;
+    skos:broaderTransitive emissie:niet-geleide;
+    skos:inScheme conceptscheme:emissie_type;
+    skos:notation "EMISSIE_NIET_GELEIDE_LEKVERLIES";
+    skos:prefLabel "Lekverlies"@nl;
+    skos:semanticRelation emissie:niet-geleide;
+    skos:topConceptOf conceptscheme:emissie_type.
+emissie:niet-geleide-opslagverlies a skos:Concept;
+    skos:broader emissie:niet-geleide;
+    skos:broaderTransitive emissie:niet-geleide;
+    skos:inScheme conceptscheme:emissie_type;
+    skos:notation "EMISSIE_NIET_GELEIDE_OPSLAGVERLIES";
+    skos:prefLabel "Opslagverlies"@nl;
+    skos:semanticRelation emissie:niet-geleide;
+    skos:topConceptOf conceptscheme:emissie_type;
+    riepr-vocab:relevantRiepr installatie:opslag_overslag.
+emissie:niet-geleide-overslagverlies a skos:Concept;
+    skos:broader emissie:niet-geleide;
+    skos:broaderTransitive emissie:niet-geleide;
+    skos:inScheme conceptscheme:emissie_type;
+    skos:notation "EMISSIE_NIET_GELEIDE_OVERSLAGVERLIES";
+    skos:prefLabel "Overslag verlies"@nl;
+    skos:semanticRelation emissie:niet-geleide;
+    skos:topConceptOf conceptscheme:emissie_type;
+    riepr-vocab:relevantRiepr installatie:opslag_overslag.
+emissie:niet-geleide a skos:Concept;
+    skos:inScheme conceptscheme:emissie_type;
+    skos:narrower emissie:niet-geleide-fakkel, emissie:niet-geleide-lekverlies, emissie:niet-geleide-opslagverlies, emissie:niet-geleide-overslagverlies;
+    skos:narrowerTransitive emissie:niet-geleide-fakkel, emissie:niet-geleide-lekverlies, emissie:niet-geleide-opslagverlies, emissie:niet-geleide-overslagverlies;
+    skos:notation "EMISSIE_NIET_GELEIDE";
+    skos:prefLabel "Niet-geleide emissie"@nl;
+    skos:semanticRelation emissie:niet-geleide-fakkel, emissie:niet-geleide-lekverlies, emissie:niet-geleide-opslagverlies, emissie:niet-geleide-overslagverlies;
+    skos:topConceptOf conceptscheme:emissie_type.
+emissiepunt-selectiemogelijkheden:collector a skos:Concept;
+    skos:definition "Lozing op een collector."@nl;
+    skos:inScheme conceptscheme:lozingspunt_lozingsplaats;
+    skos:note "Lozing op een collector."@nl;
+    skos:prefLabel "Collector"@nl;
+    skos:topConceptOf conceptscheme:lozingspunt_lozingsplaats.
+emissiepunt-selectiemogelijkheden:externe_waterzuivering a skos:Concept;
+    skos:definition "Lozing of afvoer naar een externe waterzuivering."@nl;
+    skos:inScheme conceptscheme:lozingspunt_lozingsplaats;
+    skos:note "Lozing of afvoer naar een externe waterzuivering."@nl;
+    skos:prefLabel "Externe waterzuivering"@nl;
+    skos:topConceptOf conceptscheme:lozingspunt_lozingsplaats.
+emissiepunt-selectiemogelijkheden:grondwater a skos:Concept;
+    skos:definition "Lozing in grondwater."@nl;
+    skos:inScheme conceptscheme:lozingspunt_lozingsplaats;
+    skos:note "Lozing in grondwater."@nl;
+    skos:prefLabel "Grondwater"@nl;
+    skos:topConceptOf conceptscheme:lozingspunt_lozingsplaats.
+emissiepunt-selectiemogelijkheden:oppervlaktewater a skos:Concept;
+    skos:definition "Lozing in oppervlaktewater."@nl;
+    skos:inScheme conceptscheme:lozingspunt_lozingsplaats;
+    skos:note "Lozing in oppervlaktewater."@nl;
+    skos:prefLabel "Oppervlaktewater"@nl;
+    skos:topConceptOf conceptscheme:lozingspunt_lozingsplaats.
+emissiepunt-selectiemogelijkheden:regenwaterriool a skos:Concept;
+    skos:definition "Lozing op een regenwaterriool."@nl;
+    skos:inScheme conceptscheme:lozingspunt_lozingsplaats;
+    skos:note "Lozing op een regenwaterriool."@nl;
+    skos:prefLabel "Regenwaterriolering"@nl;
+    skos:topConceptOf conceptscheme:lozingspunt_lozingsplaats.
+emissiepunt-selectiemogelijkheden:riool a skos:Concept;
+    skos:definition "Lozing op riolering."@nl;
+    skos:inScheme conceptscheme:lozingspunt_lozingsplaats;
+    skos:note "Lozing op riolering."@nl;
+    skos:prefLabel "Riool"@nl;
+    skos:topConceptOf conceptscheme:lozingspunt_lozingsplaats.
+emissiepunt-eigenschappen:aantal_punten dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Het aantal gegroepeerde emissiepunten."@nl;
+    skos:inScheme conceptscheme:emissiepunt_eigenschappen;
+    skos:note "Het aantal gegroepeerde emissiepunten."@nl;
+    skos:prefLabel "Aantal uitstroompunten"@nl;
+    skos:topConceptOf conceptscheme:emissiepunt_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:integer;
+    riepr-vocab:relevantRiepr emissiepunt:emissiepunt_lucht, emissiepunt:fakkel, emissiepunt:gebouw, emissiepunt:installatie, emissiepunt:schoorsteen, emissiepunt:schoorsteen_horizontale_uitstroom, emissiepunt:schoorsteen_verticale_uitstroom.
+emissiepunt-eigenschappen:diameter dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    qudt:relevantUnit csor_eenheid:E_59;
+    a skos:Concept;
+    skos:definition "De diameter van de opening van het emissiepunt naar de lucht, of, voor een opening die niet rond is, de equivalente diameter die op dezelfde oppervlakte neerkomt."@nl;
+    skos:inScheme conceptscheme:emissiepunt_eigenschappen;
+    skos:note "De diameter van de opening van het emissiepunt naar de lucht, of, voor een opening die niet rond is, de equivalente diameter die op dezelfde oppervlakte neerkomt."@nl;
+    skos:prefLabel "Diameter"@nl;
+    skos:topConceptOf conceptscheme:emissiepunt_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:relevantProperty dbo:diameter;
+    riepr-vocab:relevantRiepr emissiepunt:emissiepunt_lucht, emissiepunt:fakkel, emissiepunt:gebouw, emissiepunt:installatie, emissiepunt:schoorsteen, emissiepunt:schoorsteen_horizontale_uitstroom, emissiepunt:schoorsteen_verticale_uitstroom.
+emissiepunt-eigenschappen:hoogte dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    qudt:relevantUnit csor_eenheid:E_59;
+    a skos:Concept;
+    skos:definition "De hoogte van het emissiepunt naar de lucht ten opzichte van het maaiveld."@nl;
+    skos:inScheme conceptscheme:emissiepunt_eigenschappen;
+    skos:note "De hoogte van het emissiepunt naar de lucht ten opzichte van het maaiveld."@nl;
+    skos:prefLabel "Hoogte"@nl;
+    skos:topConceptOf conceptscheme:emissiepunt_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:relevantProperty dbo:height;
+    riepr-vocab:relevantRiepr emissiepunt:emissiepunt_lucht, emissiepunt:fakkel, emissiepunt:gebouw, emissiepunt:installatie, emissiepunt:schoorsteen, emissiepunt:schoorsteen_horizontale_uitstroom, emissiepunt:schoorsteen_verticale_uitstroom.
+emissiepunt-eigenschappen:lozingspunt-lozingsplaats dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Typering van de plaats waar het water geloosd wordt."@nl;
+    skos:inScheme conceptscheme:emissiepunt_eigenschappen;
+    skos:note "Typering van de plaats waar het water geloosd wordt."@nl;
+    skos:prefLabel "Lozingsplaats"@nl;
+    skos:topConceptOf conceptscheme:emissiepunt_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList conceptscheme:lozingspunt_lozingsplaats;
+    riepr-vocab:relevantRiepr emissiepunt:lozingspunt.
+emissiepunt:emissiepunt_lucht dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een emissie naar de lucht."@nl;
+    skos:inScheme conceptscheme:emissiepunt_type;
+    skos:narrower emissiepunt:fakkel, emissiepunt:gebouw, emissiepunt:installatie, emissiepunt:schoorsteen;
+    skos:narrowerTransitive emissiepunt:fakkel, emissiepunt:gebouw, emissiepunt:installatie, emissiepunt:schoorsteen, emissiepunt:schoorsteen_horizontale_uitstroom, emissiepunt:schoorsteen_verticale_uitstroom;
+    skos:note "Een emissie naar de lucht."@nl;
+    skos:prefLabel "Emissiepunt lucht"@nl;
+    skos:semanticRelation emissiepunt:fakkel, emissiepunt:gebouw, emissiepunt:installatie, emissiepunt:schoorsteen, emissiepunt:schoorsteen_horizontale_uitstroom, emissiepunt:schoorsteen_verticale_uitstroom;
+    skos:topConceptOf conceptscheme:emissiepunt_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar true.
+emissiepunt:fakkel dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader emissiepunt:emissiepunt_lucht;
+    skos:broaderTransitive emissiepunt:emissiepunt_lucht;
+    skos:definition "Een apparaat bestemd voor de afgassen in een noodsituatie."@nl;
+    skos:inScheme conceptscheme:emissiepunt_type;
+    skos:note "Een apparaat bestemd voor de afgassen in een noodsituatie."@nl;
+    skos:prefLabel "Fakkel"@nl;
+    skos:semanticRelation emissiepunt:emissiepunt_lucht;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+emissiepunt:gebouw dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader emissiepunt:emissiepunt_lucht;
+    skos:broaderTransitive emissiepunt:emissiepunt_lucht;
+    skos:definition "Emissie uit een gebouw."@nl;
+    skos:inScheme conceptscheme:emissiepunt_type;
+    skos:note "Emissie uit een gebouw."@nl;
+    skos:prefLabel "Gebouw"@nl;
+    skos:semanticRelation emissiepunt:emissiepunt_lucht;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+emissiepunt:installatie dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader emissiepunt:emissiepunt_lucht;
+    skos:broaderTransitive emissiepunt:emissiepunt_lucht;
+    skos:definition "Emissie uit een installatie."@nl;
+    skos:inScheme conceptscheme:emissiepunt_type;
+    skos:note "Emissie uit een installatie."@nl;
+    skos:prefLabel "Installatie"@nl;
+    skos:semanticRelation emissiepunt:emissiepunt_lucht;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+emissiepunt:lozingspunt dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een lozing naar water."@nl;
+    skos:inScheme conceptscheme:emissiepunt_type;
+    skos:note "Een lozing naar water."@nl;
+    skos:prefLabel "Lozingspunt"@nl;
+    skos:topConceptOf conceptscheme:emissiepunt_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+emissiepunt:schoorsteen dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader emissiepunt:emissiepunt_lucht;
+    skos:broaderTransitive emissiepunt:emissiepunt_lucht;
+    skos:definition "Een schoorsteen."@nl;
+    skos:inScheme conceptscheme:emissiepunt_type;
+    skos:narrower emissiepunt:schoorsteen_horizontale_uitstroom, emissiepunt:schoorsteen_verticale_uitstroom;
+    skos:narrowerTransitive emissiepunt:schoorsteen_horizontale_uitstroom, emissiepunt:schoorsteen_verticale_uitstroom;
+    skos:note "Een schoorsteen."@nl;
+    skos:prefLabel "Schoorsteen"@nl;
+    skos:semanticRelation emissiepunt:emissiepunt_lucht, emissiepunt:schoorsteen_horizontale_uitstroom, emissiepunt:schoorsteen_verticale_uitstroom;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar true.
+emissiepunt:schoorsteen_horizontale_uitstroom dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader emissiepunt:schoorsteen;
+    skos:broaderTransitive emissiepunt:emissiepunt_lucht, emissiepunt:schoorsteen;
+    skos:definition "Een schoorsteen met een horizontale uitstroom."@nl;
+    skos:inScheme conceptscheme:emissiepunt_type;
+    skos:note "Een schoorsteen met een horizontale uitstroom."@nl;
+    skos:prefLabel "Schoorsteen met horizontale uitstroom"@nl;
+    skos:semanticRelation emissiepunt:emissiepunt_lucht, emissiepunt:schoorsteen;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+emissiepunt:schoorsteen_verticale_uitstroom dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader emissiepunt:schoorsteen;
+    skos:broaderTransitive emissiepunt:emissiepunt_lucht, emissiepunt:schoorsteen;
+    skos:definition "Een schoorsteen met een verticale uitstroom."@nl;
+    skos:inScheme conceptscheme:emissiepunt_type;
+    skos:note "Een schoorsteen met een verticale uitstroom."@nl;
+    skos:prefLabel "Schoorsteen met verticale uitstroom"@nl;
+    skos:semanticRelation emissiepunt:emissiepunt_lucht, emissiepunt:schoorsteen;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+filter-eigenschappen:diepte dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    qudt:relevantUnit csor_eenheid:E_59;
+    a skos:Concept;
+    skos:definition "De diepte van de onderkant van de filter ten opzichte van het maaiveld."@nl;
+    skos:inScheme conceptscheme:filter_eigenschappen;
+    skos:note "De diepte van de onderkant van de filter ten opzichte van het maaiveld."@nl;
+    skos:prefLabel "Diepte onderkant van de filter"@nl;
+    skos:topConceptOf conceptscheme:filter_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:relevantProperty dbo:depth;
+    riepr-vocab:relevantRiepr filter:filter, filter:injectie, filter:omkeerbaar, filter:peil, filter:pomp.
+filter-eigenschappen:diepte_pomp dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    qudt:relevantUnit csor_eenheid:E_59;
+    a skos:Concept;
+    skos:definition "De diepte van de pomp ten opzichte van het maaiveld."@nl;
+    skos:inScheme conceptscheme:filter_eigenschappen;
+    skos:note "De diepte van de pomp ten opzichte van het maaiveld."@nl;
+    skos:prefLabel "Diepte pomp"@nl;
+    skos:topConceptOf conceptscheme:filter_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:relevantProperty dbo:depth;
+    riepr-vocab:relevantRiepr filter:pomp.
+filter-eigenschappen:lengte dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    qudt:relevantUnit csor_eenheid:E_59;
+    a skos:Concept;
+    skos:definition "De lengte van de filter gemeten van de onderkant tot de bovenkant."@nl;
+    skos:inScheme conceptscheme:filter_eigenschappen;
+    skos:note "De lengte van de filter gemeten van de onderkant tot de bovenkant."@nl;
+    skos:prefLabel "Lengte van de filter"@nl;
+    skos:topConceptOf conceptscheme:filter_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:relevantRiepr filter:filter, filter:injectie, filter:omkeerbaar, filter:peil, filter:pomp.
+filter-eigenschappen:watervoerendeLaag dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "De watervoerende laag (aquifer) waarin de filter zich bevindt."@nl;
+    skos:inScheme conceptscheme:filter_eigenschappen;
+    skos:note "De watervoerende laag (aquifer) waarin de filter zich bevindt."@nl;
+    skos:prefLabel "Watervoerende laag"@nl;
+    skos:topConceptOf conceptscheme:filter_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList <https://data.bodemenondergrond.vlaanderen.be/id/conceptscheme/aquiferhcovv2>;
+    riepr-vocab:relevantRiepr filter:filter, filter:injectie, filter:omkeerbaar, filter:peil, filter:pomp.
+filter:filter dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Het geperforeerde deel van een put waarlangs grondwater in of uit de put stroomt."@nl;
+    skos:inScheme conceptscheme:filter_type;
+    skos:narrower filter:injectie, filter:omkeerbaar, filter:peil, filter:pomp;
+    skos:narrowerTransitive filter:injectie, filter:omkeerbaar, filter:peil, filter:pomp;
+    skos:note "Het geperforeerde deel van een put waarlangs grondwater in of uit de put stroomt."@nl;
+    skos:prefLabel "Filter"@nl;
+    skos:semanticRelation filter:injectie, filter:omkeerbaar, filter:peil, filter:pomp;
+    skos:topConceptOf conceptscheme:filter_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar true.
+filter:injectie dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader filter:filter;
+    skos:broaderTransitive filter:filter;
+    skos:definition "Een filter die uitsluitend gebruikt wordt voor het injecteren van (grond)water in de ondergrond."@nl;
+    skos:inScheme conceptscheme:filter_type;
+    skos:note "Een filter die uitsluitend gebruikt wordt voor het injecteren van (grond)water in de ondergrond."@nl;
+    skos:prefLabel "Injectiefilter"@nl;
+    skos:semanticRelation filter:filter;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+filter:omkeerbaar dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader filter:filter;
+    skos:broaderTransitive filter:filter;
+    skos:definition "Een filter die zowel grondwater kan injecteren als onttrekken, meestal in de context van geothermische installaties."@nl;
+    skos:inScheme conceptscheme:filter_type;
+    skos:note "Een filter die zowel grondwater kan injecteren als onttrekken, meestal in de context van geothermische installaties."@nl;
+    skos:prefLabel "Omkeerbare filter"@nl;
+    skos:semanticRelation filter:filter;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+filter:peil dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader filter:filter;
+    skos:broaderTransitive filter:filter;
+    skos:definition "Een filter waaruit geen grondwater kan worden gepompt en die uitsluitend voor peilmetingen en grondwaterstaalname wordt benut."@nl;
+    skos:inScheme conceptscheme:filter_type;
+    skos:note "Een filter waaruit geen grondwater kan worden gepompt en die uitsluitend voor peilmetingen en grondwaterstaalname wordt benut."@nl;
+    skos:prefLabel "Peilfilter"@nl;
+    skos:semanticRelation filter:filter;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+filter:pomp dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader filter:filter;
+    skos:broaderTransitive filter:filter;
+    skos:definition "Een filter waaruit grondwater wordt opgepompt of onttrokken."@nl;
+    skos:inScheme conceptscheme:filter_type;
+    skos:note "Een filter waaruit grondwater wordt opgepompt of onttrokken."@nl;
+    skos:prefLabel "Pompfilter"@nl;
+    skos:semanticRelation filter:filter;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+installatie-selectiemogelijkheden:andere a skos:Concept;
+    skos:definition "De stookinstallatie wekt een andere soort energie op."@nl;
+    skos:inScheme conceptscheme:installatie_soort_opgewekte_energie;
+    skos:note "De stookinstallatie wekt een andere soort energie op."@nl;
+    skos:prefLabel "Andere"@nl;
+    skos:topConceptOf conceptscheme:installatie_soort_opgewekte_energie.
+installatie-selectiemogelijkheden:andere_motor a skos:Concept;
+    skos:definition "Een ander type motor dan de opgesomde."@nl;
+    skos:inScheme conceptscheme:installatie_type_stookinstallatie;
+    skos:note "Een ander type motor dan de opgesomde."@nl;
+    skos:prefLabel "Andere motor"@nl;
+    skos:topConceptOf conceptscheme:installatie_type_stookinstallatie.
+installatie-selectiemogelijkheden:andere_stookinstallatie a skos:Concept;
+    skos:definition "Een ander type stookinstallatie dan de opgesomde."@nl;
+    skos:inScheme conceptscheme:installatie_type_stookinstallatie;
+    skos:note "Een ander type stookinstallatie dan de opgesomde."@nl;
+    skos:prefLabel "Andere stookinstallatie"@nl;
+    skos:topConceptOf conceptscheme:installatie_type_stookinstallatie.
+installatie-selectiemogelijkheden:boiler a skos:Concept;
+    skos:definition "Een stookinstallatie die water of stoom verwarmt."@nl;
+    skos:inScheme conceptscheme:installatie_type_stookinstallatie;
+    skos:note "Een stookinstallatie die water of stoom verwarmt."@nl;
+    skos:prefLabel "Boiler"@nl;
+    skos:topConceptOf conceptscheme:installatie_type_stookinstallatie.
+installatie-selectiemogelijkheden:dieselmotor a skos:Concept;
+    skos:definition "Een verbrandingsmotor op diesel."@nl;
+    skos:inScheme conceptscheme:installatie_type_stookinstallatie;
+    skos:note "Een verbrandingsmotor op diesel."@nl;
+    skos:prefLabel "Dieselmotor"@nl;
+    skos:topConceptOf conceptscheme:installatie_type_stookinstallatie.
+installatie-selectiemogelijkheden:druk a skos:Concept;
+    skos:definition "De stookinstallatie wekt druk op."@nl;
+    skos:inScheme conceptscheme:installatie_soort_opgewekte_energie;
+    skos:note "De stookinstallatie wekt druk op."@nl;
+    skos:prefLabel "Druk"@nl;
+    skos:topConceptOf conceptscheme:installatie_soort_opgewekte_energie.
+installatie-selectiemogelijkheden:dual_fuel_motor a skos:Concept;
+    skos:definition "Een motor die op twee brandstoffen kan werken."@nl;
+    skos:inScheme conceptscheme:installatie_type_stookinstallatie;
+    skos:note "Een motor die op twee brandstoffen kan werken."@nl;
+    skos:prefLabel "Dual fuel motor"@nl;
+    skos:topConceptOf conceptscheme:installatie_type_stookinstallatie.
+installatie-selectiemogelijkheden:elektriciteit a skos:Concept;
+    skos:definition "De stookinstallatie wekt elektriciteit op."@nl;
+    skos:inScheme conceptscheme:installatie_soort_opgewekte_energie;
+    skos:note "De stookinstallatie wekt elektriciteit op."@nl;
+    skos:prefLabel "Elektriciteit"@nl;
+    skos:topConceptOf conceptscheme:installatie_soort_opgewekte_energie.
+installatie-selectiemogelijkheden:gasmotor a skos:Concept;
+    skos:definition "Een verbrandingsmotor op gas."@nl;
+    skos:inScheme conceptscheme:installatie_type_stookinstallatie;
+    skos:note "Een verbrandingsmotor op gas."@nl;
+    skos:prefLabel "Gasmotor"@nl;
+    skos:topConceptOf conceptscheme:installatie_type_stookinstallatie.
+installatie-selectiemogelijkheden:gasturbine a skos:Concept;
+    skos:definition "Een turbine aangedreven door de verbranding van gas."@nl;
+    skos:inScheme conceptscheme:installatie_type_stookinstallatie;
+    skos:note "Een turbine aangedreven door de verbranding van gas."@nl;
+    skos:prefLabel "Gasturbine"@nl;
+    skos:topConceptOf conceptscheme:installatie_type_stookinstallatie.
+installatie-selectiemogelijkheden:mechanische_energie a skos:Concept;
+    skos:definition "De stookinstallatie wekt mechanische energie op."@nl;
+    skos:inScheme conceptscheme:installatie_soort_opgewekte_energie;
+    skos:note "De stookinstallatie wekt mechanische energie op."@nl;
+    skos:prefLabel "Mechanische energie"@nl;
+    skos:topConceptOf conceptscheme:installatie_soort_opgewekte_energie.
+installatie-selectiemogelijkheden:stoom a skos:Concept;
+    skos:definition "De stookinstallatie wekt stoom op."@nl;
+    skos:inScheme conceptscheme:installatie_soort_opgewekte_energie;
+    skos:note "De stookinstallatie wekt stoom op."@nl;
+    skos:prefLabel "Stoom"@nl;
+    skos:topConceptOf conceptscheme:installatie_soort_opgewekte_energie.
+installatie-selectiemogelijkheden:warm_water a skos:Concept;
+    skos:definition "De stookinstallatie wekt warm water op."@nl;
+    skos:inScheme conceptscheme:installatie_soort_opgewekte_energie;
+    skos:note "De stookinstallatie wekt warm water op."@nl;
+    skos:prefLabel "Warm water"@nl;
+    skos:topConceptOf conceptscheme:installatie_soort_opgewekte_energie.
+installatie-selectiemogelijkheden:warme_lucht a skos:Concept;
+    skos:definition "De stookinstallatie wekt warme lucht op."@nl;
+    skos:inScheme conceptscheme:installatie_soort_opgewekte_energie;
+    skos:note "De stookinstallatie wekt warme lucht op."@nl;
+    skos:prefLabel "Warme lucht"@nl;
+    skos:topConceptOf conceptscheme:installatie_soort_opgewekte_energie.
+installatie-selectiemogelijkheden:wkk a skos:Concept;
+    skos:definition "Een warmtekrachtkoppeling die gelijktijdig warmte en elektriciteit opwekt."@nl;
+    skos:inScheme conceptscheme:installatie_type_stookinstallatie;
+    skos:note "Een warmtekrachtkoppeling die gelijktijdig warmte en elektriciteit opwekt."@nl;
+    skos:prefLabel "WKK"@nl;
+    skos:topConceptOf conceptscheme:installatie_type_stookinstallatie.
+installatie-eigenschappen:geinstalleerde_opslag_overslagcapaciteit dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    qudt:relevantUnit collectie:opslagcapaciteit_eenheden;
+    a skos:Concept;
+    skos:definition "De geïnstalleerde opslag- of overslagcapaciteit."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "De geïnstalleerde opslag- of overslagcapaciteit."@nl;
+    skos:prefLabel "Geinstalleerde opslag/overslagcapaciteit"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:relevantRiepr installatie:opslag_overslag.
+installatie-eigenschappen:geinstalleerde_productiecapaciteit dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    qudt:relevantUnit collectie:productiecapaciteit_eenheden;
+    a skos:Concept;
+    skos:definition "De maximale geïnstalleerde hoeveelheid stof of producten die een productie-installatie in een jaar kan produceren."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "De maximale geïnstalleerde hoeveelheid stof of producten die een productie-installatie in een jaar kan produceren."@nl;
+    skos:prefLabel "Geinstalleerde productiecapaciteit"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:relevantRiepr installatie:productie_installatie.
+installatie-eigenschappen:geproduceerde_stof_of_product dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Een beschrijving van de producten of stoffen die door de productie-installatie worden geproduceerd."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "Een beschrijving van de producten of stoffen die door de productie-installatie worden geproduceerd."@nl;
+    skos:prefLabel "Geproduceerd product of stof"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:relevantRiepr installatie:productie_installatie.
+installatie-eigenschappen:luchtzuiverings_techniek dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Een beschrijving van de toegepaste luchtzuiveringstechniek."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "Een beschrijving van de toegepaste luchtzuiveringstechniek."@nl;
+    skos:prefLabel "Luchtzuiveringstechniek"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList <https://vito.be/codelijst/luchtzuiveringstechniek>;
+    riepr-vocab:relevantRiepr installatie:luchtzuivering.
+installatie-eigenschappen:nominaal_thermisch_vermogen dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    qudt:relevantUnit collectie:vermogen_eenheden;
+    a skos:Concept;
+    skos:definition "Het nominaal thermisch vermogen van een stookinstallatie."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "Het nominaal thermisch vermogen van een stookinstallatie."@nl;
+    skos:prefLabel "Nominaal thermisch vermogen"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:relevantRiepr installatie:directe_stookinstallatie, installatie:indirecte_stookinstallatie, installatie:stookinstallatie.
+installatie-eigenschappen:omschrijving dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Een algemene beschrijving van de productie-installatie."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "Een algemene beschrijving van de productie-installatie."@nl;
+    skos:prefLabel "Beschrijving"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:relevantRiepr installatie:productie_installatie.
+installatie-eigenschappen:opslagen_overgeslagen_stof dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "De op- of overgeslagen stof (zoals benzine, white spirit, zand)."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "De op- of overgeslagen stof (zoals benzine, white spirit, zand)."@nl;
+    skos:prefLabel "Op- of overgeslagen stof"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:relevantRiepr installatie:opslag_overslag.
+installatie-eigenschappen:soort_opgewekte_energie dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Het soort energie dat door de stookinstallatie wordt opgewekt."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "Het soort energie dat door de stookinstallatie wordt opgewekt."@nl;
+    skos:prefLabel "Soort opgewekte energie"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList conceptscheme:installatie_soort_opgewekte_energie;
+    riepr-vocab:relevantRiepr installatie:directe_stookinstallatie, installatie:indirecte_stookinstallatie, installatie:stookinstallatie.
+installatie-eigenschappen:technische_kenmerken dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Een beschrijving van de technische kenmerken van een fakkel."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "Een beschrijving van de technische kenmerken van een fakkel."@nl;
+    skos:prefLabel "Technische kenmerken"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:relevantRiepr installatie:fakkel.
+installatie-eigenschappen:type_opslag_overslag dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Een beschrijving van het type opslag of overslag (zoals tank met vlottend dak; tank met vast dak)."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "Een beschrijving van het type opslag of overslag (zoals tank met vlottend dak; tank met vast dak)."@nl;
+    skos:prefLabel "Type opslag"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:relevantRiepr installatie:opslag_overslag.
+installatie-eigenschappen:type_stookinstallatie dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Het type stookinstallatie."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "Het type stookinstallatie."@nl;
+    skos:prefLabel "Type stookinstallatie"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList conceptscheme:installatie_type_stookinstallatie;
+    riepr-vocab:relevantRiepr installatie:directe_stookinstallatie, installatie:indirecte_stookinstallatie, installatie:stookinstallatie.
+installatie-eigenschappen:verwijderingsrendement dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> installatie-eigenschappen:verwijderingsrendement_percentage, installatie-eigenschappen:verwijderingsrendement_stof;
+    a skos:Concept;
+    skos:definition "Samengestelde eigenschap voor verwijderingsrendement (stof en percentage)."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "Samengestelde eigenschap voor verwijderingsrendement (stof en percentage)."@nl;
+    skos:prefLabel "Verwijderingsrendement"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht false.
+installatie-eigenschappen:verwijderingsrendement_percentage dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> installatie-eigenschappen:verwijderingsrendement;
+    qudt:relevantUnit csor_eenheid:E_43;
+    a skos:Concept;
+    skos:definition "Het % waarmee de verontreinigende stof door de luchtzuivering wordt verwijderd"@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "Het % waarmee de verontreinigende stof door de luchtzuivering wordt verwijderd"@nl;
+    skos:prefLabel "Rendement"@nl;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:decimal.
+installatie-eigenschappen:verwijderingsrendement_stof dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation riepr:parameter;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> installatie-eigenschappen:verwijderingsrendement;
+    a skos:Concept;
+    skos:definition "De verontreinigende stoffen en broeikasgassen die door de luchtzuivering verwijderd worden."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "De verontreinigende stoffen en broeikasgassen die door de luchtzuivering verwijderd worden."@nl;
+    skos:prefLabel "Stof of BKG"@nl;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList collectie:verwijderingsrendement_stoffen;
+    riepr-vocab:relevantRiepr installatie:luchtzuivering.
+installatie-eigenschappen:waterzuiveringstechniek dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> installatie-eigenschappen:waterzuiveringstechniek_ingebruikvan, installatie-eigenschappen:waterzuiveringstechniek_techniek;
+    a skos:Concept;
+    skos:definition "Samengestelde eigenschap voor waterzuiveringstechniek."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "Samengestelde eigenschap voor waterzuiveringstechniek."@nl;
+    skos:prefLabel "Waterzuiveringstechniek"@nl;
+    skos:topConceptOf conceptscheme:installatie_eigenschappen;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantRiepr installatie:waterzuivering.
+installatie-eigenschappen:waterzuiveringstechniek_ingebruikvan dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation riepr:inGebruikVanaf;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> installatie-eigenschappen:waterzuiveringstechniek;
+    a skos:Concept;
+    skos:definition "De datum van ingebruikname van de waterzuiveringstechniek."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "De datum van ingebruikname van de waterzuiveringstechniek."@nl;
+    skos:prefLabel "Techniek in gebruik van"@nl;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:date.
+installatie-eigenschappen:waterzuiveringstechniek_techniek dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> installatie-eigenschappen:waterzuiveringstechniek;
+    a skos:Concept;
+    skos:definition "De techniek gebruikt voor de zuivering van water."@nl;
+    skos:inScheme conceptscheme:installatie_eigenschappen;
+    skos:note "De techniek gebruikt voor de zuivering van water."@nl;
+    skos:prefLabel "Techniek"@nl;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList <https://vito.be/codelijst/waterzuiveringstechniek>.
+installatie:directe_stookinstallatie dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader installatie:stookinstallatie;
+    skos:broaderTransitive installatie:stookinstallatie;
+    skos:definition "Een stookinstallatie waarbij de verbrandingsgassen rechtstreeks in contact komen met de te verwarmen of te behandelen lucht, voorwerpen of materialen."@nl;
+    skos:inScheme conceptscheme:installatie_type;
+    skos:note "Een stookinstallatie waarbij de verbrandingsgassen rechtstreeks in contact komen met de te verwarmen of te behandelen lucht, voorwerpen of materialen."@nl;
+    skos:prefLabel "Directe Stookinstallatie"@nl;
+    skos:semanticRelation installatie:stookinstallatie;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+installatie:fakkel dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een installatie bestemd voor de verbranding van afgassen in de open lucht in noodsituaties."@nl;
+    skos:inScheme conceptscheme:installatie_type;
+    skos:note "Een installatie bestemd voor de verbranding van afgassen in de open lucht in noodsituaties."@nl;
+    skos:prefLabel "Fakkel installatie"@nl;
+    skos:topConceptOf conceptscheme:installatie_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+installatie:geothermisch dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een installatie die grondwater benut voor verwarming en koeling."@nl;
+    skos:inScheme conceptscheme:installatie_type;
+    skos:note "Een installatie die grondwater benut voor verwarming en koeling."@nl;
+    skos:prefLabel "Geothermische installatie"@nl;
+    skos:topConceptOf conceptscheme:installatie_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+installatie:gpbv dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een vaste technische eenheid waarin een of meer van de activiteiten en processen vermeld in de indelingslijst plaatsvinden, aangeduid met de letter X in de vierde kolom van de indelingslijst."@nl;
+    skos:inScheme conceptscheme:installatie_type;
+    skos:note "Een vaste technische eenheid waarin een of meer van de activiteiten en processen vermeld in de indelingslijst plaatsvinden, aangeduid met de letter X in de vierde kolom van de indelingslijst."@nl;
+    skos:prefLabel "GPBV Installatie"@nl;
+    skos:topConceptOf conceptscheme:installatie_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar true.
+installatie:indirecte_stookinstallatie dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:broader installatie:stookinstallatie;
+    skos:broaderTransitive installatie:stookinstallatie;
+    skos:definition "Een stookinstallatie waarbij de warmte van de verbrandingsgassen indirect wordt overgedragen aan de te verwarmen lucht, vloeistoffen, voorwerpen of materialen, bijvoorbeeld via een warmtewisselaar of tussenmedium. De verbrandingsgassen komen daarbij niet in rechtstreeks contact met het te verwarmen medium of materiaal, maar worden afzonderlijk afgevoerd."@nl;
+    skos:inScheme conceptscheme:installatie_type;
+    skos:note "Een stookinstallatie waarbij de warmte van de verbrandingsgassen indirect wordt overgedragen aan de te verwarmen lucht, vloeistoffen, voorwerpen of materialen, bijvoorbeeld via een warmtewisselaar of tussenmedium. De verbrandingsgassen komen daarbij niet in rechtstreeks contact met het te verwarmen medium of materiaal, maar worden afzonderlijk afgevoerd."@nl;
+    skos:prefLabel "Indirecte stookinstallatie"@nl;
+    skos:semanticRelation installatie:stookinstallatie;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+installatie:luchtzuivering dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een installatie bestemd voor de zuivering van verontreinigde lucht."@nl;
+    skos:inScheme conceptscheme:installatie_type;
+    skos:note "Een installatie bestemd voor de zuivering van verontreinigde lucht."@nl;
+    skos:prefLabel "Luchtzuiveringsinstallatie"@nl;
+    skos:topConceptOf conceptscheme:installatie_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+installatie:opslag_overslag dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een plaats of ruimte bestemd voor de opslag of overslag van stoffen waaronder grondstoffen, producten en afval."@nl;
+    skos:inScheme conceptscheme:installatie_type;
+    skos:note "Een plaats of ruimte bestemd voor de opslag of overslag van stoffen waaronder grondstoffen, producten en afval."@nl;
+    skos:prefLabel "Opslag/Overslag"@nl;
+    skos:topConceptOf conceptscheme:installatie_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+installatie:productie_installatie dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een installatie of samenhangend geheel van installaties dat instaat voor of deel uitmaakt van een productieproces en dat emissies van afvalwater, afgassen en/of afvalstoffen genereert."@nl;
+    skos:inScheme conceptscheme:installatie_type;
+    skos:note "Een installatie of samenhangend geheel van installaties dat instaat voor of deel uitmaakt van een productieproces en dat emissies van afvalwater, afgassen en/of afvalstoffen genereert."@nl;
+    skos:prefLabel "Productie installatie"@nl;
+    skos:topConceptOf conceptscheme:installatie_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+installatie:stookinstallatie dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Elk technisch toestel waarin brandstoffen worden geoxideerd ten einde de aldus opgewekte warmte te gebruiken."@nl;
+    skos:inScheme conceptscheme:installatie_type;
+    skos:narrower installatie:directe_stookinstallatie, installatie:indirecte_stookinstallatie;
+    skos:narrowerTransitive installatie:directe_stookinstallatie, installatie:indirecte_stookinstallatie;
+    skos:note "Elk technisch toestel waarin brandstoffen worden geoxideerd ten einde de aldus opgewekte warmte te gebruiken."@nl;
+    skos:prefLabel "Stookinstallatie"@nl;
+    skos:semanticRelation installatie:directe_stookinstallatie, installatie:indirecte_stookinstallatie;
+    skos:topConceptOf conceptscheme:installatie_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+installatie:waterzuivering dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een installatie bestemd voor de zuivering van bedrijfsafvalwater."@nl;
+    skos:inScheme conceptscheme:installatie_type;
+    skos:note "Een installatie bestemd voor de zuivering van bedrijfsafvalwater."@nl;
+    skos:prefLabel "Waterzuiveringsinstallatie"@nl;
+    skos:topConceptOf conceptscheme:installatie_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+meetpunt-selectiemogelijkheden:ander_referentiepunt a skos:Concept;
+    skos:definition "Een ander referentiepunt dan de opgesomde."@nl;
+    skos:inScheme conceptscheme:meetpunt_referentiepunt_naam;
+    skos:note "Een ander referentiepunt dan de opgesomde."@nl;
+    skos:prefLabel "Ander referentiepunt"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_referentiepunt_naam.
+meetpunt-selectiemogelijkheden:bovenkant_beschermbuis a skos:Concept;
+    skos:definition "De bovenkant van de beschermbuis."@nl;
+    skos:inScheme conceptscheme:meetpunt_referentiepunt_naam;
+    skos:note "De bovenkant van de beschermbuis."@nl;
+    skos:prefLabel "Bovenkant beschermbuis"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_referentiepunt_naam.
+meetpunt-selectiemogelijkheden:bovenkant_peilbuis a skos:Concept;
+    skos:definition "De bovenkant van de peilbuis."@nl;
+    skos:inScheme conceptscheme:meetpunt_referentiepunt_naam;
+    skos:note "De bovenkant van de peilbuis."@nl;
+    skos:prefLabel "Bovenkant peilbuis"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_referentiepunt_naam.
+meetpunt-selectiemogelijkheden:bovenkant_straatpot a skos:Concept;
+    skos:definition "De bovenkant van de straatpot."@nl;
+    skos:inScheme conceptscheme:meetpunt_referentiepunt_naam;
+    skos:note "De bovenkant van de straatpot."@nl;
+    skos:prefLabel "Bovenkant straatpot"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_referentiepunt_naam.
+meetpunt-selectiemogelijkheden:maaiveld a skos:Concept;
+    skos:definition "Het maaiveld ter hoogte van de peilput."@nl;
+    skos:inScheme conceptscheme:meetpunt_referentiepunt_naam;
+    skos:note "Het maaiveld ter hoogte van de peilput."@nl;
+    skos:prefLabel "Maaiveld"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_referentiepunt_naam.
+meetpunt-selectiemogelijkheden:onbekend a skos:Concept;
+    skos:definition "Het referentiepunt is niet gekend."@nl;
+    skos:inScheme conceptscheme:meetpunt_referentiepunt_naam;
+    skos:note "Het referentiepunt is niet gekend."@nl;
+    skos:prefLabel "Onbekend"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_referentiepunt_naam.
+meetpunt-eigenschappen:diepte dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    qudt:relevantUnit csor_eenheid:E_59;
+    a skos:Concept;
+    skos:definition "De diepte van de peilput ten opzichte van het maaiveld."@nl;
+    skos:inScheme conceptscheme:meetpunt_eigenschappen;
+    skos:note "De diepte van de peilput ten opzichte van het maaiveld."@nl;
+    skos:prefLabel "Diepte"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:relevantRiepr meetpunt:peilput.
+meetpunt-eigenschappen:merk dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Het merk van de debietmeter."@nl;
+    skos:inScheme conceptscheme:meetpunt_eigenschappen;
+    skos:note "Het merk van de debietmeter."@nl;
+    skos:prefLabel "Merk"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:relevantRiepr meetpunt:debietmeter.
+meetpunt-eigenschappen:putnummer dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Het identificatienummer waaronder de controleinrichting bij VMM gekend is."@nl;
+    skos:inScheme conceptscheme:meetpunt_eigenschappen;
+    skos:note "Het identificatienummer waaronder de controleinrichting bij VMM gekend is."@nl;
+    skos:prefLabel "VMM meetputnummer"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:relevantRiepr meetpunt:controleinrichting.
+meetpunt-eigenschappen:referentiepunt dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> meetpunt-eigenschappen:referentiepunt_diepte, meetpunt-eigenschappen:referentiepunt_naam;
+    a skos:Concept;
+    skos:definition "Samengestelde eigenschap voor referentiepunt (naam en hoogte in meter)."@nl;
+    skos:inScheme conceptscheme:meetpunt_eigenschappen;
+    skos:note "Samengestelde eigenschap voor referentiepunt (naam en hoogte in meter)."@nl;
+    skos:prefLabel "Referentiepunt"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_eigenschappen;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht true.
+meetpunt-eigenschappen:referentiepunt_diepte dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> meetpunt-eigenschappen:referentiepunt;
+    qudt:relevantUnit csor_eenheid:E_59;
+    a skos:Concept;
+    skos:definition "De hoogte waarmee het referentiepunt uitsteekt ten opzichte van het maaiveld."@nl;
+    skos:inScheme conceptscheme:meetpunt_eigenschappen;
+    skos:note "De hoogte waarmee het referentiepunt uitsteekt ten opzichte van het maaiveld."@nl;
+    skos:prefLabel "Hoogte"@nl;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:relevantRiepr meetpunt:peilput.
+meetpunt-eigenschappen:referentiepunt_naam dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> meetpunt-eigenschappen:referentiepunt;
+    a skos:Concept;
+    skos:definition "De naam van het referentiepunt."@nl;
+    skos:inScheme conceptscheme:meetpunt_eigenschappen;
+    skos:note "De naam van het referentiepunt."@nl;
+    skos:prefLabel "Naam"@nl;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantCodeList conceptscheme:meetpunt_referentiepunt_naam;
+    riepr-vocab:relevantRiepr meetpunt:peilput.
+meetpunt-eigenschappen:serienummer dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Het serienummer van de debietmeter."@nl;
+    skos:inScheme conceptscheme:meetpunt_eigenschappen;
+    skos:note "Het serienummer van de debietmeter."@nl;
+    skos:prefLabel "Serienummer"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:relevantRiepr meetpunt:debietmeter.
+meetpunt:controleinrichting dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een controleinrichting is een meetpunt voorafgaand een lozingspunt of na een opnamepunt."@nl;
+    skos:inScheme conceptscheme:meetpunt_type;
+    skos:note "Een controleinrichting is een meetpunt voorafgaand een lozingspunt of na een opnamepunt."@nl;
+    skos:prefLabel "Controleinrichting"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+meetpunt:debietmeter dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een meetinrichting is een meetpunt voor een pompput."@nl;
+    skos:inScheme conceptscheme:meetpunt_type;
+    skos:note "Een meetinrichting is een meetpunt voor een pompput."@nl;
+    skos:prefLabel "Debietmeter grondwater"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+meetpunt:peilput dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een peilput is een put voor het meting van het grondwaterpeil en de kwaliteit van het grondwater"@nl;
+    skos:inScheme conceptscheme:meetpunt_type;
+    skos:note "Een peilput is een put voor het meting van het grondwaterpeil en de kwaliteit van het grondwater"@nl;
+    skos:prefLabel "Peilput"@nl;
+    skos:topConceptOf conceptscheme:meetpunt_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+onttrekkingspunt-eigenschappen:omschrijving dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    a skos:Concept;
+    skos:definition "Een algemene beschrijving van het opnamepunt oppervlaktewater."@nl;
+    skos:inScheme conceptscheme:onttrekkingspunt_eigenschappen;
+    skos:note "Een algemene beschrijving van het opnamepunt oppervlaktewater."@nl;
+    skos:prefLabel "Omschrijving"@nl;
+    skos:topConceptOf conceptscheme:onttrekkingspunt_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:relevantRiepr onttrekkingspunt:opnamepunt.
+onttrekkingspunt:opnamepunt dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Plaats waar het oppervlaktewater wordt gewonnen voor gebruik in bedrijfsprocessen."@nl;
+    skos:inScheme conceptscheme:onttrekkingspunt_type;
+    skos:note "Plaats waar het oppervlaktewater wordt gewonnen voor gebruik in bedrijfsprocessen."@nl;
+    skos:prefLabel "Opnamepunt oppervlaktewater"@nl;
+    skos:topConceptOf conceptscheme:onttrekkingspunt_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+bepalingsmethode:berekend a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_bepalingsmethode;
+    skos:prefLabel "Berekend"@nl;
+    skos:topConceptOf conceptscheme:operationeel_bepalingsmethode.
+bepalingsmethode:gemeten a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_bepalingsmethode;
+    skos:prefLabel "Gemeten"@nl;
+    skos:topConceptOf conceptscheme:operationeel_bepalingsmethode.
+bepalingsmethode:geschat a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_bepalingsmethode;
+    skos:prefLabel "Geschat"@nl;
+    skos:topConceptOf conceptscheme:operationeel_bepalingsmethode.
+bepalingsmethode:voorgesteld a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_bepalingsmethode;
+    skos:prefLabel "Voorgesteld"@nl;
+    skos:topConceptOf conceptscheme:operationeel_bepalingsmethode;
+    riepr-vocab:isOnzichtbaar true.
+bepalingsmethodeclassificatie:vrachten a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_bepalingsmethodeclassificatie;
+    skos:prefLabel "Specifiek vrachten"@nl;
+    skos:topConceptOf conceptscheme:operationeel_bepalingsmethodeclassificatie.
+bestemming:belgisch a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_bestemmingstype;
+    skos:prefLabel "Belgische vestiging"@nl;
+    skos:topConceptOf conceptscheme:operationeel_bestemmingstype.
+bestemming:buitenlands a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_bestemmingstype;
+    skos:prefLabel "Buitenlandse vestiging"@nl;
+    skos:topConceptOf conceptscheme:operationeel_bestemmingstype.
+bestemming:dispers a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_bestemmingstype;
+    skos:prefLabel "Dispers gebruik"@nl;
+    skos:topConceptOf conceptscheme:operationeel_bestemmingstype.
+bestemming:geen_onderneming a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_bestemmingstype;
+    skos:prefLabel "Geen onderneming"@nl;
+    skos:topConceptOf conceptscheme:operationeel_bestemmingstype.
+bestemming:particulier a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_bestemmingstype;
+    skos:prefLabel "Particulier"@nl;
+    skos:topConceptOf conceptscheme:operationeel_bestemmingstype.
+bestemming:werf a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_bestemmingstype;
+    skos:prefLabel "Werf"@nl;
+    skos:topConceptOf conceptscheme:operationeel_bestemmingstype.
+contextueel:activiteit dcterms:isVersionOf contextueel:activiteit;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    dcterms:relation sosa:hasFeatureOfInterest;
+    qb:codeList conceptscheme:operationeel_contextueel_iepr_activiteit;
+    a skos:Concept;
+    skos:definition "Selecteer de activiteit van de IEPR-installatie waarop je wil rapporteren"@nl;
+    skos:inScheme conceptscheme:operationeel_contextueel_iepr;
+    skos:note "Selecteer de activiteit van de IEPR-installatie waarop je wil rapporteren"@nl;
+    skos:prefLabel "Activiteit"@nl;
+    skos:topConceptOf conceptscheme:operationeel_contextueel_iepr;
+    sh:class sosa:FeatureOfInterest;
+    riepr-vocab:relevantRiepr riepr:Rubriek.
+contextueel:energieverbruik a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_contextueel_iepr;
+    skos:prefLabel "Energieverbruik"@nl;
+    skos:topConceptOf conceptscheme:operationeel_contextueel_iepr.
+contextueel:feature dcterms:isVersionOf contextueel:feature;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    dcterms:relation sosa:hasFeatureOfInterest;
+    qb:codeList conceptscheme:operationeel_contextueel_iepr;
+    a skos:Concept;
+    skos:definition "Selecteer een IEPR installatie waarop je wil rapporteren."@nl;
+    skos:inScheme conceptscheme:operationeel_contextueel;
+    skos:note "Selecteer een IEPR installatie waarop je wil rapporteren."@nl;
+    skos:prefLabel "IEPR installatie"@nl;
+    skos:topConceptOf conceptscheme:operationeel_contextueel;
+    sh:class sosa:FeatureOfInterest;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:relevantRiepr installatie:gpbv.
+contextueel:grondstoffenverbruik a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_contextueel_iepr;
+    skos:prefLabel "Grondstoffenverbruik"@nl;
+    skos:topConceptOf conceptscheme:operationeel_contextueel_iepr.
+contextueel:productievolume dcterms:relation sosa:hasResult;
+    a skos:Concept;
+    skos:definition "Totale productie (geheel getal)"@nl;
+    skos:inScheme conceptscheme:operationeel_contextueel_iepr_activiteit;
+    skos:note "Totale productie (geheel getal)"@nl;
+    skos:prefLabel "Productievolume"@nl;
+    skos:topConceptOf conceptscheme:operationeel_contextueel_iepr_activiteit;
+    riepr-vocab:relevantDataType xsd:integer.
+contextueel:waterverbruik a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_contextueel_iepr;
+    skos:prefLabel "Waterverbruik"@nl;
+    skos:topConceptOf conceptscheme:operationeel_contextueel_iepr.
+debiet:infiltratie a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_debiet_type;
+    skos:prefLabel "Infiltratie"@nl;
+    skos:topConceptOf conceptscheme:operationeel_debiet_type.
+debiet:onttrekking a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_debiet_type;
+    skos:prefLabel "Onttrekking"@nl;
+    skos:topConceptOf conceptscheme:operationeel_debiet_type.
+debiet:spui a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_debiet_type;
+    skos:prefLabel "Spui"@nl;
+    skos:topConceptOf conceptscheme:operationeel_debiet_type.
+debiet:totaal_rondgepompd a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_debiet_type;
+    skos:prefLabel "Totaal rondgepompd"@nl;
+    skos:topConceptOf conceptscheme:operationeel_debiet_type.
+grondstoffen:bestemmingsidentificatie-be-naam dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:bestemmingsidentificatie-be;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Naam"@nl;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+grondstoffen:bestemmingsidentificatie-be-on dcterms:relation rov:registration;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:bestemmingsidentificatie-be;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Ondernemingsnummer"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter grondstoffen:bestemmingsidentificatie-be-naam.
+grondstoffen:bestemmingsidentificatie-be-ve <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:bestemmingsidentificatie-be;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Vestigingsnummer"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter grondstoffen:bestemmingsidentificatie-be-on.
+grondstoffen:bestemmingsidentificatie-be dcterms:isVersionOf grondstoffen:bestemmingsidentificatie-be;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:grondstof;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> grondstoffen:bestemmingsidentificatie-be-naam, grondstoffen:bestemmingsidentificatie-be-on, grondstoffen:bestemmingsidentificatie-be-ve;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Bestemmingsidentificatie"@nl;
+    skos:related grondstoffen:bestemmingsidentificatie-buitenland, grondstoffen:bestemmingsidentificatie-none, grondstoffen:bestemmingsidentificatie-werf;
+    skos:semanticRelation grondstoffen:bestemmingsidentificatie-buitenland, grondstoffen:bestemmingsidentificatie-none, grondstoffen:bestemmingsidentificatie-werf;
+    sh:class prov:Agent;
+    sh:hasValue bestemming:belgisch;
+    sh:path grondstoffen:grondstof_bestemming_type;
+    riepr-vocab:uiAfter grondstoffen:grondstof_opmerking.
+grondstoffen:bestemmingsidentificatie-buitenland-btw dcterms:relation rov:registration;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:bestemmingsidentificatie-buitenland;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "BTW-nummer"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter grondstoffen:bestemmingsidentificatie-buitenland-naam.
+grondstoffen:bestemmingsidentificatie-buitenland-naam dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:bestemmingsidentificatie-buitenland;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Naam"@nl;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+grondstoffen:bestemmingsidentificatie-buitenland dcterms:isVersionOf grondstoffen:bestemmingsidentificatie-buitenland;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:grondstof;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> grondstoffen:bestemmingsidentificatie-buitenland-btw, grondstoffen:bestemmingsidentificatie-buitenland-naam;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Bestemmingsidentificatie"@nl;
+    skos:related grondstoffen:bestemmingsidentificatie-be, grondstoffen:bestemmingsidentificatie-none, grondstoffen:bestemmingsidentificatie-werf;
+    skos:semanticRelation grondstoffen:bestemmingsidentificatie-be, grondstoffen:bestemmingsidentificatie-none, grondstoffen:bestemmingsidentificatie-werf;
+    sh:class prov:Agent;
+    sh:hasValue bestemming:buitenlands;
+    sh:path grondstoffen:grondstof_bestemming_type;
+    riepr-vocab:uiAfter grondstoffen:bestemmingsidentificatie-be.
+grondstoffen:bestemmingsidentificatie-none-adres dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:bestemmingsidentificatie-none;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Adres"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter grondstoffen:bestemmingsidentificatie-none-naam.
+grondstoffen:bestemmingsidentificatie-none-naam dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:bestemmingsidentificatie-none;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Naam"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+grondstoffen:bestemmingsidentificatie-none dcterms:isVersionOf grondstoffen:bestemmingsidentificatie-none;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:grondstof;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> grondstoffen:bestemmingsidentificatie-none-adres, grondstoffen:bestemmingsidentificatie-none-naam;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Bestemmingsidentificatie"@nl;
+    skos:related grondstoffen:bestemmingsidentificatie-be, grondstoffen:bestemmingsidentificatie-buitenland, grondstoffen:bestemmingsidentificatie-werf;
+    skos:semanticRelation grondstoffen:bestemmingsidentificatie-be, grondstoffen:bestemmingsidentificatie-buitenland, grondstoffen:bestemmingsidentificatie-werf;
+    sh:class prov:Agent;
+    sh:hasValue bestemming:geen_onderneming;
+    sh:path grondstoffen:grondstof_bestemming_type;
+    riepr-vocab:uiAfter grondstoffen:bestemmingsidentificatie-werf.
+grondstoffen:bestemmingsidentificatie-werf-naam dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:bestemmingsidentificatie-werf;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Naam"@nl;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+grondstoffen:bestemmingsidentificatie-werf dcterms:isVersionOf grondstoffen:bestemmingsidentificatie-werf;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:grondstof;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> grondstoffen:bestemmingsidentificatie-werf-naam;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Bestemmingsidentificatie"@nl;
+    skos:related grondstoffen:bestemmingsidentificatie-be, grondstoffen:bestemmingsidentificatie-buitenland, grondstoffen:bestemmingsidentificatie-none;
+    skos:semanticRelation grondstoffen:bestemmingsidentificatie-be, grondstoffen:bestemmingsidentificatie-buitenland, grondstoffen:bestemmingsidentificatie-none;
+    sh:class prov:Agent;
+    sh:hasValue bestemming:werf;
+    sh:path grondstoffen:grondstof_bestemming_type;
+    riepr-vocab:uiAfter grondstoffen:bestemmingsidentificatie-buitenland.
+grondstoffen:geproduceerd a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Heeft u grondstoffen geproduceerd?"@nl;
+    skos:topConceptOf conceptscheme:operationeel_grondstoffen;
+    riepr-vocab:relevantDataType xsd:boolean;
+    riepr-vocab:uiFirst true.
+grondstoffen:grondstof <http://purl.org/iso25964/skos-thes#narrowerPartitive> grondstoffen:bestemmingsidentificatie-be, grondstoffen:bestemmingsidentificatie-buitenland, grondstoffen:bestemmingsidentificatie-none, grondstoffen:bestemmingsidentificatie-werf, grondstoffen:grondstof_bestemming_type, grondstoffen:grondstof_hoeveelheid, grondstoffen:grondstof_materiaalcode, grondstoffen:grondstof_omschrijving, grondstoffen:grondstof_opmerking, grondstoffen:grondstof_toepassingswijze;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Grondstof"@nl;
+    skos:topConceptOf conceptscheme:operationeel_grondstoffen;
+    sh:class riepr:Observatie;
+    sh:hasValue concept:true;
+    sh:path grondstoffen:geproduceerd;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:uiAfter grondstoffen:geproduceerd.
+grondstoffen:grondstof_bestemming_type dcterms:relation dcterms:type;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:grondstof;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Bestemming type"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_bestemmingstype;
+    riepr-vocab:uiAfter grondstoffen:grondstof_toepassingswijze.
+grondstoffen:grondstof_hoeveelheid dcterms:relation qudt:numericValue;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:grondstof;
+    qudt:relevantUnit <http://TODO>;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Hoeveelheid"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter grondstoffen:grondstof_omschrijving.
+grondstoffen:grondstof_materiaalcode dcterms:relation schema:material;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:grondstof;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Materiaalcode"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:relevantCodeList <http://TODO>;
+    riepr-vocab:uiFirst true.
+grondstoffen:grondstof_omschrijving dcterms:relation rdfs:comment;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:grondstof;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Omschrijving"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter grondstoffen:grondstof_materiaalcode.
+grondstoffen:grondstof_opmerking dcterms:relation schema:comment;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:grondstof;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Opmerking"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter grondstoffen:grondstof_bestemming_type.
+grondstoffen:grondstof_toepassingswijze dcterms:relation sosa:usedProcedure;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondstoffen:grondstof;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondstoffen;
+    skos:prefLabel "Toepassingswijze"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_toepassingwijze;
+    riepr-vocab:uiAfter grondstoffen:grondstof_hoeveelheid.
+grondwater:begintoestand <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:onttrekking;
+    qudt:relevantUnit csor_eenheid:E_32;
+    a skos:Concept;
+    skos:definition "Begintoestand van de debietmeter om het volume te berekenen."@nl;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:note "Begintoestand van de debietmeter om het volume te berekenen."@nl;
+    skos:prefLabel "Beginstand debietmeter"@nl;
+    sh:class riepr:Observatie;
+    sh:hasValue concept:NaN;
+    sh:path grondwater:volume;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter grondwater:volume.
+grondwater:datum dcterms:relation sosa:resultTime;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:peilmeting;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Datum"@nl;
+    riepr-vocab:relevantDataType xsd:dateTime;
+    riepr-vocab:uiAfter grondwater:peilmeting_feature.
+grondwater:diepte dcterms:relation sosa:hasResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:peilmeting;
+    qudt:relevantUnit csor_eenheid:E_59;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Diepte/hoogte (TAW) t.o.v. referentiepunt"@nl;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter grondwater:referentiepunt.
+grondwater:duur-stil dcterms:relation sosa:hasResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:peilmeting;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Duur pompen stil"@nl;
+    sh:hasValue pomptoestand:rust;
+    sh:path grondwater:pomptoestand;
+    riepr-vocab:relevantDataType xsd:duration;
+    riepr-vocab:uiAfter grondwater:pomptoestand.
+grondwater:eindtoestand <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:onttrekking;
+    qudt:relevantUnit csor_eenheid:E_32;
+    a skos:Concept;
+    skos:definition "Eindtoestand van de debietmeter om het volume te berekenen."@nl;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:note "Eindtoestand van de debietmeter om het volume te berekenen."@nl;
+    skos:prefLabel "Eindtoestand debietmeter"@nl;
+    sh:class riepr:Observatie;
+    sh:hasValue concept:NaN;
+    sh:path grondwater:volume;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter grondwater:begintoestand.
+grondwater:kwaliteitsmeting-bemonsteringsinstrument <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Bemonsteringsinstrument"@nl;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting-labo.
+grondwater:kwaliteitsmeting-datum dcterms:relation sosa:phenomenonTime;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Datum"@nl;
+    riepr-vocab:relevantDataType xsd:date;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting_feature.
+grondwater:kwaliteitsmeting-diepte dcterms:relation sosa:hasResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting;
+    qudt:relevantUnit csor_eenheid:E_59;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Diepte/hoogte (TAW) t.o.v. referentiepunt"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting-referentiepunt.
+grondwater:kwaliteitsmeting-labo-naam <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting-labo;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Naam"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+grondwater:kwaliteitsmeting-labo <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> grondwater:kwaliteitsmeting-labo-naam;
+    a skos:Concept;
+    skos:definition "Labo dat de meting uitvoerde."@nl;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:note "Labo dat de meting uitvoerde."@nl;
+    skos:prefLabel "Labo"@nl;
+    sh:class prov:Agent;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting-monsternummer.
+grondwater:kwaliteitsmeting-monsternummer <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Monsternummer"@nl;
+    riepr-vocab:relevantDataType xsd:integer;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting-datum.
+grondwater:kwaliteitsmeting-parameter-datum dcterms:relation sosa:resultTime;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting-parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Datum laboanalyse"@nl;
+    riepr-vocab:relevantDataType xsd:dateTime;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting-parameter-parameter.
+grondwater:kwaliteitsmeting-parameter-limiet <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting-parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Detectielimiet"@nl;
+    riepr-vocab:drager csor_drager:DR_1;
+    riepr-vocab:kwantiteitsAspect csor_kwantificeerbaaraspect:KWA_1;
+    riepr-vocab:soortWaartbepaling csor_soortwaardebepaling:SWB_1;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting-parameter-datum;
+    riepr-vocab:variabele grondwater:kwaliteitsmeting-parameter-parameter.
+grondwater:kwaliteitsmeting-parameter-meetwaarde <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting-parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Meetwaarde"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:drager csor_drager:DR_1;
+    riepr-vocab:kwantiteitsAspect csor_kwantificeerbaaraspect:KWA_1;
+    riepr-vocab:soortWaartbepaling csor_soortwaardebepaling:SWB_1;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting-parameter-limiet;
+    riepr-vocab:variabele grondwater:kwaliteitsmeting-parameter-parameter.
+grondwater:kwaliteitsmeting-parameter-methode <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting-parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Analysemethode"@nl;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting-parameter-meetwaarde.
+grondwater:kwaliteitsmeting-parameter-parameter dcterms:relation sosa:observedProperty;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting-parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Parameter"@nl;
+    riepr-vocab:relevantCodeList collectie:operationeel_parameters_grondwater;
+    riepr-vocab:uiFirst true.
+grondwater:kwaliteitsmeting-parameter <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> grondwater:kwaliteitsmeting-parameter-datum, grondwater:kwaliteitsmeting-parameter-limiet, grondwater:kwaliteitsmeting-parameter-meetwaarde, grondwater:kwaliteitsmeting-parameter-methode, grondwater:kwaliteitsmeting-parameter-parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Parameter"@nl;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting-techniek.
+grondwater:kwaliteitsmeting-referentiepunt <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Referentiepunt"@nl;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantRiepr meetpunt-eigenschappen:referentiepunt;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting-bemonsteringsinstrument.
+grondwater:kwaliteitsmeting-techniek <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Techniek monstername"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_techniekmonstername;
+    riepr-vocab:uiAfter grondwater:kwaliteitsmeting-diepte.
+grondwater:kwaliteitsmeting <http://purl.org/iso25964/skos-thes#narrowerPartitive> grondwater:kwaliteitsmeting-bemonsteringsinstrument, grondwater:kwaliteitsmeting-datum, grondwater:kwaliteitsmeting-diepte, grondwater:kwaliteitsmeting-labo, grondwater:kwaliteitsmeting-monsternummer, grondwater:kwaliteitsmeting-parameter, grondwater:kwaliteitsmeting-referentiepunt, grondwater:kwaliteitsmeting-techniek, grondwater:kwaliteitsmeting_feature;
+    a skos:Concept;
+    skos:definition "Een kwaliteitsmeting van een pomp- of peilput."@nl;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:note "Een kwaliteitsmeting van een pomp- of peilput."@nl;
+    skos:prefLabel "Kwaliteitsmeting"@nl;
+    skos:topConceptOf conceptscheme:operationeel_grondwater;
+    sh:class riepr:ObservatieVerzameling;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:uiAfter grondwater:peilmeting.
+grondwater:kwaliteitsmeting_feature dcterms:relation sosa:hasFeatureOfInterest;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:kwaliteitsmeting;
+    a skos:Concept;
+    skos:definition "Actieve peil- en pompfilters in het productiejaar."@nl;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:note "Actieve peil- en pompfilters in het productiejaar."@nl;
+    skos:prefLabel "Peilfilter/Pompfilter"@nl;
+    sh:class sosa:FeatureOfInterest;
+    riepr-vocab:isMultiselect true;
+    riepr-vocab:relevantRiepr filter:peil, filter:pomp;
+    riepr-vocab:uiFirst true.
+grondwater:onttrekking <http://purl.org/iso25964/skos-thes#narrowerPartitive> grondwater:begintoestand, grondwater:eindtoestand, grondwater:onttrekking_feature, grondwater:periode, grondwater:type-debiet, grondwater:volume;
+    a skos:Concept;
+    skos:definition "Een meting van de onttrekking van een pompput."@nl;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:note "Een meting van de onttrekking van een pompput."@nl;
+    skos:prefLabel "Onttrekking/infiltratie"@nl;
+    skos:topConceptOf conceptscheme:operationeel_grondwater;
+    sh:class riepr:ObservatieVerzameling;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:uiFirst true.
+grondwater:onttrekking_feature dcterms:relation sosa:hasFeatureOfInterest;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:onttrekking;
+    a skos:Concept;
+    skos:definition "Actieve debietmeters in het productiejaar."@nl;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:note "Actieve debietmeters in het productiejaar."@nl;
+    skos:prefLabel "Debietmeter"@nl;
+    sh:class sosa:FeatureOfInterest;
+    riepr-vocab:relevantFeatureClass riepr:Onttrekking;
+    riepr-vocab:relevantRiepr meetpunt:debietmeter;
+    riepr-vocab:uiFirst true.
+grondwater:peilmethode dcterms:relation sosa:hasResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:peilmeting;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Peilmethode"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_peilmethode;
+    riepr-vocab:uiAfter grondwater:diepte.
+grondwater:peilmeting <http://purl.org/iso25964/skos-thes#narrowerPartitive> grondwater:datum, grondwater:diepte, grondwater:duur-stil, grondwater:peilmethode, grondwater:peilmeting_feature, grondwater:pomptoestand, grondwater:referentiepunt, grondwater:volume-rust, grondwater:volume-werking;
+    a skos:Concept;
+    skos:definition "Een peilmeting van een pomp- of peilput."@nl;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:note "Een peilmeting van een pomp- of peilput."@nl;
+    skos:prefLabel "Peilmeting"@nl;
+    skos:topConceptOf conceptscheme:operationeel_grondwater;
+    sh:class riepr:ObservatieVerzameling;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:uiAfter grondwater:onttrekking.
+grondwater:peilmeting_feature dcterms:relation sosa:hasFeatureOfInterest;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:peilmeting;
+    a skos:Concept;
+    skos:definition "Actieve peil- en pompfilters in het productiejaar."@nl;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:note "Actieve peil- en pompfilters in het productiejaar."@nl;
+    skos:prefLabel "Peilfilter/Pompfilter"@nl;
+    sh:class sosa:FeatureOfInterest;
+    riepr-vocab:relevantRiepr filter:peil, filter:pomp;
+    riepr-vocab:uiFirst true.
+grondwater:periode <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:onttrekking;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Periode van onttrekking"@nl;
+    riepr-vocab:relevantDataType dcterms:temporal;
+    riepr-vocab:uiAfter grondwater:onttrekking_feature.
+grondwater:pomptoestand dcterms:relation sosa:hasResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:peilmeting;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Pomptoestand"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_pomptoestand;
+    riepr-vocab:uiAfter grondwater:peilmethode.
+grondwater:referentiepunt <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:peilmeting;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Referentiepunt"@nl;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantRiepr meetpunt-eigenschappen:referentiepunt;
+    riepr-vocab:uiAfter grondwater:datum.
+grondwater:type-debiet dcterms:relation dcterms:type;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:onttrekking;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Type debiet"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_debiet_type;
+    riepr-vocab:uiAfter grondwater:periode.
+grondwater:volume-rust dcterms:relation sosa:hasResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:peilmeting;
+    qudt:relevantUnit csor_eenheid:E_32;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Volume (8u voor stilstand)"@nl;
+    sh:hasValue pomptoestand:rust;
+    sh:path grondwater:pomptoestand;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter grondwater:duur-stil.
+grondwater:volume-werking dcterms:relation sosa:hasResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:peilmeting;
+    qudt:relevantUnit csor_eenheid:E_32;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Volume (1 uur voor meting)"@nl;
+    sh:hasValue pomptoestand:werking;
+    sh:path grondwater:pomptoestand;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter grondwater:volume-rust.
+grondwater:volume <http://purl.org/iso25964/skos-thes#broaderPartitive> grondwater:onttrekking;
+    qudt:relevantUnit csor_eenheid:E_32;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_grondwater;
+    skos:prefLabel "Volume"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter grondwater:type-debiet.
+lucht:afvalproduct <http://purl.org/iso25964/skos-thes#narrowerPartitive> lucht:afvalproduct_aard, lucht:afvalproduct_hoeveelheid, lucht:afvalproduct_naam;
+    a skos:Concept;
+    skos:definition "Afvalproduct"@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Afvalproduct"@nl;
+    skos:prefLabel "Afvalproduct"@nl;
+    skos:topConceptOf conceptscheme:operationeel_lucht_rapportering;
+    sh:class riepr:Observatie;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:relevantFeatureClass riepr:Verbruik;
+    riepr-vocab:uiAfter lucht:geproduceerde_stof.
+lucht:afvalproduct_aard dcterms:relation rdfs:comment;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:afvalproduct;
+    a skos:Concept;
+    skos:definition "Aard van de afvalproduct."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Aard van de afvalproduct."@nl;
+    skos:prefLabel "Aard"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter lucht:afvalproduct_naam.
+lucht:afvalproduct_hoeveelheid dcterms:relation qudt:numericValue;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:afvalproduct;
+    qudt:relevantUnit <http://TODO>;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:prefLabel "Verbruik"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter lucht:afvalproduct_aard.
+lucht:afvalproduct_naam dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:afvalproduct;
+    a skos:Concept;
+    skos:definition "Naam van het afvalproduct."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Naam van het afvalproduct."@nl;
+    skos:prefLabel "Naam"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+lucht:brandstof <http://purl.org/iso25964/skos-thes#narrowerPartitive> lucht:brandstof_as, lucht:brandstof_naam, lucht:brandstof_s, lucht:brandstof_verbruik;
+    a skos:Concept;
+    skos:definition "Geef de verbruikte brondstoffen op."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Geef de verbruikte brondstoffen op."@nl;
+    skos:prefLabel "Verbruikte brandstof"@nl;
+    skos:topConceptOf conceptscheme:operationeel_lucht_rapportering;
+    sh:class riepr:ObservatieVerzameling;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:relevantFeatureClass riepr:Verbruik;
+    riepr-vocab:uiFirst true.
+lucht:brandstof_as dcterms:relation qudt:numericValue;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:brandstof;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:prefLabel "AS-gehalte"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter lucht:brandstof_s.
+lucht:brandstof_naam dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:brandstof;
+    a skos:Concept;
+    skos:definition "Naam van de brandstof."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Naam van de brandstof."@nl;
+    skos:prefLabel "Naam"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+lucht:brandstof_s dcterms:relation qudt:numericValue;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:brandstof;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:prefLabel "S-gehalte"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter lucht:brandstof_naam.
+lucht:brandstof_verbruik dcterms:relation qudt:numericValue;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:brandstof;
+    qudt:relevantUnit csor_eenheid:E_89;
+    a skos:Concept;
+    skos:definition "Verbruik van de brandstof in GJ"@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Verbruik van de brandstof in GJ"@nl;
+    skos:prefLabel "Verbruik"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter lucht:brandstof_as.
+lucht:emissie <http://purl.org/iso25964/skos-thes#narrowerPartitive> lucht:emissie_luchtoverschot, lucht:emissie_parameter, lucht:emissie_temperatuur, lucht:emissie_vochtgehalte, lucht:emissie_zuurstofgehalte, lucht:emissieduur, lucht:emissieperiode, lucht:emissieritme, lucht:emissietoestand, lucht:emissietype;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Emissie"@nl;
+    skos:topConceptOf conceptscheme:operationeel_lucht_emissie;
+    sh:class riepr:ObservatieVerzameling;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:relevantFeatureClass riepr:Emissie.
+lucht:emissie_luchtoverschot dcterms:relation qudt:numericResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie;
+    qudt:relevantUnit csor_eenheid:E_43;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Luchtoverschot"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:relevantDataType xsd:decimal.
+lucht:emissie_parameter <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> lucht:emissie_parameter_massastroom, lucht:emissie_parameter_meetfrequentie, lucht:emissie_parameter_parameter, lucht:emissie_parameter_standaardafwijking;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Verontreinigende stof of BKG"@nl;
+    riepr-vocab:isMeervoudig true.
+lucht:emissie_parameter_massastroom <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie_parameter;
+    qudt:relevantUnit csor_eenheid:E_13;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Massastroom"@nl;
+    riepr-vocab:drager csor_drager:DR_8;
+    riepr-vocab:kwantiteitsAspect csor_kwantificeerbaaraspect:KWA_2;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:soortWaartbepaling csor_soortwaardebepaling:SWB_1;
+    riepr-vocab:variabele lucht:emissie_parameter_parameter.
+lucht:emissie_parameter_meetfrequentie dcterms:relation dcterms:accrualPeriodicity;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie_parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Meetfrequentie"@nl.
+lucht:emissie_parameter_parameter dcterms:relation riepr:parameter;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie_parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Stof"@nl;
+    riepr-vocab:relevantCodeList collectie:operationeel_stoffen_lucht.
+lucht:emissie_parameter_standaardafwijking dcterms:relation qudt:standardUncertainty;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie_parameter;
+    qudt:relevantUnit csor_eenheid:E_43;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Standaardafwijking"@nl;
+    riepr-vocab:drager csor_drager:DR_8;
+    riepr-vocab:kwantiteitsAspect csor_kwantificeerbaaraspect:KWA_7;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:soortWaartbepaling csor_soortwaardebepaling:SWB_40;
+    riepr-vocab:variabele lucht:emissie_parameter_parameter.
+lucht:emissie_temperatuur dcterms:relation qudt:numericResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie;
+    qudt:relevantUnit csor_eenheid:E_62;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Temperatuur"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:relevantDataType xsd:decimal.
+lucht:emissie_vochtgehalte dcterms:relation qudt:numericResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie;
+    qudt:relevantUnit csor_eenheid:E_43;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Vochtgehalte"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:relevantDataType xsd:decimal.
+lucht:emissie_zuurstofgehalte dcterms:relation qudt:numericResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie;
+    qudt:relevantUnit csor_eenheid:E_43;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Zuurstofgehalte"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:relevantDataType xsd:decimal.
+lucht:emissieduur dcterms:relation time:hasDuration;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Emissieduur"@nl;
+    riepr-vocab:relevantDataType xsd:integer.
+lucht:emissieperiode dcterms:relation sosa:phenomenonTime;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Emissieperiode"@nl;
+    riepr-vocab:relevantDataType xsd:string.
+lucht:emissieritme <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Emissieritme"@nl;
+    riepr-vocab:relevantDataType xsd:string.
+lucht:emissietoestand <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Toestand indicator"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_toestand_indicator.
+lucht:emissietype dcterms:relation dcterms:type;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:emissie;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_emissie;
+    skos:prefLabel "Emissietype"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:emissie_type.
+lucht:feature_bron dcterms:isVersionOf lucht:feature_bron;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    dcterms:relation sosa:hasFeatureOfInterest;
+    qb:codeList conceptscheme:operationeel_lucht_rapportering;
+    a skos:Concept;
+    skos:definition "Selecteer de bron(nen) waarop je wil rapporteren."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_bron;
+    skos:note "Selecteer de bron(nen) waarop je wil rapporteren."@nl;
+    skos:prefLabel "Bron(nen)"@nl;
+    skos:topConceptOf conceptscheme:operationeel_lucht_bron;
+    sh:class sosa:FeatureOfInterest;
+    riepr-vocab:isMultiselect true;
+    riepr-vocab:relevantRiepr riepr:Installatie;
+    riepr-vocab:uiFirst true.
+lucht:feature_ep dcterms:isVersionOf lucht:feature_ep;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    dcterms:relation sosa:hasFeatureOfInterest;
+    qb:codeList conceptscheme:operationeel_lucht_bron;
+    a skos:Concept;
+    skos:definition "Selecteer het emissiepunt waarop je wil rapporteren."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht;
+    skos:note "Selecteer het emissiepunt waarop je wil rapporteren."@nl;
+    skos:prefLabel "Emissiepunt"@nl;
+    skos:topConceptOf conceptscheme:operationeel_lucht;
+    sh:class sosa:FeatureOfInterest;
+    riepr-vocab:relevantRiepr emissiepunt:emissiepunt_lucht, emissiepunt:fakkel, emissiepunt:gebouw, emissiepunt:installatie, emissiepunt:schoorsteen, emissiepunt:schoorsteen_horizontale_uitstroom, emissiepunt:schoorsteen_verticale_uitstroom;
+    riepr-vocab:uiFirst true.
+lucht:geproduceerde_stof <http://purl.org/iso25964/skos-thes#narrowerPartitive> lucht:geproduceerde_stof_aard, lucht:geproduceerde_stof_hoeveelheid, lucht:geproduceerde_stof_naam;
+    a skos:Concept;
+    skos:definition "Geproduceerde stof."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Geproduceerde stof."@nl;
+    skos:prefLabel "Geproduceerde stof"@nl;
+    skos:topConceptOf conceptscheme:operationeel_lucht_rapportering;
+    sh:class riepr:Observatie;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:relevantFeatureClass riepr:Verbruik;
+    riepr-vocab:uiAfter lucht:verbruikte_stof.
+lucht:geproduceerde_stof_aard dcterms:relation rdfs:comment;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:geproduceerde_stof;
+    a skos:Concept;
+    skos:definition "Aard van de geproduceerde stof."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Aard van de geproduceerde stof."@nl;
+    skos:prefLabel "Aard"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter lucht:geproduceerde_stof_naam.
+lucht:geproduceerde_stof_hoeveelheid dcterms:relation qudt:numericValue;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:geproduceerde_stof;
+    qudt:relevantUnit <http://TODO>;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:prefLabel "Verbruik"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter lucht:geproduceerde_stof_aard.
+lucht:geproduceerde_stof_naam dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:geproduceerde_stof;
+    a skos:Concept;
+    skos:definition "Naam van de geproduceerde stof."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Naam van de geproduceerde stof."@nl;
+    skos:prefLabel "Naam"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+lucht:verbruikte_stof <http://purl.org/iso25964/skos-thes#narrowerPartitive> lucht:verbruikte_stof_aard, lucht:verbruikte_stof_hoeveelheid, lucht:verbruikte_stof_naam;
+    a skos:Concept;
+    skos:definition "Geef de verbruikte stoffen op."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Geef de verbruikte stoffen op."@nl;
+    skos:prefLabel "Verbruikte stof"@nl;
+    skos:topConceptOf conceptscheme:operationeel_lucht_rapportering;
+    sh:class riepr:Observatie;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:relevantFeatureClass riepr:Verbruik;
+    riepr-vocab:uiAfter lucht:brandstof.
+lucht:verbruikte_stof_aard dcterms:relation rdfs:comment;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:verbruikte_stof;
+    a skos:Concept;
+    skos:definition "Aard van het verbruik."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Aard van het verbruik."@nl;
+    skos:prefLabel "Aard"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter lucht:verbruikte_stof_naam.
+lucht:verbruikte_stof_hoeveelheid dcterms:relation qudt:numericValue;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:verbruikte_stof;
+    qudt:relevantUnit <http://TODO>;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:prefLabel "Verbruik"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter lucht:verbruikte_stof_aard.
+lucht:verbruikte_stof_naam dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> lucht:verbruikte_stof;
+    a skos:Concept;
+    skos:definition "Naam van de verbruikte stof."@nl;
+    skos:inScheme conceptscheme:operationeel_lucht_rapportering;
+    skos:note "Naam van de verbruikte stof."@nl;
+    skos:prefLabel "Naam"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+meetfrequentie:test a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_meetfrequentie;
+    skos:prefLabel "Test"@nl;
+    skos:topConceptOf conceptscheme:operationeel_zelfcontrole_meetfrequentie.
+peilmethode:automatische_sonde a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_peilmethode;
+    skos:prefLabel "Automatische sonde"@nl;
+    skos:topConceptOf conceptscheme:operationeel_peilmethode.
+peilmethode:overige a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_peilmethode;
+    skos:prefLabel "Andere methode"@nl;
+    skos:topConceptOf conceptscheme:operationeel_peilmethode.
+peilmethode:peillint a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_peilmethode;
+    skos:prefLabel "Peillint"@nl;
+    skos:topConceptOf conceptscheme:operationeel_peilmethode.
+pomptoestand:rust a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_pomptoestand;
+    skos:prefLabel "Rust"@nl;
+    skos:topConceptOf conceptscheme:operationeel_pomptoestand.
+pomptoestand:werking a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_pomptoestand;
+    skos:prefLabel "In werking"@nl;
+    skos:topConceptOf conceptscheme:operationeel_pomptoestand.
+techniekmonstername:aftap a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_techniekmonstername;
+    skos:prefLabel "Aftap via monsterkraantje"@nl;
+    skos:topConceptOf conceptscheme:operationeel_techniekmonstername.
+toepassingswijze:brandstof a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_toepassingwijze;
+    skos:prefLabel "Gebruik als brandstof"@nl;
+    skos:topConceptOf conceptscheme:operationeel_toepassingwijze.
+toepassingswijze:dispers a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_toepassingwijze;
+    skos:prefLabel "Dispers gebruik"@nl;
+    skos:topConceptOf conceptscheme:operationeel_toepassingwijze.
+toepassingswijze:overige a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_toepassingwijze;
+    skos:prefLabel "Ander gebruik in de ingedeelde inrichting"@nl;
+    skos:topConceptOf conceptscheme:operationeel_toepassingwijze.
+toestand-indicator:droog a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_toestand_indicator;
+    skos:prefLabel "Droog"@nl;
+    skos:topConceptOf conceptscheme:operationeel_toestand_indicator.
+toestand-indicator:nat a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_toestand_indicator;
+    skos:prefLabel "Nat"@nl;
+    skos:topConceptOf conceptscheme:operationeel_toestand_indicator.
+water:abnormale-lozing-jaarvracht dcterms:relation qudt:numericResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:abnormale-lozing;
+    qudt:relevantUnit csor_eenheid:E_12;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Jaarvracht"@nl;
+    riepr-vocab:drager csor_drager:DR_1;
+    riepr-vocab:kwantiteitsAspect csor_kwantificeerbaaraspect:KWA_2;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:soortWaartbepaling csor_soortwaardebepaling:SWB_1;
+    riepr-vocab:uiAfter water:abnormale-lozing-lozingsduur;
+    riepr-vocab:variabele water:abnormale-lozing-stof.
+water:abnormale-lozing-lozingsduur dcterms:relation sosa:hasResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:abnormale-lozing;
+    qudt:relevantUnit csor_eenheid:E_94;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Lozingsduur"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:integer;
+    riepr-vocab:uiAfter water:abnormale-lozing-stof.
+water:abnormale-lozing-stof dcterms:relation riepr:parameter;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:abnormale-lozing;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Verontreinigende stof"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList collectie:operationeel_stoffen_water;
+    riepr-vocab:uiFirst true.
+water:abnormale-lozing-verklaring dcterms:relation rdfs:comment;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:abnormale-lozing;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Verklaring"@nl;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter water:abnormale-lozing-jaarvracht.
+water:abnormale-lozing <http://purl.org/iso25964/skos-thes#narrowerPartitive> water:abnormale-lozing-jaarvracht, water:abnormale-lozing-lozingsduur, water:abnormale-lozing-stof, water:abnormale-lozing-verklaring;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Abnormale lozing"@nl;
+    skos:topConceptOf conceptscheme:operationeel_water_lozing;
+    sh:class riepr:Observatie;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:uiAfter water:lozing.
+water:feature dcterms:isVersionOf water:feature;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    dcterms:relation sosa:hasFeatureOfInterest;
+    qb:codeList conceptscheme:operationeel_water_lozing;
+    a skos:Concept;
+    skos:definition "De controleinrichting waarop gerapporteed moet worden."@nl;
+    skos:inScheme conceptscheme:operationeel_water;
+    skos:note "De controleinrichting waarop gerapporteed moet worden."@nl;
+    skos:prefLabel "Controleinrichting"@nl;
+    skos:topConceptOf conceptscheme:operationeel_water;
+    sh:class sosa:FeatureOfInterest;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantRiepr meetpunt:controleinrichting;
+    riepr-vocab:uiFirst true.
+water:lozing-bepalingsmethode dcterms:relation sosa:usedProcedure;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:lozing;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Bepalingsmethode"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_bepalingsmethode;
+    riepr-vocab:uiAfter water:lozing-jaarvracht.
+water:lozing-bepalingsmethodeclassificatie dcterms:relation sosa:usedProcedure;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:lozing;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Bepalingsmethodeclassificatie"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_bepalingsmethodeclassificatie;
+    riepr-vocab:uiAfter water:lozing-bepalingsmethode.
+water:lozing-concentratie dcterms:relation qudt:numericValue;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:lozing;
+    qudt:relevantUnit csor_eenheid:E_1;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Gemiddelde concentratie"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:drager csor_drager:DR_1;
+    riepr-vocab:kwantiteitsAspect csor_kwantificeerbaaraspect:KWA_1;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:soortWaartbepaling csor_soortwaardebepaling:SWB_1;
+    riepr-vocab:uiAfter water:lozing-meetfrequentie;
+    riepr-vocab:variabele water:lozing-stof.
+water:lozing-dagen dcterms:relation sosa:hasResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:lozing;
+    qudt:relevantUnit csor_eenheid:E_83;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Aantal dagen per jaar"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:integer;
+    riepr-vocab:uiAfter water:lozing-debiet.
+water:lozing-debiet dcterms:relation sosa:hasResult;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:lozing;
+    qudt:relevantUnit csor_eenheid:E_50;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Debiet per jaar"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiFirst true.
+water:lozing-jaarvracht dcterms:relation qudt:numericValue;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:lozing;
+    qudt:relevantUnit csor_eenheid:E_12;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Totale jaarvracht"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:drager csor_drager:DR_1;
+    riepr-vocab:kwantiteitsAspect csor_kwantificeerbaaraspect:KWA_2;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:soortWaartbepaling csor_soortwaardebepaling:SWB_1;
+    riepr-vocab:uiAfter water:lozing-concentratie;
+    riepr-vocab:variabele water:lozing-stof.
+water:lozing-meetfrequentie dcterms:relation dcterms:accrualPeriodicity;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:lozing;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Meetfrequentie"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_zelfcontrole_meetfrequentie;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:uiAfter water:lozing-stof.
+water:lozing-stof dcterms:relation riepr:parameter;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> water:lozing;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Verontreinigende stof"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList collectie:operationeel_stoffen_water;
+    riepr-vocab:uiAfter water:lozing-dagen.
+water:lozing <http://purl.org/iso25964/skos-thes#narrowerPartitive> water:lozing-bepalingsmethode, water:lozing-bepalingsmethodeclassificatie, water:lozing-concentratie, water:lozing-dagen, water:lozing-debiet, water:lozing-jaarvracht, water:lozing-meetfrequentie, water:lozing-stof;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_water_lozing;
+    skos:prefLabel "Lozing"@nl;
+    skos:topConceptOf conceptscheme:operationeel_water_lozing;
+    sh:class riepr:ObservatieVerzameling;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantFeatureClass riepr:Emissie;
+    riepr-vocab:uiFirst true.
+zelfcontrole-lucht:datum dcterms:relation sosa:resultTime;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-lucht:meting;
+    a skos:Concept;
+    skos:definition "Datum van de meting of startdatum indien de meting over meerdere dagen heeft plaatsgevonden."@nl;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    skos:note "Datum van de meting of startdatum indien de meting over meerdere dagen heeft plaatsgevonden."@nl;
+    skos:prefLabel "Datum van meting"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:date;
+    riepr-vocab:uiFirst true.
+zelfcontrole-lucht:feature dcterms:isVersionOf zelfcontrole-lucht:feature;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    dcterms:relation sosa:hasFeatureOfInterest;
+    qb:codeList conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    a skos:Concept;
+    skos:definition "Het emissiepunt waarop gerapporteed moet worden."@nl;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht;
+    skos:note "Het emissiepunt waarop gerapporteed moet worden."@nl;
+    skos:prefLabel "Emissiepunt"@nl;
+    skos:topConceptOf conceptscheme:operationeel_zelfcontrole_lucht;
+    sh:class sosa:FeatureOfInterest;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantRiepr conceptscheme:emissiepunt_type;
+    riepr-vocab:uiFirst true.
+zelfcontrole-lucht:labo-id dcterms:relation rov:registration;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-lucht:labo;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    skos:prefLabel "KBO nummer of BTW nummer"@nl;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter zelfcontrole-lucht:labo-naam.
+zelfcontrole-lucht:labo-naam dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-lucht:labo;
+    a skos:Concept;
+    skos:definition "De naam van het labo."@nl;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    skos:note "De naam van het labo."@nl;
+    skos:prefLabel "Naam"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+zelfcontrole-lucht:labo dcterms:relation sosa:madeBySensor;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-lucht:meting;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> zelfcontrole-lucht:labo-id, zelfcontrole-lucht:labo-naam;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    skos:prefLabel "Labo"@nl;
+    sh:class prov:Agent;
+    riepr-vocab:uiAfter zelfcontrole-lucht:datum.
+zelfcontrole-lucht:meting <http://purl.org/iso25964/skos-thes#narrowerPartitive> zelfcontrole-lucht:datum, zelfcontrole-lucht:labo, zelfcontrole-lucht:parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    skos:prefLabel "Meting"@nl;
+    skos:topConceptOf conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    sh:class riepr:ObservatieVerzameling;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:relevantFeatureClass riepr:Emissie;
+    riepr-vocab:uiFirst true.
+zelfcontrole-lucht:parameter-concentratie dcterms:relation qudt:numericValue;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-lucht:parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    skos:prefLabel "Concentratie"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:drager csor_drager:DR_8;
+    riepr-vocab:kwantiteitsAspect csor_kwantificeerbaaraspect:KWA_73;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:soortWaartbepaling csor_soortwaardebepaling:SWB_1;
+    riepr-vocab:uiAfter zelfcontrole-lucht:parameter-parameter;
+    riepr-vocab:variabele zelfcontrole-lucht:parameter-parameter.
+zelfcontrole-lucht:parameter-meetfrequentie dcterms:relation dcterms:accrualPeriodicity;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-lucht:parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    skos:prefLabel "Meetfrequentie"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_zelfcontrole_meetfrequentie;
+    riepr-vocab:uiAfter zelfcontrole-lucht:parameter-meetonzekerheid.
+zelfcontrole-lucht:parameter-meetonzekerheid dcterms:relation qudt:standardUncertainty;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-lucht:parameter;
+    qudt:relevantUnit csor_eenheid:E_43;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    skos:prefLabel "Meetonzekerheid"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:drager csor_drager:DR_8;
+    riepr-vocab:kwantiteitsAspect csor_kwantificeerbaaraspect:KWA_7;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:soortWaartbepaling csor_soortwaardebepaling:SWB_40;
+    riepr-vocab:uiAfter zelfcontrole-lucht:parameter-concentratie;
+    riepr-vocab:variabele zelfcontrole-lucht:parameter-parameter.
+zelfcontrole-lucht:parameter-parameter dcterms:relation riepr:parameter;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-lucht:parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    skos:prefLabel "Parameter"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList collectie:operationeel_stoffen_lucht;
+    riepr-vocab:uiAfter zelfcontrole-lucht:parameter-soort.
+zelfcontrole-lucht:parameter-soort <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-lucht:parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    skos:prefLabel "Soort monster"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+zelfcontrole-lucht:parameter <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-lucht:meting;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> zelfcontrole-lucht:parameter-concentratie, zelfcontrole-lucht:parameter-meetfrequentie, zelfcontrole-lucht:parameter-meetonzekerheid, zelfcontrole-lucht:parameter-parameter, zelfcontrole-lucht:parameter-soort;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_lucht_meting;
+    skos:prefLabel "Parameter"@nl;
+    sh:class riepr:Observatie;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:uiAfter zelfcontrole-lucht:labo.
+zelfcontrole-water:datum dcterms:relation sosa:resultTime;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-water:meting;
+    a skos:Concept;
+    skos:definition "Datum van de meting of startdatum indien de meting over meerdere dagen heeft plaatsgevonden."@nl;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water_meting;
+    skos:note "Datum van de meting of startdatum indien de meting over meerdere dagen heeft plaatsgevonden."@nl;
+    skos:prefLabel "Datum van meting"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:date;
+    riepr-vocab:uiFirst true.
+zelfcontrole-water:feature dcterms:isVersionOf zelfcontrole-water:feature;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    dcterms:relation sosa:hasFeatureOfInterest;
+    qb:codeList conceptscheme:operationeel_zelfcontrole_water_meting;
+    a skos:Concept;
+    skos:definition "De controleinrichting waarop gerapporteed moet worden."@nl;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water;
+    skos:note "De controleinrichting waarop gerapporteed moet worden."@nl;
+    skos:prefLabel "Controleinrichting"@nl;
+    skos:topConceptOf conceptscheme:operationeel_zelfcontrole_water;
+    sh:class sosa:FeatureOfInterest;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantRiepr meetpunt:controleinrichting;
+    riepr-vocab:uiFirst true.
+zelfcontrole-water:labo-id dcterms:relation rov:registration;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-water:labo;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water_meting;
+    skos:prefLabel "KBO nummer of BTW nummer"@nl;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiAfter zelfcontrole-water:labo-naam.
+zelfcontrole-water:labo-naam dcterms:relation rdfs:label;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-water:labo;
+    a skos:Concept;
+    skos:definition "De naam van het labo."@nl;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water_meting;
+    skos:note "De naam van het labo."@nl;
+    skos:prefLabel "Naam"@nl;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantDataType xsd:string;
+    riepr-vocab:uiFirst true.
+zelfcontrole-water:labo dcterms:relation sosa:madeBySensor;
+    <http://purl.org/iso25964/skos-thes#narrowerPartitive> zelfcontrole-water:labo-id, zelfcontrole-water:labo-naam;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water_meting;
+    skos:prefLabel "Labo"@nl;
+    skos:topConceptOf conceptscheme:operationeel_zelfcontrole_water_meting;
+    sh:class prov:Agent;
+    riepr-vocab:uiAfter zelfcontrole-water:meting.
+zelfcontrole-water:meting <http://purl.org/iso25964/skos-thes#narrowerPartitive> zelfcontrole-water:datum;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water_meting;
+    skos:prefLabel "Meting"@nl;
+    skos:topConceptOf conceptscheme:operationeel_zelfcontrole_water_meting;
+    sh:class riepr:ObservatieVerzameling;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:uiFirst true.
+zelfcontrole-water:parameter-concentratie dcterms:relation qudt:numericValue;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-water:parameter;
+    qudt:relevantUnit csor_eenheid:E_1;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water_meting;
+    skos:prefLabel "Concentratie"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:drager csor_drager:DR_1;
+    riepr-vocab:kwantiteitsAspect csor_kwantificeerbaaraspect:KWA_1;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:soortWaartbepaling csor_soortwaardebepaling:SWB_1;
+    riepr-vocab:uiAfter zelfcontrole-water:parameter-parameter;
+    riepr-vocab:variabele zelfcontrole-water:parameter-parameter.
+zelfcontrole-water:parameter-meetfrequentie dcterms:relation dcterms:accrualPeriodicity;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-water:parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water_meting;
+    skos:prefLabel "Meetfrequentie"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:operationeel_zelfcontrole_meetfrequentie;
+    riepr-vocab:uiAfter zelfcontrole-water:parameter-meetonzekerheid.
+zelfcontrole-water:parameter-meetonzekerheid dcterms:relation qudt:standardUncertainty;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-water:parameter;
+    qudt:relevantUnit csor_eenheid:E_43;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water_meting;
+    skos:prefLabel "Meetonzekerheid"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:drager csor_drager:DR_1;
+    riepr-vocab:kwantiteitsAspect csor_kwantificeerbaaraspect:KWA_7;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:soortWaartbepaling csor_soortwaardebepaling:SWB_40;
+    riepr-vocab:uiAfter zelfcontrole-water:parameter-concentratie;
+    riepr-vocab:variabele zelfcontrole-water:parameter-parameter.
+zelfcontrole-water:parameter-parameter dcterms:relation riepr:parameter;
+    <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-water:parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water_meting;
+    skos:prefLabel "Parameter"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:isVerplicht true;
+    riepr-vocab:relevantCodeList collectie:operationeel_stoffen_water;
+    riepr-vocab:uiAfter zelfcontrole-water:parameter-soort.
+zelfcontrole-water:parameter-soort <http://purl.org/iso25964/skos-thes#broaderPartitive> zelfcontrole-water:parameter;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water_meting;
+    skos:prefLabel "Soort monster"@nl;
+    sh:class riepr:Resultaat;
+    riepr-vocab:uiFirst true.
+zelfcontrole-water:parameter <http://purl.org/iso25964/skos-thes#narrowerPartitive> zelfcontrole-water:parameter-concentratie, zelfcontrole-water:parameter-meetfrequentie, zelfcontrole-water:parameter-meetonzekerheid, zelfcontrole-water:parameter-parameter, zelfcontrole-water:parameter-soort;
+    a skos:Concept;
+    skos:inScheme conceptscheme:operationeel_zelfcontrole_water_meting;
+    skos:prefLabel "Parameter"@nl;
+    skos:topConceptOf conceptscheme:operationeel_zelfcontrole_water_meting;
+    sh:class riepr:Observatie;
+    riepr-vocab:isMeervoudig true;
+    riepr-vocab:uiAfter zelfcontrole-water:labo.
+procedure:emissie a skos:Concept;
+    skos:definition "De procedure emissie via een emissiepunt."@nl;
+    skos:inScheme conceptscheme:procedure_type;
+    skos:notation "EMISSIE";
+    skos:note "De procedure emissie via een emissiepunt."@nl;
+    skos:prefLabel "Emissie"@nl;
+    skos:topConceptOf conceptscheme:procedure_type;
+    riepr-vocab:relevantDataType sosa:Procedure.
+procedure:hoofdactiviteit a skos:Concept;
+    skos:definition "De procedure die de hoofdactiviteit aangeeft."@nl;
+    skos:inScheme conceptscheme:procedure_type;
+    skos:notation "HOOFDACTIVITEIT";
+    skos:note "De procedure die de hoofdactiviteit aangeeft."@nl;
+    skos:prefLabel "Hoofdactiviteit"@nl;
+    skos:topConceptOf conceptscheme:procedure_type;
+    riepr-vocab:relevantDataType sosa:Procedure.
+procedure:meting a skos:Concept;
+    skos:definition "De procedure meting via een meetpunt."@nl;
+    skos:inScheme conceptscheme:procedure_type;
+    skos:notation "METING";
+    skos:note "De procedure meting via een meetpunt."@nl;
+    skos:prefLabel "Meting"@nl;
+    skos:topConceptOf conceptscheme:procedure_type;
+    riepr-vocab:relevantDataType sosa:Procedure.
+procedure:onttrekking a skos:Concept;
+    skos:definition "De procedure onttrekking via een onttrekingspunt."@nl;
+    skos:inScheme conceptscheme:procedure_type;
+    skos:notation "ONTTREKKING";
+    skos:note "De procedure onttrekking via een onttrekingspunt."@nl;
+    skos:prefLabel "Onttrekking"@nl;
+    skos:topConceptOf conceptscheme:procedure_type;
+    riepr-vocab:relevantDataType sosa:Procedure.
+procedure:transport a skos:Concept;
+    skos:definition "De procedure transport tussen twee processen."@nl;
+    skos:inScheme conceptscheme:procedure_type;
+    skos:notation "TRANSPORT";
+    skos:note "De procedure transport tussen twee processen."@nl;
+    skos:prefLabel "Transport"@nl;
+    skos:topConceptOf conceptscheme:procedure_type;
+    riepr-vocab:relevantDataType sosa:Procedure.
+procedure:uitwissel a skos:Concept;
+    skos:definition "De procedure uitwissel via een uitwisselpunt."@nl;
+    skos:inScheme conceptscheme:procedure_type;
+    skos:notation "UITWISSEL";
+    skos:note "De procedure uitwissel via een uitwisselpunt."@nl;
+    skos:prefLabel "Uitwissel"@nl;
+    skos:topConceptOf conceptscheme:procedure_type;
+    riepr-vocab:relevantDataType sosa:Procedure.
+procedure:verwerking a skos:Concept;
+    skos:definition "De procedure verwerking door een installatie."@nl;
+    skos:inScheme conceptscheme:procedure_type;
+    skos:notation "VERWERKING";
+    skos:note "De procedure verwerking door een installatie."@nl;
+    skos:prefLabel "Verwerking"@nl;
+    skos:topConceptOf conceptscheme:procedure_type;
+    riepr-vocab:relevantDataType sosa:Procedure.
+rubriek:vlarem a skos:Concept;
+    skos:inScheme conceptscheme:rubriek_type;
+    skos:notation "vlarem";
+    skos:prefLabel "VLAREM"@nl;
+    skos:topConceptOf conceptscheme:rubriek_type;
+    riepr-vocab:isMeetbaar true.
+status-type:definitief_uit_dienst a skos:Concept;
+    rdfs:seeAlso <http://purl.org/adms/status/Withdrawn>;
+    skos:definition "De status definitief uit dienst geeft aan dat een entiteit definitief buiten gebruik is."@nl;
+    skos:inScheme conceptscheme:status_type;
+    skos:notation "DEFINITIEF_UIT_DIENST";
+    skos:note "De status definitief uit dienst geeft aan dat een entiteit definitief buiten gebruik is."@nl;
+    skos:prefLabel "Definitief uit dienst"@nl;
+    skos:topConceptOf conceptscheme:status_type;
+    riepr-vocab:relevantDataType <http://www.w3.org/ns/adms#>.
+status-type:in_dienst a skos:Concept;
+    rdfs:seeAlso <http://purl.org/adms/status/Completed>;
+    skos:definition "De status in dienst geeft aan dat een entiteit momenteel in gebruik is."@nl;
+    skos:inScheme conceptscheme:status_type;
+    skos:notation "IN_DIENST";
+    skos:note "De status in dienst geeft aan dat een entiteit momenteel in gebruik is."@nl;
+    skos:prefLabel "In dienst"@nl;
+    skos:topConceptOf conceptscheme:status_type;
+    riepr-vocab:relevantDataType <http://www.w3.org/ns/adms#>.
+status-type:ontmanteld a skos:Concept;
+    rdfs:seeAlso <http://purl.org/adms/status/Withdrawn>;
+    skos:definition "De status ontmanteld geeft aan dat een entiteit niet meer bestaat."@nl;
+    skos:inScheme conceptscheme:status_type;
+    skos:notation "ONTMANTELD";
+    skos:note "De status ontmanteld geeft aan dat een entiteit niet meer bestaat."@nl;
+    skos:prefLabel "Ontmanteld"@nl;
+    skos:topConceptOf conceptscheme:status_type;
+    riepr-vocab:relevantDataType <http://www.w3.org/ns/adms#>.
+status-type:tijdelijk_uit_dienst a skos:Concept;
+    rdfs:seeAlso <http://purl.org/adms/status/Deprecated>;
+    skos:definition "De status tijdelijk uit dienst geeft aan dat een entiteit tijden buiten gebruik is."@nl;
+    skos:inScheme conceptscheme:status_type;
+    skos:notation "TIJDELIJK_UIT_DIENST";
+    skos:note "De status tijdelijk uit dienst geeft aan dat een entiteit tijden buiten gebruik is."@nl;
+    skos:prefLabel "Tijdelijk uit dienst"@nl;
+    skos:topConceptOf conceptscheme:status_type;
+    riepr-vocab:relevantDataType <http://www.w3.org/ns/adms#>.
+status-type:verkeerde_registratie a skos:Concept;
+    rdfs:seeAlso <http://purl.org/adms/status/Withdrawn>;
+    skos:definition "De status verkeerde registratie  geeft aan deze entiteit verkeerd werd geregistreerd en dus niet van toepassing is"@nl;
+    skos:inScheme conceptscheme:status_type;
+    skos:notation "VERKEERDE_REGISTRATIE";
+    skos:note "De status verkeerde registratie  geeft aan deze entiteit verkeerd werd geregistreerd en dus niet van toepassing is"@nl;
+    skos:prefLabel "Verkeerde Registratie"@nl;
+    skos:topConceptOf conceptscheme:status_type;
+    riepr-vocab:relevantDataType <http://www.w3.org/ns/adms#>.
+status-type:voorgesteld a skos:Concept;
+    rdfs:seeAlso <http://purl.org/adms/status/UnderDevelopment>;
+    skos:definition "De status voorgesteld geeft aan dat een entiteit voorsgesteld is door de Vlaamse Overheid."@nl;
+    skos:inScheme conceptscheme:status_type;
+    skos:notation "VOORGESTELD";
+    skos:note "De status voorgesteld geeft aan dat een entiteit voorsgesteld is door de Vlaamse Overheid."@nl;
+    skos:prefLabel "Voorgesteld Ontwerp"@nl;
+    skos:topConceptOf conceptscheme:status_type;
+    riepr-vocab:relevantDataType <http://www.w3.org/ns/adms#>.
+thema:grondstoffen dcterms:isVersionOf thema:grondstoffen;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    qb:codeList conceptscheme:operationeel_grondstoffen;
+    a skos:Concept;
+    skos:inScheme conceptscheme:thema_type;
+    skos:notation "THEMA_GRONDSTOFFEN";
+    skos:prefLabel "Grondstoffen"@nl;
+    skos:topConceptOf conceptscheme:thema_type.
+thema:grondwater dcterms:isVersionOf thema:grondwater;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    qb:codeList conceptscheme:operationeel_grondwater;
+    a skos:Concept;
+    skos:inScheme conceptscheme:thema_type;
+    skos:notation "THEMA_GRONDWATER";
+    skos:prefLabel "Grondwater"@nl;
+    skos:topConceptOf conceptscheme:thema_type.
+thema:lucht dcterms:isVersionOf thema:lucht;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    qb:codeList conceptscheme:operationeel_lucht;
+    a skos:Concept;
+    skos:inScheme conceptscheme:thema_type;
+    skos:notation "THEMA_LUCHT";
+    skos:prefLabel "Lucht"@nl;
+    skos:topConceptOf conceptscheme:thema_type.
+thema:water dcterms:isVersionOf thema:water;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    qb:codeList conceptscheme:operationeel_water;
+    a skos:Concept;
+    skos:inScheme conceptscheme:thema_type;
+    skos:notation "THEMA_WATER";
+    skos:prefLabel "Water"@nl;
+    skos:topConceptOf conceptscheme:thema_type.
+thema:zelfcontrole-lucht dcterms:isVersionOf thema:zelfcontrole-lucht;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    qb:codeList conceptscheme:operationeel_zelfcontrole_lucht;
+    a skos:Concept;
+    skos:inScheme conceptscheme:thema_type;
+    skos:notation "THEMA_ZELFCONTROLE_LUCHT";
+    skos:prefLabel "Zelfcontrole lucht"@nl;
+    skos:topConceptOf conceptscheme:thema_type.
+thema:zelfcontrole-water dcterms:isVersionOf thema:zelfcontrole-water;
+    dcterms:modified "2026-10-22T12:43:29.964Z"^^xsd:dateTime;
+    qb:codeList conceptscheme:operationeel_zelfcontrole_water;
+    a skos:Concept;
+    skos:inScheme conceptscheme:thema_type;
+    skos:notation "THEMA_ZELFCONTROLE_WATER";
+    skos:prefLabel "Zelfcontrole water"@nl;
+    skos:topConceptOf conceptscheme:thema_type.
+uitwisselpunt-eigenschappen:diepte dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    dcterms:relation rdfs:value;
+    qudt:relevantUnit csor_eenheid:E_59;
+    a skos:Concept;
+    skos:definition "De diepte van de pompput ten opzichte van het maaiveld."@nl;
+    skos:inScheme conceptscheme:uitwisselpunt_eigenschappen;
+    skos:note "De diepte van de pompput ten opzichte van het maaiveld."@nl;
+    skos:prefLabel "Diepte"@nl;
+    skos:topConceptOf conceptscheme:uitwisselpunt_eigenschappen;
+    riepr-vocab:isMeervoudig false;
+    riepr-vocab:isVerplicht false;
+    riepr-vocab:relevantDataType xsd:decimal;
+    riepr-vocab:relevantProperty dbo:depth;
+    riepr-vocab:relevantRiepr uitwisselpunt:pompput.
+uitwisselpunt:pompput dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:Concept;
+    skos:definition "Een put voor de winning van of injectie naar grondwater."@nl;
+    skos:inScheme conceptscheme:uitwisselpunt_type;
+    skos:note "Een put voor de winning van of injectie naar grondwater."@nl;
+    skos:prefLabel "Pompput"@nl;
+    skos:topConceptOf conceptscheme:uitwisselpunt_type;
+    riepr-vocab:isMeetbaar true;
+    riepr-vocab:isOnzichtbaar false.
+conceptscheme:aangifte_status a skos:ConceptScheme;
+    skos:hasTopConcept aangifte-status:concept, aangifte-status:gefaald, aangifte-status:ingediend, aangifte-status:ingetrokken;
+    skos:prefLabel "Aangifte status"@nl.
+conceptscheme:aangifte_type a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende aangiftes"@nl;
+    skos:hasTopConcept aangifte:operationeel, aangifte:structuur;
+    skos:note "Een typering van verschillende aangiftes"@nl;
+    skos:prefLabel "Aangifte types"@nl.
+conceptscheme:emissie_type a skos:ConceptScheme;
+    skos:hasTopConcept emissie:abnormale, emissie:geleide, emissie:niet-geleide-fakkel, emissie:niet-geleide-lekverlies, emissie:niet-geleide-opslagverlies, emissie:niet-geleide-overslagverlies, emissie:niet-geleide;
+    skos:prefLabel "Emissie type"@nl.
+conceptscheme:emissiepunt_eigenschappen dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende eigenschappen voor emissiepunten."@nl;
+    skos:hasTopConcept emissiepunt-eigenschappen:aantal_punten, emissiepunt-eigenschappen:diameter, emissiepunt-eigenschappen:hoogte, emissiepunt-eigenschappen:lozingspunt-lozingsplaats;
+    skos:note "Een typering van verschillende eigenschappen voor emissiepunten."@nl;
+    skos:prefLabel "Emissiepunt eigenschappen"@nl.
+conceptscheme:emissiepunt_type dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende soorten emissiepunten."@nl;
+    skos:hasTopConcept emissiepunt:emissiepunt_lucht, emissiepunt:lozingspunt;
+    skos:note "Een typering van verschillende soorten emissiepunten."@nl;
+    skos:prefLabel "Emissiepunt types"@nl.
+conceptscheme:filter_eigenschappen dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende eigenschappen voor filters."@nl;
+    skos:hasTopConcept filter-eigenschappen:diepte, filter-eigenschappen:diepte_pomp, filter-eigenschappen:lengte, filter-eigenschappen:watervoerendeLaag;
+    skos:note "Een typering van verschillende eigenschappen voor filters."@nl;
+    skos:prefLabel "Filter eigenschappen"@nl.
+conceptscheme:filter_type dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:ConceptScheme;
+    skos:hasTopConcept filter:filter;
+    skos:prefLabel "Filter type"@nl.
+conceptscheme:herkomst_water a skos:ConceptScheme;
+    skos:prefLabel "Herkomst water"@nl.
+conceptscheme:installatie_eigenschappen dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende eigenschappen voor installaties."@nl;
+    skos:hasTopConcept installatie-eigenschappen:geinstalleerde_opslag_overslagcapaciteit, installatie-eigenschappen:geinstalleerde_productiecapaciteit, installatie-eigenschappen:geproduceerde_stof_of_product, installatie-eigenschappen:luchtzuiverings_techniek, installatie-eigenschappen:nominaal_thermisch_vermogen, installatie-eigenschappen:omschrijving, installatie-eigenschappen:opslagen_overgeslagen_stof, installatie-eigenschappen:soort_opgewekte_energie, installatie-eigenschappen:technische_kenmerken, installatie-eigenschappen:type_opslag_overslag, installatie-eigenschappen:type_stookinstallatie, installatie-eigenschappen:verwijderingsrendement, installatie-eigenschappen:waterzuiveringstechniek;
+    skos:note "Een typering van verschillende eigenschappen voor installaties."@nl;
+    skos:prefLabel "Installatie eigenschappen"@nl.
+conceptscheme:installatie_soort_opgewekte_energie a skos:ConceptScheme;
+    skos:definition "De soorten energie die een stookinstallatie kan opwekken."@nl;
+    skos:hasTopConcept installatie-selectiemogelijkheden:andere, installatie-selectiemogelijkheden:druk, installatie-selectiemogelijkheden:elektriciteit, installatie-selectiemogelijkheden:mechanische_energie, installatie-selectiemogelijkheden:stoom, installatie-selectiemogelijkheden:warm_water, installatie-selectiemogelijkheden:warme_lucht;
+    skos:note "De soorten energie die een stookinstallatie kan opwekken."@nl;
+    skos:prefLabel "Soort opgewekte energie"@nl.
+conceptscheme:installatie_type dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende soorten installaties."@nl;
+    skos:hasTopConcept installatie:fakkel, installatie:geothermisch, installatie:gpbv, installatie:luchtzuivering, installatie:opslag_overslag, installatie:productie_installatie, installatie:stookinstallatie, installatie:waterzuivering;
+    skos:note "Een typering van verschillende soorten installaties."@nl;
+    skos:prefLabel "Installatie types"@nl.
+conceptscheme:installatie_type_stookinstallatie a skos:ConceptScheme;
+    skos:definition "De mogelijke types van een stookinstallatie."@nl;
+    skos:hasTopConcept installatie-selectiemogelijkheden:andere_motor, installatie-selectiemogelijkheden:andere_stookinstallatie, installatie-selectiemogelijkheden:boiler, installatie-selectiemogelijkheden:dieselmotor, installatie-selectiemogelijkheden:dual_fuel_motor, installatie-selectiemogelijkheden:gasmotor, installatie-selectiemogelijkheden:gasturbine, installatie-selectiemogelijkheden:wkk;
+    skos:note "De mogelijke types van een stookinstallatie."@nl;
+    skos:prefLabel "Type stookinstallatie"@nl.
+conceptscheme:lozingspunt_lozingsplaats a skos:ConceptScheme;
+    skos:hasTopConcept emissiepunt-selectiemogelijkheden:collector, emissiepunt-selectiemogelijkheden:externe_waterzuivering, emissiepunt-selectiemogelijkheden:grondwater, emissiepunt-selectiemogelijkheden:oppervlaktewater, emissiepunt-selectiemogelijkheden:regenwaterriool, emissiepunt-selectiemogelijkheden:riool.
+conceptscheme:meetpunt_eigenschappen dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende eigenschappen voor meetpunten."@nl;
+    skos:hasTopConcept meetpunt-eigenschappen:diepte, meetpunt-eigenschappen:merk, meetpunt-eigenschappen:putnummer, meetpunt-eigenschappen:referentiepunt, meetpunt-eigenschappen:serienummer;
+    skos:note "Een typering van verschillende eigenschappen voor meetpunten."@nl;
+    skos:prefLabel "Meetpunt eigenschappen"@nl.
+conceptscheme:meetpunt_referentiepunt_naam a skos:ConceptScheme;
+    skos:definition "De mogelijke referentiepunten voor de hoogtemeting van een peilput."@nl;
+    skos:hasTopConcept meetpunt-selectiemogelijkheden:ander_referentiepunt, meetpunt-selectiemogelijkheden:bovenkant_beschermbuis, meetpunt-selectiemogelijkheden:bovenkant_peilbuis, meetpunt-selectiemogelijkheden:bovenkant_straatpot, meetpunt-selectiemogelijkheden:maaiveld, meetpunt-selectiemogelijkheden:onbekend;
+    skos:note "De mogelijke referentiepunten voor de hoogtemeting van een peilput."@nl;
+    skos:prefLabel "Referentiepunt naam"@nl.
+conceptscheme:meetpunt_type dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:ConceptScheme;
+    skos:hasTopConcept meetpunt:controleinrichting, meetpunt:debietmeter, meetpunt:peilput;
+    skos:prefLabel "Meetpunt types"@nl.
+conceptscheme:onttrekkingspunt_eigenschappen dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende eigenschappen voor onttrekkingspunten."@nl;
+    skos:hasTopConcept onttrekkingspunt-eigenschappen:omschrijving;
+    skos:note "Een typering van verschillende eigenschappen voor onttrekkingspunten."@nl;
+    skos:prefLabel "Onttrekkingspunt eigenschappen"@nl.
+conceptscheme:onttrekkingspunt_type dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende soorten onttrekkingspunten."@nl;
+    skos:hasTopConcept onttrekkingspunt:opnamepunt;
+    skos:note "Een typering van verschillende soorten onttrekkingspunten."@nl;
+    skos:prefLabel "Onttrekkingspunt types"@nl.
+conceptscheme:operationeel_bepalingsmethode a skos:ConceptScheme;
+    skos:hasTopConcept bepalingsmethode:berekend, bepalingsmethode:gemeten, bepalingsmethode:geschat, bepalingsmethode:voorgesteld;
+    skos:prefLabel "Bepalingsmethode"@nl.
+conceptscheme:operationeel_bepalingsmethodeclassificatie a skos:ConceptScheme;
+    skos:hasTopConcept bepalingsmethodeclassificatie:vrachten;
+    skos:prefLabel "Bepalingsmethodeclassificatie"@nl.
+conceptscheme:operationeel_bestemmingstype a skos:ConceptScheme;
+    skos:hasTopConcept bestemming:belgisch, bestemming:buitenlands, bestemming:dispers, bestemming:geen_onderneming, bestemming:particulier, bestemming:werf;
+    skos:prefLabel "Bestemmingstype"@nl.
+conceptscheme:operationeel_contextueel a skos:ConceptScheme;
+    skos:hasTopConcept contextueel:feature;
+    skos:prefLabel "Operationeel contextueel"@nl.
+conceptscheme:operationeel_contextueel_iepr a skos:ConceptScheme;
+    skos:hasTopConcept contextueel:activiteit, contextueel:energieverbruik, contextueel:grondstoffenverbruik, contextueel:waterverbruik.
+conceptscheme:operationeel_contextueel_iepr_activiteit a skos:ConceptScheme;
+    skos:hasTopConcept contextueel:productievolume.
+conceptscheme:operationeel_debiet_type a skos:ConceptScheme;
+    skos:hasTopConcept debiet:infiltratie, debiet:onttrekking, debiet:spui, debiet:totaal_rondgepompd;
+    skos:prefLabel "Type debiet"@nl.
+conceptscheme:operationeel_grondstoffen a skos:ConceptScheme;
+    skos:hasTopConcept grondstoffen:geproduceerd, grondstoffen:grondstof;
+    skos:prefLabel "Operationeel grondstoffen"@nl.
+conceptscheme:operationeel_grondwater a skos:ConceptScheme;
+    skos:hasTopConcept grondwater:kwaliteitsmeting, grondwater:onttrekking, grondwater:peilmeting.
+conceptscheme:operationeel_lucht a skos:ConceptScheme;
+    skos:hasTopConcept lucht:feature_ep;
+    skos:prefLabel "Operationele gegevens"@nl.
+conceptscheme:operationeel_lucht_bron a skos:ConceptScheme;
+    skos:hasTopConcept lucht:feature_bron.
+conceptscheme:operationeel_lucht_emissie a skos:ConceptScheme;
+    skos:hasTopConcept lucht:emissie.
+conceptscheme:operationeel_lucht_rapportering a skos:ConceptScheme;
+    skos:hasTopConcept lucht:afvalproduct, lucht:brandstof, lucht:geproduceerde_stof, lucht:verbruikte_stof.
+conceptscheme:operationeel_peilmethode a skos:ConceptScheme;
+    skos:hasTopConcept peilmethode:automatische_sonde, peilmethode:overige, peilmethode:peillint;
+    skos:prefLabel "Peilmethode"@nl.
+conceptscheme:operationeel_pomptoestand a skos:ConceptScheme;
+    skos:hasTopConcept pomptoestand:rust, pomptoestand:werking;
+    skos:prefLabel "Pomptoestand"@nl.
+conceptscheme:operationeel_techniekmonstername a skos:ConceptScheme;
+    skos:hasTopConcept techniekmonstername:aftap;
+    skos:prefLabel "Techniek monstername"@nl.
+conceptscheme:operationeel_toepassingwijze a skos:ConceptScheme;
+    skos:hasTopConcept toepassingswijze:brandstof, toepassingswijze:dispers, toepassingswijze:overige;
+    skos:prefLabel "Toepassingswijze"@nl.
+conceptscheme:operationeel_toestand_indicator a skos:ConceptScheme;
+    skos:hasTopConcept toestand-indicator:droog, toestand-indicator:nat.
+conceptscheme:operationeel_water a skos:ConceptScheme;
+    skos:definition "Selecteer de controleinrichting waarop je de lozing wil rapporteren."@nl;
+    skos:hasTopConcept water:feature;
+    skos:note "Selecteer de controleinrichting waarop je de lozing wil rapporteren."@nl;
+    skos:prefLabel "Operationele gegevens"@nl.
+conceptscheme:operationeel_water_lozing a skos:ConceptScheme;
+    skos:hasTopConcept water:abnormale-lozing, water:lozing.
+conceptscheme:operationeel_zelfcontrole_lucht a skos:ConceptScheme;
+    skos:hasTopConcept zelfcontrole-lucht:feature;
+    skos:prefLabel "Operationele gegevens"@nl.
+conceptscheme:operationeel_zelfcontrole_lucht_meting a skos:ConceptScheme;
+    skos:hasTopConcept zelfcontrole-lucht:meting.
+conceptscheme:operationeel_zelfcontrole_meetfrequentie a skos:ConceptScheme;
+    skos:hasTopConcept meetfrequentie:test;
+    skos:prefLabel "Meetfrequentie"@nl.
+conceptscheme:operationeel_zelfcontrole_water a skos:ConceptScheme;
+    skos:hasTopConcept zelfcontrole-water:feature;
+    skos:prefLabel "Operationele gegevens"@nl.
+conceptscheme:operationeel_zelfcontrole_water_meting a skos:ConceptScheme;
+    skos:hasTopConcept zelfcontrole-water:labo, zelfcontrole-water:meting, zelfcontrole-water:parameter.
+conceptscheme:procedure_type a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende procedures."@nl;
+    skos:hasTopConcept procedure:emissie, procedure:hoofdactiviteit, procedure:meting, procedure:onttrekking, procedure:transport, procedure:uitwissel, procedure:verwerking;
+    skos:note "Een typering van verschillende procedures."@nl;
+    skos:prefLabel "Procedure types"@nl.
+conceptscheme:rubriek_type a skos:ConceptScheme;
+    skos:hasTopConcept rubriek:vlarem;
+    skos:prefLabel "Rubriek types"@nl.
+conceptscheme:status_type a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende statussen (actief, inactief, ...)."@nl;
+    skos:hasTopConcept status-type:definitief_uit_dienst, status-type:in_dienst, status-type:ontmanteld, status-type:tijdelijk_uit_dienst, status-type:verkeerde_registratie, status-type:voorgesteld;
+    skos:note "Een typering van verschillende statussen (actief, inactief, ...)."@nl;
+    skos:prefLabel "Status types"@nl.
+conceptscheme:systeem_eigenschappen dcterms:hasPart emissiepunt-eigenschappen:aantal_punten, emissiepunt-eigenschappen:diameter, emissiepunt-eigenschappen:hoogte, emissiepunt-eigenschappen:lozingspunt-lozingsplaats, filter-eigenschappen:diepte, filter-eigenschappen:diepte_pomp, filter-eigenschappen:lengte, filter-eigenschappen:watervoerendeLaag, installatie-eigenschappen:geinstalleerde_opslag_overslagcapaciteit, installatie-eigenschappen:geinstalleerde_productiecapaciteit, installatie-eigenschappen:geproduceerde_stof_of_product, installatie-eigenschappen:luchtzuiverings_techniek, installatie-eigenschappen:nominaal_thermisch_vermogen, installatie-eigenschappen:omschrijving, installatie-eigenschappen:opslagen_overgeslagen_stof, installatie-eigenschappen:soort_opgewekte_energie, installatie-eigenschappen:technische_kenmerken, installatie-eigenschappen:type_opslag_overslag, installatie-eigenschappen:type_stookinstallatie, installatie-eigenschappen:verwijderingsrendement, installatie-eigenschappen:verwijderingsrendement_percentage, installatie-eigenschappen:verwijderingsrendement_stof, installatie-eigenschappen:waterzuiveringstechniek, installatie-eigenschappen:waterzuiveringstechniek_ingebruikvan, installatie-eigenschappen:waterzuiveringstechniek_techniek, meetpunt-eigenschappen:diepte, meetpunt-eigenschappen:merk, meetpunt-eigenschappen:putnummer, meetpunt-eigenschappen:referentiepunt, meetpunt-eigenschappen:referentiepunt_diepte, meetpunt-eigenschappen:referentiepunt_naam, meetpunt-eigenschappen:serienummer, onttrekkingspunt-eigenschappen:omschrijving, uitwisselpunt-eigenschappen:diepte, conceptscheme:emissiepunt_eigenschappen, conceptscheme:filter_eigenschappen, conceptscheme:installatie_eigenschappen, conceptscheme:meetpunt_eigenschappen, conceptscheme:onttrekkingspunt_eigenschappen, conceptscheme:uitwisselpunt_eigenschappen;
+    a skos:ConceptScheme;
+    skos:prefLabel "Systeem eigenschappen"@nl;
+    riepr-vocab:relevantCodeList conceptscheme:systeem_type.
+conceptscheme:systeem_type dcterms:hasPart emissiepunt:emissiepunt_lucht, emissiepunt:fakkel, emissiepunt:gebouw, emissiepunt:installatie, emissiepunt:lozingspunt, emissiepunt:schoorsteen, emissiepunt:schoorsteen_horizontale_uitstroom, emissiepunt:schoorsteen_verticale_uitstroom, filter:filter, filter:injectie, filter:omkeerbaar, filter:peil, filter:pomp, installatie:directe_stookinstallatie, installatie:fakkel, installatie:geothermisch, installatie:gpbv, installatie:indirecte_stookinstallatie, installatie:luchtzuivering, installatie:opslag_overslag, installatie:productie_installatie, installatie:stookinstallatie, installatie:waterzuivering, meetpunt:controleinrichting, meetpunt:debietmeter, meetpunt:peilput, onttrekkingspunt:opnamepunt, uitwisselpunt:pompput, conceptscheme:emissiepunt_type, conceptscheme:filter_type, conceptscheme:installatie_type, conceptscheme:meetpunt_type, conceptscheme:onttrekkingspunt_type, conceptscheme:uitwisselpunt_type;
+    a skos:ConceptScheme;
+    skos:prefLabel "Systeem types"@nl.
+conceptscheme:thema_type a skos:ConceptScheme;
+    skos:hasTopConcept thema:grondstoffen, thema:grondwater, thema:lucht, thema:water, thema:zelfcontrole-lucht, thema:zelfcontrole-water;
+    skos:prefLabel "Thematische stroom"@nl.
+conceptscheme:uitwisselpunt_eigenschappen dcterms:isPartOf conceptscheme:systeem_eigenschappen;
+    a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende eigenschappen voor uitwisselpunten."@nl;
+    skos:hasTopConcept uitwisselpunt-eigenschappen:diepte;
+    skos:note "Een typering van verschillende eigenschappen voor uitwisselpunten."@nl;
+    skos:prefLabel "Uitwisselpunt eigenschappen"@nl.
+conceptscheme:uitwisselpunt_type dcterms:isPartOf conceptscheme:systeem_type;
+    a skos:ConceptScheme;
+    skos:definition "Een typering van verschillende soorten uitwisselpunten."@nl;
+    skos:hasTopConcept uitwisselpunt:pompput;
+    skos:note "Een typering van verschillende soorten uitwisselpunten."@nl;
+    skos:prefLabel "Uitwisselpunt types"@nl.
+riepr:inGebruikVanaf a rdfs:Resource.
+riepr:parameter a rdfs:Resource.
+schema:comment a rdfs:Resource.
+schema:material a rdfs:Resource.

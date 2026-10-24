@@ -79,6 +79,10 @@ Bestaande datavoorbeelden:
   van twee ontvangen varianten; criterium op de rubriekversie, grenzen met operator en een
   `qudt:QuantityValue` per eenheid (ontwerpvocabularium `vlarem:` en lijst vergelijkingsoperatoren in
   `src/main/resources/`); `alternatief/` geeft één bereik per eenheid (`qudt:minExclusive` …)
+- `riepr/` — herziening van de RIE-IEPR-export van het IMJV 2021 (AGC Glass Mol) én van de ontologie
+  `riepr.ttl` (origineel in `source/riepr.trig`): drielaags met processen als plan en stappen, de
+  exploitatie als `sosa:Deployment` met `prov:hadPlan`, de lozing als FOI en de jaarvracht als
+  afgeleide observatie; RIE-IEPR-codelijst geladen in `src/main/resources/`; incl. opdracht.md
 - `rdf-memory/` — geheugen van een AI-agent (turtle-recall, geen SSN/SOSA): herziening van één item
   als `oa:Annotation` met PROV-herkomst, DQV-scores, tags als SKOS-begrippen en toegang via Web Access
   Control (OA, DQV en WAC in `src/main/resources/org/w3/www/ns/`); gepseudonimiseerd

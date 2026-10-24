@@ -1,0 +1,410 @@
+# RIE-IEPR / IMJV 2021, AGC Glass Europe vestiging Mol -- herziening van source/mjv_*.trig
+# Representatieve subset: één procesketen lucht (etslijn 2 -> gaswasser -> emissiepunt 13005) en
+# één procesketen water (vlakglas -> lozingspunt LP01 2400006) met jaardebiet, concentratie en
+# afgeleide jaarvracht zink. Ontologie: src/main/resources/.../ns/riepr/riepr.ttl (herzien).
+
+@prefix adms:                  <http://www.w3.org/ns/adms#> .
+@prefix csor:                  <https://data.omgeving.vlaanderen.be/ns/csor#> .
+@prefix csor-eenheid:          <https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/> .
+@prefix csor-parameteraspect:  <https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/> .
+@prefix dct:                   <http://purl.org/dc/terms/> .
+@prefix geo:                   <http://www.opengis.net/ont/geosparql#> .
+@prefix locn:                  <http://www.w3.org/ns/locn#> .
+@prefix org:                   <http://www.w3.org/ns/org#> .
+@prefix p-plan:                <http://purl.org/net/p-plan#> .
+@prefix proces:                <https://data.riepr.omgeving.vlaanderen.be/id/proces/> .
+@prefix prov:                  <http://www.w3.org/ns/prov#> .
+@prefix qudt:                  <http://qudt.org/schema/qudt/> .
+@prefix rdfs:                  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix riepr:                 <https://data.riepr.omgeving.vlaanderen.be/ns/riepr#> .
+@prefix riepr-bepalingsmethode: <https://data.omgeving.vlaanderen.be/id/concept/riepr/operationeel-bepalingsmethode/> .
+@prefix riepr-emissie:         <https://data.omgeving.vlaanderen.be/id/concept/riepr/emissie-type/> .
+@prefix riepr-emissiepunt:     <https://data.omgeving.vlaanderen.be/id/concept/riepr/emissiepunt-type/> .
+@prefix riepr-emissiepunt-eig: <https://data.omgeving.vlaanderen.be/id/concept/riepr/emissiepunt-eigenschappen/> .
+@prefix riepr-installatie:     <https://data.omgeving.vlaanderen.be/id/concept/riepr/installatie-type/> .
+@prefix riepr-status:          <https://data.omgeving.vlaanderen.be/id/concept/riepr/status-type/> .
+@prefix skos:                  <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa:                  <http://www.w3.org/ns/sosa/> .
+@prefix time:                  <http://www.w3.org/2006/time#> .
+@prefix var:                   <https://data.riepr.omgeving.vlaanderen.be/id/variabele/> .
+@prefix xsd:                   <http://www.w3.org/2001/XMLSchema#> .
+
+### PLANNING
+# Het proces van de exploitatie in 2021 is het plan; activiteiten, zuivering en uitstoot of lozing
+# zijn stappen van dat plan, geordend met p-plan:isPrecededBy en verbonden via procesvariabelen.
+
+proces:01787986000160_2021 a riepr:Proces , p-plan:Plan ;
+    rdfs:label "AGC GLASS EUROPE VESTIGING MOL 2021"@nl ;
+    dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:issued "2021-01-01"^^xsd:date ;
+    adms:status riepr-status:in_dienst .
+
+# --- procesketen lucht ---
+
+proces:01787986000160_activiteit_19105 a riepr:Proces , p-plan:Step ;
+    rdfs:label "ETSLIJN 2 etsafdeling"@nl ;
+    dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:issued "2021-01-01"^^xsd:date ;
+    dct:type riepr:verwerkingProcedure ;
+    adms:status riepr-status:in_dienst ;
+    p-plan:isStepOfPlan proces:01787986000160_2021 ;
+    p-plan:hasOutputVar var:01787986000160_activiteit_19105_rookgas ;
+    sosa:implementedBy <https://data.imjv.omgeving.vlaanderen.be/id/activiteit/19105> .
+
+proces:01787986000160_zuivering_13179 a riepr:Proces , p-plan:Step ;
+    rdfs:label "Wastoren etslijn 2 (gaswasser)"@nl ;
+    dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:issued "2021-01-01"^^xsd:date ;
+    dct:type riepr:verwerkingProcedure ;
+    adms:status riepr-status:in_dienst ;
+    p-plan:isStepOfPlan proces:01787986000160_2021 ;
+    p-plan:isPrecededBy proces:01787986000160_activiteit_19105 ;
+    p-plan:hasInputVar var:01787986000160_activiteit_19105_rookgas ;
+    p-plan:hasOutputVar var:01787986000160_zuivering_13179_rookgas ;
+    sosa:implementedBy <https://data.imjv.omgeving.vlaanderen.be/id/zuiveringsapparaat/13179> .
+
+proces:01787986000160_uitstoot_13005 a riepr:Proces , p-plan:Step ;
+    rdfs:label "ETSLIJN 2 ETSAFDELING (2021)"@nl ;
+    dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:issued "2021-01-01"^^xsd:date ;
+    dct:type riepr:emissieProcedure ;
+    adms:status riepr-status:in_dienst ;
+    p-plan:isStepOfPlan proces:01787986000160_2021 ;
+    p-plan:isPrecededBy proces:01787986000160_zuivering_13179 ;
+    p-plan:hasInputVar var:01787986000160_zuivering_13179_rookgas ;
+    sosa:implementedBy <https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021> .
+
+var:01787986000160_activiteit_19105_rookgas a riepr:Procesvariabele , p-plan:Variable ;
+    rdfs:label "Rookgas etslijn 2"@nl .
+
+var:01787986000160_zuivering_13179_rookgas a riepr:Procesvariabele , p-plan:Variable ;
+    rdfs:label "Gezuiverd rookgas etslijn 2"@nl .
+
+# --- procesketen water ---
+
+proces:01787986000160_activiteit_323 a riepr:Proces , p-plan:Step ;
+    rdfs:label "Vormen en bewerken van vlakglas"@nl ;
+    dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:issued "2021-01-01"^^xsd:date ;
+    dct:type riepr:verwerkingProcedure ;
+    adms:status riepr-status:in_dienst ;
+    p-plan:isStepOfPlan proces:01787986000160_2021 ;
+    p-plan:hasOutputVar var:01787986000160_activiteit_323_proceswater ;
+    sosa:implementedBy <https://data.imjv.omgeving.vlaanderen.be/id/activiteit/323> .
+
+proces:01787986000160_lozing_2400006 a riepr:Proces , p-plan:Step ;
+    rdfs:label "LP01 INDUSTRIEEL GLASFABRIEK (2021)"@nl ;
+    dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:issued "2021-01-01"^^xsd:date ;
+    dct:type riepr:emissieProcedure ;
+    adms:status riepr-status:in_dienst ;
+    p-plan:isStepOfPlan proces:01787986000160_2021 ;
+    p-plan:isPrecededBy proces:01787986000160_activiteit_323 ;
+    p-plan:hasInputVar var:01787986000160_activiteit_323_proceswater ;
+    p-plan:hasOutputVar var:01787986000160_lozing_2400006_afvalwater ;
+    sosa:implementedBy <https://data.imjv.omgeving.vlaanderen.be/id/lozingspunt/01787986000160/2400006/jaar/2021> .
+
+var:01787986000160_activiteit_323_proceswater a riepr:Procesvariabele , p-plan:Variable ;
+    rdfs:label "Proceswater"@nl .
+
+var:01787986000160_lozing_2400006_afvalwater a riepr:Procesvariabele , p-plan:Variable ;
+    rdfs:label "Geloosd afvalwater LP01"@nl .
+
+### INFRASTRUCTURE
+
+<https://data.imjv.omgeving.vlaanderen.be/id/exploitant/0413638187> a riepr:Exploitant , prov:Agent ;
+    rdfs:label "AGC GLASS EUROPE"@nl ;
+    dct:created "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:modified "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    prov:hadPrimarySource <https://data.vlaanderen.be/id/onderneming/0413638187> ;
+    locn:address <https://data.cbb.omgeving.vlaanderen.be/id/address/.well-known/genid/be1451909> .
+
+<https://data.vlaanderen.be/id/onderneming/0413638187> a org:Organization ;
+    rdfs:label "AGC GLASS EUROPE"@nl ;
+    adms:identifier <https://data.vlaanderen.be/id/identifier/0413638187> .
+
+<https://data.vlaanderen.be/id/identifier/0413638187> a adms:Identifier ;
+    skos:notation "0413638187" .
+
+<https://data.cbb.omgeving.vlaanderen.be/id/address/.well-known/genid/be1451909> a locn:Address ;
+    locn:fullAddress "Voortstraat 27, 2400 Mol, België" ;
+    locn:thoroughfare "Voortstraat" ;
+    locn:locatorDesignator "27" ;
+    locn:postCode "2400" ;
+    locn:postName "Mol" .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160> a riepr:Exploitatielocatie , sosa:Platform ;
+    rdfs:label "AGC GLASS EUROPE VESTIGING MOL"@nl ;
+    dct:created "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:modified "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:issued "2010-01-01"^^xsd:date ;
+    adms:status riepr-status:in_dienst ;
+    adms:identifier <https://data.vlaanderen.be/id/identifier/2142813934> ;
+    prov:wasAttributedTo <https://data.imjv.omgeving.vlaanderen.be/id/exploitant/0413638187> ;
+    locn:address <https://data.cbb.omgeving.vlaanderen.be/id/address/.well-known/genid/be1451909> ;
+    geo:hasGeometry <https://data.vlaanderen.be/id/geometry/2142813934> ;
+    sosa:inDeployment <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160/jaar/2021> ;
+    sosa:hosts <https://data.imjv.omgeving.vlaanderen.be/id/activiteit/19105> , <https://data.imjv.omgeving.vlaanderen.be/id/zuiveringsapparaat/13179> , <https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021> ,
+        <https://data.imjv.omgeving.vlaanderen.be/id/activiteit/323> , <https://data.imjv.omgeving.vlaanderen.be/id/lozingspunt/01787986000160/2400006/jaar/2021> .
+
+<https://data.vlaanderen.be/id/identifier/2142813934> a adms:Identifier ;
+    skos:notation "2142813934" .
+
+<https://data.vlaanderen.be/id/geometry/2142813934> a geo:Geometry ;
+    geo:asWKT "POINT(5.1620617637536 51.193957868225)"^^geo:wktLiteral .
+
+# --- lucht ---
+
+<https://data.imjv.omgeving.vlaanderen.be/id/activiteit/19105> a riepr:Installatie , sosa:System ;
+    rdfs:label "AGC GLASS EUROPE VESTIGING MOL : ETSLIJN 2 etsafdeling"@nl ;
+    dct:created "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:modified "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:issued "2010-01-01"^^xsd:date ;
+    adms:status riepr-status:in_dienst ;
+    sosa:isHostedBy <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160> ;
+    sosa:hasDeployment <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160/jaar/2021> ;
+    sosa:hasSubSystem <https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021> ;
+    sosa:implements proces:01787986000160_activiteit_19105 .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/zuiveringsapparaat/13179> a riepr:Installatie , sosa:System ;
+    rdfs:label "AGC GLASS EUROPE VESTIGING MOL : Wastoren etslijn 2 (gaswasser)"@nl ;
+    dct:created "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:modified "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:issued "2010-01-01"^^xsd:date ;
+    dct:type riepr-installatie:luchtzuivering ;
+    adms:status riepr-status:in_dienst ;
+    sosa:isHostedBy <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160> ;
+    sosa:hasDeployment <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160/jaar/2021> ;
+    sosa:implements proces:01787986000160_zuivering_13179 .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021> a riepr:Emissiepunt , sosa:System , sosa:FeatureOfInterest ;
+    rdfs:label "AGC GLASS EUROPE VESTIGING MOL : ETSLIJN 2 ETSAFDELING (2021)"@nl ;
+    dct:created "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:modified "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:issued "2010-01-01"^^xsd:date ;
+    dct:type riepr-emissiepunt:emissiepunt_lucht ;
+    adms:status riepr-status:in_dienst ;
+    prov:wasRevisionOf <https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005> ;
+    sosa:isHostedBy <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160> ;
+    sosa:hasDeployment <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160/jaar/2021> ;
+    sosa:hasSubSystem <https://data.imjv.omgeving.vlaanderen.be/id/zuiveringsapparaat/13179> , <https://data.imjv.omgeving.vlaanderen.be/id/meetpunt/01787986000160/13005/jaar/2021> ;
+    sosa:implements proces:01787986000160_uitstoot_13005 ;
+    sosa:hasProperty riepr-emissiepunt-eig:diameter , riepr-emissiepunt-eig:hoogte ;
+    sosa:isFeatureOfInterestOf <https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021/imjv#diameter> ,
+        <https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021/imjv#hoogte> .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/meetpunt/01787986000160/13005/jaar/2021> a riepr:Meetpunt , sosa:System ;
+    rdfs:label "AGC GLASS EUROPE VESTIGING MOL : ETSLIJN 2 ETSAFDELING (2021)"@nl ;
+    dct:created "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:modified "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:issued "2010-01-01"^^xsd:date ;
+    adms:status riepr-status:in_dienst ;
+    sosa:hasDeployment <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160/jaar/2021> .
+
+# --- water ---
+
+<https://data.imjv.omgeving.vlaanderen.be/id/activiteit/323> a riepr:Installatie , sosa:System ;
+    rdfs:label "AGC GLASS EUROPE VESTIGING MOL : Vormen en bewerken van vlakglas"@nl ;
+    dct:created "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:modified "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:issued "2010-01-01"^^xsd:date ;
+    adms:status riepr-status:in_dienst ;
+    sosa:isHostedBy <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160> ;
+    sosa:hasDeployment <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160/jaar/2021> ;
+    sosa:hasSubSystem <https://data.imjv.omgeving.vlaanderen.be/id/lozingspunt/01787986000160/2400006/jaar/2021> ;
+    sosa:implements proces:01787986000160_activiteit_323 .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/lozingspunt/01787986000160/2400006/jaar/2021> a riepr:Emissiepunt , sosa:System ;
+    rdfs:label "AGC GLASS EUROPE VESTIGING MOL : LP01 INDUSTRIEEL GLASFABRIEK (2021)"@nl ;
+    dct:created "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:modified "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:issued "2010-01-01"^^xsd:date ;
+    dct:type riepr-emissiepunt:lozingspunt ;
+    adms:status riepr-status:in_dienst ;
+    prov:wasRevisionOf <https://data.imjv.omgeving.vlaanderen.be/id/lozingspunt/01787986000160/2400006> ;
+    sosa:isHostedBy <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160> ;
+    sosa:hasDeployment <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160/jaar/2021> ;
+    sosa:hasSubSystem <https://data.imjv.omgeving.vlaanderen.be/id/meetpunt/01787986000160/2400006/jaar/2021> ;
+    sosa:implements proces:01787986000160_lozing_2400006 .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/meetpunt/01787986000160/2400006/jaar/2021> a riepr:Meetpunt , sosa:System ;
+    rdfs:label "AGC GLASS EUROPE VESTIGING MOL : LP01 INDUSTRIEEL GLASFABRIEK (2021)"@nl ;
+    dct:created "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:modified "2010-01-01T00:00:00Z"^^xsd:dateTime ;
+    dct:issued "2010-01-01"^^xsd:date ;
+    adms:status riepr-status:in_dienst ;
+    sosa:hasDeployment <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160/jaar/2021> .
+
+### DEPLOYMENT
+# De exploitatie in rapporteringsjaar 2021 is de inzet van de systemen op de exploitatielocatie.
+# sosa:Deployment is een prov:Activity: de exploitant voert ze uit volgens het proces (prov:hadPlan).
+
+<https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160/jaar/2021> a riepr:Exploitatie , sosa:Deployment ;
+    rdfs:label "AGC GLASS EUROPE VESTIGING MOL (2021)"@nl ;
+    dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    dct:issued "2021-01-01"^^xsd:date ;
+    adms:status riepr-status:in_dienst ;
+    sosa:deployedOnPlatform <https://data.imjv.omgeving.vlaanderen.be/id/exploitatie/01787986000160> ;
+    sosa:deployedSystem <https://data.imjv.omgeving.vlaanderen.be/id/activiteit/19105> , <https://data.imjv.omgeving.vlaanderen.be/id/zuiveringsapparaat/13179> ,
+        <https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021> , <https://data.imjv.omgeving.vlaanderen.be/id/meetpunt/01787986000160/13005/jaar/2021> ,
+        <https://data.imjv.omgeving.vlaanderen.be/id/activiteit/323> , <https://data.imjv.omgeving.vlaanderen.be/id/lozingspunt/01787986000160/2400006/jaar/2021> ,
+        <https://data.imjv.omgeving.vlaanderen.be/id/meetpunt/01787986000160/2400006/jaar/2021> ;
+    prov:wasAssociatedWith <https://data.imjv.omgeving.vlaanderen.be/id/exploitant/0413638187> ;
+    prov:qualifiedAssociation [ a prov:Association ;
+        prov:agent <https://data.imjv.omgeving.vlaanderen.be/id/exploitant/0413638187> ;
+        prov:hadPlan proces:01787986000160_2021
+    ] .
+
+### PROCEDURE AND PROPERTIES
+
+<https://data.imjv.omgeving.vlaanderen.be/id/concept/debietmeting> a sosa:ObservingProcedure ;
+    rdfs:label "Debietmeting"@nl .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/concept/meetgegevens> a sosa:ObservingProcedure ;
+    rdfs:label "Meetgegevens"@nl .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/concept/vrachtberekening> a sosa:ObservingProcedure ;
+    rdfs:label "Jaarvracht = concentratie × jaardebiet"@nl ;
+    dct:type riepr-bepalingsmethode:berekend ;
+    sosa:hasInput csor-parameteraspect:PAS_861 , csor-parameteraspect:PAS_1838 .
+
+csor-parameteraspect:PAS_861 a sosa:Property , csor:ParameterAspect ;
+    rdfs:label "Zn t (totaal in water): massaconcentratie"@nl .
+
+csor-parameteraspect:PAS_863 a sosa:Property , csor:ParameterAspect ;
+    rdfs:label "Zn t (totaal in water): vracht per tijd"@nl .
+
+csor-parameteraspect:PAS_1838 a sosa:Property , csor:ParameterAspect ;
+    rdfs:label "Q (standaard in water): debiet"@nl .
+
+# CSOR-eenheden: qudt:hasUnit vraagt een qudt:Unit (R3); de QUDT-mapping staat in het register.
+csor-eenheid:E_1 a csor:Eenheid , qudt:Unit ;
+    rdfs:label "milligram per liter"@nl .
+
+csor-eenheid:E_12 a csor:Eenheid , qudt:Unit ;
+    rdfs:label "kilogram per jaar"@nl .
+
+csor-eenheid:E_50 a csor:Eenheid , qudt:Unit ;
+    rdfs:label "kubieke meter per jaar"@nl .
+
+csor-eenheid:E_59 a csor:Eenheid , qudt:Unit ;
+    rdfs:label "meter"@nl .
+
+riepr-emissiepunt-eig:diameter a sosa:Property .
+
+riepr-emissiepunt-eig:hoogte a sosa:Property .
+
+### OBSERVATIONS
+
+# --- de lozing (emissie) als feature of interest ---
+
+<https://data.imjv.omgeving.vlaanderen.be/id/lozing/01787986000160/2400006/2021> a riepr:Emissie , sosa:FeatureOfInterest , prov:Entity ;
+    rdfs:label "Lozing in AGC GLASS EUROPE VESTIGING MOL : LP01 Industrieel glasfabriek (2021)"@nl ;
+    dct:type riepr-emissie:geleide ;
+    prov:wasDerivedFrom proces:01787986000160_lozing_2400006 ;
+    p-plan:correspondsToVariable var:01787986000160_lozing_2400006_afvalwater ;
+    prov:wasAttributedTo <https://data.imjv.omgeving.vlaanderen.be/id/lozingspunt/01787986000160/2400006/jaar/2021> ;
+    sosa:hasProperty csor-parameteraspect:PAS_1838 , csor-parameteraspect:PAS_861 , csor-parameteraspect:PAS_863 ;
+    sosa:isFeatureOfInterestOf <https://data.imjv.omgeving.vlaanderen.be/id/lozing/.well-known/genid/01787986000160/2400006/2021/debiet/bf7bed779f6354cd1e1f2cd691b8ece3> ,
+        <https://data.imjv.omgeving.vlaanderen.be/id/observatie/01787986000160/2400006/lozend/chemische_stof/HCHKCACWOHOZIP-UHFFFAOYSA-N/2021/concentratie> ,
+        <https://data.imjv.omgeving.vlaanderen.be/id/observatie/01787986000160/2400006/lozend/chemische_stof/HCHKCACWOHOZIP-UHFFFAOYSA-N/2021> .
+
+<https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021> a time:Interval ;
+    time:hasBeginning <https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021/begin> ;
+    time:hasEnd <https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021/einde> .
+
+<https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021/begin> a time:Instant ;
+    time:inXSDDateTimeStamp "2021-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
+
+<https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021/einde> a time:Instant ;
+    time:inXSDDateTimeStamp "2022-01-01T00:00:00+01:00"^^xsd:dateTimeStamp .
+
+# jaardebiet
+<https://data.imjv.omgeving.vlaanderen.be/id/lozing/.well-known/genid/01787986000160/2400006/2021/debiet/bf7bed779f6354cd1e1f2cd691b8ece3>
+        a riepr:Observatie , sosa:Observation ;
+    rdfs:label "Jaardebiet LP01 2021"@nl ;
+    dct:created "2022-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    sosa:hasFeatureOfInterest <https://data.imjv.omgeving.vlaanderen.be/id/lozing/01787986000160/2400006/2021> ;
+    sosa:observedProperty csor-parameteraspect:PAS_1838 ;
+    sosa:usedProcedure <https://data.imjv.omgeving.vlaanderen.be/id/concept/debietmeting> ;
+    sosa:phenomenonTime <https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021> ;
+    sosa:resultTime "2022-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    sosa:hasResult <https://data.imjv.omgeving.vlaanderen.be/id/result/lozing/.well-known/genid/01787986000160/2400006/2021/debiet/bf7bed779f6354cd1e1f2cd691b8ece3> .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/result/lozing/.well-known/genid/01787986000160/2400006/2021/debiet/bf7bed779f6354cd1e1f2cd691b8ece3>
+        a riepr:Resultaat , qudt:QuantityValue ;
+    qudt:numericValue 336735.0 ;
+    qudt:hasUnit csor-eenheid:E_50 .
+
+# concentratie zink
+<https://data.imjv.omgeving.vlaanderen.be/id/observatie/01787986000160/2400006/lozend/chemische_stof/HCHKCACWOHOZIP-UHFFFAOYSA-N/2021/concentratie>
+        a riepr:Observatie , sosa:Observation ;
+    rdfs:label "Concentratie zink LP01 2021"@nl ;
+    dct:created "2022-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    sosa:hasFeatureOfInterest <https://data.imjv.omgeving.vlaanderen.be/id/lozing/01787986000160/2400006/2021> ;
+    sosa:observedProperty csor-parameteraspect:PAS_861 ;
+    sosa:usedProcedure <https://data.imjv.omgeving.vlaanderen.be/id/concept/meetgegevens> ;
+    sosa:phenomenonTime <https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021> ;
+    sosa:resultTime "2022-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    sosa:hasResult <https://data.imjv.omgeving.vlaanderen.be/id/observatie/01787986000160/2400006/lozend/chemische_stof/HCHKCACWOHOZIP-UHFFFAOYSA-N/2021/concentratie/result> .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/observatie/01787986000160/2400006/lozend/chemische_stof/HCHKCACWOHOZIP-UHFFFAOYSA-N/2021/concentratie/result>
+        a riepr:Resultaat , qudt:QuantityValue ;
+    qudt:numericValue 0.00474 ;
+    qudt:hasUnit csor-eenheid:E_1 .
+
+# jaarvracht zink: afgeleid uit concentratie en jaardebiet (R7, R13), geen lid van een verzameling
+<https://data.imjv.omgeving.vlaanderen.be/id/observatie/01787986000160/2400006/lozend/chemische_stof/HCHKCACWOHOZIP-UHFFFAOYSA-N/2021>
+        a riepr:Observatie , sosa:Observation ;
+    rdfs:label "Jaarvracht zink LP01 2021"@nl ;
+    dct:created "2022-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    sosa:hasFeatureOfInterest <https://data.imjv.omgeving.vlaanderen.be/id/lozing/01787986000160/2400006/2021> ;
+    sosa:observedProperty csor-parameteraspect:PAS_863 ;
+    sosa:usedProcedure <https://data.imjv.omgeving.vlaanderen.be/id/concept/vrachtberekening> ;
+    sosa:phenomenonTime <https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021> ;
+    sosa:resultTime "2022-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    sosa:hasInputValue <https://data.imjv.omgeving.vlaanderen.be/id/observatie/01787986000160/2400006/lozend/chemische_stof/HCHKCACWOHOZIP-UHFFFAOYSA-N/2021/concentratie/result> ,
+        <https://data.imjv.omgeving.vlaanderen.be/id/result/lozing/.well-known/genid/01787986000160/2400006/2021/debiet/bf7bed779f6354cd1e1f2cd691b8ece3> ;
+    sosa:relatedObservation <https://data.imjv.omgeving.vlaanderen.be/id/observatie/01787986000160/2400006/lozend/chemische_stof/HCHKCACWOHOZIP-UHFFFAOYSA-N/2021/concentratie> ,
+        <https://data.imjv.omgeving.vlaanderen.be/id/lozing/.well-known/genid/01787986000160/2400006/2021/debiet/bf7bed779f6354cd1e1f2cd691b8ece3> ;
+    sosa:hasResult <https://data.imjv.omgeving.vlaanderen.be/id/result/observatie/01787986000160/2400006/lozend/chemische_stof/HCHKCACWOHOZIP-UHFFFAOYSA-N/2021> .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/result/observatie/01787986000160/2400006/lozend/chemische_stof/HCHKCACWOHOZIP-UHFFFAOYSA-N/2021>
+        a riepr:Resultaat , qudt:QuantityValue ;
+    qudt:numericValue 1.59612 ;
+    qudt:hasUnit csor-eenheid:E_12 .
+
+# --- kenmerken van het emissiepunt als observaties (aangegeven waarde voor 2021) ---
+
+<https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021/imjv#diameter> a riepr:Observatie , sosa:Observation ;
+    rdfs:label "Diameter emissiepunt etslijn 2 (2021)"@nl ;
+    dct:created "2022-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    sosa:hasFeatureOfInterest <https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021> ;
+    sosa:observedProperty riepr-emissiepunt-eig:diameter ;
+    sosa:phenomenonTime <https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021> ;
+    sosa:resultTime "2022-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    sosa:hasResult <https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021/imjv#diameter/result> .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021/imjv#diameter/result> a riepr:Resultaat , qudt:QuantityValue ;
+    qudt:numericValue 0.22 ;
+    qudt:hasUnit csor-eenheid:E_59 .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021/imjv#hoogte> a riepr:Observatie , sosa:Observation ;
+    rdfs:label "Hoogte emissiepunt etslijn 2 (2021)"@nl ;
+    dct:created "2022-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    sosa:hasFeatureOfInterest <https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021> ;
+    sosa:observedProperty riepr-emissiepunt-eig:hoogte ;
+    sosa:phenomenonTime <https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021> ;
+    sosa:resultTime "2022-01-01T00:00:00+01:00"^^xsd:dateTime ;
+    sosa:hasResult <https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021/imjv#hoogte/result> .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/emissiepunt/01787986000160/13005/jaar/2021/imjv#hoogte/result> a riepr:Resultaat , qudt:QuantityValue ;
+    qudt:numericValue 6.5 ;
+    qudt:hasUnit csor-eenheid:E_59 .

@@ -1,0 +1,110 @@
+flowchart LR
+
+subgraph ORIG["ORIGINEEL — source/mjv_*.trig"]
+    OPLAN["proces/…_2021
+    riepr:Proces"]
+    OACT["proces/…_activiteit_19105"]
+    OUIT["proces/…_uitstoot_13005
+    dct:type riepr:uitstootProces ✗ gemunt"]
+    OZUI["proces/…_zuivering_13179
+    dct:type riepr:zuiveringsProces ✗ gemunt"]
+    OVAR["variabele/…_activiteit_19105_rookgas
+    input én output van de uitstoot"]
+    ODEP["exploitatie/…/jaar/2021
+    riepr:Exploitatie · ssn:Deployment ✗"]
+    OEP["emissiepunt/…/13005/jaar/2021
+    riepr:Emissiepunt · ssn:System ✗"]
+    OOBS_C["…/zink/2021/concentratie
+    riepr:EmissieObservatie ✗"]
+    OOBS_V["…/zink/2021
+    riepr:EmissieObservatie ✗ · qb:dataSet"]
+    OSTOF["concept/chemische_stof/HCHKCACWOHOZIP…
+    één eigenschap voor concentratie én vracht"]
+    ORES["…/result
+    riepr:Resultaat ⊂ sosa:Result"]
+    OQV["…/result/qv
+    qudt:QuantityValue · eenheid:kg_per_jaar ✗"]
+    OSENS["agent:labo_mens_sensor_x
+    fictieve sensor"]
+end
+
+subgraph HERZ["HERZIEN — riepr_herzien.ttl"]
+    HPLAN["proces/…_2021
+    riepr:Proces · p-plan:Plan"]
+    HACT["proces/…_activiteit_19105
+    riepr:verwerkingProcedure"]
+    HZUI["proces/…_zuivering_13179
+    riepr:verwerkingProcedure"]
+    HUIT["proces/…_uitstoot_13005
+    riepr:emissieProcedure"]
+    HEXP["exploitant/0413638187"]
+    HDEP["exploitatie/…/jaar/2021
+    riepr:Exploitatie · sosa:Deployment"]
+    HEP["emissiepunt/…/13005/jaar/2021
+    riepr:Emissiepunt · sosa:System"]
+    HOBS_C["…/zink/2021/concentratie
+    riepr:Observatie · PAS_861"]
+    HOBS_Q["…/debiet/bf7bed…
+    riepr:Observatie · PAS_1838"]
+    HOBS_V["…/zink/2021
+    riepr:Observatie · PAS_863 · afgeleid"]
+    HRES_V["result/…/zink/2021
+    riepr:Resultaat · qudt:QuantityValue
+    csor-eenheid:E_12"]
+end
+
+style ORIG fill:#e7a3be,stroke:#2E5C8A,color:#000
+style HERZ fill:#b0d9e7,stroke:#2E5C8A,color:#000
+
+style OPLAN fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style OACT fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style OUIT fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style OZUI fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style OVAR fill:#fe7130,stroke:#2E5C8A,color:#000
+style ODEP fill:#60c4e4,stroke:#2E5C8A,color:#000
+style OEP fill:#60c4e4,stroke:#2E5C8A,color:#000
+style OOBS_C fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OOBS_V fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OSTOF fill:#fe7130,stroke:#2E5C8A,color:#000
+style ORES fill:#f8b622,stroke:#2E5C8A,color:#000
+style OQV fill:#f8b622,stroke:#2E5C8A,color:#000
+style OSENS fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+style HPLAN fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style HACT fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style HZUI fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style HUIT fill:#7f59ae,stroke:#2E5C8A,color:#fff
+style HEXP fill:#60c4e4,stroke:#2E5C8A,color:#000
+style HDEP fill:#60c4e4,stroke:#2E5C8A,color:#000
+style HEP fill:#60c4e4,stroke:#2E5C8A,color:#000
+style HOBS_C fill:#e54b89,stroke:#2E5C8A,color:#fff
+style HOBS_Q fill:#e54b89,stroke:#2E5C8A,color:#fff
+style HOBS_V fill:#e54b89,stroke:#2E5C8A,color:#fff
+style HRES_V fill:#f8b622,stroke:#2E5C8A,color:#000
+
+%% origineel: geneste stappen, deployment implementeert het plan
+OZUI -->|isStepOfPlan ✗| OUIT
+OUIT -->|isStepOfPlan ✗| OACT
+OACT -->|isStepOfPlan| OPLAN
+OUIT -->|hasInputVar + hasOutputVar| OVAR
+ODEP -->|ssn:implements ✗| OPLAN
+ODEP -->|ssn:deployedSystem ✗| OEP
+OOBS_C -->|observedProperty| OSTOF
+OOBS_V -->|observedProperty| OSTOF
+OOBS_V -->|sosa:madeBySensor| OSENS
+OOBS_V -->|sosa:hasResult| ORES
+ORES -->|qudt:quantityValue| OQV
+
+%% herzien: vlakke stappen in volgorde, plan via de associatie, vracht afgeleid
+HACT -->|isStepOfPlan| HPLAN
+HZUI -->|isStepOfPlan| HPLAN
+HUIT -->|isStepOfPlan| HPLAN
+HZUI -.->|isPrecededBy| HACT
+HUIT -.->|isPrecededBy| HZUI
+HDEP -->|prov:hadPlan via associatie| HPLAN
+HDEP -->|prov:wasAssociatedWith| HEXP
+HDEP -->|sosa:deployedSystem| HEP
+HEP -->|sosa:implements| HUIT
+HOBS_V -->|sosa:hasResult| HRES_V
+HOBS_V -->|sosa:relatedObservation| HOBS_C
+HOBS_V -->|sosa:relatedObservation| HOBS_Q
