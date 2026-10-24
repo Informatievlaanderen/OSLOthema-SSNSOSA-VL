@@ -3815,7 +3815,9 @@ het model als <strong>begrip</strong> (<code>dct:type</code> naar een <code>skos
 <strong>klasse</strong> (een eigen subklasse van een klasse uit de kern, met <code>rdf:type</code>). De toets: heeft
 de soort <strong>eigen regels</strong>, eigen eigenschappen, kardinaliteiten of afleidingen? Dan een klasse.
 Anders een begrip. De twee gaan samen: een klasse voor elke soort met eigen regels, een begrip
-voor de fijnere soorten daarbinnen.</p>
+voor de fijnere soorten daarbinnen. Daarom <strong>hangt de inhoud van een codelijst af van het
+datamodel</strong>: wat als klasse in de ontologie staat, hoort niet meer als begrip in de lijst.
+Ontwerp eerst het model, dan de lijst, en onderhoud ze samen.</p>
 </div>
 <h2 id="waarom">Waarom<a class="headerlink" href="#waarom" title="Permanent link">&para;</a></h2>
 <p>De kernvocabularia zijn abstract. Een <code>sosa:System</code>, een <code>prov:Entity</code> of een <code>p-plan:Step</code> zegt
@@ -3919,7 +3921,7 @@ niet zeggen, dus noteer dat in een commentaar.</p>
 <a href="../../werkwijze/ontologie/">Ontologie en toepassingsprofiel</a> · <a href="../r15/">R15</a></p>
 <details class="quote">
 <summary>Normatieve tekst (modelleergids, Engels)</summary>
-<p><em>R18 — Type with a concept or with a class</em> — uit <a href="https://github.com/milieuinfo/oslo-ld-kit/blob/main/guide/linked-data.md"><code>guide/linked-data.md</code></a>, kit 0.3.8</p>
+<p><em>R18 — Type with a concept or with a class</em> — uit <a href="https://github.com/milieuinfo/oslo-ld-kit/blob/main/guide/linked-data.md"><code>guide/linked-data.md</code></a>, kit 0.3.9</p>
 <p>The core vocabularies are abstract: a <code>sosa:System</code>, a <code>prov:Entity</code> or a <code>p-plan:Step</code> says
 nothing about the domain. The domain's own kinds (an air scrubber, a discharge point, a manhole, an
 ingredient) enter the model in one of two ways:</p>

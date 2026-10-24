@@ -1557,6 +1557,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Typeren: begrip of klasse?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voorbeeld-de-soorten-processen-van-rie-iepr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voorbeeld: de soorten processen van RIE-IEPR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3796,6 +3813,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Typeren: begrip of klasse?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#voorbeeld-de-soorten-processen-van-rie-iepr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Voorbeeld: de soorten processen van RIE-IEPR
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -3922,6 +3956,11 @@ een <code>dct:type</code>: wat ze doet, zegt haar procedure.</p>
    VHA (waterlopen), RIE-IEPR (inrichtingen), de VLAREM-indelingslijst, NACE-BEL
    (bedrijfsactiviteiten). Europese en internationale lijsten (QUDT-eenheden, INSPIRE-codelijsten)
    komen daarna. Verwijs naar hun begrippen.</li>
+<li><strong>Past het register bij je model?</strong> Een register is opgesteld voor een bepaald model. Toets
+   zijn granulariteit aan je klassen: bevat het soorten die jouw model als subklasse heeft, dan
+   gebruik je die begrippen niet als type, enkel de fijnere (<a href="#typeren-begrip-of-klasse">Typeren: begrip of
+   klasse?</a>). Een register met de verkeerde granulariteit is een vraag
+   aan de beheerder, geen reden om het te kopiëren.</li>
 <li><strong>Pas dan een nieuwe lijst</strong>, enkel voor waarden die geen register dekt, en enkel wanneer de
    mapping ze echt nodig heeft. Een codelijst is geen voorwaarde om resultaten te kunnen mappen.</li>
 </ol>
@@ -3929,6 +3968,10 @@ een <code>dct:type</code>: wat ze doet, zegt haar procedure.</p>
 <a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nn">ex</span><span class="p">:</span><span class="nt">resultaat</span> <span class="nn">qudt</span><span class="p">:</span><span class="nt">hasUnit</span> <span class="nn">csor-eenheid</span><span class="p">:</span><span class="nt">E_131</span> <span class="p">.</span>
 </code></pre></div>
 <h2 id="een-nieuwe-lijst">Een nieuwe lijst<a class="headerlink" href="#een-nieuwe-lijst" title="Permanent link">&para;</a></h2>
+<p><strong>Eerst het model, dan de lijst.</strong> Welke begrippen een lijst nodig heeft, hangt af van welke soorten
+het model al als klasse kent. Stel de lijst dus op nadat de klassen vastliggen, en onderhoud
+ontologie en lijst samen: een nieuwe subklasse kan begrippen overbodig maken, een klasse die
+vervalt kan er nieuwe vragen.</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nn">score</span><span class="p">:</span><span class="nt">kansrijkheid</span> <span class="kt">a</span> <span class="nn">skos</span><span class="p">:</span><span class="nt">ConceptScheme</span> <span class="p">;</span>
 <a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="nn">skos</span><span class="p">:</span><span class="nt">prefLabel</span> <span class="s">"Kansrijkheid peilgestuurde drainage"</span><span class="o">@</span><span class="ge">nl</span> <span class="p">.</span>
 <a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
@@ -3967,8 +4010,8 @@ betekenissen voor één IRI.</p>
 <code>skos:example</code>) mogen wel op klassen: SKOS geeft ze geen domein.</p>
 <h2 id="typeren-begrip-of-klasse">Typeren: begrip of klasse?<a class="headerlink" href="#typeren-begrip-of-klasse" title="Permanent link">&para;</a></h2>
 <p>De businesstaal (schouw, huis, gaswasser, lozingspunt) komt erbij als <strong>begrip</strong>, met <code>dct:type</code>
-naar een codelijst, of als <strong>klasse</strong>, een eigen subklasse met <code>rdf:type</code>. Vaak volstaat een begrip. Een klasse is nodig
-zodra de soort eigen regels heeft: eigen eigenschappen, kardinaliteiten, of een eis zoals <em>een
+naar een codelijst, of als <strong>klasse</strong>, een eigen subklasse met <code>rdf:type</code>. Vaak volstaat een
+begrip. Een klasse is nodig zodra de soort eigen regels heeft: eigen eigenschappen, kardinaliteiten, of een eis zoals <em>een
 emissieproces wordt uitgevoerd door een emissiepunt</em> (<a href="../../regels/r18/">R18</a>).</p>
 <p>Die keuze bepaalt de inhoud van de codelijst:</p>
 <table>
@@ -4001,8 +4044,60 @@ emissieproces wordt uitgevoerd door een emissiepunt</em> (<a href="../../regels/
 <a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="nn">dct</span><span class="p">:</span><span class="nt">type</span> <span class="nn">emissiepunt-type</span><span class="p">:</span><span class="nt">lozingspunt</span> <span class="p">.</span>
 </code></pre></div>
 <p>Een regel die aan een waarde van <code>dct:type</code> hangt, of een ontologie die begrippen uit een codelijst
-kopieert om er regels aan te hangen, wijst op een begrip dat een klasse had moeten zijn. De
-casus <a href="../../casussen/riepr/">RIE-IEPR</a> toont beide, en de herziening.</p>
+kopieert om er regels aan te hangen, wijst op een begrip dat een klasse had moeten zijn.</p>
+<h3 id="voorbeeld-de-soorten-processen-van-rie-iepr">Voorbeeld: de soorten processen van RIE-IEPR<a class="headerlink" href="#voorbeeld-de-soorten-processen-van-rie-iepr" title="Permanent link">&para;</a></h3>
+<p>De codelijst <code>procedure_type</code> van RIE-IEPR heeft zeven begrippen. Welke ervan het model nodig
+heeft, hangt af van hoe het model processen typeert:</p>
+<table>
+<thead>
+<tr>
+<th>Begrip in <code>procedure_type</code></th>
+<th>Ontvangen model: één klasse <code>riepr:Proces</code>, soort via <code>dct:type</code></th>
+<th>Herzien model: subklassen voor soorten met eigen regels</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>emissie</td>
+<td>begrip (met een regel eraan gehangen)</td>
+<td>klasse <code>riepr:Emissieproces</code>, uitgevoerd door een emissiepunt</td>
+</tr>
+<tr>
+<td>verwerking</td>
+<td>begrip (idem)</td>
+<td>klasse <code>riepr:Verwerkingsproces</code>, uitgevoerd door een installatie</td>
+</tr>
+<tr>
+<td>onttrekking</td>
+<td>begrip (idem)</td>
+<td>klasse <code>riepr:Onttrekkingsproces</code>, uitgevoerd door een onttrekkingspunt</td>
+</tr>
+<tr>
+<td>meting</td>
+<td>begrip (idem)</td>
+<td>klasse <code>riepr:Meetproces</code>, uitgevoerd door een meetpunt</td>
+</tr>
+<tr>
+<td>uitwissel</td>
+<td>begrip (idem)</td>
+<td>klasse <code>riepr:Uitwisselproces</code>, uitgevoerd door een uitwisselpunt</td>
+</tr>
+<tr>
+<td>hoofdactiviteit</td>
+<td>begrip</td>
+<td>begrip (<code>dct:type</code>)</td>
+</tr>
+<tr>
+<td>transport</td>
+<td>begrip</td>
+<td>begrip (<code>dct:type</code>)</td>
+</tr>
+</tbody>
+</table>
+<p>Het ontvangen model had alle zeven nodig, en hing aan vijf ervan toch een regel, in axioma's die
+niet gecontroleerd werden. Het herziene model heeft er twee nodig. De andere vijf zeggen nu
+hetzelfde als de klassen; of ze in de lijst blijven, voor andere gebruikers, is een vraag aan de
+beheerder van de lijst (<a href="../../casussen/riepr/">casus RIE-IEPR</a>).</p>
 <h2 id="een-eigenschap-als-begrip">Een eigenschap als begrip<a class="headerlink" href="#een-eigenschap-als-begrip" title="Permanent link">&para;</a></h2>
 <p>Een <code>sosa:Property</code> kan tegelijk een begrip uit een codelijst zijn. In CSOR is
 <code>csor:ParameterAspect</code> een subklasse van <code>sosa:Property</code>, en elk parameteraspect een
