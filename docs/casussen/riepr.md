@@ -24,7 +24,7 @@ in de cijfers.
 |---|---|---|---|
 | 1 | `ssn:System`, `ssn:Deployment`, `ssn:implements`, `sosa:ObservableProperty`, … | `sosa:`-termen, `sosa:Property` | [R14](../regels/r14.md) |
 | 2 | installaties en punten enkel `riepr:…` en `ssn:System` | ook `sosa:System` | [R1](../regels/r01.md) |
-| 3 | `riepr:uitstootProces` enz. gemunt in de namespace van de ontologie | de procedures uit de ontologie | [R10](../regels/r10.md) |
+| 3 | `riepr:uitstootProces` enz. gemunt in de namespace van de ontologie | subklassen van `riepr:Proces` uit de ontologie (`riepr:Emissieproces`, …) | [R10](../regels/r10.md), [R18](../regels/r18.md) |
 | 4 | stappen genest met `isStepOfPlan`; één variabele als input én output | stappen van één plan, in volgorde, met eigen variabelen | [R4](../regels/r04.md), [plan](../modelleren/plan.md) |
 | 5 | de exploitatie `ssn:implements` het proces | `prov:qualifiedAssociation` met `prov:hadPlan` | [R16](../regels/r16.md), [SOSA–PROV](../samenhang/sosa-prov.md) |
 | 6 | `riepr:Resultaat` ⊂ `sosa:Result` met een aparte `qudt:QuantityValue` | één `qudt:QuantityValue` | [R3](../regels/r03.md) |
@@ -46,8 +46,15 @@ de drie bronbestanden gaf samen 364 fouten, de meeste uit punt 1.
   0,00474 mg/L × 336 735 m³ = 1,59612 kg.
 - **Kenmerken van punten zijn observaties** per rapporteringsjaar, niet vaste systeemeigenschappen.
 - **Eenheden uit CSOR**, eigenschappen uit CSOR en uit de RIE-IEPR-codelijst.
+- **Soorten processen zijn klassen, soorten installaties en punten begrippen**
+  ([R18](../regels/r18.md)). Een emissieproces wordt uitgevoerd door een emissiepunt, een
+  verwerkingsproces door een installatie: die regels staan op subklassen van `riepr:Proces`. De
+  ontvangen ontologie hing ze aan een `dct:type`-waarde, in axioma's die de generator niet
+  vertaalt, en kopieerde daarvoor de begrippen van de codelijst. Een gaswasser heeft geen andere
+  regels dan een andere installatie: daar volstaat `dct:type installatie-type/luchtzuivering`.
 - **De ontologie is mee herzien**: SSN/SOSA 2023-termen, `qudt:QuantityValue` als resultaat, geen
-  equivalentie met de unie van p-plan-klassen, `prov:hadPlan` voor de exploitatie.
+  equivalentie met de unie van p-plan-klassen, `prov:hadPlan` voor de exploitatie, soorten
+  processen als subklassen.
 
 ## Diagram: vóór en na
 

@@ -95,9 +95,10 @@ Het merendeel komt uit twee oorzaken (punten 1 en 2). Elk punt: origineel → he
    `riepr:ProcesVariabele` → `riepr:Procesvariabele`; `riepr:EmissieObservatie` → `riepr:Observatie`;
    `riepr:ZuiveringsApparaat` → `riepr:Installatie` met `dct:type installatie-type/luchtzuivering`;
    `riepr:uitstootProces`, `riepr:zuiveringsProces`, `riepr:meetProces`, `riepr:onttrekkingsProces`
-   (in de data getypeerd in de namespace van de ontologie) → de procedures die de ontologie zelf
-   definieert: `riepr:emissieProcedure`, `riepr:verwerkingProcedure`, `riepr:meetProcedure`,
-   `riepr:onttrekkingProcedure` → R10: geen resources munten in de namespace van een vocabularium.
+   (in de data getypeerd in de namespace van de ontologie) → de subklassen van `riepr:Proces` die
+   de ontologie definieert (O6): `riepr:Emissieproces`, `riepr:Verwerkingsproces`,
+   `riepr:Meetproces`, `riepr:Onttrekkingsproces`, als `rdf:type` → R10: geen resources munten in
+   de namespace van een vocabularium.
    Een zuivering is een verwerking door een installatie; de codelijst `procedure_type` kent geen
    aparte zuivering.
 
@@ -228,9 +229,18 @@ Het origineel staat in `source/riepr.trig`; de herziene versie in
   *hoofdactiviteit → implementedBy :Exploitatie* → `prov:wasAssociatedWith :Exploitant` (exact 1),
   met het plan via `prov:qualifiedAssociation`/`prov:hadPlan`; `implementedBy` enkel naar
   `sosa:System` → zie punt 5 bij de data.
-- **O6. Axioma's per proceduretype.** `owl:someValuesFrom <…/procedure-type/emissie>` (een
-  individu waar een klasse hoort; en `…/meet` waar de codelijst `…/meting` heeft) →
-  `owl:hasValue :emissieProcedure` enz., met de procedures die de ontologie zelf definieert.
+- **O6. Soorten processen als subklassen.** Axioma's op een anonieme klasse, *proces met
+  `dct:type` emissie → `sosa:implementedBy` een emissiepunt*, met `owl:someValuesFrom
+  <…/procedure-type/emissie>` (een individu waar een klasse hoort; en `…/meet` waar de codelijst
+  `…/meting` heeft) → vijf subklassen van `:Proces`: `:Verwerkingsproces` (uitgevoerd door een
+  `:Installatie`), `:Emissieproces` (`:Emissiepunt`), `:Onttrekkingsproces`
+  (`:Onttrekkingspunt`), `:Meetproces` (`:Meetpunt`) en `:Uitwisselproces` (`:Uitwisselpunt`),
+  elk met `rdfs:seeAlso` naar het begrip in `procedure_type`. De kopieën van die begrippen in de
+  ontologie (`:emissieProcedure` …, met `skos:related` naar de codelijst) vervallen. `dct:type`
+  op een proces blijft, optioneel, voor de soorten zonder eigen regel (hoofdactiviteit,
+  transport), met een begrip uit de codelijst → een soort met een eigen regel is een klasse, geen
+  begrip (bespreking §6). De generator vertaalt een axioma op een anonieme klasse niet, dus werd de
+  regel niet gecontroleerd; als restrictie op een benoemde klasse wordt ze een shape.
 - **O7. `adms:Status`.** De statussen `:inGebruik` enz. en de restricties op `adms:status`
   gebruikten `adms:Status`, dat ADMS niet als klasse definieert (het bereik van `adms:status` is
   `skos:Concept`) → `skos:Concept`.
@@ -251,5 +261,8 @@ Niet gewijzigd, wel op te volgen (bespreking §8):
 - de `hydra:IriTemplate`s gebruiken `https://data.mjv.omgeving.vlaanderen.be/id/…/{uuid}/…`; de
   data gebruikt `https://data.imjv.omgeving.vlaanderen.be/id/…` en
   `https://data.riepr.omgeving.vlaanderen.be/id/…` met andere sleutels;
-- de procedures en statussen in de ontologie (`:emissieProcedure`, `:inGebruik`, …) zijn kopieën
-  van begrippen uit de codelijst, gekoppeld met `skos:related`.
+- de statussen in de ontologie (`:inGebruik`, …) zijn kopieën van begrippen uit de codelijst
+  `status_type`, gekoppeld met `skos:related`;
+- in de codelijst `procedure_type` overlappen vijf van de zeven begrippen nu met de subklassen van
+  `:Proces` (O6). Of ze er blijven, voor andere gebruikers van de lijst, is een vraag aan de
+  beheerders van de codelijst.

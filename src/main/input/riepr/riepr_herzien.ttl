@@ -42,23 +42,21 @@ proces:01787986000160_2021 a riepr:Proces , p-plan:Plan ;
 
 # --- procesketen lucht ---
 
-proces:01787986000160_activiteit_19105 a riepr:Proces , p-plan:Step ;
+proces:01787986000160_activiteit_19105 a riepr:Verwerkingsproces , riepr:Proces , p-plan:Step ;
     rdfs:label "ETSLIJN 2 etsafdeling"@nl ;
     dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
     dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
     dct:issued "2021-01-01"^^xsd:date ;
-    dct:type riepr:verwerkingProcedure ;
     adms:status riepr-status:in_dienst ;
     p-plan:isStepOfPlan proces:01787986000160_2021 ;
     p-plan:hasOutputVar var:01787986000160_activiteit_19105_rookgas ;
     sosa:implementedBy <https://data.imjv.omgeving.vlaanderen.be/id/activiteit/19105> .
 
-proces:01787986000160_zuivering_13179 a riepr:Proces , p-plan:Step ;
+proces:01787986000160_zuivering_13179 a riepr:Verwerkingsproces , riepr:Proces , p-plan:Step ;
     rdfs:label "Wastoren etslijn 2 (gaswasser)"@nl ;
     dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
     dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
     dct:issued "2021-01-01"^^xsd:date ;
-    dct:type riepr:verwerkingProcedure ;
     adms:status riepr-status:in_dienst ;
     p-plan:isStepOfPlan proces:01787986000160_2021 ;
     p-plan:isPrecededBy proces:01787986000160_activiteit_19105 ;
@@ -66,12 +64,11 @@ proces:01787986000160_zuivering_13179 a riepr:Proces , p-plan:Step ;
     p-plan:hasOutputVar var:01787986000160_zuivering_13179_rookgas ;
     sosa:implementedBy <https://data.imjv.omgeving.vlaanderen.be/id/zuiveringsapparaat/13179> .
 
-proces:01787986000160_uitstoot_13005 a riepr:Proces , p-plan:Step ;
+proces:01787986000160_uitstoot_13005 a riepr:Emissieproces , riepr:Proces , p-plan:Step ;
     rdfs:label "ETSLIJN 2 ETSAFDELING (2021)"@nl ;
     dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
     dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
     dct:issued "2021-01-01"^^xsd:date ;
-    dct:type riepr:emissieProcedure ;
     adms:status riepr-status:in_dienst ;
     p-plan:isStepOfPlan proces:01787986000160_2021 ;
     p-plan:isPrecededBy proces:01787986000160_zuivering_13179 ;
@@ -86,23 +83,21 @@ var:01787986000160_zuivering_13179_rookgas a riepr:Procesvariabele , p-plan:Vari
 
 # --- procesketen water ---
 
-proces:01787986000160_activiteit_323 a riepr:Proces , p-plan:Step ;
+proces:01787986000160_activiteit_323 a riepr:Verwerkingsproces , riepr:Proces , p-plan:Step ;
     rdfs:label "Vormen en bewerken van vlakglas"@nl ;
     dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
     dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
     dct:issued "2021-01-01"^^xsd:date ;
-    dct:type riepr:verwerkingProcedure ;
     adms:status riepr-status:in_dienst ;
     p-plan:isStepOfPlan proces:01787986000160_2021 ;
     p-plan:hasOutputVar var:01787986000160_activiteit_323_proceswater ;
     sosa:implementedBy <https://data.imjv.omgeving.vlaanderen.be/id/activiteit/323> .
 
-proces:01787986000160_lozing_2400006 a riepr:Proces , p-plan:Step ;
+proces:01787986000160_lozing_2400006 a riepr:Emissieproces , riepr:Proces , p-plan:Step ;
     rdfs:label "LP01 INDUSTRIEEL GLASFABRIEK (2021)"@nl ;
     dct:created "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
     dct:modified "2021-01-01T00:00:00+01:00"^^xsd:dateTime ;
     dct:issued "2021-01-01"^^xsd:date ;
-    dct:type riepr:emissieProcedure ;
     adms:status riepr-status:in_dienst ;
     p-plan:isStepOfPlan proces:01787986000160_2021 ;
     p-plan:isPrecededBy proces:01787986000160_activiteit_323 ;

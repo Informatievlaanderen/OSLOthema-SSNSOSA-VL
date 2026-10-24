@@ -74,19 +74,18 @@ gedeelde metadata.
 
 ## 5. Procedure en Property
 
-**Procedures van het plan** (`riepr:Proces`, via `dct:type`):
+**Procedures van het plan** (subklassen van `riepr:Proces`):
 
-| Proces | dct:type | Uitgevoerd door (`sosa:implementedBy`) |
+| Proces | Klasse | Uitgevoerd door (`sosa:implementedBy`) |
 |---|---|---|
-| `proces:…_activiteit_19105` | `riepr:verwerkingProcedure` | `activiteit/19105` |
-| `proces:…_zuivering_13179` | `riepr:verwerkingProcedure` | `zuiveringsapparaat/13179` |
-| `proces:…_uitstoot_13005` | `riepr:emissieProcedure` | `emissiepunt/…/13005/jaar/2021` |
-| `proces:…_activiteit_323` | `riepr:verwerkingProcedure` | `activiteit/323` |
-| `proces:…_lozing_2400006` | `riepr:emissieProcedure` | `lozingspunt/…/2400006/jaar/2021` |
+| `proces:…_activiteit_19105` | `riepr:Verwerkingsproces` | `activiteit/19105` (installatie) |
+| `proces:…_zuivering_13179` | `riepr:Verwerkingsproces` | `zuiveringsapparaat/13179` (installatie) |
+| `proces:…_uitstoot_13005` | `riepr:Emissieproces` | `emissiepunt/…/13005/jaar/2021` |
+| `proces:…_activiteit_323` | `riepr:Verwerkingsproces` | `activiteit/323` (installatie) |
+| `proces:…_lozing_2400006` | `riepr:Emissieproces` | `lozingspunt/…/2400006/jaar/2021` (emissiepunt) |
 
-De axioma's in de ontologie verbinden het type met de klasse van het systeem: een
-verwerkingsprocedure wordt uitgevoerd door een installatie, een emissieprocedure door een
-emissiepunt.
+Elke subklasse zegt door welk soort systeem ze uitgevoerd wordt: een verwerkingsproces door een
+installatie, een emissieproces door een emissiepunt (§6).
 
 **Observatieprocedures:** `concept/debietmeting` en `concept/meetgegevens` (uit de bron) voor de
 aangegeven waarden; `concept/vrachtberekening` voor de jaarvracht, met `sosa:hasInput` de
@@ -192,6 +191,24 @@ niet in de namespace van de VKBO horen.
 die niet bestaan (`ssn:deployedOnPlatform`, …). Elke wijziging staat in de README (O1–O12). Eén
 ervan versoepelt een eis van het profiel (O8, `:inGebruikVanaf`), omdat de export het gegeven
 niet bevat.
+
+**Waarom soorten processen als subklassen, en installaties met `dct:type`?**
+Verworpen alternatief: elk proces één `riepr:Proces`, met de soort als `dct:type` naar een
+procedure, en axioma's die aan die waarde een regel hangen (*een proces met een emissieprocedure
+wordt uitgevoerd door een emissiepunt*). Gekozen aanpak: een subklasse per soort met een eigen
+regel (`riepr:Emissieproces` met `sosa:implementedBy` een `riepr:Emissiepunt`, …), en `dct:type`
+naar een begrip voor de soorten zonder eigen regel: hoofdactiviteit en transport bij een proces,
+en de installatie- en emissiepunttypes (`installatie-type/luchtzuivering`,
+`emissiepunt-type/lozingspunt`). Motivatie: een soort met een eigen regel is een klasse, geen
+begrip. Als begrip stond de regel in een axioma op een anonieme klasse, die de generator niet
+vertaalt, zodat ze niet gecontroleerd werd; en de ontologie moest de begrippen van de codelijst
+kopiëren (`:emissieProcedure a sosa:Procedure, skos:Concept`) om er een regel aan te kunnen
+hangen. Als subklasse wordt de regel een shape: een emissieproces dat door een installatie wordt
+uitgevoerd, geeft nu een SHACL-fout. Omgekeerd heeft een gaswasser geen andere regels dan een
+andere installatie: daar volstaat het begrip, en een klasse `riepr:ZuiveringsApparaat` is overbodig
+(README, punt 3). De keuze bepaalt ook wat in de codelijst hoort: met de subklassen zijn de
+begrippen emissie, verwerking, onttrekking, meting en uitwissel in `procedure_type` overbodig voor
+dit profiel (README, *Niet gewijzigd*).
 
 **Recordmetadata (R16).** De observaties dragen `dct:created` (eis van het profiel): oplossing A,
 zonder PROV-recordeigenschappen. `qb:dataSet` is weggelaten. De systemen dragen

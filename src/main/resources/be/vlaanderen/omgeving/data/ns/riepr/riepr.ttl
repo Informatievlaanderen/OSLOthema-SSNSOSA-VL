@@ -15,7 +15,6 @@
 @prefix org:    <http://www.w3.org/ns/org#> .
 @prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
 @prefix foaf:   <http://xmlns.com/foaf/0.1/> .
-@prefix concept: <https://data.riepr.omgeving.vlaanderen.be/id/concept/> .
 @prefix st:      <https://data.riepr.omgeving.vlaanderen.be/id/concept/status/> .
 @prefix vann:   <http://purl.org/vocab/vann/> .
 @prefix dct:    <http://purl.org/dc/terms/> .
@@ -366,7 +365,7 @@
     ] ;
     skos:example [ a :Proces ;
         rdfs:label "Verwerking van grondstoffen"@nl ;
-        dct:type concept:verwerkingsprocedure
+        a :Verwerkingsproces
     ] ;
     # Geen owl:equivalentClass met de unie van p-plan:Step, MultiStep en Plan: die maakt elke
     # p-plan-stap of elk plan, ook buiten RIE-IEPR, een :Proces.
@@ -417,11 +416,13 @@
         owl:minCardinality "0"^^xsd:nonNegativeInteger
     ] ;
     rdfs:subClassOf [ a owl:Restriction ;
-        rdfs:comment "Een proces kan zijn afgeleid van een (generieke) procedure (optioneel). Max 1 omdat een proces slechts van 1 procedure afgeleid kan zijn en deze procedure een verzameling van andere procedures zou moeten zijn."@nl ;
+        rdfs:comment "Een proces kan een typering hebben via dct:type (optioneel, hoogstens één)"@nl ;
         # Codelijst: https://github.com/milieuinfo/codelijst-rie-iepr/blob/main/src/source/procedure_type.csv
+        # Enkel voor soorten zonder eigen regels (hoofdactiviteit, transport). Soorten met een eigen
+        # regel zijn subklassen van :Proces (:Verwerkingsproces, :Emissieproces, …), getypeerd met
+        # rdf:type, niet met een begrip.
         owl:onProperty dct:type ;
-        owl:someValuesFrom sosa:Procedure ;
-        owl:minCardinality "0"^^xsd:nonNegativeInteger ;
+        owl:allValuesFrom skos:Concept ;
         owl:maxCardinality "1"^^xsd:nonNegativeInteger
     ] ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -478,6 +479,66 @@
         owl:onProperty adms:identifier ;
         owl:someValuesFrom adms:Identifier ;
         owl:minCardinality "0"^^xsd:nonNegativeInteger
+    ] .
+
+# Soorten processen met een eigen regel: welk soort systeem ze uitvoert. Een soort met een eigen
+# regel is een subklasse, geen begrip in een codelijst via dct:type: zo wordt de regel een
+# restrictie op een benoemde klasse, en dus een gegenereerde shape. Soorten zonder eigen regel
+# (hoofdactiviteit, transport) blijven begrippen uit de codelijst procedure_type.
+
+:Verwerkingsproces a owl:Class ;
+    rdfs:label "Verwerkingsproces"@nl ;
+    rdfs:comment "Een proces waarin een installatie stoffen verwerkt of zuivert."@nl ;
+    rdfs:seeAlso <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/verwerking> ;
+    rdfs:subClassOf :Proces ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een verwerkingsproces wordt uitgevoerd door een installatie"@nl ;
+        owl:onProperty sosa:implementedBy ;
+        owl:someValuesFrom :Installatie
+    ] .
+
+:Emissieproces a owl:Class ;
+    rdfs:label "Emissieproces"@nl ;
+    rdfs:comment "Een proces waarin stoffen worden uitgestoten of geloosd aan een emissiepunt."@nl ;
+    rdfs:seeAlso <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/emissie> ;
+    rdfs:subClassOf :Proces ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een emissieproces wordt uitgevoerd door een emissiepunt"@nl ;
+        owl:onProperty sosa:implementedBy ;
+        owl:someValuesFrom :Emissiepunt
+    ] .
+
+:Onttrekkingsproces a owl:Class ;
+    rdfs:label "Onttrekkingsproces"@nl ;
+    rdfs:comment "Een proces waarin grondstoffen worden gewonnen of bemonsterd aan een onttrekkingspunt."@nl ;
+    rdfs:seeAlso <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/onttrekking> ;
+    rdfs:subClassOf :Proces ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een onttrekkingsproces wordt uitgevoerd door een onttrekkingspunt"@nl ;
+        owl:onProperty sosa:implementedBy ;
+        owl:someValuesFrom :Onttrekkingspunt
+    ] .
+
+:Meetproces a owl:Class ;
+    rdfs:label "Meetproces"@nl ;
+    rdfs:comment "Een proces waarin aan een meetpunt gemeten wordt."@nl ;
+    rdfs:seeAlso <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/meting> ;
+    rdfs:subClassOf :Proces ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een meetproces wordt uitgevoerd door een meetpunt"@nl ;
+        owl:onProperty sosa:implementedBy ;
+        owl:someValuesFrom :Meetpunt
+    ] .
+
+:Uitwisselproces a owl:Class ;
+    rdfs:label "Uitwisselproces"@nl ;
+    rdfs:comment "Een proces waarin stoffen worden uitgewisseld aan een uitwisselpunt."@nl ;
+    rdfs:seeAlso <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/uitwissel> ;
+    rdfs:subClassOf :Proces ;
+    rdfs:subClassOf [ a owl:Restriction ;
+        rdfs:comment "Een uitwisselproces wordt uitgevoerd door een uitwisselpunt"@nl ;
+        owl:onProperty sosa:implementedBy ;
+        owl:someValuesFrom :Uitwisselpunt
     ] .
 
 :Procesvariabele a owl:Class ;
@@ -1808,32 +1869,6 @@ rdfs:subClassOf [ a owl:Restriction ;
     owl:maxCardinality "1"^^xsd:nonNegativeInteger
 ] .
 
-# Proces Procedures. Deze zijn overgenomen van de codelijsten en worden hier hard gecodeerd als concepten omdat deze business logica bevatten.
-:verwerkingProcedure a sosa:Procedure, skos:Concept ;
-    rdfs:label "Verwerkingsprocedure"@nl ;
-    rdfs:comment "Een verwerkingsprocedure is een specifieke procedure die betrekking heeft op de verwerking van stoffen binnen een proces."@nl ;
-    skos:related <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/verwerking> .
-:onttrekkingProcedure a sosa:Procedure, skos:Concept ;
-    rdfs:label "Onttrekkingprocedure"@nl ;
-    rdfs:comment "Een onttrekkingsprocedure is een specifieke procedure die betrekking heeft op het transport van grondstoffen binnen een proces."@nl ;
-    skos:related <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/onttrekking> .
-:emissieProcedure a sosa:Procedure, skos:Concept ;
-    rdfs:label "Emissieprocedure"@nl ;
-    rdfs:comment "Een emissieprocedure is een specifieke procedure die betrekking heeft op het uitstoten of lozen van stoffen aan emissiepunten."@nl ;
-    skos:related <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/emissie> .
-:meetProcedure a sosa:Procedure, skos:Concept ;
-    rdfs:label "Meetprocedure"@nl ;
-    rdfs:comment "Een meetprocedure is een specifieke procedure die wordt gebruikt om metingen uit te voeren op meetpunten."@nl ;
-    skos:related <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/meting> .
-:uitwisselProcedure a sosa:Procedure, skos:Concept ;
-    rdfs:label "Uitwisselprocedure"@nl ;
-    rdfs:comment "Een uitwisselprocedure is een specifieke procedure die betrekking heeft op het uitwisselen van stoffen tussen processen."@nl ;
-    skos:related <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/uitwissel> .
-:transportProcedure a sosa:Procedure, skos:Concept ;
-    rdfs:label "Transportprocedure"@nl ;
-    rdfs:comment "Een transportprocedure is een specifieke procedure die betrekking heeft op het transport tussen twee processen."@nl ;
-    skos:related <https://data.omgeving.vlaanderen.be/id/concept/riepr/procedure-type/transport> .
-
 # Status types. Deze zijn overgenomen van de codelijsten en worden hier hard gecodeerd als concepten omdat deze business logica bevatten.
 :inGebruik a skos:Concept ;
     rdfs:label "In gebruik"@nl ;
@@ -1855,64 +1890,6 @@ rdfs:subClassOf [ a owl:Restriction ;
 # --------------------------------------- #
 # Axioms
 # --------------------------------------- #
-# dct:type van een proces is één van de procedures hierboven (een individu): owl:hasValue, niet
-# owl:someValuesFrom. Het hoofdproces wordt niet door een systeem uitgevoerd maar gevolgd door de
-# exploitatie (prov:hadPlan), en heeft daarom geen axioma.
-[ a owl:Class ;
-    rdfs:comment "Een proces met een emissieprocedure als dct:type stoot stoffen uit of loost ze aan een emissiepunt"@nl ;
-    owl:intersectionOf ( :Proces [ a owl:Restriction ;
-        owl:onProperty dct:type ;
-        owl:hasValue :emissieProcedure
-    ] ) ;
-] rdfs:subClassOf [ a owl:Restriction ;
-    owl:onProperty sosa:implementedBy ;
-    owl:someValuesFrom :Emissiepunt
-] .
-
-[ a owl:Class ;
-    rdfs:comment "Een proces met een onttrekkingsprocedure als dct:type wint of bemonstert grondstoffen aan een onttrekkingspunt"@nl ;
-    owl:intersectionOf ( :Proces [ a owl:Restriction ;
-        owl:onProperty dct:type ;
-        owl:hasValue :onttrekkingProcedure
-    ] ) ;
-] rdfs:subClassOf [ a owl:Restriction ;
-    owl:onProperty sosa:implementedBy ;
-    owl:someValuesFrom :Onttrekkingspunt
-] .
-
-[ a owl:Class ;
-    rdfs:comment "Een proces met een verwerkingsprocedure als dct:type wordt uitgevoerd door een installatie"@nl ;
-    owl:intersectionOf ( :Proces [ a owl:Restriction ;
-        owl:onProperty dct:type ;
-        owl:hasValue :verwerkingProcedure
-    ] ) ;
-] rdfs:subClassOf [ a owl:Restriction ;
-    owl:onProperty sosa:implementedBy ;
-    owl:someValuesFrom :Installatie
-] .
-
-[ a owl:Class ;
-    rdfs:comment "Een proces met een meetprocedure als dct:type wordt uitgevoerd door een meetpunt"@nl ;
-    owl:intersectionOf ( :Proces [ a owl:Restriction ;
-        owl:onProperty dct:type ;
-        owl:hasValue :meetProcedure
-    ] ) ;
-] rdfs:subClassOf [ a owl:Restriction ;
-    owl:onProperty sosa:implementedBy ;
-    owl:someValuesFrom :Meetpunt
-] .
-
-[ a owl:Class ;
-    rdfs:comment "Een proces met een uitwisselprocedure als dct:type wordt uitgevoerd door een uitwisselpunt"@nl ;
-    owl:intersectionOf ( :Proces [ a owl:Restriction ;
-        owl:onProperty dct:type ;
-        owl:hasValue :uitwisselProcedure
-    ] ) ;
-] rdfs:subClassOf [ a owl:Restriction ;
-    owl:onProperty sosa:implementedBy ;
-    owl:someValuesFrom :Uitwisselpunt
-] .
-
 # p-plan does not have an inverse indication for pplan:hasOutputVar
 # It does have an inverse for hasInputVar
 pplan:isOutputVarOf owl:inverseOf pplan:hasOutputVar .
