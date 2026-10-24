@@ -20,6 +20,8 @@ A14–A15 in `src/main/input/waterkwaliteit/beslisdocument.md`. Rules:
 2. **Reuse, then specialise.** Reuse SSN/SOSA, PROV-O, QUDT, OWL-Time, GeoSPARQL and existing
    registers. Define a class of your own only where the domain needs constraints or meaning of its
    own, as a subclass of the reused class (`wk:WaterkwaliteitObservatie ⊂ sosa:Observation`).
+   A kind without rules of its own stays a concept in a code list, with `dct:type` (R18); a rule
+   hung on a `dct:type` value means the kind should be a subclass.
 3. **Constrain your own subclasses, never reused classes.** A restriction on `sosa:Observation`
    would apply to every SOSA dataset. Data types the subclass and the reused superclasses
    explicitly (SHACL validates the non-inferred graph).
