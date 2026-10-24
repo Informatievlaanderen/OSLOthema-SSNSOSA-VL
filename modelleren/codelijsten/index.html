@@ -1253,6 +1253,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#een-abstracte-kern-businesstaal-erbij" class="md-nav__link">
+    <span class="md-ellipsis">
+      Een abstracte kern, businesstaal erbij
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waar-begrippen-in-het-model-staan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waar begrippen in het model staan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#eerst-hergebruiken" class="md-nav__link">
     <span class="md-ellipsis">
       Eerst hergebruiken
@@ -2999,6 +3017,24 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#een-abstracte-kern-businesstaal-erbij" class="md-nav__link">
+    <span class="md-ellipsis">
+      Een abstracte kern, businesstaal erbij
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waar-begrippen-in-het-model-staan" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waar begrippen in het model staan
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#eerst-hergebruiken" class="md-nav__link">
     <span class="md-ellipsis">
       Eerst hergebruiken
@@ -3074,6 +3110,89 @@
 <p>Veel waarden komen uit een lijst: een eigenschap, een eenheid, een status, een klasse, een
 procedure, een matrix. In linked data is zo'n lijst een <strong>SKOS-begrippenschema</strong>, en elke waarde
 een <strong>begrip</strong> met een eigen IRI.</p>
+<h2 id="een-abstracte-kern-businesstaal-erbij">Een abstracte kern, businesstaal erbij<a class="headerlink" href="#een-abstracte-kern-businesstaal-erbij" title="Permanent link">&para;</a></h2>
+<p>SOSA, PROV-O en P-PLAN zijn bewust abstract. Ze kennen systemen, entiteiten, activiteiten,
+procedures, stappen en variabelen, maar geen schouwen, lozingen of brownies. Dat is geen gemis:
+precies daardoor passen ze op elk domein, en sluiten de domeinen op elkaar aan. Een vraag als
+"welke waarnemingen hangen af van deze meting?" werkt in waterkwaliteit en in verkeer op dezelfde
+manier, omdat beide dezelfde abstracte structuur gebruiken (<a href="../../samenhang/">II. Samenhang</a>).</p>
+<p>De businesstaal komt er pas bij, en op twee manieren:</p>
+<ul>
+<li><strong>in een codelijst</strong>, als begrippen waarnaar de data verwijst. Dat is de gewone weg: het model
+  blijft abstract, en de lijst kan groeien zonder dat het model verandert;</li>
+<li><strong>in een eigen ontologie</strong>, als subklassen met eigen regels. Dat is de uitzondering, voor soorten
+  die meer moeten dan een naam dragen (<a href="#typeren-begrip-of-klasse">Typeren: begrip of klasse?</a>).</li>
+</ul>
+<p>Waar de businesstaal terechtkomt, bepaalt wat er in de codelijsten staat. Wat in de ontologie als
+klasse staat, hoort niet nog eens als begrip in een lijst.</p>
+<h2 id="waar-begrippen-in-het-model-staan">Waar begrippen in het model staan<a class="headerlink" href="#waar-begrippen-in-het-model-staan" title="Permanent link">&para;</a></h2>
+<p>Een begrip uit een codelijst kan op drie plaatsen staan:</p>
+<ul>
+<li>als <strong>type</strong>: <code>dct:type</code> zegt wat voor iets een resource is (een lozingspunt, een geleide
+  emissie, een ingrediënt);</li>
+<li>als <strong>waarde van een rol</strong>: het begrip <em>is</em> de eigenschap, de eenheid of de procedure
+  (<code>sosa:observedProperty</code>, <code>qudt:hasUnit</code>, <code>sosa:usedProcedure</code>);</li>
+<li>als <strong>resultaat</strong>: de uitkomst van een waarneming is zelf een begrip (een score, een klasse).</li>
+</ul>
+<p>Over de lagen heen, met voorbeelden uit de casussen:</p>
+<table>
+<thead>
+<tr>
+<th>Laag</th>
+<th>Resource</th>
+<th>Type (<code>dct:type</code>)</th>
+<th>Waarde van een rol</th>
+<th>Resultaat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plan</td>
+<td>stap, procedure</td>
+<td>soort proces zonder eigen regels: hoofdactiviteit, transport (voorzien in de ontologie van <a href="../../casussen/riepr/">RIE-IEPR</a>); bepalingsmethode <em>berekend</em> op een procedure (RIE-IEPR)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>plan</td>
+<td>variabele</td>
+<td>soort ingrediënt: <code>ingredient:butter</code> op <code>var:butter</code> (<a href="../../casussen/brownies/">Brownies</a>)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>inzet</td>
+<td>systeem, platform</td>
+<td>installatietype, emissiepunttype (RIE-IEPR); toesteltype en energiebron van een warmtepomp (<a href="../../casussen/ems/">Energiemanagement</a>); meetputtype (voorstel bij <a href="../../casussen/waterkwaliteit/">Waterkwaliteit</a>)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>studieobject</td>
+<td>emissie, staal</td>
+<td>emissietype <code>riepr-emissie:geleide</code> (RIE-IEPR); matrix <code>matrix:afvalwater</code> (Waterkwaliteit)</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>uitvoering</td>
+<td>waarneming</td>
+<td></td>
+<td>eigenschap: een CSOR-parameteraspect (Waterkwaliteit, RIE-IEPR); procedure: een analysemethode, <code>procedure:WAC_I_A_003_2024</code> (Waterkwaliteit)</td>
+<td></td>
+</tr>
+<tr>
+<td>uitvoering</td>
+<td>resultaat</td>
+<td></td>
+<td>eenheid: <code>qudt:hasUnit csor-eenheid:…</code> (Waterkwaliteit)</td>
+<td>score of kansrijkheid: <code>rdf:value cl:kansrijkheid-kansrijk</code> (<a href="../../casussen/pgd/">Geschiktheidskaart PGD</a>)</td>
+</tr>
+</tbody>
+</table>
+<p>Het patroon: <strong>typen</strong> staan vooral in plan, inzet en studieobject, waar dingen benoemd worden;
+<strong>rollen en resultaten</strong> in de uitvoering, waar ze gemeten worden. Een activiteit krijgt zelden
+een <code>dct:type</code>: wat ze doet, zegt haar procedure.</p>
 <h2 id="eerst-hergebruiken">Eerst hergebruiken<a class="headerlink" href="#eerst-hergebruiken" title="Permanent link">&para;</a></h2>
 <ol>
 <li><strong>Bestaat er een register?</strong> Vlaanderen beheert er veel: CSOR (parameters, eenheden, dragers),
@@ -3124,9 +3243,8 @@ betekenissen voor één IRI.</p>
 <p>SKOS-documentatie-eigenschappen (<code>skos:definition</code>, <code>skos:scopeNote</code>, <code>skos:note</code>,
 <code>skos:example</code>) mogen wel op klassen: SKOS geeft ze geen domein.</p>
 <h2 id="typeren-begrip-of-klasse">Typeren: begrip of klasse?<a class="headerlink" href="#typeren-begrip-of-klasse" title="Permanent link">&para;</a></h2>
-<p>De kernvocabularia zijn abstract: een systeem, een entiteit, een stap. De businesstaal (schouw,
-huis, gaswasser, lozingspunt) komt erbij als <strong>begrip</strong>, met <code>dct:type</code> naar een codelijst, of als
-<strong>klasse</strong>, een eigen subklasse met <code>rdf:type</code>. Vaak volstaat een begrip. Een klasse is nodig
+<p>De businesstaal (schouw, huis, gaswasser, lozingspunt) komt erbij als <strong>begrip</strong>, met <code>dct:type</code>
+naar een codelijst, of als <strong>klasse</strong>, een eigen subklasse met <code>rdf:type</code>. Vaak volstaat een begrip. Een klasse is nodig
 zodra de soort eigen regels heeft: eigen eigenschappen, kardinaliteiten, of een eis zoals <em>een
 emissieproces wordt uitgevoerd door een emissiepunt</em> (<a href="../../regels/r18/">R18</a>).</p>
 <p>Die keuze bepaalt de inhoud van de codelijst:</p>
