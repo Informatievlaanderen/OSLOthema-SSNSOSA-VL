@@ -1,7 +1,7 @@
 # SSN/SOSA 2023 modelling rules
 
 Rules for observation, actuation and sampling data with W3C SSN/SOSA 2023, PROV-O, P-PLAN, QUDT
-and OWL-Time. General linked data rules (IRIs, R10; SKOS, R15; choosing vocabularies, R17; validation) are in
+and OWL-Time. General linked data rules (IRIs, R10; SKOS, R15; choosing vocabularies, R17; concept or class, R18; validation) are in
 [`linked-data.md`](linked-data.md). Rules that can be checked automatically are also shapes in
 `../rules/ssn-sosa-rules.ttl` (R2, R3, R5, R7, R9, R11, R12, R13, R15, R16).
 
@@ -307,4 +307,5 @@ Every example's discussion (§6) explains its non-trivial choices. These recur:
 - QUDT unit versus register unit (R3);
 - the observation itself or a separate record as the published resource (R16);
 - which vocabulary for a term outside the core (R17, in [`linked-data.md`](linked-data.md));
+- a domain kind as a concept (`dct:type`) or as a subclass (R18, in [`linked-data.md`](linked-data.md));
 - which recurring pattern to follow, or why not (see [`patterns.md`](patterns.md)).

@@ -8,7 +8,7 @@ validate an example; and which patterns other domains have already used.
 
 | File | Contents | Scope |
 |---|---|---|
-| [`linked-data.md`](linked-data.md) | IRIs, blank nodes, prefixes, code lists, application profiles, large datasets, choosing vocabularies, validation (R10, R15, R17) | any RDF project |
+| [`linked-data.md`](linked-data.md) | IRIs, blank nodes, prefixes, code lists, application profiles, large datasets, typing with concepts or classes, choosing vocabularies, validation (R10, R15, R17, R18) | any RDF project |
 | [`ssn-sosa.md`](ssn-sosa.md) | modelling rules for SSN/SOSA 2023 with PROV-O, P-PLAN, QUDT and OWL-Time (R1–R9, R11–R14, R16), time patterns, decision points | observation data |
 | [`patterns.md`](patterns.md) | patterns that recur across domains, with the examples that use them | observation data |
 | [`discussion-document.md`](discussion-document.md) | the nine-section discussion that accompanies every example | documentation |
@@ -21,7 +21,7 @@ the rules. The enforceable rules are also SHACL shapes in `../rules/ssn-sosa-rul
 
 ## Rule numbers
 
-Rules are numbered R1–R17 across the guide. The numbers are stable: data examples, discussion
+Rules are numbered R1–R18 across the guide. The numbers are stable: data examples, discussion
 documents and scripts refer to them. A new rule gets the next free number; a withdrawn rule keeps
 its number with the note *withdrawn* and the reason.
 

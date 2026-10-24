@@ -72,6 +72,73 @@ and `skos:Concept`, with the hierarchy expressed only through `skos:broader`.
 - Reuse existing IRIs of external datasets; refer to IRIs that are not yet final with
   `rdfs:seeAlso`.
 
+## R18 — Type with a concept or with a class
+
+The core vocabularies are abstract: a `sosa:System`, a `prov:Entity` or a `p-plan:Step` says
+nothing about the domain. The domain's own kinds (an air scrubber, a discharge point, a manhole, an
+ingredient) enter the model in one of two ways:
+
+- **as a concept:** the resource keeps a general class and gets `dct:type` to a `skos:Concept` in
+  a code list;
+- **as a class:** a subclass of a core class of your own (`rdfs:subClassOf`), used with `rdf:type`.
+
+**The test: does the kind have rules of its own?** Make it a class when it has properties,
+cardinalities, value restrictions or inferences of its own: something that holds for its members
+and not for the other members of the general class. Otherwise make it a concept. A kind that only
+names, groups or filters is a concept.
+
+**The two combine.** A class for each kind with rules of its own, and a concept for the finer kinds
+within it:
+
+```turtle
+riepr:Emissiepunt rdfs:subClassOf sosa:System ;          # own restrictions: geometry, properties, …
+    rdfs:subClassOf [ a owl:Restriction ; owl:onProperty dct:type ; owl:allValuesFrom skos:Concept ] .
+
+riepr:Emissieproces rdfs:subClassOf riepr:Proces ;       # own rule: which kind of system runs it
+    rdfs:subClassOf [ a owl:Restriction ;
+        owl:onProperty sosa:implementedBy ; owl:someValuesFrom riepr:Emissiepunt ] .
+
+ex:lozingspunt-LP01 a riepr:Emissiepunt , sosa:System ;
+    dct:type emissiepunt-type:lozingspunt .                 # finer kind, no rules of its own
+ex:lozing-LP01 a riepr:Emissieproces , riepr:Proces , p-plan:Step ;
+    sosa:implementedBy ex:lozingspunt-LP01 .
+```
+
+**The model decides the code list.** A model with only abstract classes needs a code list with
+every kind (installation, emission point, measuring point, …). A model with subclasses no longer
+needs those kinds as concepts, only the finer ones within each class. Decide the classes first;
+the code list follows. A code list that repeats the classes says the same thing twice, and the two
+drift apart.
+
+**Signs that a concept should be a class:**
+- an axiom or shape hangs a rule on a value of `dct:type` (`owl:hasValue` inside an
+  `owl:intersectionOf`, a SHACL target on a value). That is a subclass in disguise. The generator
+  of ld-mcp does not translate an axiom on an anonymous class, so the rule goes unchecked; as a
+  restriction on a named subclass it becomes a shape;
+- the ontology copies concepts of a code list into its own namespace to hang rules on them
+  (`:emissieProcedure a sosa:Procedure, skos:Concept ; skos:related <concept in the code list>`);
+- the definition of a concept states a rule ("emission through an emission point").
+
+**Signs that a class should be a concept:** a subclass without restrictions of its own, which only
+renames (`riepr:ZuiveringsApparaat` beside `riepr:Installatie`: an air scrubber has no rules that
+another installation lacks).
+
+**`dct:type` and its range.** DCTERMS gives `dct:type` the range `rdfs:Class`, so a concept as its
+value is formally also a class. Practice (OSLO, DCAT-AP) uses concepts all the same, and validation
+reports no inconsistency. A profile that wants to avoid the inference uses a subproperty of
+`dct:type` of its own with range `skos:Concept`. Never a literal: `dct:type "Overflow meter"` is
+not a type. In a profile, restrict the value with `owl:allValuesFrom skos:Concept`; the generated
+SHACL cannot say *which* code list, so document the scheme in a comment.
+
+**Not a type.** A concept as the value of a role is not a typing: a `csor:ParameterAspect` as
+`sosa:observedProperty` is the property itself, an individual. A class whose members are concepts
+with rules of their own (`csor:ParameterAspect ⊂ sosa:Property`, `riepr:Rubriek ⊂ skos:Concept`,
+with a required `skos:notation`) follows the same test.
+
+In OSLOthema-SSNSOSA-VL: `riepr/` (kinds of process as subclasses, installation and emission point
+types as concepts), `waterkwaliteit/` (`wk:Emissie` as a class, emission type and matrix with
+`dct:type`), `Nigella-Lawson-Brownies/` (an abstract model, every ingredient a concept).
+
 ## R17 — Choose vocabularies deliberately
 
 A term outside the core is the outcome of a comparison, not of the first search hit. Cherry-picking
