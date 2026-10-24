@@ -1289,6 +1289,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typeren-begrip-of-klasse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Typeren: begrip of klasse?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#een-eigenschap-als-begrip" class="md-nav__link">
     <span class="md-ellipsis">
       Een eigenschap als begrip
@@ -1345,6 +1354,8 @@
       
         
           
+        
+      
         
       
         
@@ -1772,6 +1783,27 @@
   
   <span class="md-ellipsis">
     R17 Vocabularia kiezen
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../regels/r18/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    R18 Begrip of klasse
   </span>
   
 
@@ -2277,6 +2309,8 @@
       
         
       
+        
+      
     
     
       
@@ -2584,6 +2618,27 @@
   
   <span class="md-ellipsis">
     Energiemanagement
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../casussen/riepr/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    RIE-IEPR
   </span>
   
 
@@ -2980,6 +3035,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#typeren-begrip-of-klasse" class="md-nav__link">
+    <span class="md-ellipsis">
+      Typeren: begrip of klasse?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#een-eigenschap-als-begrip" class="md-nav__link">
     <span class="md-ellipsis">
       Een eigenschap als begrip
@@ -3059,6 +3123,45 @@ betekenissen voor één IRI.</p>
 </div>
 <p>SKOS-documentatie-eigenschappen (<code>skos:definition</code>, <code>skos:scopeNote</code>, <code>skos:note</code>,
 <code>skos:example</code>) mogen wel op klassen: SKOS geeft ze geen domein.</p>
+<h2 id="typeren-begrip-of-klasse">Typeren: begrip of klasse?<a class="headerlink" href="#typeren-begrip-of-klasse" title="Permanent link">&para;</a></h2>
+<p>De kernvocabularia zijn abstract: een systeem, een entiteit, een stap. De businesstaal (schouw,
+huis, gaswasser, lozingspunt) komt erbij als <strong>begrip</strong>, met <code>dct:type</code> naar een codelijst, of als
+<strong>klasse</strong>, een eigen subklasse met <code>rdf:type</code>. Vaak volstaat een begrip. Een klasse is nodig
+zodra de soort eigen regels heeft: eigen eigenschappen, kardinaliteiten, of een eis zoals <em>een
+emissieproces wordt uitgevoerd door een emissiepunt</em> (<a href="../../regels/r18/">R18</a>).</p>
+<p>Die keuze bepaalt de inhoud van de codelijst:</p>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th>Typering</th>
+<th>Wat in de codelijst staat</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>enkel abstracte klassen</td>
+<td><code>a sosa:System ; dct:type systeemtype:schouw</code></td>
+<td>alle soorten: schouw, installatie, emissiepunt, …</td>
+</tr>
+<tr>
+<td>subklassen voor soorten met eigen regels</td>
+<td><code>a riepr:Emissiepunt , sosa:System ; dct:type emissiepunt-type:lozingspunt</code></td>
+<td>enkel de fijnere soorten binnen elke klasse</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c"># abstract: de soort zit volledig in de codelijst</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nn">ex</span><span class="p">:</span><span class="nt">schouw-12</span> <span class="kt">a</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">Platform</span> <span class="p">;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    <span class="nn">dct</span><span class="p">:</span><span class="nt">type</span> <span class="nn">platformtype</span><span class="p">:</span><span class="nt">schouw</span> <span class="p">.</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="c"># met subklassen: de klasse draagt de regels, het begrip verfijnt</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="nn">ex</span><span class="p">:</span><span class="nt">lozingspunt-LP01</span> <span class="kt">a</span> <span class="nn">riepr</span><span class="p">:</span><span class="nt">Emissiepunt</span> <span class="p">,</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">System</span> <span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="nn">dct</span><span class="p">:</span><span class="nt">type</span> <span class="nn">emissiepunt-type</span><span class="p">:</span><span class="nt">lozingspunt</span> <span class="p">.</span>
+</code></pre></div>
+<p>Een regel die aan een waarde van <code>dct:type</code> hangt, of een ontologie die begrippen uit een codelijst
+kopieert om er regels aan te hangen, wijst op een begrip dat een klasse had moeten zijn. De
+casus <a href="../../casussen/riepr/">RIE-IEPR</a> toont beide, en de herziening.</p>
 <h2 id="een-eigenschap-als-begrip">Een eigenschap als begrip<a class="headerlink" href="#een-eigenschap-als-begrip" title="Permanent link">&para;</a></h2>
 <p>Een <code>sosa:Property</code> kan tegelijk een begrip uit een codelijst zijn. In CSOR is
 <code>csor:ParameterAspect</code> een subklasse van <code>sosa:Property</code>, en elk parameteraspect een
