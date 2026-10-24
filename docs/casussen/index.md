@@ -44,10 +44,10 @@ Daarna, naar interesse:
 | [grondwaterpeilmetingen](grondwaterpeilmetingen.md) | plat | — | R1, R3 | QUDT, GeoSPARQL | — | |
 | [r-factor](r-factor.md) | plat | ruimtelijk monster, afgeleide | R10, R11, R12, R13 | QUDT, GeoSPARQL, Time | — | |
 | [geluidsmeetnet](geluidsmeetnet.md) | plat | stimulus / emissie, ruimtelijk monster, afgeleide | R4, R11, R12, R13, R17 | PROV, QUDT, GeoSPARQL, Time | alternatief | |
-| [waterkwaliteit](waterkwaliteit.md) | plat | monster, emissie, ruimtelijk monster, afgeleide, rapportagegrens | R3, R8, R10, R11, R13, R15, R17 | PROV, QUDT, register–QUDT, register–I-ADOPT | — | |
+| [waterkwaliteit](waterkwaliteit.md) | plat | monster, emissie, ruimtelijk monster, afgeleide, rapportagegrens | R3, R8, R10, R11, R13, R15, R17, R18 | PROV, QUDT, register–QUDT, register–I-ADOPT | — | |
 | [overstort](overstort.md) | plat | emissie (alternatief) | R10, R12, R16, R17 | PROV, GeoSPARQL, Time, SAREF | herziening, alternatief | |
 | [pgd](pgd.md) | drielaags | ruimtelijk monster, afgeleide | R4, R11, R13 | P-PLAN, PROV, QUDT | — | |
 | [brownies](brownies.md) | drielaags | — | R4, R5 | P-PLAN, PROV | — | |
 | [ems](ems.md) | drielaags | — | R5, R6, R16 | P-PLAN, PROV, SAREF | herzieningen | |
-| [riepr](riepr.md) | drielaags | emissie, afgeleide | R3, R4, R7, R13, R14, R16 | P-PLAN, PROV, QUDT, register–QUDT | herziening (data en ontologie) | ✔ |
+| [riepr](riepr.md) | drielaags | emissie, afgeleide | R3, R4, R7, R13, R14, R16, R18 | P-PLAN, PROV, QUDT, register–QUDT | herziening (data en ontologie) | ✔ |
 | [vlarem](vlarem.md) | geen SOSA | — | R3, R15, R17 | QUDT | herziening, alternatief | |

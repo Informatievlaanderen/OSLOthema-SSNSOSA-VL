@@ -60,6 +60,35 @@ of niet ([R15](../regels/r15.md)).
 SKOS-documentatie-eigenschappen (`skos:definition`, `skos:scopeNote`, `skos:note`,
 `skos:example`) mogen wel op klassen: SKOS geeft ze geen domein.
 
+## Typeren: begrip of klasse?
+
+De kernvocabularia zijn abstract: een systeem, een entiteit, een stap. De businesstaal (schouw,
+huis, gaswasser, lozingspunt) komt erbij als **begrip**, met `dct:type` naar een codelijst, of als
+**klasse**, een eigen subklasse met `rdf:type`. Vaak volstaat een begrip. Een klasse is nodig
+zodra de soort eigen regels heeft: eigen eigenschappen, kardinaliteiten, of een eis zoals *een
+emissieproces wordt uitgevoerd door een emissiepunt* ([R18](../regels/r18.md)).
+
+Die keuze bepaalt de inhoud van de codelijst:
+
+| Model | Typering | Wat in de codelijst staat |
+|---|---|---|
+| enkel abstracte klassen | `a sosa:System ; dct:type systeemtype:schouw` | alle soorten: schouw, installatie, emissiepunt, … |
+| subklassen voor soorten met eigen regels | `a riepr:Emissiepunt , sosa:System ; dct:type emissiepunt-type:lozingspunt` | enkel de fijnere soorten binnen elke klasse |
+
+```turtle
+# abstract: de soort zit volledig in de codelijst
+ex:schouw-12 a sosa:Platform ;
+    dct:type platformtype:schouw .
+
+# met subklassen: de klasse draagt de regels, het begrip verfijnt
+ex:lozingspunt-LP01 a riepr:Emissiepunt , sosa:System ;
+    dct:type emissiepunt-type:lozingspunt .
+```
+
+Een regel die aan een waarde van `dct:type` hangt, of een ontologie die begrippen uit een codelijst
+kopieert om er regels aan te hangen, wijst op een begrip dat een klasse had moeten zijn. De
+casus [RIE-IEPR](../casussen/riepr.md) toont beide, en de herziening.
+
 ## Een eigenschap als begrip
 
 Een `sosa:Property` kan tegelijk een begrip uit een codelijst zijn. In CSOR is

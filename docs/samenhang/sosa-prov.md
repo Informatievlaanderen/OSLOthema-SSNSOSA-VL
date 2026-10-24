@@ -2,7 +2,7 @@
 
 **De belangrijkste alignment van dit werk.** Ze maakt van een waarneming een PROV-activiteit, van
 het studieobject, het monster, de eigenschap en het platform PROV-entiteiten, en van het resultaat
-iets wat de waarneming genereert. Daaruit volgen vijf van de zeventien regels.
+iets wat de waarneming genereert. Daaruit volgen vijf van de achttien regels.
 
 | | |
 |---|---|

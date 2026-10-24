@@ -12,7 +12,7 @@ De kennis die daarbij opgebouwd werd, staat op drie plaatsen:
 
 | Waar | Wat | Taal |
 |---|---|---|
-| de **modelleergids** in de kit [`milieuinfo/oslo-ld-kit`](https://github.com/milieuinfo/oslo-ld-kit) | de normatieve regels R1–R17, de patronen, de conventies voor documentatie en diagrammen, de werkwijzen | Engels |
+| de **modelleergids** in de kit [`milieuinfo/oslo-ld-kit`](https://github.com/milieuinfo/oslo-ld-kit) | de normatieve regels R1–R18, de patronen, de conventies voor documentatie en diagrammen, de werkwijzen | Engels |
 | de **datavoorbeelden** in [`src/main/input/`](https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/tree/main/src/main/input) | Turtle, diagram, README en bespreking per domein; herzieningen en alternatieven | Nederlands |
 | de **ontologieën en uitlijningen** in [`src/main/resources/`](https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/tree/main/src/main/resources) | de geladen vocabularia, de module P-PLAN–SOSA, ontwerpvocabularia | Engels en Nederlands |
 

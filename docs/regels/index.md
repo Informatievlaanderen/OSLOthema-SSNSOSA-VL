@@ -1,6 +1,6 @@
 # IV. Regels
 
-Zeventien regels, met vaste nummers. Ze staan normatief, in het Engels, in de
+Achttien regels, met vaste nummers. Ze staan normatief, in het Engels, in de
 [modelleergids](https://github.com/milieuinfo/oslo-ld-kit/tree/main/guide) van de kit; elke pagina
 hier geeft de regel kort, **het waarom**, een goed en een fout voorbeeld, de casussen waarin ze
 speelt, en de normatieve tekst in een uitklapbaar kader. Een nieuwe regel krijgt het volgende
@@ -27,6 +27,7 @@ vrije nummer; een ingetrokken regel houdt zijn nummer.
 | [R15](r15.md) | Geen SKOS tussen klassen | een klasse is geen registerbegrip | SKOS, OWL |
 | [R16](r16.md) | Houd activiteiten en entiteiten uit elkaar | PROV-O verklaart ze disjunct | [SOSA en PROV-O](../samenhang/sosa-prov.md) |
 | [R17](r17.md) | Kies vocabularia bewust | elke term buiten de kern brengt verbintenissen mee | [Een alignment vinden](../samenhang/alignment-vinden.md) |
+| [R18](r18.md) | Typeer met een begrip, of met een klasse als de soort eigen regels heeft | alleen op een klasse kan een regel staan; het model bepaalt wat in de codelijst hoort | OWL, SKOS |
 
 ## Waar de regels vandaan komen
 
@@ -45,7 +46,7 @@ flowchart LR
     qt --> R3
     gs --> R11
     ot --> R9 & R12
-    ld --> R10 & R15 & R17
+    ld --> R10 & R15 & R17 & R18
 
     style sp fill:#e54b89,stroke:#2E5C8A,color:#fff
     style def fill:#e54b89,stroke:#2E5C8A,color:#fff
@@ -65,5 +66,5 @@ Tien regels zijn ook als SHACL-vorm geformuleerd en dus automatisch te controler
 R7, R9, R11, R12, R13, R15, R16), in
 [`rules/ssn-sosa-rules.ttl`](https://github.com/milieuinfo/oslo-ld-kit/blob/main/rules/ssn-sosa-rules.ttl)
 van de kit. De andere vragen een oordeel: een klasse kiezen (R1), een architectuur (R4), een
-vocabularium (R17). De [bijlage Hulpmiddelen](../bijlagen/hulpmiddelen.md) toont hoe de controle
+vocabularium (R17), een begrip of een klasse (R18). De [bijlage Hulpmiddelen](../bijlagen/hulpmiddelen.md) toont hoe de controle
 werkt; geen controle vervangt het lezen van de definitie.

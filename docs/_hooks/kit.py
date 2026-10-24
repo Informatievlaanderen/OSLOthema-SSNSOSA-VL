@@ -1,6 +1,6 @@
 """MkDocs-hook: haalt de normatieve teksten uit de kit (oslo-ld-kit/guide) en controleert de dekking.
 
-De regels (R1-R17) en de patronen staan één keer, in het Engels, in de git-subtree
+De regels (R1-R18) en de patronen staan één keer, in het Engels, in de git-subtree
 `oslo-ld-kit/`. Dit referentiewerk is de Nederlandse, didactische laag erbovenop. De hook:
 
 1. schrijft elke regel- en patroonsectie van de gids naar `.cache/kit/<id>.md`, met de relatieve

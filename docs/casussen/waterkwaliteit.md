@@ -48,7 +48,9 @@ erin voor.
   [R13](../regels/r13.md)).
 - **Eigen klassen als subklassen**: `wk:WaterkwaliteitObservatie ⊂ sosa:Observation`,
   `wk:Meetresultaat ⊂ qudt:QuantityValue`, `wk:Emissie ⊂ sosa:FeatureOfInterest`; de data typeert
-  beide ([Ontologie en toepassingsprofiel](../werkwijze/ontologie.md)).
+  beide ([Ontologie en toepassingsprofiel](../werkwijze/ontologie.md)). Soorten zonder eigen
+  regels blijven begrippen: het emissietype en de matrix staan als `dct:type`
+  ([R18](../regels/r18.md)).
 - **Naar externe datasets met `rdfs:seeAlso`**, niet `owl:sameAs`, zolang hun IRI's niet definitief
   zijn ([Codelijsten en registers](../modelleren/codelijsten.md)).
 

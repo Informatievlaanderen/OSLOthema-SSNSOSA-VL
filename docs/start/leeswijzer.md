@@ -23,7 +23,7 @@ Nederlandse vertaling in dit project (*waarneming*, *studieobject*, *monster*); 
 [woordenlijst](../bijlagen/woordenlijst.md) zet ze naast de Engelse. Waar het Engelse woord in
 Vlaanderen gangbaar is (*feature of interest*, *sensor*), staat het er soms naast.
 
-**Regels en patronen** hebben vaste nummers en namen (R1–R17), dezelfde als in de
+**Regels en patronen** hebben vaste nummers en namen (R1–R18), dezelfde als in de
 [modelleergids](https://github.com/milieuinfo/oslo-ld-kit/tree/main/guide) waar ze normatief
 beschreven staan. Elke regelpagina bevat die normatieve tekst (Engels) in een uitklapbaar kader.
 

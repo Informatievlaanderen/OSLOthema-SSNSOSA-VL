@@ -23,6 +23,9 @@ wk:WaterkwaliteitObservatie rdfs:subClassOf sosa:Observation ;
 wk:Meetresultaat rdfs:subClassOf qudt:QuantityValue .
 ```
 
+Een soort zonder eigen regels krijgt geen klasse: ze blijft een begrip in een codelijst, met
+`dct:type` ([R18](../regels/r18.md)).
+
 **Beperk je eigen subklassen, nooit hergebruikte klassen.** Een restrictie op
 `sosa:Observation` zou gelden voor elke SOSA-dataset en elk ander profiel dat SOSA hergebruikt.
 De data typeert de eigen subklasse én de hergebruikte superklasse expliciet, zodat ze ook geldig
