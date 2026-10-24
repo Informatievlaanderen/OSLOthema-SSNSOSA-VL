@@ -3697,12 +3697,12 @@ een goed model komt.</p>
         prop["eigenschap&lt;br/&gt;sosa:Property"]
     end
     subgraph INFRA["INFRASTRUCTUUR"]
-        sensor["sensor&lt;br/&gt;sosa:Sensor"]
+        sensor["sensor&lt;br/&gt;sosa:Sensor&lt;br/&gt;(⊂ prov:Agent)"]
         platform["platform&lt;br/&gt;sosa:Platform"]
     end
     subgraph WAAR["WAARNEMING"]
         obs["waarneming&lt;br/&gt;sosa:Observation&lt;br/&gt;(⊂ prov:Activity)"]
-        res["resultaat&lt;br/&gt;qudt:QuantityValue&lt;br/&gt;(prov:Entity)"]
+        res["resultaat&lt;br/&gt;qudt:QuantityValue&lt;br/&gt;(⊂ prov:Entity)"]
         tijd["fenomeentijd&lt;br/&gt;time:Interval"]
     end
     foi["studieobject&lt;br/&gt;sosa:FeatureOfInterest&lt;br/&gt;(⊂ prov:Entity)"]
