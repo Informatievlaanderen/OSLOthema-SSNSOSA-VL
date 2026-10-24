@@ -12,7 +12,7 @@
 #
 # Severity: sh:Violation for "must", sh:Warning for "strongly recommended". sh:severity belongs on
 # the shape; on an sh:sparql constraint it is ignored, hence separate shapes per severity.
-# Not expressed as shapes: rules that need judgement (R1, R4, R6, R8, R10, R17), R14 (the vocabulary
+# Not expressed as shapes: rules that need judgement (R1, R4, R6, R8, R10, R17, R18), R14 (the vocabulary
 # check of validate_file already reports old ssn: terms as unknown, suggesting the sosa: variant),
 # and mixing result styles (R3), which cannot be decided reliably.
 
