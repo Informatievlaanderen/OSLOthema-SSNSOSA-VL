@@ -63,6 +63,10 @@ and `skos:Concept`, with the hierarchy expressed only through `skos:broader`.
 - Model code lists as SKOS concept schemes.
 - **Reuse existing registers and code lists before making new ones**; make a new list only for
   values that no register covers, and only when the mapping actually needs it.
+- **The data model decides what a code list holds** (R18). A kind the ontology has as a class does
+  not belong in a list as a concept; only finer kinds within it do. Design the classes first and
+  the list after, and maintain the two together: a new subclass can make concepts redundant. When
+  reusing a register, check that its granularity fits your classes.
 - Data refers to concept IRIs; it does not copy or extend the register. Statements *about* a
   register's concepts (labels, mappings) belong in the register. A missing concept or mapping is a
   point for the register's maintainers, not something to add in the data.
