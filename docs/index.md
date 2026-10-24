@@ -71,12 +71,12 @@ flowchart LR
         prop["eigenschap<br/>sosa:Property"]
     end
     subgraph INFRA["INFRASTRUCTUUR"]
-        sensor["sensor<br/>sosa:Sensor"]
+        sensor["sensor<br/>sosa:Sensor<br/>(⊂ prov:Agent)"]
         platform["platform<br/>sosa:Platform"]
     end
     subgraph WAAR["WAARNEMING"]
         obs["waarneming<br/>sosa:Observation<br/>(⊂ prov:Activity)"]
-        res["resultaat<br/>qudt:QuantityValue<br/>(prov:Entity)"]
+        res["resultaat<br/>qudt:QuantityValue<br/>(⊂ prov:Entity)"]
         tijd["fenomeentijd<br/>time:Interval"]
     end
     foi["studieobject<br/>sosa:FeatureOfInterest<br/>(⊂ prov:Entity)"]
