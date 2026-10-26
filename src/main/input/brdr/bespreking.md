@@ -4,7 +4,8 @@
 
 De provenance van één heralignering: de afbakening van een aanduidingsobject van Onroerend Erfgoed
 (hier een illustratief beschermd monument) wordt opnieuw gelegd op de administratieve percelen van
-het GRB (ADP), nadat perceel 24504D0734/00M000 in de versie van 15 april 2024 gecorrigeerd is.
+het GRB (ADP), nadat perceel 24504D0734/00M000 op 3 september 2025 gecorrigeerd is. De
+huidige afbakening heeft een *formule* van 31 maart 2025 (`source/brdr1.json`).
 De Python-bibliotheek [brdr](https://github.com/OnroerendErfgoed/brdr) maakt per *relevante
 afstand* een kandidaat, meet hoe elke kandidaat de percelen bedekt, vergelijkt dat met de
 *formule* van de huidige afbakening, en een dossierbehandelaar kiest de kandidaat die de nieuwe
@@ -38,8 +39,8 @@ van de afbakening, PROV-O en P-PLAN de rest.
   (`prov:qualifiedAssociation` met `prov:hadPlan`).
 - **`obj:aanduidingsobject-1`** — `geo:Feature` en `sosa:FeatureOfInterest`: het object waarvan de
   afbakening gewijzigd wordt. Het `geo:hasGeometry` de nieuwe afbakening.
-- **`exec:heralignering-adp-2024-04-15`** — `sosa:Deployment`: de inzet van brdr voor de
-  aanduidingsobjecten, aanleiding de nieuwe versie van ADP (`prov:used ent:adp-2024-04-15`).
+- **`exec:heralignering-adp-2025-09-15`** — `sosa:Deployment`: de inzet van brdr voor de
+  aanduidingsobjecten, aanleiding de nieuwe versie van ADP (`prov:used ent:adp-2025-09-15`).
 
 Er is geen `sosa:Platform` en geen `sosa:hosts`: brdr draait niet op een plaats die voor de vraag
 iets betekent.
@@ -56,7 +57,8 @@ iets betekent.
 
 De collectie draagt de eigenschap, de procedure, de sensor, de feature of interest en (bij de
 kandidaten) het resultaattijdstip. Elk lid heeft als `sosa:hasInputValue` de perceelgeometrie die
-het meet: bij de formule de versie van 2018-12-01, bij de kandidaten die van 2024-04-15.
+het meet: bij de formule de versies in ADP 2025-03-31 (voor 0734 die van 2018-12-01), bij de
+kandidaten die in ADP 2025-09-15 (voor 0734 die van 2025-09-03).
 
 **Vergelijking** — afgeleide observaties (R13), geen lid van een collectie:
 
@@ -72,7 +74,7 @@ Inputwaarden: de bedekking van perceel 0734 door de kandidaat en door de huidige
 
 | IRI | actsOnProperty | usedProcedure | hasResult | hasFeatureOfInterest |
 |---|---|---|---|---|
-| `exec:selectie-1-2024-04-16` | `prop:afbakening` | `step:selectie` | `ent:afbakening-1-v2` | `obj:aanduidingsobject-1` |
+| `exec:selectie-1-2025-09-15` | `prop:afbakening` | `step:selectie` | `ent:afbakening-1-v2` | `obj:aanduidingsobject-1` |
 
 Inputwaarden: de twee kandidaten en hun evaluatieklassen.
 
@@ -84,11 +86,11 @@ kandidaat.
 
 | Procedure | Klasse | Geïmplementeerd door | Gebruikt door |
 |---|---|---|---|
-| `plan:heraligneren` | `p-plan:Plan`, `sosa:Procedure` | — (plan van `inst:onroerend-erfgoed`) | `exec:heralignering-adp-2024-04-15` (`prov:hadPlan`) |
+| `plan:heraligneren` | `p-plan:Plan`, `sosa:Procedure` | — (plan van `inst:onroerend-erfgoed`) | `exec:heralignering-adp-2025-09-15` (`prov:hadPlan`) |
 | `step:aligneren` | `p-plan:Step` | — | `exec:aligneren-1-rd1`, `-rd2` (`p-plan:correspondsToStep`) |
 | `step:evaluatie` | `sosa:ObservingProcedure` | `inst:brdr-0.9.0` | de drie collecties |
 | `step:vergelijking` | `sosa:ObservingProcedure` | `inst:brdr-0.9.0` | `exec:vergelijking-1-rd1`, `-rd2` |
-| `step:selectie` | `sosa:ActuatingProcedure` | — | `exec:selectie-1-2024-04-16` |
+| `step:selectie` | `sosa:ActuatingProcedure` | — | `exec:selectie-1-2025-09-15` |
 
 | Property | Betekenis |
 |---|---|
@@ -126,10 +128,26 @@ in `prov:used`, dat buiten de procedure valt (R5). Ook die lezing staat in
 
 **Waarom een formule als aparte collectie?**
 De vergelijking van brdr (`Evaluator`) zet de bedekkingen van een kandidaat naast die van de
-huidige afbakening bij de vorige alignering, de *formule* (`brdr1.json`). Zonder die waarnemingen
-is de evaluatieklasse niet te verklaren. `exec:formule-1-v1` heeft als feature of interest de oude
-afbakening en als inputwaarden de perceelgeometrieën van ADP 2018-12-01.
-<!-- TODO: wanneer en met welke brdr-versie is de formule van de huidige afbakening berekend? Het tijdstip ontbreekt in de bron; inst:brdr-0.9.0 als sensor van de formule is een aanname. -->
+huidige afbakening bij de vorige alignering, de *formule*. Zonder die waarnemingen is de
+evaluatieklasse niet te verklaren. `exec:formule-1-v1` heeft als feature of interest de oude
+afbakening en als inputwaarden de perceelgeometrieën in ADP 2025-03-31.
+
+De formule draagt haar eigen herkomst. brdr bewaart ze als JSON bij het object (`brdr1.json` is
+er een) met `alignment_date` (2025-03-31), `brdr_version` (0.9.0), `reference_source` (ADP,
+versie 2025-03-31), per perceel een `version_date` en de jongste daarvan als
+`last_version_date` (`brdr/aligner.py`). In de data:
+
+| brdr1.json | Hier |
+|---|---|
+| `alignment_date` | `sosa:resultTime "2025-03-31"^^xsd:date` op de collectie (SOSA 2023 staat een `xsd:date` toe) |
+| `brdr_version` | `sosa:madeBySensor inst:brdr-0.9.0` |
+| `reference_source` | `ent:adp-2025-03-31`, `dct:issued` |
+| `version_date` per perceel | `dct:issued` op de perceelgeometrie (0692 en 0693: 2024-04-15; 0734: 2018-12-01) |
+| `last_version_date` | niet apart: het maximum van die datums |
+
+brdr gebruikt `last_version_date` om de getroffen objecten te vinden: het zoekt GRB-wijzigingen
+tussen die datum en vandaag (`update_featurecollection_to_actual_grb` in `brdr/be/grb/grb.py`).
+Dat is de aanleiding, verderop.
 
 **Waarom zijn alleen de resultaten van perceel 0734 inputwaarden van de vergelijking?**
 De twee andere percelen zijn bij de formule en bij beide kandidaten volledig bedekt (100 %); het
@@ -141,13 +159,33 @@ De klassen van de brdr-enum `Evaluation` benoemen enkel een uitkomst; ze hebben 
 (R18). Er is geen register voor; `cl:evaluatie` neemt de twaalf waarden van de enum letterlijk over,
 met de waarde als `skos:notation`. Het resultaat van de vergelijking is een `prov:Entity` met
 `rdf:value` naar het begrip, zoals de factorscores in `PGD_geschiktheidskaart/`.
-<!-- TODO: moet cl:evaluatie een codelijst van Onroerend Erfgoed worden, met een eigen namespace? -->
 
-**Waarom geen `sosa:madeByActuator` op de selectie?**
-De keuze maakt een persoon (`prov:wasAssociatedWith inst:dossierbehandelaar`). Een persoon is geen
-`sosa:System`. Welk systeem de nieuwe afbakening wegschrijft (de inventaris?), zegt de bron niet;
-zoals bij de passieve bron in het patroon *Emissie als studieobject* blijft de actuator weg.
-<!-- TODO: kiest altijd een persoon, of kiest brdr automatisch bij prediction_unique / equality_by_id? Dan is de selectie ook een stap van brdr. -->
+Wie de lijst beheert: de waarden zijn die van brdr, niet van Onroerend Erfgoed, en ze veranderen
+met brdr (de enum in versie 0.17.4 telt twaalf waarden). De codelijst hoort dus bij brdr, samen
+met de andere termen die brdr al als `brdr:…` schrijft (`brdr:area_overlap_percentage`,
+`brdr:observation_procedure_area_overlap`, `brdr:relevant_distance`). Die prefix is in brdr aan
+geen IRI gebonden: er is geen namespace. Zolang die er niet is, blijft `cl:` illustratief.
+<!-- TODO (vraag aan de beheerders van brdr): een namespace voor de termen van brdr (eigenschappen, procedures, evaluatieklassen), bv. onder id.erfgoed.net, met de enum als SKOS-lijst? -->
+
+**Wie kiest, en waarom geen `sosa:madeByActuator`?**
+brdr kan zelf kiezen. `update_featurecollection_to_actual_grb` aligneert de getroffen objecten op
+relevante afstanden van 0 tot 2 m (per 0,1 m) en geeft met `max_predictions=1` per object één
+kandidaat terug; bij meerdere kandidaten de beste (`multi_to_best_prediction`, volgens de
+`prediction_score`) of de originele afbakening. De evaluatieklassen `to_check_…` betekenen
+volgens brdr "manuele controle aangeraden". Wat brdr niet doet: de keuze wegschrijven in de
+inventaris. Er zijn dus twee lezingen van de selectie:
+
+- **een persoon kiest** (dit voorbeeld): `prov:wasAssociatedWith inst:dossierbehandelaar`, en de
+  selectie volgt later dan de berekening;
+- **brdr kiest**: `prov:wasAssociatedWith inst:brdr-0.9.0` op dezelfde actuatie, op het tijdstip
+  van de berekening; de vergelijking blijft de verantwoording.
+
+Het model verandert niet, enkel de agent en het tijdstip. Een persoon is geen `sosa:System`, en
+welk systeem de nieuwe afbakening wegschrijft, zegt de bron niet; zoals bij de passieve bron in
+het patroon *Emissie als studieobject* blijft de actuator weg. Kiest brdr, dan kan
+`sosa:madeByActuator` naar brdr (als `sosa:Actuator`), maar dan is brdr ook de actuator van een
+wijziging die het niet zelf wegschrijft.
+<!-- TODO (vraag aan Onroerend Erfgoed): worden kandidaten met equality_* of prediction_unique* zonder controle overgenomen, en kijkt een dossierbehandelaar enkel naar de to_check_*-gevallen? Wie of wat schrijft de nieuwe afbakening in de inventaris? -->
 
 **Waarom een nieuwe geometrie, en niet de kandidaat zelf als resultaat?**
 In PROV-O heeft een entiteit één generatie. De kandidaat is gegenereerd door het aligneren; de
@@ -156,8 +194,12 @@ selectie genereert `ent:afbakening-1-v2`, met `prov:wasDerivedFrom` de kandidaat
 selectie. Zo is de versieketen van de afbakening, en de reden van elke versie, op te vragen.
 
 **De aanleiding als revisie.** De correctie van perceel 0734 is een `prov:wasRevisionOf` tussen
-twee perceelgeometrieën, elk `dct:isPartOf` een versie van ADP. De inzet `prov:used` de nieuwe
-versie. Zo kan je vragen welke afbakeningen door welke correctie veranderd zijn.
+twee perceelgeometrieën, elk met haar versiedatum (`dct:issued`) en `dct:isPartOf` een versie van
+ADP. De inzet `prov:used` de nieuwe versie. Zo kan je vragen welke afbakeningen door welke
+correctie veranderd zijn. brdr vindt de getroffen objecten op dezelfde manier: een perceel waarvan
+de versiedatum later is dan de `last_version_date` van de formule. De datum 2025-09-03 is de
+`versieId` van perceel 24504D0734-00M000 in het Perceelregister (opgevraagd op 26 oktober 2026);
+dat die versie de geometrie betreft en niet enkel een attribuut, is een aanname.
 
 **Waarneming of record (R16)?** De waarnemingen zijn hier zelf de gepubliceerde resources
 (oplossing A van R16): er staan geen recordeigenschappen (`prov:generatedAtTime`, …) op een
@@ -186,16 +228,24 @@ zijn er als entiteiten, met hun versie, zonder `geo:asWKT`.
 
 ## 7. Tijdsmodellering
 
-- **`sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime`** op de evaluatiecollecties, de
-  vergelijkingen en de selectie: het tijdstip uit de bron, met zijn tijdzone (UTC). Geen
+- **`sosa:resultTime "2025-09-15T10:00:12+02:00"^^xsd:dateTime`** op de evaluatiecollecties en de
+  vergelijkingen: het tijdstip van de berekening (illustratief; brdr schrijft het als `result_time`
+  met tijdzone, `%Y-%m-%dT%H:%M:%S%z`). Zomertijd, dus `+02:00` (R12). Geen
   `sosa:phenomenonTime`: de bedekking is een eigenschap van twee geometrieën, niet van een
   verschijnsel in de tijd.
+- **`sosa:resultTime "2025-03-31"^^xsd:date`** op de formule: brdr bewaart van de vorige alignering
+  enkel de datum (`alignment_date`), en SOSA 2023 staat een `xsd:date` als resultaattijd toe.
+- **`sosa:resultTime "2025-09-17T14:30:00+02:00"^^xsd:dateTime`** op de selectie, en hetzelfde
+  tijdstip als `prov:generatedAtTime` van de nieuwe afbakening: de keuze van de dossierbehandelaar,
+  later dan de berekening (illustratief). Kiest brdr zelf (§6), dan valt de selectie samen met de
+  berekening.
 - **`prov:endedAtTime`** op de aligneringen: een `p-plan:Activity` is geen SOSA-uitvoering, dus
   geen `sosa:resultTime`.
 - **`prov:generatedAtTime`** op de nieuwe afbakening: wanneer de versie ontstond.
-- **`dct:issued "…"^^xsd:date`** op de versies van ADP: een datum zonder tijdstip.
-- Alle tijdstippen uit de bron zijn gelijk (00:00:12 UTC). In werkelijkheid ligt de keuze van de
-  dossierbehandelaar later dan de berekening. <!-- TODO: het werkelijke tijdstip van de selectie; is de vorige alignering (de formule) gedateerd? -->
+- **`dct:issued "…"^^xsd:date`** op de versies van ADP en van de perceelgeometrieën: een datum
+  zonder tijdstip (brdr: `version_date`).
+- De Turtle van de bron gaf alle tijdstippen gelijk (2024-04-16T00:00:12 UTC), vóór de formule van
+  `brdr1.json`; de herziening volgt de datums van `brdr1.json` en het Perceelregister.
 
 ## 8. Prefixen en IRI-structuur
 
@@ -209,7 +259,8 @@ zijn er als entiteiten, met hun versie, zonder `geo:asWKT`.
 | `inst:` | `https://example.org/brdr/inst/` | tijdelijk |
 | `prop:` | `https://example.org/brdr/prop/` | tijdelijk |
 | `obj:` | `https://example.org/brdr/object/` | tijdelijk; in productie `https://id.erfgoed.net/aanduidingsobjecten/{id}` |
-| `cl:` | `https://example.org/brdr/concept/` | tijdelijk |
+| `cl:` | `https://example.org/brdr/concept/` | tijdelijk; brdr heeft geen namespace (§6) |
+| `perceel:` | `https://data.vlaanderen.be/id/perceel/` | persistent (Perceelregister, Basisregisters Vlaanderen) |
 | `sosa:` | `http://www.w3.org/ns/sosa/` | persistent |
 | `prov:` | `http://www.w3.org/ns/prov#` | persistent |
 | `p-plan:` | `http://purl.org/net/p-plan#` | persistent |
@@ -222,12 +273,25 @@ zijn er als entiteiten, met hun versie, zonder `geo:asWKT`.
 
 De bron gebruikte `https://id.erfgoed.net/metadata/` voor alles (activiteiten, procedures,
 geometrieën) en `https://data.vlaanderen.be/id/geometry/capakey/…` voor perceelgeometrieën. De
-herziening gebruikt `example.org` voor alles wat illustratief is (R10) en verwijst naar het perceel
-met `rdfs:seeAlso` naar de CAPAKEY-API, die geen identificator maar een document is. Een
-pijplijn moet de IRI's van kandidaten en waarnemingen afleiden uit een vaste sleutel, bv.
-object + versie van de referentielaag + relevante afstand, en niet uit een UUID per run, zoals
-brdr nu doet (`uuid.uuid4()` in `descriptor.py` en `metadata.py`) (R10, *Stable IRIs in pipelines*).
-<!-- TODO: welke basis-IRI voor geometrieën en provenance in productie (id.erfgoed.net/…)? Is er een persistente IRI voor een perceel (OSLO Perceel)? -->
+herziening gebruikt `example.org` voor alles wat illustratief is (R10), en bestaande IRI's waar ze
+er zijn (nagekeken op 26 oktober 2026):
+
+- **Percelen:** het Perceelregister geeft elk perceel een persistente IRI,
+  `https://data.vlaanderen.be/id/perceel/{capakey}` met `-` in plaats van `/`
+  (`perceel:24504D0692-00B000`). Ze verwijst door naar de API van Basisregisters Vlaanderen, die
+  JSON-LD teruggeeft met de IRI als `identificator.id` en een `versieId`. De CAPAKEY-API van de bron
+  is een document, geen identificator, en is weggelaten. Een *versie* van een perceelgeometrie
+  heeft geen IRI in het register; die blijft `ent:`.
+- **Aanduidingsobjecten:** `https://id.erfgoed.net/aanduidingsobjecten/{id}` bestaat en verwijst
+  (303) door naar de inventaris, met HTML en JSON. Turtle geeft 404. Het object in dit voorbeeld is
+  illustratief en houdt `obj:`.
+- **Afbakeningen, kandidaten en provenance:** geen bestaande namespace. Een pijplijn moet hun IRI's
+  afleiden uit een vaste sleutel, bv. object + versie van de referentielaag + relevante afstand,
+  en niet uit een UUID per run, zoals brdr nu doet (`uuid.uuid4()` in `descriptor.py` en
+  `metadata.py`) (R10, *Stable IRIs in pipelines*). Het resultaat van een alignering krijgt in brdr
+  wel een stabiele `urn:uuid` uit de hash van de geometrie (`urn_from_geom`).
+
+<!-- TODO (vraag aan Onroerend Erfgoed): onder welke basis-IRI publiceert de inventaris afbakeningen (versies van een geometrie) en hun provenance, bv. https://id.erfgoed.net/aanduidingsobjecten/{id}/afbakening/{versie}? Komt er Turtle of JSON-LD bij content negotiation? -->
 
 Blanco knopen enkel voor de resultaten van volledig bedekte percelen (100 %), waar niemand naar
 verwijst; de resultaten van perceel 0734 hebben een IRI omdat de vergelijking ze gebruikt.

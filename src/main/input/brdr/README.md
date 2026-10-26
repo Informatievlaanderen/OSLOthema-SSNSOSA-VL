@@ -51,7 +51,7 @@ herleidbaarheid naar het plan als doel.
 
 - **Planning:** `plan:heraligneren` met de stappen aligneren, evaluatie, vergelijking en selectie,
   en hun variabelen (relevante afstand, kandidaat, bedekking, evaluatieklasse, afbakening).
-- **Deployment:** de heralignering op ADP 2024-04-15 als `sosa:Deployment` van brdr 0.9.0, met
+- **Deployment:** de heralignering op ADP 2025-09-15 als `sosa:Deployment` van brdr 0.9.0, met
   `prov:hadPlan`.
 - **Execution:** aligneren is een `p-plan:Activity` (geen SOSA). Evaluatie en vergelijking zijn
   `sosa:Observation`s door brdr als `sosa:Sensor`. De selectie is de `sosa:Actuation` die de
@@ -93,7 +93,7 @@ en 3 `[suspect]` onder `[VOCAB]`, 4 `[hint]`s voor `ssn:`-termen, 7 `[DISJOINTNE
 en 34 SHACL-schendingen. Elk punt: origineel → herzien → motivatie.
 
 1. **Observaties als gebruikte entiteit.** `erfgoed:selectie prov:used erfgoed:alignment_evaluatie1aa, …`
-   → `exec:selectie-1-2024-04-16 sosa:hasInputValue ent:evaluatieklasse-1-rd1, ent:evaluatieklasse-1-rd2`
+   → `exec:selectie-1-2025-09-15 sosa:hasInputValue ent:evaluatieklasse-1-rd1, ent:evaluatieklasse-1-rd2`
    (de resultaten van de vergelijking) → het bereik van `prov:used` is `prov:Entity`, en een
    `sosa:Observation` is een `prov:Activity`. PROV-O verklaart die twee klassen disjunct, dus
    leveren de zes observaties zes `[DISJOINTNESS]`-schendingen op (R7, R16). Een activiteit gebruikt
@@ -164,17 +164,21 @@ en 34 SHACL-schendingen. Elk punt: origineel → herzien → motivatie.
     Lambert 72.
 
 13. **Versiedatum van de referentielaag.** `erfgoed:version_date "2024-04-15"^^xsd:date` op elke
-    perceelgeometrie → `dct:isPartOf ent:adp-2024-04-15`, een `prov:Entity` met `dct:issued`, en
-    `prov:wasRevisionOf` tussen de versies van de laag en van perceel 0734 → de versie is een
-    eigenschap van de laag. De correctie, de aanleiding van de heralignering, wordt zo een
-    expliciete revisie, en de inzet gebruikt de nieuwe laag (`prov:used`). `erfgoed:version_date`
-    bestond in geen vocabularium (`[suspect]`).
+    perceelgeometrie → twee datums, zoals brdr ze zelf onderscheidt (`brdr1.json`): de versie van
+    de laag (`reference_source.version_date`) als `ent:adp-…`, een `prov:Entity` met `dct:issued`,
+    en de versie van elke perceelgeometrie (`version_date`) als `dct:issued` op die geometrie, met
+    `dct:isPartOf` de laag en `prov:wasRevisionOf` tussen de versies van perceel 0734 → de
+    correctie, de aanleiding van de heralignering, wordt zo een expliciete revisie, en de inzet
+    gebruikt de nieuwe laag (`prov:used`). `erfgoed:version_date` bestond in geen vocabularium
+    (`[suspect]`).
 
 14. **Capakey als notatie van een geometrie.** `skos:notation "24504D0692/00B000"^^perceel:capakey`
     op een `geo:Geometry`, met IRI `https://data.vlaanderen.be/id/geometry/capakey/…` →
-    een perceel (`geo:Feature`) met `dct:identifier "24504D0692/00B000"`, `geo:hasGeometry` naar de
-    geometrie per versie, en `rdfs:seeAlso` naar de CAPAKEY-API → de capakey identificeert het
-    perceel, niet een versie van zijn geometrie. Het datatype `perceel:capakey` bestaat niet
+    het perceel met zijn persistente IRI uit het Perceelregister
+    (`https://data.vlaanderen.be/id/perceel/24504D0692-00B000`), een `geo:Feature` met
+    `dct:identifier "24504D0692/00B000"` en `geo:hasGeometry` naar de geometrie per versie → de
+    capakey identificeert het perceel, niet een versie van zijn geometrie, en het perceel heeft al
+    een IRI (R10; `linked-data.md`: bestaande IRI's van externe datasets hergebruiken; bespreking §8). Het datatype `perceel:capakey` bestaat niet
     (`[suspect]`), en de IRI's in `data.vlaanderen.be/id/geometry/` zijn niet uitgegeven door de
     beheerder van dat domein (R10). Het voorbeeld met `adms:Identifier` en een datatype in
     `example.com` is niet overgenomen.
@@ -185,8 +189,11 @@ en 34 SHACL-schendingen. Elk punt: origineel → herzien → motivatie.
 
 16. **Inconsistenties in de brondata.** In `features-geometries.ttl` is 0692 130,44 m² en 0693
     147,8 m²; in `brdr1.json` en `src/test/test.ttl` is het omgekeerd. In `brdr1.json` heeft
-    perceel 0734 versiedatum 2018-12-01, in de Turtle 2024-04-15. De herziening gaat ervan uit dat
-    0734 gecorrigeerd is tussen de twee versies van ADP, wat de heralignering verklaart.
+    perceel 0734 versiedatum 2018-12-01, in de Turtle 2024-04-15, en de Turtle dateert alles op
+    2024-04-16, een jaar vóór de formule van `brdr1.json` (2025-03-31). De herziening volgt
+    `brdr1.json` als formule, en het Perceelregister voor de correctie: perceel 0734 heeft daar
+    een versie van 2025-09-03. De heralignering (ADP 2025-09-15) en de keuze (2025-09-17) zijn
+    illustratief.
 
 17. **Prefixen en ontologie.** `sdo:` en `schema:` voor dezelfde namespace, en ongebruikte
     prefixen (`owl:`, `vann:`, `qb:`, `parcel:`, `geometry:`, …) → enkel de gebruikte prefixen.

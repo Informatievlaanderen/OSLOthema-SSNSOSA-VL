@@ -12,7 +12,7 @@ flowchart RL
     end
 
     subgraph DEPLOYMENT["DEPLOYMENT"]
-        inzet["exec:heralignering-adp-2024-04-15<br/>sosa:Deployment"]
+        inzet["exec:heralignering-adp-2025-09-15<br/>sosa:Deployment"]
         brdr["inst:brdr-0.9.0<br/>sosa:Sensor, prov:SoftwareAgent"]
         persoon["inst:dossierbehandelaar<br/>prov:Person"]
         oe["inst:onroerend-erfgoed<br/>prov:Organization"]
@@ -23,10 +23,10 @@ flowchart RL
     end
 
     subgraph EXECUTION["EXECUTION"]
-        adp2018["ent:adp-2018-12-01"]
-        adp2024["ent:adp-2024-04-15"]
+        adp2018["ent:adp-2025-03-31"]
+        adp2024["ent:adp-2025-09-15"]
         p0734_2018["ent:perceel-24504D0734-00M000-2018-12-01"]
-        p0734_2024["ent:perceel-24504D0734-00M000-2024-04-15"]
+        p0734_2024["ent:perceel-24504D0734-00M000-2025-09-03"]
         v1["ent:afbakening-1-v1<br/>geo:Geometry"]
         formule["exec:formule-1-v1<br/>sosa:ObservationCollection"]
         aligneren_rd1["exec:aligneren-1-rd1<br/>p-plan:Activity"]
@@ -45,7 +45,7 @@ flowchart RL
             klasse_rd1["ent:evaluatieklasse-1-rd1<br/>to_check_no_prediction"]
             klasse_rd2["ent:evaluatieklasse-1-rd2<br/>equality_by_id"]
         end
-        selectie["exec:selectie-1-2024-04-16<br/>sosa:Actuation"]
+        selectie["exec:selectie-1-2025-09-15<br/>sosa:Actuation"]
         v2["ent:afbakening-1-v2<br/>geo:Geometry"]
     end
 

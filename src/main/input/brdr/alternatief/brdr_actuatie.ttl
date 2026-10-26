@@ -141,11 +141,11 @@ obj:aanduidingsobject-1 a geo:Feature , sosa:FeatureOfInterest ;
     rdfs:label "Aanduidingsobject 1 (beschermd monument, illustratief)"@nl ;
     geo:hasGeometry alt:kandidaat-1-rd2 .
 
-alt:heralignering-adp-2024-04-15 a sosa:Deployment , prov:Activity ;
-    rdfs:label "Heralignering van de aanduidingsobjecten op GRB-ADP versie 2024-04-15 (lezing van brdr)"@nl ;
+alt:heralignering-adp-2025-09-15 a sosa:Deployment , prov:Activity ;
+    rdfs:label "Heralignering van de aanduidingsobjecten op GRB-ADP versie 2025-09-15 (lezing van brdr)"@nl ;
     sosa:deployedSystem inst:brdr-0.9.0 , alt:brdr-0.9.0-aligner ;
     sosa:hasFeatureOfInterest obj:aanduidingsobject-1 ;
-    prov:used ent:adp-2024-04-15 ;
+    prov:used ent:adp-2025-09-15 ;
     prov:wasAssociatedWith inst:onroerend-erfgoed ;
     prov:qualifiedAssociation [ a prov:Association ;
         prov:agent inst:onroerend-erfgoed ;
@@ -176,37 +176,42 @@ alt:volledig-bedekt a sosa:Property ;
 
 # --- Referentiedata (gedeeld) ---
 
-ent:adp-2018-12-01 a prov:Entity ;
-    rdfs:label "GRB, administratieve percelen (ADP), versie 2018-12-01"@nl ;
-    dct:issued "2018-12-01"^^xsd:date .
+ent:adp-2025-03-31 a prov:Entity ;
+    rdfs:label "GRB, administratieve percelen (ADP), versie 2025-03-31"@nl ;
+    dct:issued "2025-03-31"^^xsd:date .
 
-ent:adp-2024-04-15 a prov:Entity ;
-    rdfs:label "GRB, administratieve percelen (ADP), versie 2024-04-15"@nl ;
-    dct:issued "2024-04-15"^^xsd:date ;
-    prov:wasRevisionOf ent:adp-2018-12-01 .
+ent:adp-2025-09-15 a prov:Entity ;
+    rdfs:label "GRB, administratieve percelen (ADP), versie 2025-09-15"@nl ;
+    dct:issued "2025-09-15"^^xsd:date ;
+    prov:wasRevisionOf ent:adp-2025-03-31 .
 
 # In deze lezing zijn de perceelgeometrieën het studieobject van de evaluatie.
-ent:perceel-24504D0692-00B000-2018-12-01 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
-    dct:isPartOf ent:adp-2018-12-01 , ent:adp-2024-04-15 .
+ent:perceel-24504D0692-00B000-2024-04-15 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
+    dct:issued "2024-04-15"^^xsd:date ;
+    dct:isPartOf ent:adp-2025-03-31 , ent:adp-2025-09-15 .
 
-ent:perceel-24504D0693-00B000-2018-12-01 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
-    dct:isPartOf ent:adp-2018-12-01 , ent:adp-2024-04-15 .
+ent:perceel-24504D0693-00B000-2024-04-15 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
+    dct:issued "2024-04-15"^^xsd:date ;
+    dct:isPartOf ent:adp-2025-03-31 , ent:adp-2025-09-15 .
 
 ent:perceel-24504D0734-00M000-2018-12-01 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
-    dct:isPartOf ent:adp-2018-12-01 .
+    dct:issued "2018-12-01"^^xsd:date ;
+    dct:isPartOf ent:adp-2025-03-31 .
 
-ent:perceel-24504D0734-00M000-2024-04-15 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
-    dct:isPartOf ent:adp-2024-04-15 ;
+ent:perceel-24504D0734-00M000-2025-09-03 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
+    dct:issued "2025-09-03"^^xsd:date ;
+    dct:isPartOf ent:adp-2025-09-15 ;
     prov:wasRevisionOf ent:perceel-24504D0734-00M000-2018-12-01 .
 
 # --- De huidige afbakening (gedeeld) ---
 
 ent:afbakening-1-v1 a geo:Geometry , prov:Entity ;
     rdfs:label "Afbakening van aanduidingsobject 1, versie 1"@nl ;
-    prov:wasInvalidatedBy alt:selectie-1-2024-04-16 ;
+    prov:wasInvalidatedBy alt:selectie-1-2025-09-15 ;
     geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POLYGON ((173091.231988003 174049.97385057225, 173095.97323898383 174064.57996246478, 173108.8591519013 174061.0441936764, 173109.00910644286 174060.99718317966, 173109.0370832201 174061.13273092007, 173118.13954723 174058.38636291, 173119.7700112299 174057.89445892008, 173122.61071523 174057.03737091008, 173124.81762724 174056.37151491008, 173123.69033123992 174053.0863949101, 173123.49455523 174052.5158349101, 173122.43772384527 174049.43602870268, 173122.2656912399 174048.9347789101, 173121.75554723 174047.44825091, 173118.59772323 174038.2458189, 173118.44631616247 174038.31591967345, 173118.36681860202 174038.10053674813, 173114.83099023972 174028.3573652607, 173087.88012073652 174039.43629412368, 173091.10165324152 174049.57233541954, 173091.21366357367 174049.91739950766, 173091.231988003 174049.97385057225))"^^geo:wktLiteral .
 
-# De formule, met de perceelgeometrie van ADP 2018-12-01 als studieobject.
+# De formule (source/brdr1.json: brdr 0.9.0, 2025-03-31), met de perceelgeometrie van
+# ADP 2025-03-31 als studieobject.
 alt:formule-1-v1-0734 a sosa:Observation ;
     p-plan:correspondsToStep alt:step-evaluatie ;
     sosa:observedProperty prop:bedekking-perceel ;
@@ -214,6 +219,7 @@ alt:formule-1-v1-0734 a sosa:Observation ;
     sosa:usedProcedure alt:step-evaluatie ;
     sosa:madeBySensor inst:brdr-0.9.0 ;
     sosa:hasInputValue ent:afbakening-1-v1 ;
+    sosa:resultTime "2025-03-31"^^xsd:date ;
     sosa:hasResult alt:formule-1-v1-0734-resultaat .
 
 alt:formule-1-v1-0734-resultaat a qudt:QuantityValue , prov:Entity ;
@@ -250,9 +256,9 @@ alt:aligneren-1-rd1 a sosa:Actuation , p-plan:Activity ;
     sosa:actsOnProperty prop:afbakening ;
     sosa:hasInputValue ent:relevante-afstand-1m ;
     prov:used ent:afbakening-1-v1 , ent:od-strategie-snap-all-side , ent:drempel-overlap-50 ,
-        ent:perceel-24504D0692-00B000-2018-12-01 , ent:perceel-24504D0693-00B000-2018-12-01 ,
-        ent:perceel-24504D0734-00M000-2024-04-15 ;
-    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+        ent:perceel-24504D0692-00B000-2024-04-15 , ent:perceel-24504D0693-00B000-2024-04-15 ,
+        ent:perceel-24504D0734-00M000-2025-09-03 ;
+    sosa:resultTime "2025-09-15T10:00:12+02:00"^^xsd:dateTime ;
     sosa:hasResult alt:kandidaat-1-rd1 .
 
 alt:aligneren-1-rd2 a sosa:Actuation , p-plan:Activity ;
@@ -264,9 +270,9 @@ alt:aligneren-1-rd2 a sosa:Actuation , p-plan:Activity ;
     sosa:actsOnProperty prop:afbakening ;
     sosa:hasInputValue ent:relevante-afstand-2m ;
     prov:used ent:afbakening-1-v1 , ent:od-strategie-snap-all-side , ent:drempel-overlap-50 ,
-        ent:perceel-24504D0692-00B000-2018-12-01 , ent:perceel-24504D0693-00B000-2018-12-01 ,
-        ent:perceel-24504D0734-00M000-2024-04-15 ;
-    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+        ent:perceel-24504D0692-00B000-2024-04-15 , ent:perceel-24504D0693-00B000-2024-04-15 ,
+        ent:perceel-24504D0734-00M000-2025-09-03 ;
+    sosa:resultTime "2025-09-15T10:00:12+02:00"^^xsd:dateTime ;
     sosa:hasResult alt:kandidaat-1-rd2 .
 
 # brdr geeft het resultaat een urn:uuid uit de hash van de geometrie (urn_from_geom):
@@ -275,7 +281,7 @@ alt:kandidaat-1-rd1 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
     rdfs:label "Voorgestelde afbakening van aanduidingsobject 1, relevante afstand 1 m"@nl ;
     p-plan:correspondsToVariable var:kandidaatgeometrie ;
     prov:wasDerivedFrom ent:afbakening-1-v1 ;
-    prov:wasInvalidatedBy alt:selectie-1-2024-04-16 ;
+    prov:wasInvalidatedBy alt:selectie-1-2025-09-15 ;
     geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POLYGON ((173091.23 174049.97, 173095.97 174064.58, 173108.86 174061.04, 173118.14 174058.39, 173124.82 174056.37, 173122.27 174048.93, 173118.60 174038.25, 173114.83 174028.36, 173087.88 174039.44, 173091.23 174049.97))"^^geo:wktLiteral .
 
 # De gekozen kandidaat is zelf de nieuwe afbakening: geen aparte versie.
@@ -292,11 +298,11 @@ alt:kandidaat-1-rd2 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
 alt:evaluatie-1-rd1-0734 a sosa:Observation ;
     p-plan:correspondsToStep alt:step-evaluatie ;
     sosa:observedProperty prop:bedekking-perceel ;
-    sosa:hasFeatureOfInterest ent:perceel-24504D0734-00M000-2024-04-15 ;
+    sosa:hasFeatureOfInterest ent:perceel-24504D0734-00M000-2025-09-03 ;
     sosa:usedProcedure alt:step-evaluatie ;
     sosa:madeBySensor inst:brdr-0.9.0 ;
     sosa:hasInputValue alt:kandidaat-1-rd1 ;
-    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:resultTime "2025-09-15T10:00:12+02:00"^^xsd:dateTime ;
     sosa:hasResult alt:bedekking-1-rd1-0734 .
 
 alt:bedekking-1-rd1-0734 a qudt:QuantityValue , prov:Entity ;
@@ -306,11 +312,11 @@ alt:bedekking-1-rd1-0734 a qudt:QuantityValue , prov:Entity ;
 alt:evaluatie-1-rd2-0734 a sosa:Observation ;
     p-plan:correspondsToStep alt:step-evaluatie ;
     sosa:observedProperty prop:bedekking-perceel ;
-    sosa:hasFeatureOfInterest ent:perceel-24504D0734-00M000-2024-04-15 ;
+    sosa:hasFeatureOfInterest ent:perceel-24504D0734-00M000-2025-09-03 ;
     sosa:usedProcedure alt:step-evaluatie ;
     sosa:madeBySensor inst:brdr-0.9.0 ;
     sosa:hasInputValue alt:kandidaat-1-rd2 ;
-    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:resultTime "2025-09-15T10:00:12+02:00"^^xsd:dateTime ;
     sosa:hasResult alt:bedekking-1-rd2-0734 .
 
 alt:bedekking-1-rd2-0734 a qudt:QuantityValue , prov:Entity ;
@@ -325,7 +331,7 @@ alt:volledig-1-rd1 a sosa:Observation ;
     sosa:hasFeatureOfInterest alt:kandidaat-1-rd1 ;
     sosa:usedProcedure alt:step-evaluatie ;
     sosa:madeBySensor inst:brdr-0.9.0 ;
-    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:resultTime "2025-09-15T10:00:12+02:00"^^xsd:dateTime ;
     sosa:hasSimpleResult false .
 
 alt:volledig-1-rd2 a sosa:Observation ;
@@ -334,7 +340,7 @@ alt:volledig-1-rd2 a sosa:Observation ;
     sosa:hasFeatureOfInterest alt:kandidaat-1-rd2 ;
     sosa:usedProcedure alt:step-evaluatie ;
     sosa:madeBySensor inst:brdr-0.9.0 ;
-    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:resultTime "2025-09-15T10:00:12+02:00"^^xsd:dateTime ;
     sosa:hasSimpleResult false .
 
 # --- Vergelijking met de formule (zoals in het hoofdmodel) ---
@@ -347,7 +353,7 @@ alt:vergelijking-1-rd1 a sosa:Observation ;
     sosa:hasFeatureOfInterest alt:kandidaat-1-rd1 ;
     sosa:hasInputValue alt:bedekking-1-rd1-0734 , alt:formule-1-v1-0734-resultaat ;
     sosa:relatedObservation alt:evaluatie-1-rd1-0734 , alt:formule-1-v1-0734 ;
-    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:resultTime "2025-09-15T10:00:12+02:00"^^xsd:dateTime ;
     sosa:hasResult alt:evaluatieklasse-1-rd1 .
 
 alt:evaluatieklasse-1-rd1 a prov:Entity ;
@@ -362,7 +368,7 @@ alt:vergelijking-1-rd2 a sosa:Observation ;
     sosa:hasFeatureOfInterest alt:kandidaat-1-rd2 ;
     sosa:hasInputValue alt:bedekking-1-rd2-0734 , alt:formule-1-v1-0734-resultaat ;
     sosa:relatedObservation alt:evaluatie-1-rd2-0734 , alt:formule-1-v1-0734 ;
-    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:resultTime "2025-09-15T10:00:12+02:00"^^xsd:dateTime ;
     sosa:hasResult alt:evaluatieklasse-1-rd2 .
 
 alt:evaluatieklasse-1-rd2 a prov:Entity ;
@@ -373,10 +379,10 @@ alt:evaluatieklasse-1-rd2 a prov:Entity ;
 
 # Ze genereert niets: ze maakt de vorige afbakening en de niet gekozen kandidaat ongeldig
 # (prov:wasInvalidatedBy hierboven); het object krijgt de gekozen kandidaat als geometrie.
-alt:selectie-1-2024-04-16 a p-plan:Activity , prov:Activity ;
+alt:selectie-1-2025-09-15 a p-plan:Activity , prov:Activity ;
     rdfs:label "Keuze van kandidaat rd2 als geldende afbakening van aanduidingsobject 1"@nl ;
     p-plan:correspondsToStep alt:step-selectie ;
     prov:used alt:kandidaat-1-rd1 , alt:kandidaat-1-rd2 ,
         alt:evaluatieklasse-1-rd1 , alt:evaluatieklasse-1-rd2 ;
     prov:wasAssociatedWith inst:dossierbehandelaar ;
-    prov:endedAtTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime .
+    prov:endedAtTime "2025-09-17T14:30:00+02:00"^^xsd:dateTime .

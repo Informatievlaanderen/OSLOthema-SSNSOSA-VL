@@ -32,7 +32,7 @@ provenance het vaakst voorkomt: een activiteit gebruiken alsof ze een entiteit i
 | 8 | percentage als `hasSimpleResult` | `qudt:QuantityValue` met `unit:PERCENT` | [R3](../regels/r03.md) |
 | 9 | `ssn:implements`, `ssn:hasInput`, `ssn:Property` | `sosa:`-termen, `p-plan:Variable` | [R14](../regels/r14.md) |
 | 10 | WKT in Lambert 72 zonder CRS | CRS-IRI van EPSG:31370 in de literal | [R11](../regels/r11.md) |
-| 11 | versiedatum en capakey op een perceelgeometrie | versies van ADP als entiteiten; capakey op het perceel | [R10](../regels/r10.md) |
+| 11 | versiedatum en capakey op een perceelgeometrie | versies van ADP en van de perceelgeometrieën; het perceel met zijn IRI uit het Perceelregister | [R10](../regels/r10.md) |
 
 De validatie van het origineel gaf 7 inconsistenties (punten 1 en 2) en 34 schendingen van de
 gegenereerde shapes.
@@ -44,8 +44,12 @@ gegenereerde shapes.
 - **De kandidaat is het studieobject van de evaluatie**, het perceel een inputwaarde.
 - **De formule** (de bedekkingen door de huidige afbakening) is een eigen collectie, zodat de
   vergelijking haar inputwaarden heeft.
-- **De aanleiding is een revisie**: perceel 0734 in ADP 2024-04-15 `prov:wasRevisionOf` dat in
-  ADP 2018-12-01, en de inzet gebruikt de nieuwe versie.
+- **De formule draagt haar herkomst**: de bedekkingen van de huidige afbakening komen uit
+  `brdr1.json` (brdr 0.9.0, 2025-03-31), met per perceel de versiedatum.
+- **De aanleiding is een revisie**: de geometrie van perceel 0734 van 2025-09-03
+  `prov:wasRevisionOf` die van 2018-12-01, en de inzet gebruikt de nieuwe versie van ADP.
+- **Bestaande IRI's** voor de percelen, uit het Perceelregister
+  (`https://data.vlaanderen.be/id/perceel/…`).
 - **Eenheden uit QUDT**: procent en meter.
 
 ## Twee lezingen

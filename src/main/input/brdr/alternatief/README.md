@@ -62,7 +62,7 @@ niet schrijft.
 | Niet gekozen kandidaat | gewoon een voorstel | resultaat van een actuatie, daarna ongeldig verklaard |
 | Studieobject van de bedekking | de kandidaat; het perceel als `sosa:hasInputValue` | de perceelgeometrie; de kandidaat als `sosa:hasInputValue` |
 | Volledig bedekt (`full`) | niet overgenomen (= 100 %) | observatie met de kandidaat als studieobject |
-| Formule | `sosa:ObservationCollection` met de oude afbakening als studieobject | losse observaties met de perceelgeometrieën van 2018 als studieobject |
+| Formule | `sosa:ObservationCollection` met de oude afbakening als studieobject | losse observaties met de perceelgeometrieën in ADP 2025-03-31 als studieobject |
 | brdr | `sosa:Sensor` | `sosa:Sensor` met een `sosa:Actuator` als deelsysteem (de processor) |
 | IRI's | `exec:`, `ent:`, `step:`, `plan:` | dezelfde voor gedeelde resources (`var:`, `ent:`, `inst:`, `prop:`, `obj:`, `cl:`); `alt:` voor plan, stappen, uitvoeringen, kandidaten en resultaten |
 

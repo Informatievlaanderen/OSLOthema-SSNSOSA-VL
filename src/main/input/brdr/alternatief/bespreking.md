@@ -4,7 +4,7 @@
 
 Dezelfde heralignering als het hoofdmodel (`../bespreking.md`): de afbakening van een
 aanduidingsobject van Onroerend Erfgoed wordt opnieuw gelegd op GRB-ADP na een correctie van
-perceel 24504D0734/00M000. Het verschil zit in de lezing. Hier volgt het model de metadata die
+perceel 24504D0734/00M000 (2025-09-03), met de formule van 2025-03-31. Het verschil zit in de lezing. Hier volgt het model de metadata die
 [brdr](https://github.com/OnroerendErfgoed/brdr) zelf schrijft: elke alignering is een
 `sosa:Actuation` die de afbakening van het object wijzigt, en de bedekking is een waarneming van
 het referentieperceel. Status: *voorstel*, naast het hoofdmodel.
@@ -28,7 +28,7 @@ het referentieperceel. Status: *voorstel*, naast het hoofdmodel.
   `implementedBy` van de procedure.
 - **`inst:dossierbehandelaar`**, **`inst:onroerend-erfgoed`**, **`obj:aanduidingsobject-1`** — zoals
   in het hoofdmodel. Het object `geo:hasGeometry` hier de gekozen kandidaat zelf.
-- **`alt:heralignering-adp-2024-04-15`** — `sosa:Deployment` van beide systemen, met
+- **`alt:heralignering-adp-2025-09-15`** — `sosa:Deployment` van beide systemen, met
   `prov:hadPlan alt:plan-heraligneren`.
 
 ## 4. Observatie/Actuatie-structuur (roze nodes)
@@ -49,8 +49,8 @@ procedure zijn (R5, R13).
 | IRI | observedProperty | usedProcedure | hasResult | hasFeatureOfInterest |
 |---|---|---|---|---|
 | `alt:formule-1-v1-0734` | `prop:bedekking-perceel` | `alt:step-evaluatie` | 27,14 % | `ent:perceel-24504D0734-00M000-2018-12-01` |
-| `alt:evaluatie-1-rd1-0734` | `prop:bedekking-perceel` | `alt:step-evaluatie` | 24,80 % | `ent:perceel-24504D0734-00M000-2024-04-15` |
-| `alt:evaluatie-1-rd2-0734` | `prop:bedekking-perceel` | `alt:step-evaluatie` | 27,14 % | `ent:perceel-24504D0734-00M000-2024-04-15` |
+| `alt:evaluatie-1-rd1-0734` | `prop:bedekking-perceel` | `alt:step-evaluatie` | 24,80 % | `ent:perceel-24504D0734-00M000-2025-09-03` |
+| `alt:evaluatie-1-rd2-0734` | `prop:bedekking-perceel` | `alt:step-evaluatie` | 27,14 % | `ent:perceel-24504D0734-00M000-2025-09-03` |
 | `alt:volledig-1-rd1` | `alt:volledig-bedekt` | `alt:step-evaluatie` | `false` | `alt:kandidaat-1-rd1` |
 | `alt:volledig-1-rd2` | `alt:volledig-bedekt` | `alt:step-evaluatie` | `false` | `alt:kandidaat-1-rd2` |
 | `alt:vergelijking-1-rd1` | `prop:evaluatieklasse` | `alt:step-vergelijking` | `cl:to_check_no_prediction` | `alt:kandidaat-1-rd1` |
@@ -60,7 +60,7 @@ Geen collecties: brdr schrijft losse observaties, en de bedekkingen van één ka
 elk een ander studieobject (het perceel), dus is er niets gemeenschappelijks om op een collectie te
 zetten behalve de kandidaat als inputwaarde, en die erft niet.
 
-**Selectie:** `alt:selectie-1-2024-04-16`, een `prov:Activity`. Ze `prov:used` de kandidaten en
+**Selectie:** `alt:selectie-1-2025-09-15`, een `prov:Activity`. Ze `prov:used` de kandidaten en
 hun evaluatieklassen, en maakt de oude afbakening en kandidaat rd1 ongeldig.
 
 ## 5. Procedure en Property
@@ -70,7 +70,7 @@ hun evaluatieklassen, en maakt de oude afbakening en kandidaat rd1 ongeldig.
 | `alt:step-aligneren` | `sosa:ActuatingProcedure` | `alt:brdr-0.9.0-aligner` | `alt:aligneren-1-rd1`, `-rd2` |
 | `alt:step-evaluatie` | `sosa:ObservingProcedure` | `inst:brdr-0.9.0` | formule, evaluatie, volledig bedekt |
 | `alt:step-vergelijking` | `sosa:ObservingProcedure` | `inst:brdr-0.9.0` | de twee vergelijkingen |
-| `alt:step-selectie` | `p-plan:Step` | — | `alt:selectie-1-2024-04-16` |
+| `alt:step-selectie` | `p-plan:Step` | — | `alt:selectie-1-2025-09-15` |
 
 brdr heeft een procedure per eigenschap (`brdr:observation_procedure_area_overlap_percentage`,
 `…_area_overlap_full`); hier is dat één stap van het plan, met twee eigenschappen.
@@ -159,15 +159,19 @@ oplossing A van R16).
    data bevraagt (erfgoedbeheerder of referentiebeheerder)?
 4. Worden alle kandidaten bewaard, of enkel de gekozen? Bij enkel de gekozen vervalt het
    belangrijkste bezwaar tegen het alternatief.
-5. Kiest brdr soms zelf (bij `prediction_unique` of `equality_by_id`)? Dan is de selectie ook een
-   handeling van een systeem, en komt de vraag terug welke resource de actuatie is.
+5. brdr kan zelf kiezen (`update_featurecollection_to_actual_grb` met `max_predictions=1`; zie
+   `../bespreking.md` §6). Gebeurt dat bij Onroerend Erfgoed, dan valt de keuze samen met de
+   berekening en is de selectie een handeling van brdr. Vervalt daarmee het onderscheid tussen
+   voorstel en wijziging, en dus het bezwaar tegen dit alternatief?
 
 ## 7. Tijdsmodellering
 
-Zoals in het hoofdmodel: `sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime` op de actuaties
-en observaties (brdr: `result_time`), `prov:endedAtTime` op de selectie, `dct:issued` op de versies
-van ADP. De formule heeft geen tijdstip: de bron geeft het niet. De nieuwe afbakening heeft hier geen
-`prov:generatedAtTime`: haar generatie is de actuatie, met haar resultaattijd.
+Zoals in het hoofdmodel: `sosa:resultTime "2025-09-15T10:00:12+02:00"^^xsd:dateTime` op de actuaties
+en observaties (brdr: `result_time`), `sosa:resultTime "2025-03-31"^^xsd:date` op de formule (brdr
+bewaart enkel `alignment_date`), `prov:endedAtTime "2025-09-17T14:30:00+02:00"` op de selectie, en
+`dct:issued` op de versies van ADP en van de perceelgeometrieën. De nieuwe afbakening heeft hier geen
+`prov:generatedAtTime`: haar generatie is de actuatie, met haar resultaattijd; dat die twee dagen
+vóór de keuze ligt, is precies het bezwaar uit §6.
 
 ## 8. Prefixen en IRI-structuur
 

@@ -10,7 +10,7 @@ flowchart RL
     end
 
     subgraph DEPLOYMENT["DEPLOYMENT"]
-        inzet["alt:heralignering-adp-2024-04-15<br/>sosa:Deployment"]
+        inzet["alt:heralignering-adp-2025-09-15<br/>sosa:Deployment"]
         brdr["inst:brdr-0.9.0<br/>sosa:Sensor"]
         aligner["alt:brdr-0.9.0-aligner<br/>sosa:Actuator"]
         persoon["inst:dossierbehandelaar<br/>prov:Person"]
@@ -23,7 +23,7 @@ flowchart RL
     subgraph EXECUTION["EXECUTION"]
         v1["ent:afbakening-1-v1<br/>geo:Geometry"]
         p0734_2018["ent:perceel-24504D0734-00M000-2018-12-01<br/>sosa:FeatureOfInterest"]
-        p0734_2024["ent:perceel-24504D0734-00M000-2024-04-15<br/>sosa:FeatureOfInterest"]
+        p0734_2024["ent:perceel-24504D0734-00M000-2025-09-03<br/>sosa:FeatureOfInterest"]
         rd1m["ent:relevante-afstand-1m"]
         rd2m["ent:relevante-afstand-2m"]
         aligneren_rd1["alt:aligneren-1-rd1<br/>sosa:Actuation"]
@@ -42,7 +42,7 @@ flowchart RL
             klasse_rd1["alt:evaluatieklasse-1-rd1<br/>to_check_no_prediction"]
             klasse_rd2["alt:evaluatieklasse-1-rd2<br/>equality_by_id"]
         end
-        selectie["alt:selectie-1-2024-04-16<br/>prov:Activity"]
+        selectie["alt:selectie-1-2025-09-15<br/>prov:Activity"]
     end
 
     step_aligneren -->|isStepOfPlan| plan
