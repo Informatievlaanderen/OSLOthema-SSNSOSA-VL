@@ -1,0 +1,96 @@
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:      <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sdo:      <https://schema.org/> .
+@prefix schema:   <https://schema.org/> .
+@prefix vann:     <http://purl.org/vocab/vann/> .
+@prefix skos:     <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix geo:         <http://www.opengis.net/ont/geosparql#> .
+@prefix erfgoed:  <https://id.erfgoed.net/metadata/> .
+@prefix property: <https://id.erfgoed.net/property/> .
+@prefix gebied: <https://id.erfgoed.net/gebied/> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix sosa:     <http://www.w3.org/ns/sosa/> .
+@prefix ssn:      <http://www.w3.org/ns/ssn/> .
+@prefix parcel:   <https://geo.api.vlaanderen.be/capakey/v2/parcel/> .
+@prefix geometry:   <https://data.vlaanderen.be/id/geometry/capakey/> .
+@prefix perceel:   <https://data.vlaanderen.be/ns/perceel#> .
+@prefix qb:       <http://purl.org/linked-data/cube#> .
+
+
+
+# #################################################################
+# #
+# #    Evaluatie
+# #
+# #################################################################
+
+
+erfgoed:alignment_evaluatie_procedure a sosa:Procedure ;
+                                      rdfs:comment "het algoritme"@nl .
+
+erfgoed:alignment_evaluator a sosa:Sensor;# , prov:SoftwareAgent ;
+                            ssn:implements erfgoed:alignment_evaluatie_procedure ;
+                            rdfs:comment "de code etc. implementeert het algoritme"@nl .
+
+erfgoed:alignment_evaluatie1aa
+    a                         sosa:Observation ;
+    sosa:hasFeatureOfInterest erfgoed:alignment1a ;
+    sosa:observedProperty     property:coverage_boolean ;
+    prov:used                 <https://data.vlaanderen.be/id/geometry/capakey/24504D0692/00B000> ;
+    sosa:hasSimpleResult      true ;
+    sosa:resultTime           "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:usedProcedure        erfgoed:alignment_evaluatie_procedure ;
+    sosa:madeBySensor         erfgoed:alignment_evaluator .
+
+erfgoed:alignment_evaluatie1ab
+    a                         sosa:Observation ;
+    sosa:hasFeatureOfInterest erfgoed:alignment1a ;
+    sosa:observedProperty     property:coverage_percentage ;
+    prov:used                 <https://data.vlaanderen.be/id/geometry/capakey/24504D0692/00B000> ;
+    sosa:hasSimpleResult      100.0 ;
+    sosa:resultTime  "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:usedProcedure        erfgoed:alignment_evaluatie_procedure ;
+    sosa:madeBySensor         erfgoed:alignment_evaluator .
+
+erfgoed:alignment_evaluatie1ac
+    a                         sosa:Observation ;
+    sosa:hasFeatureOfInterest erfgoed:alignment1a ;
+    sosa:observedProperty     property:coverage_boolean ;
+    prov:used                 <https://data.vlaanderen.be/id/geometry/capakey/24504D0693/00B000> ;
+    sosa:hasSimpleResult      true ;
+    sosa:resultTime  "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:usedProcedure        erfgoed:alignment_evaluatie_procedure ;
+    sosa:madeBySensor         erfgoed:alignment_evaluator .
+
+erfgoed:alignment_evaluatie1ad
+    a                         sosa:Observation ;
+    sosa:hasFeatureOfInterest erfgoed:alignment1a ;
+    sosa:observedProperty     property:coverage_percentage ;
+    prov:used                 <https://data.vlaanderen.be/id/geometry/capakey/24504D0693/00B000> ;
+    sosa:hasSimpleResult      100.0 ;
+    sosa:resultTime  "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:usedProcedure        erfgoed:alignment_evaluatie_procedure ;
+    sosa:madeBySensor         erfgoed:alignment_evaluator .
+
+erfgoed:alignment_evaluatie1ae
+    a                         sosa:Observation ;
+    sosa:hasFeatureOfInterest erfgoed:alignment1a ;
+    sosa:observedProperty     property:coverage_boolean ;
+    prov:used                 <https://data.vlaanderen.be/id/geometry/capakey/24504D0734/00M000> ;
+    sosa:hasSimpleResult      false ;
+    sosa:resultTime  "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:usedProcedure        erfgoed:alignment_evaluatie_procedure ;
+    sosa:madeBySensor         erfgoed:alignment_evaluator .
+
+erfgoed:alignment_evaluatie1af
+    a                         sosa:Observation ;
+    sosa:hasFeatureOfInterest erfgoed:alignment1a ;
+    sosa:observedProperty     property:coverage_percentage ;
+    prov:used                 <https://data.vlaanderen.be/id/geometry/capakey/24504D0734/00M000> ;
+    sosa:hasSimpleResult      27.14 ;
+    sosa:resultTime  "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:usedProcedure        erfgoed:alignment_evaluatie_procedure ;
+    sosa:madeBySensor         erfgoed:alignment_evaluator .

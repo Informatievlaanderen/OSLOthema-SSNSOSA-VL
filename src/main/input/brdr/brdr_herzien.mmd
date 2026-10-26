@@ -1,0 +1,166 @@
+flowchart RL
+    subgraph PLANNING["PLANNING"]
+        plan_heraligneren["plan:heraligneren<br/>p-plan:Plan"]
+        step_aligneren["step:aligneren<br/>p-plan:Step"]
+        step_evaluatie["step:evaluatie<br/>sosa:ObservingProcedure"]
+        step_vergelijking["step:vergelijking<br/>sosa:ObservingProcedure"]
+        step_selectie["step:selectie<br/>sosa:ActuatingProcedure"]
+        var_kandidaat["var:kandidaatgeometrie"]
+        var_bedekking["var:bedekking"]
+        var_evaluatieklasse["var:evaluatieklasse"]
+        var_afbakening["var:afbakening"]
+    end
+
+    subgraph DEPLOYMENT["DEPLOYMENT"]
+        inzet["exec:heralignering-adp-2024-04-15<br/>sosa:Deployment"]
+        brdr["inst:brdr-0.9.0<br/>sosa:Sensor, prov:SoftwareAgent"]
+        persoon["inst:dossierbehandelaar<br/>prov:Person"]
+        oe["inst:onroerend-erfgoed<br/>prov:Organization"]
+        object["obj:aanduidingsobject-1<br/>geo:Feature, sosa:FeatureOfInterest"]
+        prop_afbakening["prop:afbakening<br/>sosa:Property"]
+        prop_bedekking["prop:bedekking-perceel<br/>sosa:Property"]
+        prop_klasse["prop:evaluatieklasse<br/>sosa:Property"]
+    end
+
+    subgraph EXECUTION["EXECUTION"]
+        adp2018["ent:adp-2018-12-01"]
+        adp2024["ent:adp-2024-04-15"]
+        p0734_2018["ent:perceel-24504D0734-00M000-2018-12-01"]
+        p0734_2024["ent:perceel-24504D0734-00M000-2024-04-15"]
+        v1["ent:afbakening-1-v1<br/>geo:Geometry"]
+        formule["exec:formule-1-v1<br/>sosa:ObservationCollection"]
+        aligneren_rd1["exec:aligneren-1-rd1<br/>p-plan:Activity"]
+        aligneren_rd2["exec:aligneren-1-rd2<br/>p-plan:Activity"]
+        rd1m["ent:relevante-afstand-1m<br/>1 m"]
+        rd2m["ent:relevante-afstand-2m<br/>2 m"]
+        kandidaat_rd1["ent:kandidaat-1-rd1<br/>geo:Geometry"]
+        kandidaat_rd2["ent:kandidaat-1-rd2<br/>geo:Geometry"]
+        evaluatie_rd1["exec:evaluatie-1-rd1<br/>sosa:ObservationCollection"]
+        evaluatie_rd2["exec:evaluatie-1-rd2<br/>sosa:ObservationCollection"]
+        bed_rd2["ent:bedekking-1-rd2-0734<br/>27.14 %"]
+        bed_v1["ent:formule-1-v1-0734<br/>27.14 %"]
+        subgraph DERIVATION["DERIVATION"]
+            vergelijking_rd1["exec:vergelijking-1-rd1<br/>sosa:Observation"]
+            vergelijking_rd2["exec:vergelijking-1-rd2<br/>sosa:Observation"]
+            klasse_rd1["ent:evaluatieklasse-1-rd1<br/>to_check_no_prediction"]
+            klasse_rd2["ent:evaluatieklasse-1-rd2<br/>equality_by_id"]
+        end
+        selectie["exec:selectie-1-2024-04-16<br/>sosa:Actuation"]
+        v2["ent:afbakening-1-v2<br/>geo:Geometry"]
+    end
+
+    step_aligneren -->|isStepOfPlan| plan_heraligneren
+    step_evaluatie -.->|isPrecededBy| step_aligneren
+    step_vergelijking -.->|isPrecededBy| step_evaluatie
+    step_selectie -.->|isPrecededBy| step_vergelijking
+    var_kandidaat -->|isOutputVarOf| step_aligneren
+    var_bedekking -->|isOutputVarOf| step_evaluatie
+    var_evaluatieklasse -->|isOutputVarOf| step_vergelijking
+    var_afbakening -->|isOutputVarOf| step_selectie
+
+    inzet -->|sosa:deployedSystem| brdr
+    inzet -->|sosa:hasFeatureOfInterest| object
+    inzet -->|prov:used| adp2024
+    inzet -->|prov:hadPlan| plan_heraligneren
+    inzet -->|prov:wasAssociatedWith| oe
+    brdr -->|sosa:implements| step_evaluatie
+    brdr -->|sosa:implements| step_vergelijking
+    object -->|geo:hasGeometry| v2
+
+    adp2024 -->|prov:wasRevisionOf| adp2018
+    p0734_2024 -->|prov:wasRevisionOf| p0734_2018
+    p0734_2018 -->|dct:isPartOf| adp2018
+    p0734_2024 -->|dct:isPartOf| adp2024
+
+    formule -->|sosa:hasFeatureOfInterest| v1
+    formule -->|sosa:observedProperty| prop_bedekking
+    formule -->|hasMember … hasResult| bed_v1
+    formule -->|hasMember … hasInputValue| p0734_2018
+
+    aligneren_rd1 -->|prov:used| v1
+    aligneren_rd1 -->|prov:used| rd1m
+    aligneren_rd1 -->|prov:used| p0734_2024
+    aligneren_rd2 -->|prov:used| v1
+    aligneren_rd2 -->|prov:used| rd2m
+    aligneren_rd2 -->|prov:used| p0734_2024
+    aligneren_rd1 -->|prov:wasAssociatedWith| brdr
+    aligneren_rd2 -->|prov:wasAssociatedWith| brdr
+    aligneren_rd1 -->|correspondsToStep| step_aligneren
+    kandidaat_rd1 -->|prov:wasGeneratedBy| aligneren_rd1
+    kandidaat_rd2 -->|prov:wasGeneratedBy| aligneren_rd2
+    kandidaat_rd2 -->|correspondsToVariable| var_kandidaat
+
+    evaluatie_rd1 -->|sosa:hasFeatureOfInterest| kandidaat_rd1
+    evaluatie_rd2 -->|sosa:hasFeatureOfInterest| kandidaat_rd2
+    evaluatie_rd2 -->|sosa:madeBySensor| brdr
+    evaluatie_rd2 -->|hasMember … hasResult| bed_rd2
+    evaluatie_rd2 -->|hasMember … hasInputValue| p0734_2024
+
+    vergelijking_rd1 -->|sosa:hasFeatureOfInterest| kandidaat_rd1
+    vergelijking_rd1 -->|sosa:hasResult| klasse_rd1
+    vergelijking_rd1 -->|sosa:hasInputValue| bed_v1
+    vergelijking_rd2 -->|sosa:hasFeatureOfInterest| kandidaat_rd2
+    vergelijking_rd2 -->|sosa:hasInputValue| bed_rd2
+    vergelijking_rd2 -->|sosa:hasInputValue| bed_v1
+    vergelijking_rd2 -->|sosa:observedProperty| prop_klasse
+    vergelijking_rd2 -->|sosa:hasResult| klasse_rd2
+    vergelijking_rd2 -->|correspondsToStep| step_vergelijking
+
+    selectie -->|sosa:hasFeatureOfInterest| object
+    selectie -->|sosa:actsOnProperty| prop_afbakening
+    selectie -->|sosa:usedProcedure| step_selectie
+    selectie -->|sosa:hasInputValue| kandidaat_rd2
+    selectie -->|sosa:hasInputValue| klasse_rd1
+    selectie -->|sosa:hasInputValue| klasse_rd2
+    selectie -->|prov:wasAssociatedWith| persoon
+    selectie -->|sosa:hasResult| v2
+    v2 -->|prov:wasRevisionOf| v1
+    v2 -->|prov:wasDerivedFrom| kandidaat_rd2
+    v1 -->|prov:wasInvalidatedBy| selectie
+
+    style PLANNING fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style DEPLOYMENT fill:#b0d9e7,stroke:#2E5C8A,color:#000
+    style EXECUTION fill:#e7a3be,stroke:#2E5C8A,color:#000
+    style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+
+    style plan_heraligneren fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style step_aligneren fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style step_evaluatie fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style step_vergelijking fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style step_selectie fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style var_kandidaat fill:#fe7130,stroke:#2E5C8A,color:#000
+    style var_bedekking fill:#fe7130,stroke:#2E5C8A,color:#000
+    style var_evaluatieklasse fill:#fe7130,stroke:#2E5C8A,color:#000
+    style var_afbakening fill:#fe7130,stroke:#2E5C8A,color:#000
+
+    style inzet fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style brdr fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style persoon fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style oe fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style object fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style prop_afbakening fill:#fe7130,stroke:#2E5C8A,color:#000
+    style prop_bedekking fill:#fe7130,stroke:#2E5C8A,color:#000
+    style prop_klasse fill:#fe7130,stroke:#2E5C8A,color:#000
+
+    style adp2018 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style adp2024 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style p0734_2018 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style p0734_2024 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style v1 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style formule fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style aligneren_rd1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style aligneren_rd2 fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style rd1m fill:#f8b622,stroke:#2E5C8A,color:#000
+    style rd2m fill:#f8b622,stroke:#2E5C8A,color:#000
+    style kandidaat_rd1 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style kandidaat_rd2 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style evaluatie_rd1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style evaluatie_rd2 fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style bed_rd2 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style bed_v1 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style vergelijking_rd1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style vergelijking_rd2 fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style klasse_rd1 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style klasse_rd2 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style selectie fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style v2 fill:#f8b622,stroke:#2E5C8A,color:#000

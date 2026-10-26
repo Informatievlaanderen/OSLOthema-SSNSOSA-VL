@@ -1,0 +1,78 @@
+flowchart LR
+    subgraph ORIGINEEL["ORIGINEEL (source/)"]
+        o_aligning["erfgoed:aligning1<br/>sosa:Actuation"]
+        o_geometry["erfgoed:geometry1<br/>geo:Geometry (WKT zonder CRS)"]
+        o_collection["erfgoed:alignment1<br/>prov:Collection"]
+        o_a["erfgoed:alignment1a"]
+        o_b["erfgoed:alignment1b"]
+        o_eval["erfgoed:alignment_evaluatie1aa … 1af<br/>sosa:Observation (enkel kandidaat a)"]
+        o_parcel["…/capakey/24504D0734/00M000<br/>geo:Geometry"]
+        o_selectie["erfgoed:selectie<br/>prov:Activity + prov:generatedAtTime"]
+        o_agent["erfgoed:agent1<br/>prov:Agent + ssn:implements"]
+    end
+
+    subgraph HERZIEN["HERZIEN (brdr_herzien.ttl)"]
+        h_aligneren["exec:aligneren-1-rd2<br/>p-plan:Activity"]
+        h_rd["ent:relevante-afstand-2m"]
+        h_v1["ent:afbakening-1-v1<br/>WKT in EPSG:31370"]
+        h_kandidaat["ent:kandidaat-1-rd2"]
+        h_eval["exec:evaluatie-1-rd2<br/>sosa:ObservationCollection"]
+        h_p2024["ent:perceel-24504D0734-00M000-2024-04-15"]
+        h_verg["exec:vergelijking-1-rd2<br/>afgeleide sosa:Observation"]
+        h_formule["ent:formule-1-v1-0734"]
+        h_selectie["exec:selectie-1-2024-04-16<br/>sosa:Actuation"]
+        h_object["obj:aanduidingsobject-1<br/>sosa:FeatureOfInterest"]
+        h_v2["ent:afbakening-1-v2"]
+        h_persoon["inst:dossierbehandelaar<br/>prov:Person"]
+    end
+
+    o_aligning -->|sosa:hasFeatureOfInterest| o_geometry
+    o_aligning -->|sosa:hasResult| o_collection
+    o_collection -->|prov:hadMember| o_a
+    o_collection -->|prov:hadMember| o_b
+    o_eval -->|sosa:hasFeatureOfInterest| o_a
+    o_eval -->|prov:used| o_parcel
+    o_selectie -->|prov:used| o_eval
+    o_selectie -->|sosa:hasFeatureOfInterest| o_collection
+    o_selectie -->|prov:generated| o_b
+    o_selectie -->|prov:wasAssociatedWith| o_agent
+
+    h_aligneren -->|prov:used| h_v1
+    h_aligneren -->|prov:used| h_rd
+    h_kandidaat -->|prov:wasGeneratedBy| h_aligneren
+    h_eval -->|sosa:hasFeatureOfInterest| h_kandidaat
+    h_eval -->|hasMember … hasInputValue| h_p2024
+    h_verg -->|sosa:hasInputValue| h_formule
+    h_verg -->|sosa:hasFeatureOfInterest| h_kandidaat
+    h_selectie -->|sosa:hasInputValue| h_kandidaat
+    h_selectie -->|sosa:hasFeatureOfInterest| h_object
+    h_selectie -->|sosa:hasResult| h_v2
+    h_selectie -->|prov:wasAssociatedWith| h_persoon
+    h_v2 -->|prov:wasRevisionOf| h_v1
+    h_object -->|geo:hasGeometry| h_v2
+
+    style ORIGINEEL fill:#f8e1ad,stroke:#2E5C8A,color:#000
+    style HERZIEN fill:#e7a3be,stroke:#2E5C8A,color:#000
+
+    style o_aligning fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style o_geometry fill:#f8b622,stroke:#2E5C8A,color:#000
+    style o_collection fill:#f8b622,stroke:#2E5C8A,color:#000
+    style o_a fill:#f8b622,stroke:#2E5C8A,color:#000
+    style o_b fill:#f8b622,stroke:#2E5C8A,color:#000
+    style o_eval fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style o_parcel fill:#f8b622,stroke:#2E5C8A,color:#000
+    style o_selectie fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style o_agent fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+    style h_aligneren fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style h_rd fill:#f8b622,stroke:#2E5C8A,color:#000
+    style h_v1 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style h_kandidaat fill:#f8b622,stroke:#2E5C8A,color:#000
+    style h_eval fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style h_p2024 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style h_verg fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style h_formule fill:#f8b622,stroke:#2E5C8A,color:#000
+    style h_selectie fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style h_object fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style h_v2 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style h_persoon fill:#60c4e4,stroke:#2E5C8A,color:#000

@@ -1,0 +1,34 @@
+{
+  "alignment_date": "2025-03-31",
+  "brdr_version": "0.9.0",
+  "reference_source": {
+    "source": "adp",
+    "version_date": "2025-03-31"
+  },
+  "full": false,
+  "area": 834.68,
+  "reference_features": {
+    "24504D0693/00B000": {
+      "full": true,
+      "area": 130.45,
+      "percentage": 100,
+      "version_date": "2024-04-15"
+    },
+    "24504D0692/00B000": {
+      "full": true,
+      "area": 147.8,
+      "percentage": 100,
+      "version_date": "2024-04-15"
+    },
+    "24504D0734/00M000": {
+      "full": false,
+      "area": 233.46,
+      "percentage": 27.14,
+      "version_date": "2018-12-01"
+    }
+  },
+  "reference_od": {
+    "area": 322.97
+  },
+  "last_version_date": "2024-04-15"
+}

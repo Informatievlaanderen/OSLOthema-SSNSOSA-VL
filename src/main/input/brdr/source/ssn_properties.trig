@@ -1,0 +1,17 @@
+
+@prefix property: <https://id.erfgoed.net/property/> .
+@prefix ssn:      <http://www.w3.org/ns/ssn/> .
+
+
+# #################################################################
+# #
+# #    SSN Properties
+# #
+# #################################################################
+
+
+property:coverage_boolean
+    a ssn:Property .
+
+property:coverage_percentage
+    a ssn:Property .

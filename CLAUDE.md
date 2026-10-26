@@ -91,6 +91,11 @@ Bestaande datavoorbeelden:
 - `rdf-memory/` — geheugen van een AI-agent (turtle-recall, geen SSN/SOSA): herziening van één item
   als `oa:Annotation` met PROV-herkomst, DQV-scores, tags als SKOS-begrippen en toegang via Web Access
   Control (OA, DQV en WAC in `src/main/resources/org/w3/www/ns/`); gepseudonimiseerd
+- `brdr/` — herziening van de provenance van het heraligneren van afbakeningen van Onroerend Erfgoed
+  op GRB-ADP met brdr (`gezever/BRDR`, bron in `source/`): drielaags met aligneren als
+  `p-plan:Activity`, evaluatie en vergelijking als observaties van brdr, en de selectie als
+  `sosa:Actuation` op de afbakening; versies van geometrieën en referentielaag met `prov:wasRevisionOf`; `alternatief/` volgt de lezing van brdr
+  zelf (elke alignering een `sosa:Actuation`, het perceel als studieobject van de bedekking)
 
 ---
 

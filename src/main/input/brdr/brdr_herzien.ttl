@@ -1,0 +1,497 @@
+@prefix plan:   <https://example.org/brdr/plan/> .
+@prefix step:   <https://example.org/brdr/step/> .
+@prefix var:    <https://example.org/brdr/var/> .
+@prefix exec:   <https://example.org/brdr/exec/> .
+@prefix ent:    <https://example.org/brdr/ent/> .
+@prefix inst:   <https://example.org/brdr/inst/> .
+@prefix prop:   <https://example.org/brdr/prop/> .
+@prefix obj:    <https://example.org/brdr/object/> .
+@prefix cl:     <https://example.org/brdr/concept/> .
+
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix qudt:   <http://qudt.org/schema/qudt/> .
+@prefix unit:   <http://qudt.org/vocab/unit/> .
+@prefix geo:    <http://www.opengis.net/ont/geosparql#> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Herziening van de BRDR-provenance (github.com/gezever/BRDR, src/examples/), zie source/.
+# Heraligneren van de afbakening van een aanduidingsobject van Onroerend Erfgoed op de
+# administratieve percelen (GRB-ADP), na een correctie van perceel 24504D0734/00M000.
+# De afbakening is de originele geometrie uit de bron; de twee kandidaten en hun
+# bedekkingspercentages zijn illustratief.
+# Coördinaten in Lambert 72 (EPSG:31370).
+
+
+# *********************************************
+# PLANNING
+# *********************************************
+
+# Het proces uit de README van BRDR: aligneren (een kandidaat per relevante afstand),
+# evalueren (bedekking van de referentiepercelen), vergelijken (met de formule van de
+# huidige afbakening) en selecteren (één kandidaat wordt de nieuwe afbakening).
+
+plan:heraligneren a p-plan:Plan , sosa:Procedure ;
+    rdfs:label "Heraligneren van een afbakening op een nieuwe versie van een referentielaag"@nl ;
+    rdfs:seeAlso <https://github.com/OnroerendErfgoed/brdr> .
+
+# Aligneren is geen SOSA-procedure: het berekent een voorstel en verandert niets aan het
+# aanduidingsobject. De stap blijft een p-plan:Step, de uitvoering een p-plan:Activity.
+step:aligneren a p-plan:Step ;
+    rdfs:label "Aligneren van de afbakening op de referentiepercelen (brdr Aligner)"@nl ;
+    p-plan:isStepOfPlan plan:heraligneren .
+
+step:evaluatie a p-plan:Step , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Bedekking van elk referentieperceel door een geometrie"@nl ;
+    rdfs:comment "Oppervlakte van de doorsnede gedeeld door de oppervlakte van het perceel, in procent; 100 % is een volledig bedekt perceel (brdr: full)."@nl ;
+    p-plan:isStepOfPlan plan:heraligneren ;
+    p-plan:isPrecededBy step:aligneren ;
+    sosa:hasInput var:referentiegeometrie ;
+    sosa:hasOutput var:bedekking .
+
+step:vergelijking a p-plan:Step , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Vergelijking van de bedekkingen van een kandidaat met de formule van de huidige afbakening (brdr Evaluator)"@nl ;
+    p-plan:isStepOfPlan plan:heraligneren ;
+    p-plan:isPrecededBy step:evaluatie ;
+    sosa:hasInput var:bedekking , var:basisbedekking ;
+    sosa:hasOutput var:evaluatieklasse .
+
+step:selectie a p-plan:Step , sosa:ActuatingProcedure , sosa:Procedure ;
+    rdfs:label "Keuze van één kandidaat als nieuwe afbakening"@nl ;
+    p-plan:isStepOfPlan plan:heraligneren ;
+    p-plan:isPrecededBy step:vergelijking ;
+    sosa:hasInput var:kandidaatgeometrie , var:evaluatieklasse ;
+    sosa:hasOutput var:afbakening .
+
+# --- Variabelen ---
+
+var:afbakening-origineel a p-plan:Variable ;
+    rdfs:label "Huidige afbakening van het object"@nl ;
+    p-plan:isVariableOfPlan plan:heraligneren ;
+    p-plan:isInputVarOf step:aligneren .
+
+var:referentiegeometrie a p-plan:Variable ;
+    rdfs:label "Geometrie van een referentieperceel in een versie van de referentielaag"@nl ;
+    p-plan:isVariableOfPlan plan:heraligneren ;
+    p-plan:isInputVarOf step:aligneren , step:evaluatie .
+
+var:relevante-afstand a p-plan:Variable ;
+    rdfs:label "Relevante afstand (brdr: relevant_distance), in meter"@nl ;
+    p-plan:isVariableOfPlan plan:heraligneren ;
+    p-plan:isInputVarOf step:aligneren .
+
+var:od-strategie a p-plan:Variable ;
+    rdfs:label "Strategie voor het open domein (brdr: od_strategy)"@nl ;
+    p-plan:isVariableOfPlan plan:heraligneren ;
+    p-plan:isInputVarOf step:aligneren .
+
+var:drempel-overlap a p-plan:Variable ;
+    rdfs:label "Drempel voor de overlap met een referentieperceel (brdr: threshold_overlap_percentage)"@nl ;
+    p-plan:isVariableOfPlan plan:heraligneren ;
+    p-plan:isInputVarOf step:aligneren .
+
+var:kandidaatgeometrie a p-plan:Variable ;
+    rdfs:label "Kandidaat voor de nieuwe afbakening (brdr: prediction)"@nl ;
+    p-plan:isVariableOfPlan plan:heraligneren ;
+    p-plan:isOutputVarOf step:aligneren ;
+    p-plan:isInputVarOf step:selectie .
+
+var:bedekking a p-plan:Variable ;
+    rdfs:label "Bedekking van een referentieperceel, in procent"@nl ;
+    p-plan:isVariableOfPlan plan:heraligneren ;
+    p-plan:isOutputVarOf step:evaluatie ;
+    p-plan:isInputVarOf step:vergelijking .
+
+var:basisbedekking a p-plan:Variable ;
+    rdfs:label "Bedekking van een referentieperceel door de huidige afbakening (brdr: base observation, de formule)"@nl ;
+    p-plan:isVariableOfPlan plan:heraligneren ;
+    p-plan:isInputVarOf step:vergelijking .
+
+var:evaluatieklasse a p-plan:Variable ;
+    rdfs:label "Evaluatieklasse van een kandidaat (brdr: evaluation)"@nl ;
+    p-plan:isVariableOfPlan plan:heraligneren ;
+    p-plan:isOutputVarOf step:vergelijking ;
+    p-plan:isInputVarOf step:selectie .
+
+var:afbakening a p-plan:Variable ;
+    rdfs:label "Nieuwe afbakening van het object"@nl ;
+    p-plan:isVariableOfPlan plan:heraligneren ;
+    p-plan:isOutputVarOf step:selectie .
+
+
+# *********************************************
+# CODELIJST
+# *********************************************
+
+# De klassen van de brdr-enum Evaluation (brdr/enums.py); geen bestaand register.
+
+cl:evaluatie a skos:ConceptScheme ;
+    skos:prefLabel "Evaluatieklasse van een brdr-kandidaat"@nl ;
+    rdfs:seeAlso <https://github.com/OnroerendErfgoed/brdr/blob/main/brdr/enums.py> .
+
+cl:equality_by_id_and_full_reference a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "equality_by_id_and_full_reference" ;
+    skos:prefLabel "gelijk op perceelidentificatie en volledig bedekte percelen"@nl .
+cl:equality_by_id a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "equality_by_id" ;
+    skos:prefLabel "gelijk op perceelidentificatie"@nl .
+cl:equality_by_full_reference a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "equality_by_full_reference" ;
+    skos:prefLabel "gelijk op volledig bedekte percelen"@nl .
+cl:prediction_unique a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "prediction_unique" ;
+    skos:prefLabel "één unieke kandidaat"@nl .
+cl:prediction_unique_full a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "prediction_unique_full" ;
+    skos:prefLabel "één unieke kandidaat met volledig bedekte percelen"@nl .
+cl:to_check_prediction_full a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "to_check_prediction_full" ;
+    skos:prefLabel "te controleren: kandidaat met volledig bedekte percelen"@nl .
+cl:to_check_prediction_multi a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "to_check_prediction_multi" ;
+    skos:prefLabel "te controleren: meerdere kandidaten"@nl .
+cl:to_check_prediction_multi_full a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "to_check_prediction_multi_full" ;
+    skos:prefLabel "te controleren: meerdere kandidaten met volledig bedekte percelen"@nl .
+cl:to_check_original a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "to_check_original" ;
+    skos:prefLabel "te controleren: originele afbakening"@nl .
+cl:to_check_no_prediction a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "to_check_no_prediction" ;
+    skos:prefLabel "te controleren: geen overeenkomende kandidaat"@nl .
+cl:not_evaluated a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "not_evaluated" ;
+    skos:prefLabel "niet geëvalueerd"@nl .
+cl:no_change a skos:Concept ; skos:inScheme cl:evaluatie ;
+    skos:notation "no_change" ;
+    skos:prefLabel "geen wijziging"@nl .
+
+
+# *********************************************
+# DEPLOYMENT
+# *********************************************
+
+# --- Systemen en agenten ---
+
+# brdr is software die waarneemt (bedekking, vergelijking): sosa:Sensor. Het aligneren
+# voert ze uit als prov:SoftwareAgent, zonder SOSA-procedure.
+inst:brdr-0.9.0 a sosa:Sensor , sosa:System , prov:SoftwareAgent ;
+    rdfs:label "brdr 0.9.0 (Python-bibliotheek van Onroerend Erfgoed en Athumi)"@nl ;
+    sosa:implements step:evaluatie , step:vergelijking ;
+    rdfs:seeAlso <https://github.com/OnroerendErfgoed/brdr> .
+
+inst:dossierbehandelaar a prov:Person , prov:Agent ;
+    rdfs:label "Dossierbehandelaar van Onroerend Erfgoed (illustratief)"@nl .
+
+inst:onroerend-erfgoed a prov:Organization , prov:Agent ;
+    rdfs:label "Agentschap Onroerend Erfgoed"@nl .
+
+# --- Het aanduidingsobject ---
+
+# Het studieobject van de selectie: de afbakening is een eigenschap van het object, de
+# geometrie is daar de waarde van. Productie: https://id.erfgoed.net/aanduidingsobjecten/{id}.
+obj:aanduidingsobject-1 a geo:Feature , sosa:FeatureOfInterest ;
+    rdfs:label "Aanduidingsobject 1 (beschermd monument, illustratief)"@nl ;
+    geo:hasGeometry ent:afbakening-1-v2 .
+
+# --- Inzet: de heraligneringscampagne na de nieuwe versie van ADP ---
+
+exec:heralignering-adp-2024-04-15 a sosa:Deployment , prov:Activity ;
+    rdfs:label "Heralignering van de aanduidingsobjecten op GRB-ADP versie 2024-04-15"@nl ;
+    sosa:deployedSystem inst:brdr-0.9.0 ;
+    sosa:hasFeatureOfInterest obj:aanduidingsobject-1 ;
+    prov:used ent:adp-2024-04-15 ;
+    prov:wasAssociatedWith inst:onroerend-erfgoed ;
+    prov:qualifiedAssociation [ a prov:Association ;
+        prov:agent inst:onroerend-erfgoed ;
+        prov:hadPlan plan:heraligneren
+    ] .
+
+
+# *********************************************
+# PROPERTIES
+# *********************************************
+
+prop:afbakening a sosa:Property ;
+    rdfs:label "Afbakening (geometrie) van een aanduidingsobject"@nl .
+
+prop:bedekking-perceel a sosa:Property ;
+    rdfs:label "Bedekking van een referentieperceel door een geometrie (brdr: area_overlap_percentage)"@nl .
+
+prop:evaluatieklasse a sosa:Property ;
+    rdfs:label "Overeenkomst van een kandidaat met de formule van de huidige afbakening (brdr: evaluation)"@nl .
+
+
+# *********************************************
+# EXECUTION
+# *********************************************
+
+# --- Referentiedata: de aanleiding ---
+
+ent:adp-2018-12-01 a prov:Entity ;
+    rdfs:label "GRB, administratieve percelen (ADP), versie 2018-12-01"@nl ;
+    dct:issued "2018-12-01"^^xsd:date .
+
+ent:adp-2024-04-15 a prov:Entity ;
+    rdfs:label "GRB, administratieve percelen (ADP), versie 2024-04-15"@nl ;
+    dct:issued "2024-04-15"^^xsd:date ;
+    prov:wasRevisionOf ent:adp-2018-12-01 .
+
+ent:perceel-24504D0692-00B000 a geo:Feature , prov:Entity ;
+    dct:identifier "24504D0692/00B000" ;
+    geo:hasGeometry ent:perceel-24504D0692-00B000-2018-12-01 ;
+    rdfs:seeAlso <https://geo.api.vlaanderen.be/capakey/v2/parcel/24504D0692/00B000> .
+
+ent:perceel-24504D0693-00B000 a geo:Feature , prov:Entity ;
+    dct:identifier "24504D0693/00B000" ;
+    geo:hasGeometry ent:perceel-24504D0693-00B000-2018-12-01 ;
+    rdfs:seeAlso <https://geo.api.vlaanderen.be/capakey/v2/parcel/24504D0693/00B000> .
+
+ent:perceel-24504D0734-00M000 a geo:Feature , prov:Entity ;
+    dct:identifier "24504D0734/00M000" ;
+    geo:hasGeometry ent:perceel-24504D0734-00M000-2024-04-15 ;
+    rdfs:seeAlso <https://geo.api.vlaanderen.be/capakey/v2/parcel/24504D0734/00M000> .
+
+# Twee percelen zijn ongewijzigd en behoren tot beide versies; perceel 0734 is gecorrigeerd.
+ent:perceel-24504D0692-00B000-2018-12-01 a geo:Geometry , prov:Entity ;
+    p-plan:correspondsToVariable var:referentiegeometrie ;
+    dct:isPartOf ent:adp-2018-12-01 , ent:adp-2024-04-15 .
+
+ent:perceel-24504D0693-00B000-2018-12-01 a geo:Geometry , prov:Entity ;
+    p-plan:correspondsToVariable var:referentiegeometrie ;
+    dct:isPartOf ent:adp-2018-12-01 , ent:adp-2024-04-15 .
+
+ent:perceel-24504D0734-00M000-2018-12-01 a geo:Geometry , prov:Entity ;
+    p-plan:correspondsToVariable var:referentiegeometrie ;
+    dct:isPartOf ent:adp-2018-12-01 .
+
+ent:perceel-24504D0734-00M000-2024-04-15 a geo:Geometry , prov:Entity ;
+    p-plan:correspondsToVariable var:referentiegeometrie ;
+    dct:isPartOf ent:adp-2024-04-15 ;
+    prov:wasRevisionOf ent:perceel-24504D0734-00M000-2018-12-01 .
+
+# --- De huidige afbakening en haar formule ---
+
+ent:afbakening-1-v1 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
+    rdfs:label "Afbakening van aanduidingsobject 1, versie 1"@nl ;
+    p-plan:correspondsToVariable var:afbakening-origineel ;
+    prov:wasInvalidatedBy exec:selectie-1-2024-04-16 ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POLYGON ((173091.231988003 174049.97385057225, 173095.97323898383 174064.57996246478, 173108.8591519013 174061.0441936764, 173109.00910644286 174060.99718317966, 173109.0370832201 174061.13273092007, 173118.13954723 174058.38636291, 173119.7700112299 174057.89445892008, 173122.61071523 174057.03737091008, 173124.81762724 174056.37151491008, 173123.69033123992 174053.0863949101, 173123.49455523 174052.5158349101, 173122.43772384527 174049.43602870268, 173122.2656912399 174048.9347789101, 173121.75554723 174047.44825091, 173118.59772323 174038.2458189, 173118.44631616247 174038.31591967345, 173118.36681860202 174038.10053674813, 173114.83099023972 174028.3573652607, 173087.88012073652 174039.43629412368, 173091.10165324152 174049.57233541954, 173091.21366357367 174049.91739950766, 173091.231988003 174049.97385057225))"^^geo:wktLiteral .
+
+# De formule (brdr: base observation): de bedekking van de percelen in ADP 2018-12-01 door
+# de huidige afbakening, bij de vorige alignering.
+exec:formule-1-v1 a sosa:ObservationCollection ;
+    rdfs:label "Formule van afbakening 1, versie 1 (ADP 2018-12-01)"@nl ;
+    sosa:hasFeatureOfInterest ent:afbakening-1-v1 ;
+    sosa:observedProperty prop:bedekking-perceel ;
+    sosa:usedProcedure step:evaluatie ;
+    sosa:madeBySensor inst:brdr-0.9.0 ;
+    sosa:hasMember exec:formule-1-v1-0692 , exec:formule-1-v1-0693 , exec:formule-1-v1-0734 .
+
+exec:formule-1-v1-0692 a sosa:Observation ;
+    p-plan:correspondsToStep step:evaluatie ;
+    sosa:hasFeatureOfInterest ent:afbakening-1-v1 ;
+    sosa:hasInputValue ent:perceel-24504D0692-00B000-2018-12-01 ;
+    sosa:hasResult [ a qudt:QuantityValue , prov:Entity ;
+        qudt:numericValue "100.0"^^xsd:decimal ; qudt:hasUnit unit:PERCENT ] .
+exec:formule-1-v1-0693 a sosa:Observation ;
+    p-plan:correspondsToStep step:evaluatie ;
+    sosa:hasFeatureOfInterest ent:afbakening-1-v1 ;
+    sosa:hasInputValue ent:perceel-24504D0693-00B000-2018-12-01 ;
+    sosa:hasResult [ a qudt:QuantityValue , prov:Entity ;
+        qudt:numericValue "100.0"^^xsd:decimal ; qudt:hasUnit unit:PERCENT ] .
+exec:formule-1-v1-0734 a sosa:Observation ;
+    p-plan:correspondsToStep step:evaluatie ;
+    sosa:hasFeatureOfInterest ent:afbakening-1-v1 ;
+    sosa:hasInputValue ent:perceel-24504D0734-00M000-2018-12-01 ;
+    sosa:hasResult ent:formule-1-v1-0734 .
+
+# SOSA 2023 laat leden de feature of interest van de collectie erven, maar de gegenereerde
+# SHACL ziet dat niet; daarom staat ze ook op elk lid.
+
+# Naar dit resultaat verwijzen de vergelijkingen, daarom een IRI.
+ent:formule-1-v1-0734 a qudt:QuantityValue , prov:Entity ;
+    p-plan:correspondsToVariable var:basisbedekking ;
+    qudt:numericValue "27.14"^^xsd:decimal ; qudt:hasUnit unit:PERCENT .
+
+# --- Parameters van de alignering ---
+
+ent:relevante-afstand-1m a qudt:QuantityValue , prov:Entity ;
+    p-plan:correspondsToVariable var:relevante-afstand ;
+    qudt:numericValue "1.0"^^xsd:decimal ; qudt:hasUnit unit:M .
+
+ent:relevante-afstand-2m a qudt:QuantityValue , prov:Entity ;
+    p-plan:correspondsToVariable var:relevante-afstand ;
+    qudt:numericValue "2.0"^^xsd:decimal ; qudt:hasUnit unit:M .
+
+ent:od-strategie-snap-all-side a prov:Entity ;
+    rdfs:label "Open domein aan beide zijden op de referentie snappen"@nl ;
+    p-plan:correspondsToVariable var:od-strategie ;
+    rdf:value "SNAP_ALL_SIDE" .
+
+ent:drempel-overlap-50 a qudt:QuantityValue , prov:Entity ;
+    p-plan:correspondsToVariable var:drempel-overlap ;
+    qudt:numericValue "50"^^xsd:decimal ; qudt:hasUnit unit:PERCENT .
+
+# --- Aligneren: één kandidaat per relevante afstand ---
+
+exec:aligneren-1-rd1 a p-plan:Activity , prov:Activity ;
+    rdfs:label "Aligneren van afbakening 1 met relevante afstand 1 m"@nl ;
+    p-plan:correspondsToStep step:aligneren ;
+    prov:wasAssociatedWith inst:brdr-0.9.0 ;
+    prov:used ent:afbakening-1-v1 , ent:relevante-afstand-1m , ent:od-strategie-snap-all-side ,
+        ent:drempel-overlap-50 , ent:perceel-24504D0692-00B000-2018-12-01 ,
+        ent:perceel-24504D0693-00B000-2018-12-01 , ent:perceel-24504D0734-00M000-2024-04-15 ;
+    prov:endedAtTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime .
+
+exec:aligneren-1-rd2 a p-plan:Activity , prov:Activity ;
+    rdfs:label "Aligneren van afbakening 1 met relevante afstand 2 m"@nl ;
+    p-plan:correspondsToStep step:aligneren ;
+    prov:wasAssociatedWith inst:brdr-0.9.0 ;
+    prov:used ent:afbakening-1-v1 , ent:relevante-afstand-2m , ent:od-strategie-snap-all-side ,
+        ent:drempel-overlap-50 , ent:perceel-24504D0692-00B000-2018-12-01 ,
+        ent:perceel-24504D0693-00B000-2018-12-01 , ent:perceel-24504D0734-00M000-2024-04-15 ;
+    prov:endedAtTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime .
+
+ent:kandidaat-1-rd1 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
+    rdfs:label "Kandidaat voor afbakening 1, relevante afstand 1 m"@nl ;
+    p-plan:correspondsToVariable var:kandidaatgeometrie ;
+    prov:wasGeneratedBy exec:aligneren-1-rd1 ;
+    prov:wasDerivedFrom ent:afbakening-1-v1 ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POLYGON ((173091.23 174049.97, 173095.97 174064.58, 173108.86 174061.04, 173118.14 174058.39, 173124.82 174056.37, 173122.27 174048.93, 173118.60 174038.25, 173114.83 174028.36, 173087.88 174039.44, 173091.23 174049.97))"^^geo:wktLiteral .
+
+ent:kandidaat-1-rd2 a geo:Geometry , prov:Entity , sosa:FeatureOfInterest ;
+    rdfs:label "Kandidaat voor afbakening 1, relevante afstand 2 m"@nl ;
+    p-plan:correspondsToVariable var:kandidaatgeometrie ;
+    prov:wasGeneratedBy exec:aligneren-1-rd2 ;
+    prov:wasDerivedFrom ent:afbakening-1-v1 ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POLYGON ((173091.23 174049.97, 173095.97 174064.58, 173108.86 174061.04, 173118.14 174058.39, 173124.82 174056.37, 173122.27 174048.93, 173118.60 174038.25, 173115.31 174028.12, 173087.95 174039.22, 173091.23 174049.97))"^^geo:wktLiteral .
+
+# --- Evaluatie: bedekking van de percelen in ADP 2024-04-15 door elke kandidaat ---
+
+exec:evaluatie-1-rd1 a sosa:ObservationCollection ;
+    rdfs:label "Bedekking van de percelen door kandidaat rd1"@nl ;
+    sosa:hasFeatureOfInterest ent:kandidaat-1-rd1 ;
+    sosa:observedProperty prop:bedekking-perceel ;
+    sosa:usedProcedure step:evaluatie ;
+    sosa:madeBySensor inst:brdr-0.9.0 ;
+    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:hasMember exec:evaluatie-1-rd1-0692 , exec:evaluatie-1-rd1-0693 , exec:evaluatie-1-rd1-0734 .
+
+exec:evaluatie-1-rd1-0692 a sosa:Observation ;
+    p-plan:correspondsToStep step:evaluatie ;
+    sosa:hasFeatureOfInterest ent:kandidaat-1-rd1 ;
+    sosa:hasInputValue ent:perceel-24504D0692-00B000-2018-12-01 ;
+    sosa:hasResult [ a qudt:QuantityValue , prov:Entity ;
+        qudt:numericValue "100.0"^^xsd:decimal ; qudt:hasUnit unit:PERCENT ] .
+exec:evaluatie-1-rd1-0693 a sosa:Observation ;
+    p-plan:correspondsToStep step:evaluatie ;
+    sosa:hasFeatureOfInterest ent:kandidaat-1-rd1 ;
+    sosa:hasInputValue ent:perceel-24504D0693-00B000-2018-12-01 ;
+    sosa:hasResult [ a qudt:QuantityValue , prov:Entity ;
+        qudt:numericValue "100.0"^^xsd:decimal ; qudt:hasUnit unit:PERCENT ] .
+exec:evaluatie-1-rd1-0734 a sosa:Observation ;
+    p-plan:correspondsToStep step:evaluatie ;
+    sosa:hasFeatureOfInterest ent:kandidaat-1-rd1 ;
+    sosa:hasInputValue ent:perceel-24504D0734-00M000-2024-04-15 ;
+    sosa:hasResult ent:bedekking-1-rd1-0734 .
+
+ent:bedekking-1-rd1-0734 a qudt:QuantityValue , prov:Entity ;
+    p-plan:correspondsToVariable var:bedekking ;
+    qudt:numericValue "24.80"^^xsd:decimal ; qudt:hasUnit unit:PERCENT .
+
+exec:evaluatie-1-rd2 a sosa:ObservationCollection ;
+    rdfs:label "Bedekking van de percelen door kandidaat rd2"@nl ;
+    sosa:hasFeatureOfInterest ent:kandidaat-1-rd2 ;
+    sosa:observedProperty prop:bedekking-perceel ;
+    sosa:usedProcedure step:evaluatie ;
+    sosa:madeBySensor inst:brdr-0.9.0 ;
+    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:hasMember exec:evaluatie-1-rd2-0692 , exec:evaluatie-1-rd2-0693 , exec:evaluatie-1-rd2-0734 .
+
+exec:evaluatie-1-rd2-0692 a sosa:Observation ;
+    p-plan:correspondsToStep step:evaluatie ;
+    sosa:hasFeatureOfInterest ent:kandidaat-1-rd2 ;
+    sosa:hasInputValue ent:perceel-24504D0692-00B000-2018-12-01 ;
+    sosa:hasResult [ a qudt:QuantityValue , prov:Entity ;
+        qudt:numericValue "100.0"^^xsd:decimal ; qudt:hasUnit unit:PERCENT ] .
+exec:evaluatie-1-rd2-0693 a sosa:Observation ;
+    p-plan:correspondsToStep step:evaluatie ;
+    sosa:hasFeatureOfInterest ent:kandidaat-1-rd2 ;
+    sosa:hasInputValue ent:perceel-24504D0693-00B000-2018-12-01 ;
+    sosa:hasResult [ a qudt:QuantityValue , prov:Entity ;
+        qudt:numericValue "100.0"^^xsd:decimal ; qudt:hasUnit unit:PERCENT ] .
+exec:evaluatie-1-rd2-0734 a sosa:Observation ;
+    p-plan:correspondsToStep step:evaluatie ;
+    sosa:hasFeatureOfInterest ent:kandidaat-1-rd2 ;
+    sosa:hasInputValue ent:perceel-24504D0734-00M000-2024-04-15 ;
+    sosa:hasResult ent:bedekking-1-rd2-0734 .
+
+ent:bedekking-1-rd2-0734 a qudt:QuantityValue , prov:Entity ;
+    p-plan:correspondsToVariable var:bedekking ;
+    qudt:numericValue "27.14"^^xsd:decimal ; qudt:hasUnit unit:PERCENT .
+
+# --- Vergelijking met de formule (afgeleide observaties, R13) ---
+
+# De twee volledig bedekte percelen (100 %) blijven bij beide kandidaten gelijk; het
+# onderscheid zit in perceel 0734, daarom zijn enkel die resultaten de inputwaarden.
+exec:vergelijking-1-rd1 a sosa:Observation ;
+    rdfs:label "Vergelijking van kandidaat rd1 met de formule"@nl ;
+    p-plan:correspondsToStep step:vergelijking ;
+    sosa:usedProcedure step:vergelijking ;
+    sosa:madeBySensor inst:brdr-0.9.0 ;
+    sosa:observedProperty prop:evaluatieklasse ;
+    sosa:hasFeatureOfInterest ent:kandidaat-1-rd1 ;
+    sosa:hasInputValue ent:bedekking-1-rd1-0734 , ent:formule-1-v1-0734 ;
+    sosa:relatedObservation exec:evaluatie-1-rd1-0734 , exec:formule-1-v1-0734 ;
+    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:hasResult ent:evaluatieklasse-1-rd1 .
+
+ent:evaluatieklasse-1-rd1 a prov:Entity ;
+    p-plan:correspondsToVariable var:evaluatieklasse ;
+    rdf:value cl:to_check_no_prediction .
+
+exec:vergelijking-1-rd2 a sosa:Observation ;
+    rdfs:label "Vergelijking van kandidaat rd2 met de formule"@nl ;
+    p-plan:correspondsToStep step:vergelijking ;
+    sosa:usedProcedure step:vergelijking ;
+    sosa:madeBySensor inst:brdr-0.9.0 ;
+    sosa:observedProperty prop:evaluatieklasse ;
+    sosa:hasFeatureOfInterest ent:kandidaat-1-rd2 ;
+    sosa:hasInputValue ent:bedekking-1-rd2-0734 , ent:formule-1-v1-0734 ;
+    sosa:relatedObservation exec:evaluatie-1-rd2-0734 , exec:formule-1-v1-0734 ;
+    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:hasResult ent:evaluatieklasse-1-rd2 .
+
+ent:evaluatieklasse-1-rd2 a prov:Entity ;
+    p-plan:correspondsToVariable var:evaluatieklasse ;
+    rdf:value cl:equality_by_id .
+
+# --- Selectie: de wijziging van de afbakening ---
+
+# De enige stap die de toestand van het object verandert: een sosa:Actuation op de
+# afbakening van het aanduidingsobject, door de dossierbehandelaar.
+exec:selectie-1-2024-04-16 a sosa:Actuation , p-plan:Activity ;
+    rdfs:label "Keuze van kandidaat rd2 als nieuwe afbakening van aanduidingsobject 1"@nl ;
+    p-plan:correspondsToStep step:selectie ;
+    sosa:usedProcedure step:selectie ;
+    sosa:hasFeatureOfInterest obj:aanduidingsobject-1 ;
+    sosa:actsOnProperty prop:afbakening ;
+    sosa:hasInputValue ent:kandidaat-1-rd1 , ent:kandidaat-1-rd2 ,
+        ent:evaluatieklasse-1-rd1 , ent:evaluatieklasse-1-rd2 ;
+    prov:wasAssociatedWith inst:dossierbehandelaar ;
+    sosa:resultTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    sosa:hasResult ent:afbakening-1-v2 .
+
+ent:afbakening-1-v2 a geo:Geometry , prov:Entity ;
+    rdfs:label "Afbakening van aanduidingsobject 1, versie 2"@nl ;
+    p-plan:correspondsToVariable var:afbakening ;
+    prov:wasRevisionOf ent:afbakening-1-v1 ;
+    prov:wasDerivedFrom ent:kandidaat-1-rd2 ;
+    prov:generatedAtTime "2024-04-16T00:00:12+00:00"^^xsd:dateTime ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POLYGON ((173091.23 174049.97, 173095.97 174064.58, 173108.86 174061.04, 173118.14 174058.39, 173124.82 174056.37, 173122.27 174048.93, 173118.60 174038.25, 173115.31 174028.12, 173087.95 174039.22, 173091.23 174049.97))"^^geo:wktLiteral .

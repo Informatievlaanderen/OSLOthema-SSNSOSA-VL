@@ -177,6 +177,7 @@ nav:
       - Energiemanagement: casussen/ems.md
       - RIE-IEPR: casussen/riepr.md
       - VLAREM-rubrieken: casussen/vlarem.md
+      - BRDR: casussen/brdr.md
   - VIII. Oefenen:
       - oefenen/index.md
       - Erosiepoel: oefenen/erosiepoel.md

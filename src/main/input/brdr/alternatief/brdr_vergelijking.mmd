@@ -1,0 +1,60 @@
+flowchart LR
+    subgraph HOOFD["HOOFDMODEL (../brdr_herzien.ttl)"]
+        h_aligneren["exec:aligneren-1-rd2<br/>p-plan:Activity"]
+        h_kandidaat["ent:kandidaat-1-rd2"]
+        h_eval["exec:evaluatie-1-rd2-0734<br/>sosa:Observation"]
+        h_perceel["ent:perceel-24504D0734-00M000-2024-04-15"]
+        h_selectie["exec:selectie-1-2024-04-16<br/>sosa:Actuation"]
+        h_object["obj:aanduidingsobject-1"]
+        h_v2["ent:afbakening-1-v2"]
+        h_v1["ent:afbakening-1-v1"]
+    end
+
+    subgraph ALT["ALTERNATIEF (brdr_actuatie.ttl)"]
+        a_aligneren["alt:aligneren-1-rd2<br/>sosa:Actuation"]
+        a_kandidaat["alt:kandidaat-1-rd2"]
+        a_eval["alt:evaluatie-1-rd2-0734<br/>sosa:Observation"]
+        a_perceel["ent:perceel-24504D0734-00M000-2024-04-15"]
+        a_selectie["alt:selectie-1-2024-04-16<br/>prov:Activity"]
+        a_object["obj:aanduidingsobject-1"]
+        a_v1["ent:afbakening-1-v1"]
+    end
+
+    h_kandidaat -->|prov:wasGeneratedBy| h_aligneren
+    h_eval -->|sosa:hasFeatureOfInterest| h_kandidaat
+    h_eval -->|sosa:hasInputValue| h_perceel
+    h_selectie -->|sosa:hasFeatureOfInterest| h_object
+    h_selectie -->|sosa:hasInputValue| h_kandidaat
+    h_selectie -->|sosa:hasResult| h_v2
+    h_v2 -->|prov:wasDerivedFrom| h_kandidaat
+    h_v2 -->|prov:wasRevisionOf| h_v1
+    h_object -->|geo:hasGeometry| h_v2
+
+    a_aligneren -->|sosa:hasFeatureOfInterest| a_object
+    a_aligneren -->|sosa:hasResult| a_kandidaat
+    a_eval -->|sosa:hasFeatureOfInterest| a_perceel
+    a_eval -->|sosa:hasInputValue| a_kandidaat
+    a_selectie -->|prov:used| a_kandidaat
+    a_kandidaat -->|prov:wasRevisionOf| a_v1
+    a_v1 -->|prov:wasInvalidatedBy| a_selectie
+    a_object -->|geo:hasGeometry| a_kandidaat
+
+    style HOOFD fill:#e7a3be,stroke:#2E5C8A,color:#000
+    style ALT fill:#f8e1ad,stroke:#2E5C8A,color:#000
+
+    style h_aligneren fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style h_kandidaat fill:#f8b622,stroke:#2E5C8A,color:#000
+    style h_eval fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style h_perceel fill:#f8b622,stroke:#2E5C8A,color:#000
+    style h_selectie fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style h_object fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style h_v2 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style h_v1 fill:#f8b622,stroke:#2E5C8A,color:#000
+
+    style a_aligneren fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style a_kandidaat fill:#f8b622,stroke:#2E5C8A,color:#000
+    style a_eval fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style a_perceel fill:#f8b622,stroke:#2E5C8A,color:#000
+    style a_selectie fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style a_object fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style a_v1 fill:#f8b622,stroke:#2E5C8A,color:#000
