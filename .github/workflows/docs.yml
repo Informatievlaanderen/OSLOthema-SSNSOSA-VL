@@ -40,7 +40,7 @@ jobs:
       # Opwaarderen = LD_MCP_VERSION aanpassen, nadat alle voorbeelden ermee valideren.
       - name: Validatieserver ophalen
         env:
-          LD_MCP_VERSION: "0.4.1"
+          LD_MCP_VERSION: "0.4.2"
         run: |
           base=https://github.com/milieuinfo/ld-mcp/releases/download/v${LD_MCP_VERSION}
           mkdir -p tools
