@@ -2115,6 +2115,8 @@
       
         
       
+        
+      
     
     
     
@@ -2215,6 +2217,34 @@
     
   
     Stimulus
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="emissie-immissie/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Emissie en immissie
   
 
     
@@ -3677,10 +3707,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#twee-lezingen-van-een-gebeurtenis" class="md-nav__link">
+  <a href="#een-keten-twee-vragen" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Twee lezingen van een gebeurtenis
+        Eén keten, twee vragen
       
     </span>
   </a>
@@ -3743,6 +3773,11 @@ een <a href="../werkwijze/alternatief/">alternatief</a> uit in plaats van stil t
 <td><a href="../casussen/geluidsmeetnet/">geluidsmeetnet</a> (hoofdmodel)</td>
 </tr>
 <tr>
+<td><a href="emissie-immissie/">Emissie en immissie</a></td>
+<td>één keten: de emissie bij de bron, de immissie die er op een plaats van afgeleid is; elk het studieobject van een eigen vraag</td>
+<td><a href="../casussen/geluidsmeetnet/">geluidsmeetnet</a> (keten); tegenvoorbeeld <a href="../casussen/elf/">ELF-meetnet</a></td>
+</tr>
+<tr>
 <td><a href="monster/">Monster en uiteindelijk studieobject</a></td>
 <td>het monster is het studieobject, het bemonsterde ding het uiteindelijke</td>
 <td><a href="../casussen/waterkwaliteit/">waterkwaliteit</a>, <a href="../casussen/paleo/">paleo</a></td>
@@ -3764,66 +3799,56 @@ een <a href="../werkwijze/alternatief/">alternatief</a> uit in plaats van stil t
 </tr>
 </tbody>
 </table>
-<h2 id="twee-lezingen-van-een-gebeurtenis">Twee lezingen van een gebeurtenis<a class="headerlink" href="#twee-lezingen-van-een-gebeurtenis" title="Permanent link">&para;</a></h2>
-<p>Twee patronen beantwoorden dezelfde vraag op een andere manier: wat is het studieobject bij een
-gebeurtenis die een meting veroorzaakt?</p>
+<h2 id="een-keten-twee-vragen">Eén keten, twee vragen<a class="headerlink" href="#een-keten-twee-vragen" title="Permanent link">&para;</a></h2>
+<p>Twee patronen leken dezelfde vraag op een andere manier te beantwoorden: wat is het studieobject bij
+een gebeurtenis die een meting veroorzaakt? Het patroon <a href="emissie-immissie/">Emissie en immissie</a>
+toont dat het twee schakels van één keten zijn, elk met een eigen vraag.</p>
 <pre class="mermaid"><code>flowchart LR
-    subgraph ST["Stimulus"]
-        v1["vlucht&lt;br/&gt;prov:Activity"] --&gt;|generated| e1["geluidsevent&lt;br/&gt;sosa:Stimulus"]
-        e1 --&gt;|isDetectedBy| s1["geluidsmeter"]
-        c1["eventcollectie"] --&gt;|wasOriginatedBy| e1
-        c1 --&gt;|hasFeatureOfInterest| m1["meetpost"]
-    end
-    subgraph EM["Emissie"]
-        v2["vlucht&lt;br/&gt;prov:Activity"] --&gt;|generated| e2["geluidsemissie&lt;br/&gt;sosa:FeatureOfInterest"]
-        c2["eventcollectie"] --&gt;|hasFeatureOfInterest| e2
-        e2 --&gt;|geo:hasGeometry| g2["geometrie meetpost"]
-    end
+    v["vlucht&lt;br/&gt;prov:Activity"] --&gt;|generated| e["geluidsemissie&lt;br/&gt;FOI: wat stoot de vlucht uit?"]
+    i["geluidsevent bij de meetpost&lt;br/&gt;immissie · sosa:Stimulus"] --&gt;|wasDerivedFrom| e
+    i --&gt;|isDetectedBy| s["geluidsmeter"]
+    c["eventcollectie"] --&gt;|wasOriginatedBy| i
+    c --&gt;|hasFeatureOfInterest| m["meetpost&lt;br/&gt;FOI: wat krijgt de plaats?"]
 
-    style ST fill:#e7a3be,stroke:#2E5C8A,color:#000
-    style EM fill:#f8e1ad,stroke:#2E5C8A,color:#000
-    style v1 fill:#e54b89,stroke:#2E5C8A,color:#fff
-    style v2 fill:#e54b89,stroke:#2E5C8A,color:#fff
-    style e1 fill:#f8b622,stroke:#2E5C8A,color:#000
-    style e2 fill:#60c4e4,stroke:#2E5C8A,color:#000
-    style s1 fill:#60c4e4,stroke:#2E5C8A,color:#000
-    style c1 fill:#e54b89,stroke:#2E5C8A,color:#fff
-    style c2 fill:#e54b89,stroke:#2E5C8A,color:#fff
-    style m1 fill:#60c4e4,stroke:#2E5C8A,color:#000
-    style g2 fill:#f8b622,stroke:#2E5C8A,color:#000</code></pre>
+    style v fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style e fill:#f8b622,stroke:#2E5C8A,color:#000
+    style i fill:#f8b622,stroke:#2E5C8A,color:#000
+    style s fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style c fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style m fill:#60c4e4,stroke:#2E5C8A,color:#000</code></pre>
 <table>
 <thead>
 <tr>
 <th></th>
+<th>Emissie als studieobject</th>
 <th>Stimulus</th>
-<th>Emissie</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>de vraag</td>
-<td>wat krijgt deze plaats te verduren?</td>
 <td>wat stoot deze bron uit?</td>
+<td>wat krijgt deze plaats te verduren?</td>
 </tr>
 <tr>
 <td>studieobject</td>
-<td>de meetpost</td>
 <td>de emissie</td>
+<td>de plaats (meetpost)</td>
 </tr>
 <tr>
-<td>bron</td>
-<td>via de stimulus en <code>prov:wasGeneratedBy</code></td>
-<td>via <code>prov:wasGeneratedBy</code> op het studieobject</td>
+<td>plaats in de keten</td>
+<td>bronzijde</td>
+<td>ontvangerzijde: de immissie bij de sensor</td>
 </tr>
 <tr>
 <td>volgt</td>
+<td>de lozingen in waterkwaliteit</td>
 <td>de sensorketen van SOSA zelf</td>
-<td>het patroon van de lozingen in waterkwaliteit</td>
 </tr>
 </tbody>
 </table>
-<p>In dit project staan beide lezingen van de geluidsdata naast elkaar. De keuze ligt bij de
-werkgroep.</p>
+<p>In het geluidsmeetnet staan het hoofdmodel (stimulus), het alternatief (emissie) en de keten die ze
+verbindt naast elkaar.</p>
 <h2 id="een-nieuw-patroon">Een nieuw patroon<a class="headerlink" href="#een-nieuw-patroon" title="Permanent link">&para;</a></h2>
 <p>Een patroon komt in de <a href="https://github.com/milieuinfo/oslo-ld-kit/blob/main/guide/patterns.md">gids</a>
 wanneer een werkgroep een keuze maakt die een algemene afspraak wordt. Dit werk volgt vanzelf: het
