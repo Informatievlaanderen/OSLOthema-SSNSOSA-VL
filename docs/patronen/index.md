@@ -10,8 +10,8 @@ een [alternatief](../werkwijze/alternatief.md) uit in plaats van stil te kiezen.
 | [Emissie als studieobject](emissie.md) | de uitstoot is het studieobject, gegenereerd door een activiteit | [waterkwaliteit](../casussen/waterkwaliteit.md) (lozing), [geluidsmeetnet](../casussen/geluidsmeetnet.md) (alternatief), [overstort](../casussen/overstort.md) (alternatief) |
 | [Stimulus](stimulus.md) | de gebeurtenis die een sensor doet meten; het studieobject blijft de plaats | [geluidsmeetnet](../casussen/geluidsmeetnet.md) (hoofdmodel) |
 | [Monster en uiteindelijk studieobject](monster.md) | het monster is het studieobject, het bemonsterde ding het uiteindelijke | [waterkwaliteit](../casussen/waterkwaliteit.md), [paleo](../casussen/paleo.md) |
-| [Ruimtelijk monster](ruimtelijk-monster.md) | een meetpunt als monster van een groter gebied | [verkeersmetingen](../casussen/verkeersmetingen.md), [waterkwaliteit](../casussen/waterkwaliteit.md), [geluidsmeetnet](../casussen/geluidsmeetnet.md), [PGD](../casussen/pgd.md) |
-| [Afgeleide waarneming](afgeleide-waarneming.md) | berekend uit de resultaten van andere waarnemingen | [verkeersmetingen](../casussen/verkeersmetingen.md), [geluidsmeetnet](../casussen/geluidsmeetnet.md), [paleo](../casussen/paleo.md), [waterkwaliteit](../casussen/waterkwaliteit.md) |
+| [Ruimtelijk monster](ruimtelijk-monster.md) | een meetpunt als monster van een groter gebied | [verkeersmetingen](../casussen/verkeersmetingen.md), [waterkwaliteit](../casussen/waterkwaliteit.md), [geluidsmeetnet](../casussen/geluidsmeetnet.md), [PGD](../casussen/pgd.md), [ELF-meetnet](../casussen/elf.md) |
+| [Afgeleide waarneming](afgeleide-waarneming.md) | berekend uit de resultaten van andere waarnemingen | [verkeersmetingen](../casussen/verkeersmetingen.md), [geluidsmeetnet](../casussen/geluidsmeetnet.md), [ELF-meetnet](../casussen/elf.md), [paleo](../casussen/paleo.md), [waterkwaliteit](../casussen/waterkwaliteit.md) |
 | [Rapportagegrens](rapportagegrens.md) | "< X" als interval, niet als waarde | [waterkwaliteit](../casussen/waterkwaliteit.md) |
 
 ## Twee lezingen van een gebeurtenis

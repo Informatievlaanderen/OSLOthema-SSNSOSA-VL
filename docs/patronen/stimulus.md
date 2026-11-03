@@ -34,6 +34,11 @@ vlucht is opvraagbaar, zonder de plaats van meting op te geven als studieobject.
 die plaats de vraag is: hoeveel geluid krijgt deze meetpost, hoe vaak wordt een drempel
 overschreden?
 
+**Liever niet** wanneer het effect continu is in plaats van een gebeurtenis. Het magnetische veld
+van een hoogspanningslijn ([ELF-meetnet](../casussen/elf.md)) is er altijd, en de sensor meet het
+elke minuut: niets veroorzaakt een meting. Houd bron en plaats toch gescheiden, via de bemonsterde
+omgeving van de bron ([Ruimtelijk monster](ruimtelijk-monster.md#een-monster-van-wat)).
+
 **Vergelijk** met [Emissie als studieobject](emissie.md): daar is de gebeurtenis zelf het
 studieobject. In dit project bestaan beide lezingen van de geluidsdata naast elkaar.
 
