@@ -40,12 +40,29 @@ def _sections(text):
         yield title.strip(), body.strip() + "\n"
 
 
-def _absolute_links(body):
-    """Relatieve links in de gids wijzen naar bestanden van de kit; maak ze absoluut."""
+def _slug(title):
+    return re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+
+
+# anker in patterns.md -> pagina in docs/patronen/
+PATTERN_ANCHORS = {_slug(title): page for title, page in PATTERNS.items()}
+
+
+def _absolute_links(body, guide_file):
+    """Relatieve links in de gids wijzen naar bestanden van de kit; maak ze absoluut.
+
+    Een anker (`#…`) wijst naar een andere sectie van hetzelfde gidsbestand, die op de site elders
+    staat: naar een ander patroon wordt het de patroonpagina hier (de patroonsecties worden enkel in
+    docs/patronen/ ingevoegd), anders de sectie in de gids op GitHub."""
 
     def fix(match):
         label, target = match.group(1), match.group(2)
-        if re.match(r"^[a-z]+:|^#", target):
+        if target.startswith("#"):
+            anchor = target[1:]
+            if guide_file == "patterns.md" and anchor in PATTERN_ANCHORS:
+                return f"[{label}]({PATTERN_ANCHORS[anchor]}.md)"
+            return f"[{label}]({KIT_URL}/guide/{guide_file}{target})"
+        if re.match(r"^[a-z]+:", target):
             return match.group(0)
         path = target if target.startswith("../") else "guide/" + target
         path = path.replace("guide/../", "")
@@ -73,12 +90,12 @@ def on_config(config):
                 rules.add(rid)
                 source = f"{KIT_URL}/guide/{md.name}"
                 out = f"*{title}* — uit [`guide/{md.name}`]({source}), kit {_kit_version()}\n\n"
-                (CACHE / f"{rid}.md").write_text(out + _absolute_links(body), encoding="utf-8")
+                (CACHE / f"{rid}.md").write_text(out + _absolute_links(body, md.name), encoding="utf-8")
             elif md.name == "patterns.md" and title in PATTERNS:
                 patterns.add(PATTERNS[title])
                 out = f"*{title}* — uit [`guide/patterns.md`]({KIT_URL}/guide/patterns.md)\n\n"
                 (CACHE / f"patroon-{PATTERNS[title]}.md").write_text(
-                    out + _absolute_links(body), encoding="utf-8")
+                    out + _absolute_links(body, md.name), encoding="utf-8")
     (CACHE / "versie.md").write_text(_kit_version() + "\n", encoding="utf-8")
 
     docs = Path(config["docs_dir"])
