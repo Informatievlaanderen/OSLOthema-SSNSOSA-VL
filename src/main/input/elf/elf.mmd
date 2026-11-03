@@ -3,29 +3,42 @@ flowchart LR
 subgraph PROC["PROCEDURE"]
     P1["ex:procedure-elf-meting
     sosa:ObservingProcedure"]
-    P2["ex:procedure-uurgemiddelde
+    P2["ex:procedure-minimum · -maximum
+    ex:procedure-uurgemiddelde · -daggemiddelde
     sosa:ObservingProcedure"]
     PR["ex:prop-RMStotal
     sosa:Property
     quantitykind:MagneticFluxDensity"]
     PX["ex:prop-Xpeak_low … ex:prop-Zpeak_high
     6 × sosa:Property"]
+    PS["ex:prop-stroombelasting
+    sosa:Property
+    quantitykind:ElectricCurrent"]
 end
 
 subgraph INFRA["INFRASTRUCTUUR"]
+    B1["ex:verbinding-duisterwijk
+    sosa:FeatureOfInterest
+    150 kV-verbinding (fictief)"]
+    O1["ex:omgeving-verbinding-duisterwijk
+    sosa:FeatureOfInterest"]
+    L1["ex:meetlocatie-6839-obscurionweg-91
+    sosa:Platform · sosa:FeatureOfInterest
+    sosa:SpatialSample"]
+    A1["ex:adres-6839-obscurionweg-91
+    prov:Location
+    Obscurionweg 91, 6839 Duisterwijk"]
+    G1["ex:geom-6839-obscurionweg-91
+    geo:Geometry
+    EPSG:31370 POINT(81177 208128) · fictief"]
     S20["ex:sensor-ELF_C_0020
     sosa:Sensor"]
     S25["ex:sensor-ELF_C_0025
     sosa:Sensor"]
     SC["ex:conversiescript
     sosa:Sensor · software"]
-    L1["ex:meetlocatie-6839-obscurionweg-91
-    sosa:Platform · sosa:FeatureOfInterest"]
-    A1["ex:adres-6839-obscurionweg-91
-    prov:Location
-    Obscurionweg 91, 6839 Duisterwijk"]
     L2["ex:meetlocatie-7135-mordredkaai-203
-    sosa:Platform · sosa:FeatureOfInterest"]
+    in de omgeving van ex:station-bloedhoven"]
     D269["ex:meetcampagne-SENS-269
     sosa:Deployment
     26/11/2025 → 26/01/2026"]
@@ -35,12 +48,14 @@ subgraph INFRA["INFRASTRUCTUUR"]
     D229["ex:meetcampagne-SENS-229
     sosa:Deployment
     28/04/2025 → 10/09/2025"]
+    SM["ex:sampling-meetlocatie-6839-obscurionweg-91
+    sosa:Sampling"]
 end
 
-subgraph WAAR["WAARNEMING — 27/11/2025, 10:00–11:00"]
+subgraph WAAR["WAARNEMING — 27/11/2025"]
     CU["ex:collectie-ELF_C_0020-20251127T10
     sosa:ObservationCollection
-    60 meetmomenten"]
+    60 meetmomenten, 10:00–11:00"]
     CM["ex:meting-ELF_C_0020-20251127T090049427Z
     sosa:ObservationCollection
     resultTime 2025-11-27T09:00:49.427Z"]
@@ -54,14 +69,22 @@ subgraph WAAR["WAARNEMING — 27/11/2025, 10:00–11:00"]
     RX["ex:result-…-Xpeak_low … -Zpeak_high
     6 × qudt:QuantityValue (unit:MicroT)"]
     RA["ex:result-… 59 andere RMStotal-resultaten"]
-    OG["ex:obs-ELF_C_0020-20251127T10-uurgemiddelde
-    sosa:Observation"]
-    RG["ex:result-ELF_C_0020-20251127T10-uurgemiddelde
-    qudt:QuantityValue
-    0.67729 unit:MicroT"]
-    TG["ex:interval-ELF_C_0020-20251127T10-uurgemiddelde
-    time:Interval
-    10:00+01:00 → 11:00+01:00"]
+    subgraph DERIVATION["DERIVATION"]
+        OU["ex:obs-ELF_C_0020-20251127T10-minimum · -maximum · -gemiddelde
+        3 × sosa:Observation"]
+        RU["ex:result-ELF_C_0020-20251127T10-…
+        0.58806 · 0.77332 · 0.67729 unit:MicroT"]
+        TU["ex:interval-ELF_C_0020-20251127T10
+        time:Interval 10:00+01:00 → 11:00+01:00"]
+        OD["ex:obs-ELF_C_0020-20251127-minimum · -maximum · -gemiddelde
+        3 × sosa:Observation (elf.trig)"]
+        RD["ex:result-ELF_C_0020-20251127-…
+        0.3387 · 1.00089 · 0.71152 unit:MicroT"]
+        RUA["ex:result-ELF_C_0020-20251127T00 … T23-…
+        uurindicatoren van de andere 23 uren"]
+        TD["ex:interval-ELF_C_0020-20251127
+        time:Interval 27/11 00:00+01:00 → 28/11 00:00+01:00"]
+    end
 end
 
 S20 -->|sosa:implements| P1
@@ -70,10 +93,17 @@ P1 -->|sosa:hasOutput| PR
 P1 -->|sosa:hasOutput| PX
 P2 -->|sosa:hasInput| PR
 S20 -->|sosa:observes| PR
+B1 -->|sosa:hasProperty| PS
+O1 -->|prov:wasInfluencedBy| B1
+L1 -->|sosa:isSampleOf| O1
+SM -->|sosa:hasFeatureOfInterest| O1
+SM -->|sosa:hasResult| L1
 L1 -->|prov:atLocation| A1
+L1 -->|geo:hasGeometry| G1
 L1 -->|sosa:hasProperty| PR
 D269 -->|sosa:deployedSystem| S20
 D269 -->|sosa:deployedOnPlatform| L1
+D269 -->|sosa:hasUltimateFeatureOfInterest| O1
 D270 -->|sosa:deployedSystem| S25
 D270 -->|sosa:deployedOnPlatform| L1
 D229 -->|sosa:deployedSystem| S25
@@ -87,39 +117,56 @@ CM -->|sosa:hasMember| OX
 OR -->|sosa:observedProperty| PR
 OR -->|sosa:hasResult| RR
 OX -->|sosa:hasResult| RX
-OG -->|sosa:madeBySensor| SC
-OG -->|sosa:usedProcedure| P2
-OG -->|sosa:observedProperty| PR
-OG -->|sosa:hasFeatureOfInterest| L1
-OG -->|sosa:hasInputValue| RR
-OG -->|sosa:hasInputValue| RA
-OG -->|sosa:relatedObservation| OR
-OG -->|sosa:hasResult| RG
-OG -->|sosa:phenomenonTime| TG
+OU -->|sosa:madeBySensor| SC
+OU -->|sosa:usedProcedure| P2
+OU -->|sosa:observedProperty| PR
+OU -->|sosa:hasFeatureOfInterest| L1
+OU -->|sosa:hasInputValue| RR
+OU -->|sosa:hasInputValue| RA
+OU -->|sosa:relatedObservation| OR
+OU -->|sosa:hasResult| RU
+OU -->|sosa:phenomenonTime| TU
+OD -->|sosa:madeBySensor| SC
+OD -->|sosa:usedProcedure| P2
+OD -->|sosa:hasInputValue| RU
+OD -->|sosa:hasInputValue| RUA
+OD -->|sosa:relatedObservation| OU
+OD -->|sosa:hasResult| RD
+OD -->|sosa:phenomenonTime| TD
 
 style PROC fill:#b8a2d4,stroke:#2E5C8A,color:#000
 style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
 style WAAR fill:#e7a3be,stroke:#2E5C8A,color:#000
+style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
 style P1 fill:#c6a0f5,stroke:#2E5C8A,color:#000
 style P2 fill:#c6a0f5,stroke:#2E5C8A,color:#000
 style PR fill:#fe7130,stroke:#2E5C8A,color:#000
 style PX fill:#fe7130,stroke:#2E5C8A,color:#000
+style PS fill:#fe7130,stroke:#2E5C8A,color:#000
+style B1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style O1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style L1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style A1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style G1 fill:#f8b622,stroke:#2E5C8A,color:#000
 style S20 fill:#60c4e4,stroke:#2E5C8A,color:#000
 style S25 fill:#60c4e4,stroke:#2E5C8A,color:#000
 style SC fill:#60c4e4,stroke:#2E5C8A,color:#000
-style L1 fill:#60c4e4,stroke:#2E5C8A,color:#000
-style A1 fill:#60c4e4,stroke:#2E5C8A,color:#000
 style L2 fill:#60c4e4,stroke:#2E5C8A,color:#000
 style D269 fill:#e54b89,stroke:#2E5C8A,color:#fff
 style D270 fill:#e54b89,stroke:#2E5C8A,color:#fff
 style D229 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style SM fill:#e54b89,stroke:#2E5C8A,color:#fff
 style CU fill:#e54b89,stroke:#2E5C8A,color:#fff
 style CM fill:#e54b89,stroke:#2E5C8A,color:#fff
 style OR fill:#e54b89,stroke:#2E5C8A,color:#fff
 style OX fill:#e54b89,stroke:#2E5C8A,color:#fff
-style OG fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OU fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OD fill:#e54b89,stroke:#2E5C8A,color:#fff
 style RR fill:#f8b622,stroke:#2E5C8A,color:#000
 style RX fill:#f8b622,stroke:#2E5C8A,color:#000
 style RA fill:#f8b622,stroke:#2E5C8A,color:#000
-style RG fill:#f8b622,stroke:#2E5C8A,color:#000
-style TG fill:#f8b622,stroke:#2E5C8A,color:#000
+style RU fill:#f8b622,stroke:#2E5C8A,color:#000
+style TU fill:#f8b622,stroke:#2E5C8A,color:#000
+style RD fill:#f8b622,stroke:#2E5C8A,color:#000
+style RUA fill:#f8b622,stroke:#2E5C8A,color:#000
+style TD fill:#f8b622,stroke:#2E5C8A,color:#000

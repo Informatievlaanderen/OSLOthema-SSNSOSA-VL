@@ -17,7 +17,7 @@ referentieoplossing dient. Ze zijn gemaakt voor een workshop van ongeveer een uu
 | [Erosiepoel](erosiepoel.md) | instap | het skelet van een waarneming, een mens als sensor, een collectie, een resultaat met eenheid | [casus](../casussen/erosiepoel.md) |
 | [Verkeersmetingen](verkeersmetingen.md) | gevorderd | ruimtelijk monster, intervallen, een afgeleide dagsom | [casus](../casussen/verkeersmetingen.md) |
 | [Temperatuur en raam](temperatuur-raam.md) | gevorderd | het drielaagse model: plan, stappen, variabele, actuatie | [casus](../casussen/temperatuur-raam.md) |
-| [ELF-meetnet](elf.md) | gevorderd | inzet van een meter, geneste collecties, een ontbrekende eenheid, geen waarneming van de apparaatstatus | [casus](../casussen/elf.md) |
+| [ELF-meetnet](elf.md) | gevorderd | ruimtelijk monster van de omgeving van een bron, inzet van een meter, adres en geometrie, uur- en dagindicatoren | [casus](../casussen/elf.md) |
 
 ## Voor lesgevers
 

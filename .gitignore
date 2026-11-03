@@ -13,3 +13,6 @@ src/main/input/Nigella-Lawson-Brownies/sds-vergelijking.md
 # Referentiewerk (MkDocs): build-uitvoer en uittreksels uit de kit
 site/
 .cache/
+
+# Business case ELF-meetnet: bevat namen van medewerkers, niet in versiebeheer (samenvatting in elf/README.md)
+src/main/input/elf/source/business-case.pdf

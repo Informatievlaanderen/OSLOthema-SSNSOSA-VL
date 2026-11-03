@@ -4,19 +4,21 @@
 
 ### Context
 
-Een overheidsdienst meet het laagfrequente magnetische veld (ELF, *extremely low frequency*) op
-adressen in Vlaanderen, bijvoorbeeld bij een woning naast een elektrische installatie. Een draagbare
-meter wordt voor enkele weken of maanden op een adres geplaatst en stuurt elke minuut zijn
-meetwaarden naar een IoT-platform. Elke plaatsing wordt geregistreerd als ticket, met de meter, het
-adres en de periode.
+De Vlaamse overheid meet de blootstelling van burgers aan het laagfrequente magnetische veld (ELF,
+*extremely low frequency*) van hoogspanningsverbindingen en -stations. Een meter wordt voor enkele
+weken of maanden op een adres in de buurt van een verbinding of station geplaatst en stuurt elke
+minuut zijn meetwaarden naar een IoT-platform. Elke plaatsing wordt geregistreerd als ticket, met de
+meter, het adres en de periode. Een publieke webapp toont per meter onder meer het minimum, het
+maximum en het gemiddelde per dag.
 
 ### Beschrijving van het systeem
 
 | Onderdeel | Kenmerken |
 |---|---|
+| Bron | een 150 kV-verbinding bij Duisterwijk |
 | Meter `ELF_C_0020` | driedimensionale magnetometer; stuurt elke minuut een bericht met zeven waarden |
 | Meter `ELF_C_0025` | hetzelfde type; stond eerst in Bloedhoven (28/04–10/09/2025), daarna in Duisterwijk |
-| Adres | Obscurionweg 91, 6839 Duisterwijk (geen coördinaten gekend) |
+| Adres | Obscurionweg 91, 6839 Duisterwijk; geocodering geeft het punt (81177, 208128) in Lambert 72 |
 | Ticket SENS-269 | `ELF_C_0020` op het adres in Duisterwijk, 26/11/2025 – 26/01/2026 |
 | Ticket SENS-270 | `ELF_C_0025` op hetzelfde adres, zelfde periode |
 | Bericht | tijdstempel in UTC; `RMStotal` en per as (X, Y, Z) een waarde `peak_low` en `peak_high`; daarnaast statusvelden (`active`, `lastConnectTime`, …) |
@@ -33,8 +35,8 @@ De eerste drie berichten van `ELF_C_0020` na 10:00 lokale tijd op 27/11/2025 (wa
 
 Elk bericht bevat daarnaast statusvelden, bv. `active = true` en `inactivityTimeout = 600000`.
 
-Gevraagd: de drie berichten en het **uurgemiddelde** van RMStotal tussen 10:00 en 11:00 lokale tijd
-(0.67729 µT, berekend uit 60 berichten).
+Gevraagd: de drie berichten en de **uurindicatoren** van RMStotal tussen 10:00 en 11:00 lokale tijd,
+berekend uit 60 berichten: minimum 0.58806 µT, maximum 0.77332 µT, gemiddelde 0.67729 µT.
 
 ---
 
@@ -44,33 +46,35 @@ Gevraagd: de drie berichten en het **uurgemiddelde** van RMStotal tussen 10:00 e
 
 | Vraag | Jouw antwoord (SOSA 2023-klasse of -eigenschap) |
 |---|---|
-| Wat is het studieobject (*feature of interest*)? Het adres, de meter, of het magnetische veld? | |
-| Welke rol speelt de meter: `Sensor`, `Platform` of `System`? | |
+| Wat is het studieobject (*feature of interest*) van de minuutwaarden: de verbinding, het adres, de meter of de plaats waar de meter staat? | |
+| Welke rol(len) speelt de plaats waar de meter staat? | |
+| Welke rol speelt de 150 kV-verbinding, en welke eigenschap heeft zij zelf? | |
 | Hoe leg je vast dat `ELF_C_0025` eerst in Bloedhoven en daarna in Duisterwijk stond? | |
 | Wat is een ticket zoals SENS-269 in SOSA-termen? | |
-| Hoeveel `Property`'s heeft één bericht, en welke `quantitykind` hebben ze? | |
 | Is `active` een waarneming van het studieobject? | |
-| Wie of wat is de sensor van het uurgemiddelde? | |
+| Wie of wat is de sensor van de uurindicatoren? | |
 | Kies je voor de minuutwaarden `phenomenonTime`, `resultTime` of beide? | |
 
-Beschikbare klassen: `sosa:Sensor`, `sosa:Platform`, `sosa:FeatureOfInterest`, `sosa:Deployment`,
-`sosa:Observation`, `sosa:ObservationCollection`, `sosa:ObservingProcedure`, `sosa:Property`,
-`sosa:SpatialSample`, `qudt:QuantityValue`, `time:Interval`, `time:Instant`, `prov:Location`.
+Beschikbare klassen: `sosa:Sensor`, `sosa:Platform`, `sosa:FeatureOfInterest`, `sosa:SpatialSample`,
+`sosa:Sampling`, `sosa:Deployment`, `sosa:Observation`, `sosa:ObservationCollection`,
+`sosa:ObservingProcedure`, `sosa:Property`, `qudt:QuantityValue`, `time:Interval`, `time:Instant`,
+`prov:Location`, `geo:Geometry`.
 
 ## Stap 2 — Schets een diagram
 
 *In paren — 15 minuten*
 
-Teken drie blokken: **PROCEDURE**, **INFRASTRUCTUUR** en **WAARNEMING**. Zet daarin de twee meters,
-het adres, de twee tickets, één bericht met zijn observaties en het uurgemiddelde.
+Teken drie blokken: **PROCEDURE**, **INFRASTRUCTUUR** en **WAARNEMING**. Zet daarin de verbinding,
+de meetlocatie met adres en geometrie, de twee meters, de twee tickets, één bericht met zijn
+observaties en de drie uurindicatoren.
 
 Sturende vragen:
-1. Staat de meter met `sosa:hosts` op het adres, of loopt de koppeling via iets anders? Wat gaat er
-   mis met `sosa:hosts` voor `ELF_C_0025`?
-2. Wat delen de zeven waarden van één bericht, en wat delen alle berichten van een uur? Waar zet je
-   dat gedeelde?
-3. Waar wijst `sosa:hasInputValue` van het uurgemiddelde naartoe: naar de observaties, de collectie
-   of de resultaten?
+1. Vergelijk met het telpunt op een fietsroute (`verkeersmetingen`) en de geluidsmeetpost bij een
+   luchthaven (`geluidsmeetnet`). Is de meetlocatie een monster van de verbinding, of van iets anders?
+2. Staat de meter met `sosa:hosts` op de meetlocatie, of loopt de koppeling via iets anders? Wat gaat
+   er mis met `sosa:hosts` voor `ELF_C_0025`?
+3. Waar wijst `sosa:hasInputValue` van een uurindicator naartoe: naar de observaties, de collectie of
+   de resultaten? En die van een dagindicator?
 
 ## Stap 3 — Schrijf de Turtle
 
@@ -78,16 +82,18 @@ Sturende vragen:
 
 Basis-IRI: `https://example.org/elf/`. Minimale eisen:
 
-1. De meter `ELF_C_0020` als `sosa:Sensor` en het adres als meetlocatie, met de juiste typering.
-2. Ticket SENS-269 als `sosa:Deployment`, met systeem, platform, studieobject en begin- en
-   eindtijdstip (lokale tijd met tijdzone).
+1. De verbinding, haar omgeving en de meetlocatie als ruimtelijk monster van die omgeving, met
+   `prov:atLocation` naar het adres en `geo:hasGeometry` naar het punt (met de CRS-IRI van Lambert 72
+   in de `geo:wktLiteral`).
+2. De meter `ELF_C_0020` als `sosa:Sensor`, en ticket SENS-269 als `sosa:Deployment` met systeem,
+   platform, studieobject en begin- en eindtijdstip (lokale tijd met tijdzone).
 3. Minstens `ex:prop-RMStotal` en `ex:prop-Xpeak_low` als `sosa:Property`.
 4. Eén bericht als `sosa:ObservationCollection` met `sosa:resultTime`, en daarin minstens de
    observaties voor RMStotal en Xpeak_low.
 5. Resultaten als `qudt:QuantityValue` met `qudt:numericValue` en `qudt:hasUnit` (zoek de QUDT-eenheid
    voor microtesla op).
-6. Het uurgemiddelde als afgeleide waarneming, met `sosa:hasInputValue`,
-   `sosa:relatedObservation` en een `sosa:phenomenonTime` als `time:Interval`.
+6. Het uurmaximum als afgeleide waarneming, met `sosa:hasInputValue`, `sosa:relatedObservation` en
+   een `sosa:phenomenonTime` als `time:Interval`.
 7. Geen statusvelden als observatie.
 
 Valideer je bestand met `validate_file`.
@@ -96,16 +102,18 @@ Valideer je bestand met `validate_file`.
 
 *Plenair — 15 minuten*
 
-1. Het studieobject is de meetlocatie, geen ruimtelijk monster. Wat zou je extra moeten weten om er
-   een `sosa:SpatialSample` van te maken, en van welk groter object?
-2. De bron vermeldt geen eenheid. Mag je µT aannemen? Waar documenteer je die aanname, en wat als ze
+1. Een telpunt staat voor een stuk fietsroute. Waarom staat een ELF-meting niet voor een stuk
+   hoogspanningslijn, en welke grootheid doet dat wel? Wat betekent dat voor het rekenmodel dat het
+   veld langs de hele lijn berekent?
+2. Het adres geeft een punt via geocodering. Hoe nauwkeurig is dat punt voor een veld dat snel afneemt
+   met de afstand? Wat leg je vast over de herkomst van de geometrie, en wat mag publiek getoond
+   worden?
+3. De bron vermeldt geen eenheid. Mag je µT aannemen? Waar documenteer je die aanname, en wat als ze
    fout blijkt?
-3. In de data geldt `RMStotal = 1,2374 × √(Xpeak_low² + Ypeak_low² + Zpeak_low²)`. Is RMStotal dan
+4. Het daggemiddelde kan je berekenen uit de minuutwaarden of uit de uurgemiddelden. Wanneer verschillen
+   die twee, en welke is het eerlijkste als er minuten ontbreken?
+5. In de data geldt `RMStotal = 1,2374 × √(Xpeak_low² + Ypeak_low² + Zpeak_low²)`. Is RMStotal dan
    een afgeleide waarneming? Wat pleit ervoor en wat ertegen?
-4. Een RMS-waarde geldt over een meetvenster. Waarom is een `time:Instant` als `phenomenonTime` dan
-   fout, en wat doe je als de duur van het venster niet gekend is?
-5. Het uurgemiddelde staat niet in de bron. Wat moet je in het model vastleggen om eerlijk te zijn
-   over de herkomst ervan?
 
 ---
 

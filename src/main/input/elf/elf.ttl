@@ -1,11 +1,13 @@
 # Gegenereerd door scripts/elf_to_rdf.py — niet met de hand wijzigen.
-# Validatie-subset: meetcampagnes SENS-269, SENS-270, SENS-229, minuutwaarden van ELF_C_0020 van 2025-11-27 10:00 tot 11:00 lokale tijd.
+# Validatie-subset: meetcampagnes SENS-269, SENS-270, SENS-229, minuutwaarden van ELF_C_0020 van 2025-11-27 10:00 tot 11:00 lokale tijd met de uurindicatoren.
+# Gepseudonimiseerde bron; bronnen en geometrieën zijn fictief.
 @prefix sosa:         <http://www.w3.org/ns/sosa/> .
 @prefix prov:         <http://www.w3.org/ns/prov#> .
 @prefix time:         <http://www.w3.org/2006/time#> .
 @prefix qudt:         <http://qudt.org/schema/qudt/> .
 @prefix unit:         <http://qudt.org/vocab/unit/> .
 @prefix quantitykind: <http://qudt.org/vocab/quantitykind/> .
+@prefix geo:          <http://www.opengis.net/ont/geosparql#> .
 @prefix dcterms:      <http://purl.org/dc/terms/> .
 @prefix xsd:          <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs:         <http://www.w3.org/2000/01/rdf-schema#> .
@@ -35,37 +37,97 @@ ex:sensor-ELF_C_0025 a sosa:Sensor , sosa:System ;
     sosa:observes ex:prop-RMStotal , ex:prop-Xpeak_low , ex:prop-Ypeak_low , ex:prop-Zpeak_low , ex:prop-Xpeak_high , ex:prop-Ypeak_high , ex:prop-Zpeak_high ;
     sosa:hasDeployment ex:meetcampagne-SENS-270 , ex:meetcampagne-SENS-229 .
 
-ex:meetlocatie-6839-obscurionweg-91 a sosa:Platform , sosa:FeatureOfInterest ;
+###############################################################################
+### BRONNEN EN HUN OMGEVING
+###############################################################################
+# De bron van het veld (verbinding of station) en de omgeving waarin ze het veld bepaalt, zoals de
+# omgeving van de luchthaven in geluidsmeetnet/. Fictief: de registratie koppelt een sensor nog niet aan
+# een bron.
+
+ex:station-bloedhoven a sosa:FeatureOfInterest ;
+    rdfs:label "Hoogspanningsstation Bloedhoven (70 kV, fictief)"@nl ;
+    rdfs:comment "Fictief hoogspanningsstation (70 kV). In productie een verwijzing naar de verbinding of het station bij de netbeheerder."@nl ;
+    sosa:hasProperty ex:prop-stroombelasting .
+
+ex:omgeving-station-bloedhoven a sosa:FeatureOfInterest ;
+    rdfs:label "Omgeving van Hoogspanningsstation Bloedhoven (70 kV, fictief)"@nl ;
+    rdfs:comment "Het gebied waarin het magnetische veld van de bron de blootstelling bepaalt. De meetlocaties zijn ruimtelijke monsters van dit gebied."@nl ;
+    prov:wasInfluencedBy ex:station-bloedhoven ;
+    sosa:hasSample ex:meetlocatie-7135-mordredkaai-203 .
+
+ex:verbinding-duisterwijk a sosa:FeatureOfInterest ;
+    rdfs:label "150 kV-verbinding bij Duisterwijk (fictief)"@nl ;
+    rdfs:comment "Fictieve hoogspanningsverbinding (150 kV). In productie een verwijzing naar de verbinding of het station bij de netbeheerder."@nl ;
+    sosa:hasProperty ex:prop-stroombelasting .
+
+ex:omgeving-verbinding-duisterwijk a sosa:FeatureOfInterest ;
+    rdfs:label "Omgeving van 150 kV-verbinding bij Duisterwijk (fictief)"@nl ;
+    rdfs:comment "Het gebied waarin het magnetische veld van de bron de blootstelling bepaalt. De meetlocaties zijn ruimtelijke monsters van dit gebied."@nl ;
+    prov:wasInfluencedBy ex:verbinding-duisterwijk ;
+    sosa:hasSample ex:meetlocatie-6839-obscurionweg-91 .
+
+###############################################################################
+### MEETLOCATIES
+###############################################################################
+# Ruimtelijk monster van de omgeving van een bron (R11), met het adres uit de registratie
+# (prov:atLocation) en een geometrie (geo:hasGeometry). De geometrie is fictief: afgeleid uit het
+# gepseudonimiseerde adres, niet uit een echte positie.
+
+ex:meetlocatie-6839-obscurionweg-91 a sosa:Platform , sosa:FeatureOfInterest , sosa:SpatialSample , sosa:Sample ;
     rdfs:label "Meetlocatie Obscurionweg 91, 6839 Duisterwijk"@nl ;
-    rdfs:comment "De plaats waar de ELF-meter opgesteld staat en waarvan het magnetische veld bestudeerd wordt. Geen coördinaten in de bron; de positie volgt uit het adres."@nl ;
+    rdfs:comment "De plaats waar de ELF-meter opgesteld staat en waar de blootstelling aan het magnetische veld bestudeerd wordt."@nl ;
+    sosa:isSampleOf ex:omgeving-verbinding-duisterwijk ;
+    sosa:isResultOf ex:sampling-meetlocatie-6839-obscurionweg-91 ;
     prov:atLocation ex:adres-6839-obscurionweg-91 ;
+    geo:hasGeometry ex:geom-6839-obscurionweg-91 ;
     sosa:hasProperty ex:prop-RMStotal , ex:prop-Xpeak_low , ex:prop-Ypeak_low , ex:prop-Zpeak_low , ex:prop-Xpeak_high , ex:prop-Ypeak_high , ex:prop-Zpeak_high ;
     sosa:inDeployment ex:meetcampagne-SENS-270 , ex:meetcampagne-SENS-269 .
+
+ex:sampling-meetlocatie-6839-obscurionweg-91 a sosa:Sampling , sosa:Execution ;
+    rdfs:label "Keuze van meetlocatie Obscurionweg 91, 6839 Duisterwijk in de omgeving van 150 kV-verbinding bij Duisterwijk (fictief)"@nl ;
+    sosa:hasFeatureOfInterest ex:omgeving-verbinding-duisterwijk ;
+    sosa:hasResult ex:meetlocatie-6839-obscurionweg-91 .
 
 ex:adres-6839-obscurionweg-91 a prov:Location ;
     rdfs:label "Obscurionweg 91, 6839 Duisterwijk"@nl .
 
-ex:meetlocatie-7135-mordredkaai-203 a sosa:Platform , sosa:FeatureOfInterest ;
+ex:geom-6839-obscurionweg-91 a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POINT(81177 208128)"^^geo:wktLiteral ;
+    rdfs:comment "Fictief punt, afgeleid uit het gepseudonimiseerde adres. In productie: de exacte locatie uit de registratie, of de adrespositie uit het Adressenregister."@nl .
+
+ex:meetlocatie-7135-mordredkaai-203 a sosa:Platform , sosa:FeatureOfInterest , sosa:SpatialSample , sosa:Sample ;
     rdfs:label "Meetlocatie Mordredkaai 203, 7135 Bloedhoven"@nl ;
-    rdfs:comment "De plaats waar de ELF-meter opgesteld staat en waarvan het magnetische veld bestudeerd wordt. Geen coördinaten in de bron; de positie volgt uit het adres."@nl ;
+    rdfs:comment "De plaats waar de ELF-meter opgesteld staat en waar de blootstelling aan het magnetische veld bestudeerd wordt."@nl ;
+    sosa:isSampleOf ex:omgeving-station-bloedhoven ;
+    sosa:isResultOf ex:sampling-meetlocatie-7135-mordredkaai-203 ;
     prov:atLocation ex:adres-7135-mordredkaai-203 ;
+    geo:hasGeometry ex:geom-7135-mordredkaai-203 ;
     sosa:hasProperty ex:prop-RMStotal , ex:prop-Xpeak_low , ex:prop-Ypeak_low , ex:prop-Zpeak_low , ex:prop-Xpeak_high , ex:prop-Ypeak_high , ex:prop-Zpeak_high ;
     sosa:inDeployment ex:meetcampagne-SENS-229 .
+
+ex:sampling-meetlocatie-7135-mordredkaai-203 a sosa:Sampling , sosa:Execution ;
+    rdfs:label "Keuze van meetlocatie Mordredkaai 203, 7135 Bloedhoven in de omgeving van Hoogspanningsstation Bloedhoven (70 kV, fictief)"@nl ;
+    sosa:hasFeatureOfInterest ex:omgeving-station-bloedhoven ;
+    sosa:hasResult ex:meetlocatie-7135-mordredkaai-203 .
 
 ex:adres-7135-mordredkaai-203 a prov:Location ;
     rdfs:label "Mordredkaai 203, 7135 Bloedhoven"@nl .
 
+ex:geom-7135-mordredkaai-203 a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POINT(88231 178595)"^^geo:wktLiteral ;
+    rdfs:comment "Fictief punt, afgeleid uit het gepseudonimiseerde adres. In productie: de exacte locatie uit de registratie, of de adrespositie uit het Adressenregister."@nl .
+
 ex:conversiescript a sosa:Sensor , sosa:System ;
     rdfs:label "Conversiescript elf_to_rdf.py"@nl ;
-    rdfs:comment "Software die de uurgemiddelden berekent uit de minuutwaarden. De uurgemiddelden staan niet in de bron: ze illustreren een afgeleide waarneming (R13)."@nl ;
-    sosa:implements ex:procedure-uurgemiddelde .
+    rdfs:comment "Software die de uur- en dagindicatoren berekent uit de minuutwaarden. De indicatoren staan niet in de bron; in productie berekent het dataplatform ze."@nl ;
+    sosa:implements ex:procedure-minimum , ex:procedure-maximum , ex:procedure-uurgemiddelde , ex:procedure-daggemiddelde .
 
 ###############################################################################
 ### MEETCAMPAGNES (sosa:Deployment)
 ###############################################################################
 # Eén Jira-ticket = één meetcampagne. Start en einde uit de registratie (enkel datums, middernacht
 # lokale tijd). Een einde na de peildatum is een gepland einde en wordt niet als prov:endedAtTime
-# opgenomen.
+# opgenomen. Het uiteindelijke doel van de campagne is de omgeving van de bron.
 
 ex:meetcampagne-SENS-270 a sosa:Deployment ;
     rdfs:label "Meetcampagne SENS-270: ELF_C_0025 op Obscurionweg 91, 6839 Duisterwijk"@nl ;
@@ -73,6 +135,7 @@ ex:meetcampagne-SENS-270 a sosa:Deployment ;
     sosa:deployedSystem ex:sensor-ELF_C_0025 ;
     sosa:deployedOnPlatform ex:meetlocatie-6839-obscurionweg-91 ;
     sosa:hasFeatureOfInterest ex:meetlocatie-6839-obscurionweg-91 ;
+    sosa:hasUltimateFeatureOfInterest ex:omgeving-verbinding-duisterwijk ;
     prov:startedAtTime "2025-11-26T00:00:00+01:00"^^xsd:dateTime ;
     prov:endedAtTime "2026-01-26T00:00:00+01:00"^^xsd:dateTime .
 
@@ -82,6 +145,7 @@ ex:meetcampagne-SENS-269 a sosa:Deployment ;
     sosa:deployedSystem ex:sensor-ELF_C_0020 ;
     sosa:deployedOnPlatform ex:meetlocatie-6839-obscurionweg-91 ;
     sosa:hasFeatureOfInterest ex:meetlocatie-6839-obscurionweg-91 ;
+    sosa:hasUltimateFeatureOfInterest ex:omgeving-verbinding-duisterwijk ;
     prov:startedAtTime "2025-11-26T00:00:00+01:00"^^xsd:dateTime ;
     prov:endedAtTime "2026-01-26T00:00:00+01:00"^^xsd:dateTime .
 
@@ -91,6 +155,7 @@ ex:meetcampagne-SENS-229 a sosa:Deployment ;
     sosa:deployedSystem ex:sensor-ELF_C_0025 ;
     sosa:deployedOnPlatform ex:meetlocatie-7135-mordredkaai-203 ;
     sosa:hasFeatureOfInterest ex:meetlocatie-7135-mordredkaai-203 ;
+    sosa:hasUltimateFeatureOfInterest ex:omgeving-station-bloedhoven ;
     prov:startedAtTime "2025-04-28T00:00:00+02:00"^^xsd:dateTime ;
     prov:endedAtTime "2025-09-10T00:00:00+02:00"^^xsd:dateTime .
 
@@ -103,11 +168,34 @@ ex:procedure-elf-meting a sosa:ObservingProcedure , sosa:Procedure ;
     rdfs:comment "De ELF-node meet de magnetische fluxdichtheid langs drie assen en rapporteert ongeveer elke minuut zeven waarden: per as een waarde 'low' en 'high', en een totale RMS-waarde. Meetvenster, frequentieband en betekenis van 'low' en 'high' zijn niet in de bron beschreven."@nl ;
     sosa:hasOutput ex:prop-RMStotal , ex:prop-Xpeak_low , ex:prop-Ypeak_low , ex:prop-Zpeak_low , ex:prop-Xpeak_high , ex:prop-Ypeak_high , ex:prop-Zpeak_high .
 
-ex:procedure-uurgemiddelde a sosa:ObservingProcedure , sosa:Procedure ;
-    rdfs:label "Rekenkundig uurgemiddelde van RMStotal"@nl ;
-    rdfs:comment "Rekenkundig gemiddelde van de RMStotal-waarden waarvan het resultaattijdstip in het lokale uur [hh:00, hh+1:00) valt. Uren met ontbrekende minuten worden gemiddeld over de beschikbare waarden."@nl ;
+ex:procedure-minimum a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Minimum van RMStotal over een periode"@nl ;
+    rdfs:comment "Kleinste inputwaarde. Voor een uur: de minuutwaarden met resultaattijd in het lokale uur [hh:00, hh+1:00). Voor een dag: de uurminima van die dag."@nl ;
     sosa:hasInput ex:prop-RMStotal ;
     sosa:hasOutput ex:prop-RMStotal .
+
+ex:procedure-maximum a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Maximum van RMStotal over een periode"@nl ;
+    rdfs:comment "Grootste inputwaarde. Voor een uur: de minuutwaarden met resultaattijd in het lokale uur [hh:00, hh+1:00). Voor een dag: de uurmaxima van die dag."@nl ;
+    sosa:hasInput ex:prop-RMStotal ;
+    sosa:hasOutput ex:prop-RMStotal .
+
+ex:procedure-uurgemiddelde a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Uurgemiddelde van RMStotal"@nl ;
+    rdfs:comment "Rekenkundig gemiddelde van de minuutwaarden met resultaattijd in het lokale uur [hh:00, hh+1:00). Ontbrekende minuten tellen niet mee; het aantal staat bij de waarneming."@nl ;
+    sosa:hasInput ex:prop-RMStotal ;
+    sosa:hasOutput ex:prop-RMStotal .
+
+ex:procedure-daggemiddelde a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Daggemiddelde van RMStotal"@nl ;
+    rdfs:comment "Rekenkundig gemiddelde van de uurgemiddelden van de lokale dag: elk uur met metingen weegt even zwaar, ook als er minuten ontbreken (tijdgewogen gemiddelde). Het jaargemiddelde van de business case volgt op dezelfde manier uit de daggemiddelden."@nl ;
+    sosa:hasInput ex:prop-RMStotal ;
+    sosa:hasOutput ex:prop-RMStotal .
+
+ex:prop-stroombelasting a sosa:Property ;
+    rdfs:label "stroombelasting"@nl ;
+    skos:definition "Elektrische stroom door de geleiders van een hoogspanningsverbinding of -station. Bepaalt het magnetische veld in de omgeving; de business case wil ze tonen als duiding bij de jaargemiddelde blootstelling. Geen data in dit voorbeeld."@nl ;
+    qudt:hasQuantityKind quantitykind:ElectricCurrent .
 
 ex:prop-RMStotal a sosa:Property ;
     rdfs:label "totale RMS-waarde van de magnetische fluxdichtheid"@nl ;
@@ -1368,15 +1456,16 @@ ex:result-ELF_C_0020-20251127T095943361Z-Ypeak_high a qudt:QuantityValue ; qudt:
 ex:obs-ELF_C_0020-20251127T095943361Z-Zpeak_high a sosa:Observation ; sosa:observedProperty ex:prop-Zpeak_high ; sosa:hasFeatureOfInterest ex:meetlocatie-6839-obscurionweg-91 ; sosa:hasResult ex:result-ELF_C_0020-20251127T095943361Z-Zpeak_high .
 ex:result-ELF_C_0020-20251127T095943361Z-Zpeak_high a qudt:QuantityValue ; qudt:numericValue 0.15942 ; qudt:hasUnit unit:MicroT .
 
-# Afgeleide waarneming (R13): buiten de collectie, met inputwaarden naar de resultaten.
-ex:obs-ELF_C_0020-20251127T10-uurgemiddelde a sosa:Observation ;
-    rdfs:label "Uurgemiddelde RMStotal ELF_C_0020, 2025-11-27 10:00–11:00"@nl ;
-    rdfs:comment "Gemiddelde van 60 minuutwaarden."@nl ;
+# Uurindicatoren (R13): afgeleide waarnemingen buiten de collectie, met inputwaarden naar de minuutresultaten.
+
+ex:obs-ELF_C_0020-20251127T10-minimum a sosa:Observation ;
+    rdfs:label "Uurminimum RMStotal ELF_C_0020, 2025-11-27 10:00–11:00"@nl ;
+    rdfs:comment "Uit 60 minuutwaarden."@nl ;
     sosa:madeBySensor ex:conversiescript ;
-    sosa:usedProcedure ex:procedure-uurgemiddelde ;
+    sosa:usedProcedure ex:procedure-minimum ;
     sosa:observedProperty ex:prop-RMStotal ;
     sosa:hasFeatureOfInterest ex:meetlocatie-6839-obscurionweg-91 ;
-    sosa:phenomenonTime ex:interval-ELF_C_0020-20251127T10-uurgemiddelde ;
+    sosa:phenomenonTime ex:interval-ELF_C_0020-20251127T10 ;
     sosa:hasInputValue ex:result-ELF_C_0020-20251127T090049427Z-RMStotal ,
         ex:result-ELF_C_0020-20251127T090149598Z-RMStotal ,
         ex:result-ELF_C_0020-20251127T090249815Z-RMStotal ,
@@ -1497,16 +1586,284 @@ ex:obs-ELF_C_0020-20251127T10-uurgemiddelde a sosa:Observation ;
         ex:obs-ELF_C_0020-20251127T095743889Z-RMStotal ,
         ex:obs-ELF_C_0020-20251127T095843492Z-RMStotal ,
         ex:obs-ELF_C_0020-20251127T095943361Z-RMStotal ;
-    sosa:hasResult ex:result-ELF_C_0020-20251127T10-uurgemiddelde .
+    sosa:hasResult ex:result-ELF_C_0020-20251127T10-minimum .
 
-ex:result-ELF_C_0020-20251127T10-uurgemiddelde a qudt:QuantityValue ;
+ex:result-ELF_C_0020-20251127T10-minimum a qudt:QuantityValue ;
+    qudt:numericValue 0.58806 ;
+    qudt:hasUnit unit:MicroT .
+
+ex:obs-ELF_C_0020-20251127T10-maximum a sosa:Observation ;
+    rdfs:label "Uurmaximum RMStotal ELF_C_0020, 2025-11-27 10:00–11:00"@nl ;
+    rdfs:comment "Uit 60 minuutwaarden."@nl ;
+    sosa:madeBySensor ex:conversiescript ;
+    sosa:usedProcedure ex:procedure-maximum ;
+    sosa:observedProperty ex:prop-RMStotal ;
+    sosa:hasFeatureOfInterest ex:meetlocatie-6839-obscurionweg-91 ;
+    sosa:phenomenonTime ex:interval-ELF_C_0020-20251127T10 ;
+    sosa:hasInputValue ex:result-ELF_C_0020-20251127T090049427Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090149598Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090249815Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090349259Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090448593Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090553660Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090653479Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090753676Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090853171Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090952695Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091052227Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091151831Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091251309Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091351321Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091451578Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091551728Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091651991Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091751336Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091850547Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091950388Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092049453Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092149474Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092250385Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092349341Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092448677Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092548404Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092648467Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092748533Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092848766Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092948207Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093047722Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093147185Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093246776Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093346546Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093447202Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093546789Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093646964Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093746455Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093846379Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093946534Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094046770Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094147182Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094246543Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094346520Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094446160Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094545801Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094645433Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094745327Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094845511Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094945889Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095045406Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095145567Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095245489Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095345978Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095445331Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095544525Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095644299Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095743889Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095843492Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095943361Z-RMStotal ;
+    sosa:relatedObservation ex:obs-ELF_C_0020-20251127T090049427Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090149598Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090249815Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090349259Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090448593Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090553660Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090653479Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090753676Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090853171Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090952695Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091052227Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091151831Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091251309Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091351321Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091451578Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091551728Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091651991Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091751336Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091850547Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091950388Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092049453Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092149474Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092250385Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092349341Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092448677Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092548404Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092648467Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092748533Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092848766Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092948207Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093047722Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093147185Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093246776Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093346546Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093447202Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093546789Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093646964Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093746455Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093846379Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093946534Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094046770Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094147182Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094246543Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094346520Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094446160Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094545801Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094645433Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094745327Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094845511Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094945889Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095045406Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095145567Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095245489Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095345978Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095445331Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095544525Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095644299Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095743889Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095843492Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095943361Z-RMStotal ;
+    sosa:hasResult ex:result-ELF_C_0020-20251127T10-maximum .
+
+ex:result-ELF_C_0020-20251127T10-maximum a qudt:QuantityValue ;
+    qudt:numericValue 0.77332 ;
+    qudt:hasUnit unit:MicroT .
+
+ex:obs-ELF_C_0020-20251127T10-gemiddelde a sosa:Observation ;
+    rdfs:label "Uurgemiddelde RMStotal ELF_C_0020, 2025-11-27 10:00–11:00"@nl ;
+    rdfs:comment "Uit 60 minuutwaarden."@nl ;
+    sosa:madeBySensor ex:conversiescript ;
+    sosa:usedProcedure ex:procedure-uurgemiddelde ;
+    sosa:observedProperty ex:prop-RMStotal ;
+    sosa:hasFeatureOfInterest ex:meetlocatie-6839-obscurionweg-91 ;
+    sosa:phenomenonTime ex:interval-ELF_C_0020-20251127T10 ;
+    sosa:hasInputValue ex:result-ELF_C_0020-20251127T090049427Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090149598Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090249815Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090349259Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090448593Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090553660Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090653479Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090753676Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090853171Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T090952695Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091052227Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091151831Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091251309Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091351321Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091451578Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091551728Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091651991Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091751336Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091850547Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T091950388Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092049453Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092149474Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092250385Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092349341Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092448677Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092548404Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092648467Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092748533Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092848766Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T092948207Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093047722Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093147185Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093246776Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093346546Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093447202Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093546789Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093646964Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093746455Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093846379Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T093946534Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094046770Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094147182Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094246543Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094346520Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094446160Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094545801Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094645433Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094745327Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094845511Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T094945889Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095045406Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095145567Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095245489Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095345978Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095445331Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095544525Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095644299Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095743889Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095843492Z-RMStotal ,
+        ex:result-ELF_C_0020-20251127T095943361Z-RMStotal ;
+    sosa:relatedObservation ex:obs-ELF_C_0020-20251127T090049427Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090149598Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090249815Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090349259Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090448593Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090553660Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090653479Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090753676Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090853171Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T090952695Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091052227Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091151831Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091251309Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091351321Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091451578Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091551728Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091651991Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091751336Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091850547Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T091950388Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092049453Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092149474Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092250385Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092349341Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092448677Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092548404Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092648467Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092748533Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092848766Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T092948207Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093047722Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093147185Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093246776Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093346546Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093447202Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093546789Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093646964Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093746455Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093846379Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T093946534Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094046770Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094147182Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094246543Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094346520Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094446160Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094545801Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094645433Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094745327Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094845511Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T094945889Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095045406Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095145567Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095245489Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095345978Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095445331Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095544525Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095644299Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095743889Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095843492Z-RMStotal ,
+        ex:obs-ELF_C_0020-20251127T095943361Z-RMStotal ;
+    sosa:hasResult ex:result-ELF_C_0020-20251127T10-gemiddelde .
+
+ex:result-ELF_C_0020-20251127T10-gemiddelde a qudt:QuantityValue ;
     qudt:numericValue 0.67729 ;
     qudt:hasUnit unit:MicroT .
 
-ex:interval-ELF_C_0020-20251127T10-uurgemiddelde a time:Interval ;
-    time:hasBeginning ex:instant-ELF_C_0020-20251127T10-uurgemiddelde-begin ;
-    time:hasEnd ex:instant-ELF_C_0020-20251127T10-uurgemiddelde-einde .
-ex:instant-ELF_C_0020-20251127T10-uurgemiddelde-begin a time:Instant ;
+ex:interval-ELF_C_0020-20251127T10 a time:Interval ;
+    time:hasBeginning ex:instant-ELF_C_0020-20251127T10-begin ;
+    time:hasEnd ex:instant-ELF_C_0020-20251127T10-einde .
+ex:instant-ELF_C_0020-20251127T10-begin a time:Instant ;
     time:inXSDDateTimeStamp "2025-11-27T10:00:00+01:00"^^xsd:dateTimeStamp .
-ex:instant-ELF_C_0020-20251127T10-uurgemiddelde-einde a time:Instant ;
+ex:instant-ELF_C_0020-20251127T10-einde a time:Instant ;
     time:inXSDDateTimeStamp "2025-11-27T11:00:00+01:00"^^xsd:dateTimeStamp .
