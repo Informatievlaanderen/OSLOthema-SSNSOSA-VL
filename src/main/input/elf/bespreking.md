@@ -183,6 +183,38 @@ te gebruiken waar die past, maar geen ervan past: de omgeving is niet afgeleid v
 (`prov:wasDerivedFrom`) en niet door haar gegenereerd. Verworpen: `dcterms:relation`, die niets zegt
 over de richting van de invloed. Beide zijn kernvocabularium (R17, niveau 1).
 
+**Waarom het veld geen afgeleide is, niet van de flux en niet van een emissie?**
+"Afgeleide" betekent hier twee verschillende dingen, en enkel de tweede hoort in de data.
+
+- *Een wiskundige relatie tussen grootheden.* De meter meet de magnetische fluxdichtheid B (tesla).
+  De magnetische flux Φ (weber) door een oppervlak is de integraal van B over dat oppervlak; B is de
+  flux per oppervlakte-eenheid (dΦ/dA, 1 T = 1 Wb/m²). QUDT kent ze als twee grootheden,
+  `quantitykind:MagneticFluxDensity` (hier gebruikt) en `quantitykind:MagneticFlux`. Het zijn twee
+  beschrijvingen van hetzelfde veld: het ene ontstaat niet uit het andere. Zo'n relatie hoort bij
+  de grootheden (de dimensievectoren van QUDT), niet tussen resources in de data, en dus niet als
+  `prov:wasDerivedFrom`, dat een omzetting of constructie van een entiteit door een activiteit vraagt.
+- *Een berekening in de data* (R7, R13). Een waarneming is afgeleid wanneer haar resultaat berekend
+  is uit andere resultaten. Het veld van een hoogspanningslijn volgt uit de stroom in de geleiders en
+  de geometrie (Biot-Savart: voor één rechte geleider B = μ₀·I / (2π·r), voor een driefasige lijn een
+  som over de geleiders); de flux volgt op haar beurt uit B. Een *berekend* veld, zoals het rekenmodel
+  van art. 6 van het BVR het geeft, is dus een afgeleide waarneming van de meetlocatie, met
+  `sosa:hasInputValue` naar het resultaat van de stroombelasting van de bron. Een *gemeten* veld is
+  dat niet: het is een rechtstreekse waarneming van de plaats.
+
+Ook een emissie die elders als immissie aankomt (zoals geluid of fijnstof, waar de immissie als
+entiteit `prov:wasDerivedFrom` de emissie zou zijn) past hier niet. Bij 50 Hz is de golflengte
+ongeveer 6 000 km en ligt een meetlocatie op tientallen meters in het quasistatische nabije veld:
+er reist niets van de bron naar de plaats; het veld bestaat zolang de stroom loopt. Daarom
+`prov:wasInfluencedBy` tussen omgeving en bron, en geen afleiding.
+
+De flux komt wel voor *binnen* de meetprocedure. Een meter met inductiespoelen meet een spanning die
+volgens de wet van Faraday evenredig is met de verandering van de flux door de spoel (−dΦ/dt), en
+rekent die om naar B. Die stap hoort in de beschrijving van `ex:procedure-elf-meting`, niet als een
+aparte waarneming, net zoals de factor 1,2374 van RMStotal (§5): wat het toestel intern rekent, is
+output van de meetprocedure.
+
+<!-- TODO: welk type sonde gebruikt de ELF-node (inductiespoel, fluxgate, Hall-sensor), welke frequentieband en welk meetvenster? Dat bepaalt de beschrijving van ex:procedure-elf-meting en verklaart mogelijk 'low', 'high' en de factor 1,2374. -->
+
 **Waarom een `sosa:Deployment` per meetcampagne, en geen `sosa:hosts`?**
 Verworpen alternatief: `ex:meetlocatie-… sosa:hosts ex:sensor-…`. Gekozen: een `sosa:Deployment`
 per Jira-ticket. Motivering: `sosa:hosts` is tijdloos, maar een ELF-node verhuist (ELF_C_0025:
