@@ -181,6 +181,16 @@ GeoSPARQL feature that can be queried spatially. Two resources at the same place
 when the position is given by an address or a description, or by another resource that is a place
 in its own right, rather than by coordinates.
 
+The two combine: `prov:atLocation` to the address as the source gives it, and `geo:hasGeometry` to a
+point derived from it. Two cautions. A geocoded address position is the position of the address, not
+of the sensor; where the value depends strongly on distance (a field, a noise level), say how the point
+was obtained (a comment, or `prov:wasDerivedFrom` the address) and replace it by a measured position
+when there is one. And put the CRS IRI at the start of a `geo:wktLiteral` when the coordinates are not
+longitude and latitude in CRS84, e.g.
+`"<http://www.opengis.net/def/crs/EPSG/0/31370> POINT(81177 208128)"^^geo:wktLiteral` (Lambert 72).
+A measuring location at someone's home is personal data: publish a generalised geometry if needed,
+and use fictitious positions in examples built from pseudonymised data.
+
 ## R12 — Time
 
 **Periods.** When a measurement covers a span of time (hourly count, daily total, period
