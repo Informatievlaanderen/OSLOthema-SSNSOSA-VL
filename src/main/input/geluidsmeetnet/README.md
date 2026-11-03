@@ -73,6 +73,11 @@ nagerekend (op twee campagnes na exact; zie `bespreking.md` §6) en gemodelleerd
 geluidsevent als emissie en FOI, zoals de lozing in waterkwaliteit. Geen herziening; beide staan
 open voor de werkgroep (skill `alternative-mapping` in oslo-ld-kit).
 
+**Keten:** `keten/` toont dat beide lezingen schakels van één keten zijn (patroon *Emissie en
+immissie* in de modelleergids). De geluidsemissie ligt aan de bron, één per vlucht. De geluidsevents
+bij de meetposten zijn de immissies (`sosa:Stimulus`), `prov:wasDerivedFrom` die emissie. Uitgewerkt
+voor vlucht TRA15N.
+
 ## Grafische voorstelling
 
 Zie `geluidsmeetnet.mmd`. Het diagram toont één representatief event (het nachtelijke vertrek
@@ -82,6 +87,7 @@ BCS6TP om 01:23) en de afleiding van Ln en Lden; de overige 57 events zijn samen
 
 - `geluidsmeetnet.ttl` — validatie-subset (campagne M072-2), door de bulkvalidatie verwerkt
 - `geluidsmeetnet.trig` — volledige dataset (13 campagnes), niet door de bulkvalidatie verwerkt
+- `keten/geluidsmeetnet_keten.ttl` — de keten emissie → immissie voor vlucht TRA15N, met diagram en README
 
 ## Gebruik
 

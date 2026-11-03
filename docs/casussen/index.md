@@ -45,7 +45,7 @@ Daarna, naar interesse:
 | [paleo](paleo.md) | plat | monster, afgeleide | R7, R8, R9 | PROV, Time | gecorrigeerd | |
 | [grondwaterpeilmetingen](grondwaterpeilmetingen.md) | plat | — | R1, R3 | QUDT, GeoSPARQL | — | |
 | [r-factor](r-factor.md) | plat | ruimtelijk monster, afgeleide | R10, R11, R12, R13 | QUDT, GeoSPARQL, Time | — | |
-| [geluidsmeetnet](geluidsmeetnet.md) | plat | stimulus / emissie, ruimtelijk monster, afgeleide | R4, R11, R12, R13, R17 | PROV, QUDT, GeoSPARQL, Time | alternatief | |
+| [geluidsmeetnet](geluidsmeetnet.md) | plat | stimulus / emissie, emissie en immissie, ruimtelijk monster, afgeleide | R4, R11, R12, R13, R17 | PROV, QUDT, GeoSPARQL, Time | alternatief | |
 | [waterkwaliteit](waterkwaliteit.md) | plat | monster, emissie, ruimtelijk monster, afgeleide, rapportagegrens | R3, R8, R10, R11, R13, R15, R17, R18 | PROV, QUDT, register–QUDT, register–I-ADOPT | — | |
 | [overstort](overstort.md) | plat | emissie (alternatief) | R10, R12, R16, R17 | PROV, GeoSPARQL, Time, SAREF | herziening, alternatief | |
 | [pgd](pgd.md) | drielaags | ruimtelijk monster, afgeleide | R4, R11, R13 | P-PLAN, PROV, QUDT | — | |

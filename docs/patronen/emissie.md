@@ -56,7 +56,8 @@ ex:overloop-0218 a sosa:Actuation ;
 per vlucht, overstortvolumes per kunstwerk.
 
 **Liever niet** wanneer de vraag over de toestand van een plaats gaat (hoeveel geluid krijgt deze
-wijk?); dan past de [stimulus](stimulus.md) beter.
+wijk?); dan past de [stimulus](stimulus.md) beter. Doen beide vragen ertoe, zie dan
+[Emissie en immissie](emissie-immissie.md).
 
 **Gebeurtenissen zonder emissie.** Een gegevensstroom meldt soms ook periodes *zonder* emissie
 (geen overstorting, signaal gestoord). Die hebben geen emissie die het studieobject kan zijn; ze
@@ -71,6 +72,8 @@ een argument tegen dit patroon is voor zulke stromen (overstort, alternatief, be
   emissie van de vlucht.
 - [Overstort, alternatief](../casussen/overstort.md#twee-lezingen): de overstorting als emissie,
   resultaat van een actuatie.
+- [Geluidsmeetnet, keten](../casussen/geluidsmeetnet.md#een-keten): de emissie aan de bron, één per
+  vlucht, waarvan de geluidsevents bij de meetposten afgeleid zijn.
 
 ??? quote "Normatieve tekst (modelleergids, Engels)"
 

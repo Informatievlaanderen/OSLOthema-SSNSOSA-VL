@@ -25,6 +25,7 @@ KIT_URL = "https://github.com/milieuinfo/oslo-ld-kit/blob/main"
 PATTERNS = {
     "Emission as feature of interest": "emissie",
     "Stimulus": "stimulus",
+    "Emission and immission": "emissie-immissie",
     "Sample with ultimate feature of interest": "monster",
     "Spatial sample": "ruimtelijk-monster",
     "Derived observation": "afgeleide-waarneming",

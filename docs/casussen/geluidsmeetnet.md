@@ -6,10 +6,10 @@ Airport, uit het verwerkingsplatform Aerovision.*
 | | |
 |---|---|
 | **Domein** | omgevingsgeluid, luchtvaart |
-| **Model** | plat, met geneste collecties en afgeleide waarnemingen; een alternatieve lezing |
+| **Model** | plat, met geneste collecties en afgeleide waarnemingen; een alternatieve lezing en de keten die beide verbindt |
 | **Bron** | Aerovision-export van 29 september 2026: 4 CSV's, 13 meetcampagnes, 1818 events, 627 vluchten |
 | **Transformatie** | Python-script → `.trig` (alle campagnes, ~145 000 triples) en `.ttl` (campagne M072-2) |
-| **Bestanden** | [README](https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/input/geluidsmeetnet/README.md) · [bespreking](https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/input/geluidsmeetnet/bespreking.md) · [alternatief](https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/input/geluidsmeetnet/alternatief/README.md) |
+| **Bestanden** | [README](https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/input/geluidsmeetnet/README.md) · [bespreking](https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/input/geluidsmeetnet/bespreking.md) · [alternatief](https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/input/geluidsmeetnet/alternatief/README.md) · [keten](https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/input/geluidsmeetnet/keten/README.md) |
 
 ## Waarom deze casus
 
@@ -51,6 +51,26 @@ Lden.
 Het alternatief werkt één vlucht uit (TRA15N, vier emissies, zestien waarnemingen), met argumenten
 voor en tegen, een tussenvorm (één emissie per vlucht, het event als monster) en discussievragen
 voor de werkgroep. Status: beide *voorstel*.
+
+## Een keten
+
+De twee lezingen sluiten elkaar niet uit: ze zijn twee schakels van één keten
+([Emissie en immissie](../patronen/emissie-immissie.md)). In `keten/` heeft vlucht TRA15N één
+geluidsemissie aan de bron. De vier geluidsevents bij de meetposten zijn de immissies:
+`sosa:Stimulus` zoals in het hoofdmodel, en `prov:wasDerivedFrom` de emissie. Voor M072 is de
+voortplanting uitgewerkt als activiteit (*qualified derivation*). De meetpost blijft het studieobject
+van de metingen; de emissie is het studieobject van brongerichte waarnemingen, die de export niet
+bevat.
+
+```mermaid
+--8<-- "src/main/input/geluidsmeetnet/keten/geluidsmeetnet_keten.mmd"
+```
+
+??? example "keten/geluidsmeetnet_keten.ttl"
+
+    ```turtle
+    --8<-- "src/main/input/geluidsmeetnet/keten/geluidsmeetnet_keten.ttl"
+    ```
 
 ## Diagram
 

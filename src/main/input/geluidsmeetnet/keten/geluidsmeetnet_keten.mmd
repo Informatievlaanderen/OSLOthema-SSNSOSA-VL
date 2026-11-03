@@ -1,0 +1,103 @@
+flowchart LR
+
+subgraph PROC["PROCEDURE"]
+    P1["ex:procedure-eventmeting
+    sosa:ObservingProcedure"]
+    PS["ex:prop-SEL · ex:prop-LAeq
+    ex:prop-LAmax · ex:prop-duur
+    sosa:Property"]
+end
+
+subgraph INFRA["INFRASTRUCTUUR"]
+    O1["ex:omgeving-EBBR
+    sosa:FeatureOfInterest"]
+    M72["ex:meetpost-M072
+    sosa:Platform · sosa:FeatureOfInterest
+    sosa:SpatialSample"]
+    G72["ex:geluidsmeter-M072-2
+    sosa:Sensor"]
+    GX["ex:geluidsmeter-F041-1 · -F045-1 · -M071-1
+    sosa:Sensor"]
+end
+
+subgraph WAAR["WAARNEMING — keten voor vlucht TRA15N"]
+    subgraph BRON["BRONZIJDE"]
+        V1["ex:vlucht-4853D3-20260929T045809Z
+        prov:Activity · TRA15N"]
+        L1["ex:luchtvaartuig-4853D3
+        prov:Entity"]
+        E1["keten:geluidsemissie-4853D3-20260929T045809Z
+        prov:Entity · sosa:FeatureOfInterest
+        emissie"]
+    end
+    subgraph VERSPREIDING["VERSPREIDING"]
+        VP["keten:voortplanting-M072-2-20260929T050100Z
+        prov:Activity · 2703 m"]
+        D1["keten:afleiding-M072-2-20260929T050100Z
+        prov:Derivation"]
+    end
+    subgraph ONTVANGER["ONTVANGERZIJDE"]
+        I72["ex:geluidsevent-M072-2-20260929T050100Z
+        sosa:Stimulus · prov:Entity
+        immissie"]
+        IX["ex:geluidsevent-F041-1-… · -F045-1-… · -M071-1-…
+        sosa:Stimulus · prov:Entity
+        3 andere immissies"]
+        C72["ex:eventcollectie-M072-2-20260929T050100Z
+        sosa:ObservationCollection"]
+        OSEL["ex:obs-M072-2-20260929T050100Z-SEL
+        sosa:Observation (en LAeq, LAmax, duur)"]
+        RSEL["ex:resultaat-M072-2-20260929T050100Z-SEL
+        qudt:QuantityValue · 74.83 unit:DeciB_A"]
+        T72["ex:interval-M072-2-20260929T050100Z
+        time:Interval 07:01:00 → 07:02:19"]
+    end
+end
+
+V1 -->|prov:used| L1
+E1 -->|prov:wasGeneratedBy| V1
+VP -->|prov:used| E1
+I72 -->|prov:wasGeneratedBy| VP
+I72 -->|prov:wasDerivedFrom| E1
+I72 -->|prov:qualifiedDerivation| D1
+D1 -->|prov:entity| E1
+D1 -->|prov:hadActivity| VP
+IX -->|prov:wasDerivedFrom| E1
+IX -->|sosa:isDetectedBy| GX
+I72 -->|sosa:isDetectedBy| G72
+I72 -->|prov:atLocation| M72
+M72 -->|sosa:isSampleOf| O1
+M72 -->|sosa:hosts| G72
+G72 -->|sosa:implements| P1
+C72 -->|sosa:wasOriginatedBy| I72
+C72 -->|sosa:hasFeatureOfInterest| M72
+C72 -->|sosa:madeBySensor| G72
+C72 -->|sosa:usedProcedure| P1
+C72 -->|sosa:hasMember| OSEL
+C72 -->|sosa:phenomenonTime| T72
+OSEL -->|sosa:observedProperty| PS
+OSEL -->|sosa:hasResult| RSEL
+
+style PROC fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style WAAR fill:#e7a3be,stroke:#2E5C8A,color:#000
+style BRON fill:#f8e1ad,stroke:#2E5C8A,color:#000
+style VERSPREIDING fill:#f8e1ad,stroke:#2E5C8A,color:#000
+style ONTVANGER fill:#f8e1ad,stroke:#2E5C8A,color:#000
+style P1 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style PS fill:#fe7130,stroke:#2E5C8A,color:#000
+style O1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style M72 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style G72 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style GX fill:#60c4e4,stroke:#2E5C8A,color:#000
+style V1 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style L1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style E1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style VP fill:#e54b89,stroke:#2E5C8A,color:#fff
+style D1 fill:#f8b622,stroke:#2E5C8A,color:#000
+style I72 fill:#f8b622,stroke:#2E5C8A,color:#000
+style IX fill:#f8b622,stroke:#2E5C8A,color:#000
+style C72 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OSEL fill:#e54b89,stroke:#2E5C8A,color:#fff
+style RSEL fill:#f8b622,stroke:#2E5C8A,color:#000
+style T72 fill:#f8b622,stroke:#2E5C8A,color:#000

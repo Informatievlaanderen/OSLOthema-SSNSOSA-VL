@@ -62,7 +62,8 @@ Bestaande datavoorbeelden:
 - `verkeersmetingen/` — plat model met SpatialSample, time:Interval en afgeleide dagsom; incl. opdracht.md
 - `geluidsmeetnet/` — geluidsevents en dagindicatoren rond Brussels Airport (Aerovision-CSV's, gescript);
   alle campagnes als `.trig`, één campagne als `.ttl`-validatiesubset; `alternatief/` modelleert het
-  geluidsevent als emissie (alternatieve mapping naast het hoofdmodel)
+  geluidsevent als emissie (alternatieve mapping naast het hoofdmodel); `keten/` verbindt beide voor
+  één vlucht (patroon emissie en immissie: emissie aan de bron, events als immissie afgeleid)
 - `r-factor/` — neerslagerosiviteit (RUSLE R-factor) van 53 KMI/VMM-stations, jaar-, maand- en
   15-daagse waarden; grote dataset als `.trig` met `.ttl`-subset, skolem-IRI's (R-script)
 - `waterkwaliteit/` — VMM-meetresultaten (concentraties, vrachten, debieten) met CSOR-codelijsten,

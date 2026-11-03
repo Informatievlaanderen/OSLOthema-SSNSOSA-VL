@@ -39,6 +39,9 @@ van een hoogspanningslijn ([ELF-meetnet](../casussen/elf.md)) is er altijd, en d
 elke minuut: niets veroorzaakt een meting. Houd bron en plaats toch gescheiden, via de bemonsterde
 omgeving van de bron ([Ruimtelijk monster](ruimtelijk-monster.md#een-monster-van-wat)).
 
+**De stimulus is de immissie bij de sensor.** De keten die er vanaf de bron naartoe leidt, staat in
+[Emissie en immissie](emissie-immissie.md).
+
 **Vergelijk** met [Emissie als studieobject](emissie.md): daar is de gebeurtenis zelf het
 studieobject. In dit project bestaan beide lezingen van de geluidsdata naast elkaar.
 
