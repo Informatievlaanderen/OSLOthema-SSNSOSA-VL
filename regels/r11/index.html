@@ -3898,7 +3898,7 @@ geen <code>isSampleOf</code> geeft, verliest waarom het gemeten werd.</p>
 <p><a href="../../patronen/ruimtelijk-monster/">Ruimtelijk monster</a> · <a href="../../modelleren/plaats/">Waar?</a></p>
 <details class="quote">
 <summary>Normatieve tekst (modelleergids, Engels)</summary>
-<p><em>R11 — SpatialSample and GeoSPARQL</em> — uit <a href="https://github.com/milieuinfo/oslo-ld-kit/blob/main/guide/ssn-sosa.md"><code>guide/ssn-sosa.md</code></a>, kit 0.3.9</p>
+<p><em>R11 — SpatialSample and GeoSPARQL</em> — uit <a href="https://github.com/milieuinfo/oslo-ld-kit/blob/main/guide/ssn-sosa.md"><code>guide/ssn-sosa.md</code></a>, kit 0.3.10</p>
 <p>When a measuring point is a spatial sub-sample of a larger object of study (route, water body,
 municipality):
 - type it <code>sosa:Platform</code>, <code>sosa:FeatureOfInterest</code> and <code>sosa:SpatialSample</code>;
@@ -3916,6 +3916,15 @@ GeoSPARQL feature that can be queried spatially. Two resources at the same place
 <code>geo:Geometry</code> IRI. <code>prov:atLocation</code> (range <code>prov:Location</code>) is not wrong, but it is the choice
 when the position is given by an address or a description, or by another resource that is a place
 in its own right, rather than by coordinates.</p>
+<p>The two combine: <code>prov:atLocation</code> to the address as the source gives it, and <code>geo:hasGeometry</code> to a
+point derived from it. Two cautions. A geocoded address position is the position of the address, not
+of the sensor; where the value depends strongly on distance (a field, a noise level), say how the point
+was obtained (a comment, or <code>prov:wasDerivedFrom</code> the address) and replace it by a measured position
+when there is one. And put the CRS IRI at the start of a <code>geo:wktLiteral</code> when the coordinates are not
+longitude and latitude in CRS84, e.g.
+<code>"&lt;http://www.opengis.net/def/crs/EPSG/0/31370&gt; POINT(81177 208128)"^^geo:wktLiteral</code> (Lambert 72).
+A measuring location at someone's home is personal data: publish a generalised geometry if needed,
+and use fictitious positions in examples built from pseudonymised data.</p>
 </details>
 
 

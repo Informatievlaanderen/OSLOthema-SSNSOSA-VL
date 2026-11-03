@@ -2345,6 +2345,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#een-monster-van-wat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Een monster van wat?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#varianten" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3790,6 +3801,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#een-monster-van-wat" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Een monster van wat?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#varianten" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3854,23 +3876,128 @@ Het studieobject van de collectie is het meetpunt, niet het gebied (<a href="../
 <li>Het <strong>uiteindelijke studieobject</strong> (de route, de waterloop) is vaak een resource uit een register
   (de VHA), waarnaar de data verwijst zonder ze te beschrijven.</li>
 </ul>
+<h2 id="een-monster-van-wat">Een monster van wat?<a class="headerlink" href="#een-monster-van-wat" title="Permanent link">&para;</a></h2>
+<p>Het bemonsterde studieobject is het object waarvan het meetpunt de eigenschap schat, niet wat die
+eigenschap veroorzaakt. Vraag je dus af of de gemeten eigenschap bij het grotere object hoort:</p>
+<table>
+<thead>
+<tr>
+<th>Casus</th>
+<th>Gemeten eigenschap</th>
+<th>Monster van</th>
+<th>Waarom</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="../../casussen/verkeersmetingen/">verkeersmetingen</a></td>
+<td>fietsers per uur</td>
+<td>de fietsroute</td>
+<td>de intensiteit is een eigenschap van de route, ongeveer gelijk langs een stuk tussen twee kruispunten</td>
+</tr>
+<tr>
+<td><a href="../../casussen/geluidsmeetnet/">geluidsmeetnet</a></td>
+<td>geluidsniveau van vliegtuigen</td>
+<td>de omgeving van de luchthaven</td>
+<td>het niveau is een eigenschap van de plaats, veroorzaakt door vluchten, niet van de startbaan</td>
+</tr>
+<tr>
+<td><a href="../../casussen/elf/">ELF-meetnet</a></td>
+<td>magnetische fluxdichtheid</td>
+<td>de omgeving van een hoogspanningsverbinding of -station</td>
+<td>het veld hangt af van de afstand tot de geleiders en is geen eigenschap van de lijn</td>
+</tr>
+</tbody>
+</table>
+<p>Wordt de eigenschap veroorzaakt door een bron (immissie, blootstelling), dan is het meetpunt een
+monster van de <strong>omgeving</strong> van die bron. De bron is dan een studieobject op zich, met eigen
+eigenschappen. Voor een hoogspanningslijn is dat de stroombelasting, en die <em>is</em> wel gelijk langs een
+stuk verbinding. Het veld langs de hele lijn is het werk van een rekenmodel; de metingen toetsen het
+lokaal. De omgeving verwijst naar de bron, bv. met <code>prov:wasInfluencedBy</code>. Dat werkt voor een lijn
+en voor een puntbron (een station) op dezelfde manier. Een meetcampagne (<code>sosa:Deployment</code>) noemt de
+omgeving als <code>sosa:hasUltimateFeatureOfInterest</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nn">ex</span><span class="p">:</span><span class="nt">verbinding-</span><span class="err">…</span> <span class="kt">a</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">FeatureOfInterest</span> <span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasProperty</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">prop-stroombelasting</span> <span class="p">.</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="nn">ex</span><span class="p">:</span><span class="nt">omgeving-verbinding-</span><span class="err">…</span> <span class="kt">a</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">FeatureOfInterest</span> <span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="nn">prov</span><span class="p">:</span><span class="nt">wasInfluencedBy</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">verbinding-</span><span class="err">…</span> <span class="p">.</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="nn">ex</span><span class="p">:</span><span class="nt">meetlocatie-</span><span class="err">…</span> <span class="kt">a</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">Platform</span> <span class="p">,</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">FeatureOfInterest</span> <span class="p">,</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">SpatialSample</span> <span class="p">;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    <span class="nn">sosa</span><span class="p">:</span><span class="nt">isSampleOf</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">omgeving-verbinding-</span><span class="err">…</span> <span class="p">;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="nn">prov</span><span class="p">:</span><span class="nt">atLocation</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">adres-</span><span class="err">…</span> <span class="p">;</span>                 <span class="c"># zoals de registratie het geeft</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="nn">geo</span><span class="p">:</span><span class="nt">hasGeometry</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">geom-</span><span class="err">…</span> <span class="p">.</span>                  <span class="c"># gegeocodeerd of gemeten, zie R11</span>
+</code></pre></div>
+<p><strong>Adres en geometrie samen.</strong> <code>prov:atLocation</code> naar het adres en <code>geo:hasGeometry</code> naar een punt
+gaan samen (<a href="../../regels/r11/">R11</a>). Wees voorzichtig met geocodering: de adrespositie is de positie
+van het adres, niet van de sensor. Bij een waarde die sterk van de afstand afhangt, zoals een veld of
+een geluidsniveau, vermeld je hoe het punt bepaald is. Een gemeten positie vervangt het zodra die er
+is. Zet de CRS-IRI vooraan in de <code>geo:wktLiteral</code> als de coördinaten niet in CRS84 staan, bv.
+<code>"&lt;http://www.opengis.net/def/crs/EPSG/0/31370&gt; POINT(81177 208128)"^^geo:wktLiteral</code> (Lambert 72).
+Een meetlocatie bij iemand thuis is een persoonsgegeven: publiceer zo nodig een veralgemeende
+geometrie.</p>
 <h2 id="varianten">Varianten<a class="headerlink" href="#varianten" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Een <strong>rastercel</strong> als ruimtelijk monster van een gewest (<a href="../../casussen/pgd/">PGD</a>).</li>
 <li>Een <strong>meetpost</strong> voor de omgeving van een luchthaven (<a href="../../casussen/geluidsmeetnet/">geluidsmeetnet</a>).</li>
+<li>Een <strong>meetlocatie</strong> voor de omgeving van een hoogspanningsverbinding of -station, met adres en
+  geometrie (<a href="../../casussen/elf/">ELF-meetnet</a>).</li>
 <li>Het meetpunt als <strong>resultaat van een ruimtelijke bemonstering</strong> (<code>sosa:Sampling</code>): de keuze van
   de plaats op de route (<a href="../../casussen/verkeersmetingen/">verkeersmetingen</a>).</li>
 </ul>
 <h2 id="gebruikt-in">Gebruikt in<a class="headerlink" href="#gebruikt-in" title="Permanent link">&para;</a></h2>
 <p><a href="../../casussen/verkeersmetingen/">verkeersmetingen</a> · <a href="../../casussen/waterkwaliteit/">waterkwaliteit</a>
 (meetplaats oppervlaktewater) · <a href="../../casussen/geluidsmeetnet/">geluidsmeetnet</a> ·
-<a href="../../casussen/pgd/">PGD</a></p>
+<a href="../../casussen/pgd/">PGD</a> · <a href="../../casussen/elf/">ELF-meetnet</a></p>
 <details class="quote">
 <summary>Normatieve tekst (modelleergids, Engels)</summary>
 <p><em>Spatial sample</em> — uit <a href="https://github.com/milieuinfo/oslo-ld-kit/blob/main/guide/patterns.md"><code>guide/patterns.md</code></a></p>
 <p>A measuring point that stands for a larger area is a <code>sosa:Platform</code>, <code>sosa:FeatureOfInterest</code> and
 <code>sosa:SpatialSample</code>, <code>sosa:isSampleOf</code> the area, with a geometry (R11). The collection's feature of
 interest is the point, not the area.</p>
+<p><strong>A sample of what?</strong> The sampled feature is the one whose property the point estimates, not the
+thing that causes it. Ask whether the observed property belongs to the larger feature:</p>
+<table>
+<thead>
+<tr>
+<th>Example</th>
+<th>Observed property</th>
+<th>Sample of</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>verkeersmetingen</td>
+<td>cyclists per hour</td>
+<td>the route</td>
+<td>the flow is a property of the route and is about the same along a stretch between junctions</td>
+</tr>
+<tr>
+<td>geluidsmeetnet</td>
+<td>aircraft noise level</td>
+<td>the surroundings of the airport</td>
+<td>the level is a property of the place, caused by flights; not of the runway</td>
+</tr>
+<tr>
+<td>elf</td>
+<td>magnetic flux density</td>
+<td>the surroundings of a power line or substation</td>
+<td>the field depends on the distance to the conductors and is not a property of the line</td>
+</tr>
+</tbody>
+</table>
+<p>When the property is caused by a source (immission, exposure), the point is a sample of the
+<em>surroundings</em> of the source, and the source is a feature of interest of its own, with its own
+properties (for a power line: the current, which <em>is</em> the same along a stretch). Link the two, e.g.
+<code>ex:surroundings prov:wasInfluencedBy ex:power-line</code>. This works for a line and for a point source
+(a substation) alike. A deployment states the surroundings as <code>sosa:hasUltimateFeatureOfInterest</code>.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nn">ex</span><span class="p">:</span><span class="nt">power-line-</span><span class="err">…</span> <span class="kt">a</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">FeatureOfInterest</span> <span class="p">;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>    <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasProperty</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">prop-current</span> <span class="p">.</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nn">ex</span><span class="p">:</span><span class="nt">surroundings-power-line-</span><span class="err">…</span> <span class="kt">a</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">FeatureOfInterest</span> <span class="p">;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    <span class="nn">prov</span><span class="p">:</span><span class="nt">wasInfluencedBy</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">power-line-</span><span class="err">…</span> <span class="p">.</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="nn">ex</span><span class="p">:</span><span class="nt">measuring-location-</span><span class="err">…</span> <span class="kt">a</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">Platform</span> <span class="p">,</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">FeatureOfInterest</span> <span class="p">,</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">SpatialSample</span> <span class="p">;</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>    <span class="nn">sosa</span><span class="p">:</span><span class="nt">isSampleOf</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">surroundings-power-line-</span><span class="err">…</span> <span class="p">;</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    <span class="nn">prov</span><span class="p">:</span><span class="nt">atLocation</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">address-</span><span class="err">…</span> <span class="p">;</span>                  <span class="c"># as the registration gives it</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    <span class="nn">geo</span><span class="p">:</span><span class="nt">hasGeometry</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">geom-</span><span class="err">…</span> <span class="p">.</span>                     <span class="c"># geocoded or measured, see R11</span>
+</code></pre></div>
 </details>
 
 

@@ -2362,6 +2362,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#statistieken-per-periode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statistieken per periode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#waarom-het-samenhangt-met-de-kernvocabularia" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3779,6 +3790,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#statistieken-per-periode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statistieken per periode
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#waarom-het-samenhangt-met-de-kernvocabularia" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3848,6 +3870,28 @@ van de bronnen; alle verplichte eigenschappen expliciet (<a href="../../regels/r
 </code></pre></div>
 <p>Lden is hier een afgeleide van afgeleiden: Ld, Le en Ln zijn zelf berekend uit de events van de
 dag.</p>
+<h2 id="statistieken-per-periode">Statistieken per periode<a class="headerlink" href="#statistieken-per-periode" title="Permanent link">&para;</a></h2>
+<p>Minimum, maximum en gemiddelde per uur, dag of jaar vormen ook zo'n keten: uurindicatoren uit de
+ruwe waarden, dagindicatoren uit de uurindicatoren (<a href="../../casussen/elf/">ELF-meetnet</a>).</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nn">ex</span><span class="p">:</span><span class="nt">obs-ELF_C_0020-20251127-maximum</span> <span class="kt">a</span> <span class="nn">sosa</span><span class="p">:</span><span class="nt">Observation</span> <span class="p">;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    <span class="nn">sosa</span><span class="p">:</span><span class="nt">usedProcedure</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">procedure-maximum</span> <span class="p">;</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="nn">sosa</span><span class="p">:</span><span class="nt">observedProperty</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">prop-RMStotal</span> <span class="p">;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    <span class="nn">sosa</span><span class="p">:</span><span class="nt">phenomenonTime</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">interval-ELF_C_0020-20251127</span> <span class="p">;</span>          <span class="c"># de lokale dag</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasInputValue</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">result-ELF_C_0020-20251127T00-maximum</span> <span class="p">,</span>  <span class="c"># de 24 uurmaxima</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        <span class="nn">ex</span><span class="p">:</span><span class="nt">result-ELF_C_0020-20251127T01-maximum</span> <span class="p">;</span>                 <span class="c"># …</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="nn">sosa</span><span class="p">:</span><span class="nt">relatedObservation</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">obs-ELF_C_0020-20251127T00-maximum</span> <span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>    <span class="nn">sosa</span><span class="p">:</span><span class="nt">hasResult</span> <span class="nn">ex</span><span class="p">:</span><span class="nt">result-ELF_C_0020-20251127-maximum</span> <span class="p">.</span>
+</code></pre></div>
+<ul>
+<li><strong>Minimum en maximum</strong> gaan exact over: het maximum van de uurmaxima is het dagmaximum.</li>
+<li><strong>Een gemiddelde van uurgemiddelden</strong> weegt elk uur even zwaar, ook als er ruwe waarden ontbreken
+  binnen een uur: een tijdgewogen gemiddelde. Een gemiddelde over alle ruwe waarden van de dag doet dat
+  niet. Zeg in de procedure welk van de twee het is.</li>
+<li><strong>De statistiek zit in de procedure, de periode in <code>sosa:phenomenonTime</code>.</strong> De waargenomen
+  eigenschap blijft dezelfde, zoals bij de dagsom van de <a href="../../casussen/verkeersmetingen/">verkeersmetingen</a>.
+  Een eigen eigenschap krijgt een indicator pas wanneer een norm hem een eigen naam en definitie geeft
+  (Lden).</li>
+</ul>
 <h2 id="waarom-het-samenhangt-met-de-kernvocabularia">Waarom het samenhangt met de kernvocabularia<a class="headerlink" href="#waarom-het-samenhangt-met-de-kernvocabularia" title="Permanent link">&para;</a></h2>
 <p><code>sosa:hasInputValue ⊂ prov:used</code> en <code>sosa:hasResult ⊂ prov:generated</code>: de berekening is een
 PROV-keten <em>activiteit genereert entiteit, die door de volgende activiteit gebruikt wordt</em>. Een
@@ -3858,6 +3902,8 @@ waarneming als inputwaarde zou een activiteit tot entiteit maken: inconsistent
 <li><a href="../../casussen/verkeersmetingen/">Verkeersmetingen</a>: dagsom uit 24 uurtellingen.</li>
 <li><a href="../../casussen/geluidsmeetnet/">Geluidsmeetnet</a>: dagindicatoren uit events, Lden uit Ld, Le, Ln
   (nagerekend voor alle 13 campagnes).</li>
+<li><a href="../../casussen/elf/">ELF-meetnet</a>: uurminimum, -maximum en -gemiddelde uit minuutwaarden,
+  dagindicatoren uit de uurindicatoren.</li>
 <li><a href="../../casussen/paleo/">Paleoklimaat</a>: CO₂-concentratie op een leeftijd, uit twee waarnemingen.</li>
 <li><a href="../../casussen/waterkwaliteit/">Waterkwaliteit</a>: vrachten uit concentratie en debiet.</li>
 <li><a href="../../casussen/pgd/">Geschiktheidskaart PGD</a>: kansrijkheid uit drie factorscores.</li>
@@ -3870,6 +3916,13 @@ waarneming als inputwaarde zou een activiteit tot entiteit maken: inconsistent
 <p><code>sosa:hasInputValue</code> to the source <em>results</em>, <code>sosa:relatedObservation</code> to the source
 <em>observations</em>; not a member of the source collection; all required properties stated explicitly
 (R7, R13). Chains are allowed: Lden is derived from Ld, Le and Ln, themselves derived.</p>
+<p><strong>Statistics over periods</strong> (minimum, maximum, mean per hour, day, year) form such a chain: hourly
+indicators from the raw values, daily ones from the hourly ones (<code>elf/</code>). Minimum and maximum carry
+over exactly. A mean of hourly means weighs every hour equally, also when raw values are missing
+within an hour (a time-weighted mean); a mean of all raw values over the day does not. Say which in
+the procedure. The statistic belongs in the procedure and the period in <code>sosa:phenomenonTime</code>; the
+observed property stays the same, unless the indicator has a name and a definition of its own in a
+standard (Lden).</p>
 </details>
 
 
