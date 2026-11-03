@@ -178,11 +178,13 @@ nav:
       - RIE-IEPR: casussen/riepr.md
       - VLAREM-rubrieken: casussen/vlarem.md
       - BRDR: casussen/brdr.md
+      - ELF-meetnet: casussen/elf.md
   - VIII. Oefenen:
       - oefenen/index.md
       - Erosiepoel: oefenen/erosiepoel.md
       - Temperatuur en raam: oefenen/temperatuur-raam.md
       - Verkeersmetingen: oefenen/verkeersmetingen.md
+      - ELF-meetnet: oefenen/elf.md
   - Bijlagen:
       - Woordenlijst: bijlagen/woordenlijst.md
       - Prefixen: bijlagen/prefixen.md

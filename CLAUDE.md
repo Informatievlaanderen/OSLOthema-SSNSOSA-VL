@@ -96,6 +96,10 @@ Bestaande datavoorbeelden:
   `p-plan:Activity`, evaluatie en vergelijking als observaties van brdr, en de selectie als
   `sosa:Actuation` op de afbakening; versies van geometrieën en referentielaag met `prov:wasRevisionOf`; `alternatief/` volgt de lezing van brdr
   zelf (elke alignering een `sosa:Actuation`, het perceel als studieobject van de bedekking)
+- `elf/` — laagfrequente magnetische velden (ELF-nodes via ThingsBoard, campagnes uit Jira): plat
+  met een `sosa:Deployment` per meetcampagne, de meetlocatie als Platform+FOI met adres, geneste
+  collecties (uur, bericht), zeven eigenschappen in µT (aanname) en een afgeleid uurgemiddelde;
+  gescript (parquet), één dag als `.trig`, één uur als `.ttl`; incl. opdracht.md
 
 ---
 

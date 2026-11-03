@@ -1,6 +1,6 @@
 # VIII. Oefenen
 
-Modelleren leer je door te modelleren. Drie oefeningen, elk bij een casus die als
+Modelleren leer je door te modelleren. Vier oefeningen, elk bij een casus die als
 referentieoplossing dient. Ze zijn gemaakt voor een workshop van ongeveer een uur, in vier stappen:
 
 | Stap | Vorm | Duur | Wat |
@@ -17,6 +17,7 @@ referentieoplossing dient. Ze zijn gemaakt voor een workshop van ongeveer een uu
 | [Erosiepoel](erosiepoel.md) | instap | het skelet van een waarneming, een mens als sensor, een collectie, een resultaat met eenheid | [casus](../casussen/erosiepoel.md) |
 | [Verkeersmetingen](verkeersmetingen.md) | gevorderd | ruimtelijk monster, intervallen, een afgeleide dagsom | [casus](../casussen/verkeersmetingen.md) |
 | [Temperatuur en raam](temperatuur-raam.md) | gevorderd | het drielaagse model: plan, stappen, variabele, actuatie | [casus](../casussen/temperatuur-raam.md) |
+| [ELF-meetnet](elf.md) | gevorderd | inzet van een meter, geneste collecties, een ontbrekende eenheid, geen waarneming van de apparaatstatus | [casus](../casussen/elf.md) |
 
 ## Voor lesgevers
 

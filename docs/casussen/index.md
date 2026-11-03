@@ -1,6 +1,6 @@
 # VII. Casussen
 
-Zestien uitgewerkte voorbeelden uit Vlaamse domeinen. Elke casus toont de vraag, de keuzes, de
+Zeventien uitgewerkte voorbeelden uit Vlaamse domeinen. Elke casus toont de vraag, de keuzes, de
 valkuilen en de alignments die ze gebruikt, met het diagram en de Turtle rechtstreeks uit de
 repository. De volledige README en bespreking staan op GitHub; de casuspagina is de leeswijzer
 erbij.
@@ -32,6 +32,7 @@ Daarna, naar interesse:
 | [RIE-IEPR](riepr.md) | een productiemodel en zijn ontologie herzien: drielaags, SSN-termen van vóór 2023, een berekende vracht |
 | [VLAREM-rubrieken](vlarem.md) | QUDT en SKOS buiten SSN/SOSA: een norm is geen waarneming |
 | [BRDR](brdr.md) | een provenance-log herzien: waar SOSA past en waar PROV-O volstaat; versies van geometrieën |
+| [ELF-meetnet](elf.md) | IoT-telemetrie: meetcampagnes als inzet, geneste collecties, een eenheid die de bron niet geeft |
 
 ## Matrix
 
@@ -53,3 +54,4 @@ Daarna, naar interesse:
 | [riepr](riepr.md) | drielaags | emissie, afgeleide | R3, R4, R7, R13, R14, R16, R18 | P-PLAN, PROV, QUDT, register–QUDT | herziening (data en ontologie) | ✔ |
 | [vlarem](vlarem.md) | geen SOSA | — | R3, R15, R17 | QUDT | herziening, alternatief | |
 | [brdr](brdr.md) | drielaags | afgeleide | R3, R5, R7, R13, R14, R16, R18 | P-PLAN, PROV, QUDT, GeoSPARQL | herziening, alternatief | |
+| [elf](elf.md) | plat | afgeleide | R1, R3, R10, R12, R13, R16 | PROV, QUDT, Time | — | ✔ |

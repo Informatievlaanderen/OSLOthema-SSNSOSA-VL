@@ -1,0 +1,125 @@
+flowchart LR
+
+subgraph PROC["PROCEDURE"]
+    P1["ex:procedure-elf-meting
+    sosa:ObservingProcedure"]
+    P2["ex:procedure-uurgemiddelde
+    sosa:ObservingProcedure"]
+    PR["ex:prop-RMStotal
+    sosa:Property
+    quantitykind:MagneticFluxDensity"]
+    PX["ex:prop-Xpeak_low … ex:prop-Zpeak_high
+    6 × sosa:Property"]
+end
+
+subgraph INFRA["INFRASTRUCTUUR"]
+    S20["ex:sensor-ELF_C_0020
+    sosa:Sensor"]
+    S25["ex:sensor-ELF_C_0025
+    sosa:Sensor"]
+    SC["ex:conversiescript
+    sosa:Sensor · software"]
+    L1["ex:meetlocatie-6839-obscurionweg-91
+    sosa:Platform · sosa:FeatureOfInterest"]
+    A1["ex:adres-6839-obscurionweg-91
+    prov:Location
+    Obscurionweg 91, 6839 Duisterwijk"]
+    L2["ex:meetlocatie-7135-mordredkaai-203
+    sosa:Platform · sosa:FeatureOfInterest"]
+    D269["ex:meetcampagne-SENS-269
+    sosa:Deployment
+    26/11/2025 → 26/01/2026"]
+    D270["ex:meetcampagne-SENS-270
+    sosa:Deployment
+    26/11/2025 → 26/01/2026"]
+    D229["ex:meetcampagne-SENS-229
+    sosa:Deployment
+    28/04/2025 → 10/09/2025"]
+end
+
+subgraph WAAR["WAARNEMING — 27/11/2025, 10:00–11:00"]
+    CU["ex:collectie-ELF_C_0020-20251127T10
+    sosa:ObservationCollection
+    60 meetmomenten"]
+    CM["ex:meting-ELF_C_0020-20251127T090049427Z
+    sosa:ObservationCollection
+    resultTime 2025-11-27T09:00:49.427Z"]
+    OR["ex:obs-…-090049427Z-RMStotal
+    sosa:Observation"]
+    OX["ex:obs-…-090049427Z-Xpeak_low … -Zpeak_high
+    6 × sosa:Observation"]
+    RR["ex:result-…-090049427Z-RMStotal
+    qudt:QuantityValue
+    0.68249 unit:MicroT"]
+    RX["ex:result-…-Xpeak_low … -Zpeak_high
+    6 × qudt:QuantityValue (unit:MicroT)"]
+    RA["ex:result-… 59 andere RMStotal-resultaten"]
+    OG["ex:obs-ELF_C_0020-20251127T10-uurgemiddelde
+    sosa:Observation"]
+    RG["ex:result-ELF_C_0020-20251127T10-uurgemiddelde
+    qudt:QuantityValue
+    0.67729 unit:MicroT"]
+    TG["ex:interval-ELF_C_0020-20251127T10-uurgemiddelde
+    time:Interval
+    10:00+01:00 → 11:00+01:00"]
+end
+
+S20 -->|sosa:implements| P1
+SC -->|sosa:implements| P2
+P1 -->|sosa:hasOutput| PR
+P1 -->|sosa:hasOutput| PX
+P2 -->|sosa:hasInput| PR
+S20 -->|sosa:observes| PR
+L1 -->|prov:atLocation| A1
+L1 -->|sosa:hasProperty| PR
+D269 -->|sosa:deployedSystem| S20
+D269 -->|sosa:deployedOnPlatform| L1
+D270 -->|sosa:deployedSystem| S25
+D270 -->|sosa:deployedOnPlatform| L1
+D229 -->|sosa:deployedSystem| S25
+D229 -->|sosa:deployedOnPlatform| L2
+CU -->|sosa:madeBySensor| S20
+CU -->|sosa:usedProcedure| P1
+CU -->|sosa:hasFeatureOfInterest| L1
+CU -->|sosa:hasMember| CM
+CM -->|sosa:hasMember| OR
+CM -->|sosa:hasMember| OX
+OR -->|sosa:observedProperty| PR
+OR -->|sosa:hasResult| RR
+OX -->|sosa:hasResult| RX
+OG -->|sosa:madeBySensor| SC
+OG -->|sosa:usedProcedure| P2
+OG -->|sosa:observedProperty| PR
+OG -->|sosa:hasFeatureOfInterest| L1
+OG -->|sosa:hasInputValue| RR
+OG -->|sosa:hasInputValue| RA
+OG -->|sosa:relatedObservation| OR
+OG -->|sosa:hasResult| RG
+OG -->|sosa:phenomenonTime| TG
+
+style PROC fill:#b8a2d4,stroke:#2E5C8A,color:#000
+style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+style WAAR fill:#e7a3be,stroke:#2E5C8A,color:#000
+style P1 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style P2 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+style PR fill:#fe7130,stroke:#2E5C8A,color:#000
+style PX fill:#fe7130,stroke:#2E5C8A,color:#000
+style S20 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style S25 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style SC fill:#60c4e4,stroke:#2E5C8A,color:#000
+style L1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style A1 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style L2 fill:#60c4e4,stroke:#2E5C8A,color:#000
+style D269 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style D270 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style D229 fill:#e54b89,stroke:#2E5C8A,color:#fff
+style CU fill:#e54b89,stroke:#2E5C8A,color:#fff
+style CM fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OR fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OX fill:#e54b89,stroke:#2E5C8A,color:#fff
+style OG fill:#e54b89,stroke:#2E5C8A,color:#fff
+style RR fill:#f8b622,stroke:#2E5C8A,color:#000
+style RX fill:#f8b622,stroke:#2E5C8A,color:#000
+style RA fill:#f8b622,stroke:#2E5C8A,color:#000
+style RG fill:#f8b622,stroke:#2E5C8A,color:#000
+style TG fill:#f8b622,stroke:#2E5C8A,color:#000
