@@ -3934,11 +3934,12 @@
 <h1 id="modelleeroefening-elf-meetnet">Modelleeroefening: ELF-meetnet<a class="headerlink" href="#modelleeroefening-elf-meetnet" title="Permanent link">&para;</a></h1>
 <h2 id="use-case">Use case<a class="headerlink" href="#use-case" title="Permanent link">&para;</a></h2>
 <h3 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h3>
-<p>Een overheidsdienst meet het laagfrequente magnetische veld (ELF, <em>extremely low frequency</em>) op
-adressen in Vlaanderen, bijvoorbeeld bij een woning naast een elektrische installatie. Een draagbare
-meter wordt voor enkele weken of maanden op een adres geplaatst en stuurt elke minuut zijn
-meetwaarden naar een IoT-platform. Elke plaatsing wordt geregistreerd als ticket, met de meter, het
-adres en de periode.</p>
+<p>De Vlaamse overheid meet de blootstelling van burgers aan het laagfrequente magnetische veld (ELF,
+<em>extremely low frequency</em>) van hoogspanningsverbindingen en -stations. Een meter wordt voor enkele
+weken of maanden op een adres in de buurt van een verbinding of station geplaatst en stuurt elke
+minuut zijn meetwaarden naar een IoT-platform. Elke plaatsing wordt geregistreerd als ticket, met de
+meter, het adres en de periode. Een publieke webapp toont per meter onder meer het minimum, het
+maximum en het gemiddelde per dag.</p>
 <h3 id="beschrijving-van-het-systeem">Beschrijving van het systeem<a class="headerlink" href="#beschrijving-van-het-systeem" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -3949,6 +3950,10 @@ adres en de periode.</p>
 </thead>
 <tbody>
 <tr>
+<td>Bron</td>
+<td>een 150 kV-verbinding bij Duisterwijk</td>
+</tr>
+<tr>
 <td>Meter <code>ELF_C_0020</code></td>
 <td>driedimensionale magnetometer; stuurt elke minuut een bericht met zeven waarden</td>
 </tr>
@@ -3958,7 +3963,7 @@ adres en de periode.</p>
 </tr>
 <tr>
 <td>Adres</td>
-<td>Obscurionweg 91, 6839 Duisterwijk (geen coördinaten gekend)</td>
+<td>Obscurionweg 91, 6839 Duisterwijk; geocodering geeft het punt (81177, 208128) in Lambert 72</td>
 </tr>
 <tr>
 <td>Ticket SENS-269</td>
@@ -4023,8 +4028,8 @@ adres en de periode.</p>
 </tbody>
 </table>
 <p>Elk bericht bevat daarnaast statusvelden, bv. <code>active = true</code> en <code>inactivityTimeout = 600000</code>.</p>
-<p>Gevraagd: de drie berichten en het <strong>uurgemiddelde</strong> van RMStotal tussen 10:00 en 11:00 lokale tijd
-(0.67729 µT, berekend uit 60 berichten).</p>
+<p>Gevraagd: de drie berichten en de <strong>uurindicatoren</strong> van RMStotal tussen 10:00 en 11:00 lokale tijd,
+berekend uit 60 berichten: minimum 0.58806 µT, maximum 0.77332 µT, gemiddelde 0.67729 µT.</p>
 <hr />
 <h2 id="stap-1-identificeer-de-sosa-concepten">Stap 1 — Identificeer de SOSA-concepten<a class="headerlink" href="#stap-1-identificeer-de-sosa-concepten" title="Permanent link">&para;</a></h2>
 <p><em>Individueel — 10 minuten</em></p>
@@ -4037,11 +4042,15 @@ adres en de periode.</p>
 </thead>
 <tbody>
 <tr>
-<td>Wat is het studieobject (<em>feature of interest</em>)? Het adres, de meter, of het magnetische veld?</td>
+<td>Wat is het studieobject (<em>feature of interest</em>) van de minuutwaarden: de verbinding, het adres, de meter of de plaats waar de meter staat?</td>
 <td></td>
 </tr>
 <tr>
-<td>Welke rol speelt de meter: <code>Sensor</code>, <code>Platform</code> of <code>System</code>?</td>
+<td>Welke rol(len) speelt de plaats waar de meter staat?</td>
+<td></td>
+</tr>
+<tr>
+<td>Welke rol speelt de 150 kV-verbinding, en welke eigenschap heeft zij zelf?</td>
 <td></td>
 </tr>
 <tr>
@@ -4053,15 +4062,11 @@ adres en de periode.</p>
 <td></td>
 </tr>
 <tr>
-<td>Hoeveel <code>Property</code>'s heeft één bericht, en welke <code>quantitykind</code> hebben ze?</td>
-<td></td>
-</tr>
-<tr>
 <td>Is <code>active</code> een waarneming van het studieobject?</td>
 <td></td>
 </tr>
 <tr>
-<td>Wie of wat is de sensor van het uurgemiddelde?</td>
+<td>Wie of wat is de sensor van de uurindicatoren?</td>
 <td></td>
 </tr>
 <tr>
@@ -4070,50 +4075,56 @@ adres en de periode.</p>
 </tr>
 </tbody>
 </table>
-<p>Beschikbare klassen: <code>sosa:Sensor</code>, <code>sosa:Platform</code>, <code>sosa:FeatureOfInterest</code>, <code>sosa:Deployment</code>,
-<code>sosa:Observation</code>, <code>sosa:ObservationCollection</code>, <code>sosa:ObservingProcedure</code>, <code>sosa:Property</code>,
-<code>sosa:SpatialSample</code>, <code>qudt:QuantityValue</code>, <code>time:Interval</code>, <code>time:Instant</code>, <code>prov:Location</code>.</p>
+<p>Beschikbare klassen: <code>sosa:Sensor</code>, <code>sosa:Platform</code>, <code>sosa:FeatureOfInterest</code>, <code>sosa:SpatialSample</code>,
+<code>sosa:Sampling</code>, <code>sosa:Deployment</code>, <code>sosa:Observation</code>, <code>sosa:ObservationCollection</code>,
+<code>sosa:ObservingProcedure</code>, <code>sosa:Property</code>, <code>qudt:QuantityValue</code>, <code>time:Interval</code>, <code>time:Instant</code>,
+<code>prov:Location</code>, <code>geo:Geometry</code>.</p>
 <h2 id="stap-2-schets-een-diagram">Stap 2 — Schets een diagram<a class="headerlink" href="#stap-2-schets-een-diagram" title="Permanent link">&para;</a></h2>
 <p><em>In paren — 15 minuten</em></p>
-<p>Teken drie blokken: <strong>PROCEDURE</strong>, <strong>INFRASTRUCTUUR</strong> en <strong>WAARNEMING</strong>. Zet daarin de twee meters,
-het adres, de twee tickets, één bericht met zijn observaties en het uurgemiddelde.</p>
+<p>Teken drie blokken: <strong>PROCEDURE</strong>, <strong>INFRASTRUCTUUR</strong> en <strong>WAARNEMING</strong>. Zet daarin de verbinding,
+de meetlocatie met adres en geometrie, de twee meters, de twee tickets, één bericht met zijn
+observaties en de drie uurindicatoren.</p>
 <p>Sturende vragen:
-1. Staat de meter met <code>sosa:hosts</code> op het adres, of loopt de koppeling via iets anders? Wat gaat er
-   mis met <code>sosa:hosts</code> voor <code>ELF_C_0025</code>?
-2. Wat delen de zeven waarden van één bericht, en wat delen alle berichten van een uur? Waar zet je
-   dat gedeelde?
-3. Waar wijst <code>sosa:hasInputValue</code> van het uurgemiddelde naartoe: naar de observaties, de collectie
-   of de resultaten?</p>
+1. Vergelijk met het telpunt op een fietsroute (<code>verkeersmetingen</code>) en de geluidsmeetpost bij een
+   luchthaven (<code>geluidsmeetnet</code>). Is de meetlocatie een monster van de verbinding, of van iets anders?
+2. Staat de meter met <code>sosa:hosts</code> op de meetlocatie, of loopt de koppeling via iets anders? Wat gaat
+   er mis met <code>sosa:hosts</code> voor <code>ELF_C_0025</code>?
+3. Waar wijst <code>sosa:hasInputValue</code> van een uurindicator naartoe: naar de observaties, de collectie of
+   de resultaten? En die van een dagindicator?</p>
 <h2 id="stap-3-schrijf-de-turtle">Stap 3 — Schrijf de Turtle<a class="headerlink" href="#stap-3-schrijf-de-turtle" title="Permanent link">&para;</a></h2>
 <p><em>Individueel of in groep — 20 minuten</em></p>
 <p>Basis-IRI: <code>https://example.org/elf/</code>. Minimale eisen:</p>
 <ol>
-<li>De meter <code>ELF_C_0020</code> als <code>sosa:Sensor</code> en het adres als meetlocatie, met de juiste typering.</li>
-<li>Ticket SENS-269 als <code>sosa:Deployment</code>, met systeem, platform, studieobject en begin- en
-   eindtijdstip (lokale tijd met tijdzone).</li>
+<li>De verbinding, haar omgeving en de meetlocatie als ruimtelijk monster van die omgeving, met
+   <code>prov:atLocation</code> naar het adres en <code>geo:hasGeometry</code> naar het punt (met de CRS-IRI van Lambert 72
+   in de <code>geo:wktLiteral</code>).</li>
+<li>De meter <code>ELF_C_0020</code> als <code>sosa:Sensor</code>, en ticket SENS-269 als <code>sosa:Deployment</code> met systeem,
+   platform, studieobject en begin- en eindtijdstip (lokale tijd met tijdzone).</li>
 <li>Minstens <code>ex:prop-RMStotal</code> en <code>ex:prop-Xpeak_low</code> als <code>sosa:Property</code>.</li>
 <li>Eén bericht als <code>sosa:ObservationCollection</code> met <code>sosa:resultTime</code>, en daarin minstens de
    observaties voor RMStotal en Xpeak_low.</li>
 <li>Resultaten als <code>qudt:QuantityValue</code> met <code>qudt:numericValue</code> en <code>qudt:hasUnit</code> (zoek de QUDT-eenheid
    voor microtesla op).</li>
-<li>Het uurgemiddelde als afgeleide waarneming, met <code>sosa:hasInputValue</code>,
-   <code>sosa:relatedObservation</code> en een <code>sosa:phenomenonTime</code> als <code>time:Interval</code>.</li>
+<li>Het uurmaximum als afgeleide waarneming, met <code>sosa:hasInputValue</code>, <code>sosa:relatedObservation</code> en
+   een <code>sosa:phenomenonTime</code> als <code>time:Interval</code>.</li>
 <li>Geen statusvelden als observatie.</li>
 </ol>
 <p>Valideer je bestand met <code>validate_file</code>.</p>
 <h2 id="stap-4-plenaire-bespreking">Stap 4 — Plenaire bespreking<a class="headerlink" href="#stap-4-plenaire-bespreking" title="Permanent link">&para;</a></h2>
 <p><em>Plenair — 15 minuten</em></p>
 <ol>
-<li>Het studieobject is de meetlocatie, geen ruimtelijk monster. Wat zou je extra moeten weten om er
-   een <code>sosa:SpatialSample</code> van te maken, en van welk groter object?</li>
+<li>Een telpunt staat voor een stuk fietsroute. Waarom staat een ELF-meting niet voor een stuk
+   hoogspanningslijn, en welke grootheid doet dat wel? Wat betekent dat voor het rekenmodel dat het
+   veld langs de hele lijn berekent?</li>
+<li>Het adres geeft een punt via geocodering. Hoe nauwkeurig is dat punt voor een veld dat snel afneemt
+   met de afstand? Wat leg je vast over de herkomst van de geometrie, en wat mag publiek getoond
+   worden?</li>
 <li>De bron vermeldt geen eenheid. Mag je µT aannemen? Waar documenteer je die aanname, en wat als ze
    fout blijkt?</li>
+<li>Het daggemiddelde kan je berekenen uit de minuutwaarden of uit de uurgemiddelden. Wanneer verschillen
+   die twee, en welke is het eerlijkste als er minuten ontbreken?</li>
 <li>In de data geldt <code>RMStotal = 1,2374 × √(Xpeak_low² + Ypeak_low² + Zpeak_low²)</code>. Is RMStotal dan
    een afgeleide waarneming? Wat pleit ervoor en wat ertegen?</li>
-<li>Een RMS-waarde geldt over een meetvenster. Waarom is een <code>time:Instant</code> als <code>phenomenonTime</code> dan
-   fout, en wat doe je als de duur van het venster niet gekend is?</li>
-<li>Het uurgemiddelde staat niet in de bron. Wat moet je in het model vastleggen om eerlijk te zijn
-   over de herkomst ervan?</li>
 </ol>
 <hr />
 <p><em>Referentieoplossing: <code>elf.ttl</code> en <code>elf.mmd</code></em></p>
