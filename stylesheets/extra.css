@@ -1,3 +1,214 @@
+/* ==========================================================================
+   Huisstijl Vlaamse overheid
+   --------------------------------------------------------------------------
+   Vlaanderen geel (#FFED00) als primaire kleur, #333332 als tekst erop en
+   #0055CC voor links, zoals in de huisstijl van de Vlaamse overheid.
+   De waarden staan hieronder één keer als `--vl-*`; de rest van het bestand
+   gebruikt alleen die variabelen. Wie de huisstijl wijzigt, wijzigt ze daar.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Flanders Art Sans";
+  src: url("../assets/fonts/FlandersArtSans-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Flanders Art Sans";
+  src: url("../assets/fonts/FlandersArtSans-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Flanders Art Sans";
+  src: url("../assets/fonts/FlandersArtSans-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Kleuren van de Vlaamse overheid */
+  --vl-geel: #ffed00;
+  --vl-geel-donker: #f2e100;
+  --vl-blauw: #0055cc;
+  --vl-blauw-donker: #05246c;
+  --vl-blauw-actief: #004db8;
+  --vl-blauw-licht: #e8ebee;
+  --vl-grijs-donker: #333332;
+  --vl-wit: #ffffff;
+
+  --md-text-font: "Flanders Art Sans";
+}
+
+/* De huisstijlkleuren gelden in het lichte én het donkere thema: de kop blijft
+   geel. Material zet de paletvariabelen op `body`, dus overschrijven we ze
+   daar en niet alleen op `:root`. */
+[data-md-color-scheme="default"],
+[data-md-color-scheme="slate"] {
+  /* Kop, tabbladen en titelbalk: geel met donkere tekst */
+  --md-primary-fg-color: var(--vl-geel);
+  --md-primary-fg-color--light: #fff45c;
+  --md-primary-fg-color--dark: var(--vl-geel-donker);
+  --md-primary-bg-color: var(--vl-grijs-donker);
+  --md-primary-bg-color--light: rgba(51, 51, 50, 0.7);
+}
+
+[data-md-color-scheme="default"] {
+  /* Links en andere accenten */
+  --md-accent-fg-color: var(--vl-blauw-actief);
+  --md-accent-fg-color--transparent: rgba(0, 85, 204, 0.1);
+  --md-typeset-a-color: var(--vl-blauw);
+  --md-typeset-mark-color: rgba(255, 237, 0, 0.5);
+}
+
+/* In het donkere thema is geel zelf goed leesbaar op de donkere achtergrond. */
+[data-md-color-scheme="slate"] {
+  --md-accent-fg-color: #fff45c;
+  --md-accent-fg-color--transparent: rgba(255, 237, 0, 0.1);
+  --md-typeset-a-color: var(--vl-geel);
+  --md-typeset-mark-color: rgba(255, 237, 0, 0.25);
+  --md-footer-bg-color: #1c1c1b;
+  --md-footer-bg-color--dark: #161615;
+}
+
+/* --------------------------------------------------------------------------
+   Kop en tabbladen
+   -------------------------------------------------------------------------- */
+
+/* Het logo staat direct op het geel, zoals in de kop van vlaanderen.be: van het
+   beeldmerk blijft de leeuw zichtbaar. Iets groter dan de standaard 1,2rem zodat
+   hij leesbaar blijft. */
+.md-header__button.md-logo {
+  padding: 0.2rem 0;
+  margin-left: 0.3rem;
+  margin-right: 0.1rem;
+}
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 1.7rem;
+  width: auto;
+}
+
+/* Vanaf 76,25em is er plaats voor het logo in de kop; de titel staat er dan
+   dichter bij. Op smalle schermen laat dit de titel met rust. */
+@media screen and (min-width: 76.25em) {
+  .md-header__title {
+    margin-left: 0.7rem;
+  }
+}
+
+/* Op smalle schermen neemt de menuknop de plaats links in; Material toont het
+   logo dan in de schuifmenu-kop. Daar krijgt het dezelfde hoogte als in de
+   gewone kop. */
+.md-nav__button.md-logo img,
+.md-nav__button.md-logo svg {
+  height: 1.7rem;
+  width: auto;
+}
+
+.md-tabs__item--active .md-tabs__link {
+  box-shadow: inset 0 -0.15rem 0 var(--vl-blauw-donker);
+}
+
+[data-md-color-scheme="slate"] .md-tabs__item--active .md-tabs__link {
+  box-shadow: inset 0 -0.15rem 0 var(--vl-grijs-donker);
+}
+
+/* --------------------------------------------------------------------------
+   Tekst
+   -------------------------------------------------------------------------- */
+
+.md-typeset h1 {
+  color: var(--md-default-fg-color);
+  font-weight: 700;
+  padding-bottom: 0.35rem;
+  border-bottom: 0.2rem solid var(--vl-geel);
+}
+
+.md-typeset h2 {
+  color: var(--md-default-fg-color);
+  font-weight: 700;
+  padding-left: 0.6rem;
+  border-left: 0.3rem solid var(--vl-geel);
+}
+
+.md-typeset h3,
+.md-typeset h4 {
+  color: var(--md-default-fg-color);
+  font-weight: 500;
+}
+
+[data-md-color-scheme="default"] .md-typeset h3 {
+  color: var(--vl-blauw-donker);
+}
+
+.md-typeset blockquote {
+  border-left: 0.25rem solid var(--vl-geel);
+}
+
+.md-typeset pre {
+  border-left: 0.2rem solid var(--vl-geel);
+}
+
+/* --------------------------------------------------------------------------
+   Tabellen: donkerblauwe kopregel, lichte zebra
+   -------------------------------------------------------------------------- */
+
+.md-typeset table:not([class]) th {
+  background-color: var(--vl-blauw-donker);
+  color: var(--vl-wit);
+  font-weight: 500;
+}
+
+[data-md-color-scheme="default"] .md-typeset table:not([class]) tbody tr:nth-child(2n) {
+  background-color: var(--vl-blauw-licht);
+}
+
+/* --------------------------------------------------------------------------
+   Voettekst
+   -------------------------------------------------------------------------- */
+
+.md-footer {
+  border-top: 0.25rem solid var(--vl-geel);
+}
+
+.md-footer-brand {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.2rem 2rem;
+  padding: 1.6rem 0.6rem 0.4rem;
+}
+
+.md-footer-brand__logo {
+  display: block;
+  width: 9rem;
+  height: auto;
+  border-radius: 0.1rem;
+}
+
+.md-footer-brand__text {
+  max-width: 34rem;
+  margin: 0;
+  font-size: 0.68rem;
+  line-height: 1.6;
+  color: var(--md-footer-fg-color--light);
+}
+
+.md-footer-brand__text a {
+  color: var(--md-footer-fg-color);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+/* ==========================================================================
+   Conventies voor de inhoud
+   ========================================================================== */
+
 /* Kleuren van de diagramconventies (oslo-ld-kit/guide/diagrams.md) als labels in de tekst. */
 .swatch { display:inline-block; width:0.9em; height:0.9em; border-radius:2px;
           vertical-align:middle; border:1px solid #2E5C8A; margin-right:0.3em; }
