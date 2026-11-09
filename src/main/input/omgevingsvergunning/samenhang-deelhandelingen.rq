@@ -1,0 +1,27 @@
+PREFIX dct:    <http://purl.org/dc/terms/>
+PREFIX p-plan: <http://purl.org/net/p-plan#>
+PREFIX prov:   <http://www.w3.org/ns/prov#>
+PREFIX sosa:   <http://www.w3.org/ns/sosa/>
+
+# dct:hasPart tussen activiteiten zegt zelf niets over tijd of plan (Moreau 2015, VI8: de toepassing
+# bewaakt de samenhang). Deze query geeft elke schending van de twee regels die het voorbeeld eraan
+# hangt; geen resultaat betekent: samenhangend. Elk deel van de UNION bindt zelf ?deel, omdat
+# SPARQL een FILTER NOT EXISTS binnen een groep evalueert zonder de bindingen van erbuiten.
+#  1. tijd: elk tijdstip van een deel ligt binnen het begin en het einde van het geheel;
+#  2. blauwdruk: volgt het geheel een plan, dan komt elk deel overeen met een stap van dat plan.
+SELECT ?geheel ?deel ?probleem WHERE {
+  {
+    ?geheel dct:hasPart ?deel .
+    ?deel prov:startedAtTime|prov:endedAtTime|sosa:resultTime ?t .
+    OPTIONAL { ?geheel prov:startedAtTime ?begin }
+    OPTIONAL { ?geheel prov:endedAtTime ?einde }
+    FILTER ((BOUND(?begin) && ?t < ?begin) || (BOUND(?einde) && ?t > ?einde))
+    BIND (CONCAT("tijdstip ", STR(?t), " valt buiten het geheel") AS ?probleem)
+  }
+  UNION
+  {
+    ?geheel dct:hasPart ?deel ; prov:qualifiedAssociation/prov:hadPlan ?plan .
+    FILTER NOT EXISTS { ?deel p-plan:correspondsToStep/p-plan:isStepOfPlan ?plan }
+    BIND (CONCAT("komt niet overeen met een stap van ", STR(?plan)) AS ?probleem)
+  }
+}

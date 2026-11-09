@@ -63,7 +63,7 @@ draagt het plan (`prov:hadPlan`). In het kort:
   substappen als delen heeft.
 - **De zaak komt overeen met het plan.** Ze is een `prov:Activity` met `prov:hadPlan` (en
   `ov:procedure`) naar de procedure, geen "eenheid van werk" zoals in het AP Dossier (zie
-  verbeterpunten 10 tot 12).
+  verbeterpunten 10 tot 13).
 - **Een advies is een waarneming** (`sosa:Observation`) van de verenigbaarheid van het project;
   **de beslissing is een actuatie** (`sosa:Actuation`) op de vergunde toestand, met een
   `ov:VergundeToestand` als resultaat en het besluit als document.
@@ -91,6 +91,7 @@ zaakhandelingen).
 | `omgevingsvergunning.ttl` | procedure, stappen, dienst, actoren en het fictieve dossier (gevalideerd) |
 | `omgevingsvergunning.mmd` | diagram |
 | `stand-van-de-zaak.rq` | SPARQL: welke stappen van een zaak nu aan de beurt zijn |
+| `samenhang-deelhandelingen.rq` | SPARQL: controle van `dct:hasPart` tussen activiteiten op tijd en blauwdruk |
 | `bespreking.md` | de negen secties |
 
 ## Gebruik
@@ -103,6 +104,14 @@ java -jar tools/ld-mcp-vocab.jar validate --ontologies src/main/resources \
     --generate-shapes --shapes oslo-ld-kit/rules/ssn-sosa-rules.ttl \
     --prefix-registry src/main/cc/prefix/prefix.cc.ttl --extensions ttl \
     src/main/input/omgevingsvergunning
+```
+
+**Deelhandelingen controleren:** [`samenhang-deelhandelingen.rq`](samenhang-deelhandelingen.rq)
+geeft elk deel (`dct:hasPart`) dat buiten de tijd van het geheel valt, of dat niet overeenkomt met
+een stap van het plan dat het geheel volgt. Geen resultaat betekent: samenhangend.
+
+```bash
+sparql --data omgevingsvergunning.ttl --query samenhang-deelhandelingen.rq
 ```
 
 **De stand van een zaak afleiden** in plaats van een status bij te houden:
@@ -214,3 +223,11 @@ procedurestap. Het AP Dossier maakt dat onmogelijk:
     activiteit die het deelplan volgt, zoals `exec:ontvankelijkheid-1`), of ten minste een ander
     label en die link. Het AP Omgevingsvergunning neemt dan de alignering over en hangt
     `ov:procedure` en `ov:procedurestap` onder de eigenschappen van het AP Dossier.
+13. **Geen deelhandeling.** Een activiteit kan in het AP Dossier geen deel zijn van een andere,
+    terwijl een stap met substappen (een `p-plan:MultiStep`) een uitvoering vraagt die haar
+    deelhandelingen omvat. PROV heeft bewust geen deelactiviteit en raadt `dcterms:hasPart` aan
+    (Moreau 2015, *The rationale of PROV*, Requirement VI8). `sosa:hasMember` past niet: het is
+    voor collecties van uitvoeringen. Voorstel: "heeft deelhandeling", `rdfs:subPropertyOf
+    dct:hasPart`, met domein en bereik `prov:Activity`, en twee regels als SHACL-SPARQL: een deel
+    valt binnen de tijd van het geheel, en komt overeen met een stap van het plan dat het geheel
+    volgt (zie `samenhang-deelhandelingen.rq`).

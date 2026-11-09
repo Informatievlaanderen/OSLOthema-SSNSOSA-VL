@@ -75,7 +75,7 @@ procedure. Waarom ze een activiteit is en geen "eenheid van werk" zoals in het A
 
 De **uitvoering van de MultiStep** (`exec:ontvankelijkheid-1`) is een `p-plan:Activity` die met
 `step:ontvankelijkheid` overeenkomt en het deelplan volgt (`prov:hadPlan
-plan:ontvankelijkheidsonderzoek`). Het onderzoek en de mededeling zijn haar delen (`dct:hasPart`),
+plan:ontvankelijkheidsonderzoek`). Het onderzoek en de mededeling zijn haar delen (`dct:hasPart`, zie §6),
 zoals de substappen delen zijn van het deelplan. De m.e.r.-screening heeft geen uitvoering: er zat
 geen screeningsnota bij de aanvraag.
 
@@ -275,6 +275,59 @@ Via pplan-sosa en sosa-prov volgen de SOSA- en PROV-klassen vanzelf. Dit zijn ve
 
 <!-- TODO: neemt de werkgroep van het AP Dossier een eigenschap van Zaak naar p-plan:Plan op (in plaats van dbo:procedure als string), en wordt Zaak dan een prov:Activity? -->
 <!-- TODO: blijft dossier:Procedurestap bestaan (dan met een link naar de voorgeschreven stap en een ander label), of wordt het een Activiteit met p-plan:correspondsToStep? -->
+
+### Waarom `dct:hasPart` tussen activiteiten, en niet `sosa:hasMember`?
+
+Het onderzoek en de mededeling zijn delen van `exec:ontvankelijkheid-1`. Welke eigenschap legt een
+activiteit vast als deel van een andere?
+
+**Verworpen alternatief:** `sosa:hasMember`. Formeel kan het: de eigenschap heeft geen
+`rdfs:domain` of `rdfs:range`, enkel `schema:domainIncludes` en `schema:rangeIncludes`, die niets
+afleiden. Maar de definitie is "link from a Collection to an Execution or Sample or Collection of
+these", met samenvattingsregels per soort collectie. Een activiteit is geen collectie, en de
+mededeling is geen uitvoering. Het gaat dus in tegen de definitie, zoals `sosa:observedProperty`
+op een sensor (R16, punt 2). Een activiteit die ook een collectie is, is formeel consistent:
+sosa-prov aligneert enkel `sosa:Execution` met `prov:Activity`. Maar SOSA ziet een collectie als
+een container van gegevens: een `sosa:ObservationCollection` "broadly corresponds with the class
+Dataset from DCAT". `sosa:hasMember` blijft dus voor collecties van uitvoeringen van één soort,
+zoals de adviezen.
+
+**Gekozen aanpak:** `dct:hasPart`. **Motivering:** PROV heeft bewust geen deelactiviteit. Moreau
+(2015, *The rationale of PROV*, Requirement VI8 *No SubActivity*,
+[doi:10.1016/j.websem.2015.04.001](https://doi.org/10.1016/j.websem.2015.04.001)) zegt dat de
+werkgroep de gevolgen van zo'n relatie niet overzag, er weinig voorgaand werk was, en overlap met
+workflowstandaarden vreesde. In de plaats "a relation such as dcterms:hasPart could be used by
+applications to model subactivities; applications would be responsible for ensuring its use is
+consistent with the prov model". Een latere versie van PROV zou de relatie kunnen standaardiseren
+"if there is a clear need". Dat is niet gebeurd. SOSA 2023 kwam later, maar vult het gat enkel voor
+uitvoeringen in een collectie. Voor een samengestelde activiteit met een waarneming en een gewone
+handeling is er nog altijd niets.
+
+**De zwakte, en hoe het voorbeeld ze opvangt.** `dct:hasPart` heeft geen domein of bereik, is niet
+transitief en zegt niets over tijd. De betekenis komt dus van elders. Het voorbeeld hangt er twee
+regels aan en controleert ze met
+[`samenhang-deelhandelingen.rq`](samenhang-deelhandelingen.rq):
+
+1. **Tijd:** elk tijdstip van een deel (`prov:startedAtTime`, `prov:endedAtTime`,
+   `sosa:resultTime`) ligt binnen het begin en het einde van het geheel.
+2. **Blauwdruk:** volgt het geheel een plan (`prov:hadPlan`), dan komt elk deel overeen met een
+   stap van dat plan (`p-plan:correspondsToStep`, `p-plan:isStepOfPlan`).
+
+De query geeft hier geen resultaat. Een proef met het openbaar onderzoek als deel van het
+ontvankelijkheidsonderzoek geeft drie schendingen: twee tijdstippen buiten het geheel en een stap
+buiten het deelplan. De tweede regel kan enkel omdat het plan een resource is: dat is wat het AP
+Dossier met "doorloopt" probeert te zeggen, maar met een procedure als string niet kan controleren.
+
+**Sterker, maar te zwaar:** BFO heeft *has occurrent part* (`obo:BFO_0000117`), transitief en voor
+processen (ISO 21838-2). Voor één eigenschap brengt dat de hele topontologie mee (R17, criterium
+15).
+
+**Voorstel voor het AP Dossier** (verbeterpunt 13): een eigenschap "heeft deelhandeling",
+`rdfs:subPropertyOf dct:hasPart`, met domein en bereik `prov:Activity`, en de twee regels hierboven
+als SHACL-SPARQL bij het AP. Het voorbeeld gebruikt `dct:hasPart` rechtstreeks, omdat zo'n
+eigenschap nog niet bestaat.
+
+<!-- TODO: neemt de werkgroep van het AP Dossier een eigenschap "heeft deelhandeling" (⊑ dct:hasPart, domein en bereik prov:Activity) op, met de regels voor tijd en blauwdruk als SHACL-SPARQL? -->
 
 ### Waarom het product als variabele van de procedure?
 

@@ -112,7 +112,14 @@ Het voorstel legt de blauwdruk in de kern en het domein eronder:
 
 Een `sosa:ExecutionCollection` is geen alternatief voor de zaak. Ze bevat enkel waarnemingen,
 actuaties en bemonsteringen, en een procedure op de collectie moet voor elk lid gelden. De
-uitwerking staat in de bespreking (§6) en als verbeterpunten 10 tot 12 in de README.
+uitwerking staat in de bespreking (§6) en als verbeterpunten 10 tot 13 in de README.
+
+**Deelhandelingen.** De uitvoering van een stap met substappen omvat de handelingen van die
+substappen. PROV heeft daar bewust geen eigenschap voor en raadt `dcterms:hasPart` aan (Moreau 2015,
+*The rationale of PROV*, Requirement VI8). `sosa:hasMember` past niet: het verbindt een collectie met
+uitvoeringen, niet een activiteit met haar delen. Omdat `dct:hasPart` zelf niets zegt over tijd of
+plan, controleert `samenhang-deelhandelingen.rq` twee regels. Een deel valt binnen de tijd van het
+geheel, en komt overeen met een stap van het plan dat het geheel volgt.
 
 ## Diagram
 
@@ -132,4 +139,10 @@ uitwerking staat in de bespreking (§6) en als verbeterpunten 10 tot 12 in de RE
 
     ```sparql
     --8<-- "src/main/input/omgevingsvergunning/stand-van-de-zaak.rq"
+    ```
+
+??? example "samenhang-deelhandelingen.rq"
+
+    ```sparql
+    --8<-- "src/main/input/omgevingsvergunning/samenhang-deelhandelingen.rq"
     ```
