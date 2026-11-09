@@ -104,6 +104,14 @@ Bestaande datavoorbeelden:
   meetcampagne, geneste collecties (uur, bericht), zeven eigenschappen in µT (aanname), uur- en
   dagindicatoren als keten; gescript (parquet), gepseudonimiseerd (De Rode Ridder), één dag als
   `.trig`, één uur als `.ttl`; incl. opdracht.md
+- `omgevingsvergunning/` — de gewone vergunningsprocedure (OVD art. 18-36, project op de Vlaamse
+  lijst) als plan: één IRI als `ov:Procedure`, `p-plan:Plan`, `sosa:Procedure` en `cpsv:Rule`;
+  procedurestappen met volgorde, termijn (`time:Duration`) en rechtsgrond per artikel, substappen als
+  `p-plan:MultiStep`; adviezen als waarneming, de beslissing als actuatie op de vergunde toestand;
+  gekoppeld aan dienst D3-0098 en product P-0098 van de PDC (CPSV-AP 3.2.0); fictief dossier als
+  zaak met zaakhandelingen; `stand-van-de-zaak.rq` leidt de stand af in plaats van een status;
+  AP Omgevingsvergunning en CPSV-AP geladen in `src/main/resources/`, met een eigen alignering van
+  het AP met P-PLAN en PROV-O (`omgevingsvergunning/alignments/ov-pplan-prov.ttl`, voorstel)
 
 ---
 

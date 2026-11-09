@@ -1,0 +1,27 @@
+PREFIX ov:     <https://data.vlaanderen.be/ns/omgevingsvergunning#>
+PREFIX p-plan: <http://purl.org/net/p-plan#>
+PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
+
+# Een stap is uitgevoerd als een zaakhandeling ermee overeenkomt, of, voor een stap met
+# substappen, als de laatste substap van het deelplan uitgevoerd is.
+SELECT ?zaak ?volgendeStap ?label WHERE {
+  ?zaak ov:procedure ?plan .
+  ?volgendeStap p-plan:isStepOfPlan ?plan ; rdfs:label ?label .
+  FILTER NOT EXISTS {                                   # zelf nog niet uitgevoerd
+    { ?h ov:zaak ?zaak ; p-plan:correspondsToStep ?volgendeStap }
+    UNION
+    { ?volgendeStap p-plan:isDecomposedAsPlan ?d . ?laatste p-plan:isStepOfPlan ?d .
+      FILTER NOT EXISTS { ?na p-plan:isPrecededBy ?laatste ; p-plan:isStepOfPlan ?d }
+      ?h ov:zaak ?zaak ; p-plan:correspondsToStep ?laatste }
+  }
+  FILTER NOT EXISTS {                                   # een voorganger nog niet uitgevoerd
+    ?volgendeStap p-plan:isPrecededBy ?voor .
+    FILTER NOT EXISTS {
+      { ?h ov:zaak ?zaak ; p-plan:correspondsToStep ?voor }
+      UNION
+      { ?voor p-plan:isDecomposedAsPlan ?d . ?laatste p-plan:isStepOfPlan ?d .
+        FILTER NOT EXISTS { ?na p-plan:isPrecededBy ?laatste ; p-plan:isStepOfPlan ?d }
+        ?h ov:zaak ?zaak ; p-plan:correspondsToStep ?laatste }
+    }
+  }
+}

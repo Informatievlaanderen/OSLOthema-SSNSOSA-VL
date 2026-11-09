@@ -15,6 +15,7 @@ in een map die het domein van de namespace volgt.
 | PROV-O | `org/w3/www/ns/prov/prov-o.ttl` | W3C |
 | P-PLAN | `org/purl/net/p-plan/p-plan.ttl` | purl.org/net/p-plan |
 | P-PLAN–SOSA-alignment | `ontologies/pplan-sosa.ttl` | dit project |
+| AP Omgevingsvergunning–P-PLAN/PROV-alignment | `be/vlaanderen/data/ns/omgevingsvergunning/alignments/ov-pplan-prov.ttl` | dit project, voorstel (`omgevingsvergunning`) |
 | Nederlandse labels (SOSA, PROV-O, P-PLAN, GeoSPARQL) | `ontologies/ssn-sosa-fullprov-o-p-plan-geosparql-dbo.ttl` | vertaling in dit project |
 | QUDT schema en eenheden | `org/qudt/…`, `qudt/…` | 3.5.2 |
 | OWL-Time | `org/w3/www/2006/time/time.ttl` | W3C |
@@ -33,6 +34,8 @@ in een map die het domein van de namespace volgt.
 | VLAREM-rubrieken | `be/vlaanderen/omgeving/data/ns/vlaremrubrieken/vlaremrubrieken.ttl` | ontwerpvocabularium `vlarem:` |
 | Vergelijkingsoperatoren | `be/vlaanderen/omgeving/data/id/conceptscheme/vergelijkingsoperator/vergelijkingsoperator.ttl` | nieuwe SKOS-lijst |
 | Gebouw | `be/vlaanderen/data/ns/gebouw/gebouw.ttl` | OSLO-gebouw (energiemanagement) |
+| AP Omgevingsvergunning | `be/vlaanderen/data/ns/omgevingsvergunning/omgevingsvergunning.ttl` | Procedure, Procedurestap, Zaak, Zaakhandeling (`omgevingsvergunning`); content negotiation op de namespace, 2026-11-09, zonder versie |
+| CPSV-AP | `eu/europa/data/m8g/cpsvap/3.2.0/cpsv-ap.ttl` | publieke dienst, regel, output (`omgevingsvergunning`); `SEMICeu/CPSV-AP` 3.2.0 |
 
 ## Andere
 

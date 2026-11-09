@@ -1,0 +1,181 @@
+flowchart RL
+    subgraph PLANNING["PLANNING"]
+        D3_0098["publicservice:D3-0098<br/>cpsv:PublicService<br/>verlenen omgevingsvergunning<br/>projecten Vlaamse lijst"]
+        PLAN["plan:gewone-procedure<br/>ov:Procedure · p-plan:Plan<br/>sosa:Procedure · cpsv:Rule<br/>termijn 120 dagen"]
+        S_IND["step:indienen<br/>ov:Procedurestap"]
+        S_ONT["step:ontvankelijkheid<br/>ov:Procedurestap · p-plan:MultiStep"]
+        S_OO["step:openbaar-onderzoek<br/>ov:Procedurestap · 30 dagen"]
+        S_ADV["step:advies-adviesinstanties<br/>sosa:ObservingProcedure · 30 dagen"]
+        S_GOVC["step:advies-govc<br/>sosa:ObservingProcedure"]
+        S_BES["step:beslissing<br/>sosa:ActuatingProcedure · 120 dagen"]
+        S_BEK["step:bekendmaking<br/>ov:Procedurestap"]
+        S_BER["step:beroep-rvvb<br/>ov:Beroepsmogelijkheid · 45 dagen"]
+        PLAN_ONT["plan:ontvankelijkheidsonderzoek<br/>p-plan:Plan (deelplan)"]
+        SS_OND["step:onderzoek-ontvankelijkheid<br/>sosa:ObservingProcedure"]
+        SS_MER["step:mer-screening<br/>ov:Procedurestap"]
+        SS_MED["step:mededeling-resultaat<br/>ov:Procedurestap · 30 dagen"]
+        V_AANV["var:aanvraag"]
+        V_GOVC["var:govc-advies"]
+        P_0098["output:P-0098<br/>cv:Output · p-plan:Variable<br/>beslissing omgevingsvergunning"]
+        V_VT["var:vergunde-toestand"]
+    end
+
+    subgraph INFRA["INFRASTRUCTUUR"]
+        VR["inst:vlaamse-regering<br/>cv:PublicOrganisation"]
+        GOA["inst:gewestelijke-omgevingsambtenaar<br/>sosa:System"]
+        GOA_O["inst:goa-ontvankelijkheid<br/>sosa:Sensor"]
+        GOA_B["inst:goa-beslissing<br/>sosa:Actuator"]
+        GOVC["inst:govc<br/>sosa:Sensor"]
+        ADVI["inst:adviesinstantie<br/>sosa:Sensor"]
+        RVVB["inst:rvvb<br/>ov:Rechtscollege"]
+        GEM["inst:gemeente<br/>cv:PublicOrganisation"]
+    end
+
+    subgraph EXECUTION["EXECUTION"]
+        ZAAK["exec:zaak-1<br/>dbo:Case · prov:Activity"]
+        PROJ["obj:project-1<br/>ov:Activiteit · sosa:FeatureOfInterest"]
+        E_IND["exec:indiening-1<br/>ov:Aanvraag · p-plan:Activity"]
+        E_OND["exec:onderzoek-ontvankelijkheid-1<br/>sosa:Observation · resultaat true"]
+        E_MED["exec:mededeling-ontvankelijkheid-1<br/>p-plan:Activity"]
+        E_OO["exec:openbaar-onderzoek-1<br/>p-plan:Activity<br/>2026-03-05 – 2026-04-04"]
+        E_ADV["exec:advies-1<br/>sosa:Observation"]
+        E_BEK["exec:bekendmaking-1<br/>ov:Bekendmaking"]
+        EN_AANV["ent:aanvraag-1<br/>foaf:Document · FOI"]
+        EN_ADV["ent:advies-1<br/>voorwaardelijk gunstig"]
+        subgraph DERIVATION["DERIVATION"]
+            E_GOVC["exec:advies-govc-1<br/>sosa:Observation"]
+            EN_GOVC["ent:advies-govc-1<br/>voorwaardelijk gunstig"]
+            E_BES["exec:beslissing-1<br/>sosa:Actuation · ov:Vergunning<br/>2026-06-18"]
+            EN_BES["ent:besluit-1<br/>foaf:Document"]
+            EN_VT["ent:vergunde-toestand-1<br/>ov:VergundeToestand"]
+        end
+    end
+
+    %% uitvoering door de gemeente
+    E_OO -->|prov:wasAssociatedWith| GEM
+
+    %% planning
+    D3_0098 -->|cpsv:follows| PLAN
+    D3_0098 -->|cpsv:produces| P_0098
+    S_IND -->|isStepOfPlan| PLAN
+    S_ONT -->|isStepOfPlan| PLAN
+    S_OO -->|isStepOfPlan| PLAN
+    S_ADV -->|isStepOfPlan| PLAN
+    S_GOVC -->|isStepOfPlan| PLAN
+    S_BES -->|isStepOfPlan| PLAN
+    S_BEK -->|isStepOfPlan| PLAN
+    S_BER -->|isStepOfPlan| PLAN
+    S_ONT -.->|isPrecededBy| S_IND
+    S_OO -.->|isPrecededBy| S_ONT
+    S_ADV -.->|isPrecededBy| S_ONT
+    S_GOVC -.->|isPrecededBy| S_OO
+    S_GOVC -.->|isPrecededBy| S_ADV
+    S_BES -.->|isPrecededBy| S_GOVC
+    S_BEK -.->|isPrecededBy| S_BES
+    S_BER -.->|isPrecededBy| S_BEK
+    S_ONT -->|isDecomposedAsPlan| PLAN_ONT
+    SS_OND -->|isStepOfPlan| PLAN_ONT
+    SS_MER -->|isStepOfPlan| PLAN_ONT
+    SS_MED -->|isStepOfPlan| PLAN_ONT
+    SS_MED -.->|isPrecededBy| SS_OND
+    SS_MED -.->|isPrecededBy| SS_MER
+    V_AANV -->|isOutputVarOf| S_IND
+    V_GOVC -->|isOutputVarOf| S_GOVC
+    V_GOVC -->|isInputVarOf| S_BES
+    P_0098 -->|isOutputVarOf| S_BES
+    V_VT -->|isOutputVarOf| S_BES
+
+    %% infrastructuur
+    GOA -->|hasSubSystem| GOA_O
+    GOA -->|hasSubSystem| GOA_B
+    GOA -->|actedOnBehalfOf| VR
+
+    %% cross-layer
+    PLAN -->|ov:bevoegdeOverheid| VR
+    S_BER -->|ov:bevoegdeOverheid| RVVB
+    GOA_O -->|sosa:implements| SS_OND
+    GOA_B -->|sosa:implements| S_BES
+    GOVC -->|sosa:implements| S_GOVC
+    ADVI -->|sosa:implements| S_ADV
+
+    ZAAK -->|ov:procedure| PLAN
+    ZAAK -->|ov:zaakhandeling| E_IND
+    ZAAK -->|ov:zaakhandeling| E_BES
+    E_IND -->|correspondsToStep| S_IND
+    E_IND -->|prov:generated| EN_AANV
+    EN_AANV -->|correspondsToVariable| V_AANV
+    E_OND -->|correspondsToStep| SS_OND
+    E_OND -->|madeBySensor| GOA_O
+    E_OND -->|hasFeatureOfInterest| EN_AANV
+    E_MED -->|correspondsToStep| SS_MED
+    E_MED -->|wasInformedBy| E_OND
+    E_OO -->|correspondsToStep| S_OO
+    E_ADV -->|correspondsToStep| S_ADV
+    E_ADV -->|madeBySensor| ADVI
+    E_ADV -->|hasFeatureOfInterest| PROJ
+    E_ADV -->|hasResult| EN_ADV
+    E_GOVC -->|correspondsToStep| S_GOVC
+    E_GOVC -->|madeBySensor| GOVC
+    E_GOVC -->|hasInputValue| EN_ADV
+    E_GOVC -->|hasResult| EN_GOVC
+    EN_GOVC -->|correspondsToVariable| V_GOVC
+    E_BES -->|correspondsToStep| S_BES
+    E_BES -->|madeByActuator| GOA_B
+    E_BES -->|hasFeatureOfInterest| PROJ
+    E_BES -->|hasInputValue| EN_GOVC
+    E_BES -->|hasResult| EN_VT
+    E_BES -->|prov:generated| EN_BES
+    E_BES -->|ov:bekendmaking| E_BEK
+    EN_BES -->|correspondsToVariable| P_0098
+    EN_VT -->|correspondsToVariable| V_VT
+    E_BEK -->|correspondsToStep| S_BEK
+    E_BEK -->|prov:used| EN_BES
+
+    style PLANNING fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+    style EXECUTION fill:#e7a3be,stroke:#2E5C8A,color:#000
+    style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+
+    style D3_0098 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style PLAN fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style S_IND fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style S_ONT fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style S_OO fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style S_ADV fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style S_GOVC fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style S_BES fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style S_BEK fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style S_BER fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style PLAN_ONT fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style SS_OND fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style SS_MER fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style SS_MED fill:#7f59ae,stroke:#2E5C8A,color:#fff
+    style V_AANV fill:#fe7130,stroke:#2E5C8A,color:#000
+    style V_GOVC fill:#fe7130,stroke:#2E5C8A,color:#000
+    style P_0098 fill:#fe7130,stroke:#2E5C8A,color:#000
+    style V_VT fill:#fe7130,stroke:#2E5C8A,color:#000
+
+    style VR fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style GOA fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style GOA_O fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style GOA_B fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style GOVC fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style ADVI fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style RVVB fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style GEM fill:#60c4e4,stroke:#2E5C8A,color:#000
+
+    style ZAAK fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style E_IND fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style E_OND fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style E_MED fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style E_OO fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style E_ADV fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style E_GOVC fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style E_BES fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style E_BEK fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style PROJ fill:#f8b622,stroke:#2E5C8A,color:#000
+    style EN_AANV fill:#f8b622,stroke:#2E5C8A,color:#000
+    style EN_ADV fill:#f8b622,stroke:#2E5C8A,color:#000
+    style EN_GOVC fill:#f8b622,stroke:#2E5C8A,color:#000
+    style EN_BES fill:#f8b622,stroke:#2E5C8A,color:#000
+    style EN_VT fill:#f8b622,stroke:#2E5C8A,color:#000

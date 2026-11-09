@@ -1,0 +1,541 @@
+@prefix plan:   <https://example.org/omgevingsvergunning/plan/> .
+@prefix step:   <https://example.org/omgevingsvergunning/step/> .
+@prefix var:    <https://example.org/omgevingsvergunning/var/> .
+@prefix exec:   <https://example.org/omgevingsvergunning/exec/> .
+@prefix ent:    <https://example.org/omgevingsvergunning/ent/> .
+@prefix inst:   <https://example.org/omgevingsvergunning/inst/> .
+@prefix prop:   <https://example.org/omgevingsvergunning/prop/> .
+@prefix obj:    <https://example.org/omgevingsvergunning/object/> .
+@prefix cl:     <https://example.org/omgevingsvergunning/concept/> .
+@prefix wet:    <https://example.org/omgevingsvergunning/wet/> .
+
+@prefix ov:     <https://data.vlaanderen.be/ns/omgevingsvergunning#> .
+@prefix cpsv:   <http://purl.org/vocab/cpsv#> .
+@prefix cv:     <http://data.europa.eu/m8g/> .
+@prefix dbo:    <http://dbpedia.org/ontology/> .
+@prefix publicservice: <https://data.omgeving.vlaanderen.be/id/publicservice/producten_en_diensten/> .
+@prefix output: <https://data.omgeving.vlaanderen.be/id/output/producten_en_diensten/> .
+@prefix pd:     <https://data.omgeving.vlaanderen.be/id/concept/producten_en_diensten/> .
+@prefix ovo:    <http://data.vlaanderen.be/id/organisatie/> .
+
+@prefix sosa:   <http://www.w3.org/ns/sosa/> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix p-plan: <http://purl.org/net/p-plan#> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix foaf:   <http://xmlns.com/foaf/0.1/> .
+@prefix skos:   <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+
+# De gewone vergunningsprocedure voor de omgevingsvergunning in eerste administratieve aanleg,
+# voor een project op de Vlaamse lijst (Omgevingsvergunningsdecreet van 25 april 2014, OVD,
+# titel III, hoofdstuk II, afdeling 2, art. 18-36), gekoppeld aan de dienst en het product uit
+# de producten- en dienstencatalogus (PDC) van het Departement Omgeving.
+#
+# Drie modellen op één IRI per begrip:
+#   - AP Omgevingsvergunning (ov:)  Procedure, Procedurestap, Zaak, Zaakhandeling;
+#   - P-PLAN (p-plan:)              plan, stappen, substappen, volgorde, in- en uitvoer;
+#   - SSN/SOSA 2023 (sosa:)         wat een stap met de werkelijkheid doet: een advies is
+#                                   een waarneming, de beslissing een actuatie.
+# CPSV-AP 3.2.0 (cpsv:, cv:) koppelt de dienst aan de procedure.
+#
+# De procedure (PLANNING) volgt de tekst van het OVD zoals geconsolideerd na het decreet van
+# 26 januari 2024. Het dossier (EXECUTION) is fictief.
+
+
+# *********************************************
+# RECHTSGROND
+# *********************************************
+
+# Juridische werken. Voorlopige IRI's: zie bespreking §8 (ELI per artikel).
+wet:ovd a ov:JuridischWerk ;
+    rdfs:label "Decreet van 25 april 2014 betreffende de omgevingsvergunning (Omgevingsvergunningsdecreet)"@nl ;
+    rdfs:seeAlso <https://www.ejustice.just.fgov.be/eli/decreet/2014/04/25/2014036510/justel> .
+
+wet:ovb a ov:JuridischWerk ;
+    rdfs:label "Besluit van de Vlaamse Regering van 27 november 2015 tot uitvoering van het decreet van 25 april 2014 betreffende de omgevingsvergunning (Omgevingsvergunningsbesluit)"@nl ;
+    rdfs:seeAlso <https://www.ejustice.just.fgov.be/eli/besluit/2015/11/27/2016035143/justel> .
+
+wet:dbrc a ov:JuridischWerk ;
+    rdfs:label "Decreet van 4 april 2014 betreffende de organisatie en de rechtspleging van sommige Vlaamse bestuursrechtscolleges (DBRC-decreet)"@nl .
+
+wet:ovd-art-52 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 52 (administratief beroep: enkel tegen beslissingen van de deputatie en het college)"@nl .
+wet:ovd-art-105 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 105 (beroep bij de Raad voor Vergunningsbetwistingen; §3: vervaltermijn van vijfenveertig dagen)"@nl .
+
+wet:ovb-art-16 a ov:JuridischWerk ; dct:isPartOf wet:ovb ;
+    rdfs:label "OVB, art. 16 (openbaar onderzoek: dertig dagen, begin binnen tien dagen na de ontvankelijk- en volledigverklaring)"@nl .
+wet:ovb-art-56 a ov:JuridischWerk ; dct:isPartOf wet:ovb ;
+    rdfs:label "OVB, art. 56 (wijzen van bekendmaking van de beslissing)"@nl .
+wet:ovb-art-59 a ov:JuridischWerk ; dct:isPartOf wet:ovb ;
+    rdfs:label "OVB, art. 59 (aanplakking uiterlijk tien dagen na de ontvangst van de beslissing, gedurende dertig dagen)"@nl .
+wet:ovb-art-67 a ov:JuridischWerk ; dct:isPartOf wet:ovb ;
+    rdfs:label "OVB, art. 67 (gewone procedure in eerste aanleg: opdracht aan de gemeente voor het openbaar onderzoek, adviesvragen en adviestermijnen)"@nl .
+
+wet:ovd-art-15 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 15 (bevoegde overheid in eerste aanleg)"@nl .
+wet:ovd-art-18 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 18 (indiening)"@nl .
+wet:ovd-art-19 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 19 (ontvankelijkheids- en volledigheidsonderzoek)"@nl .
+wet:ovd-art-20 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 20 (project-m.e.r.-screeningsnota)"@nl .
+wet:ovd-art-21 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 21 (mededeling van het resultaat, dertig dagen)"@nl .
+wet:ovd-art-23 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 23 (openbaar onderzoek)"@nl .
+wet:ovd-art-24 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 24 (adviesinstanties)"@nl .
+wet:ovd-art-25 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 25 (advies van de omgevingsvergunningscommissie)"@nl .
+wet:ovd-art-26 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 26 (adviestermijnen; geen advies is gunstig)"@nl .
+wet:ovd-art-27 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 27 (hoorrecht bij de omgevingsvergunningscommissie)"@nl .
+wet:ovd-art-32 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 32 (beslissingstermijnen, verlenging, stilzwijgende weigering)"@nl .
+wet:ovd-art-33 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 33 (inhoud van de beslissing)"@nl .
+wet:ovd-art-35 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 35 (gebruik van de vergunning)"@nl .
+wet:ovd-art-36 a ov:JuridischWerk ; dct:isPartOf wet:ovd ;
+    rdfs:label "OVD, art. 36 (nadere regels, o.a. bekendmaking)"@nl .
+
+
+# *********************************************
+# PLANNING
+# *********************************************
+
+# Eén IRI, vier lezingen: de Procedure van het AP Omgevingsvergunning, een p-plan:Plan (en
+# daarmee een sosa:Procedure, zie pplan-sosa.ttl), en de cpsv:Rule die de dienst volgt.
+plan:gewone-procedure a ov:Procedure , p-plan:Plan , sosa:Procedure , cpsv:Rule ;
+    rdfs:label "Gewone vergunningsprocedure in eerste administratieve aanleg, project op de Vlaamse lijst"@nl ;
+    rdfs:comment "Blauwdruk voor de afhandeling van een aanvraag tot omgevingsvergunning voor een project op de Vlaamse lijst, met openbaar onderzoek en advies van de gewestelijke omgevingsvergunningscommissie (GOVC)."@nl ;
+    ov:rechtsgrond wet:ovd , wet:ovb ;
+    cpsv:implements wet:ovd ;
+    ov:bevoegdeOverheid inst:vlaamse-regering ;
+    dct:source wet:ovd-art-15 ;
+    # Beslissingstermijn met advies van een omgevingsvergunningscommissie (art. 32, §1).
+    ov:termijn [ a time:Duration ; time:numericDuration "120"^^xsd:decimal ; time:unitType time:unitDay ] ;
+    dct:hasPart step:indienen , step:ontvankelijkheid , step:openbaar-onderzoek ,
+        step:advies-adviesinstanties , step:advies-govc , step:beslissing ,
+        step:bekendmaking , step:beroep-rvvb .
+
+# --- Procedurestappen ---
+
+# Elke stap is tegelijk ov:Procedurestap (voorgeschreven handeling) en p-plan:Step. De
+# rechtsgrond per stap staat in dct:source: ov:rechtsgrond heeft als domein ov:Procedure
+# (bespreking §6).
+
+step:indienen a ov:Procedurestap , p-plan:Step ;
+    rdfs:label "Indienen van de aanvraag"@nl ;
+    rdfs:comment "De aanvrager dient de aanvraag per beveiligde zending in bij de bevoegde overheid (in de praktijk via het omgevingsloket)."@nl ;
+    dct:source wet:ovd-art-18 ;
+    p-plan:isStepOfPlan plan:gewone-procedure ;
+    sosa:hasOutput var:aanvraag .
+
+# Een stap met substappen: p-plan:MultiStep, uitgewerkt in een eigen (deel)plan.
+step:ontvankelijkheid a ov:Procedurestap , p-plan:MultiStep , p-plan:Step , p-plan:Plan ;
+    rdfs:label "Ontvankelijkheids- en volledigheidsonderzoek"@nl ;
+    dct:source wet:ovd-art-19 , wet:ovd-art-20 , wet:ovd-art-21 ;
+    p-plan:isStepOfPlan plan:gewone-procedure ;
+    p-plan:isPrecededBy step:indienen ;
+    p-plan:isDecomposedAsPlan plan:ontvankelijkheidsonderzoek ;
+    sosa:hasInput var:aanvraag ;
+    sosa:hasOutput var:ontvankelijkheidsbeslissing .
+
+step:openbaar-onderzoek a ov:Procedurestap , p-plan:Step ;
+    rdfs:label "Openbaar onderzoek"@nl ;
+    rdfs:comment "Iedereen kan standpunten, opmerkingen en bezwaren indienen. Het bevoegde bestuur geeft de gemeente waar het project ligt de opdracht het openbaar onderzoek in te stellen (OVB art. 67, §1). Het duurt dertig dagen en begint binnen tien dagen na de ontvankelijk- en volledigverklaring (OVB art. 16)."@nl ;
+    dct:source wet:ovd-art-23 , wet:ovb-art-16 , wet:ovb-art-67 ;
+    ov:termijn [ a time:Duration ; time:numericDuration "30"^^xsd:decimal ; time:unitType time:unitDay ] ;
+    p-plan:isStepOfPlan plan:gewone-procedure ;
+    p-plan:isPrecededBy step:ontvankelijkheid ;
+    sosa:hasInput var:aanvraag ;
+    sosa:hasOutput var:bezwaren .
+
+# Een advies is een oordeel over het project: een waarnemingsprocedure.
+step:advies-adviesinstanties a ov:Procedurestap , p-plan:Step , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Advies van de adviesinstanties"@nl ;
+    rdfs:comment "De GOVC vraagt de adviesinstanties en het college van burgemeester en schepenen om advies (OVD art. 25; OVB art. 67, §2). Vervaltermijn in een eerste adviesronde: vijftig dagen, zestig dagen voor de afdelingen RO en Milieu van het Departement Omgeving (OVB art. 67, §3). Een advies dat niet binnen de termijn komt, wordt geacht gunstig te zijn (OVD art. 26)."@nl ;
+    dct:source wet:ovd-art-24 , wet:ovd-art-25 , wet:ovd-art-26 , wet:ovb-art-67 ;
+    # Termijn voor de overige adviesinstanties (OVB art. 67, §3, 2°).
+    ov:termijn [ a time:Duration ; time:numericDuration "50"^^xsd:decimal ; time:unitType time:unitDay ] ;
+    p-plan:isStepOfPlan plan:gewone-procedure ;
+    p-plan:isPrecededBy step:ontvankelijkheid ;
+    sosa:hasInput var:aanvraag ;
+    sosa:hasOutput var:advies .
+
+step:advies-govc a ov:Procedurestap , p-plan:Step , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Geïntegreerd advies van de gewestelijke omgevingsvergunningscommissie (GOVC)"@nl ;
+    rdfs:comment "De GOVC verwerkt de adviezen en het openbaar onderzoek tot een geïntegreerd advies; de aanvrager kan vragen te worden gehoord (OVD art. 27). Het advies gaat naar de bevoegde overheid binnen negentig dagen na de ontvangst van de adviesvraag, in een eerste adviesronde (OVB art. 67, §4)."@nl ;
+    dct:source wet:ovd-art-25 , wet:ovd-art-27 , wet:ovb-art-67 ;
+    ov:termijn [ a time:Duration ; time:numericDuration "90"^^xsd:decimal ; time:unitType time:unitDay ] ;
+    p-plan:isStepOfPlan plan:gewone-procedure ;
+    p-plan:isPrecededBy step:openbaar-onderzoek , step:advies-adviesinstanties ;
+    sosa:hasInput var:aanvraag , var:advies , var:bezwaren ;
+    sosa:hasOutput var:govc-advies .
+
+# De beslissing verandert de rechtstoestand van het project: een actuatieprocedure.
+step:beslissing a ov:Procedurestap , p-plan:Step , sosa:ActuatingProcedure , sosa:Procedure ;
+    rdfs:label "Beslissing over de aanvraag"@nl ;
+    rdfs:comment "Binnen 120 dagen na de dag waarop de aanvraag ontvankelijk en volledig is verklaard (zonder die verklaring: vanaf de dertigste dag na de indiening). Eenmaal verlengbaar met zestig dagen (art. 32, §2). Geen beslissing binnen de termijn: de vergunning wordt geacht te zijn geweigerd (art. 32, §4)."@nl ;
+    dct:source wet:ovd-art-32 , wet:ovd-art-33 ;
+    ov:termijn [ a time:Duration ; time:numericDuration "120"^^xsd:decimal ; time:unitType time:unitDay ] ;
+    p-plan:isStepOfPlan plan:gewone-procedure ;
+    p-plan:isPrecededBy step:advies-govc ;
+    sosa:hasInput var:aanvraag , var:govc-advies ;
+    sosa:hasOutput output:P-0098 , var:vergunde-toestand .
+
+step:bekendmaking a ov:Procedurestap , p-plan:Step ;
+    rdfs:label "Bekendmaking van de beslissing"@nl ;
+    rdfs:comment "Aanplakking op de plaats van het project, publicatie op de website van de gemeente, terinzagelegging in het gemeentehuis en in voorkomend geval publicatie in een dag- of weekblad en individuele kennisgeving (OVB art. 56). De affiche hangt uiterlijk tien dagen na de ontvangst van de beslissing en blijft dertig dagen hangen (OVB art. 59, §2). Een vergunning van de Vlaamse Regering of de gewestelijke omgevingsambtenaar mag meteen gebruikt worden (OVD art. 35)."@nl ;
+    dct:source wet:ovd-art-35 , wet:ovd-art-36 , wet:ovb-art-56 , wet:ovb-art-59 ;
+    # Uiterste termijn voor de aanplakking (OVB art. 59, §2).
+    ov:termijn [ a time:Duration ; time:numericDuration "10"^^xsd:decimal ; time:unitType time:unitDay ] ;
+    p-plan:isStepOfPlan plan:gewone-procedure ;
+    p-plan:isPrecededBy step:beslissing ;
+    sosa:hasInput output:P-0098 .
+
+step:beroep-rvvb a ov:Beroepsmogelijkheid , ov:Procedurestap , p-plan:Step ;
+    rdfs:label "Jurisdictioneel beroep bij de Raad voor Vergunningsbetwistingen"@nl ;
+    rdfs:comment "Tegen een beslissing van de Vlaamse Regering of de gewestelijke omgevingsambtenaar in eerste aanleg staat geen administratief beroep open: OVD art. 52 kent enkel beroep tegen beslissingen van de deputatie en van het college. De beslissing is dus genomen in laatste administratieve aanleg en kan bij de Raad voor Vergunningsbetwistingen bestreden worden (OVD art. 105, §1). Vervaltermijn: vijfenveertig dagen, vanaf de dag na de betekening voor wie de beslissing betekend krijgt, en vanaf de dag na de eerste dag van de aanplakking voor de anderen (OVD art. 105, §3). De rechtspleging volgt het DBRC-decreet."@nl ;
+    dct:source wet:ovd-art-52 , wet:ovd-art-105 , wet:dbrc ;
+    ov:bevoegdeOverheid inst:rvvb ;
+    # Aanwendingstermijn (AP: aanwendingstermijn = ov:termijn).
+    ov:termijn [ a time:Duration ; time:numericDuration "45"^^xsd:decimal ; time:unitType time:unitDay ] ;
+    p-plan:isStepOfPlan plan:gewone-procedure ;
+    p-plan:isPrecededBy step:bekendmaking ;
+    sosa:hasInput output:P-0098 .
+
+# --- Proceduresubstappen: het deelplan van het ontvankelijkheidsonderzoek ---
+
+plan:ontvankelijkheidsonderzoek a p-plan:Plan , sosa:Procedure ;
+    rdfs:label "Ontvankelijkheids- en volledigheidsonderzoek (deelplan)"@nl ;
+    dct:hasPart step:onderzoek-ontvankelijkheid , step:mer-screening , step:mededeling-resultaat .
+
+step:onderzoek-ontvankelijkheid a ov:Procedurestap , p-plan:Step , sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Onderzoek van de ontvankelijkheid en volledigheid"@nl ;
+    rdfs:comment "Is de aanvraag onvolledig, dan kan de bevoegde overheid ontbrekende stukken opvragen en daarvoor een termijn bepalen."@nl ;
+    dct:source wet:ovd-art-19 ;
+    p-plan:isStepOfPlan plan:ontvankelijkheidsonderzoek ;
+    sosa:hasInput var:aanvraag .
+
+step:mer-screening a ov:Procedurestap , p-plan:Step ;
+    rdfs:label "Beoordeling van de project-m.e.r.-screeningsnota"@nl ;
+    rdfs:comment "Enkel als bij de aanvraag een project-m.e.r.-screeningsnota zit. Moet een MER opgemaakt worden, dan is de aanvraag onvolledig."@nl ;
+    dct:source wet:ovd-art-20 ;
+    p-plan:isStepOfPlan plan:ontvankelijkheidsonderzoek ;
+    sosa:hasInput var:aanvraag .
+
+step:mededeling-resultaat a ov:Procedurestap , p-plan:Step ;
+    rdfs:label "Mededeling van het resultaat aan de aanvrager"@nl ;
+    rdfs:comment "Binnen dertig dagen vanaf de dag na de indiening (of na de ontvangst van de ontbrekende stukken), per beveiligde zending."@nl ;
+    dct:source wet:ovd-art-21 ;
+    ov:termijn [ a time:Duration ; time:numericDuration "30"^^xsd:decimal ; time:unitType time:unitDay ] ;
+    p-plan:isStepOfPlan plan:ontvankelijkheidsonderzoek ;
+    p-plan:isPrecededBy step:onderzoek-ontvankelijkheid , step:mer-screening ;
+    sosa:hasOutput var:ontvankelijkheidsbeslissing .
+
+# --- Variabelen ---
+
+var:aanvraag a p-plan:Variable ;
+    rdfs:label "Aanvraagdossier"@nl ;
+    p-plan:isVariableOfPlan plan:gewone-procedure , plan:ontvankelijkheidsonderzoek ;
+    p-plan:isOutputVarOf step:indienen ;
+    p-plan:isInputVarOf step:ontvankelijkheid , step:onderzoek-ontvankelijkheid , step:mer-screening ,
+        step:openbaar-onderzoek , step:advies-adviesinstanties , step:advies-govc , step:beslissing .
+
+var:ontvankelijkheidsbeslissing a p-plan:Variable ;
+    rdfs:label "Beslissing over de ontvankelijkheid en volledigheid"@nl ;
+    p-plan:isVariableOfPlan plan:gewone-procedure , plan:ontvankelijkheidsonderzoek ;
+    p-plan:isOutputVarOf step:ontvankelijkheid , step:mededeling-resultaat .
+
+var:bezwaren a p-plan:Variable ;
+    rdfs:label "Standpunten, opmerkingen en bezwaren uit het openbaar onderzoek"@nl ;
+    p-plan:isVariableOfPlan plan:gewone-procedure ;
+    p-plan:isOutputVarOf step:openbaar-onderzoek ;
+    p-plan:isInputVarOf step:advies-govc .
+
+var:advies a p-plan:Variable ;
+    rdfs:label "Advies van een adviesinstantie"@nl ;
+    p-plan:isVariableOfPlan plan:gewone-procedure ;
+    p-plan:isOutputVarOf step:advies-adviesinstanties ;
+    p-plan:isInputVarOf step:advies-govc .
+
+var:govc-advies a p-plan:Variable ;
+    rdfs:label "Geïntegreerd advies van de GOVC"@nl ;
+    p-plan:isVariableOfPlan plan:gewone-procedure ;
+    p-plan:isOutputVarOf step:advies-govc ;
+    p-plan:isInputVarOf step:beslissing .
+
+var:vergunde-toestand a p-plan:Variable ;
+    rdfs:label "Vergunde toestand van het project na de beslissing"@nl ;
+    p-plan:isVariableOfPlan plan:gewone-procedure ;
+    p-plan:isOutputVarOf step:beslissing .
+
+# Het product uit de PDC is de uitvoervariabele van de beslissing (bespreking §6).
+output:P-0098 a cv:Output , p-plan:Variable ;
+    dct:identifier "P-0098" ;
+    dct:title "beslissing omgevingsvergunning projecten op Vlaamse lijst"@nl ;
+    p-plan:isVariableOfPlan plan:gewone-procedure ;
+    p-plan:isOutputVarOf step:beslissing ;
+    p-plan:isInputVarOf step:bekendmaking , step:beroep-rvvb .
+
+
+# *********************************************
+# DIENST (CPSV-AP)
+# *********************************************
+
+# Overgenomen uit codelijst-producten_en_diensten (PDC van het Departement Omgeving).
+# Nieuw, als voorstel voor de PDC: cpsv:follows naar de procedure en cv:hasLegalResource.
+publicservice:D3-0098 a cpsv:PublicService ;
+    dct:identifier "D3-0098" ;
+    dct:title "verlenen omgevingsvergunning voor projecten op Vlaamse lijst"@nl ;
+    cv:hasCompetentAuthority ovo:OVO003323 ;
+    cv:isClassifiedBy pd:D3-0098 ;
+    cpsv:produces output:P-0098 ;
+    cpsv:follows plan:gewone-procedure ;
+    cv:hasLegalResource wet:ovd .
+
+ovo:OVO003323 a cv:PublicOrganisation ;
+    rdfs:label "Departement Omgeving"@nl .
+
+
+# *********************************************
+# CODELIJST
+# *********************************************
+
+# Strekking van een advies. Illustratief: een bestaande lijst van het omgevingsloket heeft
+# voorrang (bespreking §6).
+cl:adviesstrekking a skos:ConceptScheme ;
+    skos:prefLabel "Strekking van een advies"@nl .
+
+cl:gunstig a skos:Concept ; skos:inScheme cl:adviesstrekking ;
+    skos:prefLabel "gunstig"@nl .
+cl:voorwaardelijk-gunstig a skos:Concept ; skos:inScheme cl:adviesstrekking ;
+    skos:prefLabel "voorwaardelijk gunstig"@nl .
+cl:ongunstig a skos:Concept ; skos:inScheme cl:adviesstrekking ;
+    skos:prefLabel "ongunstig"@nl .
+
+
+# *********************************************
+# INFRASTRUCTUUR (actoren)
+# *********************************************
+
+# Wie een advies geeft, waarneemt (sosa:Sensor); wie beslist, verandert de rechtstoestand
+# (sosa:Actuator). R1: een agent die waarneemt of de wereld verandert.
+
+inst:vlaamse-regering a cv:PublicOrganisation , prov:Organization , prov:Agent ;
+    rdfs:label "Vlaamse Regering"@nl .
+
+# Eén ambt, twee rollen: SOSA laat een systeem niet tegelijk een waarnemings- en een
+# actuatieprocedure uitvoeren, dus twee deelsystemen (bespreking §3).
+inst:gewestelijke-omgevingsambtenaar a sosa:System , prov:Agent ;
+    rdfs:label "Gewestelijke omgevingsambtenaar (Departement Omgeving)"@nl ;
+    prov:actedOnBehalfOf inst:vlaamse-regering ;
+    sosa:hasSubSystem inst:goa-ontvankelijkheid , inst:goa-beslissing .
+
+inst:goa-ontvankelijkheid a sosa:Sensor , sosa:System ;
+    rdfs:label "Gewestelijke omgevingsambtenaar, in de rol van onderzoeker van de ontvankelijkheid"@nl ;
+    sosa:implements step:onderzoek-ontvankelijkheid .
+
+inst:goa-beslissing a sosa:Actuator , sosa:System ;
+    rdfs:label "Gewestelijke omgevingsambtenaar, in de rol van beslisser (bij delegatie van de Vlaamse Regering)"@nl ;
+    sosa:implements step:beslissing .
+
+inst:govc a sosa:Sensor , sosa:System , prov:Agent ;
+    rdfs:label "Gewestelijke omgevingsvergunningscommissie (GOVC)"@nl ;
+    sosa:implements step:advies-govc .
+
+inst:adviesinstantie a sosa:Sensor , sosa:System , prov:Organization , prov:Agent ;
+    rdfs:label "Adviesinstantie (fictief)"@nl ;
+    sosa:implements step:advies-adviesinstanties .
+
+inst:rvvb a ov:Rechtscollege , cv:PublicOrganisation , prov:Organization , prov:Agent ;
+    rdfs:label "Raad voor Vergunningsbetwistingen"@nl .
+
+# De gemeente stelt het openbaar onderzoek in, in opdracht van het bevoegde bestuur (OVB art. 67, §1).
+inst:gemeente a cv:PublicOrganisation , prov:Organization , prov:Agent ;
+    rdfs:label "Gemeente waar het project ligt (fictief)"@nl .
+
+inst:aanvrager a prov:Organization , prov:Agent ;
+    rdfs:label "Aanvrager (fictief)"@nl .
+
+
+# *********************************************
+# PROPERTIES
+# *********************************************
+
+prop:ontvankelijk-en-volledig a sosa:Property ;
+    rdfs:label "Ontvankelijk en volledig (van een aanvraag)"@nl .
+
+prop:verenigbaarheid a sosa:Property ;
+    rdfs:label "Verenigbaarheid van een project met de regelgeving en de goede ruimtelijke ordening"@nl .
+
+prop:vergunde-toestand a sosa:Property ;
+    rdfs:label "Vergunde toestand: de rechten en plichten die op een project van toepassing zijn"@nl .
+
+
+# *********************************************
+# EXECUTION (fictief dossier)
+# *********************************************
+
+# --- Het project en de zaak ---
+
+# Het voorwerp van de aanvraag: in het AP een Activiteit, in SOSA het studieobject van de
+# adviezen en van de beslissing.
+obj:project-1 a ov:Activiteit , sosa:FeatureOfInterest ;
+    rdfs:label "Project op de Vlaamse lijst (fictief)"@nl .
+
+exec:zaak-1 a dbo:Case , prov:Activity ;
+    rdfs:label "Zaak OMV_2026000001 (fictief)"@nl ;
+    ov:procedure plan:gewone-procedure ;
+    prov:qualifiedAssociation [ a prov:Association ;
+        prov:agent inst:gewestelijke-omgevingsambtenaar ;
+        prov:hadPlan plan:gewone-procedure
+    ] ;
+    prov:startedAtTime "2026-02-02T10:14:00+01:00"^^xsd:dateTime ;
+    ov:zaakhandeling exec:indiening-1 , exec:onderzoek-ontvankelijkheid-1 , exec:mededeling-ontvankelijkheid-1 ,
+        exec:openbaar-onderzoek-1 , exec:advies-1 , exec:advies-govc-1 , exec:beslissing-1 ,
+        exec:bekendmaking-1 .
+
+# --- Zaakhandelingen ---
+
+# Elke zaakhandeling verwijst naar haar procedurestap twee keer: ov:procedurestap (AP) en
+# p-plan:correspondsToStep (P-PLAN).
+
+exec:indiening-1 a ov:Aanvraag , ov:Zaakhandeling , p-plan:Activity , prov:Activity ;
+    rdfs:label "Indiening van de aanvraag"@nl ;
+    ov:zaak exec:zaak-1 ;
+    ov:procedurestap step:indienen ;
+    p-plan:correspondsToStep step:indienen ;
+    prov:wasAssociatedWith inst:aanvrager ;
+    prov:generated ent:aanvraag-1 ;
+    ov:document ent:aanvraag-1 ;
+    prov:endedAtTime "2026-02-02T10:14:00+01:00"^^xsd:dateTime .
+
+ent:aanvraag-1 a foaf:Document , prov:Entity , sosa:FeatureOfInterest ;
+    rdfs:label "Aanvraagdossier OMV_2026000001 (fictief)"@nl ;
+    dct:identifier "OMV_2026000001" ;
+    p-plan:correspondsToVariable var:aanvraag .
+
+# Geen project-m.e.r.-screeningsnota bij de aanvraag: step:mer-screening heeft geen uitvoering.
+exec:onderzoek-ontvankelijkheid-1 a sosa:Observation , ov:Zaakhandeling ;
+    rdfs:label "Onderzoek van de ontvankelijkheid en volledigheid"@nl ;
+    ov:zaak exec:zaak-1 ;
+    ov:procedurestap step:onderzoek-ontvankelijkheid ;
+    p-plan:correspondsToStep step:onderzoek-ontvankelijkheid ;
+    sosa:usedProcedure step:onderzoek-ontvankelijkheid ;
+    sosa:madeBySensor inst:goa-ontvankelijkheid ;
+    sosa:observedProperty prop:ontvankelijk-en-volledig ;
+    sosa:hasFeatureOfInterest ent:aanvraag-1 ;
+    sosa:resultTime "2026-02-24T15:30:00+01:00"^^xsd:dateTime ;
+    sosa:hasSimpleResult true .
+
+exec:mededeling-ontvankelijkheid-1 a ov:Zaakhandeling , p-plan:Activity , prov:Activity ;
+    rdfs:label "Mededeling: aanvraag ontvankelijk en volledig"@nl ;
+    ov:zaak exec:zaak-1 ;
+    ov:procedurestap step:mededeling-resultaat ;
+    p-plan:correspondsToStep step:mededeling-resultaat ;
+    prov:wasAssociatedWith inst:gewestelijke-omgevingsambtenaar ;
+    prov:wasInformedBy exec:onderzoek-ontvankelijkheid-1 ;
+    prov:generated ent:ontvankelijkheidsbeslissing-1 ;
+    prov:endedAtTime "2026-02-25T09:00:00+01:00"^^xsd:dateTime .
+
+ent:ontvankelijkheidsbeslissing-1 a foaf:Document , prov:Entity ;
+    rdfs:label "Beslissing: aanvraag OMV_2026000001 ontvankelijk en volledig"@nl ;
+    p-plan:correspondsToVariable var:ontvankelijkheidsbeslissing .
+
+# Dertig dagen (OVB art. 16), begin binnen tien dagen na de ontvankelijk- en volledigverklaring
+# van 25 februari. Half-open: van 5 maart 2026 tot en met 3 april 2026 (zomertijd vanaf 29 maart).
+exec:openbaar-onderzoek-1 a ov:Zaakhandeling , p-plan:Activity , prov:Activity ;
+    rdfs:label "Openbaar onderzoek"@nl ;
+    ov:zaak exec:zaak-1 ;
+    ov:procedurestap step:openbaar-onderzoek ;
+    p-plan:correspondsToStep step:openbaar-onderzoek ;
+    prov:wasAssociatedWith inst:gemeente ;
+    prov:used ent:aanvraag-1 ;
+    prov:generated ent:bezwaren-1 ;
+    prov:startedAtTime "2026-03-05T00:00:00+01:00"^^xsd:dateTime ;
+    prov:endedAtTime "2026-04-04T00:00:00+02:00"^^xsd:dateTime .
+
+ent:bezwaren-1 a foaf:Document , prov:Entity ;
+    rdfs:label "Bundel van de bezwaren en opmerkingen (twee bezwaarschriften, fictief)"@nl ;
+    p-plan:correspondsToVariable var:bezwaren .
+
+exec:advies-1 a sosa:Observation , ov:Zaakhandeling ;
+    rdfs:label "Advies van de adviesinstantie"@nl ;
+    ov:zaak exec:zaak-1 ;
+    ov:procedurestap step:advies-adviesinstanties ;
+    p-plan:correspondsToStep step:advies-adviesinstanties ;
+    sosa:usedProcedure step:advies-adviesinstanties ;
+    sosa:madeBySensor inst:adviesinstantie ;
+    sosa:observedProperty prop:verenigbaarheid ;
+    sosa:hasFeatureOfInterest obj:project-1 ;
+    sosa:hasInputValue ent:aanvraag-1 ;
+    sosa:resultTime "2026-03-30T11:00:00+02:00"^^xsd:dateTime ;
+    sosa:hasResult ent:advies-1 .
+
+ent:advies-1 a foaf:Document , prov:Entity ;
+    rdfs:label "Advies van de adviesinstantie (fictief)"@nl ;
+    p-plan:correspondsToVariable var:advies ;
+    rdf:value cl:voorwaardelijk-gunstig .
+
+exec:advies-govc-1 a sosa:Observation , ov:Zaakhandeling ;
+    rdfs:label "Geïntegreerd advies van de GOVC"@nl ;
+    ov:zaak exec:zaak-1 ;
+    ov:procedurestap step:advies-govc ;
+    p-plan:correspondsToStep step:advies-govc ;
+    sosa:usedProcedure step:advies-govc ;
+    sosa:madeBySensor inst:govc ;
+    sosa:observedProperty prop:verenigbaarheid ;
+    sosa:hasFeatureOfInterest obj:project-1 ;
+    sosa:hasInputValue ent:aanvraag-1 , ent:advies-1 , ent:bezwaren-1 ;
+    sosa:relatedObservation exec:advies-1 ;
+    sosa:resultTime "2026-05-20T16:00:00+02:00"^^xsd:dateTime ;
+    sosa:hasResult ent:advies-govc-1 .
+
+ent:advies-govc-1 a foaf:Document , prov:Entity ;
+    rdfs:label "Geïntegreerd advies van de GOVC (fictief)"@nl ;
+    p-plan:correspondsToVariable var:govc-advies ;
+    rdf:value cl:voorwaardelijk-gunstig .
+
+# Beslissingstermijn: 120 dagen vanaf 26 februari 2026, dus uiterlijk 25 juni 2026.
+exec:beslissing-1 a sosa:Actuation , ov:Vergunning , ov:Zaakhandeling ;
+    rdfs:label "Beslissing: vergunning verleend onder voorwaarden"@nl ;
+    ov:zaak exec:zaak-1 ;
+    ov:procedurestap step:beslissing ;
+    p-plan:correspondsToStep step:beslissing ;
+    sosa:usedProcedure step:beslissing ;
+    sosa:madeByActuator inst:goa-beslissing ;
+    sosa:actsOnProperty prop:vergunde-toestand ;
+    sosa:hasFeatureOfInterest obj:project-1 ;
+    sosa:hasInputValue ent:aanvraag-1 , ent:advies-govc-1 ;
+    sosa:relatedObservation exec:advies-govc-1 ;
+    sosa:resultTime "2026-06-18T14:00:00+02:00"^^xsd:dateTime ;
+    sosa:hasResult ent:vergunde-toestand-1 ;
+    prov:generated ent:besluit-1 ;
+    ov:document ent:besluit-1 ;
+    ov:bekendmaking exec:bekendmaking-1 .
+
+ent:besluit-1 a foaf:Document , prov:Entity ;
+    rdfs:label "Besluit over aanvraag OMV_2026000001 (fictief)"@nl ;
+    p-plan:correspondsToVariable output:P-0098 .
+
+ent:vergunde-toestand-1 a ov:VergundeToestand , prov:Entity ;
+    rdfs:label "Vergunde toestand van project 1 na de beslissing van 18 juni 2026"@nl ;
+    p-plan:correspondsToVariable var:vergunde-toestand ;
+    ov:toestandDatum "2026-06-18"^^xsd:date .
+
+# Eerste dag van de aanplakking. De beroepstermijn bij de RvVb loopt vanaf de dag erna.
+exec:bekendmaking-1 a ov:Bekendmaking , ov:Zaakhandeling , p-plan:Activity , prov:Activity ;
+    rdfs:label "Bekendmaking van de beslissing (aanplakking)"@nl ;
+    ov:zaak exec:zaak-1 ;
+    ov:procedurestap step:bekendmaking ;
+    p-plan:correspondsToStep step:bekendmaking ;
+    prov:used ent:besluit-1 ;
+    prov:startedAtTime "2026-06-24T00:00:00+02:00"^^xsd:dateTime .
