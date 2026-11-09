@@ -4142,7 +4142,13 @@ stappen om mee te vergelijken.</p>
 </table>
 <p>Een <code>sosa:ExecutionCollection</code> is geen alternatief voor de zaak. Ze bevat enkel waarnemingen,
 actuaties en bemonsteringen, en een procedure op de collectie moet voor elk lid gelden. De
-uitwerking staat in de bespreking (§6) en als verbeterpunten 10 tot 12 in de README.</p>
+uitwerking staat in de bespreking (§6) en als verbeterpunten 10 tot 13 in de README.</p>
+<p><strong>Deelhandelingen.</strong> De uitvoering van een stap met substappen omvat de handelingen van die
+substappen. PROV heeft daar bewust geen eigenschap voor en raadt <code>dcterms:hasPart</code> aan (Moreau 2015,
+<em>The rationale of PROV</em>, Requirement VI8). <code>sosa:hasMember</code> past niet: het verbindt een collectie met
+uitvoeringen, niet een activiteit met haar delen. Omdat <code>dct:hasPart</code> zelf niets zegt over tijd of
+plan, controleert <code>samenhang-deelhandelingen.rq</code> twee regels. Een deel valt binnen de tijd van het
+geheel, en komt overeen met een stap van het plan dat het geheel volgt.</p>
 <h2 id="diagram">Diagram<a class="headerlink" href="#diagram" title="Permanent link">&para;</a></h2>
 <pre class="mermaid"><code>flowchart RL
     subgraph PLANNING["PLANNING"]
@@ -4913,6 +4919,37 @@ uitwerking staat in de bespreking (§6) en als verbeterpunten 10 tot 12 in de RE
 <a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>    <span class="k">FILTER</span> <span class="nf">NOT EXISTS</span> <span class="p">{</span> <span class="nv">?h</span> <span class="nn">ov</span><span class="p">:</span><span class="nt">zaak</span> <span class="nv">?zaak</span> <span class="p">;</span> <span class="nn">p-plan</span><span class="p">:</span><span class="nt">correspondsToStep</span> <span class="nv">?voor</span> <span class="p">}</span>
 <a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>  <span class="p">}</span>
 <a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a><span class="p">}</span>
+</code></pre></div>
+</details>
+<details class="example">
+<summary>samenhang-deelhandelingen.rq</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">PREFIX</span> <span class="nn">dct</span><span class="p">:</span>    <span class="nl">&lt;http://purl.org/dc/terms/&gt;</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="k">PREFIX</span> <span class="nn">p-plan</span><span class="p">:</span> <span class="nl">&lt;http://purl.org/net/p-plan#&gt;</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="k">PREFIX</span> <span class="nn">prov</span><span class="p">:</span>   <span class="nl">&lt;http://www.w3.org/ns/prov#&gt;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="k">PREFIX</span> <span class="nn">sosa</span><span class="p">:</span>   <span class="nl">&lt;http://www.w3.org/ns/sosa/&gt;</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c"># dct:hasPart tussen activiteiten zegt zelf niets over tijd of plan (Moreau 2015, VI8: de toepassing</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="c"># bewaakt de samenhang). Deze query geeft elke schending van de twee regels die het voorbeeld eraan</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="c"># hangt; geen resultaat betekent: samenhangend. Elk deel van de UNION bindt zelf ?deel, omdat</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="c"># SPARQL een FILTER NOT EXISTS binnen een groep evalueert zonder de bindingen van erbuiten.</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="c">#  1. tijd: elk tijdstip van een deel ligt binnen het begin en het einde van het geheel;</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="c">#  2. blauwdruk: volgt het geheel een plan, dan komt elk deel overeen met een stap van dat plan.</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="k">SELECT</span> <span class="nv">?geheel</span> <span class="nv">?deel</span> <span class="nv">?probleem</span> <span class="k">WHERE</span> <span class="p">{</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>  <span class="p">{</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>    <span class="nv">?geheel</span> <span class="nn">dct</span><span class="p">:</span><span class="nt">hasPart</span> <span class="nv">?deel</span> <span class="p">.</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>    <span class="nv">?deel</span> <span class="nn">prov</span><span class="p">:</span><span class="nt">startedAtTime</span><span class="err">|</span><span class="nn">prov</span><span class="p">:</span><span class="nt">endedAtTime</span><span class="err">|</span><span class="nn">sosa</span><span class="p">:</span><span class="nt">resultTime</span> <span class="nv">?t</span> <span class="p">.</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>    <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?geheel</span> <span class="nn">prov</span><span class="p">:</span><span class="nt">startedAtTime</span> <span class="nv">?begin</span> <span class="p">}</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>    <span class="k">OPTIONAL</span> <span class="p">{</span> <span class="nv">?geheel</span> <span class="nn">prov</span><span class="p">:</span><span class="nt">endedAtTime</span> <span class="nv">?einde</span> <span class="p">}</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>    <span class="k">FILTER</span> <span class="p">((</span><span class="nf">BOUND</span><span class="p">(</span><span class="nv">?begin</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nv">?t</span> <span class="o">&lt;</span> <span class="nv">?begin</span><span class="p">)</span> <span class="o">||</span> <span class="p">(</span><span class="nf">BOUND</span><span class="p">(</span><span class="nv">?einde</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nv">?t</span> <span class="o">&gt;</span> <span class="nv">?einde</span><span class="p">))</span>
+<a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>    <span class="k">BIND</span> <span class="p">(</span><span class="nf">CONCAT</span><span class="p">(</span><span class="s">"tijdstip "</span><span class="p">,</span> <span class="nf">STR</span><span class="p">(</span><span class="nv">?t</span><span class="p">),</span> <span class="s">" valt buiten het geheel"</span><span class="p">)</span> <span class="k">AS</span> <span class="nv">?probleem</span><span class="p">)</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>  <span class="p">}</span>
+<a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>  <span class="k">UNION</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>  <span class="p">{</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>    <span class="nv">?geheel</span> <span class="nn">dct</span><span class="p">:</span><span class="nt">hasPart</span> <span class="nv">?deel</span> <span class="p">;</span> <span class="nn">prov</span><span class="p">:</span><span class="nt">qualifiedAssociation</span><span class="o">/</span><span class="nn">prov</span><span class="p">:</span><span class="nt">hadPlan</span> <span class="nv">?plan</span> <span class="p">.</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>    <span class="k">FILTER</span> <span class="nf">NOT EXISTS</span> <span class="p">{</span> <span class="nv">?deel</span> <span class="nn">p-plan</span><span class="p">:</span><span class="nt">correspondsToStep</span><span class="o">/</span><span class="nn">p-plan</span><span class="p">:</span><span class="nt">isStepOfPlan</span> <span class="nv">?plan</span> <span class="p">}</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>    <span class="k">BIND</span> <span class="p">(</span><span class="nf">CONCAT</span><span class="p">(</span><span class="s">"komt niet overeen met een stap van "</span><span class="p">,</span> <span class="nf">STR</span><span class="p">(</span><span class="nv">?plan</span><span class="p">))</span> <span class="k">AS</span> <span class="nv">?probleem</span><span class="p">)</span>
+<a id="__codelineno-2-26" name="__codelineno-2-26" href="#__codelineno-2-26"></a>  <span class="p">}</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27" href="#__codelineno-2-27"></a><span class="p">}</span>
 </code></pre></div>
 </details>
 
