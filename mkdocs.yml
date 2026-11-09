@@ -23,6 +23,11 @@ validation:
 theme:
   name: material
   language: nl
+  custom_dir: overrides
+  # Huisstijl Vlaamse overheid: het logo, het favicon en de kleuren staan in
+  # `docs/assets/` en `docs/stylesheets/extra.css` (Vlaanderen geel #FFED00).
+  logo: assets/vlaanderen.png
+  favicon: assets/vlaanderen.png
   features:
     - navigation.tabs
     - navigation.sections
@@ -35,22 +40,29 @@ theme:
     - content.tabs.link
     - toc.follow
   palette:
+    # De kleuren komen niet uit een Material-palet maar uit de huisstijl van de
+    # Vlaamse overheid; `custom` laat ze aan `extra.css` over.
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: pink
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-7
         name: Donker thema
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: pink
+      primary: custom
+      accent: custom
       toggle:
         icon: material/brightness-4
         name: Licht thema
   icon:
     repo: fontawesome/brands/github
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL
 
 extra_css:
   - stylesheets/extra.css
