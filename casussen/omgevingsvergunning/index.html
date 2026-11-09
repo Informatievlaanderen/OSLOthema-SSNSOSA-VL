@@ -3357,6 +3357,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#p-plan-en-de-pdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P-PLAN en de PDC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#wat-het-ap-omgevingsvergunning-mist" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3859,6 +3870,17 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#p-plan-en-de-pdc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P-PLAN en de PDC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#wat-het-ap-omgevingsvergunning-mist" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -3966,6 +3988,66 @@ voorbereiding" geen procedurestap is: die volgt uit de stappen die al uitgevoerd
 <li><strong>Geen deploymentlaag:</strong> de regelgeving wijst de actoren aan; de zaak draagt het plan
   (<code>prov:hadPlan</code>).</li>
 </ul>
+<h2 id="p-plan-en-de-pdc">P-PLAN en de PDC<a class="headerlink" href="#p-plan-en-de-pdc" title="Permanent link">&para;</a></h2>
+<p>De PDC (CPSV-AP) en P-PLAN beschrijven allebei typeniveau: wat bij elke aanvraag gebeurt. Het
+dossier is één uitvoering daarvan. Zes links verbinden de drie lagen:</p>
+<table>
+<thead>
+<tr>
+<th>Van</th>
+<th>Eigenschap</th>
+<th>Naar</th>
+<th>Niveau</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>publicservice:D3-0098</code></td>
+<td><code>cpsv:produces</code></td>
+<td><code>output:P-0098</code></td>
+<td>dienst (overgenomen uit de PDC)</td>
+</tr>
+<tr>
+<td><code>publicservice:D3-0098</code></td>
+<td><code>cpsv:follows</code></td>
+<td><code>plan:gewone-procedure</code></td>
+<td>dienst (voorstel voor de PDC)</td>
+</tr>
+<tr>
+<td><code>publicservice:D3-0098</code></td>
+<td><code>cv:hasLegalResource</code></td>
+<td><code>wet:ovd</code></td>
+<td>dienst (voorstel voor de PDC)</td>
+</tr>
+<tr>
+<td><code>step:beslissing</code></td>
+<td><code>sosa:hasOutput</code></td>
+<td><code>output:P-0098</code></td>
+<td>plan</td>
+</tr>
+<tr>
+<td><code>output:P-0098</code></td>
+<td><code>p-plan:isOutputVarOf</code> / <code>p-plan:isInputVarOf</code></td>
+<td><code>step:beslissing</code> / <code>step:bekendmaking</code>, <code>step:beroep-rvvb</code></td>
+<td>plan</td>
+</tr>
+<tr>
+<td><code>ent:besluit-1</code></td>
+<td><code>p-plan:correspondsToVariable</code></td>
+<td><code>output:P-0098</code></td>
+<td>dossier</td>
+</tr>
+</tbody>
+</table>
+<p>Er zijn twee bruggen. De eerste is het product: <code>output:P-0098</code> is zowel <code>cv:Output</code> van de dienst
+als <code>p-plan:Variable</code> van de beslissing. Dat kan omdat beide op typeniveau staan: de variabele
+is een plaatshouder die elk besluit invult. De tweede is <code>cpsv:follows</code>: de dienst volgt de
+procedure, en de regel is dezelfde IRI als het plan. Een dossier bereikt de dienst zo langs twee
+wegen. Langs het product loopt de weg van het besluit (<code>correspondsToVariable</code>, dan
+<code>cpsv:produces</code>). Langs de procedure loopt hij van de zaak (<code>ov:procedure</code>, dan <code>cpsv:follows</code>).
+Geen van beide vocabularia legt op dat het product van de dienst ook de uitvoer van een stap uit
+haar plan is. Een SPARQL-controle in de bespreking doet dat wel. De invoerkant is niet gekoppeld:
+de PDC beschrijft het aanvraagdossier niet als <code>cv:hasInput</code> van de dienst.</p>
 <h2 id="wat-het-ap-omgevingsvergunning-mist">Wat het AP Omgevingsvergunning mist<a class="headerlink" href="#wat-het-ap-omgevingsvergunning-mist" title="Permanent link">&para;</a></h2>
 <p>De casus laadt het AP-vocabularium en CPSV-AP 3.2.0 (<a href="../../regels/r17/">R17</a>). Daarbij kwamen zes
 verbeterpunten voor het AP naar boven. De belangrijkste: de rechtsgrond kan niet per stap, volgorde
