@@ -35,6 +35,7 @@ flowchart RL
         ZAAK["exec:zaak-1<br/>dbo:Case · prov:Activity"]
         PROJ["obj:project-1<br/>ov:Activiteit · sosa:FeatureOfInterest"]
         E_IND["exec:indiening-1<br/>ov:Aanvraag · p-plan:Activity"]
+        E_ONT["exec:ontvankelijkheid-1<br/>p-plan:Activity (MultiStep)"]
         E_OND["exec:onderzoek-ontvankelijkheid-1<br/>sosa:Observation · resultaat true"]
         E_MED["exec:mededeling-ontvankelijkheid-1<br/>p-plan:Activity"]
         E_OO["exec:openbaar-onderzoek-1<br/>p-plan:Activity<br/>2026-03-05 – 2026-04-04"]
@@ -104,6 +105,10 @@ flowchart RL
     E_IND -->|correspondsToStep| S_IND
     E_IND -->|prov:generated| EN_AANV
     EN_AANV -->|correspondsToVariable| V_AANV
+    E_ONT -->|correspondsToStep| S_ONT
+    E_ONT -->|prov:hadPlan| PLAN_ONT
+    E_ONT -->|dct:hasPart| E_OND
+    E_ONT -->|dct:hasPart| E_MED
     E_OND -->|correspondsToStep| SS_OND
     E_OND -->|madeBySensor| GOA_O
     E_OND -->|hasFeatureOfInterest| EN_AANV
@@ -166,6 +171,7 @@ flowchart RL
 
     style ZAAK fill:#e54b89,stroke:#2E5C8A,color:#fff
     style E_IND fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style E_ONT fill:#e54b89,stroke:#2E5C8A,color:#fff
     style E_OND fill:#e54b89,stroke:#2E5C8A,color:#fff
     style E_MED fill:#e54b89,stroke:#2E5C8A,color:#fff
     style E_OO fill:#e54b89,stroke:#2E5C8A,color:#fff

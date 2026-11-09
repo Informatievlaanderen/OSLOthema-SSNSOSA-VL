@@ -399,7 +399,8 @@ exec:zaak-1 a dbo:Case , prov:Activity ;
         prov:hadPlan plan:gewone-procedure
     ] ;
     prov:startedAtTime "2026-02-02T10:14:00+01:00"^^xsd:dateTime ;
-    ov:zaakhandeling exec:indiening-1 , exec:onderzoek-ontvankelijkheid-1 , exec:mededeling-ontvankelijkheid-1 ,
+    ov:zaakhandeling exec:indiening-1 , exec:ontvankelijkheid-1 , exec:onderzoek-ontvankelijkheid-1 ,
+        exec:mededeling-ontvankelijkheid-1 ,
         exec:openbaar-onderzoek-1 , exec:advies-1 , exec:advies-govc-1 , exec:beslissing-1 ,
         exec:bekendmaking-1 .
 
@@ -422,6 +423,23 @@ ent:aanvraag-1 a foaf:Document , prov:Entity , sosa:FeatureOfInterest ;
     rdfs:label "Aanvraagdossier OMV_2026000001 (fictief)"@nl ;
     dct:identifier "OMV_2026000001" ;
     p-plan:correspondsToVariable var:aanvraag .
+
+# De uitvoering van de MultiStep: één activiteit die met step:ontvankelijkheid overeenkomt en het
+# deelplan volgt, met de zaakhandelingen van de substappen als delen. Dat is wat het AP Dossier een
+# procedurestap noemt (werk gedaan binnen een onderdeel van een procedure), hier met de link naar de
+# voorgeschreven stap die het AP Dossier mist (bespreking §6).
+exec:ontvankelijkheid-1 a ov:Zaakhandeling , p-plan:Activity , prov:Activity ;
+    rdfs:label "Ontvankelijkheids- en volledigheidsonderzoek van aanvraag OMV_2026000001"@nl ;
+    ov:zaak exec:zaak-1 ;
+    ov:procedurestap step:ontvankelijkheid ;
+    p-plan:correspondsToStep step:ontvankelijkheid ;
+    prov:qualifiedAssociation [ a prov:Association ;
+        prov:agent inst:gewestelijke-omgevingsambtenaar ;
+        prov:hadPlan plan:ontvankelijkheidsonderzoek
+    ] ;
+    dct:hasPart exec:onderzoek-ontvankelijkheid-1 , exec:mededeling-ontvankelijkheid-1 ;
+    prov:startedAtTime "2026-02-03T00:00:00+01:00"^^xsd:dateTime ;
+    prov:endedAtTime "2026-02-25T09:00:00+01:00"^^xsd:dateTime .
 
 # Geen project-m.e.r.-screeningsnota bij de aanvraag: step:mer-screening heeft geen uitvoering.
 exec:onderzoek-ontvankelijkheid-1 a sosa:Observation , ov:Zaakhandeling ;

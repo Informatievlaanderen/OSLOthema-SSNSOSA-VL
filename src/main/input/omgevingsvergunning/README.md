@@ -58,7 +58,12 @@ draagt het plan (`prov:hadPlan`). In het kort:
 - **Procedurestap = stap.** Elke stap is `ov:Procedurestap` en `p-plan:Step`, met volgorde,
   termijn (`ov:termijn`, een `time:Duration` in dagen) en rechtsgrond per artikel (`dct:source`).
 - **Substappen** van het ontvankelijkheids- en volledigheidsonderzoek: een `p-plan:MultiStep` met
-  een deelplan (onderzoek, m.e.r.-screening, mededeling).
+  een deelplan (onderzoek, m.e.r.-screening, mededeling). In het dossier heeft de MultiStep een
+  eigen uitvoering (`exec:ontvankelijkheid-1`), die het deelplan volgt en de handelingen van de
+  substappen als delen heeft.
+- **De zaak komt overeen met het plan.** Ze is een `prov:Activity` met `prov:hadPlan` (en
+  `ov:procedure`) naar de procedure, geen "eenheid van werk" zoals in het AP Dossier (zie
+  verbeterpunten 10 tot 12).
 - **Een advies is een waarneming** (`sosa:Observation`) van de verenigbaarheid van het project;
   **de beslissing is een actuatie** (`sosa:Actuation`) op de vergunde toestand, met een
   `ov:VergundeToestand` als resultaat en het besluit als document.
@@ -113,27 +118,15 @@ PREFIX ov:     <https://data.vlaanderen.be/ns/omgevingsvergunning#>
 PREFIX p-plan: <http://purl.org/net/p-plan#>
 PREFIX rdfs:   <http://www.w3.org/2000/01/rdf-schema#>
 
-# Een stap is uitgevoerd als een zaakhandeling ermee overeenkomt, of, voor een stap met
-# substappen, als de laatste substap van het deelplan uitgevoerd is.
+# Een stap is uitgevoerd als een zaakhandeling ermee overeenkomt. Ook een stap met substappen
+# (p-plan:MultiStep) heeft zo'n zaakhandeling: de activiteit die het deelplan volgt.
 SELECT ?zaak ?volgendeStap ?label WHERE {
   ?zaak ov:procedure ?plan .
   ?volgendeStap p-plan:isStepOfPlan ?plan ; rdfs:label ?label .
-  FILTER NOT EXISTS {                                   # zelf nog niet uitgevoerd
-    { ?h ov:zaak ?zaak ; p-plan:correspondsToStep ?volgendeStap }
-    UNION
-    { ?volgendeStap p-plan:isDecomposedAsPlan ?d . ?laatste p-plan:isStepOfPlan ?d .
-      FILTER NOT EXISTS { ?na p-plan:isPrecededBy ?laatste ; p-plan:isStepOfPlan ?d }
-      ?h ov:zaak ?zaak ; p-plan:correspondsToStep ?laatste }
-  }
-  FILTER NOT EXISTS {                                   # een voorganger nog niet uitgevoerd
+  FILTER NOT EXISTS { ?h ov:zaak ?zaak ; p-plan:correspondsToStep ?volgendeStap }   # zelf nog niet uitgevoerd
+  FILTER NOT EXISTS {                                                               # een voorganger nog niet uitgevoerd
     ?volgendeStap p-plan:isPrecededBy ?voor .
-    FILTER NOT EXISTS {
-      { ?h ov:zaak ?zaak ; p-plan:correspondsToStep ?voor }
-      UNION
-      { ?voor p-plan:isDecomposedAsPlan ?d . ?laatste p-plan:isStepOfPlan ?d .
-        FILTER NOT EXISTS { ?na p-plan:isPrecededBy ?laatste ; p-plan:isStepOfPlan ?d }
-        ?h ov:zaak ?zaak ; p-plan:correspondsToStep ?laatste }
-    }
+    FILTER NOT EXISTS { ?h ov:zaak ?zaak ; p-plan:correspondsToStep ?voor }
   }
 }
 ```
@@ -190,3 +183,34 @@ Voor het AP en de PDC samen:
    (dan is `cv:Output` tegelijk het product en elk exemplaar ervan). Hetzelfde geldt voor de
    aanvraag: de PDC kan het aanvraagdossier als invoer van de dienst beschrijven (`cv:hasInput`,
    een `cv:Evidence`), maar heeft daar nu niets voor.
+
+Voor het [AP Dossier](https://data.vlaanderen.be/doc/applicatieprofiel/dossier/), waarop het AP
+Omgevingsvergunning steunt (`ov:dossier` heeft als bereik `dossier:Dossier`). Een uitvoering moet
+overeenkomen met de blauwdruk die ze uitvoert: de zaak met de procedure, een handeling met een
+procedurestap. Het AP Dossier maakt dat onmogelijk:
+
+10. **De procedure is een string.** Een Zaak heeft `dbo:procedure`, "de naam die verwijst naar de
+    formele definitie van een verzameling stappen". Zonder resource zijn er geen stappen, volgorde
+    of termijnen om de zaak mee te vergelijken. Voorstel: een objecteigenschap van Zaak naar
+    `p-plan:Plan`, de korte vorm van `prov:qualifiedAssociation` met `prov:hadPlan`. Het bereik
+    is P-PLAN en geen klasse van één domein: het AP Dossier is generiek, en een domein-AP hangt zijn
+    eigen klassen eronder (`ov:Procedure ⊂ p-plan:Plan`, `ov:Procedurestap ⊂ p-plan:Step`, zoals in
+    `ov-pplan-prov.ttl`). `prov:Plan` is te arm (geen stappen), `sosa:Procedure` te ruim (ook de
+    werkwijze van een sensor); via pplan-sosa en sosa-prov volgen beide vanzelf.
+11. **Een zaak is geen activiteit.** Zaak, Procedurestap en Project zijn een *Eenheid van werk*
+    (`dbo:UnitOfWork`), die "verschilt van Activiteit" (in het AP `prov:Activity`) "in die zin dat
+    het een duidelijk einde heeft en gemeten wordt". Ook de Activiteit van het AP heeft een
+    verplichte einddatum, dus het criterium onderscheidt niets. En `prov:hadPlan`, de enige
+    eigenschap in de kern die een uitvoering als geheel aan een plan bindt, vraagt een
+    `prov:Activity`. Voorstel: een zaak is de uitvoering van een plan, een `prov:Activity`; de
+    handelingen erin blijven activiteiten met `p-plan:correspondsToStep` naar hun stap.
+    `sosa:ExecutionCollection` is geen alternatief: ze bevat enkel waarnemingen, actuaties en
+    bemonsteringen, en een procedure op de collectie moet gelden voor elk lid.
+12. **Twee betekenissen van "Procedurestap".** In het AP Omgevingsvergunning is het "een
+    voorgeschreven handeling binnen een Procedure" (de blauwdruk). In het AP Dossier is het "het
+    geheel aan werk gedaan binnen een […] onderdeel van een procedure", met start- en einddatum (de
+    uitvoering), zonder link naar de voorgeschreven stap. Voorstel: in het AP Dossier een
+    Activiteit met `p-plan:correspondsToStep` naar de stap (voor een stap met substappen: een
+    activiteit die het deelplan volgt, zoals `exec:ontvankelijkheid-1`), of ten minste een ander
+    label en die link. Het AP Omgevingsvergunning neemt dan de alignering over en hangt
+    `ov:procedure` en `ov:procedurestap` onder de eigenschappen van het AP Dossier.

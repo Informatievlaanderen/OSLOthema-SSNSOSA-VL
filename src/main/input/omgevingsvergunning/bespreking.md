@@ -67,9 +67,17 @@ Het GOVC-advies is een **afgeleide waarneming** (R7, R13): `sosa:hasInputValue` 
 (het resultaat) en de bundel bezwaren, `sosa:relatedObservation` naar de adviesobservatie. De
 beslissing heeft het GOVC-advies als inputwaarde, op dezelfde manier.
 
-De **zaak** (`exec:zaak-1`, `dbo:Case`) bundelt de zaakhandelingen met `ov:zaakhandeling`. Ze is
-geen `sosa:ObservationCollection`: haar leden zijn van verschillende soorten en delen geen
-eigenschap of procedure.
+De **zaak** (`exec:zaak-1`, `dbo:Case`, `prov:Activity`) is de uitvoering van het plan
+(`prov:hadPlan`, `ov:procedure`) en bundelt de zaakhandelingen met `ov:zaakhandeling`. Ze is geen
+`sosa:ObservationCollection`: haar leden zijn van verschillende soorten en delen geen eigenschap of
+procedure. Waarom ze een activiteit is en geen "eenheid van werk" zoals in het AP Dossier, staat in
+§6.
+
+De **uitvoering van de MultiStep** (`exec:ontvankelijkheid-1`) is een `p-plan:Activity` die met
+`step:ontvankelijkheid` overeenkomt en het deelplan volgt (`prov:hadPlan
+plan:ontvankelijkheidsonderzoek`). Het onderzoek en de mededeling zijn haar delen (`dct:hasPart`),
+zoals de substappen delen zijn van het deelplan. De m.e.r.-screening heeft geen uitvoering: er zat
+geen screeningsnota bij de aanvraag.
 
 ## 5. Procedure en Property
 
@@ -171,7 +179,11 @@ heeft geen domein. Dit is verbeterpunt 1 voor het AP (README).
 deelplan (`p-plan:isDecomposedAsPlan`). **Motivering:** zo blijft het hoofdplan leesbaar, en het
 deelplan kan in een andere procedure (de vereenvoudigde) hergebruikt worden. Een `p-plan:MultiStep`
 is volgens P-PLAN zowel `p-plan:Step` als `p-plan:Plan`; beide types staan expliciet in de data
-voor SHACL-engines zonder klassehiërarchie.
+voor SHACL-engines zonder klassehiërarchie. In het dossier krijgt de MultiStep een eigen uitvoering,
+`exec:ontvankelijkheid-1`, met `p-plan:correspondsToStep` naar de MultiStep en `prov:hadPlan` naar
+het deelplan; de zaakhandelingen van de substappen zijn haar delen. Zo komt elke stap van het
+hoofdplan overeen met één zaakhandeling, en hoeft `stand-van-de-zaak.rq` geen substappen te
+doorzoeken.
 
 ### Waarom een advies als waarneming en de beslissing als actuatie?
 
@@ -194,6 +206,75 @@ Rechtshandeling, Juridisch Werk (een werk). PROV-O scheidt activiteit en entitei
 legt geen verband met PROV, dus de validatie meldt geen disjunctie, maar het onderscheid blijft
 belangrijk. De definitie van Rechtshandeling ("handeling met beoogde rechtsgevolgen") wijst op de
 handeling, dus dat is de lezing hier. Verbeterpunten 3 en 4 voor het AP (README).
+
+### Waarom komt de zaak overeen met een plan, en is ze geen eenheid van werk?
+
+Een uitvoering wordt getypeerd door de blauwdruk die ze uitvoert, op elk niveau:
+
+| Uitvoering | Blauwdruk | P-PLAN / PROV | AP Omgevingsvergunning | AP Dossier |
+|---|---|---|---|---|
+| zaak | procedure (plan) | `prov:qualifiedAssociation` met `prov:hadPlan` | `ov:procedure` → `ov:Procedure` | `dbo:procedure`, een string |
+| zaakhandeling | procedurestap | `p-plan:correspondsToStep` | `ov:procedurestap` → `ov:Procedurestap` | geen |
+| document | variabele | `p-plan:correspondsToVariable` | geen | geen |
+
+**Verworpen alternatief:** de zaak zoals het [AP Dossier](https://data.vlaanderen.be/doc/applicatieprofiel/dossier/)
+haar ziet. Daar is een Zaak een *Eenheid van werk* (`dbo:UnitOfWork`), die "verschilt van
+Activiteit in die zin dat het een duidelijk einde heeft en gemeten wordt". Die Activiteit is in het
+AP Dossier `prov:Activity`. Een activiteit "vindt plaats tijdens" een eenheid van werk
+(`dossier:vindtPlaatsTijdens`), een zaak "doorloopt" procedurestappen, en de procedure is een
+string: "de naam die verwijst naar de formele definitie van een verzameling stappen".
+**Gekozen aanpak:** de zaak is een `prov:Activity` met `prov:hadPlan` naar het plan, en
+`ov:procedure` naar hetzelfde plan.
+
+**Motivering.** Het criterium van het AP Dossier onderscheidt niets: ook zijn Activiteit heeft een
+verplichte einddatum. Het echte onderscheid is structureel. Een eenheid van werk is het geheel
+waarbinnen activiteiten plaatsvinden. Dat gaat in tegen wat een zaak moet kunnen: overeenkomen met
+de blauwdruk die ze uitvoert. De enige eigenschap in de kern die een uitvoering als geheel aan een
+plan bindt, is `prov:hadPlan`, en die vraagt een `prov:Activity`. P-PLAN heeft geen eigenschap van
+een uitvoering naar een plan. `p-plan:Bundle` beschrijft "de herkomst van de uitvoering van een
+plan", maar is een entiteit en wijst niet naar het plan. Wie de zaak geen activiteit laat zijn,
+verliest dus de koppeling met de blauwdruk. Een procedure als string maakt die koppeling sowieso
+onmogelijk: zonder resource zijn er geen stappen, volgorde of termijnen om mee te vergelijken.
+
+`sosa:ExecutionCollection` lijkt een uitweg: het AP Dossier leest zich als een collectie
+(`vindt plaats tijdens` als omgekeerde van `sosa:hasMember`, `behandelt` als
+`sosa:hasFeatureOfInterest`, de openings- en sluitingsdatum als samenvatting van de leden). Maar een
+SOSA-collectie bevat enkel `sosa:Execution`s, uitgevoerd door een systeem op een studieobject. De
+indiening, het openbaar onderzoek en de bekendmaking zijn dat niet. En een `sosa:usedProcedure` op
+de collectie moet volgens de samenvattingsregels gelden voor elk lid, terwijl elk lid een andere
+stap uitvoert.
+
+**Twee betekenissen van "Procedurestap".**
+
+| | AP Omgevingsvergunning (`ov:Procedurestap`) | AP Dossier (`dossier:Procedurestap`) |
+|---|---|---|
+| Definitie | "een voorgeschreven handeling binnen een Procedure" | "het geheel aan werk gedaan binnen een specifiek chronologisch, logisch, organisatorisch of wettelijk bepaald onderdeel van een procedure" |
+| Superklasse | geen (in de alignering `p-plan:Step`) | `dbo:UnitOfWork` |
+| Eigenschappen | termijn, rechtsgrond, procedure | naam, startdatum, einddatum (verplicht) |
+| Niveau | blauwdruk | uitvoering in één dossier |
+
+Het AP Omgevingsvergunning gebruikt beide samen (`ov:dossier` heeft als bereik
+`dossier:Dossier`), dus één label staat voor twee niveaus. Wat het AP Dossier een procedurestap
+noemt, is in P-PLAN een activiteit die met een stap overeenkomt. Voor een stap met substappen is
+dat `exec:ontvankelijkheid-1`: één activiteit die het deelplan volgt, met de handelingen van de
+substappen als delen. Het AP Dossier mist daarbij de link naar de voorgeschreven stap.
+
+**Voorstel: de blauwdruk in de kern, het domein als subklasse.** Het AP Dossier is generiek en
+verwijst dus niet naar een klasse van één domein, maar naar P-PLAN:
+
+| Laag | Blauwdruk | Uitvoering → blauwdruk |
+|---|---|---|
+| kern | `p-plan:Plan`, `p-plan:Step` (via pplan-sosa en sosa-prov ook `sosa:Procedure` en `prov:Plan`) | zaak: `prov:hadPlan`; handeling: `p-plan:correspondsToStep` |
+| AP Dossier | bereik `p-plan:Plan` en `p-plan:Step` | Zaak → plan; Activiteit `p-plan:correspondsToStep` |
+| AP Omgevingsvergunning | `ov:Procedure ⊂ p-plan:Plan`, `ov:Procedurestap ⊂ p-plan:Step` | `ov:procedure` en `ov:procedurestap` als subproperty van die van het AP Dossier |
+
+`p-plan:Plan` en `p-plan:Step` zijn het juiste bereik. `prov:Plan` zegt niets over stappen.
+`sosa:Procedure` is te ruim (ook de werkwijze van een sensor) en onderscheidt plan en stap niet.
+Via pplan-sosa en sosa-prov volgen de SOSA- en PROV-klassen vanzelf. Dit zijn verbeterpunten 10 tot
+12 (README).
+
+<!-- TODO: neemt de werkgroep van het AP Dossier een eigenschap van Zaak naar p-plan:Plan op (in plaats van dbo:procedure als string), en wordt Zaak dan een prov:Activity? -->
+<!-- TODO: blijft dossier:Procedurestap bestaan (dan met een link naar de voorgeschreven stap en een ander label), of wordt het een Activiteit met p-plan:correspondsToStep? -->
 
 ### Waarom het product als variabele van de procedure?
 
@@ -362,11 +443,15 @@ De data typeert de P-PLAN-, SOSA- en PROV-klassen nog altijd expliciet, voor SHA
 klassehiërarchie. Met de module zijn die types afleidbaar; de validatie van alle voorbeelden blijft
 ongewijzigd foutloos.
 
-<!-- TODO: wil de werkgroep van het AP Omgevingsvergunning deze axioma's overnemen in het AP zelf, of als aparte module publiceren (en onder welke namespace)? -->
+**In het AP, niet als aparte module.** Rust het AP Dossier op P-PLAN (zie *Waarom komt de zaak
+overeen met een plan*), dan hangen `ov:Procedure` en `ov:Procedurestap` daaronder als subklassen.
+De axioma's horen dan in het AP Omgevingsvergunning zelf.
+
+<!-- TODO: neemt de werkgroep van het AP Omgevingsvergunning de axioma's over, samen met ov:procedure en ov:procedurestap als subproperty van de eigenschappen van het AP Dossier? -->
 
 ### Validatie
 
-`[VOCAB] ok`, `[DISJOINTNESS] ok`, `[SHACL] conforms` (22 van 203 shapes toegepast op 37
+`[VOCAB] ok`, `[DISJOINTNESS] ok`, `[SHACL] conforms` (22 van 203 shapes toegepast op 39
 focusnodes). De bulkvalidatie van alle voorbeelden geeft na het laden van de twee vocabularia
 en de uitlijningsmodule geen fouten.
 
@@ -379,6 +464,8 @@ en de uitlijningsmodule geen fouten.
   `prov:endedAtTime`, half-open: 5 maart 2026 00:00 tot 4 april 2026 00:00, dus dertig dagen tot en
   met 3 april. Het onderzoek begint binnen tien dagen na de ontvankelijk- en volledigverklaring van
   25 februari (OVB art. 16). De zomertijd begint op 29 maart, vandaar `+01:00` en `+02:00`.
+- **De uitvoering van de MultiStep** loopt van 3 februari 2026 00:00 (de dag na de indiening, waarop
+  de termijn van dertig dagen begint, OVD art. 21) tot de mededeling op 25 februari.
 - **Momenten** zijn `prov:endedAtTime` (indiening, mededeling) of `sosa:resultTime` (adviezen,
   beslissing); de bekendmaking heeft enkel `prov:startedAtTime`, de eerste dag van de aanplakking.
 - **Termijnen in het dossier**, uitgerekend: ontvankelijk en volledig verklaard op 25 februari

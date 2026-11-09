@@ -26,7 +26,8 @@ voorbereiding" geen procedurestap is: die volgt uit de stappen die al uitgevoerd
 - **Procedurestap = stap,** met volgorde (`p-plan:isPrecededBy`), termijn (`ov:termijn`, een
   `time:Duration`) en rechtsgrond per artikel (`dct:source`).
 - **Substappen** als `p-plan:MultiStep` met een deelplan: het ontvankelijkheids- en
-  volledigheidsonderzoek.
+  volledigheidsonderzoek. In het dossier is de uitvoering ervan één activiteit die het deelplan
+  volgt, met de handelingen van de substappen als delen.
 - **Een advies is een waarneming** van de verenigbaarheid van het project, het GOVC-advies een
   afgeleide ([R13](../regels/r13.md)). **De beslissing is een actuatie** op de vergunde toestand,
   met een `ov:VergundeToestand` als resultaat en het besluit als apart document
@@ -37,6 +38,9 @@ voorbereiding" geen procedurestap is: die volgt uit de stappen die al uitgevoerd
   `p-plan:correspondsToVariable output:P-0098`.
 - **Geen deploymentlaag:** de regelgeving wijst de actoren aan; de zaak draagt het plan
   (`prov:hadPlan`).
+- **De zaak komt overeen met haar blauwdruk:** de zaak met het plan (`prov:hadPlan`), elke
+  zaakhandeling met een stap (`p-plan:correspondsToStep`), elk document met een variabele
+  (`p-plan:correspondsToVariable`).
 
 ## P-PLAN en de PDC
 
@@ -81,6 +85,34 @@ Volgorde en substappen lost de casus op met een alignering, als voorstel voor he
 (`src/main/resources/be/vlaanderen/data/ns/omgevingsvergunning/alignments/ov-pplan-prov.ttl`).
 Juridisch Werk en Rechtshandeling blijven bewust buiten de alignering: zolang `ov:Vergunning` zowel
 handeling als werk is, zou een koppeling met PROV haar inconsistent maken.
+
+## Zaak en blauwdruk: wat het AP Dossier mist
+
+Het AP Omgevingsvergunning steunt op het [AP Dossier](https://data.vlaanderen.be/doc/applicatieprofiel/dossier/)
+(`ov:dossier` heeft als bereik `dossier:Dossier`). Daar is een Zaak een *Eenheid van werk*
+(`dbo:UnitOfWork`), die volgens de definitie "verschilt van Activiteit". Activiteiten "vinden
+plaats tijdens" een zaak, en de procedure van een zaak is een string. Zo kan een zaak niet
+overeenkomen met de blauwdruk die ze uitvoert. Het enige middel in de kern om een uitvoering als
+geheel aan een plan te binden, `prov:hadPlan`, vraagt een activiteit. Een string heeft geen
+stappen om mee te vergelijken.
+
+Ook "Procedurestap" betekent in beide AP's iets anders:
+
+| AP Omgevingsvergunning | AP Dossier |
+|---|---|
+| "een voorgeschreven handeling binnen een Procedure": de blauwdruk | "het geheel aan werk gedaan binnen een […] onderdeel van een procedure", met datums: de uitvoering, zonder link naar de voorgeschreven stap |
+
+Het voorstel legt de blauwdruk in de kern en het domein eronder:
+
+| Laag | Blauwdruk | Uitvoering → blauwdruk |
+|---|---|---|
+| kern | `p-plan:Plan`, `p-plan:Step` (ook `sosa:Procedure`, `prov:Plan`) | zaak `prov:hadPlan`, handeling `p-plan:correspondsToStep` |
+| AP Dossier | bereik `p-plan:Plan` en `p-plan:Step` | Zaak → plan, Activiteit `p-plan:correspondsToStep` |
+| AP Omgevingsvergunning | `ov:Procedure ⊂ p-plan:Plan`, `ov:Procedurestap ⊂ p-plan:Step` | `ov:procedure` en `ov:procedurestap` als subproperty |
+
+Een `sosa:ExecutionCollection` is geen alternatief voor de zaak. Ze bevat enkel waarnemingen,
+actuaties en bemonsteringen, en een procedure op de collectie moet voor elk lid gelden. De
+uitwerking staat in de bespreking (§6) en als verbeterpunten 10 tot 12 in de README.
 
 ## Diagram
 
