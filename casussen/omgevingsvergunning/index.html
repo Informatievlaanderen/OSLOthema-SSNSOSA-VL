@@ -3971,6 +3971,11 @@ voorbereiding" geen procedurestap is: die volgt uit de stappen die al uitgevoerd
 verbeterpunten voor het AP naar boven. De belangrijkste: de rechtsgrond kan niet per stap, volgorde
 en substappen ontbreken, en <code>ov:Vergunning</code> is tegelijk handeling en werk. De volledige lijst staat
 in de README.</p>
+<p>Voor het AP en de PDC samen: een zaak verwijst niet naar de dienst die ze levert. De enige
+rechtstreekse link van een dossier naar de PDC is die van het besluit naar het product
+(<code>p-plan:correspondsToVariable output:P-0098</code>). De zaak bereikt de dienst enkel via de procedure
+die de dienst volgt, en dat breekt zodra meerdere diensten dezelfde procedure volgen. CPSV-AP en
+het AP hebben geen eigenschap van een zaak naar een dienst; de casus stelt er een voor.</p>
 <p>Volgorde en substappen lost de casus op met een alignering, als voorstel voor het AP:
 <code>ov:Procedure ⊂ p-plan:Plan</code>, <code>ov:Procedurestap ⊂ p-plan:Step</code>, <code>ov:Zaakhandeling ⊂ prov:Activity</code>,
 <code>ov:VergundeToestand ⊂ prov:Entity</code> en <code>ov:procedurestap ⊑ p-plan:correspondsToStep</code>
