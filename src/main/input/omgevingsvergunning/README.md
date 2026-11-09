@@ -174,3 +174,18 @@ Voor de PDC:
 8. De PDC noemt het Departement Omgeving als `cv:hasCompetentAuthority`; het OVD (art. 15) en het
    AP noemen de Vlaamse Regering als bevoegde overheid. Beide kunnen kloppen, maar de PDC moet
    kiezen welke rol ze bedoelt.
+
+Voor het AP en de PDC samen:
+
+9. **Geen link van een zaak naar de dienst.** In de data is de enige rechtstreekse link van een
+   dossier naar de PDC `ent:besluit-1 p-plan:correspondsToVariable output:P-0098`. De zaak
+   bereikt de dienst enkel via de procedure (`ov:procedure`, waarna de dienst die procedure volgt
+   met `cpsv:follows`). Dat volstaat zolang één procedure bij één dienst hoort. Volgen meerdere
+   diensten dezelfde procedure, dan zegt de data niet meer welke dienst een zaak levert. CPSV-AP
+   beschrijft de dienst enkel op typeniveau en heeft geen eigenschap van een uitvoering naar een
+   dienst; het AP Omgevingsvergunning evenmin. Voorstel: een eigenschap in het AP van Zaak naar
+   `cpsv:PublicService` (bv. "levert dienst"). Niet gekozen: `dct:relation` (zegt niets),
+   `prov:hadPlan` naar de dienst (een dienst is geen plan), en het besluit typeren als `cv:Output`
+   (dan is `cv:Output` tegelijk het product en elk exemplaar ervan). Hetzelfde geldt voor de
+   aanvraag: de PDC kan het aanvraagdossier als invoer van de dienst beschrijven (`cv:hasInput`,
+   een `cv:Evidence`), maar heeft daar nu niets voor.

@@ -205,6 +205,17 @@ pad van dienst via product en stap naar elk besluit, zonder extra koppeleigensch
 `p-plan:Variable` is een uitspraak over een resource van de PDC en hoort daar thuis (verbeterpunt
 7). Hier staat ze ter illustratie.
 
+**Wat ontbreekt: de link van een zaak naar de dienst.** De enige rechtstreekse link van het dossier
+naar de PDC is die van het besluit naar het product. De zaak zelf bereikt de dienst enkel via de
+procedure: `exec:zaak-1 ov:procedure plan:gewone-procedure`, en `publicservice:D3-0098 cpsv:follows`
+dat plan. Volgen meerdere diensten dezelfde procedure, dan is niet meer af te leiden welke dienst een
+zaak levert. Verworpen: `dct:relation` (geen betekenis), een gekwalificeerde associatie met de dienst
+als `prov:hadPlan` (een dienst is geen plan), en `ent:besluit-1` typeren als `cv:Output` (dat
+vermengt het product op typeniveau met elk exemplaar ervan). CPSV-AP en het AP hebben geen
+eigenschap van een zaak naar een dienst; dit is verbeterpunt 9 (README).
+
+<!-- TODO: welke eigenschap van Zaak naar cpsv:PublicService wil de werkgroep van het AP Omgevingsvergunning, en beschrijft de PDC het aanvraagdossier als cv:hasInput (cv:Evidence) van de dienst? -->
+
 ### Waarom geen deploymentlaag?
 
 **Verworpen alternatief:** de zaak als `sosa:Deployment` van de actoren. **Gekozen aanpak:** geen

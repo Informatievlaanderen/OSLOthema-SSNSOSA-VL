@@ -45,6 +45,12 @@ verbeterpunten voor het AP naar boven. De belangrijkste: de rechtsgrond kan niet
 en substappen ontbreken, en `ov:Vergunning` is tegelijk handeling en werk. De volledige lijst staat
 in de README.
 
+Voor het AP en de PDC samen: een zaak verwijst niet naar de dienst die ze levert. De enige
+rechtstreekse link van een dossier naar de PDC is die van het besluit naar het product
+(`p-plan:correspondsToVariable output:P-0098`). De zaak bereikt de dienst enkel via de procedure
+die de dienst volgt, en dat breekt zodra meerdere diensten dezelfde procedure volgen. CPSV-AP en
+het AP hebben geen eigenschap van een zaak naar een dienst; de casus stelt er een voor.
+
 Volgorde en substappen lost de casus op met een alignering, als voorstel voor het AP:
 `ov:Procedure ⊂ p-plan:Plan`, `ov:Procedurestap ⊂ p-plan:Step`, `ov:Zaakhandeling ⊂ prov:Activity`,
 `ov:VergundeToestand ⊂ prov:Entity` en `ov:procedurestap ⊑ p-plan:correspondsToStep`
