@@ -38,6 +38,30 @@ voorbereiding" geen procedurestap is: die volgt uit de stappen die al uitgevoerd
 - **Geen deploymentlaag:** de regelgeving wijst de actoren aan; de zaak draagt het plan
   (`prov:hadPlan`).
 
+## P-PLAN en de PDC
+
+De PDC (CPSV-AP) en P-PLAN beschrijven allebei typeniveau: wat bij elke aanvraag gebeurt. Het
+dossier is één uitvoering daarvan. Zes links verbinden de drie lagen:
+
+| Van | Eigenschap | Naar | Niveau |
+|---|---|---|---|
+| `publicservice:D3-0098` | `cpsv:produces` | `output:P-0098` | dienst (overgenomen uit de PDC) |
+| `publicservice:D3-0098` | `cpsv:follows` | `plan:gewone-procedure` | dienst (voorstel voor de PDC) |
+| `publicservice:D3-0098` | `cv:hasLegalResource` | `wet:ovd` | dienst (voorstel voor de PDC) |
+| `step:beslissing` | `sosa:hasOutput` | `output:P-0098` | plan |
+| `output:P-0098` | `p-plan:isOutputVarOf` / `p-plan:isInputVarOf` | `step:beslissing` / `step:bekendmaking`, `step:beroep-rvvb` | plan |
+| `ent:besluit-1` | `p-plan:correspondsToVariable` | `output:P-0098` | dossier |
+
+Er zijn twee bruggen. De eerste is het product: `output:P-0098` is zowel `cv:Output` van de dienst
+als `p-plan:Variable` van de beslissing. Dat kan omdat beide op typeniveau staan: de variabele
+is een plaatshouder die elk besluit invult. De tweede is `cpsv:follows`: de dienst volgt de
+procedure, en de regel is dezelfde IRI als het plan. Een dossier bereikt de dienst zo langs twee
+wegen. Langs het product loopt de weg van het besluit (`correspondsToVariable`, dan
+`cpsv:produces`). Langs de procedure loopt hij van de zaak (`ov:procedure`, dan `cpsv:follows`).
+Geen van beide vocabularia legt op dat het product van de dienst ook de uitvoer van een stap uit
+haar plan is. Een SPARQL-controle in de bespreking doet dat wel. De invoerkant is niet gekoppeld:
+de PDC beschrijft het aanvraagdossier niet als `cv:hasInput` van de dienst.
+
 ## Wat het AP Omgevingsvergunning mist
 
 De casus laadt het AP-vocabularium en CPSV-AP 3.2.0 ([R17](../regels/r17.md)). Daarbij kwamen zes

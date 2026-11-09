@@ -66,7 +66,8 @@ draagt het plan (`prov:hadPlan`). In het kort:
   `ov:procedurestap` (AP) én `p-plan:correspondsToStep` (P-PLAN).
 - **Dienst en product.** De dienst volgt de procedure (`cpsv:follows`); het product is de
   uitvoervariabele van de beslissing; het concrete besluit `p-plan:correspondsToVariable` het
-  product.
+  product. De links tussen dienst, plan en dossier staan in een tabel in de bespreking (§6, *Hoe
+  verbindt het voorbeeld P-PLAN met de PDC?*).
 - **Een status als "in voorbereiding" is geen procedurestap.** Ze volgt uit de zaakhandelingen die
   al gebeurd zijn (zie *Gebruik*).
 

@@ -205,11 +205,71 @@ pad van dienst via product en stap naar elk besluit, zonder extra koppeleigensch
 `p-plan:Variable` is een uitspraak over een resource van de PDC en hoort daar thuis (verbeterpunt
 7). Hier staat ze ter illustratie.
 
-**Wat ontbreekt: de link van een zaak naar de dienst.** De enige rechtstreekse link van het dossier
-naar de PDC is die van het besluit naar het product. De zaak zelf bereikt de dienst enkel via de
-procedure: `exec:zaak-1 ov:procedure plan:gewone-procedure`, en `publicservice:D3-0098 cpsv:follows`
-dat plan. Volgen meerdere diensten dezelfde procedure, dan is niet meer af te leiden welke dienst een
-zaak levert. Verworpen: `dct:relation` (geen betekenis), een gekwalificeerde associatie met de dienst
+### Hoe verbindt het voorbeeld P-PLAN met de PDC?
+
+De PDC beschrijft de dienstverlening met CPSV-AP en P-PLAN beschrijft de procedure. Beide werken
+op **typeniveau**: een dienst, een product en een stap zijn beschrijvingen van wat telkens gebeurt,
+niet van één dossier. Het dossier staat op **uitvoeringsniveau**. Zes links verbinden de drie lagen:
+
+| Van | Eigenschap | Naar | Niveau |
+|---|---|---|---|
+| `publicservice:D3-0098` | `cpsv:produces` | `output:P-0098` | dienst (overgenomen uit de PDC) |
+| `publicservice:D3-0098` | `cpsv:follows` | `plan:gewone-procedure` | dienst (voorstel voor de PDC) |
+| `publicservice:D3-0098` | `cv:hasLegalResource` | `wet:ovd` | dienst (voorstel voor de PDC) |
+| `step:beslissing` | `sosa:hasOutput` | `output:P-0098` | plan |
+| `output:P-0098` | `p-plan:isOutputVarOf` / `p-plan:isInputVarOf` | `step:beslissing` / `step:bekendmaking`, `step:beroep-rvvb` | plan |
+| `ent:besluit-1` | `p-plan:correspondsToVariable` | `output:P-0098` | dossier |
+
+**Twee bruggen.** De eerste brug is één resource met twee rollen. `output:P-0098` is in CPSV-AP
+het product van de dienst (`cv:Output`) en in P-PLAN de uitvoervariabele van de beslissing
+(`p-plan:Variable`). Dat werkt omdat beide klassen op hetzelfde niveau staan. Een `cv:Output`
+zegt wat een dienst oplevert, niet welk exemplaar. Een `p-plan:Variable` is de plaatshouder voor
+wat een stap oplevert, die elke uitvoering met een eigen entiteit invult. De tweede brug is
+`cpsv:follows`. Daarmee volgt de dienst de procedure als regel (`cpsv:Rule`), en die regel is
+dezelfde IRI als het plan (zie *Waarom één IRI*). `cv:hasLegalResource` hoort niet bij een brug:
+het geeft de rechtsgrond van de dienst als geheel, terwijl de stappen elk hun eigen artikel krijgen
+(`dct:source`).
+
+**Van het dossier naar de PDC.** P-PLAN verbindt de uitvoering met het plan:
+`p-plan:correspondsToStep` voor een handeling en `p-plan:correspondsToVariable` voor een entiteit.
+Via de bruggen bereikt een dossier zo de dienst langs twee wegen:
+
+```sparql
+# langs het product: van het besluit naar de dienst die het product levert
+ent:besluit-1 p-plan:correspondsToVariable ?product .
+?dienst cpsv:produces ?product .
+
+# langs de procedure: van de zaak naar de dienst die de procedure volgt
+exec:zaak-1 ov:procedure ?plan .
+?dienst cpsv:follows ?plan .
+```
+
+Beide wegen geven hier `publicservice:D3-0098`. Ze zeggen niet hetzelfde. De weg langs het product
+vertrekt pas bij een besluit, dus niet bij een zaak die nog loopt of zonder beslissing eindigt. De
+weg langs de procedure werkt vanaf de indiening, maar enkel zolang één dienst de procedure volgt.
+
+**Samenhang tussen dienst en plan.** De dienst levert een product (`cpsv:produces`) en volgt een
+plan (`cpsv:follows`). Dat product moet dan ook de uitvoer van een stap van dat plan zijn
+(`sosa:hasOutput`). Geen van beide vocabularia legt die samenhang op. Een SPARQL-controle kan het
+wel:
+
+```sparql
+?dienst cpsv:produces ?product ; cpsv:follows ?plan .
+FILTER NOT EXISTS { ?stap p-plan:isStepOfPlan ?plan ; sosa:hasOutput ?product }
+```
+
+In dit voorbeeld geeft die controle geen resultaat: het product is uitvoer van `step:beslissing`.
+
+**De invoerkant is niet gekoppeld.** De aanvraag is een variabele van het plan (`var:aanvraag`),
+en het aanvraagdossier zegt `p-plan:correspondsToVariable` die variabele. CPSV-AP kan de invoer
+van een dienst beschrijven als `cv:hasInput`, een `cv:Evidence`. De PDC doet dat nu niet. Zou ze
+het wel doen, dan kan `var:aanvraag` dezelfde dubbele rol krijgen als het product: `cv:Evidence` en
+`p-plan:Variable`. Dan is de dienst langs zijn invoer en zijn uitvoer aan het plan gekoppeld.
+
+**Wat ontbreekt: de link van een zaak naar de dienst.** Beide wegen hierboven zijn omwegen. De
+enige rechtstreekse link van het dossier naar de PDC loopt van het besluit naar het product. Volgen
+meerdere diensten dezelfde procedure, dan valt voor een zaak zonder besluit niet meer af te leiden
+welke dienst ze levert. Verworpen: `dct:relation` (geen betekenis), een gekwalificeerde associatie met de dienst
 als `prov:hadPlan` (een dienst is geen plan), en `ent:besluit-1` typeren als `cv:Output` (dat
 vermengt het product op typeniveau met elk exemplaar ervan). CPSV-AP en het AP hebben geen
 eigenschap van een zaak naar een dienst; dit is verbeterpunt 9 (README).
