@@ -109,3 +109,13 @@
         <http://www.w3.org/ns/prov#> ;
     dcterms:source <https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/resources/ontologies/pplan-sosa.ttl> ;
     rdfs:comment "Project module of OSLOthema-SSNSOSA-VL; its ontology IRI is the address of the file on GitHub. p-plan:Plan, p-plan:Step and p-plan:MultiStep rdfs:subClassOf sosa:Procedure; sosa:inputFor and sosa:outputFor as property chains over p-plan:isInputVarOf / isOutputVarOf and p-plan:isStepOfPlan; property chains that infer sosa:usedProcedure from p-plan:correspondsToStep and correspondsToVariable. Until 2026-10-21 it also stated sosa:hasInputValue rdfs:subPropertyOf prov:used; that axiom is now in sosa-prov (w3c/sdw-sosa-ssn#556)."@en .
+
+<https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/resources/be/vlaanderen/data/ns/omgevingsvergunning/alignments/ov-pplan-prov.ttl> a owl:Ontology ;
+    dcterms:title "AP Omgevingsvergunning alignment with P-PLAN and PROV-O (OSLOthema-SSNSOSA-VL)"@en ;
+    dcterms:references
+        <https://data.vlaanderen.be/ns/omgevingsvergunning#> ,
+        <http://purl.org/net/p-plan#> ,
+        <http://www.w3.org/ns/prov#> ;
+    dcterms:source <https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/blob/main/src/main/resources/be/vlaanderen/data/ns/omgevingsvergunning/alignments/ov-pplan-prov.ttl> ;
+    rdfs:seeAlso <https://github.com/Informatievlaanderen/OSLOthema-SSNSOSA-VL/tree/main/src/main/input/omgevingsvergunning> ;
+    rdfs:comment "Project module of OSLOthema-SSNSOSA-VL (2026-11-09), a proposal for the OSLO application profile Omgevingsvergunning, not part of it; its ontology IRI is the address of the file on GitHub. ov:Procedure rdfs:subClassOf p-plan:Plan, ov:Procedurestap rdfs:subClassOf p-plan:Step, ov:Zaakhandeling rdfs:subClassOf prov:Activity, ov:VergundeToestand rdfs:subClassOf prov:Entity, ov:procedurestap rdfs:subPropertyOf p-plan:correspondsToStep. Relies on the P-PLAN–SOSA module above for sosa:Procedure. Deliberately leaves out ov:JuridischWerk, ov:Rechtshandeling and ov:document: ov:Vergunning is both a case action and a legal work in the profile, so aligning them with PROV would make it inconsistent (R16)."@en .
