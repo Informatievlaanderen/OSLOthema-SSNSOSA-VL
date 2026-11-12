@@ -193,6 +193,7 @@ nav:
       - BRDR: casussen/brdr.md
       - ELF-meetnet: casussen/elf.md
       - Omgevingsvergunning: casussen/omgevingsvergunning.md
+      - E-Detect: casussen/e-detect.md
   - VIII. Oefenen:
       - oefenen/index.md
       - Erosiepoel: oefenen/erosiepoel.md

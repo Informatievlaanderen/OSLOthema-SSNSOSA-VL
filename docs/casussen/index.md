@@ -1,6 +1,6 @@
 # VII. Casussen
 
-Achttien uitgewerkte voorbeelden uit Vlaamse domeinen. Elke casus toont de vraag, de keuzes, de
+Negentien uitgewerkte voorbeelden uit Vlaamse domeinen. Elke casus toont de vraag, de keuzes, de
 valkuilen en de alignments die ze gebruikt, met het diagram en de Turtle rechtstreeks uit de
 repository. De volledige README en bespreking staan op GitHub; de casuspagina is de leeswijzer
 erbij.
@@ -34,6 +34,7 @@ Daarna, naar interesse:
 | [BRDR](brdr.md) | een provenance-log herzien: waar SOSA past en waar PROV-O volstaat; versies van geometrieën |
 | [ELF-meetnet](elf.md) | blootstelling op een plaats zoals geluidsimmissie, meetcampagnes als inzet, adres en geometrie, een keten van indicatoren |
 | [Omgevingsvergunning](omgevingsvergunning.md) | een procedure als plan, geen codelijst: stappen, substappen, termijnen en rechtsgrond; een advies als waarneming, een beslissing als actuatie; koppeling met dienst en product (CPSV-AP) |
+| [E-Detect](e-detect.md) | geurhinder: een sensorsignaal is geen geur, een eenheid die nergens staat, een melding als waarneming, de bron als studieobject; met een beslisdocument |
 
 ## Matrix
 
@@ -57,3 +58,4 @@ Daarna, naar interesse:
 | [brdr](brdr.md) | drielaags | afgeleide | R3, R5, R7, R13, R14, R16, R18 | P-PLAN, PROV, QUDT, GeoSPARQL | herziening, alternatief | |
 | [elf](elf.md) | plat | ruimtelijk monster, afgeleide | R3, R10, R11, R12, R13, R16 | PROV, QUDT, GeoSPARQL, Time | — | ✔ |
 | [omgevingsvergunning](omgevingsvergunning.md) | drielaags | afgeleide | R1, R4, R13, R16, R17, R18 | P-PLAN, PROV, Time | — | |
+| [e-detect](e-detect.md) | plat | ruimtelijk monster, emissie en immissie, afgeleide | R1, R3, R7, R11, R12, R13 | PROV, QUDT, GeoSPARQL, Time | — | |

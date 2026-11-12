@@ -113,6 +113,11 @@ Bestaande datavoorbeelden:
   zaak met zaakhandelingen; `stand-van-de-zaak.rq` leidt de stand af in plaats van een status;
   AP Omgevingsvergunning en CPSV-AP geladen in `src/main/resources/`, met een eigen alignering van
   het AP met P-PLAN en PROV-O (`omgevingsvergunning/alignments/ov-pplan-prov.ttl`, voorstel)
+- `E-detect/` — geurhinder met e-noses, wind en geurmeldingen (EFRO-project E-Detect, Provincie
+  West-Vlaanderen), fictief op basis van de checklist interoperabiliteit (lokaal in `source/`, niet in git): plat, meetpunt
+  en meldplaats als SpatialSample van de omgeving, melder als sensor, geschatte geurconcentratie,
+  alarm en bronaanwijzing (FOI de geuremissie) als afgeleide observaties; tijdelijke eenheid ouE/m³
+  (EN 13725:2022, niet in QUDT of CSOR); met `beslisdocument.md` voor het Expertisecentrum
 
 ---
 

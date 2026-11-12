@@ -1,0 +1,132 @@
+flowchart LR
+    subgraph PROC["PROCEDURE"]
+        procEnose["ex:procedure-enose"]
+        procWind["ex:procedure-wind"]
+        procMelding["ex:procedure-geurmelding"]
+        procKal["ex:procedure-kalibratie"]
+        procDrempel["ex:procedure-drempel"]
+        procBron["ex:procedure-bronanalyse"]
+        propResp["ex:prop-sensorrespons"]
+        propWind["ex:prop-windrichting<br/>ex:prop-windsnelheid"]
+        propMelding["ex:prop-geursoort<br/>ex:prop-geurintensiteit<br/>ex:prop-hedonische-toon"]
+        propConc["ex:prop-geurconcentratie"]
+        propAlarm["ex:prop-drempeloverschrijding"]
+        propBron["ex:prop-waarschijnlijkheid-bron"]
+    end
+
+    subgraph INFRA["INFRASTRUCTUUR"]
+        bedrijf["ex:bedrijf-A<br/>prov:Organization"]
+        productie["ex:productie-bedrijf-A<br/>prov:Activity"]
+        emissie["ex:geuremissie-bedrijf-A<br/>prov:Entity + FOI"]
+        omgeving["ex:omgeving-industriezone<br/>FOI"]
+        meetpunt["ex:meetpunt-G01<br/>Platform + FOI + SpatialSample"]
+        geursensor["ex:geursensor-G01<br/>Sensor (e-nose)"]
+        weerstation["ex:weerstation-W01<br/>Platform"]
+        windsensor["ex:windsensor-W01<br/>Sensor"]
+        meldplaats["ex:meldplaats-M0042<br/>FOI + SpatialSample"]
+        melder["ex:melder-M0042<br/>Sensor (mens)"]
+        kalibratie["ex:kalibratiemodel<br/>Sensor (software)"]
+        bronmodel["ex:bronanalysemodel<br/>Sensor (software)"]
+    end
+
+    subgraph WAAR["WAARNEMING"]
+        colG01["ex:collectie-G01-20261105T22"]
+        obsG01["ex:obs-G01-20261105T2214 … T2216"]
+        resG01["ex:result-G01-20261105T2214 … T2216<br/>0.41 · 0.58 · 0.52 UNITLESS"]
+        colW01["ex:collectie-W01-20261105T2210"]
+        resWind["ex:result-W01-20261105T2210-richting · -snelheid<br/>247 DEG · 3.2 M-PER-SEC"]
+        melding["ex:melding-M0042-20261105-1"]
+        resMelding["ex:geursoort-voeding<br/>ex:geurintensiteit-4<br/>ex:hedonische-toon-min3"]
+        subgraph DERIVATION["DERIVATION"]
+            obsConc["ex:obs-G01-20261105T2214-geurconcentratie"]
+            resConc["ex:result-G01-20261105T2214-geurconcentratie<br/>7.4 eenheid:ouE-PER-M3"]
+            obsAlarm["ex:obs-G01-20261105T2214-alarm<br/>true"]
+            obsBron["ex:obs-bedrijf-A-20261105T2210-bron<br/>0.82"]
+        end
+    end
+
+    productie -->|wasAssociatedWith| bedrijf
+    emissie -->|wasGeneratedBy| productie
+    omgeving -->|wasInfluencedBy| emissie
+    meetpunt -->|isSampleOf| omgeving
+    meldplaats -->|isSampleOf| omgeving
+    meetpunt -->|sosa:hosts| geursensor
+    weerstation -->|sosa:hosts| windsensor
+
+    geursensor -->|implements| procEnose
+    windsensor -->|implements| procWind
+    melder -->|implements| procMelding
+    kalibratie -->|implements| procKal
+    kalibratie -->|implements| procDrempel
+    bronmodel -->|implements| procBron
+    procEnose -->|hasOutput| propResp
+    procWind -->|hasOutput| propWind
+    procMelding -->|hasOutput| propMelding
+    procKal -->|hasOutput| propConc
+    procDrempel -->|hasOutput| propAlarm
+    procBron -->|hasOutput| propBron
+
+    colG01 -->|hasMember| obsG01
+    colG01 -->|madeBySensor| geursensor
+    colG01 -->|hasFeatureOfInterest| meetpunt
+    obsG01 -->|hasResult| resG01
+    colW01 -->|madeBySensor| windsensor
+    colW01 -->|hasFeatureOfInterest| omgeving
+    colW01 -->|"hasMember → hasResult"| resWind
+    melding -->|madeBySensor| melder
+    melding -->|hasFeatureOfInterest| meldplaats
+    melding -->|"hasMember → hasResult"| resMelding
+
+    obsConc -->|hasInputValue| resG01
+    obsConc -->|relatedObservation| obsG01
+    obsConc -->|madeBySensor| kalibratie
+    obsConc -->|hasFeatureOfInterest| meetpunt
+    obsConc -->|hasResult| resConc
+    obsAlarm -->|hasInputValue| resConc
+    obsAlarm -->|madeBySensor| kalibratie
+    obsBron -->|hasInputValue| resConc
+    obsBron -->|hasInputValue| resWind
+    obsBron -->|hasInputValue| resMelding
+    obsBron -->|relatedObservation| melding
+    obsBron -->|madeBySensor| bronmodel
+    obsBron -->|hasFeatureOfInterest| emissie
+
+    style PROC fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+    style WAAR fill:#e7a3be,stroke:#2E5C8A,color:#000
+    style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+    style procEnose fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style procWind fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style procMelding fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style procKal fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style procDrempel fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style procBron fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style propResp fill:#fe7130,stroke:#2E5C8A,color:#000
+    style propWind fill:#fe7130,stroke:#2E5C8A,color:#000
+    style propMelding fill:#fe7130,stroke:#2E5C8A,color:#000
+    style propConc fill:#fe7130,stroke:#2E5C8A,color:#000
+    style propAlarm fill:#fe7130,stroke:#2E5C8A,color:#000
+    style propBron fill:#fe7130,stroke:#2E5C8A,color:#000
+    style bedrijf fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style productie fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style emissie fill:#f8b622,stroke:#2E5C8A,color:#000
+    style omgeving fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style meetpunt fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style geursensor fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style weerstation fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style windsensor fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style meldplaats fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style melder fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style kalibratie fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style bronmodel fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style colG01 fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style obsG01 fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style resG01 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style colW01 fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style resWind fill:#f8b622,stroke:#2E5C8A,color:#000
+    style melding fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style resMelding fill:#f8b622,stroke:#2E5C8A,color:#000
+    style obsConc fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style resConc fill:#f8b622,stroke:#2E5C8A,color:#000
+    style obsAlarm fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style obsBron fill:#e54b89,stroke:#2E5C8A,color:#fff

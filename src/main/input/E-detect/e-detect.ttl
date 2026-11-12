@@ -1,0 +1,402 @@
+# E-Detect — geurhinder rond een industriële pilootzone (EFRO-project 2330, Provincie West-Vlaanderen).
+# Fictief voorbeeld, handmatig opgesteld op basis van de checklist interoperabiliteit van het project (samengevat in README.md):
+# er is nog geen data (de leverancier van sensornetwerk en dataplatform is nog niet aangesteld).
+# Bedrijf, meetpunten, melder, geometrieën en waarden zijn fictief.
+# Eén winteravond, 5 november 2026, 22:10–22:20 lokale tijd (+01:00).
+
+@prefix sosa:    <http://www.w3.org/ns/sosa/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix time:    <http://www.w3.org/2006/time#> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix unit:    <http://qudt.org/vocab/unit/> .
+@prefix geo:     <http://www.opengis.net/ont/geosparql#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex:      <https://example.org/e-detect/> .
+@prefix eenheid: <https://example.org/e-detect/eenheid/> .
+
+###############################################################################
+### TIJDELIJKE EENHEID
+###############################################################################
+# QUDT 3.5.2 en het CSOR-eenhedenregister hebben geen eenheid voor de Europese geureenheid per
+# kubieke meter. Tot CSOR ze opneemt, staat ze hier in een eigen namespace (R3, R10).
+
+eenheid:ouE-PER-M3 a qudt:Unit , skos:Concept ;
+    rdfs:label "Europese geureenheid per kubieke meter"@nl , "European odour unit per cubic metre"@en ;
+    skos:notation "ouE/m3" ;
+    qudt:symbol "ouE/m³" ;
+    skos:definition "Geurconcentratie als het aantal Europese geureenheden in één kubieke meter gas bij normaalomstandigheden, volgens EN 13725:2022 (CEN/TC 264). Bepaald door dynamische olfactometrie: de verdunningsfactor waarbij de helft van een panel de geur nog waarneemt. Bij de detectiedrempel is de concentratie per definitie 1 ouE/m³. Referentie: 1 ouE ≙ 1 EROM = 123 µg n-butanol, verdampt in 1 m³ neutraal gas."@nl ;
+    dcterms:source "EN 13725:2022 Stationary source emissions — Determination of odour concentration by dynamic olfactometry and odour emission rate" ;
+    rdfs:comment "Tijdelijke eenheid. TODO: aanvragen bij de beheerders van CSOR; daarna deze IRI vervangen door de CSOR-eenheid. Geen QUDT-eenheid drukt dit uit: unit:NUM-PER-M3 telt deeltjes, quantitykind:OlfactoryThreshold is een drempel, geen concentratie van een geurmengsel."@nl .
+
+###############################################################################
+### BRON EN OMGEVING
+###############################################################################
+# Patroon "Emissie als studieobject": de geuremissie is een prov:Entity, voortgebracht door de
+# productie. Ze is het studieobject van de bronaanwijzing. De omgeving staat onder haar invloed
+# (prov:wasInfluencedBy, zoals in elf/), en de meetpunten zijn ruimtelijke monsters van die omgeving.
+
+ex:bedrijf-A a prov:Organization , prov:Agent ;
+    rdfs:label "Bedrijf A (fictief)"@nl ;
+    rdfs:comment "Fictief voedingsbedrijf in de industriële pilootzone. In productie een verwijzing naar de onderneming (KBO) en de exploitatie."@nl .
+
+ex:productie-bedrijf-A a prov:Activity ;
+    rdfs:label "Productie bij bedrijf A"@nl ;
+    prov:wasAssociatedWith ex:bedrijf-A .
+
+ex:geuremissie-bedrijf-A a prov:Entity , sosa:FeatureOfInterest ;
+    rdfs:label "Geuremissie van bedrijf A"@nl ;
+    rdfs:comment "De geur die de productie van bedrijf A aan de bron uitstoot. Tijdloos: de periode staat op de fenomeentijd van de waarnemingen."@nl ;
+    prov:wasGeneratedBy ex:productie-bedrijf-A ;
+    geo:hasGeometry ex:geom-bedrijf-A-schouw .
+
+ex:geom-bedrijf-A-schouw a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POINT(65300 180700)"^^geo:wktLiteral ;
+    rdfs:comment "Fictief emissiepunt (schouw)."@nl .
+
+ex:omgeving-industriezone a sosa:FeatureOfInterest ;
+    rdfs:label "Omgeving van de industriële pilootzone (fictief)"@nl ;
+    rdfs:comment "Het gebied waarin geur van de bedrijven in de pilootzone kan worden waargenomen. Studieobject van de windmetingen; de meetpunten en meldplaatsen zijn er ruimtelijke monsters van."@nl ;
+    prov:wasInfluencedBy ex:geuremissie-bedrijf-A ;
+    sosa:hasSample ex:meetpunt-G01 , ex:meldplaats-M0042 .
+
+###############################################################################
+### INFRASTRUCTUUR
+###############################################################################
+
+ex:meetpunt-G01 a sosa:Platform , sosa:FeatureOfInterest , sosa:SpatialSample , sosa:Sample ;
+    rdfs:label "Geurmeetpunt G01"@nl ;
+    rdfs:comment "Paal waarop de geursensor staat, en de plaats waarvan de luchtsamenstelling bestudeerd wordt (R11)."@nl ;
+    sosa:isSampleOf ex:omgeving-industriezone ;
+    geo:hasGeometry ex:geom-meetpunt-G01 ;
+    sosa:hosts ex:geursensor-G01 .
+
+ex:geom-meetpunt-G01 a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POINT(66500 181200)"^^geo:wktLiteral ;
+    rdfs:comment "Fictief punt, ongeveer 1,3 km oostnoordoost van het emissiepunt van bedrijf A."@nl .
+
+ex:geursensor-G01 a sosa:Sensor , sosa:System ;
+    rdfs:label "Geursensor G01 (e-nose)"@nl ;
+    dcterms:identifier "G01" ;
+    rdfs:comment "Elektronische neus: een reeks gassensoren die veranderingen in de samenstelling van de omgevingslucht registreert. Meet geen geurconcentratie en geen geurbeleving; die worden afgeleid."@nl ;
+    sosa:isHostedBy ex:meetpunt-G01 ;
+    sosa:implements ex:procedure-enose ;
+    sosa:observes ex:prop-sensorrespons .
+
+ex:weerstation-W01 a sosa:Platform ;
+    rdfs:label "Weerstation W01"@nl ;
+    geo:hasGeometry ex:geom-weerstation-W01 ;
+    sosa:hosts ex:windsensor-W01 .
+
+ex:geom-weerstation-W01 a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POINT(66100 181000)"^^geo:wktLiteral ;
+    rdfs:comment "Fictief punt."@nl .
+
+ex:windsensor-W01 a sosa:Sensor , sosa:System ;
+    rdfs:label "Ultrasone windmeter W01"@nl ;
+    dcterms:identifier "W01" ;
+    sosa:isHostedBy ex:weerstation-W01 ;
+    sosa:implements ex:procedure-wind ;
+    sosa:observes ex:prop-windrichting , ex:prop-windsnelheid .
+
+ex:melder-M0042 a sosa:Sensor , sosa:System ;
+    rdfs:label "Melder M0042 (gepseudonimiseerd)"@nl ;
+    rdfs:comment "Een omwonende die een geurmelding doet via de meldingsapplicatie: een mens als sensor (R1). Gepseudonimiseerd; de identiteit blijft in het meldingssysteem (AVG)."@nl ;
+    sosa:implements ex:procedure-geurmelding .
+
+ex:meldplaats-M0042 a sosa:FeatureOfInterest , sosa:SpatialSample , sosa:Sample ;
+    rdfs:label "Meldplaats van melding M0042-20261105-1"@nl ;
+    rdfs:comment "De plaats waar de geur werd waargenomen. Persoonsgegevens: de geometrie is veralgemeend tot een vak van 100 m (R11)."@nl ;
+    sosa:isSampleOf ex:omgeving-industriezone ;
+    geo:hasGeometry ex:geom-meldplaats-M0042 .
+
+ex:geom-meldplaats-M0042 a geo:Geometry ;
+    geo:asWKT "<http://www.opengis.net/def/crs/EPSG/0/31370> POLYGON((66800 181400, 66900 181400, 66900 181500, 66800 181500, 66800 181400))"^^geo:wktLiteral ;
+    rdfs:comment "Fictief vak van 100 m × 100 m rond de veralgemeende meldlocatie."@nl .
+
+ex:kalibratiemodel a sosa:Sensor , sosa:System ;
+    rdfs:label "Kalibratiemodel geurconcentratie G01"@nl ;
+    rdfs:comment "Software van het dataplatform die de sensorrespons omzet naar een geschatte geurconcentratie, gekalibreerd tegen olfactometrische metingen (EN 13725:2022) in de pilootzone."@nl ;
+    sosa:implements ex:procedure-kalibratie , ex:procedure-drempel .
+
+ex:bronanalysemodel a sosa:Sensor , sosa:System ;
+    rdfs:label "Bronanalysemodel"@nl ;
+    rdfs:comment "Software van het dataplatform die een geurepisode toewijst aan een mogelijke bron, uit de geschatte geurconcentratie, de wind en de geurmeldingen."@nl ;
+    sosa:implements ex:procedure-bronanalyse .
+
+###############################################################################
+### PROCEDURES EN EIGENSCHAPPEN
+###############################################################################
+
+ex:procedure-enose a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Meting van de luchtsamenstelling met een e-nose"@nl ;
+    rdfs:comment "De gassensoren geven per minuut één genormaliseerde respons (gemiddelde over de minuut). Meetprincipe, foutenmarge, interferenties en kalibratie licht de leverancier toe (bestek)."@nl ;
+    sosa:hasOutput ex:prop-sensorrespons .
+
+ex:procedure-wind a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Windmeting, 10-minutengemiddelde"@nl ;
+    rdfs:comment "Vectorgemiddelde windrichting (de richting waaruit de wind waait, in graden vanaf het noorden) en gemiddelde windsnelheid over 10 minuten, op 10 m hoogte."@nl ;
+    sosa:hasOutput ex:prop-windrichting , ex:prop-windsnelheid .
+
+ex:procedure-geurmelding a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Geurmelding via de meldingsapplicatie"@nl ;
+    rdfs:comment "De melder kiest het soort geur, de intensiteit (schaal VDI 3882-1) en de hedonische toon (schaal VDI 3882-2). De app registreert tijdstip en locatie."@nl ;
+    sosa:hasOutput ex:prop-geursoort , ex:prop-geurintensiteit , ex:prop-hedonische-toon .
+
+ex:procedure-kalibratie a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Schatting van de geurconcentratie uit de sensorrespons"@nl ;
+    rdfs:comment "Regressiemodel van de sensorrespons tegenover de geurconcentratie bepaald met dynamische olfactometrie (EN 13725:2022), op stalen genomen bij het meetpunt. Gemiddelde over het venster van de inputwaarden."@nl ;
+    sosa:hasInput ex:prop-sensorrespons ;
+    sosa:hasOutput ex:prop-geurconcentratie .
+
+ex:procedure-drempel a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Alarm bij overschrijding van 5 ouE/m³"@nl ;
+    rdfs:comment "Het alarm gaat af als de geschatte geurconcentratie hoger is dan 5 ouE/m³. De drempel is fictief; in productie legt de opdrachtgever hem vast."@nl ;
+    sosa:hasInput ex:prop-geurconcentratie ;
+    sosa:hasOutput ex:prop-drempeloverschrijding .
+
+ex:procedure-bronanalyse a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Toewijzing van een geurepisode aan een bron"@nl ;
+    rdfs:comment "Combineert de geschatte geurconcentratie op de meetpunten, de windrichting en -snelheid en de geurmeldingen, en berekent per bron in de omgeving de waarschijnlijkheid dat ze de episode veroorzaakte."@nl ;
+    sosa:hasInput ex:prop-geurconcentratie , ex:prop-windrichting , ex:prop-windsnelheid , ex:prop-geursoort , ex:prop-geurintensiteit ;
+    sosa:hasOutput ex:prop-waarschijnlijkheid-bron .
+
+ex:prop-sensorrespons a sosa:Property ;
+    rdfs:label "sensorrespons e-nose"@nl ;
+    skos:definition "Genormaliseerde respons van de gassensoren van de e-nose (dimensieloos, unit:UNITLESS; 0 = schone referentielucht). Geen fysische grootheid: de betekenis hangt af van sensor en kalibratie."@nl .
+
+ex:prop-windrichting a sosa:Property ;
+    rdfs:label "windrichting"@nl ;
+    skos:definition "Richting waaruit de wind waait, in graden vanaf het geografische noorden, met de klok mee."@nl .
+
+ex:prop-windsnelheid a sosa:Property ;
+    rdfs:label "windsnelheid"@nl .
+
+ex:prop-geursoort a sosa:Property ;
+    rdfs:label "soort geur"@nl .
+
+ex:prop-geurintensiteit a sosa:Property ;
+    rdfs:label "geurintensiteit"@nl ;
+    skos:definition "Waargenomen sterkte van een geur, op de zevendelige schaal van VDI 3882-1."@nl .
+
+ex:prop-hedonische-toon a sosa:Property ;
+    rdfs:label "hedonische toon"@nl ;
+    skos:definition "Waargenomen aangenaamheid van een geur, van −4 (uiterst onaangenaam) tot +4 (uiterst aangenaam), volgens VDI 3882-2."@nl .
+
+ex:prop-geurconcentratie a sosa:Property ;
+    rdfs:label "geurconcentratie"@nl ;
+    skos:definition "Concentratie van een geurmengsel in de omgevingslucht, uitgedrukt in Europese geureenheden per kubieke meter (EN 13725:2022)."@nl .
+
+ex:prop-drempeloverschrijding a sosa:Property ;
+    rdfs:label "overschrijding van de alarmdrempel"@nl .
+
+ex:prop-waarschijnlijkheid-bron a sosa:Property ;
+    rdfs:label "waarschijnlijkheid als oorzaak van een geurepisode"@nl ;
+    skos:definition "Waarschijnlijkheid (0–1) dat een emissie de geurepisode op een meetpunt veroorzaakte."@nl .
+
+###############################################################################
+### CODELIJSTEN VOOR DE GEURMELDING
+###############################################################################
+# Klein en enkel de gebruikte waarden. TODO: bestaat er een register voor de schalen van VDI 3882
+# of voor soorten geur? Zo ja, verwijzen in plaats van zelf te maken.
+
+ex:schaal-geurintensiteit a skos:ConceptScheme ;
+    skos:prefLabel "Geurintensiteit (VDI 3882-1)"@nl .
+ex:geurintensiteit-4 a skos:Concept ;
+    skos:inScheme ex:schaal-geurintensiteit ;
+    skos:notation "4" ;
+    skos:prefLabel "sterk"@nl .
+
+ex:schaal-hedonische-toon a skos:ConceptScheme ;
+    skos:prefLabel "Hedonische toon (VDI 3882-2)"@nl .
+ex:hedonische-toon-min3 a skos:Concept ;
+    skos:inScheme ex:schaal-hedonische-toon ;
+    skos:notation "-3" ;
+    skos:prefLabel "zeer onaangenaam"@nl .
+
+ex:soorten-geur a skos:ConceptScheme ;
+    skos:prefLabel "Soorten geur"@nl .
+ex:geursoort-voeding a skos:Concept ;
+    skos:inScheme ex:soorten-geur ;
+    skos:prefLabel "voedingsindustrie (frituur, gebrand)"@nl .
+
+###############################################################################
+### TIJD
+###############################################################################
+
+ex:instant-20261105T2210 a time:Instant ; time:inXSDDateTimeStamp "2026-11-05T22:10:00+01:00"^^xsd:dateTimeStamp .
+ex:instant-20261105T2214 a time:Instant ; time:inXSDDateTimeStamp "2026-11-05T22:14:00+01:00"^^xsd:dateTimeStamp .
+ex:instant-20261105T2215 a time:Instant ; time:inXSDDateTimeStamp "2026-11-05T22:15:00+01:00"^^xsd:dateTimeStamp .
+ex:instant-20261105T2216 a time:Instant ; time:inXSDDateTimeStamp "2026-11-05T22:16:00+01:00"^^xsd:dateTimeStamp .
+ex:instant-20261105T2217 a time:Instant ; time:inXSDDateTimeStamp "2026-11-05T22:17:00+01:00"^^xsd:dateTimeStamp .
+ex:instant-20261105T2220 a time:Instant ; time:inXSDDateTimeStamp "2026-11-05T22:20:00+01:00"^^xsd:dateTimeStamp .
+ex:instant-20261105T2218 a time:Instant ; time:inXSDDateTimeStamp "2026-11-05T22:18:00+01:00"^^xsd:dateTimeStamp .
+
+ex:interval-20261105T2214 a time:Interval ; time:hasBeginning ex:instant-20261105T2214 ; time:hasEnd ex:instant-20261105T2215 .
+ex:interval-20261105T2215 a time:Interval ; time:hasBeginning ex:instant-20261105T2215 ; time:hasEnd ex:instant-20261105T2216 .
+ex:interval-20261105T2216 a time:Interval ; time:hasBeginning ex:instant-20261105T2216 ; time:hasEnd ex:instant-20261105T2217 .
+ex:interval-20261105T2214-2217 a time:Interval ; time:hasBeginning ex:instant-20261105T2214 ; time:hasEnd ex:instant-20261105T2217 .
+ex:interval-20261105T2210-2220 a time:Interval ; time:hasBeginning ex:instant-20261105T2210 ; time:hasEnd ex:instant-20261105T2220 .
+
+###############################################################################
+### WAARNEMINGEN: geursensor G01
+###############################################################################
+# Minuutwaarden van de sensorrespons. Dimensieloos (unit:UNITLESS), maar wel een resultaatobject: de
+# geschatte geurconcentratie verwijst ernaar met sosa:hasInputValue (R7), wat met een literal niet kan.
+
+ex:collectie-G01-20261105T22 a sosa:ObservationCollection , sosa:ExecutionCollection ;
+    rdfs:label "Sensorrespons G01, 2026-11-05 22:14–22:17"@nl ;
+    sosa:madeBySensor ex:geursensor-G01 ;
+    sosa:usedProcedure ex:procedure-enose ;
+    sosa:observedProperty ex:prop-sensorrespons ;
+    sosa:hasFeatureOfInterest ex:meetpunt-G01 ;
+    sosa:hasMember ex:obs-G01-20261105T2214 , ex:obs-G01-20261105T2215 , ex:obs-G01-20261105T2216 .
+
+ex:obs-G01-20261105T2214 a sosa:Observation , sosa:Execution ;
+    sosa:madeBySensor ex:geursensor-G01 ;
+    sosa:usedProcedure ex:procedure-enose ;
+    sosa:observedProperty ex:prop-sensorrespons ;
+    sosa:hasFeatureOfInterest ex:meetpunt-G01 ;
+    sosa:phenomenonTime ex:interval-20261105T2214 ;
+    sosa:hasResult ex:result-G01-20261105T2214 .
+ex:result-G01-20261105T2214 a qudt:QuantityValue ;
+    qudt:numericValue 0.41 ;
+    qudt:hasUnit unit:UNITLESS .
+
+ex:obs-G01-20261105T2215 a sosa:Observation , sosa:Execution ;
+    sosa:madeBySensor ex:geursensor-G01 ;
+    sosa:usedProcedure ex:procedure-enose ;
+    sosa:observedProperty ex:prop-sensorrespons ;
+    sosa:hasFeatureOfInterest ex:meetpunt-G01 ;
+    sosa:phenomenonTime ex:interval-20261105T2215 ;
+    sosa:hasResult ex:result-G01-20261105T2215 .
+ex:result-G01-20261105T2215 a qudt:QuantityValue ;
+    qudt:numericValue 0.58 ;
+    qudt:hasUnit unit:UNITLESS .
+
+ex:obs-G01-20261105T2216 a sosa:Observation , sosa:Execution ;
+    sosa:madeBySensor ex:geursensor-G01 ;
+    sosa:usedProcedure ex:procedure-enose ;
+    sosa:observedProperty ex:prop-sensorrespons ;
+    sosa:hasFeatureOfInterest ex:meetpunt-G01 ;
+    sosa:phenomenonTime ex:interval-20261105T2216 ;
+    sosa:hasResult ex:result-G01-20261105T2216 .
+ex:result-G01-20261105T2216 a qudt:QuantityValue ;
+    qudt:numericValue 0.52 ;
+    qudt:hasUnit unit:UNITLESS .
+
+###############################################################################
+### WAARNEMINGEN: wind
+###############################################################################
+
+ex:collectie-W01-20261105T2210 a sosa:ObservationCollection , sosa:ExecutionCollection ;
+    rdfs:label "Wind W01, 2026-11-05 22:10–22:20"@nl ;
+    sosa:madeBySensor ex:windsensor-W01 ;
+    sosa:usedProcedure ex:procedure-wind ;
+    sosa:hasFeatureOfInterest ex:omgeving-industriezone ;
+    sosa:phenomenonTime ex:interval-20261105T2210-2220 ;
+    sosa:hasMember ex:obs-W01-20261105T2210-richting , ex:obs-W01-20261105T2210-snelheid .
+
+ex:obs-W01-20261105T2210-richting a sosa:Observation , sosa:Execution ;
+    sosa:madeBySensor ex:windsensor-W01 ;
+    sosa:usedProcedure ex:procedure-wind ;
+    sosa:observedProperty ex:prop-windrichting ;
+    sosa:hasFeatureOfInterest ex:omgeving-industriezone ;
+    sosa:phenomenonTime ex:interval-20261105T2210-2220 ;
+    sosa:hasResult ex:result-W01-20261105T2210-richting .
+ex:result-W01-20261105T2210-richting a qudt:QuantityValue ;
+    qudt:numericValue 247.0 ;
+    qudt:hasUnit unit:DEG .
+
+ex:obs-W01-20261105T2210-snelheid a sosa:Observation , sosa:Execution ;
+    sosa:madeBySensor ex:windsensor-W01 ;
+    sosa:usedProcedure ex:procedure-wind ;
+    sosa:observedProperty ex:prop-windsnelheid ;
+    sosa:hasFeatureOfInterest ex:omgeving-industriezone ;
+    sosa:phenomenonTime ex:interval-20261105T2210-2220 ;
+    sosa:hasResult ex:result-W01-20261105T2210-snelheid .
+ex:result-W01-20261105T2210-snelheid a qudt:QuantityValue ;
+    qudt:numericValue 3.2 ;
+    qudt:hasUnit unit:M-PER-SEC .
+
+###############################################################################
+### WAARNEMINGEN: geurmelding
+###############################################################################
+# Eén melding = één collectie met drie waarnemingen. De resultaten zijn begrippen uit de codelijsten.
+# De leden erven melder, procedure en tijd van de collectie (SOSA 2023, R2); het studieobject staat er
+# ook expliciet op, omdat de uit de OWL-restricties gegenereerde shape het per waarneming vereist.
+
+ex:melding-M0042-20261105-1 a sosa:ObservationCollection , sosa:ExecutionCollection ;
+    rdfs:label "Geurmelding M0042-20261105-1"@nl ;
+    sosa:madeBySensor ex:melder-M0042 ;
+    sosa:usedProcedure ex:procedure-geurmelding ;
+    sosa:hasFeatureOfInterest ex:meldplaats-M0042 ;
+    sosa:phenomenonTime ex:instant-20261105T2218 ;
+    sosa:resultTime "2026-11-05T22:19:37+01:00"^^xsd:dateTime ;
+    sosa:hasMember ex:obs-M0042-20261105-1-soort , ex:obs-M0042-20261105-1-intensiteit , ex:obs-M0042-20261105-1-toon .
+
+ex:obs-M0042-20261105-1-soort a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meldplaats-M0042 ;
+    sosa:observedProperty ex:prop-geursoort ;
+    sosa:hasResult ex:geursoort-voeding .
+
+ex:obs-M0042-20261105-1-intensiteit a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meldplaats-M0042 ;
+    sosa:observedProperty ex:prop-geurintensiteit ;
+    sosa:hasResult ex:geurintensiteit-4 .
+
+ex:obs-M0042-20261105-1-toon a sosa:Observation , sosa:Execution ;
+    sosa:hasFeatureOfInterest ex:meldplaats-M0042 ;
+    sosa:observedProperty ex:prop-hedonische-toon ;
+    sosa:hasResult ex:hedonische-toon-min3 .
+
+###############################################################################
+### AFGELEIDE WAARNEMINGEN
+###############################################################################
+# R7, R13: hasInputValue naar de resultaten, relatedObservation naar de waarnemingen, geen lid van de
+# broncollectie, alle vereiste eigenschappen expliciet.
+
+# 1. Geschatte geurconcentratie op het meetpunt
+ex:obs-G01-20261105T2214-geurconcentratie a sosa:Observation , sosa:Execution ;
+    rdfs:label "Geschatte geurconcentratie G01, 2026-11-05 22:14–22:17"@nl ;
+    sosa:madeBySensor ex:kalibratiemodel ;
+    sosa:usedProcedure ex:procedure-kalibratie ;
+    sosa:observedProperty ex:prop-geurconcentratie ;
+    sosa:hasFeatureOfInterest ex:meetpunt-G01 ;
+    sosa:phenomenonTime ex:interval-20261105T2214-2217 ;
+    sosa:hasInputValue ex:result-G01-20261105T2214 , ex:result-G01-20261105T2215 , ex:result-G01-20261105T2216 ;
+    sosa:relatedObservation ex:obs-G01-20261105T2214 , ex:obs-G01-20261105T2215 , ex:obs-G01-20261105T2216 ;
+    sosa:hasResult ex:result-G01-20261105T2214-geurconcentratie .
+
+ex:result-G01-20261105T2214-geurconcentratie a qudt:QuantityValue ;
+    qudt:numericValue 7.4 ;
+    qudt:hasUnit eenheid:ouE-PER-M3 .
+
+# 2. Alarm
+ex:obs-G01-20261105T2214-alarm a sosa:Observation , sosa:Execution ;
+    rdfs:label "Alarm geurconcentratie G01, 2026-11-05 22:14–22:17"@nl ;
+    sosa:madeBySensor ex:kalibratiemodel ;
+    sosa:usedProcedure ex:procedure-drempel ;
+    sosa:observedProperty ex:prop-drempeloverschrijding ;
+    sosa:hasFeatureOfInterest ex:meetpunt-G01 ;
+    sosa:phenomenonTime ex:interval-20261105T2214-2217 ;
+    sosa:hasInputValue ex:result-G01-20261105T2214-geurconcentratie ;
+    sosa:relatedObservation ex:obs-G01-20261105T2214-geurconcentratie ;
+    sosa:hasSimpleResult true .
+
+# 3. Bronaanwijzing: een vraag over de bron, dus de emissie is het studieobject
+ex:obs-bedrijf-A-20261105T2210-bron a sosa:Observation , sosa:Execution ;
+    rdfs:label "Waarschijnlijkheid dat bedrijf A de geurepisode van 2026-11-05 22:10–22:20 veroorzaakte"@nl ;
+    sosa:madeBySensor ex:bronanalysemodel ;
+    sosa:usedProcedure ex:procedure-bronanalyse ;
+    sosa:observedProperty ex:prop-waarschijnlijkheid-bron ;
+    sosa:hasFeatureOfInterest ex:geuremissie-bedrijf-A ;
+    sosa:phenomenonTime ex:interval-20261105T2210-2220 ;
+    sosa:hasInputValue ex:result-G01-20261105T2214-geurconcentratie ,
+        ex:result-W01-20261105T2210-richting , ex:result-W01-20261105T2210-snelheid ,
+        ex:geursoort-voeding , ex:geurintensiteit-4 ;
+    sosa:relatedObservation ex:obs-G01-20261105T2214-geurconcentratie , ex:collectie-W01-20261105T2210 ,
+        ex:melding-M0042-20261105-1 ;
+    sosa:hasSimpleResult 0.82 .

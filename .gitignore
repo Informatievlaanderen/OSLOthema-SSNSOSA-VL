@@ -16,3 +16,6 @@ site/
 
 # Business case ELF-meetnet: bevat namen van medewerkers, niet in versiebeheer (samenvatting in elf/README.md)
 src/main/input/elf/source/business-case.pdf
+
+# Checklist interoperabiliteit E-Detect: bevat naam en e-mailadres van de contactpersoon, niet in versiebeheer (samenvatting in E-detect/README.md)
+src/main/input/E-detect/source/E-Detect Checklist Interoperabiliteit.pdf
