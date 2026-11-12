@@ -152,9 +152,9 @@ ex:procedure-kalibratie a sosa:ObservingProcedure , sosa:Procedure ;
     sosa:hasOutput ex:prop-geurconcentratie .
 
 ex:procedure-drempel a sosa:ObservingProcedure , sosa:Procedure ;
-    rdfs:label "Alarm bij overschrijding van 5 ouE/m³"@nl ;
-    rdfs:comment "Het alarm gaat af als de geschatte geurconcentratie hoger is dan 5 ouE/m³. De drempel is fictief; in productie legt de opdrachtgever hem vast."@nl ;
-    sosa:hasInput ex:prop-geurconcentratie ;
+    rdfs:label "Alarm bij overschrijding van de alarmdrempel"@nl ;
+    rdfs:comment "Het alarm gaat af als de geschatte geurconcentratie hoger is dan de alarmdrempel. De drempel is een input van de procedure: elke alarmwaarneming geeft met sosa:hasInputValue de drempelwaarde waarmee ze berekend is, zodat een gewijzigde drempel geen nieuwe procedure vraagt."@nl ;
+    sosa:hasInput ex:prop-geurconcentratie , ex:prop-alarmdrempel ;
     sosa:hasOutput ex:prop-drempeloverschrijding .
 
 ex:procedure-bronanalyse a sosa:ObservingProcedure , sosa:Procedure ;
@@ -189,12 +189,28 @@ ex:prop-geurconcentratie a sosa:Property ;
     rdfs:label "geurconcentratie"@nl ;
     skos:definition "Concentratie van een geurmengsel in de omgevingslucht, uitgedrukt in Europese geureenheden per kubieke meter (EN 13725:2022)."@nl .
 
+ex:prop-alarmdrempel a sosa:Property ;
+    rdfs:label "alarmdrempel geurconcentratie"@nl ;
+    skos:definition "Geurconcentratie boven welke het platform een alarm geeft. Een parameter van de alarmprocedure, vastgelegd door de opdrachtgever."@nl .
+
 ex:prop-drempeloverschrijding a sosa:Property ;
     rdfs:label "overschrijding van de alarmdrempel"@nl .
 
 ex:prop-waarschijnlijkheid-bron a sosa:Property ;
     rdfs:label "waarschijnlijkheid als oorzaak van een geurepisode"@nl ;
     skos:definition "Waarschijnlijkheid (0–1) dat een emissie de geurepisode op een meetpunt veroorzaakte."@nl .
+
+###############################################################################
+### PARAMETERS
+###############################################################################
+# Waarden voor een input van een procedure die geen resultaat van een waarneming zijn (SOSA 2023:
+# "an input might be a calibration or conditioning parameter").
+
+ex:drempel-5-ouE a qudt:QuantityValue ;
+    rdfs:label "Alarmdrempel 5 ouE/m³"@nl ;
+    rdfs:comment "Fictieve drempel. In productie legt de opdrachtgever hem vast; een nieuwe drempel is een nieuwe waarde (nieuwe IRI), zodat oudere alarmen naar hun eigen drempel blijven verwijzen."@nl ;
+    qudt:numericValue 5 ;
+    qudt:hasUnit eenheid:ouE-PER-M3 .
 
 ###############################################################################
 ### CODELIJSTEN VOOR DE GEURMELDING
@@ -382,7 +398,7 @@ ex:obs-G01-20261105T2214-alarm a sosa:Observation , sosa:Execution ;
     sosa:observedProperty ex:prop-drempeloverschrijding ;
     sosa:hasFeatureOfInterest ex:meetpunt-G01 ;
     sosa:phenomenonTime ex:interval-20261105T2214-2217 ;
-    sosa:hasInputValue ex:result-G01-20261105T2214-geurconcentratie ;
+    sosa:hasInputValue ex:result-G01-20261105T2214-geurconcentratie , ex:drempel-5-ouE ;
     sosa:relatedObservation ex:obs-G01-20261105T2214-geurconcentratie ;
     sosa:hasSimpleResult true .
 

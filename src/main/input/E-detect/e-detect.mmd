@@ -11,6 +11,7 @@ flowchart LR
         propMelding["ex:prop-geursoort<br/>ex:prop-geurintensiteit<br/>ex:prop-hedonische-toon"]
         propConc["ex:prop-geurconcentratie"]
         propAlarm["ex:prop-drempeloverschrijding"]
+        propDrempel["ex:prop-alarmdrempel"]
         propBron["ex:prop-waarschijnlijkheid-bron"]
     end
 
@@ -41,6 +42,7 @@ flowchart LR
             obsConc["ex:obs-G01-20261105T2214-geurconcentratie"]
             resConc["ex:result-G01-20261105T2214-geurconcentratie<br/>7.4 eenheid:ouE-PER-M3"]
             obsAlarm["ex:obs-G01-20261105T2214-alarm<br/>true"]
+            drempel["ex:drempel-5-ouE<br/>5 eenheid:ouE-PER-M3"]
             obsBron["ex:obs-bedrijf-A-20261105T2210-bron<br/>0.82"]
         end
     end
@@ -64,6 +66,7 @@ flowchart LR
     procMelding -->|hasOutput| propMelding
     procKal -->|hasOutput| propConc
     procDrempel -->|hasOutput| propAlarm
+    procDrempel -->|hasInput| propDrempel
     procBron -->|hasOutput| propBron
 
     colG01 -->|hasMember| obsG01
@@ -83,6 +86,7 @@ flowchart LR
     obsConc -->|hasFeatureOfInterest| meetpunt
     obsConc -->|hasResult| resConc
     obsAlarm -->|hasInputValue| resConc
+    obsAlarm -->|hasInputValue| drempel
     obsAlarm -->|madeBySensor| kalibratie
     obsBron -->|hasInputValue| resConc
     obsBron -->|hasInputValue| resWind
@@ -107,6 +111,7 @@ flowchart LR
     style propConc fill:#fe7130,stroke:#2E5C8A,color:#000
     style propAlarm fill:#fe7130,stroke:#2E5C8A,color:#000
     style propBron fill:#fe7130,stroke:#2E5C8A,color:#000
+    style propDrempel fill:#fe7130,stroke:#2E5C8A,color:#000
     style bedrijf fill:#60c4e4,stroke:#2E5C8A,color:#000
     style productie fill:#e54b89,stroke:#2E5C8A,color:#fff
     style emissie fill:#f8b622,stroke:#2E5C8A,color:#000
@@ -130,3 +135,4 @@ flowchart LR
     style resConc fill:#f8b622,stroke:#2E5C8A,color:#000
     style obsAlarm fill:#e54b89,stroke:#2E5C8A,color:#fff
     style obsBron fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style drempel fill:#f8b622,stroke:#2E5C8A,color:#000

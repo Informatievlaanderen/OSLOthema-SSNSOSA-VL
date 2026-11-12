@@ -82,7 +82,7 @@ De drie afgeleide waarnemingen zijn geen lid van een broncollectie (R13).
 | `ex:procedure-wind` | `ex:windsensor-W01` | → windrichting, windsnelheid (10-minutengemiddelde) |
 | `ex:procedure-geurmelding` | `ex:melder-M0042` | → soort, intensiteit (VDI 3882-1), hedonische toon (VDI 3882-2) |
 | `ex:procedure-kalibratie` | `ex:kalibratiemodel` | sensorrespons → geurconcentratie (gekalibreerd tegen olfactometrie, EN 13725:2022) |
-| `ex:procedure-drempel` | `ex:kalibratiemodel` | geurconcentratie → overschrijding van 5 ouE/m³ (fictieve drempel) |
+| `ex:procedure-drempel` | `ex:kalibratiemodel` | geurconcentratie, alarmdrempel → overschrijding (ja of nee) |
 | `ex:procedure-bronanalyse` | `ex:bronanalysemodel` | geurconcentratie, wind, soort en intensiteit van de melding → waarschijnlijkheid per bron |
 
 Eigenschappen:
@@ -91,7 +91,9 @@ Eigenschappen:
 - **geurconcentratie**: geurmengsel in ouE/m³, de verdunning tot de detectiedrempel van een panel
   (EN 13725:2022);
 - **geurintensiteit en hedonische toon**: de beleving van een mens, op de schalen van VDI 3882;
-- **waarschijnlijkheid als oorzaak**: 0 tot 1, een eigenschap van de emissie in een periode.
+- **waarschijnlijkheid als oorzaak**: 0 tot 1, een eigenschap van de emissie in een periode;
+- **alarmdrempel**: de geurconcentratie boven welke het platform een alarm geeft, een parameter van
+  de alarmprocedure. In het voorbeeld is de waarde `ex:drempel-5-ouE` (5 ouE/m³, fictief).
 
 ## 6. Modelleer-keuzes toegelicht
 
@@ -190,13 +192,31 @@ data verwijst naar concepten en kopieert geen register.
 
 <!-- TODO: bestaat er een Vlaams of Europees register voor geurintensiteit, hedonische toon of soorten geur (bv. bij VMM of in de geurnormering van VLAREM)? -->
 
-### Waarom de alarmdrempel in de procedure?
+### Waarom de alarmdrempel als input van de procedure?
 
-**Gekozen aanpak:** het alarm is een afgeleide waarneming met een booleaans resultaat. De drempel
-staat in de procedure, niet in de eigenschap.
+**Verworpen alternatieven:**
+- de drempel enkel als tekst in de beschrijving van de procedure: een afnemer kan dan niet uit de
+  data afleiden met welke waarde een alarm berekend is;
+- een aparte procedure per drempelwaarde: elke wijziging van de drempel vraagt dan een nieuwe
+  procedure, terwijl de berekening dezelfde blijft;
+- de drempel in de eigenschap ("overschrijding van 5 ouE/m³"): dan verandert de eigenschap met de
+  drempel.
 
-**Rationale:** dezelfde eigenschap (overschrijding) kan met andere drempels berekend worden.
-Wijzigt de drempel, dan krijgt het alarm een andere procedure.
+**Gekozen aanpak:** de procedure heeft twee inputs, `ex:prop-geurconcentratie` en
+`ex:prop-alarmdrempel` (`sosa:hasInput`). De alarmwaarneming geeft voor beide de waarde met
+`sosa:hasInputValue`: het resultaat van de geschatte geurconcentratie en `ex:drempel-5-ouE`, een
+`qudt:QuantityValue` van 5 ouE/m³.
+
+```turtle
+ex:obs-G01-20261105T2214-alarm
+    sosa:hasInputValue ex:result-G01-20261105T2214-geurconcentratie , ex:drempel-5-ouE .
+```
+
+**Rationale:** SOSA 2023 voorziet dit uitdrukkelijk. Een input van een procedure kan *"a
+calibration or conditioning parameter"* zijn, en `sosa:hasInputValue` *"assigns a value to an input
+defined by the Procedure"*. Elk alarm toont zo met welke drempel het berekend is. Bij een nieuwe
+drempel komt er een nieuwe waarde met een eigen IRI; oudere alarmen blijven naar hun drempel
+verwijzen. Dat is de transparantie over drempels die het bestek vraagt (checklist vraag 16).
 
 ### Woordenschat
 
@@ -238,7 +258,9 @@ tijdzone van het platform overnemen, of `+01:00`/`+02:00` aannemen en dat hier v
 | `eenheid:` | `https://example.org/e-detect/eenheid/` | tijdelijk, tot de eenheid in CSOR staat |
 
 IRI's van resultaten, intervallen en geometrieën zijn skolem-IRI's, afgeleid van de waarneming of
-het meetpunt (R10). Een echte pipeline leidt ze af van de sensor-ID van de leverancier en het
+het meetpunt (R10). In productie komen meetpunten, sensoren, procedures, drempels en de eenheid
+onder een persistente basis-IRI van de opdrachtgever, niet van de leverancier. Dat maakt ze
+opvraagbaar en stabiel bij een wissel van leverancier (beslisdocument A7). Een echte pipeline leidt ze af van de sensor-ID van de leverancier en het
 tijdstip, nooit van een willekeurige UUID.
 
 ## 9. Inverse relaties

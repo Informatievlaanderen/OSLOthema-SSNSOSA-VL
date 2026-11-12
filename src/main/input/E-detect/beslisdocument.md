@@ -43,8 +43,9 @@ document bijgewerkt.
 | A4 | De geurmelding als menselijke waarneming | A | voorstel (deels open) |
 | A5 | Alarmen en bronaanwijzing als afgeleide waarnemingen | A | voorstel |
 | A6 | Standaarden voor model en uitwisseling | A | voorstel (deels open) |
-| B1–B6 | Vragen aan de leverancier | B | open |
-| C1–C3 | CSOR, QUDT, codelijsten voor geur | C | open |
+| A7 | API's en ontsluiting: SensorThings API, LDES, opvraagbare IRI's, SPARQL | A | voorstel (deels open) |
+| B1–B7 | Vragen aan de leverancier | B | open |
+| C1–C4 | CSOR, QUDT, codelijsten voor geur, LDES (OpenLDES) en persistente IRI's | C | open |
 | D1–D3 | Landbouwzones, normtoetsing, verspreidingsmodellen | D | later |
 
 ---
@@ -185,14 +186,28 @@ van bronnen (vraag 12)?
 **Voorstel.**
 - Elk verwerkt gegeven is een afgeleide waarneming met een eigen procedure, sensor (het model van
   het platform) en invoer.
-- Een alarm is een booleaanse waarneming. De drempel staat in de procedure.
+- Een alarm is een booleaanse waarneming. De drempel is een input van de alarmprocedure, en elk
+  alarm geeft de drempelwaarde waarmee het berekend is:
+
+```turtle
+ex:procedure-drempel sosa:hasInput ex:prop-geurconcentratie , ex:prop-alarmdrempel .
+ex:drempel-5-ouE a qudt:QuantityValue ; qudt:numericValue 5 ; qudt:hasUnit eenheid:ouE-PER-M3 .
+ex:obs-G01-20261105T2214-alarm
+    sosa:hasInputValue ex:result-G01-20261105T2214-geurconcentratie , ex:drempel-5-ouE .
+```
+
 - De bronaanwijzing is een waarschijnlijkheid per bron, met de geuremissie als studieobject.
 
-**Waarom.** Drempels en modellen moeten transparant zijn (vraag 16). Een gewijzigde drempel geeft
-een andere procedure, zodat oude en nieuwe alarmen onderscheiden blijven.
+**Waarom.** Drempels en modellen moeten transparant zijn (vraag 16). Met de drempel als
+inputwaarde is in de data zelf te zien met welke drempel elk alarm berekend is. Een gewijzigde
+drempel is een nieuwe waarde, geen nieuwe procedure, en oude en nieuwe alarmen blijven
+onderscheiden.
 
-**Verworpen alternatief.** Alarmen als statusveld van de sensor. Dan verdwijnt de koppeling met de
-waarde en de drempel die het alarm veroorzaakten.
+**Verworpen alternatieven.**
+- Alarmen als statusveld van de sensor: dan verdwijnt de koppeling met de waarde en de drempel die
+  het alarm veroorzaakten.
+- De drempel enkel als tekst in de procedure, of een procedure per drempel: niet leesbaar door een
+  machine, of een nieuwe procedure bij elke wijziging.
 
 **Open.** Geeft het bronanalysemodel een waarschijnlijkheid, een bijdrage in ouE/m³ of een
 rangorde (B4)? Een bijdrage is een afgeleide waarneming van de *plaats* per bron.
@@ -211,7 +226,7 @@ rangorde (B4)? Een bijdrage is een afgeleide waarneming van de *plaats* per bron
 | Semantiek | W3C SSN/SOSA 2023, met PROV-O, QUDT, OWL-Time en GeoSPARQL, toegepast volgens dit referentiewerk (OSLOthema SSN/SOSA-VL) | betekenis van waarneming, sensor, studieobject, procedure, resultaat, eenheid, tijd en plaats |
 | Eenheden | CSOR (met QUDT-mapping waar die bestaat) | eenduidige eenheden, ouE/m³ inbegrepen (A1) |
 | Meetnorm | EN 13725:2022 | de definitie van de geurconcentratie en de kalibratiereferentie |
-| Uitwisseling (API) | OGC SensorThings API, als kandidaat | gangbare REST-API voor sensordata, met een eigen model (Thing, Datastream, Observation) |
+| Uitwisseling | OGC SensorThings API, LDES, opvraagbare IRI's, SPARQL | elk voor een andere afnemer, zie A7 |
 | Export | CSV (bestek), met een gepubliceerde mapping naar het SSN/SOSA-model | lage drempel, maar met vastgelegde betekenis per kolom |
 | Tijd | ISO 8601 met tijdzone | tijdstippen zonder dubbelzinnigheid rond de zomertijd |
 | Plaats | coördinaten met CRS (Lambert 72 of WGS84) | geometrieën van meetpunten en meldplaatsen |
@@ -222,17 +237,95 @@ rangorde (B4)? Een bijdrage is een afgeleide waarneming van de *plaats* per bron
 - SSN/SOSA is het model waarop dit referentiewerk de Vlaamse toepassingen afstemt.
 - OSLO Observaties en Metingen is deprecated (zie `../waterkwaliteit/bestaand_model/`) en is dus
   geen basis voor nieuw werk.
-- SensorThings API is een van de gangbare API's voor sensordata. Het heeft een mappingtabel naar
-  SOSA, maar geen RDF-module.
 
 **Verworpen alternatief.** Een eigen datamodel per leverancier. Dan is de data na afloop van de
 opdracht moeilijk herbruikbaar, en dat wil het project vermijden (vraag 13).
 
 **Open.**
-- Welke API of export biedt de gekozen leverancier (B1)?
-- Is een publicatie als linked data (bv. LDES) nodig, of volstaan CSV plus mapping?
+- Welke API of export biedt de gekozen leverancier (B1)? De ontsluiting zelf staat in A7.
 - Bestaat er een lopend OSLO-traject rond luchtkwaliteit of omgevingsmeldingen waarbij E-Detect kan
   aansluiten? Dat is een vraag aan Digitaal Vlaanderen.
+
+**Status:** voorstel (deels open).
+
+### A7. API's en ontsluiting
+
+**Vraag.** Via welke kanalen worden de gegevens ontsloten, en wie levert of beheert elk kanaal
+(checklist vragen 13, 22 en 28)?
+
+**Voorstel.** Vier kanalen, elk voor een andere afnemer. Ze vervangen elkaar niet:
+
+| Kanaal | Voor wie | Model | Sterk | Zwak |
+|---|---|---|---|---|
+| **OGC SensorThings API** | dashboard, meldingsapp, toepassingen die per sensor of meetpunt actuele en recente waarden opvragen | eigen model: Thing, Location, Datastream, Sensor, ObservedProperty, Observation, FeatureOfInterest; JSON over REST, met MQTT voor realtime | gangbaar bij leveranciers van sensorplatformen; filteren en pagineren zijn gestandaardiseerd | geen RDF; een afgeleide waarneming kan niet naar haar inputwaarden verwijzen (geen `sosa:hasInputValue`); een melder als Thing is onnatuurlijk; IRI's en identificatoren zijn die van het platform |
+| **LDES** (Linked Data Event Streams) | andere systemen die alle waarnemingen willen overnemen en bijhouden: provincie, VMM, een volgend platform | SSN/SOSA zoals in `e-detect.ttl` | volledige geschiedenis, incrementeel te synchroniseren, onafhankelijk van de leverancier; in Vlaanderen al gebruikt (zie `overstort/`) | geen bevraging; afnemers bouwen zelf een opslag |
+| **Opvraagbare IRI's** (resource endpoints) | iedereen die naar een meetpunt, sensor, procedure, drempel of eenheid verwijst | SSN/SOSA, met content negotiation (HTML voor mensen, Turtle of JSON-LD voor machines) | stabiele verwijzingen, ook na wissel van leverancier; de procedure van een kalibratie of drempel blijft opvraagbaar (A3, A5) | vraagt een persistente basis-IRI en een beheerder (C4) |
+| **SPARQL** | analyse over bronnen heen: alarmen naast meldingen en wind, vergelijking van pilootzones, evaluatie door VITO | SSN/SOSA, gevuld vanuit de LDES | vrije combinatie van sensor-, weer- en meldingsdata | zwaar om openbaar te garanderen; geen operationeel kanaal |
+
+De samenhang:
+
+```
+e-nose, windmeter, meldingsapp
+        │
+        ▼
+platform van de leverancier ──► SensorThings API (operationeel, eigen model)
+        │                  └─► CSV-export (bestek)
+        ▼  mapping naar SSN/SOSA (gepubliceerd)
+LDES-stroom (waarnemingen, afgeleide waarnemingen)
+        │
+        ├─► opvraagbare IRI's: meetpunten, sensoren, procedures, drempels, eenheid
+        └─► SPARQL-endpoint voor analyse (optioneel)
+```
+
+- **De leverancier** levert een API, liefst de SensorThings API, plus de CSV-export uit het bestek.
+  Daarnaast levert hij een LDES-stroom in SSN/SOSA, of een stroom waaruit die met een gepubliceerde
+  mapping gebouwd kan worden. Daarvoor bestaan open componenten: de LDES-server en de pipelines
+  van LDIO (Linked Data Interactions) van [OpenLDES](https://github.com/OpenLDES), beheerd door het
+  Departement Omgeving (EUPL-1.2). Aquafin gebruikt LDIO voor zijn overstortdata (`overstort/`).
+- **In de SensorThings API** verwijzen `unitOfMeasurement.definition` en
+  `ObservedProperty.definition` naar de IRI's van de eenheid en de eigenschap. Zo blijft de koppeling
+  met het SOSA-model in de API zelf zichtbaar.
+- **De opdrachtgever** beheert de IRI's van meetpunten, sensoren, procedures en drempels onder een
+  eigen, persistente basis-IRI, niet onder het domein van de leverancier.
+- **SPARQL** is een optie voor de analysefase, gevuld vanuit de LDES. Het is geen vereiste voor de
+  leverancier.
+
+**Waarom.**
+- Het project wil dat de data bruikbaar blijft na afloop van de opdracht en buiten het
+  leveranciersplatform (vragen 13 en 28). Een LDES in SSN/SOSA met IRI's van de opdrachtgever maakt
+  de data overdraagbaar; een API van het platform alleen doet dat niet.
+- De transparantie van de verwerking (vraag 16) vraagt dat een alarm naar zijn drempel en een
+  geschatte concentratie naar haar inputwaarden verwijst. Dat kan in SSN/SOSA, niet in het model van
+  SensorThings.
+- Leveranciers van sensorplatformen bieden vaak SensorThings of een eigen REST-API. Die vragen als
+  operationeel kanaal sluit aan bij de markt. Een tweede, neutrale laag beschermt tegen
+  afhankelijkheid.
+
+**Verworpen alternatieven.**
+- *Alleen de SensorThings API.* Geen RDF, geen verwijzing naar inputwaarden, en IRI's en
+  identificatoren van het platform. Bij een wissel van leverancier verandert alles.
+- *Alleen CSV.* Laagdrempelig, maar zonder vastgelegde betekenis per kolom en zonder incrementele
+  synchronisatie.
+- *SPARQL als enige API.* Niet incrementeel, zwaar om openbaar te garanderen, en ongeschikt voor
+  realtime toepassingen.
+
+**Gevolg.**
+- **Herziene en herberekende waarden.** Een LDES-member wordt niet overschreven. Een herberekening
+  met een nieuw kalibratiemodel is dus een nieuwe afgeleide waarneming met een nieuwe procedure, geen
+  wijziging van de oude.
+- **Waarneming of record.** De member van de LDES is de waarneming zelf (oplossing A van
+  [R16](https://informatievlaanderen.github.io/OSLOthema-SSNSOSA-VL/regels/r16/)): zonder
+  `prov:generatedAtTime` op de waarneming. Dat is de les uit `overstort/`.
+- **Toegang.** Bedrijfsgevoelige gegevens en meldingen (AVG) gaan niet in een openbare stroom. Ofwel
+  komen er twee stromen (openbaar en afgeschermd), ofwel worden meldplaatsen veralgemeend en
+  bedrijfsgevoelige analyses weggelaten vóór publicatie.
+
+**Open.**
+- Wie beheert de persistente IRI's en de LDES: de provincie zelf, met de componenten van OpenLDES,
+  of een gedeelde LDES-infrastructuur (C4)?
+- Is een SPARQL-endpoint nodig voor de evaluatie door VITO, of volstaat een eigen opslag gevuld
+  vanuit de LDES?
+- Welke gegevens zijn openbaar, welke afgeschermd (B7)?
 
 **Status:** voorstel (deels open).
 
@@ -242,12 +335,13 @@ opdracht moeilijk herbruikbaar, en dat wil het project vermijden (vraag 13).
 
 | # | Vraag |
 |---|---|
-| B1 | Welke API en welke exportformaten levert het platform? Is SensorThings API mogelijk? Wat is de structuur van de CSV (kolommen, eenheden, tijdzone)? |
+| B1 | Welke API en welke exportformaten levert het platform? Is de SensorThings API mogelijk, met `unitOfMeasurement.definition` en `ObservedProperty.definition` als IRI's? Kan het platform een LDES-stroom leveren, of een stroom waaruit die gebouwd kan worden? Wat is de structuur van de CSV (kolommen, eenheden, tijdzone)? |
 | B2 | Hoe wordt de sensorrespons omgezet naar een geurconcentratie? Met welk model, welke kalibratie (EN 13725-olfactometrie, waar en wanneer) en welke foutenmarge? |
 | B3 | Welke velden en schalen gebruikt de meldingsapplicatie: soort geur, intensiteit, hedonische toon, duur, locatie? |
 | B4 | Wat geeft de bronanalyse als uitvoer: waarschijnlijkheid, bijdrage of rangorde? Welke invoer gebruikt ze (wind, stabiliteit, meldingen)? |
 | B5 | Welke identificatoren krijgen sensoren, meetpunten en meldingen? Blijven ze stabiel bij vervanging van een sensor? |
 | B6 | Hoe worden sensoruitval, onderhoud en kalibratie geregistreerd (vraag 24)? |
+| B7 | Welke gegevens mogen openbaar, welke enkel voor aangeduide derden (rol- en rechtenbeheer, vraag 25)? Kan het platform per kanaal afschermen? |
 
 ## 4. Deel C: registers en vocabularia
 
@@ -256,6 +350,7 @@ opdracht moeilijk herbruikbaar, en dat wil het project vermijden (vraag 13).
 | C1 | Beheerders van CSOR | De eenheid ouE/m³ opnemen, met de definitie uit EN 13725:2022. Eventueel ook ouE/s (geuremissiedebiet). |
 | C2 | QUDT (`qudt/qudt-public-repo`) | Een eenheid en een grootheid voor geurconcentratie voorstellen. `quantitykind:OlfactoryThreshold` dekt dat niet. |
 | C3 | VMM / Departement Omgeving | Is er een register voor soorten geur, geurintensiteit of hedonische toon? Anders de codelijsten van A4 als register voorstellen. |
+| C4 | Departement Omgeving (OpenLDES) | Kan E-Detect de LDES-server en LDIO van OpenLDES gebruiken, als gedeelde infrastructuur of zelf geïnstalleerd door de provincie of de leverancier? Onder welke persistente basis-IRI komen meetpunten, sensoren, procedures en drempels? |
 
 ## 5. Deel D: later
 

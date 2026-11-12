@@ -41,16 +41,39 @@ klaar voor het overleg met het Expertisecentrum Interoperabiliteit.
   zoals de veldwaarnemer in [Erosiepoel](erosiepoel.md). Soort geur, intensiteit (VDI 3882-1) en
   hedonische toon (VDI 3882-2) zijn begrippen uit kleine codelijsten. De meldplaats is persoonsgegeven
   en krijgt een veralgemeende geometrie.
-- **Alarm en bronaanwijzing zijn afgeleid.** Het alarm is een booleaanse waarneming, met de drempel
-  in de procedure. De bronaanwijzing combineert concentratie, wind en melding tot een
-  waarschijnlijkheid per bron.
+- **Alarm en bronaanwijzing zijn afgeleid.** Het alarm is een booleaanse waarneming. De drempel is
+  een input van de alarmprocedure, en elk alarm geeft met `sosa:hasInputValue` de drempelwaarde
+  waarmee het berekend is, naast de geschatte concentratie. Zo is in de data te zien welke drempel
+  gold, ook als hij later wijzigt. De bronaanwijzing combineert concentratie, wind en melding tot
+  een waarschijnlijkheid per bron.
+
+## Hoe de data naar buiten gaat
+
+Vier kanalen, elk voor een andere afnemer:
+
+| Kanaal | Voor wie | Rol |
+|---|---|---|
+| **OGC SensorThings API** | dashboard, meldingsapp, actuele waarden per sensor | operationeel, bij de leverancier; eigen model, geen RDF |
+| **LDES** | andere systemen die de volledige geschiedenis overnemen | neutrale laag in SSN/SOSA, onafhankelijk van de leverancier |
+| **Opvraagbare IRI's** | wie naar een meetpunt, sensor, procedure, drempel of eenheid verwijst | stabiele verwijzingen onder een basis-IRI van de opdrachtgever |
+| **SPARQL** | analyse over sensor-, weer- en meldingsdata heen | optioneel, gevuld vanuit de LDES |
+
+De SensorThings API sluit aan bij wat leveranciers aanbieden, maar alleen is ze niet genoeg. Een
+afgeleide waarneming kan er niet naar haar inputwaarden verwijzen, en de identificatoren horen bij het
+platform. De LDES met IRI's van de opdrachtgever houdt de data bruikbaar na een wissel van
+leverancier. De componenten daarvoor (LDES-server, LDIO) zijn open source in
+[OpenLDES](https://github.com/OpenLDES), beheerd door het Departement Omgeving. Een member van de
+stroom is de waarneming zelf, zonder recordeigenschappen
+([R16](../regels/r16.md), de les uit [Overstort](overstort.md)). Een herberekening met een nieuw
+kalibratiemodel is een nieuwe afgeleide waarneming, geen overschreven waarde.
 
 ## Wat het beslisdocument vraagt
 
-Zes modelkeuzes (eenheid, studieobject, respons en concentratie, melding, afgeleiden, standaarden),
-zes vragen aan de leverancier (API, kalibratie, meldingsvelden, uitvoer van de bronanalyse,
-identificatoren, onderhoud) en drie verzoeken aan registerbeheerders (CSOR, QUDT, codelijsten voor
-geur).
+Zeven modelkeuzes (eenheid, studieobject, respons en concentratie, melding, afgeleiden, standaarden,
+API's en ontsluiting), zeven vragen aan de leverancier (API en LDES, kalibratie, meldingsvelden,
+uitvoer van de bronanalyse, identificatoren, onderhoud, afscherming) en vier verzoeken aan
+registerbeheerders en beheerders van infrastructuur (CSOR, QUDT, codelijsten voor geur, OpenLDES
+en persistente IRI's).
 
 ## Diagram
 

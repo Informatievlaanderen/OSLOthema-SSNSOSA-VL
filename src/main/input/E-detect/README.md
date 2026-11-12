@@ -49,7 +49,7 @@ Plat model, zoals [`elf/`](../elf/) en [`geluidsmeetnet/`](../geluidsmeetnet/):
   een ruimtelijk monster met een veralgemeende geometrie, omdat het om persoonsgegevens gaat.
 - **Afgeleide waarnemingen** (R7, R13):
   - de geschatte geurconcentratie in ouE/m³, uit de sensorrespons;
-  - het alarm bij een overschrijding van de drempel;
+  - het alarm bij een overschrijding van de drempel, met de drempelwaarde als inputwaarde;
   - de bronaanwijzing. Die heeft als studieobject de *geuremissie* van het bedrijf (patroon
     *Emissie als studieobject*).
 - **Eenheid.** De eenheid ouE/m³ (EN 13725:2022) staat niet in QUDT en niet in CSOR. Daarom staat
@@ -66,7 +66,7 @@ waarnemingen in DERIVATION.
 
 | Bestand | Inhoud |
 |---|---|
-| `e-detect.ttl` | De data: tijdelijke eenheid, bron en omgeving, infrastructuur, procedures, codelijsten voor de melding, waarnemingen en afgeleide waarnemingen |
+| `e-detect.ttl` | De data: tijdelijke eenheid, bron en omgeving, infrastructuur, procedures, de alarmdrempel als parameter, codelijsten voor de melding, waarnemingen en afgeleide waarnemingen |
 | `e-detect.mmd` | Het diagram |
 | `bespreking.md` | De bespreking (negen secties) |
 | `beslisdocument.md` | Beslispunten voor E-Detect, het Expertisecentrum en de registerbeheerders |
