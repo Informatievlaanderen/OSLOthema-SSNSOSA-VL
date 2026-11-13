@@ -1,0 +1,689 @@
+"rapporteringscontext_code","rapporteringscontext_symbool","rapporteringscontext_omschrijving","rapporteringscontext_actief","rapporteringsgroep_code","rapporteringsgroep_symbool","rapporteringsgroep_omschrijving","rapporteringsgroep_omschrijving_engels","rapporteringsgroep_volgnr_in_context","rapporteringsgroep_actief","parameter_aspect_code","parameter_symbool","drager_omschrijving","parameter_omschrijving","parameter_aspect_omschrijving","drempelwaarde_type_code","drempelwaarde_type_omschrijving","drempelwaarde","drempel_eenheid_code","drempel_eenheid_symbool","drempel_geldig_van_jaar","drempel_geldig_tot_jaar"
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1003,PCFol,water,Pentachloorfenol - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1003,PCFol,water,Pentachloorfenol - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1056,AOX,water,Organohalogenen - adsorbeerbaar - water,vracht,RDT_1,Lozend,1000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1056,AOX,water,Organohalogenen - adsorbeerbaar - water,vracht,RDT_2,Transfer,1000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1255,"12CEa",water,"1,2-Dichloorethaan - standaard - water",vracht,RDT_2,Transfer,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1255,"12CEa",water,"1,2-Dichloorethaan - standaard - water",vracht,RDT_1,Lozend,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1402,DCMa,water,Dichloormethaan - standaard - water,vracht,RDT_1,Lozend,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1402,DCMa,water,Dichloormethaan - standaard - water,vracht,RDT_2,Transfer,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1408,TtCEe,water,Tetrachlooretheen - standaard - water,vracht,RDT_2,Transfer,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1408,TtCEe,water,Tetrachlooretheen - standaard - water,vracht,RDT_1,Lozend,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1412,TtCMa,water,Tetrachloormethaan - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1412,TtCMa,water,Tetrachloormethaan - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1419,TCEe,water,Trichlooretheen - standaard - water,vracht,RDT_1,Lozend,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1419,TCEe,water,Trichlooretheen - standaard - water,vracht,RDT_2,Transfer,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1427,TCMa,water,Trichloormethaan - standaard - water,vracht,RDT_2,Transfer,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1427,TCMa,water,Trichloormethaan - standaard - water,vracht,RDT_1,Lozend,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1518,VinCl,water,Vinylchloride - standaard - water,vracht,RDT_1,Lozend,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1518,VinCl,water,Vinylchloride - standaard - water,vracht,RDT_2,Transfer,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1639,PCB t,water,"Polychloorbifenyl, totaal - standaard - water",vracht,RDT_2,Transfer,0.100000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_1639,PCB t,water,"Polychloorbifenyl, totaal - standaard - water",vracht,RDT_1,Lozend,0.100000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_2058,PCBz,water,Pentachloorbenzeen - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_2058,PCBz,water,Pentachloorbenzeen - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_2293,BDE,water,Polybroomdifenylether - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_2293,BDE,water,Polybroomdifenylether - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_2364,Alk c,water,"Alkanen, gechloreerde - standaard - water",vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_2364,Alk c,water,"Alkanen, gechloreerde - standaard - water",vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_2384,HBDFy,water,Hexabroomdifenyl - standaard - water,vracht,RDT_1,Lozend,0.100000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_2384,HBDFy,water,Hexabroomdifenyl - standaard - water,vracht,RDT_2,Transfer,0.100000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_2386,PCDD+PCDF,water,Dioxines+furanen - standaard - water,vracht,RDT_1,Lozend,0.000100,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_2386,PCDD+PCDF,water,Dioxines+furanen - standaard - water,vracht,RDT_2,Transfer,0.000100,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_3904,"111CEa",lucht,"1,1,1-Trichloorethaan - lucht",vracht per tijd,RDT_5,Emissie,100.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_3909,"1122CEa",lucht,"1,1,2,2-Tetrachloorethaan - lucht",vracht per tijd,RDT_5,Emissie,50.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_3966,"12CEa",lucht,"1,2-Dichloorethaan - lucht",vracht per tijd,RDT_5,Emissie,1000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_4340,DCMa,lucht,Dichloormethaan - lucht,vracht per tijd,RDT_5,Emissie,1000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_4466,HBDFy,lucht,Hexabroomdifenyl - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_4468,HCBdn,lucht,Hexachloorbutadieen - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_4471,HCBz,lucht,Hexachloorbenzeen - lucht,vracht per tijd,RDT_5,Emissie,10.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_471,TCBz,water,Trichloorbenzenen - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_471,TCBz,water,Trichloorbenzenen - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_4822,PCB t,lucht,"Polychloorbifenyl, totaal - lucht",vracht per tijd,RDT_5,Emissie,0.100000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_4825,PCBz,lucht,Pentachloorbenzeen - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_4827,PCDD+PCDF,lucht,Dioxines+furanen - lucht,vracht per tijd,RDT_5,Emissie,0.000100,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_4830,PCFol,lucht,Pentachloorfenol - lucht,vracht per tijd,RDT_5,Emissie,10.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_5053,TCBz,lucht,Trichloorbenzenen - lucht,vracht per tijd,RDT_5,Emissie,10.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_5055,TCEa,lucht,Trichloorethaan - lucht,vracht per tijd,RDT_5,Emissie,100.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_5056,TCEe,lucht,Trichlooretheen - lucht,vracht per tijd,RDT_5,Emissie,2000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_5060,TCMa,lucht,Trichloormethaan - lucht,vracht per tijd,RDT_5,Emissie,500.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_5094,TtCEe,lucht,Tetrachlooretheen - lucht,vracht per tijd,RDT_5,Emissie,2000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_5099,TtCMa,lucht,Tetrachloormethaan - lucht,vracht per tijd,RDT_5,Emissie,100.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_5117,VinCl,lucht,Vinylchloride - lucht,vracht per tijd,RDT_5,Emissie,1000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_960,HCBz,water,Hexachloorbenzeen - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_960,HCBz,water,Hexachloorbenzeen - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_965,HCBdn,water,Hexachloorbutadieen - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_7,CHLORG,Gechloreerde organische stoffen,Chlorinated organic substances,5,true,PAS_965,HCBdn,water,Hexachloorbutadieen - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_3,GRHGAS,Broeikasgassen,Greenhouse gases,1,true,PAS_4239,CO2,lucht,Koolstofdioxide - lucht,vracht per tijd,RDT_5,Emissie,100000000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_3,GRHGAS,Broeikasgassen,Greenhouse gases,1,true,PAS_4488,HFK,lucht,Fluorkoolwaterstoffen - lucht,vracht per tijd,RDT_5,Emissie,100.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_3,GRHGAS,Broeikasgassen,Greenhouse gases,1,true,PAS_4568,Methaan,lucht,Methaan - lucht,vracht per tijd,RDT_5,Emissie,100000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_3,GRHGAS,Broeikasgassen,Greenhouse gases,1,true,PAS_4630,N2O,lucht,Distikstofmonoxide - lucht,vracht per tijd,RDT_5,Emissie,10000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_3,GRHGAS,Broeikasgassen,Greenhouse gases,1,true,PAS_4887,PFK,lucht,Perfluorkoolwaterstoffen - lucht,vracht per tijd,RDT_5,Emissie,100.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_3,GRHGAS,Broeikasgassen,Greenhouse gases,1,true,PAS_5005,SF6,lucht,Zwavelhexafluoride - lucht,vracht per tijd,RDT_5,Emissie,50.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_3,GRHGAS,Broeikasgassen,Greenhouse gases,1,true,,,,Koolstofdioxide,,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_3,GRHGAS,Broeikasgassen,Greenhouse gases,1,true,,,,Distikstofmonoxide,,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_2085,Cu t,water,Koper - totaal - water,vracht,RDT_1,Lozend,50.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_2085,Cu t,water,Koper - totaal - water,vracht,RDT_2,Transfer,50.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_4138,As,lucht,Arseen - lucht,vracht per tijd,RDT_5,Emissie,20.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_4270,Cd,lucht,Cadmium - lucht,vracht per tijd,RDT_5,Emissie,10.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_4316,Cr,lucht,Chroom - lucht,vracht per tijd,RDT_5,Emissie,100.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_4334,Cu,lucht,Koper - lucht,vracht per tijd,RDT_5,Emissie,100.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_4503,Hg,lucht,Kwik - lucht,vracht per tijd,RDT_5,Emissie,10.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_4724,Ni,lucht,Nikkel - lucht,vracht per tijd,RDT_5,Emissie,50.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_4968,Pb,lucht,Lood - lucht,vracht per tijd,RDT_5,Emissie,200.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_5133,Zn,lucht,Zink - lucht,vracht per tijd,RDT_5,Emissie,200.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_707,As t,water,Arseen - totaal - water,vracht,RDT_2,Transfer,5.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_707,As t,water,Arseen - totaal - water,vracht,RDT_1,Lozend,5.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_737,Cd t,water,Cadmium - totaal - water,vracht,RDT_1,Lozend,5.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_737,Cd t,water,Cadmium - totaal - water,vracht,RDT_2,Transfer,5.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_750,Cr t,water,Chroom - totaal - water,vracht,RDT_1,Lozend,50.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_750,Cr t,water,Chroom - totaal - water,vracht,RDT_2,Transfer,50.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_774,Hg t,water,Kwik - totaal - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_774,Hg t,water,Kwik - totaal - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_784,Pb t,water,Lood - totaal - water,vracht,RDT_1,Lozend,20.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_784,Pb t,water,Lood - totaal - water,vracht,RDT_2,Transfer,20.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_801,Ni t,water,Nikkel - totaal - water,vracht,RDT_1,Lozend,20.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_801,Ni t,water,Nikkel - totaal - water,vracht,RDT_2,Transfer,20.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_862,Zn t,water,Zink - totaal - water,vracht,RDT_2,Transfer,100.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_5,HEVMET,Zware metalen,Heavy metals,3,true,PAS_862,Zn t,water,Zink - totaal - water,vracht,RDT_1,Lozend,100.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_2166,P t,water,Fosfor - totaal - water,vracht,RDT_2,Transfer,5000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_2166,P t,water,Fosfor - totaal - water,vracht,RDT_1,Lozend,5000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_2377,Asbest,water,Asbest - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_2377,Asbest,water,Asbest - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_4143,Asbest,lucht,Asbest - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_4232,CN- t,lucht,Cyaniden - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_4293,Cl-,lucht,Chloride - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_4416,F-,lucht,Fluoride - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_453,N t,water,Stikstof - totaal - water,vracht,RDT_2,Transfer,50000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_453,N t,water,Stikstof - totaal - water,vracht,RDT_1,Lozend,50000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_4753,P,lucht,Fosfor - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_4955,PM10,lucht,PM10 - lucht,vracht per tijd,RDT_5,Emissie,50000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_497,Cl-,water,Chloride - standaard - water,vracht,RDT_2,Transfer,2000000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_497,Cl-,water,Chloride - standaard - water,vracht,RDT_1,Lozend,2000000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_502,F-,water,Fluoride - standaard - water,vracht,RDT_2,Transfer,2000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_502,F-,water,Fluoride - standaard - water,vracht,RDT_1,Lozend,2000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_553,CN- t,water,Cyaniden - totaal - water,vracht,RDT_2,Transfer,50.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,PAS_553,CN- t,water,Cyaniden - totaal - water,vracht,RDT_1,Lozend,50.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_9,INORG,Anorganische stoffen,Inorganic substances,7,true,,,,PM10,,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4230,CFK,lucht,Chloorfluorkoolstoffen - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4234,CO,lucht,Koolstofmonoxide - lucht,vracht per tijd,RDT_5,Emissie,500000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4286,Cl an.,lucht,Chloor en zijn anorganische verbindingen - lucht,vracht per tijd,RDT_5,Emissie,10000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4301,Cl-verb,lucht,Chloorverbindingen - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4410,F an.,lucht,Fluor en zijn anorganische verbindingen - lucht,vracht per tijd,RDT_5,Emissie,5000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4423,F-verb,lucht,Fluorverbindingen - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4474,HCFK,lucht,Chloorfluorkoolwaterstoffen - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4479,HCN,lucht,Waterstofcyanide - lucht,vracht per tijd,RDT_5,Emissie,200.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4494,Halonen,lucht,Halonen - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4644,NH3,lucht,Ammoniak - lucht,vracht per tijd,RDT_5,Emissie,10000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4658,NMVOS t,lucht,"NMVOS, totaal - lucht",vracht per tijd,RDT_5,Emissie,100000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_4691,NOx,lucht,Stikstofoxiden - lucht,vracht per tijd,RDT_5,Emissie,100000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,PAS_5023,SOx,lucht,Zwaveloxiden - lucht,vracht per tijd,RDT_5,Emissie,150000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,,,,"NMVOS, totaal",,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,,,,Zwaveloxiden,,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,,,,Koolstofmonoxide,,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,,,,Waterstofcyanide,,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_4,OTHGAS,Overige gassen,Other gases,2,true,,,,Chloor en zijn anorganische verbindingen,,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1106,TOC,water,Koolstof - organisch totaal - water,vracht,RDT_1,Lozend,50000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1106,TOC,water,Koolstof - organisch totaal - water,vracht,RDT_2,Transfer,50000.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1234,EyO,water,Ethyleenoxide - standaard - water,vracht,RDT_1,Lozend,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1234,EyO,water,Ethyleenoxide - standaard - water,vracht,RDT_2,Transfer,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_143,PAK 4,water,Polyaromatische koolwaterstoffen (PAK's) - standaard - water,vracht,RDT_2,Transfer,5.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_143,PAK 4,water,Polyaromatische koolwaterstoffen (PAK's) - standaard - water,vracht,RDT_1,Lozend,5.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1559,Ant,water,Anthraceen - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1559,Ant,water,Anthraceen - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1572,B(ghi)Pe,water,"Benzo(g,h,i)peryleen - standaard - water",vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1572,B(ghi)Pe,water,"Benzo(g,h,i)peryleen - standaard - water",vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1595,Naft,water,Naftaleen - standaard - water,vracht,RDT_1,Lozend,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1595,Naft,water,Naftaleen - standaard - water,vracht,RDT_2,Transfer,10.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1815,Snver ot,water,"Organotinverbindingen, totaal - standaard - water",vracht,RDT_1,Lozend,50.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1815,Snver ot,water,"Organotinverbindingen, totaal - standaard - water",vracht,RDT_2,Transfer,50.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1841,Fol t,water,Fenolen - totaal - water,vracht,RDT_1,Lozend,20.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_1841,Fol t,water,Fenolen - totaal - water,vracht,RDT_2,Transfer,20.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_2106,Flu,water,Fluorantheen - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_2106,Flu,water,Fluorantheen - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_2202,b2EyHyFt,water,bis-(2-ethylhexyl)-ftalaat - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_2202,b2EyHyFt,water,bis-(2-ethylhexyl)-ftalaat - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_2388,NyFol+et,water,Nonylfenolen + ethoxylaten - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_2388,NyFol+et,water,Nonylfenolen + ethoxylaten - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_2390,OyFol+et,water,Octylfenolen + ethoxylaten - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_2390,OyFol+et,water,Octylfenolen + ethoxylaten - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_4124,Ant,lucht,Anthraceen - lucht,vracht per tijd,RDT_5,Emissie,50.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_4170,B(ghi)Pe,lucht,"Benzo(g,h,i)peryleen - lucht",vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_4208,Benzeen,lucht,Benzeen - lucht,vracht per tijd,RDT_5,Emissie,1000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_4401,EyBz,lucht,Ethylbenzeen - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_4406,EyO,lucht,Ethyleenoxide - lucht,vracht per tijd,RDT_5,Emissie,1000.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_4441,Flu,lucht,Fluorantheen - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_4709,Naft,lucht,Naftaleen - lucht,vracht per tijd,RDT_5,Emissie,100.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_474,ompXyl,water,Xylenen (o+m+p) - standaard - water,vracht,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_4749,OyFol+et,lucht,Octylfenolen + ethoxylaten - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_4755,PAK 14,lucht,Polyaromatische KWS (14 IBS) - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_4757,PAK 4,lucht,Polyaromatische koolwaterstoffen (PAK's) - lucht,vracht per tijd,RDT_5,Emissie,50.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_484,BTEX,water,"Benzeen, tolueen, ethylbenzeen, xylenen - standaard - water",vracht,RDT_2,Transfer,200.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_484,BTEX,water,"Benzeen, tolueen, ethylbenzeen, xylenen - standaard - water",vracht,RDT_1,Lozend,200.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_5088,Tolueen,lucht,Tolueen - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_5147,b2EyHyFt,lucht,bis-(2-ethylhexyl)-ftalaat - lucht,vracht per tijd,RDT_5,Emissie,10.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_5260,ompXyl,lucht,Xylenen (o+m+p) - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_878,Benzeen,water,Benzeen - standaard - water,vracht,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_882,EyBz,water,Ethylbenzeen - standaard - water,vracht,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_8,OTHORG,Overige organische stoffen,Other organic substances,6,true,PAS_908,Tolueen,water,Tolueen - standaard - water,vracht,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1029,Toxafeen,water,Toxafeen - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1029,Toxafeen,water,Toxafeen - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1031,Atraz,water,Atrazine - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1031,Atraz,water,Atrazine - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1042,Diuron,water,Diuron - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1042,Diuron,water,Diuron - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1044,Iproturon,water,Isoproturon - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1044,Iproturon,water,Isoproturon - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1552,Tfluralin,water,Trifluralin - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1552,Tfluralin,water,Trifluralin - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1926,CpfosEy,water,Chloorpyrifos-ethyl - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1926,CpfosEy,water,Chloorpyrifos-ethyl - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1932,Cfvinfos,water,Chloorfenvinfos - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_1932,Cfvinfos,water,Chloorfenvinfos - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2,a+bEndoS,water,alfa+beta Endosulfan - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2,a+bEndoS,water,alfa+beta Endosulfan - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2046,Alachloor,water,Alachloor - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2046,Alachloor,water,Alachloor - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2139,TBySn,water,Tributyltin - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2139,TBySn,water,Tributyltin - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2149,TFySn,water,Trifenyltin - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2149,TFySn,water,Trifenyltin - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2178,Simaz,water,Simazine - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2178,Simaz,water,Simazine - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2380,Cdecon,water,Chloordecon - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2380,Cdecon,water,Chloordecon - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2382,Mirex,water,Mirex - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_2382,Mirex,water,Mirex - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_4113,Alachloor,lucht,Alachloor - lucht,vracht per tijd,,,,,,,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_4114,Aldrin,lucht,Aldrin - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_4274,Cdaan,lucht,Chloordaan - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_4276,Cdecon,lucht,Chloordecon - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_4343,DDT t,lucht,"DDT, totaal - lucht",vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_4359,Dieldrin,lucht,Dieldrin - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_4376,Endrin,lucht,Endrin - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_4477,HCH,lucht,"Hexachloorcyclohexaan, alle isomeren - lucht",vracht per tijd,RDT_5,Emissie,10.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_4509,HpC,lucht,Heptachloor - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_4581,Mirex,lucht,Mirex - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_482,HCH,water,"Hexachloorcyclohexaan, alle isomeren - standaard - water",vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_482,HCH,water,"Hexachloorcyclohexaan, alle isomeren - standaard - water",vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_488,DDT t,water,"DDT, totaal - standaard - water",vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_488,DDT t,water,"DDT, totaal - standaard - water",vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_5092,Toxafeen,lucht,Toxafeen - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_5172,gHCH,lucht,gamma-Hexachloorcyclohexaan - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_12,kg/jr,2007,2099
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_922,Aldrin,water,Aldrin - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_922,Aldrin,water,Aldrin - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_926,Cdaan,water,Chloordaan - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_926,Cdaan,water,Chloordaan - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_930,Dieldrin,water,Dieldrin - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_930,Dieldrin,water,Dieldrin - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_942,Endrin,water,Endrin - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_942,Endrin,water,Endrin - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_948,HpC,water,Heptachloor - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_948,HpC,water,Heptachloor - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_980,gHCH,water,gamma-Hexachloorcyclohexaan - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_980,gHCH,water,gamma-Hexachloorcyclohexaan - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_983,Isodrin,water,Isodrin - standaard - water,vracht,RDT_2,Transfer,1.000000,E_38,kg,2007,
+RC_1,EPRTR,E-PRTR,true,RG_6,PEST,Pesticiden,Pesticides,4,true,PAS_983,Isodrin,water,Isodrin - standaard - water,vracht,RDT_1,Lozend,1.000000,E_38,kg,2007,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3904,"111CEa",lucht,"1,1,1-Trichloorethaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3909,"1122CEa",lucht,"1,1,2,2-Tetrachloorethaan - lucht",vracht per tijd,RDT_5,Emissie,0.050000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3911,"112CEa",lucht,"1,1,2-Trichloorethaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3912,"11CEa",lucht,"1,1-Dichloorethaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3914,"11CEe",lucht,"1,1-Dichlooretheen - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3955,"123MyBz",lucht,"1,2,3-Trimethylbenzeen - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3959,"124MyBz",lucht,"1,2,4-Trimethylbenzeen - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3966,"12CEa",lucht,"1,2-Dichloorethaan - lucht",vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3968,"12CPa",lucht,"1,2-Dichloorpropaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3972,"135MyBz",lucht,"1,3,5-Trimethylbenzeen - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3975,"14Oxaan",lucht,"1,4-Dioxaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3977,"1Butanol",lucht,"1-Butanol - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3980,"1Buteen",lucht,"1-Buteen - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_3985,"1Hexeen",lucht,"1-Hexeen - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4012,"23MyBa",lucht,"2,3-Dimethylbutaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4017,"2Butanol",lucht,"2-Butanol - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4020,"2CTol",lucht,"2-Chloortolueen - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4021,"2FurMaol",lucht,"2-Furaanmethanol - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4023,"2MyFol",lucht,"2-Methylfenol - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4025,"2MyHa",lucht,"2-Methylhexaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4028,"2MyHpa",lucht,"2-Methylheptaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4032,"2MyPa",lucht,"2-Methylpentaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4040,"3MyFol",lucht,"3-Methylfenol - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4041,"3MyHa",lucht,"3-Methylhexaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4047,"3MyHpa",lucht,"3-Methylheptaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4051,"3MyPa",lucht,"3-Methylpentaan - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4060,"4MyFol",lucht,"4-Methylfenol - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4086,ANMVOS t,lucht,"Aromatische NMVOS, totaal - lucht",vracht per tijd,RDT_5,Emissie,10.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4095,Acenaftyl,lucht,Acenaftyleen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4099,Acetal,lucht,Acetaldehyde - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4101,Aceton,lucht,Aceton - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4104,AcrNit,lucht,Acrylonitrile - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4106,Ag,lucht,Zilver - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4111,Al,lucht,Aluminium - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4113,Alachloor,lucht,Alachloor - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4114,Aldrin,lucht,Aldrin - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4120,Aniline,lucht,Aniline - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4124,Ant,lucht,Anthraceen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4138,As,lucht,Arseen - lucht,vracht per tijd,RDT_5,Emissie,0.020000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4143,Asbest,lucht,Asbest - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4148,B(a)A,lucht,Benzo(a)anthraceen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4153,B(a)P,lucht,Benzo(a)pyreen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4158,B(b)Flu,lucht,Benzo(b)fluorantheen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4163,B(e)P,lucht,Benzo(e)pyreen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4170,B(ghi)Pe,lucht,"Benzo(g,h,i)peryleen - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4172,B(j)Flu,lucht,Benzo(j)fluorantheen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4178,B(k)Flu,lucht,Benzo(k)fluorantheen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4180,BBz,lucht,Broombenzeen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4183,BC,lucht,Zwarte koolstof - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4199,Ba,lucht,Barium - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4202,Be,lucht,Beryllium - lucht,vracht per tijd,RDT_5,Emissie,0.002000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4206,Benzal,lucht,Benzaldehyde - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4208,Benzeen,lucht,Benzeen - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4212,Br,lucht,Broom - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4217,Butyral,lucht,Butyraldehyde - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4220,ByAc,lucht,Butylacetaat - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4222,ByBzyFt,lucht,Butylbenzylftalaat - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4224,CBz,lucht,Chloorbenzeen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4228,CEa,lucht,Chloorethaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4230,CFK,lucht,Chloorfluorkoolstoffen - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4232,CN- t,lucht,Cyaniden - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4234,CO,lucht,Koolstofmonoxide - lucht,vracht per tijd,RDT_5,Emissie,200.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4239,CO2,lucht,Koolstofdioxide - lucht,vracht per tijd,RDT_5,Emissie,100000.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4241,CS2,lucht,Koolstofdisulfide - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4249,Ca,lucht,Calcium - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4257,Caffeïne,lucht,Caffeïne - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4259,Caprolactam,lucht,Caprolactam - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4270,Cd,lucht,Cadmium - lucht,vracht per tijd,RDT_5,Emissie,0.010000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4274,Cdaan,lucht,Chloordaan - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4276,Cdecon,lucht,Chloordecon - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4281,Chr,lucht,Chryseen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4284,Cl,lucht,Chloor - lucht,vracht per tijd,RDT_5,Emissie,2.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4286,Cl an.,lucht,Chloor en zijn anorganische verbindingen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4293,Cl-,lucht,Chloride - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4301,Cl-verb,lucht,Chloorverbindingen - lucht,vracht per tijd,RDT_5,Emissie,5.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4303,Co,lucht,Kobalt - lucht,vracht per tijd,RDT_5,Emissie,0.050000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4316,Cr,lucht,Chroom - lucht,vracht per tijd,RDT_5,Emissie,0.050000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4334,Cu,lucht,Koper - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4340,DCMa,lucht,Dichloormethaan - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4343,DDT t,lucht,"DDT, totaal - lucht",vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4345,DEyAm,lucht,Diethylamine - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4348,DFy,lucht,Difenyl - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4349,DMyAm,lucht,Dimethylamine - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4356,Dicofol,lucht,Dicofol - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4359,Dieldrin,lucht,Dieldrin - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4363,Dioxines,lucht,Dioxines - lucht,vracht TEQ per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4364,DnByFt,lucht,Di-n-butylftalaat - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4372,ElC,lucht,Koolstof - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4376,Endrin,lucht,Endrin - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4392,Ethaan,lucht,Ethaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4395,Ethanol,lucht,Ethanol - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4398,Etheen,lucht,Etheen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4399,EyAc,lucht,Ethylacetaat - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4401,EyBz,lucht,Ethylbenzeen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4406,EyO,lucht,Ethyleenoxide - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4407,F,lucht,Fluor - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4410,F an.,lucht,Fluor en zijn anorganische verbindingen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4416,F-,lucht,Fluoride - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4423,F-verb,lucht,Fluorverbindingen - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4429,Fe,lucht,Ijzer - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4437,Fen,lucht,Fenantreen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4441,Flu,lucht,Fluorantheen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4445,Fluoreen,lucht,Fluoreen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4448,Fol,lucht,Fenol - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4449,Fol c,lucht,"Fenolen, gechloreerde - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4453,Formal,lucht,Formaldehyde - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4456,Furanen,lucht,Furanen - lucht,vracht TEQ per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4459,Furfural,lucht,Furfuraldehyde - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4465,H2S,lucht,Waterstofsulfide - lucht,vracht per tijd,RDT_5,Emissie,5.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4466,HBDFy,lucht,Hexabroomdifenyl - lucht,vracht per tijd,RDT_5,Emissie,0.000100,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4468,HCBdn,lucht,Hexachloorbutadieen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4471,HCBz,lucht,Hexachloorbenzeen - lucht,vracht per tijd,RDT_5,Emissie,0.010000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4474,HCFK,lucht,Chloorfluorkoolwaterstoffen - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4477,HCH,lucht,"Hexachloorcyclohexaan, alle isomeren - lucht",vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4479,HCN,lucht,Waterstofcyanide - lucht,vracht per tijd,RDT_5,Emissie,0.200000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4486,HCcPde,lucht,Hexachloorcyclopentadieen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4488,HFK,lucht,Fluorkoolwaterstoffen - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4494,Halonen,lucht,Halonen - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4495,Heptanal,lucht,Heptanaldehyde - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4503,Hg,lucht,Kwik - lucht,vracht per tijd,RDT_5,Emissie,0.010000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4509,HpC,lucht,Heptachloor - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4516,IP,lucht,"Indeno(1,2,3-cd)pyreen - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4526,K,lucht,Kalium - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4541,MIBK,lucht,Methylisobutylketon - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4544,Maol,lucht,Methanol - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4565,Mercapt,lucht,Mercaptanen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4568,Methaan,lucht,Methaan - lucht,vracht per tijd,RDT_5,Emissie,100.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4573,Mg,lucht,Magnesium - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4581,Mirex,lucht,Mirex - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4591,Mn,lucht,Mangaan - lucht,vracht per tijd,RDT_5,Emissie,1.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4600,Mo,lucht,Molybdeen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4606,MyEyK,lucht,Methylethylketon - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4610,MycyHa,lucht,Methylcyclohexaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4611,MycyPa,lucht,Methylcyclopentaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4630,N2O,lucht,Distikstofmonoxide - lucht,vracht per tijd,RDT_5,Emissie,10.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4644,NH3,lucht,Ammoniak - lucht,vracht per tijd,RDT_5,Emissie,10.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4658,NMVOS t,lucht,"NMVOS, totaal - lucht",vracht per tijd,RDT_5,Emissie,20.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4691,NOx,lucht,Stikstofoxiden - lucht,vracht per tijd,RDT_5,Emissie,50.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4697,Na,lucht,Natrium - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4705,NaCl,lucht,Natriumchloride - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4709,Naft,lucht,Naftaleen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4724,Ni,lucht,Nikkel - lucht,vracht per tijd,RDT_5,Emissie,0.050000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4729,NiBz,lucht,Nitrobenzeen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4730,Nonanal,lucht,Nonanaldehyde - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4733,OASF t,lucht,"Ozonafbrekende stoffen en F-gassen, totaal - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4747,Octanal,lucht,Octanaldehyde - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4749,OyFol+et,lucht,Octylfenolen + ethoxylaten - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4753,P,lucht,Fosfor - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4755,PAK 14,lucht,Polyaromatische KWS (14 IBS) - lucht,vracht per tijd,RDT_5,Emissie,0.004000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4757,PAK 4,lucht,Polyaromatische koolwaterstoffen (PAK's) - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4822,PCB t,lucht,"Polychloorbifenyl, totaal - lucht",vracht per tijd,RDT_5,Emissie,0.000100,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4825,PCBz,lucht,Pentachloorbenzeen - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4828,PCDD+PCDF,lucht,Dioxines+furanen - lucht,vracht TEQ per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4830,PCFol,lucht,Pentachloorfenol - lucht,vracht per tijd,RDT_5,Emissie,0.010000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4887,PFK,lucht,Perfluorkoolwaterstoffen - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4948,"PM0,1",lucht,"PM0,1 - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4950,PM1,lucht,PM1 - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4955,PM10,lucht,PM10 - lucht,vracht per tijd,RDT_5,Emissie,20.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4956,"PM2,5",lucht,"PM2,5 - lucht",vracht per tijd,RDT_5,Emissie,10.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4968,Pb,lucht,Lood - lucht,vracht per tijd,RDT_5,Emissie,0.150000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4974,Peryleen,lucht,Peryleen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4978,Propaan,lucht,Propaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4980,Propeen,lucht,Propeen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4983,Propional,lucht,Propionaldehyde - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4989,PyBz,lucht,Propylbenzeen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4991,PyO,lucht,Propyleenoxide - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4997,Pyr,lucht,Pyreen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_4999,Pyridine,lucht,Pyridine - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5002,S,lucht,Zwavel - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5005,SF6,lucht,Zwavelhexafluoride - lucht,vracht per tijd,RDT_5,Emissie,0.050000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5008,SO2,lucht,Zwaveldioxide - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5023,SOx,lucht,Zwaveloxiden - lucht,vracht per tijd,RDT_5,Emissie,100.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5030,Sb,lucht,Antimoon - lucht,vracht per tijd,RDT_5,Emissie,0.500000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5033,Se,lucht,Seleen - lucht,vracht per tijd,RDT_5,Emissie,0.200000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5037,Si,lucht,Silicium - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5040,Sn,lucht,Tin - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5043,Stof t,lucht,"Stof, totaal - lucht",vracht per tijd,RDT_5,Emissie,20.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5049,Styreen,lucht,Styreen - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5053,TCBz,lucht,Trichloorbenzenen - lucht,vracht per tijd,RDT_5,Emissie,0.010000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5055,TCEa,lucht,Trichloorethaan - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5056,TCEe,lucht,Trichlooretheen - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5058,TCFMa,lucht,Trichloorfluormethaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5060,TCMa,lucht,Trichloormethaan - lucht,vracht per tijd,RDT_5,Emissie,0.500000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5077,Ti,lucht,Titaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5079,TiO2,lucht,Titaandioxide - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5082,Tl,lucht,Thallium - lucht,vracht per tijd,RDT_5,Emissie,0.050000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5088,Tolueen,lucht,Tolueen - lucht,vracht per tijd,RDT_5,Emissie,0.200000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5092,Toxafeen,lucht,Toxafeen - lucht,vracht per tijd,RDT_5,Emissie,0.001000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5094,TtCEe,lucht,Tetrachlooretheen - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5099,TtCMa,lucht,Tetrachloormethaan - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5102,Undecaan,lucht,Undecaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5108,V,lucht,Vanadium - lucht,vracht per tijd,RDT_5,Emissie,0.500000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5111,VOS,lucht,Vluchtige organische stoffen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5117,VinCl,lucht,Vinylchloride - lucht,vracht per tijd,RDT_5,Emissie,0.100000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5124,XNMVOS t,lucht,"Gehalogeneerde NMVOS, totaal - lucht",vracht per tijd,RDT_5,Emissie,10.000000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5133,Zn,lucht,Zink - lucht,vracht per tijd,RDT_5,Emissie,0.200000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5142,aMyStyr,lucht,alfa-Methylstyreen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5147,b2EyHyFt,lucht,bis-(2-ethylhexyl)-ftalaat - lucht,vracht per tijd,RDT_5,Emissie,0.010000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5157,cyHa,lucht,Cyclohexaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5161,cyHexanon,lucht,Cyclohexanon - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5167,dBz(ah)An,lucht,"Dibenzo(a,h)anthraceen - lucht",vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5172,gHCH,lucht,gamma-Hexachloorcyclohexaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5177,iButaan,lucht,Isobutaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5181,iOctaan,lucht,Iso-octaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5185,iPentaan,lucht,Isopentaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5188,iPol,lucht,Isopropanol - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5196,mEyTol,lucht,meta-Ethyltolueen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5203,nButaan,lucht,n-Butaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5207,nByBz,lucht,n-Butylbenzeen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5208,nDecaan,lucht,n-Decaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5214,nHeptaan,lucht,n-Heptaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5217,nHexaan,lucht,n-Hexaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5220,nNonaan,lucht,n-Nonaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5223,nOctaan,lucht,n-Octaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5229,nPentaan,lucht,n-Pentaan - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5231,neg ANMVOS,lucht,Niet eerder genoemde aromatische NMVOS - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5233,neg NMVOS,lucht,Niet eerder genoemde NMVOS - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5236,neg OASF,lucht,Niet eerder genoemde ozonafbrekende stoffen en F-g - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5237,neg XNMVOS,lucht,Niet eerder genoemde gehalogeneerde NMVOS - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5241,oEyTol,lucht,ortho-Ethyltolueen - lucht,vracht per tijd,,,,,,,
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5260,ompXyl,lucht,Xylenen (o+m+p) - lucht,vracht per tijd,RDT_5,Emissie,0.200000,E_15,t/jr,1900,2099
+RC_5,IMJVLUCHT,IMJV Lucht,true,RG_11,IMJVLUCHT1,IMJV Lucht 1,,1,true,PAS_5261,pEyTol,lucht,para-Ethyltolueen - lucht,vracht per tijd,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_25,IMJVQ,IMJV- debiet,,14,true,PAS_1839,Q,water,Debiet - standaard - water,debiet (vracht),,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_25,IMJVQ,IMJV- debiet,,14,true,PAS_2113,T,water,Temperatuur - standaard - water,temperatuur,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_25,IMJVQ,IMJV- debiet,,14,true,PAS_2117,pH,water,pH - standaard - water,geen,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_12,MJV00,IMJV - Anorganische stoffen,,1,true,PAS_2166,P t,water,Fosfor - totaal - water,vracht,RDT_3,Transfer en Lozend,400.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_12,MJV00,IMJV - Anorganische stoffen,,1,true,PAS_2377,Asbest,water,Asbest - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_12,MJV00,IMJV - Anorganische stoffen,,1,true,PAS_453,N t,water,Stikstof - totaal - water,vracht,RDT_3,Transfer en Lozend,3500.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_12,MJV00,IMJV - Anorganische stoffen,,1,true,PAS_497,Cl-,water,Chloride - standaard - water,vracht,RDT_3,Transfer en Lozend,40000.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_12,MJV00,IMJV - Anorganische stoffen,,1,true,PAS_502,F-,water,Fluoride - standaard - water,vracht,RDT_3,Transfer en Lozend,500.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_12,MJV00,IMJV - Anorganische stoffen,,1,true,PAS_530,S=,water,Sulfide - standaard - water,vracht,RDT_3,Transfer en Lozend,50.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_12,MJV00,IMJV - Anorganische stoffen,,1,true,PAS_553,CN- t,water,Cyaniden - totaal - water,vracht,RDT_3,Transfer en Lozend,50.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_13,MJV01,IMJV - Organische stoffen - alg,,2,true,PAS_1056,AOX,water,Organohalogenen - adsorbeerbaar - water,vracht,RDT_3,Transfer en Lozend,40.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_13,MJV01,IMJV - Organische stoffen - alg,,2,true,PAS_1070,BZV5,water,Biochemisch zuurstofverbruik na 5d. - standaard - water,vracht,RDT_3,Transfer en Lozend,10000.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_13,MJV01,IMJV - Organische stoffen - alg,,2,true,PAS_1076,CZV,water,Chemisch zuurstofverbruik - standaard - water,vracht,RDT_3,Transfer en Lozend,30000.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_13,MJV01,IMJV - Organische stoffen - alg,,2,true,PAS_1106,TOC,water,Koolstof - organisch totaal - water,vracht,RDT_3,Transfer en Lozend,10000.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_13,MJV01,IMJV - Organische stoffen - alg,,2,true,PAS_2252,VOX,water,Organohalogenen - vluchtig - water,vracht,RDT_3,Transfer en Lozend,5.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_13,MJV01,IMJV - Organische stoffen - alg,,2,true,PAS_658,ZS,water,Zwevende stoffen - standaard - water,vracht,RDT_3,Transfer en Lozend,10000.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_14,MJV02,IMJV - MAK,,3,true,PAS_474,ompXyl,water,Xylenen (o+m+p) - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_14,MJV02,IMJV - MAK,,3,true,PAS_878,Benzeen,water,Benzeen - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_14,MJV02,IMJV - MAK,,3,true,PAS_882,EyBz,water,Ethylbenzeen - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_14,MJV02,IMJV - MAK,,3,true,PAS_902,iPyBz,water,Isopropylbenzeen - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_14,MJV02,IMJV - MAK,,3,true,PAS_908,Tolueen,water,Tolueen - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_15,MJV03,IMJV - PAK,,4,true,PAS_1559,Ant,water,Anthraceen - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_15,MJV03,IMJV - PAK,,4,true,PAS_1572,B(ghi)Pe,water,"Benzo(g,h,i)peryleen - standaard - water",vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_15,MJV03,IMJV - PAK,,4,true,PAS_1595,Naft,water,Naftaleen - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_15,MJV03,IMJV - PAK,,4,true,PAS_2106,Flu,water,Fluorantheen - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_15,MJV03,IMJV - PAK,,4,true,PAS_464,PAK 16,water,Polyaromatische KWS (16 EPA) - standaard - water,vracht,RDT_3,Transfer en Lozend,0.500000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_16,MJV04,IMJV - fenolen,,5,true,PAS_1330,"24CFol",water,"2,4-Dichloorfenol - standaard - water",vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_16,MJV04,IMJV - fenolen,,5,true,PAS_1340,"2CFol",water,"2-Chloorfenol - standaard - water",vracht,RDT_3,Transfer en Lozend,0.500000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_16,MJV04,IMJV - fenolen,,5,true,PAS_1354,"3CFol",water,"3-Chloorfenol - standaard - water",vracht,RDT_3,Transfer en Lozend,0.500000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_16,MJV04,IMJV - fenolen,,5,true,PAS_1369,"4C3MyFol",water,"4-Chloor-3-methylfenol - standaard - water",vracht,RDT_3,Transfer en Lozend,0.500000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_16,MJV04,IMJV - fenolen,,5,true,PAS_1372,"4CFol",water,"4-Chloorfenol - standaard - water",vracht,RDT_3,Transfer en Lozend,0.500000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_16,MJV04,IMJV - fenolen,,5,true,PAS_1423,TCFol,water,Trichloorfenol - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_16,MJV04,IMJV - fenolen,,5,true,PAS_1841,Fol t,water,Fenolen - totaal - water,vracht,RDT_3,Transfer en Lozend,20.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_16,MJV04,IMJV - fenolen,,5,true,PAS_2388,NyFol+et,water,Nonylfenolen + ethoxylaten - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_16,MJV04,IMJV - fenolen,,5,true,PAS_2390,OyFol+et,water,Octylfenolen + ethoxylaten - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_1003,PCFol,water,Pentachloorfenol - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_1029,Toxafeen,water,Toxafeen - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_1926,CpfosEy,water,Chloorpyrifos-ethyl - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_1932,Cfvinfos,water,Chloorfenvinfos - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_2,a+bEndoS,water,alfa+beta Endosulfan - standaard - water,vracht,RDT_3,Transfer en Lozend,0.100000,E_38,kg,2005,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_2046,Alachloor,water,Alachloor - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_2380,Cdecon,water,Chloordecon - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_2382,Mirex,water,Mirex - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_3639,OCP t (IMJV),water,"Organochloorpesticiden, totaal (IMJV) - standaard - water",vracht,RDT_3,Transfer en Lozend,0.200000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_471,TCBz,water,Trichloorbenzenen - standaard - water,vracht,RDT_3,Transfer en Lozend,0.500000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_482,HCH,water,"Hexachloorcyclohexaan, alle isomeren - standaard - water",vracht,RDT_3,Transfer en Lozend,0.100000,E_38,kg,2005,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_488,DDT t,water,"DDT, totaal - standaard - water",vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_922,Aldrin,water,Aldrin - standaard - water,vracht,RDT_3,Transfer en Lozend,0.100000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_926,Cdaan,water,Chloordaan - standaard - water,vracht,RDT_3,Transfer en Lozend,0.100000,E_38,kg,2005,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_930,Dieldrin,water,Dieldrin - standaard - water,vracht,RDT_3,Transfer en Lozend,0.100000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_942,Endrin,water,Endrin - standaard - water,vracht,RDT_3,Transfer en Lozend,0.100000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_948,HpC,water,Heptachloor - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_960,HCBz,water,Hexachloorbenzeen - standaard - water,vracht,RDT_3,Transfer en Lozend,0.100000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_965,HCBdn,water,Hexachloorbutadieen - standaard - water,vracht,RDT_3,Transfer en Lozend,0.100000,E_38,kg,1996,2005
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_965,HCBdn,water,Hexachloorbutadieen - standaard - water,vracht,RDT_3,Transfer en Lozend,0.500000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_980,gHCH,water,gamma-Hexachloorcyclohexaan - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_17,MJV05,IMJV - organochloorpesticiden,,6,true,PAS_983,Isodrin,water,Isodrin - standaard - water,vracht,RDT_3,Transfer en Lozend,0.100000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1124,"112CEa",water,"1,1,2-Trichloorethaan - standaard - water",vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1248,"124CBz",water,"1,2,4-Trichloorbenzeen - standaard - water",vracht,RDT_3,Transfer en Lozend,0.500000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1252,"12CBz",water,"1,2-Dichloorbenzeen - standaard - water",vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1255,"12CEa",water,"1,2-Dichloorethaan - standaard - water",vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1343,"2CTol",water,"2-Chloortolueen - standaard - water",vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1376,"4CTol",water,"4-Chloortolueen - standaard - water",vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1389,CBz,water,Chloorbenzeen - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1402,DCMa,water,Dichloormethaan - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1408,TtCEe,water,Tetrachlooretheen - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1412,TtCMa,water,Tetrachloormethaan - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,2011
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1412,TtCMa,water,Tetrachloormethaan - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2012,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1419,TCEe,water,Trichlooretheen - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,2011
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1419,TCEe,water,Trichlooretheen - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2012,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1427,TCMa,water,Trichloormethaan - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1518,VinCl,water,Vinylchloride - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_1999,aCTol,water,alfa-Chloortolueen - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_2058,PCBz,water,Pentachloorbenzeen - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_18,MJV06,IMJV - andere org chloorverbindingen,,7,true,PAS_2364,Alk c,water,"Alkanen, gechloreerde - standaard - water",vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2005,
+RC_3,IMJVWATER,IMJV Water,true,RG_19,MJV07,IMJV - organostikstofpesticiden,,8,true,PAS_1031,Atraz,water,Atrazine - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_19,MJV07,IMJV - organostikstofpesticiden,,8,true,PAS_1042,Diuron,water,Diuron - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_19,MJV07,IMJV - organostikstofpesticiden,,8,true,PAS_1044,Iproturon,water,Isoproturon - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_19,MJV07,IMJV - organostikstofpesticiden,,8,true,PAS_1552,Tfluralin,water,Trifluralin - standaard - water,vracht,RDT_3,Transfer en Lozend,0.500000,E_38,kg,2005,
+RC_3,IMJVWATER,IMJV Water,true,RG_19,MJV07,IMJV - organostikstofpesticiden,,8,true,PAS_2178,Simaz,water,Simazine - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2005,
+RC_3,IMJVWATER,IMJV Water,true,RG_19,MJV07,IMJV - organostikstofpesticiden,,8,true,PAS_2259,ONP t,water,"Organostikstofpesticiden, totaal - standaard - water",vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_20,MJV08,IMJV - organofosforpesticiden,,9,true,PAS_1470,OPP t,water,"Organofosforpesticiden, totaal - standaard - water",vracht,RDT_3,Transfer en Lozend,0.200000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_21,MJV09,IMJV - organotinverbindingen,,10,true,PAS_1815,Snver ot,water,"Organotinverbindingen, totaal - standaard - water",vracht,RDT_3,Transfer en Lozend,0.200000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_21,MJV09,IMJV - organotinverbindingen,,10,true,PAS_2139,TBySn,water,Tributyltin - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_21,MJV09,IMJV - organotinverbindingen,,10,true,PAS_2149,TFySn,water,Trifenyltin - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_22,MJV10,IMJV - overige org stoffen,,11,true,PAS_1234,EyO,water,Ethyleenoxide - standaard - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_22,MJV10,IMJV - overige org stoffen,,11,true,PAS_1639,PCB t,water,"Polychloorbifenyl, totaal - standaard - water",vracht,RDT_3,Transfer en Lozend,0.100000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_22,MJV10,IMJV - overige org stoffen,,11,true,PAS_2202,b2EyHyFt,water,bis-(2-ethylhexyl)-ftalaat - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_22,MJV10,IMJV - overige org stoffen,,11,true,PAS_2243,DCAn t,water,"Dichlooranilines, totaal - standaard - water",vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_22,MJV10,IMJV - overige org stoffen,,11,true,PAS_2293,BDE,water,Polybroomdifenylether - standaard - water,vracht,RDT_3,Transfer en Lozend,1.000000,E_38,kg,2005,
+RC_3,IMJVWATER,IMJV Water,true,RG_22,MJV10,IMJV - overige org stoffen,,11,true,PAS_2384,HBDFy,water,Hexabroomdifenyl - standaard - water,vracht,RDT_3,Transfer en Lozend,0.100000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_22,MJV10,IMJV - overige org stoffen,,11,true,PAS_2386,PCDD+PCDF,water,Dioxines+furanen - standaard - water,vracht,RDT_3,Transfer en Lozend,0.000100,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_1773,Te t,water,Telluur - totaal - water,vracht,RDT_3,Transfer en Lozend,25.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_1790,U t,water,Uranium - totaal - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_2081,Co t,water,Kobalt - totaal - water,vracht,RDT_3,Transfer en Lozend,25.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_2085,Cu t,water,Koper - totaal - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,2005
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_2085,Cu t,water,Koper - totaal - water,vracht,RDT_3,Transfer en Lozend,5.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_2093,Mo t,water,Molybdeen - totaal - water,vracht,RDT_3,Transfer en Lozend,25.000000,E_38,kg,1996,2005
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_2093,Mo t,water,Molybdeen - totaal - water,vracht,RDT_3,Transfer en Lozend,50.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_700,Sb t,water,Antimoon - totaal - water,vracht,RDT_3,Transfer en Lozend,25.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_707,As t,water,Arseen - totaal - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,2003
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_707,As t,water,Arseen - totaal - water,vracht,RDT_3,Transfer en Lozend,5.000000,E_38,kg,2004,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_715,Ba t,water,Barium - totaal - water,vracht,RDT_3,Transfer en Lozend,1000.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_722,Be t,water,Beryllium - totaal - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_729,B t,water,Boor - totaal - water,vracht,RDT_3,Transfer en Lozend,25.000000,E_38,kg,1996,2005
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_729,B t,water,Boor - totaal - water,vracht,RDT_3,Transfer en Lozend,1000.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_737,Cd t,water,Cadmium - totaal - water,vracht,RDT_3,Transfer en Lozend,0.500000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_750,Cr t,water,Chroom - totaal - water,vracht,RDT_3,Transfer en Lozend,5.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_750,Cr t,water,Chroom - totaal - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,2005
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_774,Hg t,water,Kwik - totaal - water,vracht,RDT_3,Transfer en Lozend,0.200000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_784,Pb t,water,Lood - totaal - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_801,Ni t,water,Nikkel - totaal - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_809,Se t,water,Seleen - totaal - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,2005
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_809,Se t,water,Seleen - totaal - water,vracht,RDT_3,Transfer en Lozend,25.000000,E_38,kg,2006,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_822,Tl t,water,Thallium - totaal - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_830,Sn t,water,Tin - totaal - water,vracht,RDT_3,Transfer en Lozend,25.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_838,Ti t,water,Titaan - totaal - water,vracht,RDT_3,Transfer en Lozend,25.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_845,V t,water,Vanadium - totaal - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_854,Ag t,water,Zilver - totaal - water,vracht,RDT_3,Transfer en Lozend,10.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_23,MJV12,IMJV - zware metalen incl. verbindingen (als totaal),,12,true,PAS_862,Zn t,water,Zink - totaal - water,vracht,RDT_3,Transfer en Lozend,50.000000,E_38,kg,1996,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1046,Linuron,water,Linuron - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1052,Mlinuron,water,Monolinuron - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1086,EOX,water,Organohalogenen - extraheerbaar - water,vracht chloor,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1113,POX,water,Organohalogenen - purgeerbaar - water,vracht chloor,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1119,"111CEa",water,"1,1,1-Trichloorethaan - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1122,"1122CEa",water,"1,1,2,2-Tetrachloorethaan - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1127,"11CEa",water,"1,1-Dichloorethaan - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1130,"11CEe",water,"1,1-Dichlooretheen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1143,aaCTol,water,alfa-alfa-Dichloortolueen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1160,HpCEpx,water,Heptachloorepoxyde (cis+trans) - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1259,"12CEe",water,"1,2-Dichlooretheen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1262,"12CPa",water,"1,2-Dichloorpropaan - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1268,"13C2Pol",water,"1,3-Dichloor-2-propanol - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1270,"13CBz",water,"1,3-Dichloorbenzeen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1282,"14CBz",water,"1,4-Dichloorbenzeen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1285,"1C24NiBz",water,"1-Chloor-2,4-dinitrobenzeen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1287,"1C2NiBz",water,"1-Chloor-2-nitrobenzeen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1289,"1C3NiBz",water,"1-Chloor-3-nitrobenzeen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1291,"1C4NiBz",water,"1-Chloor-4-nitrobenzeen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1293,"1CNaft",water,"1-Chloornaftaleen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1335,"2C13Bdn",water,"2-Chloor-1,3-butadieen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1338,"2CEol",water,"2-Chloorethanol - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1357,"3CPe",water,"3-Chloorpropeen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1360,"3CTol",water,"3-Chloortolueen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1365,"4C2NiAn",water,"4-Chloor-2-nitroaniline - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1367,"4C2NiTol",water,"4-Chloor-2-nitrotolueen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1387,CHAc,water,Chloorazijnzuur - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1433,DCvos,water,Dichloorvos - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1436,Mevinfos,water,Mevinfos - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1439,AzinfosEy,water,Azinfos-ethyl - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1442,AzinfosMy,water,Azinfos-methyl - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1447,Dmetoat,water,Dimethoaat - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1450,Dsulfoton,water,Disulfoton - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1453,Fenithion,water,Fenitrothion - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1456,Foxim,water,Foxim - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1458,Malathion,water,Malathion - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1461,Methamfos,water,Methamidofos - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1464,Omethoaat,water,Omethoaat - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1467,ODemeton-My,water,Oxydemeton-methyl - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1473,Triazofos,water,Triazofos - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1477,TCfon,water,Trichloorfon - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1537,TtBySn,water,Tetrabutyltin - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1541,TBySnO,water,Tributyltinoxide - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1544,TFySnAc,water,Trifenyltinacetaat - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1547,TFySnC,water,Trifenyltinchloride - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1550,TFySnOH,water,Trifenyltinhydroxide - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1555,Acenaft,water,Acenafteen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1561,B(a)A,water,Benzo(a)anthraceen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1565,B(a)P,water,Benzo(a)pyreen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1569,B(b)Flu,water,Benzo(b)fluorantheen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1576,B(k)Flu,water,Benzo(k)fluorantheen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1580,Chr,water,Chryseen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1583,dBz(ah)An,water,"Dibenzo(a,h)anthraceen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1588,Fluoreen,water,Fluoreen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1590,IP,water,"Indeno(1,2,3-cd)pyreen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1598,Pyr,water,Pyreen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1601,Bzdine,water,Benzidine - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1665,"12BEa",water,"1,2-Dibroomethaan - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1668,"246C135Az",water,"2,4,6-Trichloor-1,3,5-triazine - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1671,b2CiPyEt,water,bis-(2-Chloorisopropyl)-ether - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1677,CNaft,water,Chloornaftalenen (technisch) - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1679,CNiTol,water,Chloornitrotoluenen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1683,CTine,water,Chloortoluidinen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1687,Cumafos,water,Cumafos - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1700,Surf t,water,"Surfactanten, totaal - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1704,DEyAm,water,Diethylamine - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1707,DMyAm,water,Dimethylamine - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1710,DFy,water,Difenyl - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1715,Fenthion,water,Fenthion - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1732,PathionMy,water,Parathion-methyl - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1748,Aceton,water,Aceton - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1750,AcetoC,water,Acetochloor - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1766,Acenaftyl,water,Acenaftyleen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1779,TOX,water,Organohalogenen - totaal - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1782,TBP,water,Tributylfosfaat - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1784,TCAcyde,water,Trichlooracetaldehyde-hydraat - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_181,"1112FEa",water,"1,1,1,2-Tetrafluorethaan (HFK134a) - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1859,Fol,water,Fenol - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1880,EAS TtCEe,water,Tetrachloorethyleen extrah.apol.stoffen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1895,AISurf,water,"Surfactanten, anionische - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_1939,Bentazone,water,Bentazone - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2064,"112CTFEa",water,"1,1,2-Trichloortrifluorethaan - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2067,"23CPe",water,"2,3-Dichloorpropeen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2077,Glyfosaat,water,Glyfosaat - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2079,AMPA,water,Aminomethylfosfonzuur - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2089,Mn t,water,Mangaan - totaal - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2103,Fen,water,Fenantreen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2154,DBySnO,water,Dibutyltinoxide - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2157,KjN,water,Kjeldahlstikstof - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2173,TrByaz,water,Terbutylazine - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2188,Fe t,water,Ijzer - totaal - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2192,"2Am4CFol",water,"2-Amino-4-chloorfenol - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2226,MytByEt,water,Methyl-tert.butylether - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2239,DCBzdines,water,Dichloorbenzidines - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2241,Cl,water,Chloor - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2247,PCB+PCT t,water,"Polychloorbifenyl en polychloorterfenyl, totaal - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2255,DD(D+E+T),water,DDD+DDE+DDT - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2257,ct13CPe,water,"1,3-Dichloorpropeen (cis+trans) - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2261,Demeton,water,Demeton - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_2361,HpC+Epx,water,Heptachloor+epoxyde - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_268,"246CAn",water,"2,4,6-Trichlooraniline - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_484,BTEX,water,"Benzeen, tolueen, ethylbenzeen, xylenen - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_505,NO3-,water,Nitraat - standaard - water,vracht stikstof,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_511,NO2-,water,Nitriet - standaard - water,vracht stikstof,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_524,SO4=,water,Sulfaat - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_578,"2CAn",water,"2-Chlooraniline - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_584,"3CAn",water,"3-Chlooraniline - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_586,"4CAn",water,"4-Chlooraniline - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_616,BS,water,Bezinkbare stoffen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_666,NH4+,water,Ammonium - standaard - water,vracht stikstof,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_754,Cr6+,water,"Chroom, zeswaardig - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_890,MAK t,water,"Monoaromatische KWS, totaal - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_904,Styreen,water,Styreen - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_916,"245-T",water,"2,4,5-Trichloorfenoxyazijnzuur - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_918,"24-D",water,"2,4-Dichloorfenoxyazijnzuur - standaard - water",vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_920,Propanil,water,Propanil - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_928,"24-DP",water,Dichloorprop - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_968,aHCH,water,alfa-Hexachloorcyclohexaan - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_971,bHCH,water,beta-Hexachloorcyclohexaan - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_974,dHCH,water,delta-Hexachloorcyclohexaan - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_986,MCPA,water,(4-Chloor-2-methylfenoxy)azijnzuur - standaard - water,vracht,,,,,,,
+RC_3,IMJVWATER,IMJV Water,true,RG_24,MJV13,IMJV - overige . stoffen - ntIMJV,,13,true,PAS_988,MCPP,water,Mecoprop - standaard - water,vracht,,,,,,,

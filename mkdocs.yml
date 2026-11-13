@@ -194,6 +194,7 @@ nav:
       - ELF-meetnet: casussen/elf.md
       - Omgevingsvergunning: casussen/omgevingsvergunning.md
       - E-Detect: casussen/e-detect.md
+      - Drempelwaarden: casussen/drempelwaarden.md
   - VIII. Oefenen:
       - oefenen/index.md
       - Erosiepoel: oefenen/erosiepoel.md

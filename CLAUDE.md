@@ -118,6 +118,15 @@ Bestaande datavoorbeelden:
   en meldplaats als SpatialSample van de omgeving, melder als sensor, geschatte geurconcentratie,
   alarm en bronaanwijzing (FOI de geuremissie) als afgeleide observaties; tijdelijke eenheid ouE/m³
   (EN 13725:2022, niet in QUDT of CSOR); met `beslisdocument.md` voor het Expertisecentrum
+- `drempelwaarden/` — rapporteringsdrempels van het CSO-register (E-PRTR, IMJV Water, IMJV Lucht; CSV
+  en ontwerp "Ontwerp Codelijsten" in `source/`), gescript: codelijsten (context, groep met volgorde,
+  drempelwaardetype) als geladen register in `src/main/resources/…/conceptscheme/csor/rapportering/`,
+  390 drempelwaarden als `csor:Drempelwaarde ⊂ qudt:QuantityValue` met geldigheid via DCAT
+  (`dcat:startDate`/`endDate`; DCAT 3 geladen); ontwerpvocabularium `ns/csor/csor-rapportering.ttl`;
+  `toetsing.ttl` toetst de jaarvracht zink uit `riepr/` als afgeleide observaties (drempel als
+  `sosa:hasInputValue`); `alternatief/` leest een drempel als `oa:Annotation` (Web Annotation): de
+  context zegt iets over een CSOR-parameteraspect (doel met groep en type als `oa:hasScope`, de
+  hoeveelheid als body, eigen motivatie)
 
 ---
 

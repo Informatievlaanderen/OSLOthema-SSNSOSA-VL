@@ -1,0 +1,123 @@
+flowchart LR
+    subgraph PROC["PROCEDURE"]
+        procSom["ex:procedure-som-lozingspunten"]
+        procToets["ex:procedure-drempeltoets"]
+        pas863["csor-parameteraspect:PAS_863<br/>Zn t: vracht per tijd"]
+        propDrempel["ex:prop-rapporteringsdrempel"]
+        propBoven["ex:prop-boven-rapporteringsdrempel"]
+        subgraph REG["CSO-REGISTER (ontwerp)"]
+            rc1["rapporteringscontext/RC_1<br/>E-PRTR"]
+            rc3["rapporteringscontext/RC_3<br/>IMJV Water"]
+            rg5["rapporteringsgroep/RG_5<br/>Zware metalen"]
+            rg23["rapporteringsgroep/RG_23<br/>IMJV - zware metalen"]
+            rdt1["drempelwaardetype/RDT_1<br/>Lozend"]
+            rdt3["drempelwaardetype/RDT_3<br/>Transfer en Lozend"]
+            pas862["csor-parameteraspect:PAS_862<br/>Zn t: vracht"]
+            dEprtr["drempelwaarde/RG_5/PAS_862/RDT_1/2007<br/>100 kg (E_38)"]
+            dImjv["drempelwaarde/RG_23/PAS_862/RDT_3/1996<br/>50 kg (E_38)"]
+            gEprtr["…/RDT_1/2007/geldigheid<br/>dct:PeriodOfTime, start 2007"]
+            gImjv["…/RDT_3/1996/geldigheid<br/>dct:PeriodOfTime, start 1996"]
+        end
+    end
+
+    subgraph INFRA["INFRASTRUCTUUR"]
+        toepassing["ex:rapporteringstoepassing<br/>sosa:Sensor"]
+    end
+
+    subgraph WAAR["WAARNEMING"]
+        lozing["ex:lozing-agc-mol-2021<br/>prov:Entity, FOI"]
+        lozingLP01["imjv:lozing/…/2400006/2021<br/>lozing LP01 (riepr)"]
+        obsLP01["imjv:observatie/…/2400006/…/2021<br/>jaarvracht zink LP01 (riepr)"]
+        resLP01["imjv:result/…/2400006/…/2021<br/>1.59612 kg/jr"]
+        jaar["riepr:tijd/jaar/2021<br/>time:Interval"]
+        subgraph DERIVATION["DERIVATION"]
+            obsSom["ex:jaarvracht-zn-agc-mol-2021"]
+            resSom["ex:result-jaarvracht-zn-agc-mol-2021<br/>1.59612 E_12 (kg/jr)"]
+            toetsEprtr["ex:toets-eprtr-zn-agc-mol-2021<br/>hasSimpleResult false"]
+            toetsImjv["ex:toets-imjvwater-zn-agc-mol-2021<br/>hasSimpleResult false"]
+        end
+    end
+
+    rg5 -->|behoortTotRapporteringsContext| rc1
+    rg23 -->|behoortTotRapporteringsContext| rc3
+    rg5 -->|teRapporterenParameterAspect| pas862
+    rg23 -->|teRapporterenParameterAspect| pas862
+    dEprtr -->|behoortTotRapporteringsGroep| rg5
+    dEprtr -->|voorParameterAspect| pas862
+    dEprtr -->|heeftDrempelwaardeType| rdt1
+    dEprtr -->|dct:temporal| gEprtr
+    dImjv -->|behoortTotRapporteringsGroep| rg23
+    dImjv -->|voorParameterAspect| pas862
+    dImjv -->|heeftDrempelwaardeType| rdt3
+    dImjv -->|dct:temporal| gImjv
+
+    procSom -->|hasInput / hasOutput| pas863
+    procToets -->|hasInput| pas863
+    procToets -->|hasInput| propDrempel
+    procToets -->|hasOutput| propBoven
+    toepassing -->|implements| procSom
+    toepassing -->|implements| procToets
+
+    lozing -->|dct:hasPart| lozingLP01
+    obsLP01 -->|hasResult| resLP01
+    obsLP01 -->|hasFeatureOfInterest| lozingLP01
+
+    obsSom -->|hasFeatureOfInterest| lozing
+    obsSom -->|observedProperty| pas863
+    obsSom -->|usedProcedure| procSom
+    obsSom -->|madeBySensor| toepassing
+    obsSom -->|phenomenonTime| jaar
+    obsSom -->|hasInputValue| resLP01
+    obsSom -.->|relatedObservation| obsLP01
+    obsSom -->|hasResult| resSom
+
+    toetsEprtr -->|hasFeatureOfInterest| lozing
+    toetsEprtr -->|observedProperty| propBoven
+    toetsEprtr -->|usedProcedure| procToets
+    toetsEprtr -->|madeBySensor| toepassing
+    toetsEprtr -->|phenomenonTime| jaar
+    toetsEprtr -->|hasInputValue| resSom
+    toetsEprtr -->|hasInputValue| dEprtr
+    toetsEprtr -.->|relatedObservation| obsSom
+
+    toetsImjv -->|hasFeatureOfInterest| lozing
+    toetsImjv -->|observedProperty| propBoven
+    toetsImjv -->|usedProcedure| procToets
+    toetsImjv -->|madeBySensor| toepassing
+    toetsImjv -->|phenomenonTime| jaar
+    toetsImjv -->|hasInputValue| resSom
+    toetsImjv -->|hasInputValue| dImjv
+    toetsImjv -.->|relatedObservation| obsSom
+
+    style PROC fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style REG fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style INFRA fill:#b0d9e7,stroke:#2E5C8A,color:#000
+    style WAAR fill:#e7a3be,stroke:#2E5C8A,color:#000
+    style DERIVATION fill:#f8e1ad,stroke:#2E5C8A,color:#000
+
+    style procSom fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style procToets fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style pas863 fill:#fe7130,stroke:#2E5C8A,color:#000
+    style pas862 fill:#fe7130,stroke:#2E5C8A,color:#000
+    style propDrempel fill:#fe7130,stroke:#2E5C8A,color:#000
+    style propBoven fill:#fe7130,stroke:#2E5C8A,color:#000
+    style rc1 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style rc3 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style rg5 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style rg23 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style rdt1 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style rdt3 fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style dEprtr fill:#f8b622,stroke:#2E5C8A,color:#000
+    style dImjv fill:#f8b622,stroke:#2E5C8A,color:#000
+    style gEprtr fill:#f8b622,stroke:#2E5C8A,color:#000
+    style gImjv fill:#f8b622,stroke:#2E5C8A,color:#000
+    style toepassing fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style lozing fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style lozingLP01 fill:#60c4e4,stroke:#2E5C8A,color:#000
+    style obsLP01 fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style resLP01 fill:#f8b622,stroke:#2E5C8A,color:#000
+    style jaar fill:#f8b622,stroke:#2E5C8A,color:#000
+    style obsSom fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style resSom fill:#f8b622,stroke:#2E5C8A,color:#000
+    style toetsEprtr fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style toetsImjv fill:#e54b89,stroke:#2E5C8A,color:#fff

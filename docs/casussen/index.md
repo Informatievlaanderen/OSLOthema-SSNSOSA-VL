@@ -35,6 +35,7 @@ Daarna, naar interesse:
 | [ELF-meetnet](elf.md) | blootstelling op een plaats zoals geluidsimmissie, meetcampagnes als inzet, adres en geometrie, een keten van indicatoren |
 | [Omgevingsvergunning](omgevingsvergunning.md) | een procedure als plan, geen codelijst: stappen, substappen, termijnen en rechtsgrond; een advies als waarneming, een beslissing als actuatie; koppeling met dienst en product (CPSV-AP) |
 | [E-Detect](e-detect.md) | geurhinder: een sensorsignaal is geen geur, een eenheid die nergens staat, een melding als waarneming, de bron als studieobject; met een beslisdocument |
+| [Drempelwaarden](drempelwaarden.md) | een norm als register (SKOS, QUDT, DCAT) en de toets van een jaarvracht eraan als afgeleide waarneming |
 
 ## Matrix
 
@@ -59,3 +60,4 @@ Daarna, naar interesse:
 | [elf](elf.md) | plat | ruimtelijk monster, afgeleide | R3, R10, R11, R12, R13, R16 | PROV, QUDT, GeoSPARQL, Time | — | ✔ |
 | [omgevingsvergunning](omgevingsvergunning.md) | drielaags | afgeleide | R1, R4, R13, R16, R17, R18 | P-PLAN, PROV, Time | — | |
 | [e-detect](e-detect.md) | plat | ruimtelijk monster, emissie en immissie, afgeleide | R1, R3, R7, R11, R12, R13 | PROV, QUDT, GeoSPARQL, Time | — | |
+| [drempelwaarden](drempelwaarden.md) | plat (toets); register zonder SOSA | emissie, afgeleide | R3, R10, R12, R13, R17, R18 | PROV, QUDT, register–QUDT | alternatief | |

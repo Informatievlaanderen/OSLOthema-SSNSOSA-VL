@@ -1,0 +1,55 @@
+flowchart LR
+    subgraph HOOFD["HOOFDMODEL — csor:Drempelwaarde (../drempelwaarden.ttl)"]
+        hD["drempelwaarde/RG_5/PAS_862/RDT_1/2007<br/>csor:Drempelwaarde ⊂ qudt:QuantityValue<br/>100 kg (E_38)"]
+        hRG["rapporteringsgroep/RG_5"]
+        hPAS["csor-parameteraspect:PAS_862"]
+        hRDT["drempelwaardetype/RDT_1"]
+        hG["…/geldigheid<br/>start 2007"]
+        hT["ex:toets-eprtr-zn-agc-mol-2021"]
+    end
+
+    subgraph ALT["ALTERNATIEF — oa:Annotation (drempelwaarden_annotatie.ttl)"]
+        aA["alt:annotatie-RG_5-PAS_862-RDT_1-2007<br/>oa:Annotation"]
+        aM["alt:rapporteringsdrempel<br/>oa:Motivation ⊂ oa:describing"]
+        aD["…-doel<br/>oa:SpecificResource"]
+        aW["…-waarde<br/>qudt:QuantityValue, 100 kg (E_38)"]
+        aG["…-geldigheid<br/>start 2007"]
+        aRG["rapporteringsgroep/RG_5"]
+        aPAS["csor-parameteraspect:PAS_862"]
+        aRDT["drempelwaardetype/RDT_1"]
+        aT["alt:toets-eprtr-zn-agc-mol-2021"]
+    end
+
+    hD -->|csor:behoortTotRapporteringsGroep| hRG
+    hD -->|csor:voorParameterAspect| hPAS
+    hD -->|csor:heeftDrempelwaardeType| hRDT
+    hD -->|dct:temporal| hG
+    hT -->|hasInputValue| hD
+
+    aA -->|motivatedBy| aM
+    aA -->|hasTarget| aD
+    aD -->|hasSource| aPAS
+    aD -->|hasScope| aRG
+    aD -->|hasScope| aRDT
+    aA -->|hasBody| aW
+    aA -->|dct:temporal| aG
+    aT -->|hasInputValue| aW
+
+    style HOOFD fill:#b8a2d4,stroke:#2E5C8A,color:#000
+    style ALT fill:#b8a2d4,stroke:#2E5C8A,color:#000
+
+    style hD fill:#f8b622,stroke:#2E5C8A,color:#000
+    style hRG fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style hPAS fill:#fe7130,stroke:#2E5C8A,color:#000
+    style hRDT fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style hG fill:#f8b622,stroke:#2E5C8A,color:#000
+    style hT fill:#e54b89,stroke:#2E5C8A,color:#fff
+    style aA fill:#f8b622,stroke:#2E5C8A,color:#000
+    style aM fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style aD fill:#f8b622,stroke:#2E5C8A,color:#000
+    style aW fill:#f8b622,stroke:#2E5C8A,color:#000
+    style aG fill:#f8b622,stroke:#2E5C8A,color:#000
+    style aRG fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style aPAS fill:#fe7130,stroke:#2E5C8A,color:#000
+    style aRDT fill:#c6a0f5,stroke:#2E5C8A,color:#000
+    style aT fill:#e54b89,stroke:#2E5C8A,color:#fff

@@ -1,0 +1,113 @@
+@prefix csor:    <https://data.omgeving.vlaanderen.be/ns/csor#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+#################################################################
+# csor-rapportering.ttl — ONTWERPVOORSTEL (OSLOthema-SSNSOSA-VL, datavoorbeeld drempelwaarden)
+#
+# Rapporteringscontexten, rapporteringsgroepen, drempelwaardetypes en drempelwaarden van het
+# CSO-register, naar het hoofdstuk "Rapporteringscontexten, -groepen en drempelwaarden" van het
+# ontwerp "Ontwerp Codelijsten" (src/main/input/drempelwaarden/source/). Een aparte module naast
+# csor.ttl, zodat de geladen CSOR-ontologie ongewijzigd blijft. De termen staan in de naamruimte
+# csor: omdat het ontwerp ze daar plaatst; ze zijn een voorstel, niet gepubliceerd.
+#
+# Afwijkingen van het ontwerp (toegelicht in src/main/input/drempelwaarden/bespreking.md §6):
+# - csor:Drempelwaarde is een qudt:QuantityValue (qudt:numericValue, qudt:hasUnit), geen
+#   skos:Concept met rdf:value en csor:heeftEenheid (R3);
+# - de geldigheid is een dcterms:PeriodOfTime via dcterms:temporal, met dcat:startDate en
+#   dcat:endDate (xsd:gYear), geen csor:geldigVan/geldigTot (csor:geldigTot heeft al bereik
+#   xsd:date); DCAT 3 is daarvoor geladen in org/w3/www/ns/dcat/;
+# - de volgorde van de groepen in een context is een skos:OrderedCollection, geen schema:position
+#   (R17);
+# - geen csor:heeftRapporteringsGroep op de context: de richting groep → context volstaat.
+#
+# Zoals csor.ttl: geen kardinaliteiten, wel owl:someValuesFrom (er is zo'n waarde) en
+# owl:FunctionalProperty (hoogstens één). De restricties staan enkel op de eigen klassen.
+#################################################################
+
+csor:rapportering
+    a owl:Ontology ;
+    rdfs:label "CSOR rapportering en drempelwaarden (ontwerp)"@nl ;
+    rdfs:comment "Ontwerpvoorstel voor de klassen en eigenschappen van rapporteringscontexten, rapporteringsgroepen en drempelwaarden in het CSO-register."@nl ;
+    owl:versionInfo "ontwerp 2026-11-12" .
+
+### KLASSEN
+
+csor:RapporteringsContext
+    a owl:Class ;
+    rdfs:label "Rapporteringscontext"@nl ;
+    rdfs:comment "Een rapporteringskader waarin exploitanten emissies rapporteren, bv. E-PRTR, IMJV Water, IMJV Lucht."@nl ;
+    rdfs:isDefinedBy csor:rapportering ;
+    rdfs:subClassOf skos:Concept .
+
+csor:RapporteringsGroep
+    a owl:Class ;
+    rdfs:label "Rapporteringsgroep"@nl ;
+    rdfs:comment "Een groep van parameteraspecten die binnen één rapporteringscontext samen gerapporteerd worden, bv. 'Zware metalen' in E-PRTR."@nl ;
+    rdfs:isDefinedBy csor:rapportering ;
+    rdfs:subClassOf skos:Concept ,
+        [ a owl:Restriction ; owl:onProperty csor:behoortTotRapporteringsContext ; owl:someValuesFrom csor:RapporteringsContext ] ,
+        [ a owl:Restriction ; owl:onProperty csor:teRapporterenParameterAspect ; owl:allValuesFrom csor:ParameterAspect ] .
+
+csor:DrempelwaardeType
+    a owl:Class ;
+    rdfs:label "Drempelwaardetype"@nl ;
+    rdfs:comment "De soort emissie waarvoor een drempelwaarde geldt: lozing naar oppervlaktewater, transfer naar een zuivering, emissie naar lucht."@nl ;
+    rdfs:isDefinedBy csor:rapportering ;
+    rdfs:subClassOf skos:Concept .
+
+csor:Drempelwaarde
+    a owl:Class ;
+    rdfs:label "Drempelwaarde"@nl ;
+    rdfs:comment "De hoeveelheid van een parameteraspect boven welke een exploitant binnen een rapporteringsgroep moet rapporteren, voor één drempelwaardetype en één geldigheidsperiode. Een waarde met eenheid (qudt:QuantityValue), geen code."@nl ;
+    skos:scopeNote "Een gewijzigde drempel is een nieuwe drempelwaarde met een eigen IRI en geldigheid, zodat een toetsing blijft verwijzen naar de drempel waarmee ze gemaakt is."@nl ;
+    rdfs:isDefinedBy csor:rapportering ;
+    rdfs:subClassOf qudt:QuantityValue ,
+        [ a owl:Restriction ; owl:onProperty csor:behoortTotRapporteringsGroep ; owl:someValuesFrom csor:RapporteringsGroep ] ,
+        [ a owl:Restriction ; owl:onProperty csor:voorParameterAspect ; owl:someValuesFrom csor:ParameterAspect ] ,
+        [ a owl:Restriction ; owl:onProperty csor:heeftDrempelwaardeType ; owl:someValuesFrom csor:DrempelwaardeType ] ,
+        [ a owl:Restriction ; owl:onProperty qudt:numericValue ; owl:someValuesFrom xsd:decimal ] ,
+        [ a owl:Restriction ; owl:onProperty qudt:hasUnit ; owl:someValuesFrom csor:Eenheid ] ,
+        [ a owl:Restriction ; owl:onProperty dcterms:temporal ; owl:someValuesFrom dcterms:PeriodOfTime ] .
+
+### EIGENSCHAPPEN
+
+csor:behoortTotRapporteringsContext
+    a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "behoort tot rapporteringscontext"@nl ;
+    rdfs:comment "De rapporteringscontext waartoe een rapporteringsgroep behoort."@nl ;
+    rdfs:isDefinedBy csor:rapportering ;
+    rdfs:range csor:RapporteringsContext .
+
+csor:teRapporterenParameterAspect
+    a owl:ObjectProperty ;
+    rdfs:label "te rapporteren parameteraspect"@nl ;
+    rdfs:comment "Een parameteraspect dat binnen een rapporteringsgroep gerapporteerd wordt, met of zonder drempelwaarde."@nl ;
+    rdfs:isDefinedBy csor:rapportering ;
+    rdfs:range csor:ParameterAspect .
+
+csor:behoortTotRapporteringsGroep
+    a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "behoort tot rapporteringsgroep"@nl ;
+    rdfs:comment "De rapporteringsgroep waarbinnen een drempelwaarde geldt."@nl ;
+    rdfs:isDefinedBy csor:rapportering ;
+    rdfs:range csor:RapporteringsGroep .
+
+csor:voorParameterAspect
+    a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "voor parameteraspect"@nl ;
+    rdfs:comment "Het parameteraspect waarvoor een drempelwaarde geldt."@nl ;
+    rdfs:isDefinedBy csor:rapportering ;
+    rdfs:range csor:ParameterAspect .
+
+csor:heeftDrempelwaardeType
+    a owl:ObjectProperty , owl:FunctionalProperty ;
+    rdfs:label "heeft drempelwaardetype"@nl ;
+    rdfs:comment "De soort emissie waarvoor een drempelwaarde geldt."@nl ;
+    rdfs:isDefinedBy csor:rapportering ;
+    rdfs:range csor:DrempelwaardeType .

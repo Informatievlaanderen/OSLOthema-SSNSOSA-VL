@@ -1,0 +1,270 @@
+# drempelwaarden_annotatie.ttl — alternatief: een drempelwaarde als Web Annotation
+#
+# Geen herziening. Naast ../drempelwaarden.ttl en ../toetsing.ttl: een rapporteringscontext zegt
+# iets over een parameteraspect van CSOR. Elke drempel is een oa:Annotation (W3C Web Annotation
+# Data Model, https://www.w3.org/TR/annotation-model/):
+#   doel (oa:hasTarget)   het parameteraspect, als oa:SpecificResource met als scope
+#                         (oa:hasScope) de rapporteringsgroep en het drempelwaardetype
+#   body (oa:hasBody)     de drempel, een qudt:QuantityValue
+#   motivatie             alt:rapporteringsdrempel (skos:broader oa:describing)
+# Selectie: de drie drempels voor zink in water (PAS_862) en de twee toetsen van toetsing.ttl.
+# Daarnaast één bereik: een lozingsvoorwaarde voor pH (6,5 tot en met 9), met een fictieve
+# pH-meting van LP01 en een toets of ze binnen het bereik valt (qudt:minInclusive/maxInclusive).
+# De codelijsten (context, groep, type) zijn gedeeld met het hoofdmodel. Gedeelde IRI's: ex:
+# (toetsing.ttl); wat verschilt: alt:.
+
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix ex:      <https://example.org/drempelwaarden/> .
+@prefix alt:     <https://example.org/drempelwaarden/alternatief/> .
+@prefix oa:      <http://www.w3.org/ns/oa#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix qudt:    <http://qudt.org/schema/qudt/> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos:    <http://www.w3.org/2004/02/skos/core#> .
+@prefix sosa:    <http://www.w3.org/ns/sosa/> .
+@prefix time:    <http://www.w3.org/2006/time#> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix csor:                 <https://data.omgeving.vlaanderen.be/ns/csor#> .
+@prefix csor-eenheid:         <https://data.omgeving.vlaanderen.be/id/concept/csor/eenheid/> .
+@prefix csor-parameteraspect: <https://data.omgeving.vlaanderen.be/id/concept/csor/parameteraspect/> .
+@prefix rapporteringsgroep:   <https://data.omgeving.vlaanderen.be/id/concept/csor/rapporteringsgroep/> .
+@prefix drempelwaardetype:    <https://data.omgeving.vlaanderen.be/id/concept/csor/drempelwaardetype/> .
+@prefix procedure:            <https://data.omgeving.vlaanderen.be/id/concept/observatieprocedure/> .
+
+### MOTIVATIE EN AUTEUR
+
+# Een eigen motivatie, verfijning van oa:describing (Web Annotation Data Model §3.3.5).
+alt:rapporteringsdrempel a oa:Motivation , skos:Concept ;
+    skos:prefLabel "rapporteringsdrempel"@nl ;
+    skos:definition "De annotatie geeft de hoeveelheid van het doel boven welke een exploitant moet rapporteren, binnen de scope van het doel (rapporteringsgroep en drempelwaardetype)."@nl ;
+    skos:broader oa:describing .
+
+alt:csor-beheer a prov:Organization , prov:Agent ;
+    rdfs:label "Beheerder van het CSO-register (illustratief)"@nl .
+
+# CSOR-eenheid: qudt:hasUnit vraagt een qudt:Unit (R3).
+csor-eenheid:E_38 a csor:Eenheid , qudt:Unit ;
+    rdfs:label "kilogram"@nl .
+
+csor-parameteraspect:PAS_862 a csor:ParameterAspect , sosa:Property ;
+    rdfs:label "Zn t (totaal in water): vracht"@nl .
+
+# Scopes. Beide zijn een oa:hasScope; alleen hun klasse onderscheidt de rol (groep of type).
+# Daarom hier getypeerd, met de context waarvanuit de annotatie spreekt (de shape van
+# csor:RapporteringsGroep vraagt die). Notatie, volgorde en de volledige labels staan in het
+# register (rapportering.ttl).
+rapporteringsgroep:RG_5 a csor:RapporteringsGroep , skos:Concept ;
+    rdfs:label "Zware metalen (E-PRTR)"@nl ;
+    csor:behoortTotRapporteringsContext <https://data.omgeving.vlaanderen.be/id/concept/csor/rapporteringscontext/RC_1> .
+rapporteringsgroep:RG_23 a csor:RapporteringsGroep , skos:Concept ;
+    rdfs:label "IMJV - zware metalen (IMJV Water)"@nl ;
+    csor:behoortTotRapporteringsContext <https://data.omgeving.vlaanderen.be/id/concept/csor/rapporteringscontext/RC_3> .
+drempelwaardetype:RDT_1 a csor:DrempelwaardeType , skos:Concept ;
+    rdfs:label "Lozend"@nl .
+drempelwaardetype:RDT_2 a csor:DrempelwaardeType , skos:Concept ;
+    rdfs:label "Transfer"@nl .
+drempelwaardetype:RDT_3 a csor:DrempelwaardeType , skos:Concept ;
+    rdfs:label "Transfer en Lozend"@nl .
+
+### ANNOTATIES — drempels voor zink in water
+
+# --- E-PRTR, zware metalen (RG_5), lozend, vanaf 2007: 100 kg ---
+
+alt:annotatie-RG_5-PAS_862-RDT_1-2007 a oa:Annotation ;
+    rdfs:label "E-PRTR, zink totaal in water, lozend, vanaf 2007: 100 kg"@nl ;
+    oa:motivatedBy alt:rapporteringsdrempel ;
+    oa:hasTarget alt:annotatie-RG_5-PAS_862-RDT_1-2007-doel ;
+    oa:hasBody alt:annotatie-RG_5-PAS_862-RDT_1-2007-waarde ;
+    dct:creator alt:csor-beheer ;
+    dct:temporal alt:annotatie-RG_5-PAS_862-RDT_1-2007-geldigheid .
+
+alt:annotatie-RG_5-PAS_862-RDT_1-2007-doel a oa:SpecificResource ;
+    oa:hasSource csor-parameteraspect:PAS_862 ;
+    oa:hasScope rapporteringsgroep:RG_5 , drempelwaardetype:RDT_1 .
+
+alt:annotatie-RG_5-PAS_862-RDT_1-2007-waarde a qudt:QuantityValue ;
+    qudt:numericValue 100.0 ;
+    qudt:hasUnit csor-eenheid:E_38 .
+
+alt:annotatie-RG_5-PAS_862-RDT_1-2007-geldigheid a dct:PeriodOfTime ;
+    dcat:startDate "2007"^^xsd:gYear .
+
+# --- E-PRTR, zware metalen (RG_5), transfer, vanaf 2007: 100 kg ---
+
+alt:annotatie-RG_5-PAS_862-RDT_2-2007 a oa:Annotation ;
+    rdfs:label "E-PRTR, zink totaal in water, transfer, vanaf 2007: 100 kg"@nl ;
+    oa:motivatedBy alt:rapporteringsdrempel ;
+    oa:hasTarget alt:annotatie-RG_5-PAS_862-RDT_2-2007-doel ;
+    oa:hasBody alt:annotatie-RG_5-PAS_862-RDT_2-2007-waarde ;
+    dct:creator alt:csor-beheer ;
+    dct:temporal alt:annotatie-RG_5-PAS_862-RDT_2-2007-geldigheid .
+
+alt:annotatie-RG_5-PAS_862-RDT_2-2007-doel a oa:SpecificResource ;
+    oa:hasSource csor-parameteraspect:PAS_862 ;
+    oa:hasScope rapporteringsgroep:RG_5 , drempelwaardetype:RDT_2 .
+
+alt:annotatie-RG_5-PAS_862-RDT_2-2007-waarde a qudt:QuantityValue ;
+    qudt:numericValue 100.0 ;
+    qudt:hasUnit csor-eenheid:E_38 .
+
+alt:annotatie-RG_5-PAS_862-RDT_2-2007-geldigheid a dct:PeriodOfTime ;
+    dcat:startDate "2007"^^xsd:gYear .
+
+# --- IMJV Water, zware metalen (RG_23), transfer en lozend, vanaf 1996: 50 kg ---
+
+alt:annotatie-RG_23-PAS_862-RDT_3-1996 a oa:Annotation ;
+    rdfs:label "IMJV Water, zink totaal in water, transfer en lozend, vanaf 1996: 50 kg"@nl ;
+    oa:motivatedBy alt:rapporteringsdrempel ;
+    oa:hasTarget alt:annotatie-RG_23-PAS_862-RDT_3-1996-doel ;
+    oa:hasBody alt:annotatie-RG_23-PAS_862-RDT_3-1996-waarde ;
+    dct:creator alt:csor-beheer ;
+    dct:temporal alt:annotatie-RG_23-PAS_862-RDT_3-1996-geldigheid .
+
+alt:annotatie-RG_23-PAS_862-RDT_3-1996-doel a oa:SpecificResource ;
+    oa:hasSource csor-parameteraspect:PAS_862 ;
+    oa:hasScope rapporteringsgroep:RG_23 , drempelwaardetype:RDT_3 .
+
+alt:annotatie-RG_23-PAS_862-RDT_3-1996-waarde a qudt:QuantityValue ;
+    qudt:numericValue 50.0 ;
+    qudt:hasUnit csor-eenheid:E_38 .
+
+alt:annotatie-RG_23-PAS_862-RDT_3-1996-geldigheid a dct:PeriodOfTime ;
+    dcat:startDate "1996"^^xsd:gYear .
+
+### GEDEELD MET ../toetsing.ttl — enkel getypeerd; de beschrijving staat daar
+
+ex:rapporteringstoepassing a sosa:Sensor , sosa:System .
+ex:procedure-drempeltoets a sosa:ObservingProcedure , sosa:Procedure .
+ex:prop-boven-rapporteringsdrempel a sosa:Property .
+ex:lozing-agc-mol-2021 a prov:Entity , sosa:FeatureOfInterest .
+
+### TOETSEN — zoals in ../toetsing.ttl, met de body van de annotatie als inputwaarde
+
+alt:toets-eprtr-zn-agc-mol-2021 a sosa:Observation ;
+    rdfs:label "Toets jaarvracht zink AGC Glass Europe Mol 2021 aan de E-PRTR-drempel (lozend), alternatief"@nl ;
+    sosa:madeBySensor ex:rapporteringstoepassing ;
+    sosa:usedProcedure ex:procedure-drempeltoets ;
+    sosa:observedProperty ex:prop-boven-rapporteringsdrempel ;
+    sosa:hasFeatureOfInterest ex:lozing-agc-mol-2021 ;
+    sosa:phenomenonTime <https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021> ;
+    sosa:hasInputValue ex:result-jaarvracht-zn-agc-mol-2021 ,
+        alt:annotatie-RG_5-PAS_862-RDT_1-2007-waarde ;                      # 100 kg
+    sosa:relatedObservation ex:jaarvracht-zn-agc-mol-2021 ;
+    sosa:hasSimpleResult false .
+
+alt:toets-imjvwater-zn-agc-mol-2021 a sosa:Observation ;
+    rdfs:label "Toets jaarvracht zink AGC Glass Europe Mol 2021 aan de IMJV Water-drempel (transfer en lozend), alternatief"@nl ;
+    sosa:madeBySensor ex:rapporteringstoepassing ;
+    sosa:usedProcedure ex:procedure-drempeltoets ;
+    sosa:observedProperty ex:prop-boven-rapporteringsdrempel ;
+    sosa:hasFeatureOfInterest ex:lozing-agc-mol-2021 ;
+    sosa:phenomenonTime <https://data.riepr.omgeving.vlaanderen.be/id/tijd/jaar/2021> ;
+    sosa:hasInputValue ex:result-jaarvracht-zn-agc-mol-2021 ,
+        alt:annotatie-RG_23-PAS_862-RDT_3-1996-waarde ;                     # 50 kg
+    sosa:relatedObservation ex:jaarvracht-zn-agc-mol-2021 ;
+    sosa:hasSimpleResult false .
+
+### BEREIK — een lozingsvoorwaarde voor pH (illustratief)
+#
+# Een andere context (de lozingsvoorwaarden van VLAREM II) zegt iets over een ander CSOR-
+# parameteraspect (PAS_2117, pH): de waarde moet tussen 6,5 en 9 liggen, grenzen inbegrepen.
+# Zelfde structuur als de drempels; andere motivatie en scope, en een body zonder
+# qudt:numericValue, met qudt:minInclusive en qudt:maxInclusive (zie bespreking §6).
+
+alt:toegelaten-bereik a oa:Motivation , skos:Concept ;
+    skos:prefLabel "toegelaten bereik"@nl ;
+    skos:definition "De annotatie geeft het bereik waarbinnen de waarde van het doel moet liggen, binnen de scope van het doel."@nl ;
+    skos:broader oa:describing .
+
+alt:vlarem-ii-lozingsvoorwaarden-oppervlaktewater
+    rdfs:label "VLAREM II, algemene lozingsvoorwaarden voor bedrijfsafvalwater in oppervlaktewater (illustratief)"@nl ;
+    rdfs:comment "Illustratieve IRI voor de regelgeving waarvanuit de annotatie spreekt; geen CSOR-code."@nl .
+# TODO: welk artikel van VLAREM II legt pH 6,5–9 vast voor lozing in oppervlaktewater, en heeft het een ELI- of Codex-IRI?
+
+csor-parameteraspect:PAS_2117 a csor:ParameterAspect , sosa:Property ;
+    rdfs:label "pH (standaard in water): geen"@nl .
+
+# CSOR-eenheid "Geen" (skos:exactMatch unit:UNITLESS in het register), zoals in waterkwaliteit/.
+csor-eenheid:E_74 a csor:Eenheid , qudt:Unit ;
+    rdfs:label "geen"@nl .
+
+alt:annotatie-lozingsvoorwaarde-PAS_2117 a oa:Annotation ;
+    rdfs:label "VLAREM II, lozing in oppervlaktewater: pH van 6,5 tot en met 9"@nl ;
+    oa:motivatedBy alt:toegelaten-bereik ;
+    oa:hasTarget alt:annotatie-lozingsvoorwaarde-PAS_2117-doel ;
+    oa:hasBody alt:annotatie-lozingsvoorwaarde-PAS_2117-bereik ;
+    dct:creator alt:csor-beheer .
+
+alt:annotatie-lozingsvoorwaarde-PAS_2117-doel a oa:SpecificResource ;
+    oa:hasSource csor-parameteraspect:PAS_2117 ;
+    oa:hasScope alt:vlarem-ii-lozingsvoorwaarden-oppervlaktewater .
+
+# Een bereik, geen waarde: geen qudt:numericValue (patroon Rapportagegrens).
+alt:annotatie-lozingsvoorwaarde-PAS_2117-bereik a qudt:QuantityValue ;
+    qudt:minInclusive 6.5 ;
+    qudt:maxInclusive 9.0 ;
+    qudt:hasUnit csor-eenheid:E_74 .
+
+# --- een pH-meting van LP01 (fictief) en de toets ---
+
+alt:labo a sosa:Sensor , sosa:System ;
+    rdfs:label "Erkend laboratorium (illustratief)"@nl ;
+    sosa:implements procedure:CMA_2_I_A.1 .
+
+procedure:CMA_2_I_A.1 a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "CMA/2/I/A.1 - Zuurtegraad"@nl ;
+    sosa:hasOutput csor-parameteraspect:PAS_2117 .
+
+alt:toezichtstoepassing a sosa:Sensor , sosa:System ;
+    rdfs:label "Toepassing die meetwaarden aan lozingsvoorwaarden toetst (illustratief)"@nl ;
+    sosa:implements alt:procedure-bereiktoets .
+
+alt:procedure-bereiktoets a sosa:ObservingProcedure , sosa:Procedure ;
+    rdfs:label "Toets van een meetwaarde aan een toegelaten bereik"@nl ;
+    rdfs:comment """1. Kies de annotatie met motivatie 'toegelaten bereik' voor het gemeten parameteraspect, met een scope die bij de lozing past.
+2. Het resultaat is waar als de waarde binnen het bereik ligt: niet kleiner dan qudt:minInclusive (of groter dan qudt:minExclusive) en niet groter dan qudt:maxInclusive (of kleiner dan qudt:maxExclusive). Een ontbrekende grens beperkt niet.
+3. Waar betekent: de lozing voldoet; anders dan bij een rapporteringsdrempel, waar waar een plicht betekent."""@nl ;
+    sosa:hasInput csor-parameteraspect:PAS_2117 , alt:prop-toegelaten-bereik ;
+    sosa:hasOutput alt:prop-binnen-toegelaten-bereik .
+
+alt:prop-toegelaten-bereik a sosa:Property ;
+    rdfs:label "toegelaten bereik"@nl ;
+    skos:definition "Het bereik waarbinnen de waarde van een parameteraspect moet liggen; de waarde is de body van een annotatie met de motivatie alt:toegelaten-bereik."@nl .
+
+alt:prop-binnen-toegelaten-bereik a sosa:Property ;
+    rdfs:label "binnen het toegelaten bereik"@nl ;
+    skos:definition "Of een gemeten waarde binnen het toegelaten bereik ligt (waar of onwaar). Welk bereik volgt uit de inputwaarde."@nl .
+
+<https://data.imjv.omgeving.vlaanderen.be/id/lozing/01787986000160/2400006/2021>
+    a prov:Entity , sosa:FeatureOfInterest ;
+    sosa:hasProperty csor-parameteraspect:PAS_2117 , alt:prop-binnen-toegelaten-bereik .
+
+alt:ph-lp01-2021-06-15 a sosa:Observation ;
+    rdfs:label "pH van de lozing LP01, AGC Glass Europe Mol, 15 juni 2021 (fictief)"@nl ;
+    sosa:madeBySensor alt:labo ;
+    sosa:usedProcedure procedure:CMA_2_I_A.1 ;
+    sosa:observedProperty csor-parameteraspect:PAS_2117 ;
+    sosa:hasFeatureOfInterest <https://data.imjv.omgeving.vlaanderen.be/id/lozing/01787986000160/2400006/2021> ;
+    sosa:phenomenonTime alt:ph-lp01-2021-06-15-tijd ;
+    sosa:hasResult alt:ph-lp01-2021-06-15-resultaat .
+
+alt:ph-lp01-2021-06-15-tijd a time:Instant ;
+    time:inXSDDateTimeStamp "2021-06-15T10:00:00+02:00"^^xsd:dateTimeStamp .
+
+alt:ph-lp01-2021-06-15-resultaat a qudt:QuantityValue ;
+    qudt:numericValue 7.8 ;
+    qudt:hasUnit csor-eenheid:E_74 .
+
+alt:toets-ph-lp01-2021-06-15 a sosa:Observation ;
+    rdfs:label "Toets pH LP01 15 juni 2021 aan de lozingsvoorwaarde (6,5 tot en met 9)"@nl ;
+    sosa:madeBySensor alt:toezichtstoepassing ;
+    sosa:usedProcedure alt:procedure-bereiktoets ;
+    sosa:observedProperty alt:prop-binnen-toegelaten-bereik ;
+    sosa:hasFeatureOfInterest <https://data.imjv.omgeving.vlaanderen.be/id/lozing/01787986000160/2400006/2021> ;
+    sosa:phenomenonTime alt:ph-lp01-2021-06-15-tijd ;
+    sosa:hasInputValue alt:ph-lp01-2021-06-15-resultaat ,
+        alt:annotatie-lozingsvoorwaarde-PAS_2117-bereik ;
+    sosa:relatedObservation alt:ph-lp01-2021-06-15 ;
+    sosa:hasSimpleResult true .
